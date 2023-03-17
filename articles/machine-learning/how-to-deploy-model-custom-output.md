@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 ---
 
 # Customize outputs in batch deployments
@@ -138,7 +138,7 @@ Follow the next steps to create a deployment using the previous scoring script:
 
    # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
    # [Python](#tab/sdk)
    

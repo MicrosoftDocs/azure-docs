@@ -13,7 +13,7 @@ ms.date: 2/23/2022
 [Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available. Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
 
 > [!NOTE]
-> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). This means that if you want to have a custom JSON payload defined, the webhook can't use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
+> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described [here](../alerts/alerts-common-schema.md#alert-context-fields-for-log-alerts). This means that if you want to have a custom JSON payload defined, the webhook can't use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
 ## Sample payloads
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
@@ -87,7 +87,7 @@ The following sample payload is for a standard webhook when it's used for log al
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
+> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch) from the [legacy Log Analytics Alert API](./api-alerts.md).
 
 ```json
 {

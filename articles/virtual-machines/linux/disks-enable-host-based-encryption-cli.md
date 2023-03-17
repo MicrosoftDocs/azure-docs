@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/15/2022
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host

@@ -18,7 +18,7 @@ ms.reviewer: ergreenl
 
 # Enable self-service application assignment
 
-In this article, you learn how to enable self-service application access using the Azure Active Directory Admin Center.
+In this article, you learn how to enable self-service application access using the Azure portal.
 
 Before your users can self-discover applications from the [My Apps portal](my-apps-deployment-plan.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
 
@@ -41,7 +41,7 @@ Using this feature, you can:
 To enable self-service application access, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 - An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users can't add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications

@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 02/25/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -21,6 +21,15 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### February 2023
+
+* General availability: 4 TiB, 8 TiB, and 16 TiB storage per node is now supported for [multi-node configurations](resources-compute.md#multi-node-cluster) in addition to previously supported 0.5 TiB, 1 TiB, and 2 TiB storage sizes.
+	* See cost details for your region in 'Multi-node' section of [the Azure Cosmos DB for PostgreSQL pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
+* General availability: [Latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.19, 12.14, 13.10, 14.7, and 15.2) are now available in all supported regions.
+	* Existing clusters will get minor Postgres version update with [the next maintenance](concepts-maintenance.md)
+	* Major Postgres and minor Citus [version upgrades](concepts-upgrade.md) can be performed in-place.
+
 
 ### January 2023
 

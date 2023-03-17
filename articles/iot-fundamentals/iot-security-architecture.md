@@ -19,8 +19,8 @@ When you design and architect an IoT solution, it's important to understand the 
 Microsoft recommends using a threat modeling process as part of your IoT solution design. If you're not familiar with threat modeling and the secure development lifecycle, see:
 
 - [Threat modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling)
-- [Secure development best practices on Azure](/azure/security/develop/secure-dev-overview)
-- [Getting started guide](/azure/security/develop/threat-modeling-tool-getting-started)
+- [Secure development best practices on Azure](../security/develop/secure-dev-overview.md)
+- [Getting started guide](../security/develop/threat-modeling-tool-getting-started.md)
 
 ## Security in IoT
 
@@ -42,7 +42,7 @@ Each zone is separated by a _trust boundary_, shown as the dotted red line in th
 - Denial of service
 - Elevation of privilege
 
-To learn more, see the [STRIDE model](/azure/security/develop/threat-modeling-tool-threats#stride-model).
+To learn more, see the [STRIDE model](../security/develop/threat-modeling-tool-threats.md#stride-model).
 
 :::image type="content" source="media/iot-security-architecture/iot-security-architecture-fig1.png" alt-text="A diagram that shows the  zones and trust boundaries in a typical IoT solution architecture." border="false":::
 

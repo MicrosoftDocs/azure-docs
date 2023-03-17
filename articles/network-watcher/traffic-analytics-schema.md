@@ -1,16 +1,17 @@
 ---
-title: Azure traffic analytics schema
+title: Traffic analytics schema
+titleSuffix: Azure Network Watcher
 description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
 author: halkazwini
 ms.service: network-watcher
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/29/2022
 ms.custom: engagement-fy23
 ms.author: halkazwini
 ---
 
-# Schema and data aggregation in Traffic Analytics
+# Schema and data aggregation in Azure Network Watcher traffic analytics
 
 Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic Analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 

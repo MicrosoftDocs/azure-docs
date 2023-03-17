@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 10/26/2022
+ms.date: 02/08/2023
 ---
 
 # Quickstart: Create and configure a project
@@ -40,7 +40,7 @@ To create a project in your dev center:
      |----------|-----------|
      |**Subscription**     |Select the subscription in which you want to create the project.       |
      |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.   |
-     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center will apply to the project.   |
+     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center apply to the project.   |
      |**Name**|Enter a name for the project.  |
      |**Description** (Optional) |Enter any project-related details.  |
 
@@ -55,9 +55,9 @@ To create a project in your dev center:
     :::image type="content" source="media/quickstart-create-configure-projects/created-project.png" alt-text="Screenshot that shows the project overview pane.":::
 
 ### Assign a managed identity the owner role to the subscription
-Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you'll configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
+Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
 
-In this quickstart you'll assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
+In this quickstart you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
 
 1.	Navigate to your dev center.
 1.  On the left menu under Settings, select **Identity**.
@@ -65,11 +65,14 @@ In this quickstart you'll assign the Owner role to the system-assigned managed i
 
     :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
 
-1. In Azure role assignments, select **Add role assignment (Preview)**, and then enter or select the following information:
-    - In **Scope**, select **Subscription**.
-    - In **Subscription**, select the subscription in which to use the managed identity.
-    - In **Role**, select **Owner**.
-    - Select **Save**.
+1. In Azure role assignments, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Owner|
+
 ## Configure a project
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):
@@ -104,12 +107,13 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/project-access-control-page.png" alt-text="Screenshot that shows the Access control pane.":::
-
-1. In **Add role assignment**, enter the following information, and then select **Save**:
-
-    1. On the **Role** tab, select either [DevCenter Project Admin](how-to-configure-project-admin.md) or [Deployment Environments user](how-to-configure-deployment-environments-user.md).
-    1. On the **Members** tab, select either a **User, group, or service principal** or a **Managed identity** to assign access.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
 
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 

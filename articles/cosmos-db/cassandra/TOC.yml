@@ -106,7 +106,7 @@
   items:
     - name: Azure Cosmos DB resource model
       displayName: collection, document
-      href: ../account-databases-containers-items.md
+      href: ../resource-model.md
     - name: Partitioning
       items:
         - name: Partitioning overview
@@ -264,7 +264,11 @@
         - name: Preventing rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Materialized View (Preview)
-          href: materialized-views.md
+          items:
+            - name: Overview            
+              href: materialized-views.md
+            - name: FAQ
+              href: materialized-views-faq.yml
         - name: Lightweight Transactions in API for Apache Cassandra
           href: lightweight-transactions.md
         - name: Change feed for API for Apache Cassandra

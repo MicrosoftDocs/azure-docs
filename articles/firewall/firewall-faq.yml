@@ -5,10 +5,10 @@ metadata:
   services: firewall
   author: vhorne
   ms.service: firewall
+  ms.custom: devx-track-azurepowershell
   ms.topic: conceptual
   ms.date: 01/04/2023
   ms.author: victorh
-
 title: Azure Firewall FAQ
 summary: |
 

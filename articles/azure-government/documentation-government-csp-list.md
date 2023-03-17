@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: todorgb
 ms.author: todorb
-ms.date: 02/1/2023
+ms.date: 02/15/2023
 ---
 
 # Azure Government authorized reseller list
@@ -107,6 +107,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com)|
+|[Cloud Unity LLC](https://cloudunity.com)|
 |[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[Cobalt](https://www.cobalt.net/)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
@@ -551,6 +552,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DLT](https://www.dlt.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|
 |[ECF Data, LLC](https://www.ecfdata.com)|
+|[ECS Federal, LLC](https://ecstech.com/)|
 |[Enlighten IT Consulting](https://www.eitccorp.com/)|
 |[eTrepid Inc.](https://www.etrepid.com/)|
 |[F1 Soluitions Inc](https://www.f1networks.com)|
@@ -587,6 +589,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Smartronix](https://www.smartronix.com)|
 |[Strategic Communications](https://yourstrategic.com/)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
+|[SysArc Inc.](https://www.sysarc.com)|
 |[TechTrend, Inc](https://techtrend.us)|
 |[VLCM](https://www.vlcmtech.com)|
 |[VC3](https://www.vc3.com)|

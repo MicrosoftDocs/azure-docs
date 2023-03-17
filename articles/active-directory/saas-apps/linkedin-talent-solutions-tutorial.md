@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Talent Solutions | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Talent Solutions'
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Talent Solutions.
 services: active-directory
 author: jeevansd

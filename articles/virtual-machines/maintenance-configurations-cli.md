@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 11/20/2020
 ms.author: cynthn
 #pmcontact: shants

@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/03/2023
+ms.date: 03/13/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,24 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.4.5         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Public  | 10.4.6         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
 | Beta    | 10.4.6         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.4.6 
+
+*Date published: March 7, 2023*
+
+In this release, we've removed the global prompt for camera and microphone access when you first open and run the iOS client. Instead, whenever a connection bookmark or published resource requests access, you'll receive a prompt asking whether you want to give permission.
+
+We also fixed some bugs and added some small additional features:
+
+- Integrated privacy statement compliance flows for select geographical regions.
+- Added functionality to delete all Azure VIrtual Desktop workspaces and associated keychain items.
+- Worked around an iOS 16 change that broke Korean language input.
+- Addressed a bug that stopped the Apple Pencil from working when connected to Windows 8.1 and Windows Server 2012 R2 and earlier.
+
+>[!NOTE]
+>This release removes support for iOS 14 and is only compatible with iOS 15 and 16.
 
 ## Updates for version 10.4.5
 

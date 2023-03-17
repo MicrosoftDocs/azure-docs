@@ -105,7 +105,7 @@ Use the following steps to clone the Spring Boot sample project.
 1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
    ```azurecli-interactive
-   git clone https://github.com/spring-guides/gs-spring-boot.git
+   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
 1. Use the following command to move to the project folder.

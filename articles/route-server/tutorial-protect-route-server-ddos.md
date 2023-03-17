@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Protect your Route Server with Azure DDoS protection'
-description: Learn how to set up a route server and protect it with Azure DDoS protection
-author: asudbring
-ms.author: allensu
+description: Learn how to set up a route server and protect it with Azure DDoS protection.
+author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
 ms.date: 12/21/2022

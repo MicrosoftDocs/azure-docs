@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/23/2023
 ---
 
 # Scan data sources in Microsoft Purview
@@ -66,6 +66,8 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
    :::image type="content" source="media/scan-data-sources/register-blob-scan-rule-set.png" alt-text="Screenshot of the select a scan rule set page with the default set selected.":::
 
 1. Choose your scan trigger. You can set up a schedule (monthly or weekly) or run the scan once.
+   >[!NOTE]
+   > **Start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
 
    :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="Screenshot of the set a scan trigger page showing a recurring monthly schedule.":::
 
@@ -77,7 +79,17 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 
 Depending on the amount of data in your data source, a scan can take some time to run, so here's how you can check on progress and see results when the scan is complete.
 
-1. Navigate to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan
+1. You can view your scan from the collection or from the source itself.
+
+1. To view from the collection, navigate to your _Collection_ in the data map, and select the **Scans** button.
+
+   :::image type="content" source="media/scan-data-sources/select-scans.png" alt-text="Screenshot of the collection page with the scans button highlighted.":::
+
+1. Select your scan name to see details.
+
+    :::image type="content" source="media/scan-data-sources/select-scan-name.png" alt-text="Screenshot of the scans in the collection list with the most recent scan name highlighted.":::
+
+1. Or, you can navigate directly to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan.
 
    :::image type="content" source="media/scan-data-sources/register-blob-view-scan.png" alt-text="Screenshot of the data map with a source's view details button highlighted.":::
 
@@ -95,7 +107,7 @@ Depending on the amount of data in your data source, a scan can take some time t
 
 After a scan is complete, it can be managed or run again.
 
-1. Select the **Scan name** to manage the scan
+1. Select the **Scan name** from either the collections list or the source page to manage the scan.
 
    :::image type="content" source="media/scan-data-sources/register-blob-manage-scan.png" alt-text="Screenshot of a source details page with the scan name link highlighted.":::
 

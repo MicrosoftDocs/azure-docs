@@ -9,6 +9,9 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 
 ### Firewall/Proxy URL allowlist
 
+>[!Note]
+>To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](/azure/azure-arc/resource-bridge/network-requirements#additional-network-requirements).
+
 |**Service**|**Port**|**URL**|**Direction**|**Notes**|
 |--|--|--|--|--|
 |SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Management machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
@@ -23,3 +26,5 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Resource bridge components download| 443 | `kvamanagementoperator.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull artifacts for Appliance managed components.|
 |Microsoft Container Registry| 443 | `https://mcr.microsoft.com`| Management machine, Appliance VM IP and Control Plane IP need outbound connection. | Download container images for Arc Resource Bridge.|
 |Custom Locations| 443 | `sts.windows.net`| Appliance VM IP and Control Plane IP need outbound connection. | Required for use by the Custom Locations cluster extension.|
+|Python package| 443 | `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
+|Azure CLI| 443 | `*.pythonhosted.org`| Management machine needs outbound connection. | Python packages for Azure CLI installation.|

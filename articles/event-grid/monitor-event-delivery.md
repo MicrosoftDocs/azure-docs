@@ -9,7 +9,7 @@ ms.date: 03/17/2021
 This article describes how to use the portal to see metrics for Event Grid topics and subscriptions, and create alerts on them. 
 
 > [!IMPORTANT]
-> For a list of metrics supported Azure Event Grid, see [Metrics](metrics.md).
+> For a list of metrics supported Azure Event Grid, see [Metrics](../azure-monitor/essentials/metrics-supported.md#microsofteventgriddomains).
 
 ## View custom topic metrics
 
@@ -18,7 +18,7 @@ If you've published a custom topic, you can view the metrics for it.
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the topic, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Search for and select Event Grid Topics":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-topics.png" alt-text="Search for and select Event Grid Topics":::
 3. Select your custom topic from the list of topics. 
 
     :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Select your custom topic":::
@@ -68,7 +68,7 @@ If you've published a custom topic, you can view the metrics for it.
     :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="System Topic - Metrics page":::
 
     > [!IMPORTANT]
-    > For a list of metrics supported Azure Event Grid, see [Metrics](metrics.md).
+    > For a list of metrics supported Azure Event Grid, see [Metrics](../azure-monitor/essentials/metrics-supported.md#microsofteventgriddomains).
 
 ## Next steps
 See the following articles:

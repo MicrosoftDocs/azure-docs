@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster'
 description: This tutorial demonstrates applying configurations on an Azure Arc-enabled Kubernetes cluster.
 ms.topic: tutorial 
-ms.date: 05/24/2022
+ms.date: 02/16/2023
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
@@ -33,8 +33,6 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc-ena
 
     >[!TIP]
     > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
-
-- If your Git repository is located outside the firewall and git protocol is being used with the configuration repository parameter, then TCP on port 9418 (`git://:9418`) needs to be enabled for egress access on firewall.
 
 ## Create a configuration
 
@@ -97,7 +95,7 @@ Use the Azure CLI extension for `k8s-configuration` to link a connected cluster 
 
 | Parameter | Format |
 | ------------- | ------------- |
-| `--repository-url` | http[s]://server/repo[.git] or git://server/repo[.git]
+| `--repository-url` | http[s]://server/repo[.git]
 
 ### Use a private Git repository with SSH and Flux-created keys
 

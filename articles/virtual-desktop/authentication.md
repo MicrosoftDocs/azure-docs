@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 02/21/2023
 ms.author: helohr
 manager: femila
 ---
@@ -16,6 +16,9 @@ In this article, we'll give you a brief overview of what kinds of identities and
 ## Identities
 
 Azure Virtual Desktop supports different types of identities depending on which configuration you choose. This section explains which identities you can use for each configuration.
+
+>[!IMPORTANT]
+>Azure Virtual Desktop doesn't support signing in to Azure AD with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using MSIX app attach.
 
 ### On-premises identity
 

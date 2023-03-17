@@ -2,6 +2,7 @@
   href: index.yml
 
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Database Migration Service?
     href: dms-overview.md
@@ -66,6 +67,7 @@
   expanded: true
   items:
   - name: Migrate SQL Server
+    expanded: true
     items:
     - name: to Azure SQL Database (offline) in Azure Data Studio
       href: tutorial-sql-server-azure-sql-database-offline-ads.md
@@ -77,9 +79,13 @@
       href: tutorial-sql-server-to-virtual-machine-online-ads.md
     - name: to SQL Server for Azure Virtual Machines (offline) in Azure Data Studio
       href: tutorial-sql-server-to-virtual-machine-offline-ads.md
+    - name: Login migrations
+      href: tutorial-login-migration-ads.md
+    - name: TDE-enabled databases to Azure SQL
+      href: tutorial-transparent-data-encryption-migration-ads.md
     - name: Known issues and troubleshooting
       href: known-issues-azure-sql-migration-azure-data-studio.md
-    - name: Older tutorials
+    - name: DMS (classic)
       items: 
       - name: to Azure SQL Database
         href: tutorial-sql-server-to-azure-sql.md
@@ -173,7 +179,7 @@
     - name: Azure SQL Migration extension for Azure Data Studio
       href: /sql/azure-data-studio/extensions/azure-sql-migration-extension
     - name: Azure Migrate
-      href: /azure/migrate/migrate-services-overview
+      href: ../migrate/migrate-services-overview.md
     - name: SQL Database Projects
       href: /sql/azure-data-studio/extensions/sql-database-project-extension
     - name: Database Schema Conversion Toolkit (Oracle to Microsoft SQL)
@@ -218,12 +224,14 @@
   - name: Videos
     items:
     - name: How to migrate SQL Server to Azure SQL Database offline using Azure Data Studio
-      href: https://youtu.be/fugG63rRWp8
-    - name: Migrating to SQL - Cloud Migration Strategies and Phases in Migration Journey
-      href: https://youtu.be/68z4XZTpSIA
-    - name: Migrating to SQL - Discover and Assess SQL Server Data Estate Migrating to Azure SQL
-      href: https://youtu.be/0uek-0cG6bo
-    - name: How to Accelerate Oracle to Azure Database Migration
-      href: https://youtu.be/vdBQPN3lKQc
-    - name: Migrating to SQL - Introduction to Database Schema Conversion Toolkit
-      href: https://youtu.be/HWlKP_w9ldM
+      href: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=how-to-migrate-sql-server-to-azure-sql-database-offline-using-azure-data-studio-data-exposed
+    - name: Assess, get recommendations, & migrate SQL Server to Azure using Azure Data Studio 
+      href: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio
+    - name: Introduction to Azure Data Migration Service
+      href: https://www.microsoft.com/videoplayer/embed/RE2IqVu
+    - name: Cloud Migration Strategies and Phases in Migration Journey
+      href: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=migrating-to-sql-cloud-migration-strategies-and-phases-in-migration-journey-ep-1
+    - name: Discover and Assess SQL Server Data Estate Migrating to Azure SQL
+      href: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=migrating-to-sql-discover-and-assess-sql-server-data-estate-migrating-to-azure-sql-ep2
+    - name: Get Started with the New Database Migration Guides to Migrate Your Databases to Azure
+      href: https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=get-started-with-the-new-database-migration-guides-to-migrate-your-databases-to-azure

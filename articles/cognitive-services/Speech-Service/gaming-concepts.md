@@ -58,7 +58,7 @@ It's not unusual that players in the same game session natively speak different 
 For an example, see the [Speech translation quickstart](get-started-speech-translation.md).
 
 > [!NOTE]
-> Besides the Speech service, you can also use the [Translator service](/azure/cognitive-services/translator/translator-overview). To execute text translation between supported source and target languages in real time see [Text translation](/azure/cognitive-services/translator/text-translation-overview). 
+> Besides the Speech service, you can also use the [Translator service](../translator/translator-overview.md). To execute text translation between supported source and target languages in real time see [Text translation](../translator/text-translation-overview.md). 
 
 ## Next steps
 

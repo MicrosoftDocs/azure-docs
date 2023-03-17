@@ -6,14 +6,14 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 02/01/2023
+ms.date: 02/06/2023
 ---
 
 # Azure for public safety and justice
 
 ## Overview
 
-Public safety and justice agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. Cloud computing is transforming the way law enforcement agencies approach their work. It is helping with intelligent policing awareness systems, body camera systems across the country/region, and day-to-day mobile police collaboration.
+Public safety and justice agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. Cloud computing is transforming the way law enforcement agencies approach their work. It's helping with intelligent policing awareness systems, body camera systems across the country/region, and day-to-day mobile police collaboration.
 
 When they're properly planned and secured, cloud services can deliver powerful new capabilities for public safety and justice agencies. These capabilities include digital evidence management, data analysis, and real-time decision support. Solutions can be delivered on the latest mobile devices. However, not all cloud providers are equal. As law enforcement agencies embrace the cloud, they need a cloud service provider they can trust. The core of the law enforcement mission demands partners who are committed to meeting a full range of security, compliance, and operational needs.
 
@@ -36,7 +36,7 @@ Microsoft's commitment to meeting the applicable CJIS regulatory controls help c
 The remainder of this article discusses technologies that you can use to safeguard CJI stored or processed in Azure cloud services. **These technologies can help you establish sole control over CJI that you're responsible for.**
 
 > [!NOTE]
-> You are wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article does not constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+> You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in this article doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
 
 ## Location of customer data
 
@@ -97,7 +97,7 @@ Technologies like [Intel Software Guard Extensions](https://software.intel.com/s
 
 ## Multi-factor authentication (MFA)
 
-The CJIS Security Policy v5.9.2 revised multi-factor authentication (MFA) requirements for CJI protection. MFA requires the use of two or more different factors defined as follows:
+The CJIS Security Policy v5.9.2 revised the multi-factor authentication (MFA) requirements for CJI protection. MFA requires the use of two or more different factors defined as follows:
 
 - Something you know, for example, username/password or personal identification number (PIN)
 - Something you have, for example, a hard token such as a cryptographic key stored on or a one-time password (OTP) transmitted to a specialized hardware device
@@ -112,7 +112,7 @@ Moreover, Azure can help you meet and **exceed** your CJIS Security Policy MFA r
 Azure Active Directory (Azure AD) supports both authenticator and verifier NIST SP 800-63B AAL3 requirements:
 
 - **Authenticator requirements:** FIDO2 security keys, smartcards, and Windows Hello for Business can help you meet AAL3 requirements, including the underlying FIPS 140 validation requirements. Azure AD support for NIST SP 800-63B AAL3 **exceeds** the CJIS Security Policy MFA requirements.
-- **Verifier requirements:** Azure AD uses the [Windows FIPS 140 Level 1](/windows/security/threat-protection/fips-140-validation) overall validated cryptographic module for all its authentication related cryptographic operations. It is therefore a FIPS 140 compliant verifier.
+- **Verifier requirements:** Azure AD uses the [Windows FIPS 140 Level 1](/windows/security/threat-protection/fips-140-validation) overall validated cryptographic module for all its authentication related cryptographic operations. It's therefore a FIPS 140 compliant verifier.
 
 For more information, see [Azure NIST SP 800-63 documentation](/azure/compliance/offerings/offering-nist-800-63).
 

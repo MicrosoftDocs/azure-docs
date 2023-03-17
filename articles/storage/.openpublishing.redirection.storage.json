@@ -181,6 +181,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-dotnet",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-blob-snapshots.md",
             "redirect_url": "/azure/storage/blobs/snapshots-overview",
             "redirect_document_id": false
@@ -411,6 +416,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/common/identity-library-acquire-token.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/common/manage-account-default-access-tier.md",
             "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
             "redirect_document_id": false
@@ -458,6 +468,26 @@
         {
             "source_path_from_root": "/articles/storage/common/storage-auth-aad-msi.md",
             "redirect_url": "/azure/storage/blobs/authorize-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/authorize-managed-identity.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/authorize-managed-identity.md",
+            "redirect_url": "/azure/storage/queues/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/tables/authorize-managed-identity.md",
+            "redirect_url": "/azure/storage/tables/authorize-access-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-aad-app.md",
+            "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
             "redirect_document_id": false
         },
         {
@@ -1999,6 +2029,26 @@
             "source_path_from_root": "/articles/vs-azure-tools-storage-emulator-using.md",
             "redirect_url": "/azure/storage/common/storage-use-emulator",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-linux-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-performance.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-nfs.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot-linux-nfs",
+            "redirect_document_id": false
+        }            
     ]
 }

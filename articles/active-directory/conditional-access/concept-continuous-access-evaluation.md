@@ -27,7 +27,7 @@ The initial implementation of continuous access evaluation focuses on Exchange, 
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
-Continuous access evaluation isn't currently available in Azure Government GCC High tenants.
+Continuous access evaluation is available in Azure Government tenants (GCC High and DOD) for Exchange Online.
 
 ### Key benefits
 
@@ -45,7 +45,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
-- Multi-factor authentication is enabled for the user
+- Multifactor Authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
 - High user risk detected by Azure AD Identity Protection
 
@@ -179,7 +179,7 @@ When Conditional Access policy or group membership changes need to be applied to
 Modern networks often optimize connectivity and network paths for applications differently. This optimization frequently causes variations of the routing and source IP addresses of connections, as seen by your identity provider and resource providers. You may observe this split path or IP address variation in multiple network topologies, including, but not limited to: 
 
 - On-premises and cloud-based proxies.
-- Virtual private network (VPN) implementations, like split tunneling.
+- Virtual private network (VPN) implementations, like [split tunneling](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel).
 - Software defined wide area network (SD-WAN) deployments.
 - Load balanced or redundant network egress network topologies, like those using [SNAT](https://wikipedia.org/wiki/Network_address_translation#SNAT). 
 - Branch office deployments that allow direct internet connectivity for specific applications.
@@ -189,9 +189,10 @@ Modern networks often optimize connectivity and network paths for applications d
 In addition to IP variations, customers also may employ network solutions and services that: 
 
 - Use IP addresses that may be shared with other customers. For example, cloud-based proxy services where egress IP addresses are shared between customers.
-- Use easily varied or undefinable IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios or split VPN and local egress network traffic.
+- Use easily varied or undefinable IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios or [split VPN](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel) and local egress network traffic.
 
-Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work, and their recommended configurations.
+Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work and their recommended configurations. Split Tunneling may also cause unexpected blocks when an environment is configured using [Split Tunneling VPN Best Practices](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel). Routing [Optimized IPs](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel#optimize-ip-address-ranges) through a Trusted IP/VPN may be required to prevent blocks related to "insufficient_claims" or "Instant IP Enforcement check failed".
+
 
 The following table summarizes Conditional Access and CAE feature behaviors and recommendations for different types of network deployments: 
 
@@ -205,10 +206,10 @@ Networks and network services used by clients connecting to identity and resourc
 
 ### Supported location policies
 
-CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ip-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
+CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ipv4-and-ipv6-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
 
 > [!IMPORTANT]
-> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multifactor Authentication's service settings page.
 
 ### Named location limitations
 

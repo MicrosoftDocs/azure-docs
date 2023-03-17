@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use SDK to create and manage knowledge base - custom question answering"
-description: This quickstart shows you how to create and manage your knowledge base using custom question answering.
+title: "Quickstart: Use SDK to create and manage project - custom question answering"
+description: This quickstart shows you how to create and manage your project using custom question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart

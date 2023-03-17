@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Manage Azure Machine Learning workspaces with the Python SDK (v1)
@@ -308,4 +308,4 @@ To learn more about planning a workspace for your organization's requirements, s
 
 * To find a workspace, see [Search for Azure Machine Learning assets (preview)](../how-to-search-assets.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).

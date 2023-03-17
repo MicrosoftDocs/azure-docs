@@ -18,10 +18,10 @@ ms.custom:
 # Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
 You can use Azure PowerShell to pause and resume dedicated SQL pool (formerly SQL DW) compute resources.
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 > [!NOTE]
-> This article applies to dedicated SQL pools (formerly SQL DW) and not dedicated SQL pools created in Azure Synapse Workspaces. There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool in a Azure Synapse Workspace, see [Quickstart: Pause and resume compute in dedicated SQL pool in an Azure Synapse Workspace with Azure PowerShell](pause-and-resume-compute-workspace-powershell.md).
+> This article applies to dedicated SQL pools (formerly SQL DW) and not dedicated SQL pools created in Azure Synapse Workspaces. There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool in an Azure Synapse Workspace, see [Quickstart: Pause and resume compute in dedicated SQL pool in an Azure Synapse Workspace with Azure PowerShell](pause-and-resume-compute-workspace-powershell.md).
 > For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
 ## Before you begin

@@ -362,4 +362,4 @@ Here are some of the key points related to the Kubernetes resources for this app
 In this tutorial, you've learned how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB for NoSQL account.
 
 > [!div class="nextstepaction"]
-> [Spring Datan Azure Cosmos DB v3 for API for NoSQL](sdk-java-spring-data-v3.md)
+> [Spring Data Azure Cosmos DB v3 for API for NoSQL](sdk-java-spring-data-v3.md)

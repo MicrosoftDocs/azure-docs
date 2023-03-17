@@ -46,9 +46,9 @@ The following table shows the property a public IP can be associated to a resour
 | Top-level resource | IP Address association | Dynamic IPv4 | Static IPv4 | Dynamic IPv6 | Static IPv6 |
 | --- | --- | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes | Yes | Yes | Yes |
-| Public Load Balancer |Front-end configuration |Yes | Yes | Yes |Yes |
-| Virtual Network Gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
-| Virtual Network Gateway (ER) |Gateway IP configuration |Yes | No | Yes (preview) |No |
+| Public Load balancer |Front-end configuration |Yes | Yes | Yes |Yes |
+| Virtual Network gateway (VPN) |Gateway IP configuration |Yes (non-AZ only) |Yes | No |No |
+| Virtual Network gateway (ER) |Gateway IP configuration |Yes | Yes | Yes (preview) |No |
 | NAT gateway |Gateway IP configuration |No |Yes | No |No |
 | Application Gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
 | Azure Firewall | Front-end configuration | No | Yes | No | No |

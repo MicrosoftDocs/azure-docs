@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal'
+title: 'Quickstart: Create and configure Azure DDoS Network Protection using - Azure portal'
 description: Learn how to use Azure DDoS Network Protection to mitigate an attack.
 author: AbdullahBell
 ms.author: abell

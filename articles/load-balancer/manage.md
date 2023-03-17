@@ -1,13 +1,13 @@
 ---
 title: Azure Load Balancer portal settings
-description: Get started learning about Azure Load Balancer portal settings
+description: Get started learning about Azure Load Balancer portal settings.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/06/2022
 ms.author: mbender
-ms.custom: FY23 content-maintenance
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Azure Load Balancer portal settings

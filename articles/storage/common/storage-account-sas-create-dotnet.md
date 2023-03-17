@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 02/02/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: common
@@ -45,7 +45,9 @@ static string GetAccountSASToken()
     // Create a new access policy for the account.
     SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
         {
-            Permissions = SharedAccessAccountPermissions.Read | SharedAccessAccountPermissions.Write | SharedAccessAccountPermissions.List,
+            Permissions = SharedAccessAccountPermissions.Read | 
+                          SharedAccessAccountPermissions.Write | 
+                          SharedAccessAccountPermissions.List,
             Services = SharedAccessAccountServices.Blob | SharedAccessAccountServices.File,
             ResourceTypes = SharedAccessAccountResourceTypes.Service,
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
