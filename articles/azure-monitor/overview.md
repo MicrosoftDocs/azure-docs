@@ -64,7 +64,7 @@ Azure Monitor collects these types of data:
 |Data Type  |Description  |
 |---------|---------|
 |Application|Data about the performance and functionality of your application code on any platform.|
-|Infrastructure|**- Container.** Data about containers, such as [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes), [Prometheus](./essentials/prometheus-metrics-overview.md), and about the applications running inside containers.<br>**- Operating system.** Data about the guest operating system on which your application is running.|
+|Infrastructure|**- Container.** Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and about the applications running inside containers.<br>**- Operating system.** Data about the guest operating system on which your application is running.|
 |Azure Platform|**- Azure resource**. The operation of an Azure resource.<br>**- Azure subscription.** The operation and management of an Azure subscription, and data about the health and operation of Azure itself.<br>**- Azure tenant.** Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>**- Azure resource changes.** Data about changes within your Azure resources and how to address and triage incidents and issues.         |
 |Custom Sources|Use the Azure Monitor REST API to send customer metric or log data to Azure Monitor and incorporate monitoring of resources that don’t expose monitoring data through other methods.|
 
