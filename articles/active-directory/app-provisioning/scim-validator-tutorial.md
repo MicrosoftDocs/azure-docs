@@ -75,7 +75,7 @@ Finally, you need to test and validate your endpoint.
 
 ### Use Postman to test endpoints (optional)
 
-In addition to using the SCIM Validator tool, you can also use Postman to validate an endpoint. This example provides a set of tests in Postman. The example validates CRUD (create, read, update, and delete) operations on users and groups, filtering, updates to group membership, and disabling users.
+In addition to using the SCIM Validator tool, you can also use Postman to validate an endpoint. This example provides a set of tests in Postman. The example validates create, read, update, and delete (CRUD) operations. The operations are validated on users and groups, filtering, updates to group membership, and disabling users.
 
 The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
 
