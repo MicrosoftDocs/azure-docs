@@ -5,7 +5,7 @@ ms.date: 03/06/2023
 ms.topic: quickstart
 ms.devlang: typescript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other
-zone_pivot_groups: node-functions-model
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a TypeScript function in Azure from the command line
@@ -25,10 +25,10 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.4915 or above
 ::: zone-end
 
@@ -38,10 +38,10 @@ Before you begin, you must have the following:
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + [Node.js](https://nodejs.org/) version 18 or 16. 
 ::: zone-end
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + [Node.js](https://nodejs.org/) version 18. 
 + [TypeScript](https://www.typescriptlang.org/) version 4+.
 ::: zone-end
@@ -53,11 +53,11 @@ Verify your prerequisites, which depend on whether you're using Azure CLI or Azu
 
 # [Azure CLI](#tab/azure-cli)
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 ::: zone-end
 
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
 ::: zone-end
 
@@ -67,11 +67,11 @@ Verify your prerequisites, which depend on whether you're using Azure CLI or Azu
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 ::: zone-end
 
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
 ::: zone-end
 
@@ -85,7 +85,7 @@ Verify your prerequisites, which depend on whether you're using Azure CLI or Azu
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```console
@@ -130,7 +130,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 ::: zone-end
 
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the V4 programming model:
 
     ```console
@@ -189,14 +189,14 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 1. If you're using Azurite, you need to [launch it](azure/storage/common/storage-use-azurite?tabs=npm#run-azurite) in another process *before* running your function. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
-    ::: zone pivot="node-model-v3" 
+    ::: zone pivot="nodejs-model-v3" 
     ```console
     npm install
     npm start
     ```
     ::: zone-end
 
-    ::: zone pivot="node-model-v4" 
+    ::: zone pivot="nodejs-model-v4" 
     ```console
     npm start
     ```
