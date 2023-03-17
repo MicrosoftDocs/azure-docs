@@ -431,7 +431,7 @@ Learn more:
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
 - Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
-- Learn about [Azure Functions' built-in integration with Application Insights](../../azure-functions/functions-monitoring.md) to monitor functions executions.
+- Learn about [Azure Functions' built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
