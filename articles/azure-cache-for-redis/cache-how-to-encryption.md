@@ -10,17 +10,15 @@ ms.author: franlanglois
 
 ---
 
-# Configure disk encryption for Azure Cache for Redis instances using customer managed keys
+# Configure disk encryption for Azure Cache for Redis instances using customer managed keys (preview)
 
-The Enterprise and Enterprise Flash tiers of Azure Cache for Redis offer the ability to encrypt the OS and data persistence disks with customer-managed key encryption at rest. Platform-managed keys (PMKs), which are also know as Microsoft-managed keys (MMKs), are used to encrypt the data. However, customer managed keys (CMK) can also be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. See here for more information about [key management in azure](../security/fundamentals/key-management.md) 
+In this article, you learn how to configure disk encryption using Customer Managed Keys (CMK). The Enterprise and Enterprise Flash tiers of Azure Cache for Redis offer the ability to encrypt the OS and data persistence disks with customer-managed key encryption, at rest. Platform-managed keys (PMKs), also know as Microsoft-managed keys (MMKs), are used to encrypt the data. However, customer managed keys (CMK) can also be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. For more information, see [key management in Azure](/azure/security/fundamentals/key-management).
 
-Data in Redis is stored in memory by default. This data is not encrypted, although you can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system or because of deliberate actions to persist data through the [export](cache-how-to-import-export-data.md) or [data persistence](cache-how-to-premium-persistence.md) features. 
+Data in a Redis server is stored in memory by default. This data isn't encrypted. You can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system, or because of deliberate actions to persist data using [export](cache-how-to-import-export-data) or [data persistence](cache-how-to-premium-persistence). 
 
 > [!NOTE]
-> OS disk encryption is more important on the Premium tier, because open-source Redis can page cache data to disk. Redis Enterprise does not do this, which is an advantage of the Enterprise and Enterprise Flash tiers.
+> Operating Ssystem disk encryption is more important on the Premium tier because open-source Redis can page cache data to disk. The Enterprise tiers does not do page cache data to disk, which is an advantage of the Enterprise and Enterprise Flash tiers.
 >
-
-In this article, you learn how to configure disk encryption using Customer Managed Keys (CMK). 
 
 ## Scope of availability for CMK disk encryption
 
@@ -41,9 +39,15 @@ In this article, you learn how to configure disk encryption using Customer Manag
 
 ### Enterprise tiers
 
-In the **Enterprise** tier, disk encryption is used to encrypt both the Persistence disk, which holds persisted RDB or AOF files as part of the [data persistence](cache-how-to-premium-persistence.md) and [export](cache-how-to-import-export-data.md) feature, and the OS disk. MMK is used to encrypt these disks by default, but CMK can also be used.
+In the **Enterprise** tier, disk encryption is used to encrypt:
 
-In the **Enterprise Flash** tier, keys and values are also partially stored on-disk using NVMe flash storage. However, this disk is not the same as the one used for persisted data. Instead, it is ephermeral and data is not persisted after the cache is stopped, deallocated, or rebooted. Because this data is transient and emphemeral, only MMK is supported on this disk. 
+- the persistence disk, which holds persisted RDB or AOF files as part of the [data persistence](cache-how-to-premium-persistence.md) 
+- data that is exported using [export](cache-how-to-import-export-data.md) feature 
+- and the OS disk 
+
+MMK is used to encrypt these disks by default, but CMK can also be used.
+
+In the **Enterprise Flash** tier, keys and values are also partially stored on-disk using nonvolatile memory express (NVMe) flash storage. However, this disk isn't the same as the one used for persisted data. Instead, it's ephemeral, and data isn't persisted after the cache is stopped, deallocated, or rebooted. only MMK is only supported on this disk because this data is transient and ephemeral.
 
 | Data stored |Disk    |Encryption Options |
 |-------------------|------------------|-------------------|
@@ -53,22 +57,21 @@ In the **Enterprise Flash** tier, keys and values are also partially stored on-d
 
 ### Other tiers
 
-In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MMK. There is no persistence disk mounted and Azure Storage is used instead. 
-
+In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MMK. There's no persistence disk mounted and Azure Storage is used instead. 
 
 ## Prerequisites and Limitations
 
 ### General prerequisites and limitations
 
-- Disk encryption is not available in the Basic and Standard tiers for the C0 or C1 SKUs
+- Disk encryption isn't available in the Basic and Standard tiers for the C0 or C1 SKUs
 - Only user-assigned managed identity is supported to connect to Azure Key Vault
-- Changing between MMK and CMK on an existing cache instance triggers a long-running maintenance operation. This is not recommended for production use as service disruption will occur. 
+- Changing between MMK and CMK on an existing cache instance triggers a long-running maintenance operation. We don't recommend this for production use as service disruption will occur. 
 
 ### Azure Key Vault prerequisites and limitations
 
 - The Azure Key Vault resource containing the customer managed key must be in the same region as the cache resource.
-- [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Note that purge protection is not enabled by default.
-- When using firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](../key-vault/general/network-security.md).
+- [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Purge protection isn't enabled by default.
+- When you use firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](/azure/key-vault/general/network-security).
 - Only RSA keys are supported
 - The user-assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. 
 
@@ -80,32 +83,32 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option. 
 
-  **[FRAN] we will need a screenshot here**
+  <!-- **[FRAN] we will need a screenshot here** -->
 
-1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity will be used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identitiesd) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
 
-1. Select your chosen user assigned managed identity, and then choose which key input method to use. 
+1. Select your chosen user assigned managed identity, and then choose the key input method to use. 
 
 1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
 > [!NOTE]
-> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
+> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
-  **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot**
+  <!-- **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot** -->
 
 ### Add CMK encryption to an existing Enterprise cache
 
-1. Go to the **Encryption** blade of an Enterprise or Enterprise Flash tier cache. If CMK is already set up, you will see the key information here.
+1. Go to the **Encryption** in the Resource menu of your cache instance. If CMK is already set up, you see the key information here.
 
 1. To change CMK settings, select **Change encryption settings** 
 
-  **FRAN -- need a screenshot here**
+  <!-- **FRAN -- need a screenshot here** -->
 
-1. Select **Use a customer-managed key**. This will bring up configuration options. 
+1. Select **Use a customer-managed key** to see your configuration options. 
 
-1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity will be used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
 
 1. Select your chosen user assigned managed identity, and then choose which key input method to use. 
 
@@ -116,7 +119,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
 
-  **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot**
+  <!-- **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot** -->
 
 ## Next Steps
 
