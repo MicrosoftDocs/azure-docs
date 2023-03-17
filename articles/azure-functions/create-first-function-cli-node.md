@@ -5,7 +5,7 @@ ms.date: 03/08/2023
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api
-zone_pivot_groups: node-functions-model
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a JavaScript function in Azure from the command line
@@ -25,10 +25,11 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 ::: zone-end
-::: zone pivot="node-model-v4" 
+
+::: zone pivot="nodejs-model-v4" 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.4915 or above
 ::: zone-end
 
@@ -38,10 +39,11 @@ Before you begin, you must have the following:
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + [Node.js](https://nodejs.org/) version 18 or 16. 
 ::: zone-end
-::: zone pivot="node-model-v4" 
+
+::: zone pivot="nodejs-model-v4" 
 + [Node.js](https://nodejs.org/) version 18. 
 ::: zone-end
 
@@ -51,11 +53,11 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure CLI](#tab/azure-cli)
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 ::: zone-end
 
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
 ::: zone-end
 
@@ -65,11 +67,11 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 ::: zone-end
 
-::: zone pivot="node-model-v4" 
+::: zone pivot="nodejs-model-v4" 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
 ::: zone-end
 
@@ -83,7 +85,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-::: zone pivot="node-model-v3" 
+::: zone pivot="nodejs-model-v3" 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```console
@@ -98,10 +100,10 @@ In Azure Functions, a function project is a container for one or more individual
 
     This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (httpTrigger) and the `--template` argument specifies the function's trigger (HTTP).
 
     ```console
-    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
+    func new --name httpTrigger --template "HTTP trigger" --authlevel "anonymous"
     ```
 
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
@@ -130,8 +132,8 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 ::: zone-end
 
-::: zone pivot="node-model-v4" 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
+::: zone pivot="nodejs-model-v4" 
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj*:
 
     ```console
     func init LocalFunctionProj --model V4
