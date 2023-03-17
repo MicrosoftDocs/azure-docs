@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 03/10/2023
+ms.date: 03/16/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -180,7 +180,7 @@ To demonstrate this scenario, you have an App Service Environment v2 with a sing
 
 If you migrate this environment to App Service Environment v3, your monthly cost is:
 
-[1(I1v2) = **$281.78**](https://azure.com/e/4c247282128746898ef4cfe1ef0f1070)
+[1(I1v2) = **$281.78**](https://azure.com/e/c2cfb6f810374f31b563e2f8a2c877e7)
 
 This change is a significant cost reduction, but you're over-provisioned since you have double the cores and RAM, which you may not need. This excess isn't an issue for this scenario since the new environment is cheaper. However, when you increase your I1 instances in a single App Service Environment, you see how migrating to App Service Environment v3 can increase your monthly cost.
 
@@ -190,7 +190,7 @@ For this scenario, your App Service Environment v2 has 14 I1 instances. Your mon
 
 When you migrate this environment to App Service Environment v3, your monthly cost is:
 
-[14(I1v2) = **$3,944.92**](https://azure.com/e/750b78d9e34a43dc9c8c8c400d4628bf)
+[14(I1v2) = **$3,944.92**](https://azure.com/e/a7b6240644824273bebd358c5919ae4f)
 
 Your App Service Environment v3 is now more expensive than your App Service Environment v2. As you start add more I1 instances, and therefore need more I1v2 instances when you migrate, the difference in price becomes more significant. If this scenario is a requirement for your environment, you may need to plan for an increase in your monthly cost. The following graph visually depicts the point where App Service Environment v3 becomes more expensive than App Service Environment v2 for this specific scenario.
 
