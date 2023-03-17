@@ -82,7 +82,7 @@ The system message is included at the beginning of the prompt between the `<|im_
 
 * A brief description of the assistant
 * Personality traits of the assistant
-* Instructions or rules you would like the instructions to follow
+* Instructions or rules you would like the assistant to follow
 * Data or information needed for the model, such as relevant questions from an FAQ
 
 You can customize the system message for your use case or just include a basic system message. The system message is optional, but it's recommended to at least include a basic one to get the best results.

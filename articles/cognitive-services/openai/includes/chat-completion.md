@@ -92,7 +92,7 @@ Currently, only version `"0301"` is available for ChatGPT and `0314` for GPT-4 m
 
 OpenAI trained the ChatGPT and GPT-4 models to accept input formatted as a conversation. The messages parameter takes an array of dictionaries with a conversation organized by role.
 
-The format of basic ChatCompletion is as follows:
+The format of a basic ChatCompletion is as follows:
 
 ```
 {"role": "system", "content": "Provide some context and/or instructions to the model"},
@@ -114,7 +114,7 @@ The system role also known as the system message is included at the beginning of
 
 * A brief description of the assistant
 * Personality traits of the assistant
-* Instructions or rules you would like the instructions to follow
+* Instructions or rules you would like the assistant to follow
 * Data or information needed for the model, such as relevant questions from an FAQ
 
 You can customize the system role for your use case or just include basic instructions. The system role/message is optional, but it's recommended to at least include a basic one to get the best results.
@@ -129,7 +129,7 @@ After the system role, you can include a series of messages between the **user**
 
 To trigger a response from the model, you should end with a user message indicating that it's the assistant's turn to respond. You can also include a series of example messages between the user and the assistant as a way to do few shot learning.
 
-### Messages prompt examples
+### Message prompt examples
 
 The following section shows examples of different styles of prompts that you could use with the ChatGPT and GPT-4 models. These examples are just a starting point, and you can experiment with different prompts to customize the behavior for your own use cases.
 
@@ -203,7 +203,7 @@ For example, for an entity extraction scenario, you might use the following prom
 
 The examples so far have shown you the basic mechanics of interacting with the ChatCompletion API. This example shows you how to create a conversation loop that performs the following actions:
 
-- Continuously takes console input, and properly formats it part of the messages array as user role content.
+- Continuously takes console input, and properly formats it as part of the messages array as user role content.
 - Outputs responses that are printed to the console and formatted and added to the messages array as assistant role content.
 
 This means that every time a new question is asked, a running transcript of the conversation so far is sent along with the latest question. Since the model has no memory, you need to send an updated transcript with each new question or the model will lose context of the previous questions and answers.
