@@ -1,5 +1,5 @@
 ---
-title: Azure AD Multi-Factor Auth Providers - Azure Active Directory
+title: Azure AD Multi-Factor Auth Providers
 description: When should you use an Auth Provider with Azure MFA?
 
 services: multi-factor-authentication

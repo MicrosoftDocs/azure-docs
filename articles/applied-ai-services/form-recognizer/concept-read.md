@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -108,7 +108,7 @@ The page units in the model output are computed as shown:
 |PowerPoint |  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
-### Extracting barcodes from documents
+ ### Barcode extraction
 
 The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the public preview (`2023-02-28`) release.
 
@@ -173,7 +173,7 @@ The Read OCR model in Form Recognizer adds [language detection](language-support
 ]
 ```
 
-### Extracting pages from documents
+### Extract pages from documents
 
 The page units in the model output are computed as shown:
 
