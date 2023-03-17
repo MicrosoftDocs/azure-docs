@@ -163,7 +163,7 @@ You need to enable a Log Analytics Workspace to both store the log data of your 
 -	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../../articles/azure-monitor/logs/log-powerbi.md)
 
 
-### Default survey analytics query/s: NEED to add to default query pack in azure.
+### Default survey analytics query/s: NEED to add to default query pack in Azure.
 
 You can use the following sample query in your Log Analytics workspace or Power BI.
 
