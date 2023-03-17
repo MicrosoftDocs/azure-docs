@@ -1,5 +1,6 @@
 ---
 title: "Microservices communication using Dapr Service Invocation"
+titleSuffix: "Azure Container Apps"
 description: Enable two sample Dapr applications to communicate and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
