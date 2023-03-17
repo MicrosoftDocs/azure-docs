@@ -35,7 +35,7 @@ The sample service invocation project includes:
 
 ::: zone pivot="nodejs"
 
-## Run the Dapr applications locally with Node.js
+## Run the Node.js applications locally
 
 Before deploying the application to Azure Container Apps, start by running the `order-processor` and `checkout` services locally with Dapr.
 
@@ -255,7 +255,7 @@ Upon successful completion of the `azd up` command:
 
 ::: zone pivot="python"
 
-## Run the Dapr applications locally with Python
+## Run the Python applications locally
 
 Before deploying the application to Azure Container Apps, start by running the `order-processor` and `checkout` services locally with Dapr.
 
@@ -474,7 +474,7 @@ Upon successful completion of the `azd up` command:
 
 ::: zone pivot="csharp"
 
-## Run the Dapr applications locally with .NET
+## Run the .NET applications locally
 
 Before deploying the application to Azure Container Apps, start by running the `order-processor` and `checkout` services locally with Dapr.
 
