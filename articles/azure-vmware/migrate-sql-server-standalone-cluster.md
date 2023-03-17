@@ -36,13 +36,13 @@ Microsoft SQL Server (2019 and 2022) were tested with Windows Server (2019 and 2
 
 ## Downtime considerations
 
-Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Migration of SQL Server standalone instance does not require database downtime since it will be done using HCX vMotion mechanism but it isn't recommended to commit any critical data to the database and execute it during off-peak hours with an pre-approved change window.
+Predicting downtime during a migration will depend upon the size of the database to be migrated and the speed of the private network connection to Azure cloud. Migration of SQL Server standalone instance does not require database downtime since it will be done using the VMware HCX vMotion mechanism. We recommend the migration during off-peak hours with an pre-approved change window.
 
-The table below indicates the estimated downtime for each Microsoft SQL Server topology.
+This table indicates the estimated downtime for each Microsoft SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | LOW | Migration will be done using vMotion, the DB will be available during migration time, but it isn't recommended to commit any critical data during it. |
+| **Standalone instance** | LOW | Migration is done using VMware vMotion, the DB is available during migration time, but it isn't recommended to commit any critical data during it. |
 | **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
 | **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
@@ -51,7 +51,7 @@ The table below indicates the estimated downtime for each Microsoft SQL Server t
 1. Log into your on-premises **vCenter Server** and access the VMware HCX plugin. 
 1. Under **Services** select **Migration** > **Migrate**. 
    a. Select the Microsoft SQL Server virtual machine.
-   a. Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
+   a. Set the vSphere cluster in the remote private cloud of the migrated SQL cluster as the **Compute Container**.
    a. Select the vSAN Datastore as remote storage.
    a. Select a folder if you want to place the VM in a specific folder, this is not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
    a. Keep **Same format as source**.
