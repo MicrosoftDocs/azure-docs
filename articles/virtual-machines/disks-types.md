@@ -35,7 +35,7 @@ The following table provides a comparison of the five disk types to help you dec
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
 
-\* Only applies to disks with performance plus enabled.
+\* Only applies to disks with performance plus (preview) enabled.
 
 ## Ultra disks
 
