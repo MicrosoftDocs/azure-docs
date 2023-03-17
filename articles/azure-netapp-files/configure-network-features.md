@@ -88,7 +88,7 @@ You can edit the network features option for existing volumes and set it to use 
 2. Select **Change network features**. 
 3. The **Edit network features** window displays the volumes that are in the same network sibling set. In the **Network features** filed, specify whether you want these volumes to use **Standard** or **Basic** network features. 
 
-    :::image type="content" source="../media/azure-netapp-files/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window" lightbox="../media/azure-netapp-files/azure-netapp-files/edit-network-features.png":::
+    :::image type="content" source="../media/azure-netapp-files/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window" lightbox="../media/azure-netapp-files/edit-network-features.png":::
 
 ## Next steps  
 
