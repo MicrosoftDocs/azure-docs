@@ -84,7 +84,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Friday - Introducing API for PostgreSQL
-            url: /azure-friday/introducing-azure-cosmos-db-for-postgresql
+            url: /shows/azure-friday/introducing-azure-cosmos-db-for-postgresql
   - title: Security
     linkLists:
       - linkListType: concept

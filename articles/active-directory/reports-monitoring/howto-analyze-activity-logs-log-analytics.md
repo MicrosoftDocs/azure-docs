@@ -1,5 +1,5 @@
 ---
-title: Analyze activity logs using Azure Monitor logs | Microsoft Docs
+title: Analyze activity logs using Azure Monitor logs
 description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs
 services: active-directory
 author: shlipsey3

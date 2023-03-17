@@ -162,7 +162,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     ENABLE CHANGE_TRACKING;
     ```
 
-    The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger will have associated change tracking table and leases table in a schema `az_func`, which are created by the trigger if they don't yet exist.  More information on these data structures is available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/triggerbindings/README.md#internal-state-tables).
+    The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger will have associated change tracking table and leases table in a schema `az_func`, which are created by the trigger if they don't yet exist.  More information on these data structures is available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/BindingsOverview.md#internal-state-tables).
 
 
 ## Enable runtime-driven scaling

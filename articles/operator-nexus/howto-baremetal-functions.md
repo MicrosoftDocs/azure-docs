@@ -84,4 +84,4 @@ az networkcloud baremetalmachine reimage –-name "bareMetalMachineName"  \
   --resource-group "resourceGroupName"
 ```
 
-You should [uncordon](#make-a-bmm-schedulable-uncordon) the BMM on completion of the `reimage` command.
+The reimage command restarts the BMM and uncordons it. The re-imaged BMM will have an IP address.You can start deploying workloads on the reimaged BMM.

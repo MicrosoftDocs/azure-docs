@@ -5,7 +5,7 @@ items:
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
-  - name: What is the Azure Space Parter Community?
+  - name: What is the Azure Space Partner Community?
     href: space-partner-program-overview.md
 
 - name: Quickstart

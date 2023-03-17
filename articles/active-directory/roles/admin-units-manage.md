@@ -1,5 +1,5 @@
 ---
-title: Create or delete administrative units - Azure Active Directory
+title: Create or delete administrative units
 description: Create administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''

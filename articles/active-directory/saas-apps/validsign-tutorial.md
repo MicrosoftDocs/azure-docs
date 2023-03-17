@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ValidSign | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ValidSign'
 description: Learn how to configure single sign-on between Azure Active Directory and ValidSign.
 services: active-directory
 author: jeevansd

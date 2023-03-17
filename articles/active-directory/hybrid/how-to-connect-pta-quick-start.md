@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Pass-through Authentication - Quickstart | Microsoft Docs'
+title: 'Azure AD Pass-through Authentication - Quickstart'
 description: This article describes how to get started with Azure Active Directory (Azure AD) Pass-through Authentication.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on

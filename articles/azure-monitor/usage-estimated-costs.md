@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to estimate and ana
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 05/05/2022
+ms.date: 03/15/2023
 ---
 # Azure Monitor cost and usage
 
@@ -95,7 +95,7 @@ To limit the view to Azure Monitor charges, [create a filter](../cost-management
 - Insight and Analytics
 
 >[!NOTE]
->Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go data ingestion and data retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, Application Insights data ingestion and retention are billed as the **Log Analytics** service.
+>Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go Data Ingestion and Data Retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs, Search, Search Jobs, Data Archive and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, classic Application Insights data ingestion and retention are billed as the **Log Analytics** service. Note then when you change your workspace from a Pay-as-you-go pricing tier to a Commitment Tier, on your bill, the costs will appear to shift from Log Analytics to Azure Monitor, reflecting the service associated to each pricing tier. 
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
 

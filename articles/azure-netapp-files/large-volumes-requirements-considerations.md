@@ -13,7 +13,7 @@ ms.workload: storage
 ms.custom: references_regions
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 03/15/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -60,6 +60,8 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * Germany West Central
 * Japan East
 * North Europe
+* Qatar Central
+* South Africa North 
 * South Central US
 * Switzerland North
 * UAE North
