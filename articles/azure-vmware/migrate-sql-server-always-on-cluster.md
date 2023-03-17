@@ -121,7 +121,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-7.png" alt-text="Diagram showing availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false":::
     1. Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.
     
-       :::image type="content" source="media/sql-server-hybrid-benefit/sql-alwayson-8.png" alt-text="Diagram showing a setting for failover back to Automatic for all replicas." border="false":::
+       :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-8.png" alt-text="Diagram showing a setting for failover back to Automatic for all replicas." border="false":::
 
 ## Next steps 
 
