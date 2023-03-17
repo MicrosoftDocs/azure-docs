@@ -74,6 +74,13 @@ To set the needed permissions, users can be assigned built-in roles with [role-b
 - **Resource Policy Contributor** role at the target scope level.
 
 For more granular role assignment, you can create [custom roles](../role-based-access-control/custom-roles-portal.md) using the `networkGroups/join/action` permission and `policy/write` permission.
+
+Along with the required permissions, your subscriptions and management groups must be registered with the following resource providers:
+- `Microsoft.Network` is required to create virtual networks.
+- `Microsoft.PolicyInsights` is required to use Azure Policy.
+
+To set register the needed providers, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider?view=azps-9.4.0) in Azure PowerShell or [az provider register](/cli/azure/provider) in Azure CLI.
+
 ## Helpful tips
 
 ### Type filtering
