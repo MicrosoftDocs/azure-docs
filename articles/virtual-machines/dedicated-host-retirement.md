@@ -13,7 +13,11 @@ ms.date: 3/15/2021
 
 We continue to modernize and optimize Azure Dedicated Host by using the latest innovations in processor and datacenter technologies. Azure Dedicated Host is a combination of a virtual machine (VM) series and a specific Intel or AMD-based physical server. As we innovate and work with our technology partners, we also need to plan how we retire aging technology.
 
-## Migrations required by 31 March 2023
+## UPDATE: Retirement timeline extension
+Considering the feedback from several Azure Dedicated Host customers that are running their critical workloads on SKUs that are scheduled for retirement, we have extended the retirement timeline from March 31, 2023 to June 30, 2023. 
+We don't intend to move the retirement timeline any further and recommend all ADH users that are running on below mentioned SKUs to migrate to newer generation based SKUs to avoid workload interruptions.
+
+## Migrations required by 30 June 2023 [Updated]
 
 All hardware has a finite lifespan, including the underlying hardware for Azure Dedicated Host. As we continue to modernize Azure datacenters, hardware is decommissioned and eventually retired. The hardware that runs the following Dedicated Host SKUs will be reaching end of life:
 
@@ -22,7 +26,7 @@ All hardware has a finite lifespan, including the underlying hardware for Azure 
 - Esv3-Type1
 - Esv3-Type2
 
-As a result we'll retire these Dedicated Host SKUs on 31 March 2023.
+As a result we'll retire these Dedicated Host SKUs on 30 June 2023.
 
 ## How does the retirement of Azure Dedicated Host SKUs affect you?
 
@@ -60,15 +64,15 @@ A:
 | Date          | Action                                                                 |
 | ------------- | -----------------------------------------------------------------------|
 | 15 March 2022 | Dsv3-Type1, Dsv3-Type2, Esv3-Type1, Esv3-Type2 retirement announcement |
-| 31 March 2023 | Dsv3-Type1, Dsv3-Type2, Esv3-Type1, Esv3-Type2 retirement              |
+| 30 June 2023 | Dsv3-Type1, Dsv3-Type2, Esv3-Type1, Esv3-Type2 retirement              |
 
 ### Q: What will happen to my Azure Reservation?
 
 A: You'll need to [exchange your reservation](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure portal to match the new Dedicated Host SKU. 
 
-### Q: What would happen to my host if I do not migrate by March 31, 2023?
+### Q: What would happen to my host if I do not migrate by June 30, 2023?
 
-A: After March 31, 2023 any dedicated host running on the SKUs that are marked for retirement will be set to 'Host Pending Deallocate' state before eventually deallocating the host. For additional assistance please reach out to Azure support.
+A: After June 30, 2023 any dedicated host running on the SKUs that are marked for retirement will be set to 'Host Pending Deallocate' state before eventually deallocating the host. For additional assistance please reach out to Azure support.
 
 ### Q:  What will happen to my VMs if a Host is automatically deallocated?
 
