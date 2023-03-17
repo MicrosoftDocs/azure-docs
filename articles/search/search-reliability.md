@@ -58,6 +58,7 @@ Your service must be deployed in a region that supports availability zones. Azur
 | Canada Central | January 30, 2021 or later |
 | Central India | January 20, 2022 or later |
 | Central US | December 4, 2020 or later |
+| China North 3 | September 7, 2022 or later |
 | East Asia | January 13, 2022 or later |
 | East US | January 27, 2021 or later |
 | East US 2 | January 30, 2021 or later |
@@ -68,9 +69,11 @@ Your service must be deployed in a region that supports availability zones. Azur
 | North Europe | January 28, 2021 or later |
 | Norway East | January 20, 2022 or later |
 | Qatar Central | August 25, 2022 or later |
+| South Africa North | September 7, 2022 or later |
 | South Central US | April 30, 2021 or later |
 | South East Asia | January 31, 2021 or later |
 | Sweden Central | January 21, 2022 or later |
+| Switzerland North | September 7, 2022 or later |
 | UAE North | September 9, 2022 or later |
 | UK South | January 30, 2021 or later |
 | US Gov Virginia | April 30, 2021 or later |

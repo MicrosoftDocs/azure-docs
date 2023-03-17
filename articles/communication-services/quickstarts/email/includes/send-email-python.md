@@ -104,6 +104,9 @@ The `response.status` values are explained further in the following table.
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
+> [!NOTE]
+> We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
+
 ### Prerequisite check
 - In a terminal or command window, run the `python --version` command to check that Python is installed.
 - To view the domains verified with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/). Locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
@@ -170,18 +173,21 @@ from azure.identity import DefaultAzureCredential
 
 # To use Azure Active Directory Authentication (DefaultAzureCredential) make sure to have AZURE_TENANT_ID, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET as env variables.
 endpoint = "https://<resource-name>.communication.azure.com"
-client = EmailClient(endpoint, DefaultAzureCredential())
+email_client = EmailClient(endpoint, DefaultAzureCredential())
 ```
 
 ### Option 3: Authenticate using AzureKeyCredential
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential).
+
+Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```python
 from azure.communication.email import EmailClient
 from azure.core.credentials import AzureKeyCredential
-credential = AzureKeyCredential("<api_key>")
-endpoint = "https://<resource-name>.communication.azure.com/"
-client = EmailClient(endpoint, credential);
+
+key = AzureKeyCredential("<your-key-credential>");
+endpoint = "<your-endpoint-uri>";
+
+email_client = EmailClient(endpoint, key);
 ```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).

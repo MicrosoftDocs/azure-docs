@@ -165,7 +165,7 @@ items:
           href: self-hosted-integration-runtime-version.md
     - name: Manage assets with Metamodel
       href: how-to-metamodel.md
-    - name: Create Service Principal
+    - name: Create a service principal
       href: create-service-principal-azure.md
     - name: Request access to data asset
       href: how-to-request-access.md
