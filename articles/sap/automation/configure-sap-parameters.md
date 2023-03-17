@@ -4,15 +4,35 @@ description: Define SAP parameters for Ansible
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/19/2022
+ms.date: 03/17/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Configure sap-parameters file 
+# Configure SAP Installation parameters 
 
-Ansible will use a file called sap-parameters.yaml that will contain the parameters required for the Ansible playbooks. The file is a .yaml file. 
+The Ansible playbooks will use a combination of default parameters and parameters defined by the Terraform deployment for the SAP installation. 
+
+
+## Default Parameters
+
+The table below contains the default parameters defined by the framework.
+
+### User IDs
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Parameter                 | Description                                                                | Default Value                | Type       |
+> | ------------------------- | -------------------------------------------------------------------------- | ---------------------------- | ---------- | 
+> | `sapadm_uid`              | The UID for the sapadm account.                                            | 2100                         | Required   |
+> | `sapinst_gid`             | The GID for the sapinst group.                                             | 2001                         | Required   |
+> | `sapsys_gid`              | The GID for the sapsys group.                                              | 2000                         | Required   |
+> | `db2sidadm_uid`           | The UID for the db2sidadm account.                                         | 3004                         | Required   |
+> | `db2sapsid_uid`           | The UID for the db2sapsid account.                                         | 3005                         | Required   |
+> | `db2sysadm_gid`           | The UID for the db2sysadm group.                                           | 3000                         | Required   |
+> | `db2sysctrl_gid`          | The UID for the db2sysctrl group.                                          | 3001                         | Required   |
+> | `db2sysmaint_gid`         | The UID for the db2sysmaint group.                                         | 3002                         | Required   |
+> | `db2sysmon_gid`           | The UID for the db2sysmon group.                                           | 2003                         | Required   |
 
 ## Parameters
 
