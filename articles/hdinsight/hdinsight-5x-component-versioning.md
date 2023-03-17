@@ -98,7 +98,7 @@ HDInsight team is working on upgrading other open-source components.
 1. HBase 2.4.11
 
 
-### Next steps
+## Next steps
 
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
