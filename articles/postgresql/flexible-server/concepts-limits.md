@@ -68,9 +68,8 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Currently, storage auto-grow feature isn't available. You can monitor the usage and increase the storage to a higher size. 
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes switch to read-only mode, your Server may still run out of storage.
 - - We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
-- If you are using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot is not in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
-
-  
+- If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
+   
 ### Networking
 
 - Moving in and out of VNET is currently not supported.
@@ -88,7 +87,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Postgres engine, extensions, and PgBouncer
 
-- Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you will need to use the [Single Server](../overview-single-server.md) option which supports the older major versions 95, 96 and 10.
+- Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you'll need to use the [Single Server](../overview-single-server.md) option which supports the older major versions 95, 96 and 10.
 - Flexible Server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions).
 - - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
 - SCRAM authentication isn't supported with connectivity using built-in PgBouncer.
@@ -103,12 +102,12 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
    
 ### Backing up a server
 
-- - Backups are managed by the system, there is currently no way to run these backups manually. We recommend using `pg_dump` instead.
+- Backups are managed by the system, there's currently no way to run these backups manually. We recommend using `pg_dump` instead.
 - The first snapshot is a full backup and consecutive snapshots are differential backups. The differential backups only backup the changed data since the last snapshot backup. For example, if the size of your database is 40GB and your provisioned storage is 64GB, the first snapshot backup will be 40GB. Now, if you change 4GB of data, then the next differential snapshot backup size will only be 4GB. The transaction logs (write ahead logs - WAL) are separate from the full/differential backups, and are archived continuously.
    
 ### Restoring a server
 
-- - When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
+- When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server isn't based on.
 - - VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
 - Restoring a deleted server isn't supported.
