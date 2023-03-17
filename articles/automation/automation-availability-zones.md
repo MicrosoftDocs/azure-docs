@@ -33,25 +33,26 @@ In the event when a zone is down, there's no action required by you to recover f
 See [Regions and Availability Zones in Azure](../reliability/availability-zones-service-support.md) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions: 
  
-- Canada Central
-- South Central US
-- South Africa North
-- China North 3
-- Qatar Central
-- West US 2
-- East US 2
-- East US
-- North Europe
-- West Europe
-- France Central
-- Japan East
-- UK South
-- Southeast Asia
 - Australia East
-- Central US
 - Brazil South
+- Canada Central
+- Central US
+- China North 3
+- East US
+- East US 2
+- France Central
 - Germany West Central
+- Japan East
+- North Europe
+- Qatar Central
+- South Africa North
+- South Central US
+- South East Asia
+- UK South
+- West Europe
+- West US 2
 - West US 3
+
 
 ## Create a zone redundant Automation account
 You can create a zone redundant Automation account using:
