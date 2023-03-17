@@ -8,9 +8,7 @@ ms.date: 03/16/2022
 ---
 
 Return to the Azure portal for Azure SQL Database to verify it is now governed by Microsoft Purview
-1. Sign in to the Azure portal through [this link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview)
-
-1. Navigate to **SQL servers** on the left pane. You will see a list of SQL Server instances on Azure Arc.
+1. Sign in to the Azure portal through [this link](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fservers)
 
 1. Select the SQL Server instance that you want to configure.
 
@@ -19,7 +17,7 @@ Return to the Azure portal for Azure SQL Database to verify it is now governed b
 1. Scroll down to **Microsoft Purview access policies**.
 
 1. Select the button to **Check for Microsoft Purview Governance**. Wait while the request is processed. While that happens, this message will be displayed at the top of the page. You may need to scroll up to see it. 
-   ![Screenshot that shows Arc-SQL agent is processing a request](../media/how-to-policies-data-owner-sql/arc-sql-processing-request.png)
+   ![Screenshot that shows Arc-SQL agent is processing a request.](../media/how-to-policies-data-owner-sql/arc-sql-processing-request.png)
 
 1. At the bottom of the page, confirm that the Microsoft Purview Governance Status shows `Governed`. Note that **it may take up to 30 minutes** for the correct status to be reflected. Continue doing a browser refresh until that happens. 
 
