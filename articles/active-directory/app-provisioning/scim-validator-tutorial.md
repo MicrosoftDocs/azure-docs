@@ -41,7 +41,7 @@ The first step is to select a testing method to validate your SCIM endpoint.
 
 **Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
 
-**Discover schema** - If your end point supports /Schema, this option will allow the tool to discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
+**Discover schema** - If your end point supports /Schema, this option lets the tool discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
 
 **Upload Azure AD Schema** - Upload the schema you've downloaded from your sample app on Azure AD.
 
