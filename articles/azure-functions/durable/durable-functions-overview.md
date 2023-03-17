@@ -29,16 +29,11 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
->
-> In the following code snippets, Python (PM2) denotes programming model V2, the new experience.
-
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
-
-> [!NOTE]
 > The new programming model for authoring Functions in Python (V2) and Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
 >
 > In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
+
+Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
 
