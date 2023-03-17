@@ -1,12 +1,13 @@
 ---
-title: Tutorial - Provision devices for geo latency in Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision devices for geo latency in DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how to provision devices for geolocation/geolatency with your Device Provisioning Service (DPS) instance
 author: kgremban
+
 ms.author: kgremban
 ms.topic: tutorial
 ms.date: 08/24/2022
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # Tutorial: Provision for geo latency
