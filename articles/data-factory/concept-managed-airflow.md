@@ -43,7 +43,7 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 - **Azure integration** – Azure Data Factory Managed Airflow supports open-source integrations with Azure Data Factory pipelines, Azure Batch, Azure Cosmos DB, Azure Key Vault, ACI, ADLS Gen2, Azure Kusto, as well as hundreds of built-in and community-created operators and sensors.
 
 ## Architecture
-   :::image type="content" source="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Airflow.":::
+   :::image type="content" source="media/concept-managed-airflow/architecture.png" lightbox="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Airflow.":::
 
 ## Region availability (public preview)
 
