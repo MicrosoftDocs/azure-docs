@@ -45,7 +45,7 @@ Emails, sent from tasks, are able to be customized. If you choose to customize t
 - **Message body:** Customizes the body of the emails being sent out.
 - **Email language translation:** Overrides the email recipient's language settings. Custom text is not customized, and it is recommended to set this language to the same language as the custom text. 
 
-:::image type="content" source="media/lifecycle-workflow-task/customize-email-concept.png" alt-text="email customization options.":::
+:::image type="content" source="media/lifecycle-workflow-task/customize-email-concept.png" alt-text="Screenshot of the customization email options.":::
 
 For a step by step guide on this, see: [Customize emails sent out by workflow tasks](customize-workflow-email.md).
 

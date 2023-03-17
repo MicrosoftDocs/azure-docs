@@ -56,7 +56,7 @@ When customizing an email sent via Lifecycle workflows, you can choose to custom
 1. Select the **Email Customization** tab.
 
 1. On the email customization screen, enter a custom subject, message body, and the email language translation option that will be used to translate the message body of the email.
-    :::image type="content" source="media/customize-workflow-email/customize-workflow-email-example.png" alt-text="Example of a customized email from a workflow.":::
+    :::image type="content" source="media/customize-workflow-email/customize-workflow-email-example.png" alt-text="Screenshot of an example of a customized email from a workflow.":::
 1. After making changes, select **save** to capture changes to the customized email.
 
 
@@ -70,7 +70,7 @@ To use dynamic attributes within your customized emails, you must follow the for
 
 The following screenshot is an example of the proper format for dynamic attributes within a customized email:
 
-:::image type="content" source="media/customize-workflow-email/workflow-dynamic-attribute-example.png" alt-text="Example of dynamic attributes in customized emails.":::
+:::image type="content" source="media/customize-workflow-email/workflow-dynamic-attribute-example.png" alt-text="Screenshot of an example of dynamic attributes within a customized email.":::
 
 When typing this it's written the following way:
 
@@ -99,7 +99,7 @@ After these prerequisites are satisfied, you'd follow these steps:
 1. On the Lifecycle workflows page, select **Workflow settings (Preview)**.
 
 1. On the settings page, with **email domain** you're able to select your domain from a drop-down list of your verified domains.
-    :::image type="content" source="media/customize-workflow-email/workflow-email-settings.png" alt-text="Screenshot of workflow domain settings":::
+    :::image type="content" source="media/customize-workflow-email/workflow-email-settings.png" alt-text="Screenshot of workflow domain settings.":::
 1. With the Use company branding banner logo setting, you're able to turn on whether or not company branding is used in emails.
     :::image type="content" source="media/customize-workflow-email/customize-email-logo-setting.png" alt-text="Screenshot of email logo setting.":::
 
