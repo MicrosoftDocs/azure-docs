@@ -64,7 +64,7 @@ The following table describes the values that you can provide for the resource I
 
 | Resource ID | Description |
 |---|---|
-| `https://<account>.blob.core.windows.net` <br /><br /> `https://<account>.queue.core.windows.net` | The service endpoint for a given storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account and service only. Replace the value in brackets with the name of your storage account. |
+| `https://<account>.blob.core.windows.net` | The service endpoint for a given storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account and service only. Replace the value in brackets with the name of your storage account. |
 | `https://storage.azure.com/` | Use to acquire a token for authorizing requests to any Azure Storage account. |
 
 ## Assign Azure roles for access rights
