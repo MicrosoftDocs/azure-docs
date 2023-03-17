@@ -14,7 +14,7 @@ keywords: ChatGPT
 
 ## Working with the ChatGPT and GPT-4 models
 
-The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the ChatCompletion API. If this is your first time using these models programmatically, we recommend starting with our quickstart [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
+The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the ChatCompletion API. If this is your first time using these models programmatically, we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
 **GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
