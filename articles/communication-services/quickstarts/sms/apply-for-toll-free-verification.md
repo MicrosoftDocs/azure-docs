@@ -66,9 +66,9 @@ This program brief will now be automatically sent to the toll-free messaging agg
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Check guidelines for filling a short code program brief application](../../concepts/sms/toll-free-verification-guidelines.md)
+> [Check guidelines for filling a toll-free verification application](../../concepts/sms/toll-free-verification-guidelines.md)
 
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../../concepts/sms/sdk-features.md)
-- - Familiarize yourself with the [SMS FAQ](../../concepts/sms/sms-faq.md)
+- Familiarize yourself with the [SMS FAQ](../../concepts/sms/sms-faq.md)
