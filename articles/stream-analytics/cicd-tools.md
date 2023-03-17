@@ -250,7 +250,7 @@ To deploy your Stream Analytics project using ARM templates, follow these steps:
       -TemplateParameterFile $parameterFile
     ```
 
-For more details about deploying resources with ARM templates, see [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
+For more information about deploying resources with ARM templates, see [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
 
 ## Next steps
 
