@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with MS Azure SSO Access for Ethidex Compliance Office™ | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with MS Azure SSO Access for Ethidex Compliance Office™'
 description: Learn how to configure single sign-on between Azure Active Directory and MS Azure SSO Access for Ethidex Compliance Office™.
 services: active-directory
 author: jeevansd
