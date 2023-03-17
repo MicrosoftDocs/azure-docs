@@ -1,7 +1,7 @@
 ---
 title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-ms.date: 03/14/2023
+ms.date: 03/17/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, references-regions
 ---
@@ -336,7 +336,7 @@ Just like private keys, you can provide your `known_hosts` content directly or i
 
 ### Bucket source arguments
 
-If you use a `bucket` source instead of a `git` source, here are the bucket-specific command arguments.
+If you use `bucket` source, here are the bucket-specific command arguments.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -348,7 +348,7 @@ If you use a `bucket` source instead of a `git` source, here are the bucket-spec
 
 ### Azure Blob Storage Account source arguments
 
-If you use a `azblob` source, here are the blob-specific command arguments.
+If you use `azblob` source, here are the blob-specific command arguments.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -365,7 +365,7 @@ If you use a `azblob` source, here are the blob-specific command arguments.
 | `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
 
 > [!IMPORTANT]
-> When using managed identity authentication for AKS clusters, the managed identity must be assigned the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role. Authentication using a managed identity is not yet available for Azure Arc-enabled Kubernetes clusters.
+> When using managed identity authentication for AKS clusters and `azblob` source, the managed identity must be assigned the [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) or [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role. Authentication using a managed identity is not yet available for Azure Arc-enabled Kubernetes clusters.
 
 ### Local secret for authentication with source
 
