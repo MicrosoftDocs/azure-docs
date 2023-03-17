@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: haital
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 03/17/2023
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -15,11 +15,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise tier, which supports the CPU and memory combinations as shown in the following table.
 
-| CPU (core processors) | Memory (Gb) |
-| --------------------- | ----------- |
-| 4                     | 16          |
-| 6                     | 24          |
-| 8                     | 32          |
+| CPU (cores) | Memory (Gb) |
+| ----------- | ----------- |
+| 4           | 16          |
+| 6           | 24          |
+| 8           | 32          |
 
 ## Prerequisites
 
