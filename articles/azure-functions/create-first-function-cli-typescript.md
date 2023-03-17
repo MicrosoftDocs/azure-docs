@@ -153,7 +153,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     func new
     ```
 
-    Choose the template for "HTTP trigger". By default, the function name is *httpTrigger*. You can also give it another name. Your function name must be unique, or you'll be asked to confirm if your intention is to replace an existing function. 
+    Choose the template for "HTTP trigger". You can keep the default name (*httpTrigger*) or give it a new name (*HttpExample*). Your function name must be unique, or you'll be asked to confirm if your intention is to replace an existing function. 
 
     You can find the function you added in the *src/functions* directory. 
 
