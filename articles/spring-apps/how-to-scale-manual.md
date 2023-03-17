@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article demonstrates how to scale a Spring application using the Azure Spring Apps in the Azure portal.
+This article demonstrates how to scale a Spring application using Azure Spring Apps in the Azure portal.
 
 You can scale your app up and down by modifying its number of virtual CPUs (vCPUs) and amount of memory. Scale your app in and out by modifying the number of application instances.
 
@@ -60,7 +60,7 @@ After a few seconds, the scaling changes you make are reflected on the **Overvie
 
 ## Upgrade to the Standard tier
 
-If you are on the Basic tier and constrained by current limits, you can upgrade to the Standard tier. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier](/azure/spring-apps/how-to-migrate-standard-tier-to-enterprise-tier).
+If you're on the Basic tier and constrained by current limits, you can upgrade to the Standard tier. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier](/azure/spring-apps/how-to-migrate-standard-tier-to-enterprise-tier).
 
 ## Next steps
 
