@@ -831,7 +831,8 @@ module.exports = df.orchestrator(function*(context) {
     const durableTimeout = context.df.createTimer(dueTime.toDate());
 
     const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
-    if (approvalEvent === (yield context.df.Task.any([approvalEvent, durableTimeout]))) {
+    const winningEvent = yield context.df.Task.any([approvalEvent, durableTimeout]);
+    if (winningEvent === approvalEvent) {
         durableTimeout.cancel();
         yield context.df.callActivity("ProcessApproval", approvalEvent.result);
     } else {
@@ -855,7 +856,8 @@ df.app.orchestration("humanInteractionDemo", function* (context) {
     const durableTimeout = context.df.createTimer(dueTime.toJSDate());
 
     const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
-    if (approvalEvent === (yield context.df.Task.any([approvalEvent, durableTimeout]))) {
+    const winningEvent = yield context.df.Task.any([approvalEvent, durableTimeout]);
+    if (winningEvent === approvalEvent) {
         durableTimeout.cancel();
         yield context.df.callActivity("ProcessApproval", approvalEvent.result);
     } else {

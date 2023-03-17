@@ -15,9 +15,9 @@ Function chaining refers to the pattern of executing a sequence of functions in 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) and Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
 >
-> In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
 
 ## The functions
 
