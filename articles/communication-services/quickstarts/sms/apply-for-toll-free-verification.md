@@ -19,6 +19,11 @@ ms.custom: mode-other
 
 - [An active Communication Services resource.](../create-communication-resource.md)
 - Toll-free number 
+ 
+### What is toll free verification?
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](../../concepts/sms/sms-faq#toll-free-verification.md). 
+
+Verification is **required** for best SMS delivery experience.
 
 ## Submit a toll-free verification
 To begin toll-free verification, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).

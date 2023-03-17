@@ -1,7 +1,7 @@
 ---
-title: Toll-Free Verification Filling Guidelines
+title: Toll-Free Verification Guidelines
 titleSuffix: An Azure Communication Services concept document
-description: Learn about how to apply for toll-free verification
+description: Learn about how to fill the toll-free verification form
 author: prakulka
 manager: sundraman
 services: azure-communication-services
@@ -15,7 +15,7 @@ ms.subservice: sms
 
 # Toll-Free Verification Filling Guidelines
 
-In this document, we will review the guidelines on filling out an application to verify your toll-free number. The toll-free verification application consists of 5 sections:  
+In this document, we will review the guidelines on filling out an application to verify your toll-free number. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](../../concepts/sms/sms-faq#toll-free-verification.md). The toll-free verification application consists of 5 sections:  
 
 - Application Type  
 - Company Details  
@@ -87,5 +87,5 @@ Message senders are required to disclose all the types/categories of messages wi
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [SMS FAQ](../sms/sms-faq.md)
+- Familiarize yourself with the [SMS FAQ](../sms/sms-faq#toll-free-verification.md)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
