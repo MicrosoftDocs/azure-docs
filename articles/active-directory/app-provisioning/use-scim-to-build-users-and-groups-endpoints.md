@@ -102,7 +102,7 @@ That's it! Your SCIM endpoint is now published, and you can use the Azure App Se
 
 ## Test your SCIM endpoint
 
-Requests to a SCIM endpoint require authorization. The SCIM standard has multiple options for authentication and authorization, including cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
+Requests to a SCIM endpoint require authorization. The SCIM standard has multiple options available.  Requests can use cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
 
 Be sure to avoid methods that aren't secure, such as username and password, in favor of a more secure method such as OAuth. Azure AD supports long-lived bearer tokens (for gallery and non-gallery applications) and the OAuth authorization grant (for gallery applications).
 
