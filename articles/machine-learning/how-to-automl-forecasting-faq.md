@@ -152,7 +152,7 @@ Model from forecasting training jobs can be deployed in either of the two ways:
     - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) to see an example.
 
 > [!NOTE]
-> As of now, we don't support deploying MLflow model from forecasting training jobs, neither through SDK, nor through CLI, nor through UI. You will run run into errors if you try this. This feature will be available very soon.
+> As of now, we don't support deploying MLflow model from forecasting training jobs, neither through SDK, nor through CLI, nor through UI. You will run into errors if you try this. This feature will be available very soon.
 
 ## What is a workspace / environment / experiment/ compute instance / compute target? 
 
