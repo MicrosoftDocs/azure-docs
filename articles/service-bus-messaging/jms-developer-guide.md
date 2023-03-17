@@ -9,7 +9,7 @@ ms.date: 02/12/2022
 
 This guide contains detailed information to help you succeed in communicating with Azure Service Bus using the Java Message Service (JMS) 2.0 API.
 
-As a Java developer, if you are new to Azure Service Bus, please consider reading the below articles.
+As a Java developer, if you're new to Azure Service Bus, please consider reading the below articles.
 
 | Getting started | Concepts |
 |----------------|-------|
@@ -58,21 +58,21 @@ To simplify connecting with Azure Service Bus, these interfaces are implemented 
 
 # [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
 
-Create a [system assigned managed identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) on Azure, and use this to create a `TokenCredential`.
+Create a [system assigned managed identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) on Azure, and use this identity to create a `TokenCredential`.
 
 ```java
 TokenCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
 ```
 
-The Connection factory can than be instantiated with the below parameters.- 
+The Connection factory can then be instantiated with the below parameters.- 
    * Token credential - Represents a credential capable of providing an OAuth token.
    * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
-   * ServiceBusJmsConnectionFactorySettings property bag which contains
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
       * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
       * traceFrames - boolean flag to collect AMQP trace frames for debugging.
       * *other configuration parameters*
 
-The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
+The factory can be created as shown here. The connection string is a required parameter, but the other properties are optional.
 
 ```java
 String host = "<YourNamespaceName>.servicebus.windows.net";
@@ -81,7 +81,7 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, 
 
 # [User Assigned Managed Identity](#tab/user-assigned-managed-identity-backed-authentication)
 
-Create a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) on Azure, and use this to create a `TokenCredential`.
+Create a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) on Azure, and use this identity to create a `TokenCredential`.
 
 ```java
 TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
@@ -89,15 +89,15 @@ TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
                                                 .build();
 ```
 
-The Connection factory can than be instantiated with the below parameters.- 
+The Connection factory can then be instantiated with the below parameters.- 
    * Token credential - Represents a credential capable of providing an OAuth token.
    * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
-   * ServiceBusJmsConnectionFactorySettings property bag which contains
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
       * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
       * traceFrames - boolean flag to collect AMQP trace frames for debugging.
       * *other configuration parameters*
 
-The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
+The factory can be created as shown here. The connection string is a required parameter, but the other properties are optional.
 
 ```java
 String host = "<YourNamespaceName>.servicebus.windows.net";
@@ -108,12 +108,12 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, 
 
 The Connection factory can be instantiated with the below parameters - 
    * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
-   * ServiceBusJmsConnectionFactorySettings property bag which contains
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
       * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
       * traceFrames - boolean flag to collect AMQP trace frames for debugging.
       * *other configuration parameters*
 
-The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
+The factory can be created as shown here. The connection string is a required parameter, but the other properties are optional.
 
 ```java
 ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, null);
@@ -129,7 +129,7 @@ Destinations map to entities in Azure Service Bus - queues (in point to point sc
 
 ### Connections
 
-A connection encapsulates a virtual connection with a JMS provider. With Azure Service Bus,this represents a stateful connection between the application and Azure Service Bus over AMQP.
+A connection encapsulates a virtual connection with a JMS provider. With Azure Service Bus, this represents a stateful connection between the application and Azure Service Bus over AMQP.
 
 A connection is created from the connection factory as shown below.
 
@@ -158,7 +158,7 @@ A session can be created with any of the below modes.
 |**Session.DUPS_OK_ACKNOWLEDGE**|This acknowledgment mode instructs the session to lazily acknowledge the delivery of messages.| 
 |**Session.SESSION_TRANSACTED**|This value may be passed as the argument to the method createSession(int sessionMode) on the Connection object to specify that the session should use a local transaction.| 
 
-When the session mode is not specified, the **Session.AUTO_ACKNOWLEDGE** is picked by default.
+When the session mode isn't specified, the **Session.AUTO_ACKNOWLEDGE** is picked by default.
 
 ### JMSContext
 
@@ -180,13 +180,13 @@ Just like the **Session** object, the JMSContext can be created with the same ac
 JMSContext context = connectionFactory.createContext(JMSContext.AUTO_ACKNOWLEDGE);
 ```
 
-When the mode is not specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
+When the mode isn't specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
 
 ### JMS message producers
 
 A message producer is an object that is created using a JMSContext or a Session and used for sending messages to a destination.
 
-It can be created either as a stand alone object as below - 
+It can be created either as a stand-alone object as below - 
 
 ```java
 JMSProducer producer = context.createProducer();
