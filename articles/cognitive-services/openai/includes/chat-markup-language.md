@@ -18,7 +18,7 @@ keywords: ChatGPT
 
 The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with ChatML. If this is your first time using these models programmatically we recommend starting with our quickstart [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/docs/apply).
+**GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 ```python
 import os
