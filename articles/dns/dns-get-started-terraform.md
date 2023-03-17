@@ -18,7 +18,6 @@ This article shows how to use [Terraform](/azure/terraform) to create an [Azure 
 In this article, you learn how to:
 
 [!div class="checklist"]
-
 * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 * Create a random string using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
