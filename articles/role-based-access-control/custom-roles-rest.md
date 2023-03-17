@@ -34,9 +34,9 @@ You must use the following version:
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
-## List all custom roles in a tenant
+## List all custom role definitions
 
-To list all custom roles in a tenant, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
+To list all custom role definitions in a tenant, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
 
 1. Start with the following request:
 
@@ -51,7 +51,7 @@ To list all custom roles in a tenant, use the [Role Definitions - List](/rest/ap
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
-    The following example lists all custom roles in a tenant:
+    The following example lists all custom role definitions in a tenant:
 
     **Request**
     
@@ -104,9 +104,9 @@ To list all custom roles in a tenant, use the [Role Definitions - List](/rest/ap
     }
     ```
 
-## List all custom roles at a scope
+## List all custom role definitions at a scope
 
-To list custom roles at a scope, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
+To list custom role definitions at a scope, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
 
 1. Start with the following request:
 
@@ -131,7 +131,7 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
-    The following example lists all custom roles in a subscription:
+    The following example lists all custom role definitions in a subscription:
     
     **Request**
     
@@ -186,7 +186,7 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
 
 ## List a custom role definition by name
 
-To get information about a custom role by its display name, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
+To get information about a custom role definition by its display name, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
 
 1. Start with the following request:
 
@@ -211,7 +211,7 @@ To get information about a custom role by its display name, use the [Role Defini
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
-    The following example lists a custom role named Billing Reader Plus in a subscription:
+    The following example lists a custom role definition named Billing Reader Plus in a subscription:
     
     **Request**
     
@@ -266,7 +266,7 @@ To get information about a custom role by its display name, use the [Role Defini
 
 ## List a custom role definition by ID
 
-To get information about a custom role by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
+To get information about a custom role definition by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API to get the GUID identifier for the role.
 
@@ -288,7 +288,7 @@ To get information about a custom role by its unique identifier, use the [Role D
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the role definition.
 
-    The following example lists a custom role with the identifier 17adabda-4bf1-4f4e-8c97-1f0cab6dea1c in a subscription:
+    The following example lists a custom role definition with the identifier 17adabda-4bf1-4f4e-8c97-1f0cab6dea1c in a subscription:
    
     **Request**
     
@@ -440,7 +440,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/role-definitions/create-or-update) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) include this permission.
 
-1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get information about the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
+1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get information about the custom role. For more information, see the earlier [List all custom role definitions](#list-all-custom-role-definitions) section.
 
 1. Start with the following request:
 
@@ -532,7 +532,7 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 1. Remove any role assignments that use the custom role. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
-1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get the GUID identifier of the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
+1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get the GUID identifier of the custom role. For more information, see the earlier [List all custom role definitions](#list-all-custom-role-definitions) section.
 
 1. Start with the following request:
 
