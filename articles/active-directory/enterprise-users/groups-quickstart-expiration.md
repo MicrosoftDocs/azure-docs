@@ -1,6 +1,6 @@
 ---
 title: Group expiration policy quickstart 
-description: Expiration for Microsoft 365 groups - Azure Active Directory
+description: Expiration for Microsoft 365 groups
 services: active-directory
 documentationcenter: ''
 author: barclayn

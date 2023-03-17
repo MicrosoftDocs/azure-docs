@@ -1,5 +1,5 @@
 ---
-title: Users and groups in Conditional Access policy - Azure Active Directory
+title: Users and groups in Conditional Access policy
 description: Who are users and groups in an Azure AD Conditional Access policy
 
 services: active-directory

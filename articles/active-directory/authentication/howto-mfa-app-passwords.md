@@ -1,5 +1,5 @@
 ---
-title: Configure app passwords for Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Configure app passwords for Azure AD Multi-Factor Authentication
 description: Learn how to configure and use app passwords for legacy applications in Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication

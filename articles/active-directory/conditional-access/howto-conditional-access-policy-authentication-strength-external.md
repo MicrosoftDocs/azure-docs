@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Authentication strength for external users - Azure Active Directory
+title: Conditional Access - Authentication strength for external users
 description: Create a custom Conditional Access policy with authentication strength to require specific multifactor authentication (MFA) methods for external users.
 
 services: active-directory

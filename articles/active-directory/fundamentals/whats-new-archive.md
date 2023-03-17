@@ -339,7 +339,7 @@ Previously to set up and administer your AAD-DS instance you needed top level pe
 Check out these resources to learn more:
 
 - [Tutorial - Create an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
-- [Least privileged roles by task - Azure Active Directory](../roles/delegate-by-task.md#domain-services)
+- [Least privileged roles by task](../roles/delegate-by-task.md#domain-services)
 - [Azure built-in roles - Azure RBAC](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
 
  

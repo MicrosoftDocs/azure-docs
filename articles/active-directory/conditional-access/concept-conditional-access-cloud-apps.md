@@ -1,5 +1,5 @@
 ---
-title: Cloud apps, actions, and authentication context in Conditional Access policy - Azure Active Directory
+title: Cloud apps, actions, and authentication context in Conditional Access policy
 description: What are cloud apps, actions, and authentication context in an Azure AD Conditional Access policy
 
 services: active-directory

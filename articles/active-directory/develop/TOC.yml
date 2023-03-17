@@ -137,6 +137,8 @@
               href: active-directory-jwt-claims-customization.md
             - name: Customize SAML claims
               href: active-directory-saml-claims-customization.md
+            - name: Set an access token lifetime policy
+              href: registration-config-change-token-lifetime-how-to.md
             - name: Directory extension attributes
               href: active-directory-schema-extensions.md
             - name: SAML app multi-instancing
