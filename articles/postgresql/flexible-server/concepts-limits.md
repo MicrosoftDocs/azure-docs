@@ -89,7 +89,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you'll need to use the [Single Server](../overview-single-server.md) option which supports the older major versions 95, 96 and 10.
 - Flexible Server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions).
-- - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
+- Built-in PgBouncer connection pooler is currently not available for Burstable servers.
 - SCRAM authentication isn't supported with connectivity using built-in PgBouncer.
    
 ### Stop/start operation
@@ -118,5 +118,5 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Understand [what’s available for compute and storage options](concepts-compute-storage.md)
 - Learn about [Supported PostgreSQL Database Versions](concepts-supported-versions.md)
-- - Review [how to back up and restore a server in Azure Database for PostgreSQL using the Azure portal](how-to-restore-server-portal.md)
+- Review [how to back up and restore a server in Azure Database for PostgreSQL using the Azure portal](how-to-restore-server-portal.md)
 
