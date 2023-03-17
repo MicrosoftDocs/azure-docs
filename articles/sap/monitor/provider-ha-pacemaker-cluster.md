@@ -57,13 +57,13 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
     ```
 
     ```bash
-    . ./install
+    ./Install
     ```
 
 1. Enable and start the `pmproxy` service.
 
     ```bash
-    sstemctl start pmproxy
+    systemctl start pmproxy
     ```
 
     ```bash

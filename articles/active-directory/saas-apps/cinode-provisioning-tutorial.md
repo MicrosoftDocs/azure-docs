@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Cinode for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cinode for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cinode.
 services: active-directory
 documentationcenter: ''

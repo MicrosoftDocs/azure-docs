@@ -1,5 +1,5 @@
 ---
-title: Configure PIM for Groups settings (preview) - Azure Active Directory
+title: Configure PIM for Groups settings (preview)
 description: Learn how to configure PIM for Groups settings (preview).
 services: active-directory
 documentationcenter: ''
@@ -27,7 +27,7 @@ You need to have Global Administrator, Privileged Role Administrator, or group O
 
 Follow these steps to open the settings for a group role. 
 
-1. [Sign in to Azure AD portal](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
 

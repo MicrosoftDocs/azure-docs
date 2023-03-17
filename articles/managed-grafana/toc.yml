@@ -37,7 +37,9 @@ items:
     href: how-to-permissions.md
   - name: Create a dashboard
     href: how-to-create-dashboard.md
-  - name: Share access to Azure Managed Grafana
+  - name: Share a dashboard
+    href: how-to-share-dashboard.md
+  - name: Share a workspace
     href: how-to-share-grafana-workspace.md
   - name: Configure SMTP settings
     href: how-to-smtp-settings.md

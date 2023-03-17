@@ -17,7 +17,7 @@ ms.custom: template-tutorial
 
 This tutorial provides a step-by-step guide on how to configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Azure portal.
 
-This post off-boarding scenario will run a scheduled workflow and accomplish the following tasks:
+This post off-boarding scenario runs a scheduled workflow and accomplishes the following tasks:
  
 1. Remove all licenses for user
 2. Remove user from all Teams
@@ -25,13 +25,11 @@ This post off-boarding scenario will run a scheduled workflow and accomplish the
 
 ## Prerequisites
 
-- Azure AD Premium P2
-
-For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ##  Before you begin
 
-As part of the prerequisites for completing this tutorial, you will need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).
 
 The scheduled leaver scenario can be broken down into the following:
 -	**Prerequisite:** Create a user account that represents an employee leaving your organization
@@ -43,7 +41,7 @@ The scheduled leaver scenario can be broken down into the following:
 ## Create a workflow using scheduled leaver template
 Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Azure portal.
 
- 1.  Sign in to Azure portal
+ 1.  Sign in to Azure portal.
  2.  On the right, select **Azure Active Directory**.
  3.  Select **Identity Governance**.
  4.  Select **Lifecycle workflows (Preview)**.
@@ -53,13 +51,13 @@ Use the following steps to create a scheduled leaver workflow that will configur
  6. From the templates, select **Select** under **Post-offboarding of an employee**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/select-leaver-template.png" alt-text="Screenshot of selecting a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/select-leaver-template.png":::
 
- 7. Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
+ 7. Next, you'll configure the basic information about the workflow.  This information includes when the workflow triggers, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
    :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-basics.png" alt-text="Screenshot of leaver template basics information for a workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-basics.png":::
  
- 8. Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**. For a full list of supported user properties, see: [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
+ 8. Next, you'll configure the scope. The scope determines which users this workflow runs against.  In this case, it is on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**. For a full list of supported user properties, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
    :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-scope.png" alt-text="Screenshot of reviewing scope details for a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-scope.png":::
 
- 9. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you are finished.
+ 9. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you're finished.
    :::image type="content" source="media/tutorial-lifecycle-workflows/review-leaver-tasks.png" alt-text="Screenshot of leaver workflow tasks." lightbox="media/tutorial-lifecycle-workflows/review-leaver-tasks.png":::
 
 10. On the review blade, verify the information is correct and select **Create**.
@@ -69,7 +67,7 @@ Use the following steps to create a scheduled leaver workflow that will configur
 > Select **Create** with the **Enable schedule** box unchecked to run the workflow on-demand. You may enable this setting later after checking the tasks and workflow status. 
 
 ## Run the workflow 
-Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows will check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
+Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
 
 >[!NOTE]
 >Be aware that you currently cannot run a workflow on-demand if it is set to disabled.  You need to set the workflow to enabled to use the on-demand feature.
@@ -85,12 +83,12 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
  
 ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks which are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we will look at the status using the user focused reports.
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we'll look at the status using the user focused reports.
 
  1. To begin, select the **Workflow history (Preview)** tab on the left to view the user summary and associated workflow tasks and statuses.  
  :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png" alt-text="Screenshot of the workflow history summary." lightbox="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png":::
 
-1. Once the **Workflow history (Preview)** tab has been selected, you will land on the workflow history page as shown.
+1. Once the **Workflow history (Preview)** tab has been selected, you'll land on the workflow history page as shown.
  :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png" alt-text="Screenshot of the workflow history overview." lightbox="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png":::
 
 1. Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  

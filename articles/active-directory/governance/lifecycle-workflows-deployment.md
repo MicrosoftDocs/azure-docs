@@ -67,7 +67,7 @@ For Lifecycle Workflows, you'll likely include representatives from the followin
    * Ensures that programmatic Lifecycle Workflows, via GRAPH or extensibility, are governed and reviewed.
 
 
-- **Security Owner**	ensures that the plan will meet the security requirements of your organization.  This team:
+- **Security Owner**	ensures that the plan meets the security requirements of your organization.  This team:
     - Ensure Lifecycle Workflows meet organizational security policies
 
  - **Compliance manager** ensures that the organization follows internal policy and complies with regulations. This team:
@@ -76,7 +76,7 @@ For Lifecycle Workflows, you'll likely include representatives from the followin
    * Assesses processes and procedures for reviewing Lifecycle Workflows, which include documentation and record keeping for compliance.
    * Reviews results of past reviews for most critical resources.
 - **HR Representative** - Assists with attribute mapping and population in HR provisioning scenarios.  This team:
-    * Helps determine attributes that will be used to populate employeeHireDate and employeeLeaveDateTime.
+    * Helps determine attributes that are used to populate employeeHireDate and employeeLeaveDateTime.
     * Ensures source attributes are populated and have values
     * Identifies and suggests alternate attributes that could be mapped to employeeHireDate and employeeLeaveDateTime 
 
@@ -110,7 +110,7 @@ The following information is important information about your organization and t
 |Item|Description|Documentation|
 |-----|-----|-----|
 |Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)<br><br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
-|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have additional attributes that will be used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
+|Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have extra attributes that are used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Understanding parts of a workflow
 
@@ -128,7 +128,7 @@ The following table provides information that you need to be aware of as you cre
 |-----|-----|
 |Workflows|50 workflow limit per tenant|
 |Number of custom tasks|limit of 25 per workflow|
-|Value range for offsetInDays|Between -60 and 60 days|
+|Value range for offsetInDays|Between -180 and 180 days|
 |Workflow execution schedule|Default every 3 hours - can be set to run anywhere from 1 to 24 hours|
 |Custom task extensions|Limit of 100|
 |On-demand user limit|You can run an on-demand workflow against a maximum of 10 users|
@@ -147,17 +147,17 @@ The following table provides a quick checklist of steps you can use when designi
 |Step|Description|
 |-----|-----|
 |[Determine your scenario](#determine-your-scenario)|Determine what scenario you're addressing with a workflow|
-|[Determine the execution conditions](#determine-the-execution-conditions)|Determine who and when the workflow will run|
+|[Determine the execution conditions](#determine-the-execution-conditions)|Determine who and when the workflow runs|
 |[Review the tasks](#review-the-tasks)|Review and add additional tasks to the workflow|
 |[Create your workflow](#create-your-workflow)|Create your workflow after planning and design.|
 |[Plan a pilot](#plan-a-pilot)|Plan to pilot, run, and test your workflow.|
 
 ## Determine your scenario
-Before building a Lifecycle Workflow in the portal, you should determine which scenario or scenarios you wish to deploy.  You can use the table below to see a current list of the available scenarios.  These are based on the templates that are available in the portal and list the task associated with each one.
+Before building a Lifecycle Workflow in the portal, you should determine which scenario or scenarios you wish to deploy.  You can use the following table to see a current list of the available scenarios.  These are based on the templates that are available in the portal and list the task associated with each one.
 
-|Scenario|Pre-defined Tasks|
+|Scenario|Predefined Tasks|
 |-----|-----|
-|Onboard pre-hire employee| Generate TAP and Send Email|	
+|Onboard prehire employee| Generate TAP and Send Email|	
 |Onboard new hire employee|Enable User Account</br>Send Welcome Email</br>Add User To Groups|
 |Real-time employee termination|Remove user from all groups</br>Remove user from all Teams</br>Delete User Account|
 |Pre-Offboarding of an employee|Remove user from selected groups</br>Remove user from selected Teams|
@@ -168,13 +168,13 @@ For more information on the built-in templates, see [Lifecycle Workflow template
 
 
 ## Determine the execution conditions
-Now that you've determined your scenarios, you need to look at what users in your organization the scenarios will apply to.
+Now that you've determined your scenarios, you need to look at what users in your organization the scenarios apply to.
 
 An Execution condition is the part of a workflow that defines the scope of **who** and the trigger of **when** a workflow will be performed.
 
-The [scope](understanding-lifecycle-workflows.md#configure-scope) determines who the workflow runs against.  This is defined by a rule that will filter users based on a condition.  For example, the rule, `"rule": "(department eq 'sales')"` will run the task only on users who are members of the sales department.
+The [scope](understanding-lifecycle-workflows.md#configure-scope) determines who the workflow runs against.  This is defined by a rule that will filter users based on a condition.  For example, the rule, `"rule": "(department eq 'sales')"` runs the task only on users who are members of the sales department.
 
-The [trigger](understanding-lifecycle-workflows.md#trigger-details) determines when the workflow will run.  This can either be, on-demand, which is immediate, or time based.  Most of the pre-defined templates in the portal are time based.  
+The [trigger](understanding-lifecycle-workflows.md#trigger-details) determines when the workflow runs.  This can either be, on-demand, which is immediate, or time based.  Most of the predefined templates in the portal are time based.  
 
 ### Attribute information
 The scope of a workflow uses attributes under the rule section.  You can add the following extra conditionals to further refine **who** the tasks are applied to.
@@ -200,7 +200,7 @@ The following is some important information regarding time zones that you should
 For more information, see [How to synchronize attributes for Lifecycle Workflows](../governance/how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Review the tasks
-Now that we've determined the scenario and the who and when, you should consider whether the pre-defined tasks are sufficient or are you going to need additional tasks.  The table below has a list of the pre-defined tasks that are currently in the portal.  Use this table to determine if you want to add more tasks.
+Now that we've determined the scenario and the who and when, you should consider whether the predefined tasks are sufficient or are you going to need extra tasks.  The following table has a list of the predefined tasks that are currently in the portal.  Use this table to determine if you want to add more tasks.
 
 |Task|Description|Relevant Scenarios|
 |-----|-----|-----|
@@ -225,18 +225,18 @@ Now that we've determined the scenario and the who and when, you should consider
 For more information on tasks, see [Lifecycle Workflow tasks](lifecycle-workflow-tasks.md).
 
 ### Group and team tasks
-If you're using a group or team task, the workflow will need you to specify the group or groups.  In the screenshot below, you'll see the yellow triangle on the task indicating that it's missing information.  
+If you're using a group or team task, the workflow needs you to specify the group or groups.  In the following screenshot, you see the yellow triangle on the task indicating that it's missing information.  
 
  [![Screenshot of onboard new hire.](media/lifecycle-workflows-deployment/group-1.png)](media/lifecycle-workflows-deployment/group-1.png#lightbox)
 
-By clicking on the task, you'll be presented with a navigation bar to add or remove groups.  Select the "x groups selected" link to add groups.
+By clicking on the task, you are presented with a navigation bar to add or remove groups.  Select the "x groups selected" link to add groups.
 
  [![Screenshot of add groups.](media/lifecycle-workflows-deployment/group-2.png)](media/lifecycle-workflows-deployment/group-2.png#lightbox)
 
 ### Custom task extensions
-Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you'll be able to utilize the concept of custom task extensions to call-out to external systems as part of a Lifecycle Workflow. 
+Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you are able to utilize the concept of custom task extensions to call-out to external systems as part of a Lifecycle Workflow. 
 
-When creating custom task extensions, the scenarios for how it will interact with Lifecycle Workflows can be one of three ways:
+When creating custom task extensions, the scenarios for how it interacts with Lifecycle Workflows can be one of three ways:
 
 - **Fire-and-forget scenario**- The Logic App is started, and the sequential task execution immediately continues with no response expected from the Logic App. 
 - **Sequential task execution waiting for response from the Logic App** - The Logic app is started, and the sequential task execution waits on the response from the Logic App.
@@ -263,7 +263,7 @@ For more information, see [Best practices for a pilot.](../fundamentals/active-d
 #### Test and run the workflow
 Once you've created a workflow, you should test it by running the workflow [on-demand](on-demand-workflow.md)
 
-Using the on-demand feature will allow you to test and evaluate whether the Lifecycle Workflow is working as intended.
+Using the on-demand feature allows you to test and evaluate whether the Lifecycle Workflow is working as intended.
 
 Once you have completed testing, you can either rework the Lifecycle Workflow or get ready for a broader distribution.
 
@@ -276,10 +276,10 @@ You can also get more information from the audit logs.  These logs can be access
 
 |Stage|Description|
 | - | - |
-|Determine the scenario| A pre-hire workflow that sends email to new manager. |
-|Determine the execution conditions|The workflow will run on new employees in the sales department, two(2) days before the employeeHireDate.|
-|Review the tasks.|We'll use the pre-defined tasks in the workflow.  No extra tasks will be added.|
-|Create the workflow in the portal|Use the pre-defined template for new hire in the portal.|
+|Determine the scenario| A prehire workflow that sends email to new manager. |
+|Determine the execution conditions|The workflow runs on new employees in the sales department, two (2) days before the employeeHireDate.|
+|Review the tasks.|We use the predefined tasks in the workflow.  No extra tasks are added.|
+|Create the workflow in the portal|Use the predefined template for new hire in the portal.|
 |Enable and test the workflow| Use the on-demand feature to test the workflow on one user.|
 |Review the test results|Review the test results and ensure the Lifecycle Workflow is working as intended.|
 |Roll out the workflow to a broader audience|Communicate with stakeholders, letting them know that is going live and that HR will no longer need to send an email to the hiring manager.

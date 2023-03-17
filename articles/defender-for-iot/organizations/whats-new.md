@@ -3,6 +3,7 @@ title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
 ms.date: 02/22/2023
+ms.custom: enterprise-iot
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -31,7 +32,7 @@ Microsoft Sentinel's new [incident experience](https://techcommunity.microsoft.c
 
 - **Review OT alert remediation steps** directly on the incident details page
 
-For more information, see [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md) and [Navigate and investigate incidents in Microsoft Sentinel](/azure/sentinel/investigate-incidents).
+For more information, see [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md) and [Navigate and investigate incidents in Microsoft Sentinel](../../sentinel/investigate-incidents.md).
 
 ## February 2023
 
@@ -43,7 +44,7 @@ For more information, see [Tutorial: Investigate and detect threats for IoT devi
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
-[Version 2.0.2](release-notes-sentinel.md#version-202) of the Microsoft Defender for IoT solution is now available in the [Microsoft Sentinel content hub](/azure/sentinel/sentinel-solutions-catalog), with improvements in analytics rules for incident creation, an enhanced incident details page, and performance improvements for analytics rule queries.
+[Version 2.0.2](release-notes-sentinel.md#version-202) of the Microsoft Defender for IoT solution is now available in the [Microsoft Sentinel content hub](../../sentinel/sentinel-solutions-catalog.md), with improvements in analytics rules for incident creation, an enhanced incident details page, and performance improvements for analytics rule queries.
 
 For more information, see:
 
