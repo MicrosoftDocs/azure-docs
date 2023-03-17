@@ -1,6 +1,6 @@
 ---
-title: Sign-in logs (preview) in Azure Active Directory
-description: Conceptual information about Azure AD sign-in logs, including new features in preview. 
+title: Sign-in logs (preview)
+description: Conceptual information about sign-in logs, including new features in preview. 
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/12/2023
+ms.date: 03/17/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -104,6 +104,10 @@ In addition to the default fields, the interactive sign-in log also shows:
 You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Screenshot customize columns button.](./media/concept-all-sign-ins/sign-in-logs-columns-preview.png)
+
+#### Considerations for MFA sign-ins
+
+When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user takes 10 minutes to complete the MFA sign-in, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events will all have the same `correlationId`.
 
 ### Non-interactive user sign-ins
 

@@ -159,6 +159,10 @@ When analyzing authentication details, take note of the following details:
     - The **Primary authentication** row isn't initially logged.
 - If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
 
+#### Considerations for MFA sign-ins
+
+When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user takes 10 minutes to complete the MFA sign-in, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events will all have the same `correlationId`.
+
 ## Sign-in data used by other services
 
 Sign-in data is used by several services in Azure to monitor risky sign-ins and provide insight into application usage. 
