@@ -664,10 +664,10 @@ There are two important results you'll want to see about training:
 * View your logs:
     1. Select the **Outputs+logs** tab.
     1. Open the folders to `user_logs` > `std_log.txt`
-    This section shows the script run sdtout.
+    This section shows the script run stdout.
     :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt." lightbox="media/tutorial-pipeline-python-sdk/user-logs.jpg":::
 
-* View your metrics: Select the **Metris** tab.  This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
+* View your metrics: Select the **Metrics** tab.  This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
     
     :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt." lightbox="media/tutorial-pipeline-python-sdk/metrics.jpg":::
 
