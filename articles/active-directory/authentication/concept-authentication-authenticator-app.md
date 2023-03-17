@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator authentication method - Azure Active Directory
+title: Microsoft Authenticator authentication method
 description: Learn about using the Microsoft Authenticator in Azure Active Directory to help secure your sign-ins
 
 services: active-directory
