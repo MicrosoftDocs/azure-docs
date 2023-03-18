@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 
 Bring Your Own Storage (BYOS) for Call Recording allows you to specify an Azure blob storage account for storing call recording files. BYOS enables businesses to store their data in a way that meets their compliance requirements and business needs. For example, end-users could customize their own rules and access to the data, enabling them to store or delete content whenever they need it. BYOS provides a simple and straightforward solution that eliminates the need for developers to invest time and resources in downloading and exporting files.
 
-Are the same Azure Communication Services Call Recording APIs that you can use to export recordings to your Azure Blob Storage Container. While starting recording for a call, simply specify the container path where the recording needs to be exported. Upon recording completion, Azure Communication Services will automatically fetch and upload your recording to your storage.
+The same Azure Communication Services Call Recording APIs are used to export recordings to your Azure Blob Storage Container. While starting recording for a call, specify the container path where the recording needs to be exported. Upon recording completion, Azure Communication Services automatically fetch and upload your recording to your storage.
 
 ![Diagram showing a call recording being automatically exported to storage container](../media/byos-concept.png)
 
@@ -29,8 +29,8 @@ BYOS uses [Azure Managed Identities](../../../../active-directory/managed-identi
 
 ## Known Issues
 
-- When using BYOS for Call Recording in Private Preview, after exporting your files, those will be stored also in a built-in storage for 48 hours.
-- Randomly you will see duplicated recording files being exported to your blob storage when using BYOS. Please make sure you delete the duplicated file to avoid extra storage costs in your storage account.
+- After exporting your files, during Private Preview, those files will be also stored in a built-in storage for 48 hours.
+- Randomly, recording files are duplicated during the exporting process when using BYOS. Make sure you delete the duplicated file to avoid extra storage costs in your storage account.
 
 
 ## Next steps
