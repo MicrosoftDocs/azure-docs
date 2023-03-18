@@ -25,7 +25,7 @@ The **Diagnose and solve problems** tab in Azure Portal is a useful resource to 
 
 If neither the Diagnose and Solve problems tool nor the diagnostics documentation helped solve your problem, please see the following sections for more specific troubleshooting guidance.
 
-## Orchestration is stuck in the Pending state
+## Orchestration is stuck in the `Pending` state
 
 This section aplies to the scenario when orchestration couldn't be started successfully. 
 
@@ -55,7 +55,7 @@ This section aplies to the scenario when orchestration couldn't be started succe
 ## Orchestration runs slowly
 
 1. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is enabled.  
-   Excessive history load can result in extremely slow orchestrator processing. The detailed instruction could be seen [here](./durable-functions-azure-storage-provider.md)
+   Excessive history load can result in extremely slow orchestrator processing.
 
 2. Check for performance and scalability bottlenecks. 
    Performance issues can include many aspects. For example, high CPU usage, or large memory consumption could result in a delay. Please read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed information.
@@ -63,10 +63,10 @@ This section aplies to the scenario when orchestration couldn't be started succe
 ## Sample Queries
 
 ### Azure Storage Messaging
-When using the default storage provider, all Durable Function behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
+When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
 Starting in v2.3.0, customers can get access to these logs by updating their host.json configuration. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for more information.
 
-To see the Azure Storage query result, please add the following configuration in your host.json file.  
+To see results for the Azure Storage sample queries below, please add the following configuration in your host.json file.  
 
 ```json
 { 
@@ -80,10 +80,10 @@ To see the Azure Storage query result, please add the following configuration in
  } 
 ```
 
-The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit the and `start` and `targetInstanceId` to filter by time range and instanceId.
+The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit `start` and `targetInstanceId` to filter by time range and instance ID.
 
 ```kusto
-let start = datetime(2017-09-30T04:30:00); // edit this 
+let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this 
 let targetInstanceId = "XXXXXXX"; //edit this
 traces  
 | where timestamp > start and timestamp < start + 1h 
@@ -121,14 +121,14 @@ let start = datetime(2017-09-30T04:30:00);
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"])) 
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay != true 
-| where instanceId in ("XXX", "XXX", ”XXX”) 
+| where instanceId in ("XXX", "XXX", ”XXX”) //edit this
 | sort by timestamp asc 
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName 
 ```
 
 ### Trace Errors/Warnings
 
-The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for the `targetInstanceId` parameter.
+The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for `targetInstanceId`.
 
 ```kusto
 let targetInstanceId = "XXXXXX"; // edit this
