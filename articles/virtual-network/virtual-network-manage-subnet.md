@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/13/2023
+ms.date: 03/18/2023
 ms.author: allensu
 ---
 
@@ -75,7 +75,7 @@ To do tasks on subnets, your account must be assigned to the [Network contributo
 1. On the **Virtual networks** page, select the virtual network you want to add a subnet to.
 1. On the virtual network page, select **Subnets** from the left navigation.
 1. On the **Subnets** page, select **+ Subnet**.
-1. On the **Add subnet** screen, enter values for the subnet settings.
+1. On the **Add subnet** screen, enter or select values for the subnet settings.
 1. Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
@@ -91,13 +91,14 @@ az network vnet subnet create --name <subnetName> --resource-group <resourceGrou
 1. Use the [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) command to configure the subnet.
 
    ```azurepowershell-interactive
-   Add-AzVirtualNetworkSubnetConfig -Name <SubnetName> -VirtualNetwork <VirtualNetworkName> -AddressPrefix <String[]>
+   $vnet = Get-AzVirtualNetwork -Name <virtualNetworkName> -ResourceGroupName <resourceGroupName>
+   Add-AzVirtualNetworkSubnetConfig -Name <subnetName> -VirtualNetwork $vnet -AddressPrefix <String[]>
    ```
 
 1. Then associate the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
    ```azurepowershell-interactive
-   Set-AzVirtualNetwork
+   Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
 
 ---
@@ -175,7 +176,7 @@ az network vnet subnet delete --name <subnetName> --resource-group <resourceGrou
 Run the [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) command and then set the configuration.
 
 ```azurepowershell-interactive
-Remove-AzVirtualNetworkSubnetConfig -Name <subnetName> -VirtualNetwork <virtualNetworkName> | Set-AzVirtualNetwork
+Remove-AzVirtualNetworkSubnetConfig -Name <subnetName> -VirtualNetwork $vnet | Set-AzVirtualNetwork
 ```
 
 ---

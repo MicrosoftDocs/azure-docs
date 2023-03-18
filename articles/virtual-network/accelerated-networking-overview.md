@@ -91,7 +91,8 @@ The following Linux and FreeBSD distributions from the Azure Gallery support Acc
     --output table
   ```
 
-  Although NC and NV sizes appear in the command output, those sizes don't support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs has no effect.
+  >[!NOTE]
+  >Although NC and NV sizes appear in the command output, those sizes don't support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs has no effect.
 
 ### Custom VM images
 

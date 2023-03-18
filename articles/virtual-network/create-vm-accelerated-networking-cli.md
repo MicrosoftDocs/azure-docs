@@ -138,7 +138,7 @@ After the VM is created, you get output similar to the following example. Take n
    ssh <myAdminUser>@<myPublicIp>
    ```
 
-1. From the Bash shell, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
+1. From a Bash shell on the remote VM, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
    - **Ubuntu 16.04**: 4.11.0-1013.
    - **SLES SP3**: 4.4.92-6.18.
@@ -274,14 +274,14 @@ If the VM uses a [supported operating system](./accelerated-networking-overview.
 
 To enable or disable Accelerated Networking for an existing VM through the Azure portal:
 
-1. From the portal page for the VM, select **Networking** from the left menu.
+1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
 1. On the **Networking** page, select the **Network Interface**.
 1. At the top of the NIC **Overview** page, select **Edit accelerated networking**.
 1. Select **Automatic**, **Enabled**, or **Disabled**, and then select **Save**.
 
 To confirm whether Accelerated Networking is enabled for an existing VM:
 
-1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
+1. From the portal page for the VM, select **Networking** from the left menu.
 1. On the **Networking** page, select the **Network Interface**.
 1. On the network interface **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
 
