@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/07/2023
+ms.date: 03/17/2023
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -25,12 +25,14 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select the VM that you want to add the public IP address to.
+
+1. In the portal, search for and select the VM that you want to add the public IP address to.
+
 1. Under **Settings** in the left pane, select **Networking**, and then select the network interface you want to add the public IP address to.
 
     :::image type="content" source="./media/associate-public-ip-address-vm/select-nic.png" alt-text="Screenshot showing how to select the network interface of a VM.":::

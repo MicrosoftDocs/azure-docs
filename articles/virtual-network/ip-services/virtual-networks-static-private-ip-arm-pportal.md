@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 03/17/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -16,7 +16,7 @@ When you create a virtual machine (VM), it's automatically assigned a private IP
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a VM
 
@@ -24,68 +24,39 @@ Use the following steps to create a VM, and its virtual network and subnet:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
+1. In the portal, search for and select **Virtual machines**.
 
 1. Select **Create** > **Azure virtual machine**.
 
-1. From the **Create a virtual machine** window, in the **Basics** tab, enter or select this information in the following sections:
+1. On the **Basics** tab of the **Create a virtual machine** screen, enter or select the following values:
 
-    **Project details**
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Subscription** | Select your subscription. |
-    | **Resource group** | Select **Create new**, enter *myResourceGroup* for the **Name**, and then select **OK**. |
-
-    **Instance details**
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Virtual machine name** | Enter *myVM*. |
-    | **Region** | Select **(US) East US 2**. |
-    | **Availability options** | Select **No infrastructure redundancy required**. |
-    | **Security type** | Select **Standard**. |
-    | **Image** | Select **Windows Server 2019 Datacenter - x64 Gen2**. |
-    | **Run with Azure Spot discount** | Leave unchecked. |
-    | **Size** | Select a size. |
-
-    **Administrator account**
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Authentication type** | Select **Password**. |
-    | **Username** | Enter a username. |
-    | **Password** | Enter a password. |
-    | **Confirm password** | Reenter password. |
-
-    **Inbound port rules**
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Public inbound ports** | Select **Allow selected ports**. |
-    | **Select inbound ports** | Select **RDP (3389)**. |
+   - **Subscription**: Keep the default or select a different subscription.
+   - **Resource group**: Select **Create new**, and then name the group *myResourceGroup*.
+   - **Virtual machine name**: Enter *myVM*.
+   - **Region**: Select **(US) East US**.
+   - **Availability options**: Select **No infrastructure redundancy required**.
+   - **Image**: Select **Windows Server 2019 Datacenter - x64 Gen2**.
+   - **Size**: Accept the default, or drop down and select a size.
+   - **Username**, **Password**, and **Confirm password**: Enter an admin username and password for the VM.
+   - **Public inbound ports**: Select **Allow selected ports**.
+   - **Select inbound ports**: Select **RDP (3389)**.
 
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot that shows the Basic tab of the Create a virtual machine window.":::
 
     > [!WARNING]
     > In this example, you open port 3389 to enable remote access to the Windows Server VM from the internet. However, opening port 3389 to the internet is not recommended to manage production workloads. For information about secure access to Azure VMs, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
 
-1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+1. Select the **Networking** tab at the top of the page.
   
-1. In the **Networking** tab, select or enter:
+1. On the **Networking** page, enter or select the following values:
 
-    | Setting | Value |
-    |-|-|
-    | **Virtual network** | Accept the default network name. |
-    | **Subnet** | Accept the default subnet configuration. |
-    | **Public IP** | Accept the default public IP configuration. |
-    | **NIC network security group** | Select **Basic**. |
-    | **Public inbound ports** | Select **Allow selected ports**. |
-    | **Select inbound ports** | Select **RDP (3389)**. |
+   - **Virtual network**: Accept the default network name.
+   - **Subnet**: Select **default** if not already selected.
+   - **Public IP**: Accept the default public IP configuration.
+   - **Public inbound ports**: Select **Allow selected ports**.
+   - **Select inbound ports**: Select **RDP (3389)**.
 
-1. Select **Review + create**.
-  
-1. Review the settings, and then select **Create**.
+1. Select **Review + create**. Review the settings, and then select **Create**.
 
 [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
@@ -93,7 +64,7 @@ Use the following steps to create a VM, and its virtual network and subnet:
 
 In this procedure, you change the private IP address from **dynamic** to **static** for the VM you created previously:
 
-1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
+1. In the portal, search for and select **Virtual machines**.
 
 2. In **Virtual machines**, select **myVM** from the list.
 
@@ -125,11 +96,11 @@ In this procedure, you change the private IP address from **dynamic** to **stati
 
 When you're finished, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal, and then select **myResourceGroup** in the search results.
+1. In the portal, search for and select **myResourceGroup**.
 
-2. Select **Delete resource group**.
+1. From the **myResourceGroup** screen, select **Delete resource group**.
 
-3. Enter *myResourceGroup* for **Enter resource group name to confirm deletion**, and then select **Delete**.
+1. Enter *myResourceGroup* for **Enter resource group name to confirm deletion**, and then select **Delete**.
 
 ## Next steps
 
