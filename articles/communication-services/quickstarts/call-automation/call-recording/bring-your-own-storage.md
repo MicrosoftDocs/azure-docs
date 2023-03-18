@@ -8,7 +8,7 @@ services: azure-communication-services
 ms.date: 03/17/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: call recording
+ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
 ms.custom: mode-api
 ---
@@ -105,6 +105,6 @@ Refer to this example of the event schema.
 For more information, see the following articles:
 
 - Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording) and [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording) call recording sample apps 
-- Learn more about [Call Recording](../../concepts/voice-video-calling/call-recording.md)
-- Learn more about [Call Automation](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/call-automation)
+- Learn more about [Call Recording](../../../concepts/voice-video-calling/call-recording.md)
+- Learn more about [Call Automation](../../../concepts/call-automation/call-automation.md)
 

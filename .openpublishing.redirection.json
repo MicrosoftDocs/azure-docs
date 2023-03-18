@@ -22455,6 +22455,11 @@
             "source_path": "articles/batch/high-availability-disaster-recovery.md",
             "redirect_URL": "/azure/reliability/reliability-batch",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/bring-your-own-storage.md",
+            "redirect_url": "/azure/communication-services/concepts/call-automation/call-recording/bring-your-own-storage",
+            "redirect_document_id": false
         }
        
     ]

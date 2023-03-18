@@ -36,6 +36,6 @@ BYOS uses [Azure Managed Identities](../../../../active-directory/managed-identi
 ## Next steps
 For more information, see the following articles:
 - Learn more about BYOS, check out the [BYOS Quickstart](../../../quickstarts/call-automation/call-recording/bring-your-own-storage.md).
-- Learn more about Call recording, check out the [Call Recording Quickstart](../quickstarts/voice-video-calling/get-started-call-recording.md).
-- Learn more about [Call Automation](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp).
+- Learn more about Call recording, check out the [Call Recording Quickstart](../../../quickstarts/voice-video-calling/get-started-call-recording.md).
+- Learn more about [Call Automation](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 
