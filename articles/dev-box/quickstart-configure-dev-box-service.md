@@ -114,9 +114,10 @@ You now need a network connection to associate the virtual network and subnet wi
 
 - To determine which type of join is appropriate for your dev boxes, refer to:
    
-   - [Azure AD joined devices](https://https://learn.microsoft.com/en-us/azure/active-directory/devices/concept-azure-ad-join).
-   - [Hybrid Azure AD joined devices](https://https://learn.microsoft.com/en-us/azure/active-directory/devices/concept-azure-ad-join-hybrid).
-To create the connection, complete the steps on the relevant tab.
+   - [Azure AD joined devices](/azure/active-directory/devices/concept-azure-ad-join).
+   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-azure-ad-join-hybrid).
+
+To create the network connection, complete the steps on the relevant tab.
 
 #### [Azure AD join](#tab/AzureADJoin/)
 
@@ -300,7 +301,7 @@ The Azure portal deploys the dev box pool and runs health checks to ensure that 
 
 :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-populated.png" alt-text="Screenshot that shows a list of dev box pools and status information.":::
 
-## Provide access to a dev box project for developers
+## Provide access to a dev box project
 
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables dev box users to create, manage, and delete their own dev boxes. You must have sufficient permissions to a project before you can add users to it.
 
