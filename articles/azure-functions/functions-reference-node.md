@@ -15,7 +15,7 @@ zone_pivot_groups: functions-nodejs-model
 This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you've already read the [Azure Functions developer guide](functions-reference.md).
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3.x. Learn more about the differences between v3.x and the new v4.x programming model in the [upgrade guide](./functions-node-upgrade-v4.md). v4.x is currently in public preview.
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and the new v4 programming model in the [upgrade guide](./functions-node-upgrade-v4.md). v4 is currently in public preview.
 
 As a JavaScript developer, you might also be interested in one of the following articles:
 
@@ -27,7 +27,7 @@ As a JavaScript developer, you might also be interested in one of the following 
 
 The "programming model" as discussed in this article loosely represents the Node.js layer of Azure Functions. If you are authoring code in JavaScript or TypeScript, the code patterns you use are governed by the programming model. For example, it defines how you register a function, get a function's input, or interact with the invocation context. The programming model version is strictly tied to the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package and is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), even if the major version numbers are coincidentally similar.
 
-> [!WARNING]
+> [!NOTE]
 > You can only use one major version of the programming model at a time.
 
 ### Supported Versions
@@ -261,12 +261,12 @@ app.http('httpTrigger1', {
 });
 ```
 
-> [!WARNING]
-> You can't mix the v3.x and v4.x programming models. As soon as you register one v4.x function in your app, any v3.x functions registered in `function.json` files will be ignored.
+> [!NOTE]
+> You can't mix the v3 and v4 programming models. As soon as you register one v4 function in your app, any v3 functions registered in `function.json` files will be ignored.
 
 ## Inputs and outputs
 
-Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as bindings outside the context of the Node.js programming model. Before v4.x of the model, these bindings were configured in `function.json` files.
+Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as bindings outside the context of the Node.js programming model. Before v4 of the model, these bindings were configured in `function.json` files.
 
 ### Trigger input
 
