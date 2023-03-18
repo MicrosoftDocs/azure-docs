@@ -102,7 +102,7 @@ Through this unified experience, you'll be able to:
 
 The [Datadog integration with Azure](../partner-solutions/datadog/overview.md) is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview). 
 
-For documentation on the integration, see [Datadog integration with Azure](https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/). If you're still using the previous, manually configured integration, see the [documentation on the Datadog website](https://docs.datadoghq.com/integrations/azure/).
+For documentation on the integration, see [Datadog integration with Azure](https://learn.microsoft.com/azure/partner-solutions/datadog/). If you're still using the previous, manually configured integration, see the [documentation on the Datadog website](https://docs.datadoghq.com/integrations/azure/).
 
 ## Dynatrace
 
