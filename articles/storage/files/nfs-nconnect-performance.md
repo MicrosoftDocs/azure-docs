@@ -143,7 +143,9 @@ When using the `nconnect` mount option, you should closely evaluate workloads th
 - Latency sensitive write workloads that are single threaded and/or use a low queue depth (less than 16)
 - Latency sensitive read workloads that are single threaded and/or use a low queue depth in combination with smaller I/O sizes
 
-Not all workloads require high-scale IOPS or throughout performance. If you're running smaller scale workloads, `nconnect` might not make sense for your workload.
+Not all workloads require high-scale IOPS or throughout performance. For smaller scale workloads, `nconnect` might not make sense. Use the following table to decide whether `nconnect` will be advantageous for your workload. Scenarios highlighted in green are recommended, while those highlighted in red are not. Those highlighted in yellow are neutral.
+
+:::image type="content" source="media/nfs-nconnect-performance/nconnect-latency-comparison.png" alt-text="Screenshot showing various read and write I O scenarios with corresponding latency to indicate when nconnect is advisable." border="false":::
 
 ## See also
 - For mounting instructions, see [Mount NFS file Share to Linux](storage-files-how-to-mount-nfs-shares.md).
