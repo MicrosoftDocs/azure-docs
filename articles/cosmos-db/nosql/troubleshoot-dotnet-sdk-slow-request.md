@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
-ms.date: 08/13/2023
+ms.date: 03/13/2023
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
