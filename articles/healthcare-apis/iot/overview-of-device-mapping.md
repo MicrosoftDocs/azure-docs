@@ -58,7 +58,7 @@ The validation process validates the device mapping before allowing it to be sav
 
 CollectionContent is the root template type used by the MedTech service device mapping. CollectionContent is a list of all templates that are used during the normalization processing stage. You can define one or more templates within CollectionContent, with each device message received by the MedTech service being evaluated against all templates.
 
-You can use these template types within the CollectionContent depending on your use case:
+You can use these template types within CollectionContent depending on your use case:
 
  - [CalculatedContent](how-to-use-calculatedcontent-mappings.md) for device messages sent directly to your MedTech service event hub. CalculatedContent also supports the advanced features of [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md).
 
