@@ -1,12 +1,13 @@
 ---
-title: Disenroll or revoke device from Azure IoT Hub Device Provisioning Service 
+title: Disenroll or revoke device from DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service 
 description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
+
 ms.author: kgremban
 ms.date: 01/24/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # How to disenroll or revoke a device from Azure IoT Hub Device Provisioning Service

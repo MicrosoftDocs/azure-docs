@@ -12,7 +12,7 @@ ms.author: allensu
 
 # Managed NAT Gateway
 
-While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses. 
+While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
 
 This article shows you how to create an AKS cluster with a Managed NAT Gateway for egress traffic and how to disable OutboundNAT on Windows.
 
@@ -24,7 +24,9 @@ This article shows you how to create an AKS cluster with a Managed NAT Gateway f
 
 ## Create an AKS cluster with a Managed NAT Gateway
 
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. If you want the NAT gateway to be able to operate out of availability zones, specify the zones using `--zones`.
+
+The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
