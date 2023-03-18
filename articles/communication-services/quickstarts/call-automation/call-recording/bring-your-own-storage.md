@@ -26,7 +26,7 @@ This quickstart gets you started with BYOS (Bring your own storage) for Call Rec
 
 1. Open your Azure Communication Services resource. Navigate to *Identity* on the left.
 2. System Assigned Managed Identity is disabled by default. Enable it and click of *Save*
-3. Once completed, you are able to see the Object principal ID of the newly created identity (shown below)
+3. Once completed, you're able to see the Object principal ID of the newly created identity.
 
 ![Diagram showing a communication service resource with managed identity enabled](../media/byos-managed-identity-2.png)
 
@@ -47,7 +47,7 @@ This quickstart gets you started with BYOS (Bring your own storage) for Call Rec
 ![Diagram showing a communication service resource managed identity adding role assignment details](../media/role-assignment-2.png)
 
 3. Click on *"Save"*.
-4. Once completed, you see the newly added role assignment in the *"Azure role assignment"* window (shown below).
+4. Once completed, you see the newly added role assignment in the *"Azure role assignment"* window.
 
 ![Diagram showing a communication service resource managed identity role assignment success](../media/role-assignment-3.png)
 
@@ -67,7 +67,7 @@ Use the server call ID received during initiation of the call.
 
 Use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action, to notify your services when the recorded media is ready and have been exported to the external storage location.
 
-Below is an example of the event schema.
+Refer to this example of the event schema.
 
 ```JSON
 {
