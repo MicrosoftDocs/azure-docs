@@ -1,6 +1,6 @@
 ---
 title: How to create a custom Azure for Classroom Tenant and Billing Profile
-description: This article will show you how to make a custom tenant and billing profile for educators in your organization 
+description: This article shows you how to make a custom tenant and billing profile for educators in your organization 
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -19,15 +19,15 @@ This article is meant for IT Admins utilizing Azure for Classroom. When signing 
 
 ## Create a new tenant
 
-This section will walk you through how to create a new tenant and associate it with your university tenant using multi-tenant
+This section walks you through how to create a new tenant and associate it with your university tenant using multi-tenant
 
-1. Go to the Azure Portal and search for "Azure Active Directory"
+1. Go to the Azure portal and search for "Azure Active Directory"
 :::image type="content" source="Media/custom-tenant-setup/Navigate-to-AAD.png" alt-text="Navigate to AAD" border="true":::
 1. Create a new tenant in the "Manage tenants" tab
 :::image type="content" source="Media/custom-tenant-setup/Navigate-to-Manage-Tenants.png" alt-text="Navigate to manage tenants" border="true":::
 1. Fill in and Finalize Tenant information
 :::image type="content" source="Media/custom-tenant-setup/Create-Tenant.png" alt-text="Create tenant" border="true":::
-1. After tenant has been created copy the Tenant ID of the new tenant
+1. After the tenant has been created copy the Tenant ID of the new tenant
 :::image type="content" source="Media/custom-tenant-setup/Save-Tenant-ID.png" alt-text="Save tenant id" border="true":::
 
 ## Associate new tenant with university tenant
@@ -44,23 +44,23 @@ This section will walk you through how to create a new tenant and associate it w
 
 ## Invite Educator to the newly created tenant
 
-This section will walk you through how to add an Educator to the newly created tenant. This is necessary in order to be able to provision credits to the Educator.
+This section walks through how to add an Educator to the newly created tenant.
 
 1. Switch tenants to the newly created tenant
 :::image type="content" source="Media/custom-tenant-setup/Switch-to-New-Tenant.png" alt-text="Switch to new tenant" border="true":::
-2. Go to "Users" in the new tenant
+1. Go to "Users" in the new tenant
 :::image type="content" source="Media/custom-tenant-setup/Navigate-to-Users.png" alt-text="Navigate to users" border="true":::
-3. Invite a user to this tenant
+1. Invite a user to this tenant
 :::image type="content" source="Media/custom-tenant-setup/Invite-Existing-User.png" alt-text="Invite existing user" border="true":::
-4. Change the role to "Global administrator"
+1. Change the role to "Global administrator"
 :::image type="content" source="Media/custom-tenant-setup/Change-Role.png" alt-text="Change role" border="true":::
-5. Tell the Educator to accept the invitation to this tenant
-6. After the Educator has joined the tenant, go into the tenant properties and click Yes under the Access management for Azure resources.
+1. Tell the Educator to accept the invitation to this tenant
+2. After the Educator has joined the tenant, go into the tenant properties and click Yes under the Access management for Azure resources.
 :::image type="content" source="Media/custom-tenant-setup/Access-Management.png" alt-text="Access management" border="true":::
 
-Now that you have created a custom Tenant and Billing Profile, you can go into Education Hub and begin distributing credit to Educators to use in labs.
+Now that you've created a custom Tenant and Billing Profile, you can go into Education Hub and begin distributing credit to Educators to use in labs.
 
 ## Next steps
 
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+> [!div class="nextstepaction"]
+> [Create an assignment and allocate credit](create-assignment-allocate-credit.md)

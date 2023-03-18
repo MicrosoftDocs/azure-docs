@@ -75,4 +75,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: How to setup a custom tenant for Azure Classroom
-            url: custom-tenant-setup-classroom
+            url: custom-tenant-setup-classroom.md
