@@ -84,7 +84,7 @@ By default, PostgreSQL will not perform any verification of the server certifica
 
 ## What if we removed the BaltimoreCyberTrustRoot certificate?
 
-You will start to connectivity errors while connecting to your Azure Database for PostgreSQL server. You will need to configure SSL with [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate again to maintain connectivity.
+You will start receiving connectivity errors while connecting to your Azure Database for PostgreSQL server. You will need to configure SSL with [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate again to maintain connectivity.
 
 ## Frequently asked questions
 
