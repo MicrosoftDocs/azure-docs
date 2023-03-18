@@ -388,8 +388,6 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
-  - name: Default Python packages
-    href: default-python-packages.md
   - name: Azure CLI
     href: /cli/azure/automation
   - name: Azure PowerShell Az
