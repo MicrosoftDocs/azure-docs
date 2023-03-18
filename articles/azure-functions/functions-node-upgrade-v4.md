@@ -11,7 +11,6 @@ ms.topic: how-to
 
 The Node.js programming model for Azure Functions defines how you author serverless code in JavaScript or TypeScript. The version of the programming model matches the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package that should be included with your app. This article discusses the differences between both versions and how to upgrade an existing v3.x app. If you want to create a brand new v4.x app, see the tutorial for either [VS Code](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md).
 
-
 > [!NOTE]
 > v4.x of the Node.js programming model is currently in public preview. This version number is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), which is coincidentally using "4" as its latest major version. Lastly, you can't mix v3.x and v4.x of the programming models.
 
@@ -137,7 +136,7 @@ module.exports = async function (context, req) {
 
 ## Simplified context, inputs, and outputs
 
-The `context` object has been simplified to reduce duplication and make it easier to write unit tests. For example, we streamlined the primary input and output so that they're only accessed as the argument and return value of your function handler. The primary input and output can't be accessed on the `context` object anymore, but you must still access _secondary_ inputs and outputs on the `context` object. For more information about secondary inputs and outputs, see the [Node.js developer guide](./functions-reference-node.md).
+The `context` object has been simplified to reduce duplication and make it easier to write unit tests. For example, we streamlined the primary input and output so that they're only accessed as the argument and return value of your function handler. The primary input and output can't be accessed on the `context` object anymore, but you must still access _secondary_ inputs and outputs on the `context` object. For more information about secondary inputs and outputs, see the [Node.js developer guide](./functions-reference-node.md#extra-inputs-and-outputs).
 
 ### Getting the primary input (trigger)
 
