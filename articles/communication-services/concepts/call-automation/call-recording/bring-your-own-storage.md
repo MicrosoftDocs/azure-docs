@@ -29,7 +29,7 @@ BYOS uses [Azure Managed Identities](../../../../active-directory/managed-identi
 
 ## Known Issues
 
-- After exporting your files with call recording BYOS, Azure Communication Services will also store your files in a built-in storage for 48 hours.
+- Azure Communication Services will also store your files in a built-in storage for 48 hours even if the exporting with BYOS is successful.
 - Randomly, recording files are duplicated during the exporting process when using BYOS. Make sure you delete the duplicated file to avoid extra storage costs in your storage account.
 
 
