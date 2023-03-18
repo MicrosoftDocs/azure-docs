@@ -4,7 +4,7 @@ description: Develop custom modules for Azure IoT Edge that can communicate with
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 09/03/2021
+ms.date: 3/17/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -91,13 +91,13 @@ For all languages in the following table, IoT Edge [supports](support.md) develo
 | Python | Visual Studio Code |
 
 >[!NOTE]
->For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Build and debug IoT Edge modules on your remote device](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/).
+>For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
 >
 > For more information about ARM64 Linux containers, see [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
 
 ### Windows
 
-IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
+We no longer support Windows containers. [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
 
 ## Module security
 
@@ -105,12 +105,11 @@ You should develop your modules with security in mind. To learn more about secur
 
 To help improve module security, IoT Edge disables some container features by default. You can override the defaults to provide privileged capabilities to your modules if necessary.
 
-### Allow elevated Docker permissions
+### Elevated Docker permissions
 
-In the config file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag as well as any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md).
+In the config file on an IoT Edge device (based on this [template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml)), there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag, which allows deployments to grant privileged permissions to modules. The default value for this parameter is **false**, for increased security.
 
->[!NOTE]
->Currently, this flag is **true** by default, which allows deployments to grant privileged permissions to modules. We recommend that you set this flag to false to improve device security. In the future, this flag will be set to **false** by default.
+You can define other capabilities in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md). 
 
 ### Enable CAP_CHOWN and CAP_SETUID
 
