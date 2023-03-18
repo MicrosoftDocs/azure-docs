@@ -38,7 +38,7 @@ Validate your environment before you begin:
 
 ### Sample workflow explanation
 
-This example workflow definition file creates the same basic logic app as the [Logic Apps quickstart for the Azure portal](quickstart-create-first-logic-app-workflow.md). 
+This example workflow definition file creates the same basic example Consumption logic app workflow as in the [quickstart for the Azure portal](quickstart-create-example-consumption-workflow.md).
 
 This sample workflow: 
 

@@ -189,7 +189,7 @@ Now that you have all of your components in place, you can test out your failove
 
 Try running the event publisher. You should see your test events land in your Event Grid viewer.
 
-:::image type="content" source="./media/custom-disaster-recovery/event-grid-viewer.png" alt-text="Screenshot showing the Event Grid Viewer app with posted events.":::
+:::image type="content" source="./media/custom-disaster-recovery/viewer.png" alt-text="Screenshot showing the Event Grid Viewer app with posted events.":::
 
 To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you see that they're now being published via the secondary topic.
 

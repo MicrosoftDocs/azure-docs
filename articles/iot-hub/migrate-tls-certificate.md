@@ -3,11 +3,10 @@ title: How to migrate hub root certificate
 titleSuffix: Azure IoT Hub
 description: Migrate all Azure IoT hub instances to use the new DigiCert Global G2 root certificate to maintain device connectivity.
 author: kgremban
+
 ms.author: kgremban
-manager: lizross
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/02/2023
 ---
 

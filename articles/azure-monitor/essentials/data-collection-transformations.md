@@ -69,12 +69,12 @@ There are multiple methods to create transformations depending on the data colle
 | Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
 
 ## Cost for transformations
-There's no direct cost for transformations, but you might incur charges for the following changes:
+While transformations themselves don't incur direct costs, the following scenarios can result in additional charges:
 
-- If your transformation increases the size of the incoming data, like by adding a calculated column, for example, you're charged at the normal rate for ingestion of that extra data.
-- If your transformation reduces the incoming data by more than 50%, you're charged for ingestion of the amount of filtered data above 50%.
+- If a transformation increases the size of the incoming data, such as by adding a calculated column, you'll be charged the standard ingestion rate for the extra data.
+- If a transformation reduces the incoming data by more than 50%, you'll be charged for the amount of filtered data above 50%.
 
-The formula to determine the filter ingestion charge from transformations is `[GB filtered out by transformations] - ( [Total GB ingested] / 2 )`. For example, suppose that you ingest 100 GB on a particular day, and transformations remove 70 GB. You would be charged for 70 GB - (100 GB / 2) or 20 GB. To avoid this charge, you should use other methods to filter incoming data before the transformation is applied.
+To calculate the data processing charge resulting from transformations, use the following formula: [GB filtered out by transformations] - ([Total GB ingested] / 2). For example, if you ingest 100 GB of data and your transformations remove 70 GB, you'll be charged for 70 GB - (100 GB / 2), which is 20 GB. This calculation is done per data collection rule and per day basis. To avoid this charge, it's recommended to filter incoming data using alternative methods before applying transformations. By doing so, you can reduce the amount of data processed by transformations and, therefore, minimize any additional costs.
 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor) for current charges for ingestion and retention of log data in Azure Monitor.
 

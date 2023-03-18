@@ -52,8 +52,6 @@ For more information, see [Azure Structured Firewall Logs (preview)](firewall-st
 
 Policy Analytics provides insights, centralized visibility, and control to Azure Firewall. IT teams today are challenged to keep Firewall rules up to date, manage existing rules, and remove unused rules. Any accidental rule updates can lead to a significant downtime for IT teams.
 
-For more information, see [Azure Firewall Policy Analytics (preview)](policy-analytics.md).
-
 ## Next steps
 
 To learn more about Azure Firewall, see [What is Azure Firewall?](overview.md).

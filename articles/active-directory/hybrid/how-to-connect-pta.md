@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Pass-through Authentication | Microsoft Docs'
+title: 'Azure AD Connect: Pass-through Authentication'
 description: This article describes Azure Active Directory (Azure AD) Pass-through Authentication and how it allows Azure AD sign-ins by validating users' passwords against on-premises Active Directory.
 services: active-directory
 keywords: what is Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on

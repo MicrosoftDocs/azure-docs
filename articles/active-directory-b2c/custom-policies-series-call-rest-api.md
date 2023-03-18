@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 03/16/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -301,6 +301,12 @@ Then, update the *Metadata*, *InputClaimsTransformations*, and *InputClaims* of 
         <InputClaim ClaimTypeReferenceId="requestBodyPayload" />
     </InputClaims>
 ```
+
+## Receive data from REST API
+
+If your REST API returns data, which you want to include as claims in your policy, you can receive it by specifying claims in the `OutputClaims` element of the RESTful technical profile. If the name of the claim defined in your policy is different from the name defined in the REST API, you need to map these names by using the `PartnerClaimType` attribute. 
+
+Use the steps in [Receiving data](api-connectors-overview.md?pivots=b2c-custom-policy#receiving-data) to learn how to format the data the custom policy expects, how to handle nulls values, and how to parse REST the API's nested JSON body.
 
 ## Next steps
 

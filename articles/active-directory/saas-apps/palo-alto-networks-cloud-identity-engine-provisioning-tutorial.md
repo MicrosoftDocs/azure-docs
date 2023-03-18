@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
 services: active-directory
 documentationcenter: ''

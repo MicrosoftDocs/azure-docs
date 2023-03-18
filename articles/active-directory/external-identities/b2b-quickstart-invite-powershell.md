@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Add a guest user with PowerShell - Azure AD'
+title: 'Quickstart: Add a guest user with PowerShell'
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user. You'll use the Microsoft Graph Identity Sign-ins and the Microsoft Graph Users PowerShell modules.
 services: active-directory
 ms.author: cmulligan

@@ -1,5 +1,5 @@
 ---
-title: View roles assigned to a group in Azure Active Directory | Microsoft Docs
+title: View roles assigned to a group in Azure Active Directory
 description: Learn how the roles assigned to a group can be viewed using the Azure portal. Viewing groups and assigned roles are default user permissions.
 services: active-directory
 author: rolyon

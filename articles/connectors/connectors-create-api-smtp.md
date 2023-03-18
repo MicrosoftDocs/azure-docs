@@ -27,8 +27,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
   Your credentials authorize your logic app to create 
   a connection and access your SMTP account.
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic apps
 
 * The logic app where you want to access your SMTP account. 
 To use an SMTP action, start your logic app with a trigger, 
