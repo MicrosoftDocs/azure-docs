@@ -9,59 +9,37 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 03/17/2023
 ---
-
- 
 
 # Azure Container for PyTorch (ACPT)
 
- 
-
-Azure Container for PyTorch is a lightweight, standalone environment that includes needed components to effectively run optimized training for large models on AzureML. The AzureML [curated environments](resource-curated-environments.md) are available in the user’s workspace by default and are backed by cached Docker images that use the latest version of the AzureML SDK. It helps with reducing preparation costs and faster deployment time. ACPT can be used to quickly get started with various deep learning tasks with PyTorch on Azure.
-
- 
+Azure Container for PyTorch is a lightweight, standalone environment that includes needed components to effectively run optimized training for large models on Azure Machine Learning. The Azure Machine Learning [curated environments](resource-curated-environments.md) are available in the user’s workspace by default and are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK. It helps with reducing preparation costs and faster deployment time. ACPT can be used to quickly get started with various deep learning tasks with PyTorch on Azure.
 
 > [!NOTE]
 > Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment).
 
- 
-
 ## Why should I use ACPT?
 
- 
-
-* As-IS use with pre-installed packages or build on top of the curated environment 
-* Optimized Training framework to set up, develop, accelerate PyTorch model on large workloads. 
-* Up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, etc.   
-* Ease of use: All components installed and validated against dozens of Microsoft workloads to reduce setup costs and accelerate time to value  
-* Latest Training Optimization Technologies: [ONNX RunTime](https://onnxruntime.ai/) , [DeepSpeed](https://www.deepspeed.ai/),  [MSCCL](https://github.com/microsoft/msccl), and others.. 
-* Integration with Azure ML: Track your PyTorch experiments on ML Studio or using the AML SDK  
-* The image is also available as a [DSVM](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines/)
-* Azure Customer Support Reduces training and deployment latency.
+* Use as is with preinstalled packages or build on top of the curated environment.
+* Optimized training framework to set up, develop, accelerate PyTorch model on large workloads.
+* Up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, etc.
+* Ease of use: All components installed and validated against dozens of Microsoft workloads to reduce setup costs and accelerate time to value.
+* Latest Training Optimization Technologies: [ONNX RunTime](https://onnxruntime.ai/) , [DeepSpeed](https://www.deepspeed.ai/),  [MSCCL](https://github.com/microsoft/msccl),and others.
+* Integration with Azure Machine Learning: Track your PyTorch experiments on Azure Machine Learning studio or using the SDK.
+* The image is also available as a [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines/). To learn more about Data Science Virtual Machines, see [the DSVM overview documentation](data-science-virtual-machine/overview.md).
+* Azure customer support reduces training and deployment latency.
 * Improves training and deployment success rate.
 * Avoid unnecessary image builds.
-* Only have required dependencies and access right in the image/container. 
+* Only have required dependencies and access right in the image/container.
 
- 
-
->[!IMPORTANT] 
+>[!IMPORTANT]
 > To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md).
+## Supported configurations for Azure Container for PyTorch (ACPT)
 
- 
-
-### Azure Container for PyTorch (ACPT)
-
- 
-
-
-**Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It is optimized for large, distributed deep learning workloads and comes pre-packaged with the best of Microsoft technologies for accelerated training, e.g., OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc.
-
- 
+**Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It's optimized for large, distributed deep learning workloads and comes prepackaged with the best of Microsoft technologies for accelerated training, for example, OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc.
 
 The following configurations are supported:
-
- 
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -73,20 +51,18 @@ The following configurations are supported:
 |acpt-pytorch-1.11-cuda11.3|Ubuntu 20.04|cu113|3.8|1.11.0|1.14.1|0.8.2| 1.14.0| 
 
 
+Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest, pytorch-lightning, tensorboard, NebulaML, torchvision, torchmetrics to support all training needs
 
-Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest,pytorch-lightning, tensorboard, NebulaML, torchvision, torchmetrics to support all training needs
+[!NOTE]
 
-Custom AML environments allow creation of customized reusable environments to cater to different requirements. To build custom ACPT enviroments, follow instructions [here](how-to-build-custom-acpt-env.md)  
- 
+> Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only acpt-pytorch-1.11-cuda11.3 with cuda 11.3 and torch 1.11 can be used.
 
 ## Support
-Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.
 
+Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.
  
 
 ## References
 https://learn.microsoft.com/azure/machine-learning/resource-curated-environments
-
- 
 
 https://learn.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview
