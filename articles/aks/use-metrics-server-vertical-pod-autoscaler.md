@@ -17,7 +17,7 @@ AKS cluster is running Kubernetes version 1.24 and higher.
 
 ## Metrics server crashloopbackoff or throttling
 
-If the Metrics Server throttling rate is high, and the memory usage of its two pods are unbalanced, this indicates the Metrics Server requires more resources than the default values specified.
+If the Metrics Server throttling rate is high, and the memory usage of its two pods is unbalanced, this indicates the Metrics Server requires more resources than the default values specified.
 
 To update the coefficient values, create a ConfigMap in the overlay *kube-system* namespace to override the values in the Metrics Server specification. Perform the following steps to update the metrics server.
 
@@ -82,7 +82,7 @@ Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode
 
 ## Manually configure Metrics Server resource usage
 
-The Metrics Server VPA adjusts resource usage by the number of nodes. If the cluster scale up or down often, the Metrics Server might restart frequently. In this case, you can bypass VPA and manually control its resource usage. This method to configure VPA isn't to be performed in addition to the steps described in the previous section.
+The Metrics Server VPA adjusts resource usage by the number of nodes. If the cluster scales up or down often, the Metrics Server might restart frequently. In this case, you can bypass VPA and manually control its resource usage. This method to configure VPA isn't to be performed in addition to the steps described in the previous section.
 
 If you would like to bypass VPA for Metrics Server and manually control its resource usage, perform the following steps.
 
@@ -147,7 +147,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
 
 ## Troubleshooting
 
-1. If you use the following configmap, the Metrics Server VPA customization aren't applied. You need add a unit for `baseCPU`.
+1. If you use the following configmap, the Metrics Server VPA customizations aren't applied. You need add a unit for `baseCPU`.
 
     ```yml
     apiVersion: v1 
