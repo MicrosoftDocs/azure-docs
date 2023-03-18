@@ -6,7 +6,9 @@ ms.date: 02/01/2023
 ---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API
-The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries.
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then shows methods using both the REST API and client libraries to send data.
+
+The steps required to configure the Logs ingestion API are as follows:
 
 1. Create a custom table in a Log Analytics workspace.
 2. Create a data collection endpoint (DCE) to receive data.
@@ -24,7 +26,7 @@ To complete this tutorial, you need:
 
 
 ## Create an Active Directory application
-Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this articles follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this article follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
 
@@ -143,7 +145,7 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 
 
 ## Create a new table and data collection rule
-The custom table must be created before you can send data to it. 
+The custom table must be created before you can send data to it. The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's sent to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
 
 ### [Azure portal](#tab/portal)
 When you create a new table with the Azure portal
@@ -290,7 +292,7 @@ Use the **Tables - Update** API to create the table with the following PowerShel
 
 
 ### Create a data collection rule
-The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's sent to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
+
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
