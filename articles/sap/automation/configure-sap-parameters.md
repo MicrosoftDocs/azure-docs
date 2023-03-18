@@ -21,37 +21,51 @@ This table contains the default parameters defined by the framework.
 
 ### User IDs
 
-> [!div class="mx-tdCol2BreakAll "]
-> | Parameter                 | Description                                                                | Default Value                |
-> | ------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
-> | `sapadm_uid`              | The UID for the sapadm account.                                            | 2100                         |
-> | `sidadm_uid`              | The UID for the sidadm account.                                            | 2003                         |
-> | `hdbadm_uid`              | The UID for the hdbadm account.                                            | 2200                         |
-> | `sapinst_gid`             | The GID for the sapinst group.                                             | 2001                         |
-> | `sapsys_gid`              | The GID for the sapsys group.                                              | 2000                         |
-> | `hdbshm_gid`              | The GID for the hdbshm group.                                              | 2002                         |
-> |                           |                                                                            |                              |
-> | `db2sidadm_uid`           | The UID for the db2sidadm account.                                         | 3004                         |
-> | `db2sapsid_uid`           | The UID for the db2sapsid account.                                         | 3005                         |
-> | `db2sysadm_gid`           | The UID for the db2sysadm group.                                           | 3000                         |
-> | `db2sysctrl_gid`          | The UID for the db2sysctrl group.                                          | 3001                         |
-> | `db2sysmaint_gid`         | The UID for the db2sysmaint group.                                         | 3002                         |
-> | `db2sysmon_gid`           | The UID for the db2sysmon group.                                           | 2003                         |
-> |                           |                                                                            |                              |
-> | `orasid_uid`              | The UID for the orasid account.                                            | 3100                         |
-> | `oracle_uid`              | The UID for the oracle account.                                            | 3101                         |
-> | `observer_uid`            | The UID for the observer account.                                          | 4000                         |
-> | `dba_gid`                 | The GID for the dba group.                                                 | 3100                         |
-> | `oper_gid`                | The GID for the oper group.                                                | 3101                         |
-> | `asmoper_gid`             | The GID for the asmoper group.                                             | 3102                         |
-> | `asmadmin_gid`            | The GID for the asmadmin group.                                            | 3103                         |
-> | `asmdba_gid`              | The GID for the asmdba group.                                              | 3104                         |
-> | `oinstall_gid`            | The GID for the oinstall group.                                            | 3105                         |
-> | `backupdba_gid`           | The GID for the backupdba group.                                           | 3106                         |
-> | `dgdba_gid`               | The GID for the dgdba group.                                               | 3107                         |
-> | `kmdba_gid`               | The GID for the kmdba group.                                               | 3108                         |
-> | `racdba_gid`              | The GID for the racdba group.                                              | 3108                         |
+This table contains the IDs for the SAP users and groups for the different platforms.
 
+> [!div class="mx-tdCol2BreakAll "]
+> | Parameter                       | Description                                                                | Default Value                |
+> | ------------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
+> | HANA                            |                                                                            |                              |
+> | `sapadm_uid`                    | The UID for the sapadm account.                                            | 2100                         |
+> | `sidadm_uid`                    | The UID for the sidadm account.                                            | 2003                         |
+> | `hdbadm_uid`                    | The UID for the hdbadm account.                                            | 2200                         |
+> | `sapinst_gid`                   | The GID for the sapinst group.                                             | 2001                         |
+> | `sapsys_gid`                    | The GID for the sapsys group.                                              | 2000                         |
+> | `hdbshm_gid`                    | The GID for the hdbshm group.                                              | 2002                         |
+> | DB2                             |                                                                            |                              |
+> | `db2sidadm_uid`                 | The UID for the db2sidadm account.                                         | 3004                         |
+> | `db2sapsid_uid`                 | The UID for the db2sapsid account.                                         | 3005                         |
+> | `db2sysadm_gid`                 | The UID for the db2sysadm group.                                           | 3000                         |
+> | `db2sysctrl_gid`                | The UID for the db2sysctrl group.                                          | 3001                         |
+> | `db2sysmaint_gid`               | The UID for the db2sysmaint group.                                         | 3002                         |
+> | `db2sysmon_gid`                 | The UID for the db2sysmon group.                                           | 2003                         |
+> | ORACLE                          |                                                                            |                              |
+> | `orasid_uid`                    | The UID for the orasid account.                                            | 3100                         |
+> | `oracle_uid`                    | The UID for the oracle account.                                            | 3101                         |
+> | `observer_uid`                  | The UID for the observer account.                                          | 4000                         |
+> | `dba_gid`                       | The GID for the dba group.                                                 | 3100                         |
+> | `oper_gid`                      | The GID for the oper group.                                                | 3101                         |
+> | `asmoper_gid`                   | The GID for the asmoper group.                                             | 3102                         |
+> | `asmadmin_gid`                  | The GID for the asmadmin group.                                            | 3103                         |
+> | `asmdba_gid`                    | The GID for the asmdba group.                                              | 3104                         |
+> | `oinstall_gid`                  | The GID for the oinstall group.                                            | 3105                         |
+> | `backupdba_gid`                 | The GID for the backupdba group.                                           | 3106                         |
+> | `dgdba_gid`                     | The GID for the dgdba group.                                               | 3107                         |
+> | `kmdba_gid`                     | The GID for the kmdba group.                                               | 3108                         |
+> | `racdba_gid`                    | The GID for the racdba group.                                              | 3108                         |
+
+
+### Windows parameters
+
+This table contains the information pertinent to Windows deployments.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Parameter                       | Description                                                                | Default Value                |
+> | ------------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
+> | `mssserver_version`             | SQL Server version                                                         | `mssserver2019`              |
+
+:                     ''
 
 ## Parameters
 
@@ -77,6 +91,8 @@ This table contains the parameters stored in the sap-parameters.yaml file, most 
 > | `ers_instance_number`     | Defines the instance number for ERS                                                                              | Required   |
 > | `ers_lb_ip`               | IP address of ERS instance                                                                                       | Required   |
 > | `pas_instance_number`     | Defines the instance number for PAS                                                                              | Required   |
+> | `web_sid`                 | The SID for the Web Dispatcher                                                                                   | Required if web dispatchers are deployed  |
+> | `scs_clst_lb_ip`          | IP address of Windows Cluster service                                                                            | Required   |
 
 ### Database Tier
 
@@ -84,9 +100,11 @@ This table contains the parameters stored in the sap-parameters.yaml file, most 
 > | Parameter                 | Description                                                                                                      | Type       |
 > | ------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
 > | `db_sid`                  | The SID of the SAP database                                                                                      | Required   |
+> | `db_instance_number`      | Defines the instance number for the database                                                                     | Required   |
 > | `db_high_availability`    | Defines if the database is deployed highly available                                                             | Required   |
 > | `db_lb_ip`                | IP address of the database load balancer                                                                         | Required   |
 > | `platform`                | The database platform. Valid values are: ASE, DB2, HANA, ORACLE, SQLSERVER                                       | Required   |
+> | `db_clst_lb_ip`           | IP address of database cluster for Windows                                                                       | Required   |
 
 ### NFS
 
@@ -98,6 +116,26 @@ This table contains the parameters stored in the sap-parameters.yaml file, most 
 > | `sap_trans`                  | The NFS path for sap_trans                                                                                       | Required   |
 > | `usr_sap_install_mountpoint` | The NFS path for usr/sap/install                                                                                 | Required   |
 
+### Azure NetApp Files
+> [!div class="mx-tdCol2BreakAll "]
+> | Parameter                    | Description                                                                                                      | Type       |
+> | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
+> | `hana_data`                  | The NFS path for hana_data volumes                                                                               | Required   |
+> | `hana_log`                   | The NFS path for hana_log volumes                                                                                | Required   |
+> | `hana_shared`                | The NFS path for hana_shared volumes                                                                             | Required   |
+> | `usr_sap`                    | The NFS path for /usr/sap volumes                                                                                | Required   |
+
+### Windows support
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Parameter                    | Description                                                                                                      | Type       |
+> | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
+> | `domain_name`                | Defines the Windows domain name, for example sap.contoso.net.                                                    | Required   |
+> | `domain_name`                | Defines the Windows domain name, for example sap.contoso.net.                                                    | Optional   |
+> | SQL                          |                                                                                                                  |            |
+> | `use_sql_for_SAP`            | Uses the SAP defined SQL Server media, defaults to 'true'                                                        | Optional   |
+> | `win_cluster_share_type`     | Defines the cluster type (CSD/FS), defaults to CSD                                                               | Optional   |
+
 ### Miscellaneous
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -106,6 +144,7 @@ This table contains the parameters stored in the sap-parameters.yaml file, most 
 > | `kv_name`                    | The name of the Azure key vault containing the system credentials                                                | Required   |
 > | `secret_prefix`              | The prefix for the name of the secrets for the SID stored in key vault                                           | Required   |
 > | `upgrade_packages`           | Update all installed packages on the virtual machines                                                            | Required   |
+> | `use_msi_for_clusters`       | Use managed identities for fencing                                                                               | Required   |
 
 ### Disks
 
