@@ -161,7 +161,7 @@ In order to install the Oracle backend using the SAP on Azure Deployment Automat
 > | `ora_release`                | The Oracle release version, for example 19.0.0                                                                   | Required   |
 > | `oracle_sbp_patch`           | The Oracle SBP patch file name                                                                                   | Required   |
 
-### Shared Home support
+#### Shared Home support
 
 To configure shared home support for Oracle, you need to add a dictionary defining the SIDs to be deployed. You can do that by adding the parameter 'MULTI_SIDS' that contains a list of the SIDs and the SID details.
 
@@ -199,6 +199,15 @@ If you want to provide them as parameters for the Ansible playbooks, you can do 
 ```bash
 ansible-playbook -i hosts SID_hosts.yaml --extra-vars "sapinst_gid=1000" .....
 ```
+
+You can also override the default parameters by specifying them in the `configuration_settings' variable in your tfvars file. For example, if you want to override 'sapinst_gid' your tfvars file should contain the following line:
+
+```terraform
+configuration_settings = {
+  sapinst_gid = "1000"
+}
+```
+
 
 
 ## Next steps
