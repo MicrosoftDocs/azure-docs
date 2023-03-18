@@ -39,7 +39,7 @@ Automatic backups are performed periodically from the primary database server, w
 
 ### Same-zone high availability
 
-This model of high availability deployment enables Flexible server to be highly available within the same availability zone. This is supported in all regions, including regions that don't support availability zones. You can choose the region and the availability zone to deploy your primary database server. A standby replica server is **automatically** provisioned and managed in the **same** availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage, which automatically stores as **three** data copies each for primary and standby. This provides physical isolation of the entire stack between primary and standby servers within the same availability zone. 
+This model of high availability deployment enables Flexible server to be highly available within the same availability zone. This is supported in all regions, including regions that don't support availability zones. You can choose the region and the availability zone to deploy your primary database server. A standby server is **automatically** provisioned and managed in the **same** availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage, which automatically stores as **three** synchronous data copies each for primary and standby. This provides physical isolation of the entire stack between primary and standby servers within the same availability zone. 
 
 Automatic backups are performed periodically from the primary database server, while the transaction logs are continuously archived to the backup storage from the standby replica. If the region supports availability zones, then backup data is stored on zone-redundant storage (ZRS). In regions that doesn't support availability zones, backup data is stored on local redundant storage (LRS).   
 :::image type="content" source="./media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
@@ -110,10 +110,11 @@ For flexible servers configured with high availability, these maintenance activi
 
 ## Failover process - unplanned downtimes
 
-Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recover any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
+- Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recover any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
 
->[!NOTE]
-> Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss). The recovery time objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
+> [!NOTE]
+Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss). The recovery time objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
+
 
 After the failover, while a new standby server is being provisioned (which usually takes 5-10 minutes), applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
@@ -322,11 +323,10 @@ Here are some failure scenarios that require user action to recover:
     No. You can either configure HA within a VNET (spanned across AZs within a region) or public access. 
 
 * **Can I configure HA across regions?** <br>
-    No. HA is configured within a region, but across availability zones. In future, we are planning to offer read replicas that can be configured across regions for disaster recovery (DR) purposes. We will provide more details when the feature is enabled. 
-
+    No. HA is configured within a region, but across availability zones. However, you can enable Geo-read-replica (s) in asynchronous mode to achieve Geo-resiliency.
 * **Can I use logical replication with HA configured servers?** <br>
-    You can configure logical replication with HA. However, after a failover, the logical slot details are not copied over to the standby. Hence, there is currently limited support for this configuration.
-
+    You can configure logical replication with HA. However, after a failover, the logical slot details are not copied over to the standby. Hence, there is currently limited support for this configuration. If you must use logical replication, you will need to re-create it after every failover.
+    
 ### Replication and failover related questions
 
 * **How does flexible server provide high availability in the event of a fault - like AZ fault?** <br>
