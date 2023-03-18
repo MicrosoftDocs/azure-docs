@@ -76,16 +76,16 @@ These changes are specific to configuring Django to run in any production enviro
 Create a private flexible server and a database inside a virtual network (VNET) using the following command:
 
 ```azurecli
-# Create Flexible server in a VNET
+# Create Flexible server in a private virtual network (VNET) 
 
-az postgres flexible-server create --resource-group myresourcegroup --location westus2
+az postgres flexible-server create --resource-group myresourcegroup  --vnet myvnet --location westus2
 ```
 
 This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it isn't provided.
-- Create a new virtual network for your new postgreSQL server. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
+- Create a new virtual network for your new postgreSQL server, if you choose to do so after prompted. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
 - Creates admin username, password for your server if not provided. **Make a note of the username and password** to use in the next step.
 - Create a database ```postgres``` that can be used for development. You can run [**psql** to connect to the database](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql) to create a different database.
 
