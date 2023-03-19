@@ -89,10 +89,11 @@ The reimage command restarts the BMM and uncordons it. The re-imaged BMM will ha
 
 ## Replace BMM
 
-Replace will be used when a BareMetal machine has encountered hardware issues that require a complete or partial hardware replacements. During replace the MAC address of Baremetal Hosts will change, however the IDrac IP address and hostname will remain the same.
-This command will `replace` the `bareMetalMachineName`.
+Replace will be used when a BareMetal machine has encountered hardware issues that require a complete or partial hardware replacement. During replace the MAC address of Baremetal Hosts will change, however the IDrac IP address and hostname will remain the same.
+This command will `replace` the specified `bareMetalMachineName`.
 
-```az networkcloud baremetalmachine replace --name "bareMetalMachineName" \
+```azurecli
+az networkcloud baremetalmachine replace --name "bareMetalMachineName" \
     --bmc-credentials password="{password}" username="bmcuser" --bmc-mac-address "00:00:4f:00:57:ad" \
     --boot-mac-address "00:00:4e:00:58:af" --machine-name "name" --serial-number "BM1219XXX" \
     --resource-group "resourceGroupName" 
