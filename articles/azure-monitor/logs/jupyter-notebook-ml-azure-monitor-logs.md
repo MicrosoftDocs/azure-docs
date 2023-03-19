@@ -15,7 +15,7 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
-In this tutorial, you'll train a machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using the native machine learning capabilities of KQL, you'll train and evaluate a custom regression model by querying and visualizing data in your Log Analytics workspace from Jupyter Notebook and then experiment with a couple of regression models before scoring new data. 
+In this tutorial, you'll train a machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using the native machine learning capabilities of KQL, you'll train and evaluate a custom regression model in Jupyter Notebook based on historical data you've collected in Azure Monitor Logs. 
 
 Training your own machine learning model in Jupyter Notebook provides you with a number of advantages:
 
@@ -31,7 +31,7 @@ In this tutorial, you'll:
 > * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
 > * Prepare data for model training 
 > * Train and test regression models on historical data
-> * Score new data using a trained model and identify anomalies
+> * Score new data, or predict new values, using a trained model and identify anomalies
 > * Ingest anomalies into a custom table in your Log Analytics workspace. 
 
 ## Limitations 
@@ -183,7 +183,7 @@ To train a machine learning model on data in your Log Analytics workspace:
  
 ## Train and test regression models on historical data
 
-Let's experiment with two types of regression models and check scores the data in our testing set more accurately:
+Let's experiment with two types of regression models and check which of the models most closely predicts the data in our testing set:
 
 1. Train and evaluate a [linear regression model](https://scikit-learn.org/stable/modules/linear_model.html).
 
@@ -209,6 +209,8 @@ Let's experiment with two types of regression models and check scores the data i
 
 
 ## Score new data using the trained model and identify anomalies
+
+Use the gradient boosting regression model to score 
 
 1. Query data ingestion information for the six data types we selected over the past week.
 
