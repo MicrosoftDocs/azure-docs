@@ -40,8 +40,8 @@ Examples:
 
 
 Relevant links:
-- [How to enable sensitive data discovery in Defender CSPM for Azure storage accounts](data-security-posture-enable.md)
-- [How to enable sensitive data discovery in Defender CSPM for Amazon S3 buckets](data-security-posture-enable-aws.md)
+- [How to enable sensitive data discovery in Defender CSPM for Azure storage accounts](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-azure-subscriptions)
+- [How to enable sensitive data discovery in Defender CSPM for Amazon S3 buckets](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-aws-accounts)
 - [How to explore data risk](data-security-review-risks.md)
 - [Relevant insights and attack paths related to data-aware security](data-security-posture-enable.md#enable-resource-scanning-on-your-subscriptions)
 
