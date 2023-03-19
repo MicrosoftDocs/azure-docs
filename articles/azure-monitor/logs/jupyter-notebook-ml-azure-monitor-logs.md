@@ -15,18 +15,18 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
-In this tutorial, you'll train a machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using the native machine learning capabilities of KQL, you'll train and evaluate a custom regression model in Jupyter Notebook based on historical data you've collected in Azure Monitor Logs. 
+In this tutorial, you train a machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using native KQL machine learning capabilities, you train and evaluate a custom regression model in Jupyter Notebook based on log data in Azure Monitor Logs. 
 
-Training your own machine learning model in Jupyter Notebook provides you with a number of advantages:
+Training your own machine learning model in Jupyter Notebook provides you with several advantages:
 
-- While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
-- You can work with log data at big scales without have to export data to external services.  
+- While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have more flexibility to refine results and address specific needs by creating your own machine learning models.
+- You can work with log data at large scales without have to export data to external services.  
 - Running custom code on your web browser lets you get started quickly without having to install Python or other tools on your local computer.
-- You can [schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md) to analyze new data and retrain your model on a regular basis.   
+- By integrating Jupiter Notebook running in Azure Machine Learning with Azure Monitor Logs, you can [schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md) to analyze new data and retrain your model regularly.   
 
 ## Process overview
 
-In this tutorial, you'll: 
+In this tutorial, you learn how to: 
 > [!div class="checklist"]
 > * Integrate your Log Analytics workspace with Jupyter Notebook using the [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) and the [Azure Identity client library](https://pypi.org/project/azure-identity/) 
 > * Explore and visualize data from your Log Analytics workspace in Jupyter Notebook
@@ -47,7 +47,7 @@ In this tutorial, you'll:
 - [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome as suggested later. 
 
 ## Prerequisites 
-In this tutorial, you'll need:
+In this tutorial, you need:
 
 - An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md) with:
 
@@ -71,7 +71,7 @@ In this tutorial, you'll need:
 ||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API. Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional)|
 ||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal#configure-the-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
 |Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
-||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
+||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool for Python. |
 ||[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
  ## Install required Python tools
@@ -135,11 +135,11 @@ To be able to query data in your Log Analytics workspace from your notebook:
 
 Now that you've integrated your Log Analytics workspace with your notebook, let's look at some data in the workspace by running a query from the notebook:
 
-1. Check how much data you ingested into each of the tables in you Log Analytics workspace each hour over the past week.
+1. Check how much data you ingested into each of the tables in your Log Analytics workspace each hour over the past week.
     
     This query generates a DataFrame that shows the hourly ingestion in each of the tables in the Log Analytics workspace:  
     
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="Screenshot that shows a DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace in Azure Monitor Logs." 
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables-dataframe.png" alt-text="A DataFrame generated in Jupyter Notebook with log ingestion data retrieved from a Log Analytics workspace." 
 
 1. Present the data your query returns in a graph.
 
@@ -149,7 +149,7 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
 
     The resulting graph looks like this:
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png" alt-text="A graph that shows how much data was ingested into each of the tables in a Log Analytics workspace over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png":::
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png" alt-text="A graph that shows the amount of data ingested into each of the tables in a Log Analytics workspace over seven days." lightbox="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-all-tables.png":::
 
     You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
@@ -178,7 +178,7 @@ To train a machine learning model on data in your Log Analytics workspace:
  
     The resulting DataFrame looks like this:
 
-    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-dataframe-split-datetime.png" alt-text="Screenshot that shows a DataFrame with the newly-added Year, Month, Day, and Hour columns.":::
+    :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-dataframe-split-datetime.png" alt-text="Screenshot that shows a DataFrame with the newly added Year, Month, Day, and Hour columns.":::
  
 1. Split the dataset into a training set and a testing set.
 
@@ -255,7 +255,7 @@ Use the gradient boosting regression model to predict ingestion in a new time ra
 
 Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further analysis.   
 
-1. To send data go your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
+1. To send data to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
 1. Define variables you need to pass in the call to the Logs Ingestion API:
 
     ```python
