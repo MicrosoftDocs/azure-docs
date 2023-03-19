@@ -65,7 +65,6 @@ This table contains the information pertinent to Windows deployments.
 > | ------------------------------- | -------------------------------------------------------------------------- | ---------------------------- | 
 > | `mssserver_version`             | SQL Server version                                                         | `mssserver2019`              |
 
-:                     ''
 
 ## Parameters
 
