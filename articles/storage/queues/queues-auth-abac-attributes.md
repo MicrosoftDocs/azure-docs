@@ -27,14 +27,13 @@ This section lists the supported Azure Queue storage actions you can target for 
 
 Storage accounts support the following actions:
 
-> [!div class="mx-tableFixed"]
-> | Display name | DataAction |
-> | :--- | :--- |
-> | [Peek messages](#peek-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
-> | [Put a message](#put-a-message) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
-> | [Put or update a message](#put-or-update-a-message) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
-> | [Clear messages](#clear-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
-> | [Get or delete messages](#get-or-delete-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+| Display name | DataAction |
+| :--- | :--- |
+| [Peek messages](#peek-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
+| [Put a message](#put-a-message) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
+| [Put or update a message](#put-or-update-a-message) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
+| [Clear messages](#clear-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
+| [Get or delete messages](#get-or-delete-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 ### Peek messages
 
@@ -105,17 +104,16 @@ This section lists the Azure Queue storage attributes you can use in your condit
 
 The following table summarizes the available attributes by source:
 
-> [!div class="mx-tableFixed"]
-> | Attribute Source | Display name         | Description                                                        |
-> | :--------------- | :------------------- | :----------------------------------------------------------------- |
-> | **Environment**  | | |
-> | | [Is private link](#is-private-link)   | Is access over a private link?                                     |
-> | | [Private endpoint](#private-endpoint) | The name of the private endpoint from which an object is accessed. |
-> | | [Subnet name](#subnet-name)           | The name of the subnet from which an object is accessed.           |
-> | | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
-> | **Resource**      | | |
-> | | [Account name](#account-name)         | The storage account name.                                          |
-> | | [Queue name](#queue-name)             | The storage queue name.                                            |
+| Attribute Source | Display name         | Description                                                        |
+| :--------------- | :------------------- | :----------------------------------------------------------------- |
+| **Environment**  | | |
+| | [Is private link](#is-private-link)   | Is access over a private link?                                     |
+| | [Private endpoint](#private-endpoint) | The name of the private endpoint from which an object is accessed. |
+| | [Subnet name](#subnet-name)           | The name of the subnet from which an object is accessed.           |
+| | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
+| **Resource**      | | |
+| | [Account name](#account-name)         | The storage account name.                                          |
+| | [Queue name](#queue-name)             | The storage queue name.                                            |
 
 ### Account name
 
