@@ -40,7 +40,7 @@ Cosmos DB for MongoDB has numerous added benefits of being built on Azure Cosmos
 
 - **Serverless deployments**: Cosmos DB for MongoDB offers a [serverless capacity mode](../serverless.md). With [Serverless](../serverless.md), you're only charged per operation, and don't pay for the database when you don't use it.
 
-- **Free Tier**: With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level. Free tier accounts are [sandboxed](https://learn.microsoft.com/en-us/azure/cosmos-db/limit-total-account-throughput#set-the-total-throughput-limit-from-the-azure-portal).
+- **Free Tier**: With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level. Free tier accounts are [sandboxed](https://learn.microsoft.com/azure/cosmos-db/limit-total-account-throughput#set-the-total-throughput-limit-from-the-azure-portal).
 
 - **Free 7 day Continous Backups**: Azure Cosmos DB for MongoDB offers free 7 day continuous backups for any amount of data. This means that you can restore your database to any point in time within the last 7 days. 
 
@@ -123,7 +123,7 @@ Not sure if your workload is ready? [Reach out to us](https://forms.office.com/p
 
 4. Does Cosmos DB for MongoDB run on-premises?
 
-    Cosmos DB for MongoDB is a cloud-native multi-tenant service and is not available on-premises. Cosmos DB offers an [emulator for local development and testing](https://learn.microsoft.com/en-us/azure/cosmos-db/local-emulator).
+    Cosmos DB for MongoDB is a cloud-native multi-tenant service and is not available on-premises. Cosmos DB offers an [emulator for local development and testing](https://learn.microsoft.com/azure/cosmos-db/local-emulator).
 
 
 ## Next steps
