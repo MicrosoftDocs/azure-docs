@@ -34,17 +34,22 @@ The identification of data sensitivity is updated every 7 days.
 
 To see the sensitivity insights in Defender for Cloud, you must:
 
-- In Microsoft Purview:
-    - Consent to sharing sensitive data with Defender for Cloud.
-    - Create and publish sensitivity labels for your tenant in Microsoft Purview with a scope that includes Items and Schematized data assets and Auto-labeling rules.
-    Learn more about [sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in Microsoft Purview.
+- In Microsoft Purview, create and publish sensitivity labels for your tenant in Microsoft Purview with a scope that includes Items and Schematized data assets and Auto-labeling rules. Learn more about [sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in Microsoft Purview.
 - In Defender for Cloud, enable data-aware security capabilities for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-introduction.md).
+
+## Import sensitivity labels from Microsoft Purview
+
+When you enable data-aware security capabilities in Defender for Cloud, the sensitive data categories include a default list of Microsoft Purview info types. Storage or containers that are found to contain these info types are marked as containing sensitive data.
+
+You can import the sensitivity labels from Microsoft Purview to use as the default list of sensitive data categories. This helps you to ensure that the sensitive data categories in Defender for Cloud are consistent with the sensitivity labels in Microsoft Purview.
+
+To import the sensitivity labels from Microsoft Purview, log into Microsoft Purview and select **Agree** for the consent notice to share your sensitivity labels with Defender for Cloud.
 
 ## Customize sensitive data categories
 
 When you enable data-aware security capabilities in Defender for Cloud, the sensitive data categories include a default list of Microsoft Purview info types. Storage or containers that are found to contain these info types are marked as containing sensitive data.
 
-To customize the data sensitivity discovery for your organization, you'll need to select in the data sensitivity settings the info types that you want to mark as sensitive. Some info types are organized in pre-defined categories, such as Personally Identifiable Information (PII) and Financial information. Custom labels are shown in the Custom category and all other info types are shown in the Other category.
+To customize the data sensitivity discovery for your organization, you'll need to select the info types that you want to mark as sensitive. Some info types are organized in pre-defined categories, such as Personally Identifiable Information (PII) and Financial information. Custom labels are shown in the Custom category and all other info types are shown in the Other category.
 
 To select the info types that you want to see marked as sensitive in Defender for Cloud:
 
