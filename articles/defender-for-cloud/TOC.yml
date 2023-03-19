@@ -162,22 +162,24 @@
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Data-aware Security Posture (DASP)
-        href: concept-data-security-posture.md
-      - name: Security recommendations
-        items:
-        - name: Reference list of Azure recommendations
-          displayName: Azure, recommendations
-          href: recommendations-reference.md
-        - name: Reference list of AWS recommendations
-          displayName: AWS, recommendations
-          href: recommendations-reference-aws.md
-        - name: Reference list of GCP recommendations
-          displayName: gcp, recommendations
-          href: recommendations-reference-gcp.md
-        - name: Reference list of attack paths and cloud security graph components
-          displayName: attack, paths, security, graph, components
-          href: attack-path-reference.md
+  - name: Improve your data security posture
+    items:
+    - name: Learn about data-aware security posture
+      href: concept-data-security-posture.md
+  - name: Security recommendations
+    items:
+    - name: Reference list of Azure recommendations
+      displayName: Azure, recommendations
+      href: recommendations-reference.md
+    - name: Reference list of AWS recommendations
+      displayName: AWS, recommendations
+      href: recommendations-reference-aws.md
+    - name: Reference list of GCP recommendations
+      displayName: gcp, recommendations
+      href: recommendations-reference-gcp.md
+    - name: Reference list of attack paths and cloud security graph components
+      displayName: attack, paths, security, graph, components
+      href: attack-path-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
