@@ -69,10 +69,34 @@ In this tutorial, you'll need:
     
  ## Install required Python tools
 
-1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/python/api/overview/azure/monitor-query-readme), which lets you execute read-only queries on data in your Log Analytics workspace. 
-1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK. 
+1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/python/api/overview/azure/monitor-query-readme), which lets you execute read-only queries on data in your Log Analytics workspace:
+
+    ```python
+    pip install azure-monitor-query
+    ``` 
+1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK:
+
+    ```python
+    pip install azure-identity
+    ``` 
+
 1. Install [Plotly](https://plotly.com/python/), a popular Python visualization package.
 
+    ```python
+    pip install plotly
+    ``` 
+
+1. Install [Pandas library](https://pandas.pydata.org/), an open source data analysis and manipulation tool tool for Python:
+
+    ```python
+    pip install pandas
+    ``` 
+
+1. Install [Scikit-learn](https://scikit-learn.org/stable/), an open source Python library that implements machine learning algorithms for predictive data analysis:
+
+    ```python
+    pip install numpy scipy scikit-learn
+    ```
  ## Integrate your Log Analytics workspace with your notebook 
 
 To be able to query data in your Log Analytics workspace from your notebook:
