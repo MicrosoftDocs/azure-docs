@@ -60,8 +60,9 @@ In this tutorial, you'll need:
 
 |Source| Tool | Description |
 |---| --- | --- |
-|Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
-||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme?view=azure-python)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API.|
+|Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
+||[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
+||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API.|
 ||[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Azure Monitor tools for ingesting data you process in Jupyter Notebook into your Log Analytics workspace.|
 |Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
 ||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
@@ -69,33 +70,38 @@ In this tutorial, you'll need:
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
  ## Install required Python tools
 
-1. Install the [Azure Monitor Query client library for Python](https://docs.microsoft.com/python/api/overview/azure/monitor-query-readme), which lets you execute read-only queries on data in your Log Analytics workspace:
+1. Install the Azure Monitor Query client library for Python:
 
     ```python
     pip install azure-monitor-query
     ``` 
-1. Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/), which enables Azure Active Directory token authentication using the Azure SDK:
+1. Install the Azure Identity client library for Python:
 
     ```python
     pip install azure-identity
     ``` 
+1. Install the Azure Monitor Ingestion client library for Python:
 
-1. Install [Plotly](https://plotly.com/python/), a popular Python visualization package.
+    ```python
+    ppip install azure-monitor-ingestion
+    ``` 
+
+1. Install Plotly:
 
     ```python
     pip install plotly
     ``` 
 
-1. Install [Pandas library](https://pandas.pydata.org/), an open source data analysis and manipulation tool tool for Python:
+1. Install Pandas library:
 
     ```python
     pip install pandas
     ``` 
 
-1. Install [Scikit-learn](https://scikit-learn.org/stable/), an open source Python library that implements machine learning algorithms for predictive data analysis:
+1. Scikit-learn:
 
     ```python
-    pip install numpy scipy scikit-learn
+    pip install scikit-learn
     ```
  ## Integrate your Log Analytics workspace with your notebook 
 
