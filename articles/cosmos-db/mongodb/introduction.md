@@ -48,7 +48,7 @@ Cosmos DB for MongoDB has numerous added benefits of being built on Azure Cosmos
 
 - **Role Based Access Control**: With Azure Cosmos DB for MongoDB, you can assign granular roles and permissions to users to control access to your data and audit user actions- all using native Azure tooling.
 
-- **Flexible single-field indexes**: Unlike single field indexes in MongoDB Atlas, [single field indexes in Cosmos DB for MongoDB](indexing.md) cover multi-field filters. There is no need to create compound indexes for each multi-field query. This increases developer productivity.
+- **Flexible single-field indexes**: Unlike single field indexes in MongoDB Atlas, [single field indexes in Cosmos DB for MongoDB](indexing.md) cover multi-field filter queries. There is no need to create compound indexes for each multi-field filter query. This increases developer productivity.
 
 - **Real time analytics (HTAP) at any scale**: Cosmos DB for MongoDB offers the ability to run complex analytical queries. Use cases for these queries include business intelligence that can run against your database data in real time with no effect on your database. This analysis is fast and inexpensive, due to the cloud native analytical columnar store being utilized, with no ETL pipelines. Learn more about the [Azure Synapse Link](../synapse-link.md).
 
