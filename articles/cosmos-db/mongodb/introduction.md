@@ -107,7 +107,7 @@ Not sure if your workload is ready? [Reach out to us](https://forms.office.com/p
 
 4. Does Cosmos DB for MongoDB scale linearly? 
 
-    In many cases, Cosmos DB scales better than linearly. For example, if you read a 1KB document, this equates to 1 RU. But if you read a 10KB documents, this still equates to roughly 1RU. The [Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) can help you estimate your throughput needs.
+    In many cases, Cosmos DB scales better than linearly. For example, if you read a 1KB document, this equates to 1 RU. But if you read a 10KB document, this still equates to roughly 1RU. The [Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) can help you estimate your throughput needs.
 
 4. How can I encrypt data and manage access at the field level?
 
