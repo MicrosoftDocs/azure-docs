@@ -210,7 +210,7 @@ Let's experiment with two types of regression models and check which of the mode
 
 ## Score new data using the trained model and identify anomalies
 
-Use the gradient boosting regression model to score 
+Use the gradient boosting regression model to predict ingestion in a new time range, compare the predicted values with actual ingestion, and identify anomalies: 
 
 1. Query data ingestion information for the six data types we selected over the past week.
 
