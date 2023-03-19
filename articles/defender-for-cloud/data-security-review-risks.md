@@ -70,8 +70,3 @@ Add a context sentence for the following links.
 
 ## Next steps
 TODO: Add your next step link(s)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
--->

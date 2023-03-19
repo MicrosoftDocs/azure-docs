@@ -241,8 +241,6 @@
     items:
     - name: Get started
       href: data-security-posture-enable.md
-    - name: Data-aware security for Amazon AWS S3 buckets
-      href: data-security-posture-enable-aws.md
     - name: Review risks to sensitive data
       href: data-security-review-risks.md
     - name: Customize sensitivity settings
