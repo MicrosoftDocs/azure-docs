@@ -15,9 +15,9 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and narrative text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
-In this tutorial, we'll demonstrate how you can create a machine learning model that detects anomalies, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using the native machine learning capabilities of KQL, in this tutorial, you'll train and evaluate a custom regression model for detecting anomalies in Azure Monitor Logs on your own. 
+In this tutorial, you'll train a machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using the native machine learning capabilities of KQL, you'll train and evaluate a custom regression model by querying and visualizing data in your Log Analytics workspace from Jupyter Notebook and then experiment with a couple of regression models before scoring new data. 
 
-This provides you with a number of advantages:
+Training your own machine learning model in Jupyter Notebook provides you with a number of advantages:
 
 - While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
 - You can work with log data at big scales without have to export data to external services.  
