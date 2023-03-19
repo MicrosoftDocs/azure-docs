@@ -61,7 +61,8 @@ In this tutorial, you'll need:
 |Source| Tool | Description |
 |---| --- | --- |
 |Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme?view=azure-python) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
-||[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Azure Monitor tools for ingesting data you process in Jupyter Notebook into your Log Analytics workspace. |
+||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme?view=azure-python)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API.|
+||[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Azure Monitor tools for ingesting data you process in Jupyter Notebook into your Log Analytics workspace.|
 |Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
 ||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
 ||[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
