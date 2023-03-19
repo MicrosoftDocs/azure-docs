@@ -41,10 +41,29 @@ To enable data-aware security posture for Azure subscriptions, follow these step
 
 To enable data-aware security posture for AWS accounts, you'll need to go change the Defender CSPM settings in the AWS connector and implement the changes in AWS with a CloudFormation template. The AWS account has to have the regular permissions required to add any other plan for AWS connector. In addition, they need permission to run the CloudFormation template in AWS.
 
-The CloudFormation template creates a new role in AWS IAM that allows permission to the MDC scanner access the customer’s data in the S3 buckets. The role allows these permissions:
+### Prerequisites
 
-- S3 read only
-- KMS decrypt
+Before you enable data-aware security posture for AWS S3 buckets:
+
+- The CloudFormation template creates a new role in AWS IAM that allows permission to the MDC scanner access the customer’s data in the S3 buckets. The role allows these permissions:
+
+    - S3 read only
+    - KMS decrypt
+
+- Verify that there is no policy that blocks the connection to your Amazon S3 buckets:
+    - Make sure that the S3 bucket policy doesn't block the connection:
+        1. In AWS, navigate to your S3 bucket, and then select the Permissions tab > Bucket policy.
+        1. Check the policy details to make sure that it doesn't block the connection from the MDC
+scanner service running in Microsoft account in AWS.
+    - Make sure that there's no SCP policy that blocks the connection to the S3 bucket. For 
+example, your SCP policy might block read API calls to the AWS Region where your S3 
+bucket is hosted.
+    - These required API calls must be allowed by your SCP policy: AssumeRole, 
+GetBucketLocation, GetObject, ListBucket, GetBucketPublicAccessBlock
+    - Your SCP policy must also allow calls to the us-east-1 AWS Region, which is the default 
+Region for API calls.
+
+### Enable the Data security posture component for AWS S3 buckets
 
 To enable data-aware security posture for AWS accounts, follow these steps:
 
@@ -53,7 +72,7 @@ To enable data-aware security posture for AWS accounts, follow these steps:
 1. Select the relevant AWS account.
 1. For the Defender CSPM plan, select the **On** status.
 
-    If Defender CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the Data security posture component is set to **On** status.
+    If Defender CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Data security posture** component is set to **On** status.
 
 1. Proceed with the instructions to download the CloudFormation template and to run it in AWS.
 
