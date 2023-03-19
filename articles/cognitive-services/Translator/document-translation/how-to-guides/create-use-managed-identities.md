@@ -7,34 +7,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 ---
 
 # Managed identities for Document Translation
 
-Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
+Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
 
    :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
+* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications.
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
-
-
-
 > [!IMPORTANT]
 >
-> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail.
+> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
 >
-> * Currently, Document Translation doesn't support managed identity in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
+> * To use managed identities for Document Translation operations, you must [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a specific geographic Azure region such as **East US**. If your Translator resource region is set to **Global**, then you can't use managed identity for Document Translation. You can still use [Shared Access Signature tokens (SAS)](create-sas-tokens.md) for Document Translation.
 >
 > * Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
-> * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
 
 ## Prerequisites
 
@@ -42,7 +38,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **geographical** region such as **West US**. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
@@ -153,7 +149,7 @@ The following headers are included with each Document Translation API request:
 * The `targetUrl` for each target language must be unique.
 
 >[!NOTE]
-> If a file with the same name already exists in the destination, the job will fail.
+> If a file with the same name already exists in the destination, the job will fail. When using managed identities, don't include a SAS token URL with your HTTP requests. Otherwise your requests will fail.
 
 <!-- markdownlint-disable MD024 -->
 ### Translate all documents in a container
