@@ -31,11 +31,9 @@ An organization that manages APIs using Azure API Management may have multiple d
 
 The following is a sample workflow for creating and using a workspace.
 
-1. A central API platform team that manages the API Management instance creates a workspace and assigns its owners and workspace members.
+1. A central API platform team that manages the API Management instance creates a workspace and assigns permissions to workspace collaborators using RBAC roles - for example, permissions to create or read resources in the workspace.
 
 1. A central API platform team uses DevOps tools to create a DevOps pipeline for APIs in that workspace. 
-
-1. Workspace owners assign permissions to workspace members using RBAC roles - for example, permissions to create or read resources in the workspace.
 
 1. Workspace members develop, publish, productize, and maintain APIs in the workspace. 
 
@@ -83,7 +81,11 @@ The following resources can be managed in the workspaces preview.
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
-Workspace members must be assigned both a service-level role and a workspace-level role, or granted equivalent permissions using custom roles. The service-level role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+Workspace members must be assigned both a service-scoped role and a workspace-scoped role, or granted equivalent permissions using custom roles. The service-scoped role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+
+> [!NOTE]
+> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> 
 
 ## Workspaces and other API Management features
 
