@@ -12,47 +12,47 @@ ms.author: behoorne
 ---
 
 
-# Deploy Azure Health Insights using the Azure portal
+# Quickstart: Deploy Azure Health Insights using the Azure portal
 
 In this quickstart, you'll learn how to deploy Azure Health Insights using the Azure portal.
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure Health Insights to see the details including your Service URL, Keys and manage your Access Controls.
+Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure Health Insights, and retrevie the needed details  such your service URL, keys and manage your access controls.
 
 ## Prerequisite 
-To deploy Azure Health Insight  you must register your subscription. Please let us know the Azure subscription ID you plan to use for Azure Health Insights so that we can register necessary feature flags on our end.
+To deploy Azure Health Insights you must register your subscription. Please let us know the Azure subscription ID you plan to use for Azure Health Insights so that we can register necessary feature flags on our end.
 
-## Deploying Azure Health Insights
+## Deploy Azure Health Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Create a new **Resource group**
-3. Add a new Cognitive Services account to your Resource group and search for **Azure Health Insights** 
+2. Create a new **Resource group**.
+3. Add a new Cognitive Services account to your Resource group and search for **Azure Health Insights**.
 ![Screenshot of how to create the new Azure Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
 
     or Use this [link](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_healthdecisionsupportpreview&feature.healthdecisionsupportpreview=true#create/Microsoft.CognitiveServicesHealthDecisionSupport) to create a new Cognitive Services account.
 
 4. Enter the following values:
-- Resource group: Select your resource group name.
-- Region: Select an Azure location, such as West Europe.
-- Name: Enter a Cognitive Services account name
-- Pricing tier: select your pricing tier
+- **Resource group**: Select or create your Resource group name.
+- **Region**: Select an Azure location, such as West Europe.
+- **Name**: Enter a Cognitive Services account name.
+- **Pricing tier**: Select your pricing tier.
 
     ![Screenshot of how to create new Cognitive Services account.](media/oncophenotype/deploy-to-azure/create-health-decision-support.jpg) 
 
-5. Navigate to your newly created service
+5. Navigate to your newly created service.
 
     ![Screenshot of the Overview of Cognitive Services account.](media/oncophenotype/deploy-to-azure/created-health-decision-support.jpg) 
 
-## Configuring private endpoints
+## Configure private endpoints
 
-With private endpoints, the network traffic between the clients on the VNet and the Cognitive Services account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public Internet.
+With private endpoints, the network traffic between the clients on the VNet and the Cognitive Services account run over the VNet and a private link on the Microsoft backbone network. This eliminates exposure from the public internet.
 
-Once the Cognitive Services account is successfully created, you can configure private endpoints from the Networking page under Resource Management. 
+Once the Cognitive Services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
 
 ![Screenshot of Private Endpoint.](media/oncophenotype/deploy-to-azure/private-endpoints.jpg) 
 
 ## Next steps
 
-To get started using the Azure Health Insights, you can test one of the following models
+To get started using the Azure Health Insights, get started with one of the following models:
 
 >[!div class="nextstepaction"]
 > [OncoPhenotype](oncophenotype/index.yml) 

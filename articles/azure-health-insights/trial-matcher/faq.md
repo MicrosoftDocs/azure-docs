@@ -16,7 +16,6 @@ ms.author: behoorne
 
 Find answers to commonly asked questions about the Trial matcher, part of the Azure Health Insights Service.
 
-
 ## Is there a workaround for patients whose clinical documents exceed the # characters limit?
 Unfortunately, we don't support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.
 

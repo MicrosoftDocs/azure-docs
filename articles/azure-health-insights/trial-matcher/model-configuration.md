@@ -11,7 +11,7 @@ ms.date: 02/02/2023
 ms.author: behoorne
 ---
 
-# Trial Matcher Model configuration
+# Trial Matcher model configuration
 
 The Trial Matcher includes a built-in Knowledge graph, which uses trials taken from [clinicaltrials.gov](https://clinicaltrials.gov/), and is being updated periodically. 
 When you're matching patients to trials, you can define a list of filters to query a subset of clinical trials. Each filter can be defined based on trial conditions, types, recruitment statuses, sponsors, phases, purposes, facility names, locations, or trial IDs.

@@ -12,11 +12,11 @@ ms.author: behoorne
 ---
 
 
-# Trial Matcher Patient Info
+# Trial Matcher patient Info
 
 To match the relevant patient(s), with the clinical trial(s), the trial Matcher uses patient information, which can be in 4 different ways. You can provide the information in the form of ```Unstructured clinical notes```, ```FHIR bundle```, via question and answer, also known as ```Gradual Matching``` or via ```JSON key/value``` schema.
 
-## Unstructured Clinical Note
+## Unstructured clinical note
 
 Patient data can be provided to the Trial Matcher as an unstructured clinical note.
 The Trial Matcher will perform a prior step of language understanding to analyse the unstructured text, retrieve the patient clinical information, and structure the patient data to a structured data.
@@ -78,7 +78,7 @@ When providing the data of the patient in clinical note, the ```Patient.PatientD
 }
  ```
 
-## FHIR Bundles
+## FHIR bundles
 Patient data can be provided to the Trial Matcher as an FHIR bundle. In some cases the patient data access is in FHIR bundle format either patient data is stored in FHIR Server or in other EMR/EHR system that provide FHIR interface. 
 
 Trial Matcher supports USCore profiles as well as mCode profiles.
@@ -136,7 +136,7 @@ When providing the data of the patient as FHIR Bundle, the ```Patient.PatientDoc
 
  ```
 
-## Gradual Matching
+## Gradual matching
 
 Trial Matcher can also be used with Gradual Matching. In this mode you can send requests to the Trial Matcher in gradual way. This will be mainly done via conversational intelligence or chat-like scenarios. 
 
