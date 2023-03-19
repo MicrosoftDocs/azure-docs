@@ -98,11 +98,11 @@ Defender for IoT routes all traffic from all European regions to the *West Europ
 
 ## Compliance scope
 
-Microsoft Azure cloud environments meet demanding US government compliance requirements that produce formal authorizations. For details about Defender for IoT compliance, see:
+Microsoft Azure cloud environments, including Defender for IoT, meet demanding US government compliance requirements that produce formal authorizations in the following ways:
 
-- **Defender for IoT** in the [Azure public services by audit scope](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-public-services-by-audit-scope) table.
-- **Azure Security for IoT** in [Accessibility Conformance Reports | Microsoft Accessibility](https://www.microsoft.com/en-us/accessibility/conformance-reports).
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)
+- **Defender for IoT** is in scope for use in FedRAMP High, DoD IL2, DoD IL4 and DoD IL5 environments. For more information, see [Azure public services by audit scope](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-public-services-by-audit-scope).
+- **Microsoft Defender for IoT** (previously named Azure Security for IoT) is committed to developing technology that empowers everyone, including people with disabilities, and helps customers address global accessibility requirements. For more information, see [Accessibility Conformance Reports | Microsoft Accessibility](https://www.microsoft.com/en-us/accessibility/conformance-reports).
+- **Microsoft Defender for IoT** (previously named Azure Security for IoT) complies with multiple compliance obligations across regulated industries and markets worldwide. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 ## Next steps
 
