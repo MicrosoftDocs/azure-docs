@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 03/19/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -316,8 +316,8 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 The following table summarizes the available attributes by source:
 
 > [!div class="mx-tableFixed"]
-> | Attribute Source | Display name              | Description                                                        |
-> | :--------------- | :------------------------ | :----------------------------------------------------------------- |
+> | Attribute Source | Display name             | Description                                                        |
+> | :--------------- | :----------------------- | :----------------------------------------------------------------- |
 > | **Environment**  | | |
 > | | [Is private link](#is-private-link)       | Is access over a private link?                                     |
 > | | [Private endpoint](#private-endpoint)     | The name of the private endpoint from which an object is accessed. |

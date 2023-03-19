@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 03/19/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
@@ -104,6 +104,32 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute type** | String |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:name] StringEquals 'sampleaccount'` |
 
+### Is private link
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Is private link |
+> | **Description** | Whether access is over a private link.<br/>Use to require access over any private endpoint. |
+> | **Attribute** | `isPrivateLink` |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
+> | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Allow read access to blobs based on private link and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-private-link-and-tags) |
+> | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
+
+### Private endpoint
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Private endpoint |
+> | **Description** | The name of the private endpoint from which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
+> | **Attribute** | `Microsoft.Network/privateEndpoints` |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container from only a private endpoint](storage-auth-abac-examples.md#example-allow-read-access-to-a-container-from-only-a-private-endpoint) |
+> | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
+
 ### Queue name
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -114,6 +140,31 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `Microsoft.Storage/storageAccounts/queueServices/queues:name` |
 > | **Attribute source** | Resource |
 > | **Attribute type** | String |
+
+### Subnet name
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Subnet name |
+> | **Description** | The name of the subnet from which an object is accessed.<br/>Use to restrict access to a specific subnet. |
+> | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow read access to blobs based on a subnet and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-a-subnet-and-tags) |
+> | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
+
+### UTC now
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | UTC now |
+> | **Description** | The current date and time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
+> | **Attribute** | `UtcNow` |
+> | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> (Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.) |
+> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ## See also
 
