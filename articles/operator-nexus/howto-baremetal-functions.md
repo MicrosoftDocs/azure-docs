@@ -76,7 +76,7 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ## Reimage a BMM (reinstall a BMM image)
 
-The existing BMM image can be **reinstalled** using the `reimage` command but will not install a new image.
+An existing BMM image is **reinstalled** using the `reimage` command. This command doesn't install a new image.
 Make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, prior to executing the `reimage` command.
 
@@ -89,8 +89,7 @@ The reimage command restarts the BMM and uncordons it. The re-imaged BMM will ha
 
 ## Replace BMM
 
-Replace will be used when a BareMetal machine has encountered hardware issues that require a complete or partial hardware replacement. During replace the MAC address of Baremetal Hosts will change, however the IDrac IP address and hostname will remain the same.
-This command will `replace` the specified `bareMetalMachineName`.
+Use `Replace BMM` command whenever a BareMetal machine has encountered hardware issues requiring a complete or partial hardware replacement. After replace the MAC address of Baremetal Host will change, however the IDrac IP address and hostname will remain the same.
 
 ```azurecli
 az networkcloud baremetalmachine replace --name "bareMetalMachineName" \
@@ -98,5 +97,3 @@ az networkcloud baremetalmachine replace --name "bareMetalMachineName" \
     --boot-mac-address "00:00:4e:00:58:af" --machine-name "name" --serial-number "BM1219XXX" \
     --resource-group "resourceGroupName" 
 ```
-
-
