@@ -1011,8 +1011,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Disk Read Operations/Sec |Yes |Disk Read Operations/Sec |CountPerSecond |Average |Disk Read IOPS |RoleInstanceId, RoleId |
 |Disk Write Bytes |Yes |Disk Write Bytes |Bytes |Total |Bytes written to disk during monitoring period |RoleInstanceId, RoleId |
 |Disk Write Operations/Sec |Yes |Disk Write Operations/Sec |CountPerSecond |Average |Disk Write IOPS |RoleInstanceId, RoleId |
-|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |RoleInstanceId, RoleId |
-|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |RoleInstanceId, RoleId |
+|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) measured in bytes per minute |RoleInstanceId, RoleId |
+|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) measured in bytes per minute |RoleInstanceId, RoleId |
 |Percentage CPU |Yes |Percentage CPU |Percent |Average |The percentage of allocated compute units that are currently in use by the Virtual Machine(s) |RoleInstanceId, RoleId |
 
 
@@ -1026,8 +1026,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Disk Read Operations/Sec |Yes |Disk Read Operations/Sec |CountPerSecond |Average |Disk Read IOPS |RoleInstanceId, RoleId |
 |Disk Write Bytes |Yes |Disk Write Bytes |Bytes |Total |Bytes written to disk during monitoring period |RoleInstanceId, RoleId |
 |Disk Write Operations/Sec |Yes |Disk Write Operations/Sec |CountPerSecond |Average |Disk Write IOPS |RoleInstanceId, RoleId |
-|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |RoleInstanceId, RoleId |
-|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |RoleInstanceId, RoleId |
+|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) measured in bytes per minute |RoleInstanceId, RoleId |
+|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) measured in bytes per minute |RoleInstanceId, RoleId |
 |Percentage CPU |Yes |Percentage CPU |Percent |Average |The percentage of allocated compute units that are currently in use by the Virtual Machine(s) |RoleInstanceId, RoleId |
 
 
@@ -1071,9 +1071,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Inbound Flows |Yes |Inbound Flows |Count |Average |Inbound Flows are number of current flows in the inbound direction (traffic going into the VM) |No Dimensions |
 |Inbound Flows Maximum Creation Rate |Yes |Inbound Flows Maximum Creation Rate |CountPerSecond |Average |The maximum creation rate of inbound flows (traffic going into the VM) |No Dimensions |
 |Network In |Yes |Network In Billable (Deprecated) |Bytes |Total |The number of billable bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) (Deprecated) |No Dimensions |
-|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |No Dimensions |
+|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) measured in bytes per minute |No Dimensions |
 |Network Out |Yes |Network Out Billable (Deprecated) |Bytes |Total |The number of billable bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) (Deprecated) |No Dimensions |
-|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |No Dimensions |
+|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) measured in bytes per minute |No Dimensions |
 |OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute. Only available on VM series that support premium storage. |LUN |
 |OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute. Only available on VM series that support premium storage. |LUN |
 |OS Disk Max Burst Bandwidth |Yes |OS Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput OS Disk can achieve with bursting |LUN |
@@ -1133,9 +1133,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Inbound Flows |Yes |Inbound Flows |Count |Average |Inbound Flows are number of current flows in the inbound direction (traffic going into the VM) |VMName |
 |Inbound Flows Maximum Creation Rate |Yes |Inbound Flows Maximum Creation Rate |CountPerSecond |Average |The maximum creation rate of inbound flows (traffic going into the VM) |VMName |
 |Network In |Yes |Network In Billable (Deprecated) |Bytes |Total |The number of billable bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) (Deprecated) |VMName |
-|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |VMName |
+|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) measured in bytes per minute |VMName |
 |Network Out |Yes |Network Out Billable (Deprecated) |Bytes |Total |The number of billable bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) (Deprecated) |VMName |
-|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |VMName |
+|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) measured in bytes per minute |VMName |
 |OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute |LUN, VMName |
 |OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute |LUN, VMName |
 |OS Disk Max Burst Bandwidth |Yes |OS Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput OS Disk can achieve with bursting |LUN, VMName |
@@ -1195,9 +1195,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Inbound Flows |Yes |Inbound Flows |Count |Average |Inbound Flows are number of current flows in the inbound direction (traffic going into the VM) |No Dimensions |
 |Inbound Flows Maximum Creation Rate |Yes |Inbound Flows Maximum Creation Rate |CountPerSecond |Average |The maximum creation rate of inbound flows (traffic going into the VM) |No Dimensions |
 |Network In |Yes |Network In Billable (Deprecated) |Bytes |Total |The number of billable bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) (Deprecated) |No Dimensions |
-|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |No Dimensions |
+|Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) measured in bytes per minute |No Dimensions |
 |Network Out |Yes |Network Out Billable (Deprecated) |Bytes |Total |The number of billable bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) (Deprecated) |No Dimensions |
-|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |No Dimensions |
+|Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) measured in bytes per minute |No Dimensions |
 |OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute |LUN |
 |OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute |LUN |
 |OS Disk Max Burst Bandwidth |Yes |OS Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput OS Disk can achieve with bursting |LUN |
