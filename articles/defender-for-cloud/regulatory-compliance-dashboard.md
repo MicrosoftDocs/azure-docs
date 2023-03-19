@@ -11,7 +11,7 @@ Microsoft Defender for Cloud helps streamline the process for meeting regulatory
 
 When you enable Defender for Cloud on an Azure subscription, the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/), [PCI-DSS](https://www.pcisecuritystandards.org/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
-The regulatory compliance dashboard shows the status of all the assessments within your environment for your chosen standards and regulations. As you act on the recommendations and reduce risk factors in your environment, your compliance posture improves.
+The regulatory compliance dashboard (currently in preview) shows the status of all the assessments within your environment for your chosen standards and regulations. As you act on the recommendations and reduce risk factors in your environment, your compliance posture improves.
 
 In this tutorial you'll learn how to:
 
@@ -55,9 +55,9 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 - Automated assessments show the number of failed resources and resource types, and link you directly to the remediation experience to address those recommendations. (6)
 - The manual assessments can be manually attested, and evidence can be linked to demonstrate compliance. (7)
 
-## Investigate your regulatory compliance issues
+## Investigate regulatory compliance issues
 
-You can use the information in the regulatory compliance dashboard to investigate any issues that may be affecting your compliance posture.
+You can use the information in the regulatory compliance dashboard (in preview) to investigate any issues that may be affecting your compliance posture.
 
 **To investigate your compliance issues**:
 
