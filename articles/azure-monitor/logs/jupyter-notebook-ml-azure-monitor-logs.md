@@ -245,9 +245,9 @@ Let's experiment with two types of regression models and check which :
 
 ## Ingest anomalies into a custom table in your Log Analytics workspace
 
-This is an optional step. Send the anomalies you identify to a custom table in your Log Analytics workspace ofallows you to use the 
+Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further anlysis. This is an optional step.  
 
-1. To send data back to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
+1. To send data go your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
 1. Define variables you need to pass in the call to the Logs Ingestion API:
 
     ```python
