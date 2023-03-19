@@ -256,7 +256,7 @@ Learn more about [Subscription - AzureVMwareSolutionReservedCapacity (Consider A
 
 We analyzed your NetApp Storage usage over last 30 days and calculated reserved instance purchase that would maximize your savings. With reserved instance you can pre-purchase hourly usage and save over your current on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
-Learn more about [Subscription - NetAppStorageReservedCapacity (Consider NetApp Storage reserved instance to save over your on-demand costs)](../cost-management-billing/reservations/reserved-instance-purchase-recommendations.md).
+Learn more about [Subscription - NetAppStorageReservedCapacity (Consider NetApp Storage reserved instance to save over your on-demand costs)](../storage/files/files-reserve-capacity.md).
 
 ### Consider Azure Managed Disk reserved instance to save over your on-demand costs
 
