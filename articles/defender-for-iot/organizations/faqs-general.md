@@ -19,7 +19,7 @@ Microsoft Defender for IoT delivers comprehensive security across all your IoT/O
 
 ## Do I have to be an Azure customer?
 
-You must be an Azure customer to use Microsoft Defender for IoT. However, you can work with fully on-premises resources, and OT sensors don't need to be connected to the cloud.
+You must be an Azure customer to use Microsoft Defender for IoT. However, OT sensors installed for air-gapped networks can be managed locally, and don't need to connect to the cloud.
 
 For more information, see [Defender for IoT subscription billing](billing.md).
 
