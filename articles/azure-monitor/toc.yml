@@ -679,6 +679,8 @@ items:
           - name: Application Insights API summary
             displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
             href: app/api-custom-events-metrics.md
+          - name: Application Insights data model
+            href: app/data-model-complete.md
           - name: Connection strings
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
@@ -1477,33 +1479,11 @@ items:
   - name: Application Insights
     items:
     - name: Azure Functions
-      href: ../azure-functions/functions-monitoring.md
+      href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
     - name: Release notes
       items:
       - name: Snapshot Debugger
         href: snapshot-debugger/snapshot-collector-release-notes.md
-    - name: Data model
-      items:
-      - name: Overview
-        href: app/data-model.md
-      - name: Request
-        href: app/data-model-request-telemetry.md
-      - name: Dependency
-        href: app/data-model-dependency-telemetry.md
-      - name: Exception
-        href: app/data-model-exception-telemetry.md
-      - name: Trace
-        href: app/data-model-trace-telemetry.md
-      - name: Event
-        href: app/data-model-event-telemetry.md
-      - name: Metric
-        href: app/data-model-metric-telemetry.md
-      - name: PageView
-        href: app/data-model-pageview-telemetry.md
-      - name: Context
-        href: app/data-model-context.md
-      - name: Integration with Azure Functions
-        href: app/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
