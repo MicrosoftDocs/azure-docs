@@ -1,6 +1,6 @@
 ---
-title: Data-aware Security Posture Management in Microsoft Defender for Cloud
-description: Learn how Defender for Cloud can help you identify and remediate data security posture issues in your cloud environment.
+title: Data-aware security posture in Microsoft Defender for Cloud
+description: Learn how Defender for Cloud helps improve data security posture in a multi-cloud environment.
 author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
