@@ -394,7 +394,7 @@ job = command(
 
 ## Submit the job 
 
-It's now time to submit the job to run in Azure Machine Learning studio. This time you'll use `create_or_update`  on `ml_client`. `ml_client` is a client class that allows you to connect to your Azure subscription using Python and interact with Azure ML services. `ml_client` allows your to submit your jobs using Python.
+It's now time to submit the job to run in Azure Machine Learning studio. This time you'll use `create_or_update`  on `ml_client`. `ml_client` is a client class that allows you to connect to your Azure subscription using Python and interact with Azure Machine Learning services. `ml_client` allows you to submit your jobs using Python.
 
 
 ```python
