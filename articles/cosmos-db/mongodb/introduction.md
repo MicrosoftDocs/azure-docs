@@ -79,6 +79,8 @@ All versions run on the same codebase, making upgrades a simple task that can be
 
 - You aren't billed for virtual machines in a cluster. [Pricing](../how-pricing-works.md) is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 1000 RUs per second are free with [Free Tier](../free-tier.md).
 
+Not sure if your workload is ready? [Reach out to us](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9aWEKTdeoxPpcB2ORTA2_1UQk44OEhBRjlIWjJMTUxLTzhJVVpPU0M4My4u) to leverage automated tooling to determine if you're ready to migrate to Cosmos DB for MongoDB.
+
 - There are three ways to deploy the Cosmos DB for MongoDB:
 
   - [Provisioned throughput](../set-throughput.md): Set a RU/sec number and change it manually. This model best fits consistent workloads.
