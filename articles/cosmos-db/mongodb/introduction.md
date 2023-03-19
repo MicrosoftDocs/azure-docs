@@ -22,11 +22,11 @@ Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXr4T]
 
 > [!TIP]
-> Want to try the API for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
+> Want to try the Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
 
-## API for MongoDB benefits
+## Cosmos DB for MongoDB benefits
 
-The API for MongoDB has numerous added benefits of being built on Azure Cosmos DB when compared to service offerings such as MongoDB Atlas:
+Cosmos DB for MongoDB has numerous added benefits of being built on Azure Cosmos DB when compared to service offerings such as MongoDB Atlas:
 
 - **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down. 
 
@@ -63,7 +63,7 @@ Cosmos DB for MongoDB implements the wire protocol for MongoDB. This implementat
 
 ### MongoDB feature compatibility
 
-The API for MongoDB is compatible with the following MongoDB server versions:
+Cosmos DB for MongoDB is compatible with the following MongoDB server versions:
 
 - [Version 5.0 (limited preview)](../access-previews.md)
 - [Version 4.2](feature-support-42.md)
@@ -79,7 +79,7 @@ All versions run on the same codebase, making upgrades a simple task that can be
 
 - You aren't billed for virtual machines in a cluster. [Pricing](../how-pricing-works.md) is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 1000 RUs per second are free with [Free Tier](../free-tier.md).
 
-- There are three ways to deploy the API for MongoDB:
+- There are three ways to deploy the Cosmos DB for MongoDB:
 
   - [Provisioned throughput](../set-throughput.md): Set a RU/sec number and change it manually. This model best fits consistent workloads.
 
