@@ -33,8 +33,14 @@ In this tutorial, you'll:
 > * Prepare data for model training 
 > * Train and test regression models on historical data
 > * Score new data, or predict new values, using a trained model and identify anomalies
-> * Ingest anomalies into a custom table in your Log Analytics workspace. 
+> * Ingest anomalies into a custom table in your Log Analytics workspace (optional) 
 
+> [!NOTE]
+> Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
+> In this tutorial, to shorten the process, we'll: 
+>- Skip the data cleaning step.
+>- Work with only six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
+>- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
 - Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
@@ -45,9 +51,9 @@ In this tutorial, you'll need:
 
 - An [Azure Machine Learning workspace with a compute instance](../../machine-learning/quickstart-create-resources.md) with:
 
-    - A CPU compute instance type.  
-    - Kernel set to Python 3.8 or higher.
-    - [Create a notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
+    - A CPU compute instance.  
+    - A kernel set to Python 3.8 or higher.
+    - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
 - The following roles and permissions: 
 
     |Type  |Details  |
@@ -64,7 +70,7 @@ In this tutorial, you'll need:
 ||[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
 ||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API.|
 ||[Data collection rule](../essentials/data-collection-rule-overview.md) and [data collection endpoint](../essentials/data-collection-endpoint-overview.md) | Azure Monitor tools for ingesting data you process in Jupyter Notebook into your Log Analytics workspace.|
-|Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
+|Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
 ||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool tool for Python. |
 ||[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
@@ -107,7 +113,7 @@ In this tutorial, you'll need:
 
 To be able to query data in your Log Analytics workspace from your notebook:
 
-1. Set up authentication to your Log Analytics workspace using `DefaultAzureCredential` from the `azure-identity` package.
+1. Set up authentication to your Log Analytics workspace using `DefaultAzureCredential` from the `azure-identity` package:
 
     ```python
     from azure.identity import DefaultAzureCredential
@@ -148,14 +154,6 @@ Now that you've integrated your Log Analytics workspace with your notebook, let'
     You've successfully queried and visualized log data from your Log Analytics workspace in your notebook.
     
 ## Prepare data for model training
-
-Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
-
-In this tutorial, to shorten the process, we'll: 
-
-- Skip the data cleaning step.
-- Work with only six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
-- Experiment with only two models to see which best fits our data set.
 
 To train a machine learning model on data in your Log Analytics workspace:
 
@@ -253,9 +251,9 @@ Use the gradient boosting regression model to predict ingestion in a new time ra
     As you can see, the DataFrame is now filtered based on a new **Anomalies** column, which is set to `1` for all ingestion values that the Tukey's fences method identified as anomalies.
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-anomalies.png" alt-text="Screenshot that shows a DataFrame that lists the ingestion values identified as anomalies." 
 
-## Ingest anomalies into a custom table in your Log Analytics workspace
+## Ingest anomalies into a custom table in your Log Analytics workspace (optional)
 
-Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further anlysis. This is an optional step.  
+Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further analysis.   
 
 1. To send data go your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
 1. Define variables you need to pass in the call to the Logs Ingestion API:
