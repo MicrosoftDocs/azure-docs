@@ -18,7 +18,6 @@ When you enable data-aware security capabilities with **Sensitive data discovery
 - Hide sensitive data identification and security alerts for data that your organization considers non-sensitive
 
 Attack path: Internet exposed Azure Storage container with sensitive data is publicly accessible
-<!-- Availability and pricing information -->
 
 ## Permissions
 
@@ -49,7 +48,13 @@ To customize the data sensitivity discovery for your organization, you'll need t
 
 To select the info types that you want to see marked as sensitive in Defender for Cloud:
 
-
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+1. Select **Data sensitivity**.
+1. Select the info type category that you want to customize.
+    The Finance, PII, and Credentials categories are contain all of the info types that are typically associated with those categories. The Custom category contains custom info types from your Purview configuration. The Other category contains all of the rest of the available info types.
+1. Select the info types that you want marked as sensitive data.
+1. Select **Apply** and **Save**.
 
 ## Set the threshold for sensitive data labels
 
@@ -57,7 +62,12 @@ You can set the threshold for sensitive data labels to determine the minimum con
 
 To set the threshold for sensitive data labels:
 
-
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+1. Select **Data sensitivity**.
+    The current minimum sensitivity threshold is shown.
+1. Select **Change** to see the list of sensitivity labels and select the lowest sensitivity level that you want marked as sensitive.
+1. Select **Apply** and **Save**.
 
 ## Next steps
 TODO: Add your next steps
