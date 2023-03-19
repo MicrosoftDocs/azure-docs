@@ -34,17 +34,19 @@ The start of a machine learning project typically involves exploratory data anal
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **Put notebook location here** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
 ## Set your notebook kernel
 
 1. On the top bar above your opened notebook, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
 
-1. If the compute instance is stopped, select **Start compute** and wait until it's running.
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/explore-data.ipynb -->
 
@@ -53,10 +55,12 @@ The start of a machine learning project typically involves exploratory data anal
 
 For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
 
+> [!NOTE]
+> This tutorial depends on data placed in an Azure Machine Learning resource folder location. For this tutorial, 'local' means a folder location in that Azure Machine Learning resource. 
+
 1. Select **Open terminal** below the three dots, as shown in this image:
 
     :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
-
 1. The terminal window opens in a new tab. 
 1. Make sure you `cd` to the same folder where this notebook is located.  For example, if the notebook is in a folder named **get-started-notebooks**:
 
@@ -123,33 +127,27 @@ Data asset creation also creates a *reference* to the data source location, alon
 > [!TIP]
 > For smaller-size data uploads, Azure Machine Learning data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about [azcopy](../storage/common/storage-use-azcopy-v10.md).
 
-The next notebook cell creates the data asset. Here, the code sample uploads the raw data file to the designated cloud storage resource. This upload operation requires unique **version** and **name** properties in the **my_data** block. Otherwise, the cell fails. To run this cell code more than once with the same **name** value, change the **version** value each time you run the code. As another workaround, you can also comment out the **version** value. This approach creates new data asset each time the cell runs, and it auto-increments the version numbers of those versions, starting from 1:
+The next notebook cell creates the data asset. The code sample uploads the raw data file to the designated cloud storage resource.  
+
+Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  In this code, we're using time to generate a unique version, which will mostly work.  But if you happen to run this same cell on a different day at the exact same time, you'll get an error.  If this occurs, chances are good that it will be successful if you re-run the cell.
+
+You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. In this tutorial, we want to refer to specific version numbers, so we create a version number instead.
 
 
 ```python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
+import time
 
 # update the 'my_path' variable to match the location of where you downloaded the data on your
 # local filesystem
 
 my_path = "./data/default_of_credit_card_clients.csv"
-
-import uuid
-# create a unique data name
-data_name = "credit-card" + str(uuid.uuid4())
-
-# define the data asset
-
-# The version value is optional in this statement. Without it, this code
-# can re-execute this cell with the given name and version values.
-# In this case, AutoML will create new data assets each time the cell
-# executes, and it will auto-increment the version number of those
-# data assets, starting from 1.
+v1 = str(time.strftime("%H.%M.%S", time.gmtime()))
 
 my_data = Data(
-    name=data_name,
-    version="1",
+    name="credit-card",
+    version=v1,
     description="Credit card data",
     path=my_path,
     type=AssetTypes.URI_FILE,
@@ -157,20 +155,21 @@ my_data = Data(
 
 # create data asset
 ml_client.data.create_or_update(my_data)
+
+print(f"Data asset created. Name: {my_data.name}, version: {my_data.version}")
 ```
 
 You can see the uploaded data by selecting **Data** on the left. You'll see the data is uploaded and a data asset is created:
 
 :::image type="content" source="media/tutorial-prepare-data/access-and-explore-data.png" alt-text="Screenshot shows the data in studio.":::
 
-This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column. This data uploaded to your workspace's default datastore named **workspaceblobstore**, seen in the **Data source** column. An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure.
+This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column. This data uploaded to your workspace's default datastore named **workspaceblobstore**, seen in the **Data source** column. 
 
-A datastore offers these benefits:
+An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure. A datastore offers these benefits:
 
 1. A common and easy-to-use API, to interact with different storage types (Blob/Files/Azure Data Lake Storage) and authentication methods.
 1. An easier way to discover useful datastores, when working as a team.
 1. In your scripts, a way to hide connection information for credential-based data access (service principal/SAS/key).
-
 
 
 ## Access your data in a notebook
@@ -183,7 +182,9 @@ import pandas as pd
 df = pd.read_csv("azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/<filename>.csv")
 ```
 
-However, as mentioned previously, it can become hard to remember these URIs. Additionally, you must manually substitute all **<_substring_>** values in the **pd.read_csv** command with the real values for your resources. You'll want to create data assets for frequently accessed data. This Python code shows how to access the CSV file in Pandas:
+However, as mentioned previously, it can become hard to remember these URIs. Additionally, you must manually substitute all **<_substring_>** values in the **pd.read_csv** command with the real values for your resources. 
+
+You'll want to create data assets for frequently accessed data. Here's an easier way to access the CSV file in Pandas:
 
 > [!IMPORTANT]
 > In a notebook cell, execute this code to install the `azureml-fsspec` Python library in your Jupyter kernel:
@@ -198,7 +199,7 @@ However, as mentioned previously, it can become hard to remember these URIs. Add
 import pandas as pd
 
 # get a handle of the data asset and print the URI
-data_asset = ml_client.data.get(name=data_name, version="1")
+data_asset = ml_client.data.get(name="credit-card", version=v1)
 print(f"Data asset URI: {data_asset.path}")
 
 # read into pandas - note that you will see 2 headers in your data frame - that is ok, for now
@@ -255,24 +256,19 @@ Next, create a new _version_ of the data asset (the data automatically uploads t
 
 
 ```python
-# Next, create a new *version* of the data asset (the data is automatically uploaded to cloud storage):
-
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
+import time
 
+# Next, create a new *version* of the data asset (the data is automatically uploaded to cloud storage):
+v2 = v1 + "_cleaned"
 my_path = "./data/cleaned-credit-card.parquet"
 
 # Define the data asset, and use tags to make it clear the asset can be used in training
 
-# The version value is optional in this statement. Without it, this code
-# can re-execute this cell with the given name and version values.
-# In this case, AutoML will create new data assets each time the cell
-# executes, and it will auto-increment the version number of those
-# data assets, starting from 1.
-
 my_data = Data(
-    name=data_name,
-    version="2",
+    name="credit-card",
+    version=v2,
     description="Default of credit card clients data.",
     tags={"training_data": "true", "format": "parquet"},
     path=my_path,
@@ -281,7 +277,9 @@ my_data = Data(
 
 ## create the data asset
 
-ml_client.data.create_or_update(my_data)
+my_data = ml_client.data.create_or_update(my_data)
+
+print(f"Data asset created. Name: {my_data.name}, version: {my_data.version}")
 ```
 
 The cleaned parquet file is the latest version data source. This code shows the CSV version result set first, then the Parquet version:
@@ -291,8 +289,8 @@ The cleaned parquet file is the latest version data source. This code shows the 
 import pandas as pd
 
 # get a handle of the data asset and print the URI
-data_asset_v1 = ml_client.data.get(name=data_name, version="1")
-data_asset_v2 = ml_client.data.get(name=data_name, version="2")
+data_asset_v1 = ml_client.data.get(name="credit-card", version=v1)
+data_asset_v2 = ml_client.data.get(name="credit-card", version=v2)
 
 # print the v1 data
 print(f"V1 Data asset URI: {data_asset_v1.path}")

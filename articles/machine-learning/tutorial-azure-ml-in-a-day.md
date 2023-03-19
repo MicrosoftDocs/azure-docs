@@ -36,11 +36,11 @@ The *training script* handles the data preparation, then trains and registers a 
 
 1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
 
 
 > [!Important]
@@ -86,54 +86,6 @@ The result is a handler to the workspace that you'll use to manage other resourc
 
 > [!IMPORTANT]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during compute creation).
-
-## Create a compute resource to run your job
-
-You already have a compute resource you're using to run the notebook.  But now you'll add another type, a **compute cluster** that you'll use to run your training job. The compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
-
-You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
-
-For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
-
-
-```python
-from azure.ai.ml.entities import AmlCompute
-
-# Name assigned to the compute cluster
-cpu_compute_target = "cpu-cluster"
-
-try:
-    # let's see if the compute target already exists
-    cpu_cluster = ml_client.compute.get(cpu_compute_target)
-    print(
-        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
-    )
-
-except Exception:
-    print("Creating a new cpu compute target...")
-
-    # Let's create the Azure Machine Learning compute object with the intended parameters
-    cpu_cluster = AmlCompute(
-        name=cpu_compute_target,
-        # Azure Machine Learning Compute is the on-demand VM service
-        type="amlcompute",
-        # VM Family
-        size="STANDARD_DS3_V2",
-        # Minimum running nodes when there is no job running
-        min_instances=0,
-        # Nodes in cluster
-        max_instances=4,
-        # How many seconds will the node running after the job termination
-        idle_time_before_scale_down=180,
-        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
-        tier="Dedicated",
-    )
-    print(
-        f"AMLCompute with name {cpu_cluster.name} will be created, with compute size {cpu_cluster.size}"
-    )
-    # Now, we pass the object to MLClient's create_or_update method
-    cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
-```
 
 ## What is a command job?
 
@@ -273,12 +225,64 @@ if __name__ == "__main__":
 
 As you can see in this script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
 
+You might need to select **Refresh** to see the new folder and script in your **Files**.
+
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/refresh.png" alt-text="Screenshot shows the refresh icon.":::
+
+## Create a compute cluster, a scalable way to run training job
+
+You already have a compute instance, which you're using to run the notebook.  But now you'll add another type of compute, a **compute cluster** that you'll use to run your training job. The compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+
+You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
+
+For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
+
+
+```python
+from azure.ai.ml.entities import AmlCompute
+
+# Name assigned to the compute cluster
+cpu_compute_target = "cpu-cluster"
+
+try:
+    # let's see if the compute target already exists
+    cpu_cluster = ml_client.compute.get(cpu_compute_target)
+    print(
+        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
+    )
+
+except Exception:
+    print("Creating a new cpu compute target...")
+
+    # Let's create the Azure Machine Learning compute object with the intended parameters
+    cpu_cluster = AmlCompute(
+        name=cpu_compute_target,
+        # Azure Machine Learning Compute is the on-demand VM service
+        type="amlcompute",
+        # VM Family
+        size="STANDARD_DS3_V2",
+        # Minimum running nodes when there is no job running
+        min_instances=0,
+        # Nodes in cluster
+        max_instances=4,
+        # How many seconds will the node running after the job termination
+        idle_time_before_scale_down=180,
+        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
+        tier="Dedicated",
+    )
+    print(
+        f"AMLCompute with name {cpu_cluster.name} will be created, with compute size {cpu_cluster.size}"
+    )
+    # Now, we pass the object to MLClient's create_or_update method
+    cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
+```
+
 ## Configure the command
 
-Now that you have a script that can perform the desired tasks, you'll use the general purpose **command** that can run command line actions. This command line action can be directly calling system commands or by running a script. 
+Now that you have a script that can perform the desired tasks, and a compute cluster to run the script, you'll use the general purpose **command** that can run command line actions. This command line action can be directly calling system commands or by running a script. 
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
-* Use the compute created earlier to run this command.
+* Use the compute cluster to run the command.
 * Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
 * Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
@@ -332,7 +336,7 @@ The output of this job will look like this in the Azure Machine Learning studio.
 
 ## Deploy the model as an online endpoint
 
-Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md)..
+Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md).
 
 To deploy a machine learning service, you usually need:
 
@@ -475,25 +479,27 @@ ml_client.online_endpoints.invoke(
 
 If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
 
-
-> [!NOTE]
-> Expect the complete deletion to take approximately 6 to 8 minutes.
-
-
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
-<!-- nbend -->
+> [!NOTE]
+> Expect the complete deletion to take approximately 6 to 8 minutes.
 
+If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
+### Stop compute instance
 
-### Delete everything
+If you're not going to use it now, stop the compute instance:
 
-Use these steps to delete your Azure Machine Learning workspace and all compute resources.
+1. In the studio, in the left navigation area, select **Compute**.
+1. In the top tabs, select **Compute instances**
+1. Select the compute instance in the list.
+1. On the top toolbar, select **Stop**.
+
+### Delete all resources
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
-
 
 ## Next steps
 

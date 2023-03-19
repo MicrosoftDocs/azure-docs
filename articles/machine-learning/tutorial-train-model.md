@@ -46,11 +46,13 @@ The steps are:
 
 1. On the top bar above your opened notebook, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
 
-1. If the compute instance is stopped, select **Start compute** and wait until it's running.
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/train-model.ipynb -->
 
@@ -392,7 +394,7 @@ job = command(
 
 ## Submit the job 
 
-It's now time to submit the job to run in Azure Machine Learning studio. This time you'll use `create_or_update`  on `ml_client`. `ml_client` is a client class that allows you to connect to your Azure subscription using Python and interact with Azure ML services. `ml_client` allows your to submit your jobs using Python.
+It's now time to submit the job to run in Azure Machine Learning studio. This time you'll use `create_or_update`  on `ml_client`. `ml_client` is a client class that allows you to connect to your Azure subscription using Python and interact with Azure Machine Learning services. `ml_client` allows you to submit your jobs using Python.
 
 
 ```python
