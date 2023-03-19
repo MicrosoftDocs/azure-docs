@@ -22,7 +22,7 @@ Training your own machine learning model in Jupyter Notebook provides you with a
 - While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have much more flexibility to refine results and address specific needs by creating your own machine learning models.
 - You can work with log data at big scales without have to export data to external services.  
 - Running custom code on your web browser lets you get started quickly without having to install Python or other tools on your local computer.
-- You can [schedule an machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md) to analyze new data and retrain your model on a regular basis.   
+- You can [schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md) to analyze new data and retrain your model on a regular basis.   
 
 ## Process overview
 
@@ -278,8 +278,8 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 
 ## Next steps
 
-Learn more about: 
+Learn more about how to: 
 
-- [Log queries in Azure Monitor](log-query-overview.md).
-- [How to use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+- [Schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md).
+- [Detect and analyze anomalies using KQL](../../logs/kql-machine-learning-azure-monitor).
 - [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/).
