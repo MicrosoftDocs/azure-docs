@@ -525,7 +525,7 @@ The following table summarizes the available attributes by source:
 > | **Description** | The current date and time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> (Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.) |
+> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> *(Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.)* |
 > | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ### Version ID

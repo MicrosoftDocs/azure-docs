@@ -25,6 +25,17 @@ To understand the role assignment condition format, see [Azure role assignment c
 
 This section lists the supported Azure Queue storage actions you can target for conditions.
 
+Storage accounts support the following actions:
+
+> [!div class="mx-tableFixed"]
+> | Display name | DataAction |
+> | :--- | :--- |
+> | [Peek messages](#peek-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
+> | [Put a message](#put-a-message) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
+> | [Put or update a message](#put-or-update-a-message) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
+> | [Clear messages](#clear-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
+> | [Get or delete messages](#get-or-delete-messages) | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+
 ### Peek messages
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -91,6 +102,20 @@ This section lists the Azure Queue storage attributes you can use in your condit
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
+
+The following table summarizes the available attributes by source:
+
+> [!div class="mx-tableFixed"]
+> | Attribute Source | Display name         | Description                                                        |
+> | :--------------- | :------------------- | :----------------------------------------------------------------- |
+> | **Environment**  | | |
+> | | [Is private link](#is-private-link)   | Is access over a private link?                                     |
+> | | [Private endpoint](#private-endpoint) | The name of the private endpoint from which an object is accessed. |
+> | | [Subnet name](#subnet-name)           | The name of the subnet from which an object is accessed.           |
+> | | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
+> | **Resource**      | | |
+> | | [Account name](#account-name)         | The storage account name.                                          |
+> | | [Queue name](#queue-name)             | The storage queue name.                                            |
 
 ### Account name
 
@@ -163,7 +188,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Description** | The current date and time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> (Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.) |
+> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> *(Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.)* |
 > | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ## See also
