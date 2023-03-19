@@ -21,7 +21,7 @@ To understand the role assignment condition format, see [Azure role assignment c
 
 [!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
-## Azure Queue storage actions
+## Azure Queues storage actions
 
 This section lists the supported Azure Queue storage actions you can target for conditions.
 
@@ -85,7 +85,7 @@ This section lists the supported Azure Queue storage actions you can target for 
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
 
-## Azure Queue storage attributes
+## Azure Queues storage attributes
 
 This section lists the Azure Queue storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
@@ -114,7 +114,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `isPrivateLink` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
-> | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Allow read access to blobs based on private link and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-private-link-and-tags) |
+> | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Allow read access to blobs based on private link and tags](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-private-link-and-tags) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Private endpoint
@@ -127,7 +127,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container from only a private endpoint](storage-auth-abac-examples.md#example-allow-read-access-to-a-container-from-only-a-private-endpoint) |
+> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container from only a private endpoint](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-a-container-from-only-a-private-endpoint) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Queue name
@@ -151,7 +151,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow read access to blobs based on a subnet and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-a-subnet-and-tags) |
+> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow read access to blobs based on a subnet and tags](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-a-subnet-and-tags) |
 > | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
 
 ### UTC now
@@ -164,7 +164,7 @@ This section lists the Azure Queue storage attributes you can use in your condit
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> (Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.) |
-> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
+> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ## See also
 
