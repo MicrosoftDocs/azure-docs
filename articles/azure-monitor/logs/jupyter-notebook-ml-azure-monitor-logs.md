@@ -183,7 +183,7 @@ To train a machine learning model on data in your Log Analytics workspace:
  
 ## Train and test regression models on historical data
 
-Let's experiment with two types of regression models and check which :
+Let's experiment with two types of regression models and check scores the data in our testing set more accurately:
 
 1. Train and evaluate a [linear regression model](https://scikit-learn.org/stable/modules/linear_model.html).
 
