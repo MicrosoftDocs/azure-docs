@@ -117,7 +117,7 @@ All versions run on the same codebase, making upgrades a simple task that can be
 
 6. Which features are supported in Cosmos DB for MongoDB?
 
-    Cosmos DB for MongoDB supports a rich set of MongoDB features backed by Cosmos DB's limitless scale architecture. These features include: Aggregation pipelines, Change streams, Indexes, Geospatial queries, and more. See the [feature support matrix](feature-support-42.md) for more details.
+    Cosmos DB for MongoDB supports a rich set of MongoDB features backed by Cosmos DB's limitless scale architecture. These features include: Aggregation pipelines, Change streams, Indexes, Geospatial queries, and more. See the [feature support matrix](feature-support-42.md) for more details. Not sure if your workload is ready? [Reach out to us](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9aWEKTdeoxPpcB2ORTA2_1UQk44OEhBRjlIWjJMTUxLTzhJVVpPU0M4My4u) to leverage automated tooling to determine if you're ready to migrate to Cosmos DB for MongoDB.
 
 4. Does Cosmos DB for MongoDB run on-premises?
 
