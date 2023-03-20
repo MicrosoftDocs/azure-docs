@@ -1,6 +1,5 @@
 ---
-title:  Microsoft Dev Box and Azure Deployment Environments common elements
-titleSuffix: Microsoft Dev Box
+title: Components common to Microsoft Dev Box & Azure Deployment Environments
 description: Discover the components shared by Microsoft Dev Box and Azure Deployment Environments.
 ms.service: dev-box
 ms.custom: ignite-2022
