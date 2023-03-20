@@ -3,7 +3,7 @@ title: Migrate SQL Server failover cluster to Azure VMware Solution
 description: Learn how to migrate SQL Server failover cluster to Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/17/2023
+ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
 
