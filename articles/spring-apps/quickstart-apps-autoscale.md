@@ -1,30 +1,27 @@
 ---
-title: Set up autoscale for Standard Consumption plan applications
-description: Learn how to set up autoscale for Standard Consumption plan applications.
+title: Quickstart - Set up autoscale for applications in Azure Spring Apps Standard consumption plan
+description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption plan.
 author: karlerickson
 ms.author: haojianzhong
 ms.service: spring-apps
-ms.topic: how-to
-ms.date: 03/8/2023
+ms.topic: quickstart
+ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# Set up autoscale for Standard Consumption plan applications
+# Quickstart: Set up autoscale for applications in Azure Spring Apps Standard consumption plan
 
-This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses Azure Container Apps environment to host your Spring applications, and provides the following management and support:
+This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses an Azure Container Apps environment to host your Spring applications, and provides the following management and support:
 
 - Manages automatic horizontal scaling through a set of declarative scaling rules.
-
 - Supports all the scaling rules that Azure Container Apps supports.
 
-For more information, see [Azure Container Apps documentation](/azure/container-apps/).
+For more information, see [Azure Container Apps documentation](../container-apps/index.yml).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 - A deployed Azure Spring Apps service instance.
-
 - At least one application already created in your service instance.
 
 ## Scale definition
@@ -33,24 +30,24 @@ Scaling is defined by the combination of limits and rules.
 
 - Limits are the minimum and maximum number of instances that your Spring allows.
 
-  | Scale limit                               | Default value | Min value | Max value |
-  |-------------------------------------------|---------------|-----------|-----------|
+  | Scale limit                                | Default value | Min value | Max value |
+  |--------------------------------------------|---------------|-----------|-----------|
   | Minimum number of instances per deployment | 1             | 0         | 30        |
   | Maximum number of instances per deployment | 10            | 1         | 30        |
 
-  By default, the minimum instance number of your Spring application is set to 1 to ensure that your deployment is always running. If you want to scale in to zero, you can set the minimum instance count to zero.
+  By default, the minimum instance count of your Spring application is set to 1 to ensure that your deployment is always running. If you want to scale in to zero, you can set the minimum instance count to zero.
 
-- Rules are the criteria that the autoscaling abides by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app?pivots=azure-cli#scale-rules).
+- Rules are the criteria that the autoscaling abides by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in the [Scale rules](../container-apps/scale-app.md#scale-rules) section of [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md).
 
   If you define more than one scale rule, the autoscaling begins when the first condition of any rule is met.
 
-- The polling interval and cooldown period are two time spans that occur during autoscaling.
+- The *polling interval* and *cooldown period* are two time spans that occur during autoscaling.
   - The polling interval defines the time span between each polling action of real time data as defined by your rules. The polling interval is set to 30 seconds by default.
-  - The cooldown period applies only when scaling to zero. For example, to wait five minutes after the last time autoscaling checked the message queue and it was empty.
+  - The cooldown period applies only when scaling to zero - for example, to wait five minutes after the last time autoscaling checked the message queue and it was empty.
 
 ## Set up autoscale settings
 
-You can set up autoscale settings for your application using the Azure portal or Azure CLI.
+You can set up autoscale settings for your application by using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -60,9 +57,9 @@ Use the following steps to define autoscale settings and rules.
 1. Select **Azure Spring Apps** under **Azure services**.
 1. In the **Name** column, select the Azure Spring Apps instance that you want to autoscale.
 1. On the overview page for your Azure Spring Apps instance, select **Apps** in the navigation pane.
-1. Select the application for which you want to autoscale. 
+1. Select the application that you want to autoscale.
 1. On the overview page for the selected app, select **Scale out** in the navigation pane.
-1. On the **Scale out (Preview)** page, select the deployment you want to autoscale. 
+1. On the **Scale out (Preview)** page, select the deployment you want to autoscale.
 1. Set up the instance limits of your deployment.
 1. Select **Add** to add your scale rules. To define your custom rules, see [Keda scalers](https://keda.sh/docs/2.9/scalers/).
 
@@ -70,24 +67,37 @@ Use the following steps to define autoscale settings and rules.
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following commands show how to create an Azure Spring Apps application with an autoscaling rule. The replicas count will be automatically ajusted according to the count of messages in Azure Service Bus Queue.
+Use the following commands to create an application in Azure Spring Apps with an autoscaling rule. The replicas count is adjusted automatically according to the count of messages in Azure Service Bus Queue.
 
 ```azurecli-interactive
-az spring app create 
-    --resource-group <resource-group> 
-    --service <azure-spring-apps-service-instance-name> 
-    --name <app-name> 
-    --secrets "connection-string-secret=<service-bus-connection-string>" 
-    --scale-rule-name azure-servicebus-queue-rule 
-    --scale-rule-type azure-servicebus 
-    --scale-rule-metadata "queueName=my-queue" 
-                          "namespace=service-bus-namespace" 
-                          "messageCount=5" 
-    --scale-rule-auth "connection=connection-string-secret" 
-    --min-replicas 0
-    --max-replicas 5 
+az spring app create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --name <app-name> \
+    --secrets "connection-string-secret=<service-bus-connection-string>" \
+    --scale-rule-name azure-servicebus-queue-rule \
+    --scale-rule-type azure-servicebus \
+    --scale-rule-metadata "queueName=my-queue" \
+                          "namespace=service-bus-namespace" \
+                          "messageCount=5" \
+    --scale-rule-auth "connection=connection-string-secret" \
+    --min-replicas 0 \
+    --max-replicas 5
 ```
 
 ---
 
+## Clean up resources
+
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
 ## Next steps
+
+- [Azure Spring Apps documentation](./index.yml)

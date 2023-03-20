@@ -25,6 +25,8 @@ items:
       href: quickstart-provision-app-environment-with-virtual-network.md
     - name: Launch your first event-driven app
       href: quickstart-deploy-event-driven-app-standard-consumption.md
+    - name: Set up autoscale
+      href: quickstart-apps-autoscale.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
