@@ -187,14 +187,6 @@ Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineIma
 az feature register --namespace Microsoft.VirtualMachineImages --name MooncakePublicPreview
 ```
 
-
-
-### [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
-```
-
 ---
 
 # [JSON](#tab/json)
