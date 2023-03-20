@@ -438,11 +438,14 @@ The same access log provides detail.
 **Manually enable the setting**
 
   1. Navigate to **Access** > **Guided Configuration**.
-  2. select the small padlock icon on the far right of the row for your  header-based application.
-  3. With the managed configuration unlocked, navigate to **Access** > **Federation** > **OAuth Client/Resource Server** > **Providers**.
+  2. On the far-right of the row for your header-based application, select the **padlock**.
+  3. Navigate to **Access** > **Federation** > **OAuth Client/Resource Server** > **Providers**.
   4. Select the provider for your Azure AD B2C configuration.
-  5. Check the **Use Auto JWT** box then select **Discover**, followed by **Save**.
-  6. You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
-  7. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Then select **Apply** again to refresh the access profile list.
+  5. Check the **Use Auto JWT** box.
+  6. Select **Discover**.
+  7. Select **Save**.
+  8. The Key (JWT) field has the token signing certificate key ID (KID) from OpenID URI metadata.
+  9. In the top-left corner, select **Apply Access Policy**. 
+  10. Select **Apply**.
 
-See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
+For more information, go to techdocs.f5.com for [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
