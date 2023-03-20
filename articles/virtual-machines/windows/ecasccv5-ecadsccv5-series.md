@@ -22,7 +22,7 @@ ms.date: 03/17/2022
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 > [!NOTE]
-> There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for nested confidential VMs.
+> There are some [pricing differences based on your encryption settings](../../../articles/confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for nested confidential VMs.
 
 
 ### ECas_cc_v5-series products
