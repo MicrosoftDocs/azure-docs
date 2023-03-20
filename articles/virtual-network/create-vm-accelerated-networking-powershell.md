@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.custom: devx-track-azurepowershell
 ms.workload: infrastructure
-ms.date: 03/16/2023
+ms.date: 03/20/2023
 ms.author: allensu
 ---
 

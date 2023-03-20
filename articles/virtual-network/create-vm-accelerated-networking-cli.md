@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/10/2023
+ms.date: 03/20/2023
 ms.author: allensu
 ms.custom: fasttrack-edit, devx-track-azurecli
 ---

@@ -6,7 +6,7 @@ author: asudbring
 ms.service: virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 03/20/2023
 ms.author: allensu
 ---
 
@@ -23,19 +23,16 @@ A VM you create in the Azure portal has one NIC with default settings. You can c
 To run the procedures in this article, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md).
-
 - To run the following procedures, sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-In the procedures, you can replace the example names with your own values.
+  In the procedures, you can replace the example names with your own values.
 
 # [Azure CLI](#tab/azure-cli)
 
-To run the procedures in this article, you need the following prerequisites:
+To run the examples in this article, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure CLI](quick-create-cli.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from Azure CLI on your computer.
@@ -46,16 +43,15 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
   
   If you're prompted, install the Azure CLI extension on first use. For more information, [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-  Then run [az login](/cli/azure/reference-index#az-login) to connect to Azure. For more information, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+  Run [az login](/cli/azure/reference-index#az-login) to connect to Azure. For more information, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-In the following procedures, you can replace the example placeholder names with your own values.
+In the following code examples, you can replace the example placeholder names with your own values.
 
 # [PowerShell](#tab/azure-powershell)
 
 To run the procedures in this article, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure PowerShell](quick-create-powershell.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from PowerShell on your computer.
@@ -68,13 +64,13 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 
   Then run `Connect-AzAccount` to connect to Azure. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-In the following procedures, you can replace the example placeholder names with your own values.
+In the following code examples, you can replace the example placeholder names with your own values.
 
 ---
 
 ### Permissions
 
-To work with NICs, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions from the following list:
+To work with NICs, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions from the following list:
 
 | Action                                                                     | Name                                                      |
 | ---------                                                                  | -------------                                             |
@@ -102,7 +98,7 @@ The portal doesn't provide the option to assign the NIC to application security 
 
 To create a NIC, use the following procedure.
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select *network interfaces*.
 1. On the **Network interfaces** page, select **Create**.
@@ -112,7 +108,7 @@ To create a NIC, use the following procedure.
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 The following example creates an Azure public IP address and associates it with the NIC. 
 
@@ -139,7 +135,7 @@ The following example creates an Azure public IP address and associates it with 
     --public-ip-address myPublicIP
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 The following example creates an Azure public IP address and associates it with the NIC. 
 
@@ -220,7 +216,7 @@ You can configure the following settings for a NIC:
 
 You can view most settings for a NIC after you create it. The portal doesn't display the DNS suffix or application security group membership for the NIC. You can use Azure PowerShell or Azure CLI to view the DNS suffix and application security group membership.
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Network interfaces**.
 1. On the **Network interfaces** page, select the NIC you want to view.
@@ -256,7 +252,7 @@ You can view most settings for a NIC after you create it. The portal doesn't dis
 
    :::image type="content" source="./media/virtual-network-network-interface/effective-routes.png" alt-text="Screenshot of effective routes.":::
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic list](/cli/azure/network/nic#az-network-nic-list) to view all NICs in the subscription.
 
@@ -270,7 +266,7 @@ Use [az network nic show](/cli/azure/network/nic#az-network-nic-show) to view th
 az network nic show --name myNIC --resource-group myResourceGroup
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to view NICs in the subscription or view settings for a NIC.
 
@@ -292,7 +288,7 @@ You can change most settings for a NIC after you create it.
 
 Azure DHCP assigns the DNS server to the NIC within the VM operating system. The NIC can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network. For more information about name resolution settings for a NIC, see [Name resolution for virtual machines](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Network interfaces**.
 1. On the **Network interfaces** page, select the NIC you want to change from the list.
@@ -310,7 +306,7 @@ Azure DHCP assigns the DNS server to the NIC within the VM operating system. The
 
 1. Select **Save**.
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.
 
@@ -330,7 +326,7 @@ az network nic update \
     --dns-servers null
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.
 
@@ -379,13 +375,13 @@ IP forwarding is typically used with user-defined routes. For more information, 
 
 While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as a firewall, WAN optimization, or load balancing application. A VM that runs network applications is often called a network virtual appliance (NVA). You can view a list of ready-to-deploy NVAs in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=network%20virtual%20appliances). 
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. On the NIC's page, select **IP configurations** in the left navigation.
 1. On the **IP configurations** page, under **IP forwarding settings**, select **Enabled** or **Disabled**, the default, to change the setting.
 1. Select **Save**.
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to enable or disable the IP forwarding setting.
 
@@ -407,7 +403,7 @@ az network nic update \
     --ip-forwarding false
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to enable or disable the IP forwarding setting.
 
@@ -445,7 +441,7 @@ $nic | Set-AzNetworkInterface
 
 You can change the subnet, but not the virtual network, that a NIC is assigned to.
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. On the NIC's page, select **IP configurations** in the left navigation.
 1. On the **IP configurations** page, under **IP configurations**, if any private IP addresses listed have **(Static)** next to them, change the IP address assignment method to dynamic. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the NIC.
@@ -461,7 +457,7 @@ You can change the subnet, but not the virtual network, that a NIC is assigned t
 
 After assigning the NIC to a new subnet, you can assign a static IPv4 address from the new subnet address range if you choose. For more information about adding, changing, and removing IP addresses for a NIC, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic ip-config update](/cli/azure/network/nic#az-network-nic-ip-config-update) to change the subnet of the NIC.
 
@@ -474,7 +470,7 @@ az network nic ip-config update \
     --vnet-name myVNet
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to change the subnet of the NIC.
 
@@ -509,7 +505,7 @@ You can add NICs only to application security groups in the same virtual network
 
 You can use the portal to add or remove a NIC for an application security group only if the NIC is attached to a VM. Otherwise, use PowerShell or Azure CLI. For more information, see [Application security groups](./network-security-groups-overview.md#application-security-groups) and [How to create an application security group](manage-network-security-group.md).
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 To add or remove a NIC for an application security group on a VM, follow this procedure:
 
@@ -523,7 +519,7 @@ To add or remove a NIC for an application security group on a VM, follow this pr
 1. Select the application security groups you want to add the NIC to, or deselect the application security groups you want to remove the NIC from.
 1. Select **Save**.
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic ip-config update](/cli/azure/network/nic#az-network-nic-ip-config-update) to set the application security group.
 
@@ -535,7 +531,7 @@ az network nic ip-config update \
     --application-security-groups myASG
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to set the application security group.
 
@@ -572,13 +568,13 @@ $nic | Set-AzNetworkInterface
 
 ### Associate or dissociate a network security group
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. On the NIC's page, select **Network security group** in the left navigation.
 1. On the **Network security group** page, select the network security group you want to associate, or select **None** to dissociate the NSG.
 1. Select **Save**.
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic update](/cli/azure/network/nic#az-network-nic-update) to set the network security group for the NIC.
 
@@ -589,7 +585,7 @@ az network nic update \
     --network-security-group myNSG
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to set the network security group for the NIC.
 
@@ -615,11 +611,11 @@ You can delete a NIC if it's not attached to a VM. If the NIC is attached to a V
 
 To detach the NIC from the VM, complete the steps in [Remove a network interface from a VM](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). A VM must always have at least one NIC attached to it, so you can't delete the only NIC from a VM. 
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 To delete a NIC, on the **Overview** page for the NIC you want to delete, select **Delete** from the top menu bar, and then select **Yes**.
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic delete](/cli/azure/network/nic#az-network-nic-delete) to delete the NIC.
 
@@ -627,7 +623,7 @@ Use [az network nic delete](/cli/azure/network/nic#az-network-nic-delete) to del
 az network nic delete --name myNIC --resource-group myResourceGroup
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface) to delete the NIC.
 
@@ -645,7 +641,7 @@ If you have communication problems with a VM, network security group rules or ef
 
 The effective security rules for each NIC attached to a VM are a combination of the rules you created in an NSG and [default security rules](./network-security-groups-overview.md#default-security-rules). Understanding the effective security rules for a NIC might help you determine why you're unable to communicate to or from a VM. You can view the effective rules for any NIC that's attached to a running VM.
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select *virtual machines*.
 1. On the **Virtual machines** page, select the VM you want to view settings for.
@@ -654,7 +650,7 @@ The effective security rules for each NIC attached to a VM are a combination of 
 1. On the NIC's page, select **Effective security rules** under **Help** in the left navigation.
 1. Review the list of effective security rules to determine if the rules are correct for your required inbound and outbound communications. For more information about security rules, see [Network security group overview](network-security-groups-overview.md).
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) to view the list of effective security rules.
 
@@ -662,7 +658,7 @@ Use [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-li
 az network nic list-effective-nsg --name myNIC --resource-group myResourceGroup
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup) to view the list of effective security rules.
 
@@ -682,12 +678,12 @@ The effective routes for the NIC or NICs attached to a VM are a combination of:
 
 Understanding the effective routes for a NIC might help you determine why you can't communicate with a VM. You can view the effective routes for any NIC that's attached to a running VM.
 
-# [Portal](#tab/network-interface-portal)
+# [Portal](#tab/azure-portal)
 
 1. On the page for the NIC that's attached to the VM, select **Effective routes** under **Help** in the left navigation.
 1. Review the list of effective routes to see if the routes are correct for your required inbound and outbound communications. For more information about routing, see [Routing overview](virtual-networks-udr-overview.md).
 
-# [Azure CLI](#tab/network-interface-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) to view a list of the effective routes.
 
@@ -695,7 +691,7 @@ Use [az network nic show-effective-route-table](/cli/azure/network/nic#az-networ
 az network nic show-effective-route-table --name myNIC --resource-group myResourceGroup
 ```
 
-# [PowerShell](#tab/network-interface-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Use [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) to view a list of the effective routes.
 
