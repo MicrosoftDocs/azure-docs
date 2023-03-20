@@ -10,7 +10,6 @@ ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/30/2022
-monikerRange: 'azureml-api-1'
 ---
 
 # Migrate to Azure Machine Learning from ML Studio (classic)

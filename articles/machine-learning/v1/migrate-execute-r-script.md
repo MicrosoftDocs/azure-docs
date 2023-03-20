@@ -9,7 +9,6 @@ ms.reviewer: sgilley
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-monikerRange: 'azureml-api-1'
 ---
 
 

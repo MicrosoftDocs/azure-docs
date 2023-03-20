@@ -10,7 +10,6 @@ ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/28/2022
-monikerRange: 'azureml-api-1'
 ---
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning

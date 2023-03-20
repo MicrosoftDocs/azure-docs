@@ -9,7 +9,6 @@ ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/21/2021
-monikerRange: 'azureml-api-1'
 ---
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning
