@@ -141,7 +141,21 @@ module.exports = df.orchestrator(function*(context) {
 > The `durable-functions` library takes care of calling the synchronous `context.done` method when the generator function exits.
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
+# [v2](#tab/python-v2)
 
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@myApp.orchestration_trigger(context_name="context")
+def my_orchestrator(context):
+    result = yield context.call_activity("Hello", "Tokyo")
+    return result
+```
+
+# [v1](#tab/python-v1)
 ```python
 import azure.durable_functions as df
 
@@ -172,8 +186,9 @@ public String helloWorldOrchestration(
 ```
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript"
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
-
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 # [In-process](#tab/in-process)
 
@@ -217,53 +232,6 @@ module.exports = df.orchestrator(function*(context) {
     return result;
 });
 ```
-::: zone-end  
-::: zone pivot="programming-language-python" 
-
-The example depends on whether you use the v1 or v2 Python programming model.
-
-# [v2](#tab/python-v2)
-
-```python
-import azure.functions as func
-import azure.durable_functions as df
-
-myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
-@myApp.orchestration_trigger(context_name="context")
-def my_orchestrator(context):
-    result = yield context.call_activity("Hello", "Tokyo")
-    return result
-```
-
-# [v1](#tab/python-v1)
-
-```python
-import azure.durable_functions as df
-
-def orchestrator_function(context: df.DurableOrchestrationContext):
-    input = context.get_input()
-    result = yield context.call_activity('SayHello', input['name'])
-    return result
-
-main = df.Orchestrator.create(orchestrator_function)
-```
-
----
-
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-
-```powershell
-param($Context)
-
-$name = $Context.Input.Name
-
-$output = Invoke-DurableActivity -FunctionName 'SayHello' -Input $name
-
-$output
-```
-
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 
