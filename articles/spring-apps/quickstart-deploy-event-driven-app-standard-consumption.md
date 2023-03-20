@@ -4,7 +4,7 @@ description: Learn how to deploy an event-driven application to Azure Spring App
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/22/2023
+ms.date: 03/17/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
@@ -19,26 +19,30 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption plan. The sample project is an event-driven application that subscribes to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption plan.
 
-:::image type="content" source="media/quickstart-for-event-driven-app/diagram.png" alt-text="Screenshot of Spring event-driven app architecture." lightbox="media/quickstart-for-event-driven-app/diagram.png":::
+The sample project is an event-driven application that subscribes to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
+
+:::image type="content" source="media/quickstart-deploy-event-driven-app-standard-consumption/diagram.png" alt-text="Diagram of Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app-standard-consumption/diagram.png":::
 
 ## Prerequisites
 
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/). Version 17.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
-## Clone and build sample project
+## Clone and build the sample project
 
-1. The sample project is ready on GitHub. Clone sample project with this command:
+Use the following steps to prepare the sample locally.
+
+1. The sample project is ready on GitHub. Clone sample project by using the following command:
 
    ```shell
    git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
    ```
 
-1. Build the sample project.
+1. Build the sample project by using the following commands:
 
    ```shell
    cd ASA-Samples-Event-Driven-Application
@@ -47,11 +51,11 @@ This article explains how to deploy a Spring Boot event-driven application to Az
 
 ## Prepare the cloud environment
 
-The main resources needed to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. This section provides the steps to create these resources.
+The main resources you needto run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. This section provides the steps to create these resources.
 
 ### Step 1 - Set names for resources
 
-Set variables to the names of your resources, and to values for other settings as needed. Names of resources in Azure must be unique.
+Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
 ```azurecli
 RESOURCE_GROUP=<event-driven-app-resource-group-name>
@@ -64,7 +68,7 @@ APP_NAME=<event-driven-app-name>
 
 ### Step 2 - Create a new resource group
 
-To manage the resources easily, create a resource group to hold these resources. Follow the following steps to create a new resource group.
+To manage the resources easily, create a resource group to hold these resources. Use the following steps to create a new resource group.
 
 1. Sign in to Azure by using the following command:
 
@@ -90,13 +94,13 @@ To manage the resources easily, create a resource group to hold these resources.
    az account set --subscription <subscription-ID>
    ```
 
-1. Create a resource group.
+1. Create a resource group by using the following command:
 
    ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
-1. Set the newly created resource group as default resource group.
+1. Use the following command to set the newly created resource group as the default resource group.
 
    ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
@@ -215,12 +219,12 @@ SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys 
     --namespace-name ${SERVICE_BUS_NAME_SPACE} \
     --name RootManageSharedAccessKey \
     --query primaryConnectionString \
-    -o tsv)
+    --output tsv)
 ```
 
 #### Step 5.2 - Set environment variable in app
 
-Provide the connecting string to the app by adding an environment variable.
+Provide the connection string to the app by using the following command to add an environment variable.
 
 ```azurecli
 az spring app update \
@@ -231,7 +235,7 @@ az spring app update \
 
 ## Deploy the app to Azure Spring Apps
 
-Now the cloud environment is ready. Deploy the app with the following command.
+Now the cloud environment is ready. Deploy the app by using the following command.
 
 ```azurecli
 az spring app deploy \
@@ -242,10 +246,10 @@ az spring app deploy \
 
 ## Validate the event-driven app
 
-To check whether the event-driven app works well, validate it by sending a message to the `lower-case` queue and check whether there's a message in the `upper-case` queue.
+Use the following steps to confirm that the event-driven app works correctly. You can validate the app by sending a message to the `lower-case` queue, then confirming that there's a message in the `upper-case` queue.
 
 1. Send a message to `lower-case` queue with Service Bus Explorer. For more information, see the [Send a message to a queue or topic](../service-bus-messaging/explorer.md#send-a-message-to-a-queue-or-topic) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
-1. Check whether there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
+1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
 ## Next steps
 
