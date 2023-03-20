@@ -15,10 +15,7 @@ ms.custom: how-to, devx-track-python, ignite-2022
 
 # Query & compare experiments and runs with MLflow
 
-Experiments and runs tracking information in Azure Machine Learning can be queried using MLflow. You don't need to install any specific SDK to manage what happens inside of a training job, creating a more seamless transition between local runs and the cloud by removing cloud-specific dependencies. 
-
-> [!NOTE]
-> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure Machine Learning.
+Experiments and runs tracking information in Azure Machine Learning can be queried using MLflow. You don't need to install any specific SDK to manage what happens inside of a training job, creating a more seamless transition between local runs and the cloud by removing cloud-specific dependencies. In this article, you'll learn how to query and compare experiments and runs in your workspace using Azure Machine Learning and MLflow SDK in Python.
 
 MLflow allows you to:
 
@@ -26,7 +23,10 @@ MLflow allows you to:
 * Query, delete, and search for runs in a workspace.
 * Track and retrieve metrics, parameters, artifacts and models from runs.
 
-In this article, you'll learn how to query and compare experiments and runs in your workspace using Azure Machine Learning and MLflow SDK in Python. See [Support matrix for querying runs and experiments in Azure Machine Learning](#support-matrix-for-querying-runs-and-experiments) for a detailed comparison between MLflow Open-Source and MLflow when connected to Azure Machine Learning.
+See [Support matrix for querying runs and experiments in Azure Machine Learning](#support-matrix-for-querying-runs-and-experiments) for a detailed comparison between MLflow Open-Source and MLflow when connected to Azure Machine Learning.
+
+> [!NOTE]
+> The Azure Machine Learning Python SDK v2 does not provide native logging or tracking capabilities. This applies not just for logging but also for querying the metrics logged. Instead, use MLflow to manage experiments and runs. This article explains how to use MLflow to manage experiments and runs in Azure Machine Learning.
 
 ### Prerequisites
 
@@ -57,10 +57,12 @@ for exp in experiments:
 
 ## Search experiments
 
-The `search_experiments()` method available since Mlflow 2.0 allows to search experiment matching a criteria using `filter_string`. The following query retrives three experiments with differents IDs.
+The `search_experiments()` method available since Mlflow 2.0 allows searching experiment matching a criteria using `filter_string`. The following query retrieves three experiments with different IDs.
 
 ```python
-mlflow.search_experiments(filter_string="experiment_id IN  ('CDEFG-1234-5678-90AB', '1234-5678-90AB-CDEFG', '5678-1234-90AB-CDEFG')")
+mlflow.search_experiments(filter_string="experiment_id IN (
+    'CDEFG-1234-5678-90AB', '1234-5678-90AB-CDEFG', '5678-1234-90AB-CDEFG')"
+)
 ```
 
 ## Getting a specific experiment
