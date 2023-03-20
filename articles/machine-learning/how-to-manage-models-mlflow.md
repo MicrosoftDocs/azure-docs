@@ -31,6 +31,8 @@ Azure Machine Learning supports MLflow for model management. This represents a c
 
 ## Registering new models in the registry
 
+The models registry offer a convenient and centralized way to manage models in a workspace. Each workspace has its own independent models registry. The following section explains multiple way to register models in the registry using MLflow SDK.
+
 ### Creating models from an existing run 
 
 If you have an MLflow model logged inside of a run and you want to register it in a registry, you can do that by using the run ID and the path where the model was logged. See [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) to know how to query this information if you don't have it.
@@ -72,6 +74,8 @@ mlflow.register_model(f"file://{model_local_path}", "local-model-test")
 
 ## Querying model registries
 
+You can use the MLflow SDK to query and search for models registered in the registry. The following section explains multiple ways to achieve it.
+
 ### Querying all the models in the registry
 
 You can query all the registered models in the registry using the MLflow client. The following sample prints all the model's names:
@@ -79,6 +83,12 @@ You can query all the registered models in the registry using the MLflow client.
 ```python
 for model in client.search_registered_models():
     print(f"{model.name}")
+```
+
+Use `order_by` to order by an specific property like `name`, `version`, `creation_timestamp`, and `last_updated_timestamp`:
+
+```python
+client.search_registered_models(order_by=["name ASC"])
 ```
 
 > [!NOTE]
@@ -208,7 +218,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Registering models not in MLflow format |  |  | **&check;** | **&check;** |
 | Registering models from runs outputs/artifacts | **&check;** | **&check;**<sup>1</sup> | **&check;**<sup>2</sup> | **&check;** |
 | Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> |
-| Listing registered models | **&check;** | **&check;** | **&check;** | **&check;** |
+| Search/list registered models | **&check;** | **&check;** | **&check;** | **&check;** |
 | Retrieving details of registered model's versions | **&check;** | **&check;** | **&check;** | **&check;** |
 | Editing registered model's versions description | **&check;** | **&check;** | **&check;** | **&check;** |
 | Editing registered model's versions tags | **&check;** | **&check;** | **&check;** | **&check;** |
