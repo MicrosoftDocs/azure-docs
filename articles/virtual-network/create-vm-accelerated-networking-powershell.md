@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell to create a Windows VM with Accelerated Networking
+title: Use PowerShell to create a VM with Accelerated Networking
 description: Use Azure PowerShell to create and manage Windows virtual machines that have Accelerated Networking enabled for improved network performance.
 services: virtual-network
 author: asudbring
@@ -13,13 +13,13 @@ ms.date: 03/20/2023
 ms.author: allensu
 ---
 
-# Use Azure PowerShell to create a Windows VM with Accelerated Networking
+# Use Azure PowerShell to create a VM with Accelerated Networking
 
 This article describes how to use Azure PowerShell to create a Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
 You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about managing Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
-To use Azure CLI to create a Linux VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
+To use Azure CLI to create a Linux or Windows VM with Accelerated Networking enabled, see [Use Azure CLI to create a VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To use Azure CLI to create a Linux VM with Accelerated Networking enabled, see [
 
 ## Create a VM with Accelerated Networking
 
-In the following examples, replace the example parameters such as `<myResourceGroup>`, `<myNic>`, and `<myVm>` with your own values.
+In the following examples, you can replace the example parameters such as `<myResourceGroup>`, `<myNic>`, and `<myVm>` with your own values.
 
 ### Create a virtual network
 
@@ -135,7 +135,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
    $vmConfig = New-AzVMConfig -VMName "<myVm>" -VMSize "Standard_DS4_v2"
    ```
 
-1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Windows Server 2019 VM:
+1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Windows Server 2019 Datacenter VM:
 
    ```azurepowershell
    $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
@@ -231,7 +231,7 @@ You can enable Accelerated Networking on an existing VM. The VM must meet the fo
    Start-AzVM -ResourceGroup "<myResourceGroup>" -Name "<myVM>"
    ```
 
-### Virtual Machine Scale Sets
+### Enable Accelerated Networking on Virtual Machine Scale Sets
 
 Azure Virtual Machine Scale Sets is slightly different but follows the same workflow.
 

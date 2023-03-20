@@ -1,6 +1,6 @@
 ---
-title: Use Azure CLI to create a Linux VM with Accelerated Networking
-description: Use Azure CLI to create and manage Linux virtual machines that have Accelerated Networking enabled for improved network performance.
+title: Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
+description: Use Azure CLI to create and manage virtual machines that have Accelerated Networking enabled for improved network performance.
 services: virtual-network
 author: asudbring
 manager: gedegrac
@@ -12,9 +12,9 @@ ms.date: 03/20/2023
 ms.author: allensu
 ms.custom: fasttrack-edit, devx-track-azurecli
 ---
-# Use Azure CLI to create a Linux VM with Accelerated Networking
+# Use Azure CLI to create a VM with Accelerated Networking
 
-This article describes how to create a Linux virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure command-line interface, Azure CLI. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
+This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure command-line interface, Azure CLI. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
 
 You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about managing Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
@@ -27,17 +27,17 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
 
 ## Create a VM with Accelerated Networking
 
-In the following examples, replace the example parameters such as `<myResourceGroup>`, `<myNic>`, and `<myVm>` with your own values.
+In the following examples, you can replace the example parameters such as `<myResourceGroup>`, `<myNic>`, and `<myVm>` with your own values.
 
 ### Create a virtual network
 
-1. Use [az group create](/cli/azure/group) to create a resource group to contain the resources. Be sure to select a supported Linux region as listed in [Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+1. Use [az group create](/cli/azure/group#az-group-create) to create a resource group to contain the resources. Be sure to select a supported Windows or Linux region as listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
    ```azurecli
    az group create --name <myResourceGroup> --location <myAzureRegion>
    ```
 
-1. Use [az network vnet create](/cli/azure/network/vnet) to create a virtual network with one subnet in the resource group:
+1. Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network with one subnet in the resource group:
 
    ```azurecli
    az network vnet create \
@@ -50,7 +50,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a network security group
 
-1. Use [az network nsg create](/cli/azure/network/nsg) to create a network security group (NSG).
+1. Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create a network security group (NSG).
 
    ```azurecli
    az network nsg create \
@@ -58,7 +58,26 @@ In the following examples, replace the example parameters such as `<myResourceGr
      --name <myNsg>
    ```
 
-1. The NSG contains several default rules, one of which disables all inbound access from the internet. Use [az network nsg rule create](/cli/azure/network/nsg/rule) to open a port to allow secure shell (SSH) access to the VM.
+1. The NSG contains several default rules, one of which disables all inbound access from the internet. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to open a port to allow remote desktop protocol (RDP) or secure shell (SSH) access to the VM.
+
+# [Windows](#tab/windows)
+
+   ```azurecli
+   az network nsg rule create \
+     --resource-group <myResourceGroup> \
+     --nsg-name <myNsg> \
+     --name Allow-RDP-Internet \
+     --access Allow \
+     --protocol Tcp \
+     --direction Inbound \
+     --priority 100 \
+     --source-address-prefix Internet \
+     --source-port-range "*" \
+     --destination-address-prefix "*" \
+     --destination-port-range 3389
+   ```
+
+# [Linux](#tab/linux)
 
    ```azurecli
    az network nsg rule create \
@@ -75,9 +94,10 @@ In the following examples, replace the example parameters such as `<myResourceGr
      --destination-port-range 22
    ```
 
+---
 ### Create a network interface with Accelerated Networking
 
-1. Use [az network public-ip create](/cli/azure/network/public-ip) to create a public IP address. The VM doesn't need a public IP address if you don't access it from the internet, but you need the public IP to complete the steps for this article.
+1. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address. The VM doesn't need a public IP address if you don't access it from the internet, but you need the public IP to complete the steps for this article.
 
    ```azurecli
    az network public-ip create \
@@ -85,7 +105,7 @@ In the following examples, replace the example parameters such as `<myResourceGr
      --resource-group <myResourceGroup>
    ```
 
-1. Use [az network nic create](/cli/azure/network/nic) to create a network interface (NIC) with Accelerated Networking enabled. The following example creates a NIC in the subnet of the virtual network, and associates the NSG to the NIC.
+1. Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create a network interface (NIC) with Accelerated Networking enabled. The following example creates a NIC in the subnet of the virtual network, and associates the NSG to the NIC.
 
    ```azurecli
    az network nic create \
@@ -100,7 +120,24 @@ In the following examples, replace the example parameters such as `<myResourceGr
 
 ### Create a VM and attach the NIC
 
-Use [az vm create](/cli/azure/vm) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [[Windows and Linux Accelerated Networking]](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+
+# [Windows](#tab/windows)
+
+The following example creates a Windows Server 2019 Datacenter VM with a size that supports Accelerated Networking, Standard_DS4_v2.
+
+```azurecli
+az vm create \
+  --resource-group <myResourceGroup> \
+  --name <myVm> \
+  --image Win2019Datacenter \
+  --size Standard_DS4_v2 \
+  --admin-username <myAdminUser> \
+  --admin-password <myAdminPassword> \
+  --nics <myNic>
+```
+
+# [Linux](#tab/linux)
 
 The following example creates a VM with the UbuntuLTS OS image and a size that supports Accelerated Networking, Standard_DS4_v2.
 
@@ -114,6 +151,8 @@ az vm create \
   --generate-ssh-keys \
   --nics <myNic>
 ```
+
+---
 
 After the VM is created, you get output similar to the following example. Take note of the `publicIpAddress`, which you use to access the VM in later steps.
 
@@ -131,6 +170,39 @@ After the VM is created, you get output similar to the following example. Take n
 ```
 
 ## Confirm that accelerated networking is enabled
+
+# [Windows](#tab/windows)
+
+Once you create the VM in Azure, connect to the VM and confirm that the Ethernet controller is installed in Windows.
+
+1. In the [Azure portal](https://portal.azure.com), search for and select *virtual machines*.
+
+1. On the **Virtual machines** page, select your new VM.
+
+1. On the VM's **Overview** page, select **Connect**.
+
+1. On the **Connect** screen, select **Native RDP**.
+
+1. On the **Native RDP** screen, select **Download RDP file**.
+
+1. Open the downloaded RDP file, and then sign in with the credentials you entered when you created the VM.
+
+1. On the remote VM, right-click **Start** and select **Device Manager**.
+
+1. In the **Device Manager** window, expand the **Network adapters** node.
+
+1. Confirm that the **Mellanox ConnectX-4 Lx Virtual Ethernet Adapter** appears, as shown in the following image:
+
+   ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+
+   The presence of the adapter confirms that Accelerated Networking is enabled for your VM.
+
+> [!NOTE]
+> If the Mellanox adapter fails to start, open an administrator command prompt on the remote VM and enter the following command:
+>
+> `netsh int tcp set global rss = enabled`
+
+# [Linux](#tab/linux)
 
 1. Use the following command to create an SSH session with the VM. Replace `<myPublicIp>` with the public IP address assigned to the VM you created, and replace `<myAdminUser>` with the `--admin-username` you specified when you created the VM.
 
@@ -176,6 +248,8 @@ Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement
 You must run an application over the synthetic NIC to guarantee that the application receives all packets that are destined to it. Binding to the synthetic NIC also ensures that the application keeps running even if the VF is revoked during host servicing.
 
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
+
+---
 
 <a name="enable-accelerated-networking-on-existing-vms"></a>
 ## Manage Accelerated Networking on existing VMs

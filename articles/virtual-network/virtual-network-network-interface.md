@@ -20,17 +20,20 @@ A VM you create in the Azure portal has one NIC with default settings. You can c
 
 # [Portal](#tab/azure-portal)
 
-To run the procedures in this article, you need the following prerequisites:
+You need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md).
-- To run the following procedures, sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-  In the procedures, you can replace the example names with your own values.
+To run the procedures in this article:
+
+- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
+- Replace the placeholders in the examples with your own values.
 
 # [Azure CLI](#tab/azure-cli)
 
-To run the examples in this article, you need the following prerequisites:
+To run the commands in this article, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure CLI](quick-create-cli.md).
@@ -45,11 +48,11 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 
   Run [az login](/cli/azure/reference-index#az-login) to connect to Azure. For more information, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-In the following code examples, you can replace the example placeholder names with your own values.
+In the following procedures, you can replace the example placeholder names with your own values.
 
 # [PowerShell](#tab/azure-powershell)
 
-To run the procedures in this article, you need the following prerequisites:
+To run the commands in this article, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure PowerShell](quick-create-powershell.md).
@@ -64,7 +67,7 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 
   Then run `Connect-AzAccount` to connect to Azure. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-In the following code examples, you can replace the example placeholder names with your own values.
+In the following procedures, you can replace the example placeholder names with your own values.
 
 ---
 
