@@ -10,7 +10,7 @@ ms.author:   elgonzalez # Microsoft alias
 ms.service:  security 
 # ms.prod:   # To use ms.prod, uncomment it and delete ms.service
 ms.topic:    how-to
-ms.date:     03/13/2023
+ms.date:     03/20/2023
 ---
 
 # Defender EASM Data Connections
