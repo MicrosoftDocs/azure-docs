@@ -34,7 +34,7 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
 
 1. For **classification**, you can also enable deep learning.
     
-If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](../how-to-configure-cross-validation-data-splits.md).
+If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](../v1/how-to-configure-cross-validation-data-splits.md).
 
 
 1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
@@ -50,7 +50,7 @@ If deep learning is enabled, validation is limited to _train_validation split_. 
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](../how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](../v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
     1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. 
     
