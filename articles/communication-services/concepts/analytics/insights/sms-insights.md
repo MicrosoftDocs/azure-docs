@@ -17,11 +17,11 @@ ms.subservice: data
 
 The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It's powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
 
-{ADD IMAGE OF THE SMS INSIGHTS DASHBOARD}
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview.png" alt-text="Screenshot of SMS insights overview":::
 
 The SMS Insights Dashboard can be found as part of the Insights blade on the left hand navigation of your Azure Communication Services resource.
 
-{ADD IMAGE SHOWING LOCATION}
+:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot for insights navigation location":::
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ The SMS Insights Dashboard can be found as part of the Insights blade on the lef
 
 The `SMS Insights Dashboard` is made out of four sections:
 
-{ADD IMAGE OF TOP NAVIGATION}
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-nav.png" alt-text="Screenshot of SMS insights navigation tabs":::
 
 ### Overview section
 The Overview section provides an overall performance of sent messages along with SMS failure breakdown. The user can filter the SMS performance data by time specific time range, number type, sender number, and destination. The data is presented in interactive graphs that the user can click on to further drill down into logs. 
@@ -41,7 +41,7 @@ Great to help answer general questions like:
 - How many SMS have I sent through my resource?
 - Are my messages being blocked or failing at a glance?
 
-{ADD IMAGE FOR OVERVIEW SECTION}
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview.png" alt-text="Screenshot of SMS insights overview":::
 
 ### Message delivery rates section
 The Message Delivery Rates section provides insights into SMS performance and delivery rate per day. The user can select a specific date in the graph to drill into logs.
@@ -50,7 +50,7 @@ Can help answer questions like:
 - Are there particular days where I'm seeing fewer deliveries?
 - Are there any geographies where delivery suffers most?
 
-{ADD IMAGE FOR DELIVERY RATES}
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-message-rates.png" alt-text="Screenshot of SMS insights overview":::
 
 ### Opt-in & opt-out rates
 The Opt-in & opt-out rates section provides insights into end user responses for opt-ins/outs and help.
@@ -58,7 +58,7 @@ The Opt-in & opt-out rates section provides insights into end user responses for
 Answer questions like:
 - What percentage of my users are opt-in vs opt-out?
 
-{ADD IMAGE FOR OPT}
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-opt-in-out.png" alt-text="Screenshot of SMS insights overview":::
 
 ### Response patterns
 The Response patterns section provides insights into the total SMS usage in a day across messages delivered, received, failed, and blocked.
@@ -66,10 +66,12 @@ The Response patterns section provides insights into the total SMS usage in a da
 This section helps you understand:
 - How is my solution performing over time?
 
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-response-patterns.png" alt-text="Screenshot of SMS insights overview":::
+
 ## Exporting logs
 The SMS logs can be exported by clicking on the Download button on the top right corner of the logs table:
 
-{ADD IMAGE FOR EXPORT}
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-response-patterns.png" alt-text="Screenshot of SMS insights overview":::
 
 ## Editing dashboards
 
