@@ -157,7 +157,7 @@ The location is the region where the custom image will be created. The following
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/MooncakePublicPreview` to access the Azure Image Builder public preview in the China North 3 region.
 
-Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
+To access the Azure VM Image Builder public preview in the Fairfax regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -170,13 +170,24 @@ Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineIma
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
 ```
-Use the following command to register the feature for Azure Image Builder in Azure China North 3 regions.
+
+---
+
+To access the Azure VM Image Builder public preview in the China North 3 region, you must register the *Microsoft.VirtualMachineImages/MooncakePublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name MooncakePublicPreview
 ```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name MooncakePublicPreview
+```
+
+
 
 ### [Azure CLI](#tab/azure-cli)
 
