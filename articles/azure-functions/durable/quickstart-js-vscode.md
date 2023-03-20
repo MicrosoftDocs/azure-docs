@@ -291,7 +291,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-:: zone pivot="nodejs-model-v4"
+::: zone pivot="nodejs-model-v4"
 
 ## Update app settings
 
@@ -301,9 +301,14 @@ To enable your V4 programming model app to run in Azure, you need to add the `En
 2. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press **Enter**.
 3. For the value, type `EnableWorkerIndexing` and press **Enter**.
 
-:: zone-end
+::: zone-end
 
 ## Test your function in Azure
+
+::: zone pivot="nodejs-model-v4"
+> [!NOTE]
+> To use the V4 node programming model, make sure your app is running on at least version 4.16.5 of the Azure Functions runtime.
+::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
