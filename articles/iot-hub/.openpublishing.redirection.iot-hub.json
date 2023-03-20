@@ -1269,6 +1269,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/iot-hub/tutorial-x509-introduction.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-prove-possession",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/tutorial-x509-self-sign.md",
       "redirect_url": "/azure/iot-hub/reference-x509-certificates",
       "redirect_document_id": false

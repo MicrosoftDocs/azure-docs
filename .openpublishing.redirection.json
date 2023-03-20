@@ -22337,6 +22337,11 @@
             "redirect_document_id": "false"
         },
         {
+            "source_path_from_root": "/articles/azure-arc/kubernetes/plan-at-scale-deployment.md",
+            "redirect_url": "/azure/azure-arc/kubernetes/overview",
+            "redirect_document_id": "false"
+        },
+        {
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
           "redirect_document_id": false
