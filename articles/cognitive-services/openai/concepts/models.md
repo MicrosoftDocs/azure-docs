@@ -60,8 +60,7 @@ We recommend starting with the most capable model in a model family to confirm w
 
 GPT-4 is a large multimodal model meaning while it currently accepts text inputs and emits text outputs. It will eventually be able to accept image inputs as well. GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like gpt-35-turbo, GPT-4 is optimized for chat but works well for traditional completions tasks.
 
- These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4). .
-
+ These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
 - `gpt-4`
 - `gpt-4-32k`
 
@@ -197,10 +196,10 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 |  Model ID                | Supports Completions | Supports Embeddings |  Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  ----------------------- | -------------------- | ------------------- | ------------------------- | ------------------- | -------------------- | ---------------------- |
-| `gpt-4` <sup>1</sup><sup>2</sup>     | Yes                  | No                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup><sup>2</sup> | Yes                  | No                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup>     | Yes                  | No                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup> | Yes                  | No                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
 
-<sup>1</sup> The model is in limited preview and only available by request.
+<sup>1</sup> The model is in limited preview and only available by request.<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
 
 ### Codex Models

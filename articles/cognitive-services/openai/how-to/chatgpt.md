@@ -23,7 +23,7 @@ In Azure OpenAI there are two different options for interacting with these model
 
 The ChatCompletion API is a new dedicated API for interacting with the ChatGPT and GPT-4 models. This API is the preferred method for accessing these models.
 
-ChatML uses the same [completion API](../reference.md#completions) that you use for other models like text-davinci-002, it requires a unique token based prompt format known as Chat Markup Language (ChatML). This provides lower level access than the dedicated ChatCompletion API, but also requires additional input validation and the underlying format is more likely to change over time.
+ChatML uses the same [completion API](../reference.md#completions) that you use for other models like text-davinci-002, it requires a unique token based prompt format known as Chat Markup Language (ChatML). This provides lower level access than the dedicated ChatCompletion API, but also requires additional input validation and **the underlying format is more likely to change over time**.
 
 This article walks you through getting started with the new ChatGPT and GPT-4 models. It's important to use the techniques described here to get the best results. If you try to interact with the models the same way you did with the older model series, the models will often be verbose and provide less useful responses.
 
