@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Configure outbound connectivity with a gateway load balancer'
 titleSuffix: Azure Load Balancer
-description: Learn to configure gateway load balancer using the Azure portal higher scalability and performance with network virtual appliances.
+description: Learn how to deploy Azure Gateway Load Balancer for higher scalability and performance on outbound connections when using network virtual appliances.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 03/22/2023
 ms.custom: template-tutorial
 ---
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
-    - For the purposes of this tutorial, the load balancer in the examples is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
+    - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
 - An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md).
     - For the purposes of this tutorial, the gateway load balancer in the examples is name **myGatewayLoadBalancer**.
 
@@ -39,12 +39,12 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
     :::image type="content" source="media/gateway-configure-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku." lightbox="media/gateway-configure-outbound-connectivity/confirm-sku-thumb.png":::
 
 1. Return to your virtual machine.
-1. In the **Overview** page of the virtual machine, select **Networking** under **Settings**.
+1. In **Overview of the virtual machine, select **Networking** under **Settings**.
 1. Select the network interface attached to the virtual machine. This example uses **myvm1229**.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
 
-1. In the **Network interface** page, select **IP configurations** under **Settings**.
+1. In **Network interface**, select **IP configurations** under **Settings**.
 6. Select **myFrontend** in **Gateway Load balancer**.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/select-gateway-load-balancer.png" alt-text="Screenshot of gateway load balancer selection in IP configuration settings.":::
@@ -55,7 +55,7 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 
 In this section, you create a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
 
-1. Navigate to your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
+1. Navigate to **myLoadBalancer** or your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/frontend-settings.png" alt-text="Screenshot of frontend IP configuration.":::
 
@@ -67,25 +67,26 @@ In this section, you create a new frontend IP configuration for outbound traffic
     | Name | Enter **myOutboundFrontend**. |
     | IP version | Select **IPv4**. |
     | IP type | Select **IP address**. |
-    | Public IP address | |
+    | Public IP address | <br> Select **Create new**.</br> <br/> In **Add a public IP address**, enter **myOutboundPublicIP** for name, and select **Ok**.<br/>|
     | Gateway Load balancer | Select **myGatewayLoadBalancerFrontEnd**. |    
 
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/add-frontend-ip-configuration.png" alt-text="Screenshot of Add frontend ip configuration screen.":::
-<<PickUpdHere>>
-1.	Select Save.
+
+1.	Select **Add**.
 
 > [!NOTE] 
-> This step will “chain” your frontend to the gateway load balancer frontend specified.
+> This step will *chain* your frontend to the gateway load balancer frontend specified.
 > Any inbound or outbound traffic served by this frontend is redirected to the gateway load balancer for inspection by the configured NVAs before being distributed to this load balancer’s backend instances.
+
 ## Create outbound rule
 
-1. In the **Load balancer** page, select **Outbound rules** under **Settings**.
+1. In **Load balancer**, select **Outbound rules** under **Settings**.
 2. Select **+ Add** in **Outbound rules** to add a rule.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/outbound-rules.png" alt-text="Screenshot of Load Balancer Outbound rules settings.":::
 
-1. Enter or select the following information in **Add outbound rule**:
+1. In **Add outbound rule** window, Enter or select the following information in:
 
     | Setting | Value |
     | --- | --- |
@@ -107,11 +108,12 @@ In this section, you create a new frontend IP configuration for outbound traffic
 
 1. Select **Add**.
 
-## Limitations
-
-- Gateway load balancer doesn't currently support chaining with NAT Gateway. Outbound traffic originating from Azure virtual machines, served through NAT Gateway, goes directly to the Internet. And that NAT Gateway takes precedence over any instance-level public IPs or load balancers for outbound traffic.
-    - NAT Gateway can be configured for outbound connectivity together with a Standard Public Load Balancer and Gateway Load Balancer architecture for inbound connectivity. In this scenario, all inbound traffic flows as expected through the GWLB to the Standard LB, while outbound traffic goes to the Internet directly.
-    - If NVAs need to be inserted for outbound traffic, apply the methods described in this article. For examples, chaining an ILPIP or outbound rules LB frontend to a gateway load balancer.
+> [!IMPORTANT]
+>Gateway load balancer doesn't currently support chaining with NAT Gateway. Outbound traffic originating from Azure virtual machines, served through NAT Gateway, goes directly to the Internet. And that NAT Gateway takes precedence over any instance-level public IPs or load balancers for outbound traffic.
+>
+> NAT Gateway can be configured for outbound connectivity together with a Standard Public Load Balancer and Gateway Load Balancer architecture for inbound connectivity. In this scenario, all inbound traffic flows as expected through the GWLB to the Standard LB, while outbound traffic goes to the Internet directly.
+>
+> If NVAs need to be inserted for outbound traffic, apply the methods described in this article. For example, chaining an instance-level public IP or outbound rules load balancer frontend to a gateway load balancer.
 
 ## Clean up resources
 
@@ -125,4 +127,4 @@ In this tutorial, you learned how to:
 - Created a new load balancer frontend IP configuration.
 - Created an outbound rule for virtual machine traffic.
 
-Learn how to [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) with Azure Load Balancer.
+Learn how to [deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha) with Azure Load Balancer.
