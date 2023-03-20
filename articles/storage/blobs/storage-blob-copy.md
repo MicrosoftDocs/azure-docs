@@ -72,11 +72,30 @@ The following code example shows how to check the status of a given copy operati
 
 ## Copy a blob snapshot over the base blob
 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopySnapshot":::
+
 To learn more about blob snapshots, see [Blob snapshots](snapshots-overview.md).
 
 ## Copy a previous blob version over the base blob
 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyVersion":::
+
 To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
+
+## Rehydrate a blob using a copy operation
+
+You can rehydrate a blob from the archive tier by copying it to an online tier. You can specify copy options, including access tier and rehydrate priority, in a [BlobCopyFromUriOptions] object.
+
+The following example shows how to rehydrate an archived blob by copying it to a blob in the hot tier:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_RehydrateUsingCopy":::
+
+> [!NOTE]
+> Copying an archived blob to an online destination tier is supported within the same storage account. Beginning with service version 2021-02-12, you can copy an archived blob to a different storage account, as long as the destination account is in the same region as the source account. When you copy an archived blob to an online tier, the source and destination blobs must have different names. 
+
+After the copy operation is complete, the destination blob appears in the archive tier. The destination blob is then rehydrated to the online tier that you specified in the copy operation. When the destination blob is fully rehydrated, it becomes available in the new online tier.
+
+To learn more about rehydrating an archived blob, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 ## Abort a copy operation
 
