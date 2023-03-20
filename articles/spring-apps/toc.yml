@@ -27,6 +27,8 @@ items:
       href: quickstart-deploy-event-driven-app-standard-consumption.md
     - name: Map a custom domain to Azure Spring Apps
       href: quickstart-custom-domain.md
+    - name: Access apps in a VNet
+      href: quickstart-access-within-virtual-network.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
