@@ -104,7 +104,7 @@
     href: ./shared/waf-azure-policy.md
   - name: Log scrubbing
     href: ./shared/waf-log-scrubbing.md
-  - name Configure log scrubbing
+  - name: Configure log scrubbing
     href: ./shared/waf-log-scrubbing-configure.md
 - name: How-to guides
   items:
