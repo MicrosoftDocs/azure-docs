@@ -1,12 +1,12 @@
 ---
 title: Traffic splitting in Azure Container Apps
-description: Ingress options for Azure Container Apps
+description: Send a portion of an apps traffic to different revisions in Azure Container Apps
 services: container-apps
-author: cebundy
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/14/2023
-ms.author: v-bcatherine
+ms.date: 03/20/2023
+ms.author: cshoe
 ---
 
 # Traffic splitting in Azure Container Apps
@@ -54,24 +54,25 @@ The following command set the traffic weight for revision `v1` to `50` and revis
 
 ```azurecli
 az containerapp ingress traffic set \
-    --name <app-name> \
-    --resource-group <resource-group> \
+    --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
     --revision-weight v1=50 v2=50
 ```
 
-This command sets the traffic weight for revision labeled `label-1` to `50` and revision `label-2` to `50`:
+Make sure to replace the placeholder values surrounded by `<>` with your own values.
+
+This command sets the traffic weight for revision labeled `label-1` to 50% and revision `label-2` to 50%:
 
 ```azurecli
 az containerapp ingress traffic set \
-    --name <app-name> \
-    --resource-group <resource-group> \
+    --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
     --label-weight label-1=50 label-2=50
 
 ```
 
 # [Portal](#tab/portal)
 
-To configure traffic splitting in the Azure portal, follow these steps:
 
 
 
@@ -149,7 +150,7 @@ The following example shows traffic splitting between two revision labels:
 
 ---
 
-## Traffic splitting scenarios
+## Use cases
 
 The following scenarios describe configuration settings for common use cases.
 

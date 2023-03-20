@@ -22,21 +22,20 @@ If no IP restriction rules are defined, all inbound traffic is allowed.
 
 You can configure IP ingress restrictions using the Azure CLI or the Azure portal.
 
-The `ip-address` parameter accepts a single IP address or a range of IP addresses in CIDR notation. For example, To allow access from a single IP address, use the following format: `--ip-address 19.168.1.1./24`.
+The `ip-address` parameter accepts a single IP address or a range of IP addresses in CIDR notation. For example, to allow access from a single IP address, use the following format: `--ip-address 19.168.1.1./24`.
 
 > [!NOTE]
 > If defined, all rules must be the same type. You cannot combine allow rules and deny rules.
 >
 > IPv4 addresses are supported. Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-### Configure IP ingress restrictions using the Azure portal
+### Configure IP ingress restrictions
 
-You can manage IP ingress restrictions from **Ingress** on your container app resource page in the portal.
 
-1. Go to your container app resource page in the Azure portal.
+1. Go to your container app in the Azure portal.
 1. Select **Ingress** from the left side menu.
-1. Select the **IP Security Restrictions Mode** toggle to enable IP restrictions.  You can choose to Allow or Deny traffic from the specified IP address ranges.
-1. Select **Add* to create the rule
+1. Select the **IP Security Restrictions Mode** toggle to enable IP restrictions.  You can choose to allow or deny traffic from the specified IP address ranges.
+1. Select **Add* to create the rule.
     :::image type="content" source="media/ingress/screenshot-ingress-page-ip-restrictions.png" alt-text="Screenshot of IP restriction settings on container app Ingress page.":::
 1. Enter information in the following fields:
     1. **IPv4 address or range**: Enter the IP address or range of IP addresses in CIDR notation. For example, to allow access from a single IP address, use the following format: *10.200.10.2/32*.
@@ -48,9 +47,8 @@ You can manage IP ingress restrictions from **Ingress** on your container app re
 1. When you have finished adding rules, select **Save** to save the rules.
     :::image type="content" source="media/ingress/screenshot-save-ip-restriction.png" alt-text="Screenshot to save IP restrictions on container app Ingress page.":::
 
-You can edit and delete rules from the IP restrictions list on the **Ingress** page.
+You can edit and delete rules from the IP restrictions list on the *Ingress* page.
 
-### Configure IP ingress restrictions using the Azure CLI
 
 The `az containerapp ingress access-restriction set` command group uses the following parameters.
 
