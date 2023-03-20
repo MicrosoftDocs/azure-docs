@@ -35,7 +35,7 @@ To set up Azure Active Directory authentication, follow the steps below:
 
 ### Register an app with Azure Active Directory
 
-1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token?tabs=portal)
+1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md?tabs=portal)
 
 <<<<Is this required ?>>>>>
 1. On the app's overview page, select API permissions.
@@ -107,31 +107,32 @@ Save the access token from the response for use in the following HTTP requests.
 
 ### GET/query
 
-    ```
-        GET https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<workspace name>/api/v1/label/__name__/values?api-version=2021-06-01-preview
-        --header 'Authorization:  Bearer <access token>'
-    ```
-        When using the management end point, request a token using `--data-urlencode 'resource= https://management.azure.com'` 
+```
+GET https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<workspace name>/api/v1/label/__name__/values?api-version=2021-06-01-preview
+--header 'Authorization:  Bearer <access token>'
+   ```
+When using the management end point, request a token using `--data-urlencode 'resource= https://management.azure.com'` 
 
 ### POST / query 
 
 POST uses the Azure Monitor workspace query endpoint  
 
-    ```http
-        https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query  
+```http
+https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query  
 
-      --header 'Authorization:  Bearer <access token>'
-      --header 'Content-Type: application/x-www-form-urlencoded' 
-      --data-urlencode 'query=sum(
-            container_memory_working_set_bytes 
-            * on(namespace,pod)
-            group_left(workload, workload_type) namespace_workload_pod:kube_pod_owner:relabel{ workload_type="deployment"}) by (pod)'
+--header 'Authorization:  Bearer <access token>'
+--header 'Content-Type: application/x-www-form-urlencoded' 
+--data-urlencode 'query=sum(
+    container_memory_working_set_bytes 
+    * on(namespace,pod)
+    group_left(workload, workload_type) namespace_workload_pod:kube_pod_owner:relabel{ workload_type="deployment"}) by (pod)'
 
-    ```
-    When using the Azure Monitor workspace query endpoint, request a token using `--data-urlencode 'resource= https://prometheus.monitor.azure.com'`
+```
+
+When using the Azure Monitor workspace query endpoint, request a token using `--data-urlencode 'resource= https://prometheus.monitor.azure.com'`
 
 Find your workspace's query endpoint on the overview page.
-:::image type="content" source="./media/query-azure-monitor-workspaces/find-query-endpoint.png" lightbox='./media/query-azure-monitor-workspaces/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoin on the Azure Monitor workspace overview page.":::
+:::image type="content" source="./media/query-azure-monitor-workspaces/find-query-endpoint.png" lightbox="./media/query-azure-monitor-workspaces/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoin on the Azure Monitor workspace overview page.":::
 ## Supported APIs
 The following queries are supported:
 
@@ -169,7 +170,7 @@ For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://p
 + Experimental features  
 The experimental features such as exemplars aren't  supported.
 
-For more information on Prometheus metrics limits, see [Prometheus metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/service-limits#prometheus-metrics)
+For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
 >[!NOTE]
-> Some of the limits can be increased. Please contact [PromWebApi](promwebapi@microsoft.com) to request an increase for these limits on your Azure Monitor workspace.
+> Some of the limits can be increased. Please contact [PromWebApi](mailto:promwebapi@microsoft.com) to request an increase for these limits on your Azure Monitor workspace.
