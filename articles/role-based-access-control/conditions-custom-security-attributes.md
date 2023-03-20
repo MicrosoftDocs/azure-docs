@@ -8,10 +8,10 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/09/2022
 ms.author: rolyon
-
-#Customer intent: As a dev, devops, or it admin, I want to 
+#Customer intent: As a dev, devops, or it admin, I want to
 ---
 
 # Allow read access to blobs based on tags and custom security attributes (Preview)

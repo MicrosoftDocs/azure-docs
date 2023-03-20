@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Remote Desktop Gateway Services
 
-A standard Remote Desktop Services (RDS) deployment includes various [Remote Desktop role services](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) running on Windows Server. The RDS deployment with Azure Active Directory (Azure AD) Application Proxy has a permanent outbound connection from the server that is running the connector service. Other deployments leave open inbound connections through a load balancer.
+A standard Remote Desktop Services (RDS) deployment includes various [Remote Desktop role services](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) running on Windows Server. The RDS deployment with Azure Active Directory (Azure AD) Application Proxy has a permanent outbound connection from the server that is running the connector service. Other deployments leave open inbound connections through a load balancer.
 
 This authentication pattern allows you to offer more types of applications by publishing on premises applications through Remote Desktop Services. It reduces the attack surface of their deployment by using Azure AD Application Proxy.
 
@@ -44,4 +44,4 @@ Explore the following resources to learn more about implementing Remote Desktop 
 ## Next steps
 
 * [Azure Active Directory authentication and synchronization protocol overview](auth-sync-overview.md) describes integration with authentication and synchronization protocols. Authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods. Synchronization integrations enable you to sync user and group data to Azure AD and then user Azure AD management capabilities. Some sync patterns enable automated provisioning.
-* [Remote Desktop Services architecture](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture.md) describes configurations for deploying Remote Desktop Services to host Windows apps and desktops for end-users.
+* [Remote Desktop Services architecture](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) describes configurations for deploying Remote Desktop Services to host Windows apps and desktops for end-users.

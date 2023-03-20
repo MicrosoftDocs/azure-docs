@@ -92,7 +92,7 @@ There are many methods to configure BIG-IP for this scenario, including a templa
 
 Before BIG-IP can hand off pre-authentication to Azure AD, it must be registered in your tenant. This is the first step in establishing SSO between both entities. It's no different from making any IdP aware of a SAML relying party. In this case, the app that you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com) by using an account with Application Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using an account with Application Administrator permissions.
 
 2. From the left pane, select the **Azure Active Directory** service.
 

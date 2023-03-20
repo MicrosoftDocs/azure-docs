@@ -7,6 +7,7 @@ ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
+ms.custom: devx-track-azurecli
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn

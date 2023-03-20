@@ -10,7 +10,7 @@ ms.author: juliako
 
 When you create a Video Indexer account, you must associate it with a Media Services and Storage account. Video Indexer can access Media Services and Storage using system authentication or Managed Identity authentication. Video Indexer validates that the user adding the association has access to the Media Services and Storage account with Azure Resource Manager Role Based Access Control (RBAC).
 
-If you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](/azure/media-services/latest/concept-managed-identities) authentication that allows Video Indexer access through the firewall is the preferred option. It allows Video Indexer and Media Services to access the storage account that has been configured without needing public access for [trusted storage access.](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-to-trusted-azure-services)
+If you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](/azure/media-services/latest/concept-managed-identities) authentication that allows Video Indexer access through the firewall is the preferred option. It allows Video Indexer and Media Services to access the storage account that has been configured without needing public access for [trusted storage access.](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services)
 
 Follow these steps to enable Managed Identity for Media Services and Storage and then lock your storage account. It's assumed that you already created a Video Indexer account and associated with a Media Services and Storage account.
 

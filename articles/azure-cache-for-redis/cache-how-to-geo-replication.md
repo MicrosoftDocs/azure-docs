@@ -42,6 +42,7 @@ To configure geo-replication between two caches, the following prerequisites mus
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache. To use geo-failover, both caches must be the same size.
 - Both caches are created and in a running state.
+- Both caches are running the same version of Redis server.
 
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).

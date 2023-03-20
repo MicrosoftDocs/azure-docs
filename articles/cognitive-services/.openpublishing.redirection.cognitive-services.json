@@ -1626,6 +1626,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/personalizer/ethics-responsible-use.md",
+            "redirect_url": "/azure/cognitive-services/personalizer/responsible-guidance-integration",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
             "redirect_url": "/azure/cognitive-services/speech-service",
             "redirect_document_id": false

@@ -1,10 +1,10 @@
 ---
-title: Microsoft Connected Cache within an Azure IoT Edge for Industrial IoT configuration | Microsoft Docs
+title: Microsoft Connected Cache within an Azure IoT Edge for Industrial IoT configuration
 description: Microsoft Connected Cache within an Azure IoT Edge for Industrial IoT configuration tutorial
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 

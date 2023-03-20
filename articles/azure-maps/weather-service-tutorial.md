@@ -99,7 +99,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-The script below renders the turbine locations on the map by calling the Azure Maps [Get Map Image service](/rest/api/maps/render/getmapimage).
+The script below renders the turbine locations on the map by calling the [Get Map Image service](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service

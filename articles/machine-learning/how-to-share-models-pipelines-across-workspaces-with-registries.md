@@ -10,7 +10,7 @@ author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, devx-track-azurecli
 ---
 
 # Share models, components and environments across workspaces with registries (preview)
@@ -114,8 +114,9 @@ ml_client_workspace = MLClient( credential=credential,
     workspace_name = "<workspace-name>")
 print(ml_client_workspace)
 
-ml_client_registry = MLClient ( credential=credential,
-        registry_name = "<registry-name>")
+ml_client_registry = MLClient(credential=credential,
+                        registry_name="<REGISTRY_NAME>",
+                        registry_location="<REGISTRY_REGION>")
 print(ml_client_registry)
 ```
 
