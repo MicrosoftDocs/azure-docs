@@ -9,26 +9,26 @@ ms.date: 03/09/2023
 ---
 # Data-aware security posture (preview)
 
-As digital transformation accelerates in response to market shifts, cloud adoption, and remote working practices, organizations are moving from traditional on-premises environments to multi-cloud architectures. In response, security teams are shifting technologies, processes, and operations from traditional network perimeter-based security to asset-based security controls. Data is a critical business asset that's moving to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. Business risk frameworks must account for increasing data threats, growing attack surfaces, and increasing risks of data asset loss or compromise.
+As digital transformation accelerates in response to market shifts, cloud adoption, and remote working practices, organizations are moving from traditional on-premises environments to multi-cloud architectures. Security teams are shifting technologies, processes, and operations from traditional network perimeter-based security to asset-based security controls. Data is a critical business asset that's moving to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. Business risk frameworks must account for increasing data threats, growing attack surfaces, and higher risk of data asset loss or compromise.
 
-Data-aware security posture in Microsoft Defender for Cloud aims to proactively protect data and reduce risk, and respond to data breaches. Using data-aware security posture you can:
+Data-aware security posture in Microsoft Defender for Cloud aims to proactively protect data, reduce risk, and respond to data breaches. Using data-aware security posture you can:
 
 - Automatically discover sensitive data resources across multiple clouds.
 - Evaluate data sensitivity, who's accessing data, and how data flows across the organization.
-- Continuously uncover risks that might lead to data breaches.
+- Proactively and continuously uncover risks that might lead to data breaches.
 - Detect suspicious activities that might indicate ongoing threats to sensitive data resources.
 
 ## What's supported
 
 **Support** | **Details**
 --- | ---
-What Defender for Cloud plans support data-aware security? | Defender for Storage v2<br/><br/> Defender for CSPM<br/><br/> [Help me](#which-plan-should-I-use) to choose a plan.
-What data resources can I scan? | Azure storage accounts (v1/v2), including storage containers<br/><br/> AWS S3 buckets<br/><br/> Behind a private network you can scan blob storage accounts (no specific configuration required).
-What file types are supported? | All the following file types (no partial selection):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc
-What Azure regions are supported? | You can scan Azure storage accounts in: Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central U; East Asia; East US; East US 2; France Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Center US; South India: Sweden Central; Switzerland North; UAE North; UK South; UK West: West Centra US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
+What Defender for Cloud plans support data-aware security? | Defender for Storage v2<br/><br/> Defender for CSPM
+What data resources can I scan? | Azure storage accounts (v1/v2)<br/><br/> AWS S3 buckets<br/><br/> Behind a private network you can scan blob storage accounts (no specific configuration required).
+What file types are supported? | Supported file types (you can't select a subset):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
+What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central U; East Asia; East US; East US 2; France Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Center US; South India: Sweden Central; Switzerland North; UAE North; UK South; UK West: West Centra US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
 What AWS regions are supported? | US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Asia Pacific (Tokyo); Asia Pacific (Singapore); Asia Pacific (Sydney).<br/><br/> Scanning is done locally in the region.
 Do I need to install an agent? | No, scanning is agentless.
-What's the cost? | The feature is included with each plan and doesn’t include additional costs outside the respective plan costs.
+What's the cost? | The feature is included with each plan, and doesn’t include additional costs outside the respective plan costs.
 
 ## Which plan should I choose?
 
@@ -57,27 +57,30 @@ Note that:
 
 ## Defining sensitive data
 
-Data-aware security in Defender for Cloud automatically identifies resources containing sensitive data such as financial information, personally-identifiable information, and credentials. Defender for Cloud uses sensitive information types, and integrates with Microsoft Purview.
+Data-aware security posture in Defender for Cloud automatically identifies resources that contain sensitive data such as financial information, personally-identifiable information (PII), and credentials. To classify what data is sensitive, Defender for Cloud uses sensitive information types, and integrates with Microsoft Purview.
 
 ### Sensitive information types
 
-Defender for Cloud uses sensitive information types to classify what data is sensitive. These types align to those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about).  Defender for Cloud turns some of these information types on by default. 
+Defender for Cloud provides sensitivity settings using sensitive information types that align to those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about).  
  
-Sensitivity settings are set at the Azure tenant level, and apply to all subscriptions that have the relevant Defender for Cloud plans enabled.
+Sensitivity settings in Defender for Cloud are set at the Azure tenant level. Default sensitivity settings are applied to all subscriptions in the tenant when the Defender for CSPM or the Defender for Storage v2 plan is enabled.  
 
-You can modify default settings by turning off information types, or by creating custom types. Note that:
-- To modify default sensitive information types you need to either be an Azure subscription owner, or have these permissions:
+You can modify default sensitivity settings in a tenant by turning off default information types, or by creating custom types. Note that:
+
+- To modify default sensitive information types you need to either be an Azure subscription owner, or to have these permissions:
+
     - Microsoft.Storage/storageAccounts/{read/write}
     - Microsoft.Authorization/roleAssignments/{read/write/delete}
-- Detection for changes to sensitivity information types runs every seven days
 
-### Additional Microsoft Purview information types
+- Detection for changes to sensitivity settings runs every seven days
 
-If you’re using Microsoft Purview, you can optionally add additional Purview information types to be used during scanning.
+### Integrating Microsoft Purview
 
-### Sensitivity labels
+If you’re using Microsoft Purview, you can optionally add additional Purview information types, or sensitivity labels, to be used during scanning.
 
-If you have Purview sensitivity labels that are automatically assigned to resources when conditions are met, you can turn on the the sensitivity label threshold setting in Defender for Cloud, and integrate those sensitivity labels into data-aware posture management. In order to use these labels you need:
+#### Sensitivity labels
+
+If you're automatically assigning Microsoft Purview sensitivity labels to resources when specific conditions are met, you can turn on the the sensitivity label threshold setting in Defender for Cloud. This integrates Purview sensitivity labels into data-aware posture management, as long as you have the following:
 
 - In the Microsoft Purview portal, you consented to use the labels in Defender for Cloud.
 - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.
@@ -93,14 +96,16 @@ If you have Purview sensitivity labels that are automatically assigned to resour
 
 ## Discovering and scanning
 
-Defender for Cloud starts discovering resources and scanning data immediately after enabling a plan, or after turning on the feature in plans that are already running.
+Defender for Cloud starts discovering and scanning data immediately after enabling a plan, or after turning on the feature in plans that are already running.
 
 - After onboarding the feature, results appear in the Defender for Cloud portal within 24 hours. 
 - After files are updated in the scanned resources, data is refreshed within 8 days.
 
 ### Scanning AWS storage
 
-To protect AWS resources in Defender for Cloud, you set up an AWS connector, using a CloudFormation template to onboard the AWS account. For automatic discovery of AWS resources containing sensitive data, Defender for Cloud updates the CloudFormation template used to connect to AWS.
+In order to protect AWS resources in Defender for Cloud, you set up an AWS connector, using a CloudFormation template to onboard the AWS account. 
+
+To scan AWS data resources, Defender for Cloud updates the CloudFormation template used to connect to AWS.
 
 The CloudFormation template creates a new role in AWS IAM, to allow permission for the Defender for Cloud scanner to access data in the S3 buckets. Note that:
 
@@ -115,23 +120,20 @@ Defender for Cloud uses smart sampling to scan a selected number of files in you
 
 ## Evaluating security posture
 
-Data-aware security posture management automatically and continuously discovers data resources across clouds. You can query Cloud Security Graph using Cloud Security Explorer, to determine where data is stored, who can access it, and how it flows across the organization.
+Data-aware security posture automatically and continuously discovers data resources across clouds. You can query Cloud Security Graph using Cloud Security Explorer, to determine where data is stored, who can access it, and how it flows across the organization.
 
-After data is discovered, you can start to investigate, evaluate, and improve your data security posture using a couple of investigation methods.
+After data is discovered, you can start to evaluate and investigate findings using a couple of investigation methods.
 
 **Investigation method** | **Details** | **Plan**
 --- | --- | ---
 Cloud Security Graph/Cloud Security Explorer | Find misconfigured storage data storage resources that contain sensitive data, or that are publicly accessible. | Defender for CSPM
-Attack Paths | There are some specific attack paths that help you to find misconfigured sensitive data. | Defender for CSPM
+Attack Paths | Use specific attack paths that help you to find misconfigured sensitive data. | Defender for CSPM
 
 ### Cloud Security Explorer/Cloud Security Graph
 
-by querying different types of data resources, their network, access controls, and configured data flows security attributes.
-
-
 In Cloud Security Explorer, you run queries to identify security posture and risk across your cloud environment.
 
-You query assets and drill down into sensitive data findings. You can query by data resources and data types such as storage accounts. You can then further filter to find resources containing sensitive data.
+To investigate data risk, you can query by data resource and data types such as storage accounts. You can then further filter and drill down into sensitive data findings.
 
 Cloud Security Explorer provides these insights.
 
