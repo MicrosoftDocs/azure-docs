@@ -65,8 +65,8 @@ The following upgrade channels are available:
 |---|---|
 | `None`| Your nodes won't have security updates applied automatically. This means you're solely responsible for your security updates|N/A|
 | `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially and will be patched at some point by the OS's infrastructure|Ubuntu applies security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows and Mariner don't apply security patches automatically, so this option behaves equivalently to `None`|
-| `SecurityPatch`|AKS updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only" on a regular basis. There maybe disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] will be disabled by default.|N/A|
-| `NodeImage`|AKS will update the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] will be disabled by default.|
+| `SecurityPatch`|AKS updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only" on a regular basis. There maybe disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|N/A|
+| `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|
 
 To set the node OS auto-upgrade channel when creating a cluster, use the *node-os-upgrade-channel* parameter, similar to the following example.
 
@@ -82,7 +82,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --node-os-upg
 
 ## Using node OS auto-upgrade with Planned Maintenance
 
-If you’re using Planned Maintenance and node OS auto-upgrade, your upgrade will start during your specified maintenance window.
+If you’re using Planned Maintenance and node OS auto-upgrade, your upgrade starts during your specified maintenance window.
 
 > [!NOTE]
 > To ensure proper functionality, use a maintenance window of four hours or more.
