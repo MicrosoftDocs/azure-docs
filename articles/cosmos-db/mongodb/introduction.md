@@ -22,7 +22,7 @@ Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXr4T]
 
 > [!TIP]
-> Want to try the Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
+> Want to try the Azure Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
 
 ## Cosmos DB for MongoDB benefits
 
@@ -40,7 +40,7 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Serverless deployments**: Cosmos DB for MongoDB offers a [serverless capacity mode](../serverless.md). With [Serverless](../serverless.md), you're only charged per operation, and don't pay for the database when you don't use it.
 
-- **Free Tier**: With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level. Free tier accounts are [sandboxed](https://learn.microsoft.com/azure/cosmos-db/limit-total-account-throughput#set-the-total-throughput-limit-from-the-azure-portal).
+- **Free Tier**: With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level. Free tier accounts are [sandboxed](../limit-total-account-throughput#set-the-total-throughput-limit-from-the-azure-portal.md).
 
 - **Free 7 day Continous Backups**: Azure Cosmos DB for MongoDB offers free 7 day continuous backups for any amount of data. This means that you can restore your database to any point in time within the last 7 days. 
 
@@ -52,7 +52,7 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Real time analytics (HTAP) at any scale**: Cosmos DB for MongoDB offers the ability to run complex analytical queries. Use cases for these queries include business intelligence that can run against your database data in real time with no effect on your database. This analysis is fast and inexpensive, due to the cloud native analytical columnar store being utilized, with no ETL pipelines. Learn more about the [Azure Synapse Link](../synapse-link.md).
 
-- **In-depth monitoring capabilities**: Cosmos DB for MongoDB integrates natively with [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) to provide in-depth monitoring capabilities.
+- **In-depth monitoring capabilities**: Cosmos DB for MongoDB integrates natively with [Azure Monitor](../../azure-monitor/overview.md) to provide in-depth monitoring capabilities.
 
 ## How Cosmos DB for MongoDB works
 
@@ -123,7 +123,7 @@ Not sure if your workload is ready? [Reach out to us](https://forms.office.com/p
 
 4. Does Cosmos DB for MongoDB run on-premises?
 
-    Cosmos DB for MongoDB is a cloud-native multi-tenant service and is not available on-premises. Cosmos DB offers an [emulator for local development and testing](https://learn.microsoft.com/azure/cosmos-db/local-emulator).
+    Cosmos DB for MongoDB is a cloud-native multi-tenant service and is not available on-premises. Cosmos DB offers an [emulator for local development and testing](../cosmos-db/local-emulator.md).
 
 
 ## Next steps
