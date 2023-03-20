@@ -29,7 +29,7 @@ Before you begin, you must have the following:
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.4915 or above
++ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.5085 or above
 ::: zone-end
 
 + One of the following tools for creating Azure resources:
