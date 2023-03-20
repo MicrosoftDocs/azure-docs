@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 03/20/2023
 ---
 
-# Create custom curated Azure Container for PyTorch Environments in Azure Machine Learning studio
+# Create custom curated Azure Container for PyTorch (ACPT) Environments in Azure Machine Learning studio
 
 If you're looking to extend curated environment and add Hugging Face (HF) transformers or datasets or any other external packages to be installed, Azure Machine Learning offers to create a new env with docker context containing ACPT curated environment as base image and additional packages on top of it as below.
 
@@ -69,3 +69,4 @@ That's it! You've now created a custom environment in Azure Machine Learning stu
     - [What are Azure Machine Learning Environments? ](concept-environments.md).
     -  Learn more about [curated environments](concept-environments.md).
 - Learn more about [training models in Azure Machine learning](concept-train-machine-learning-model.md).
+- [Azure Container for PyTorch (ACPT) reference](resource-azure-container-for-pytorch.md)
