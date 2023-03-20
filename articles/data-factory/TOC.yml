@@ -420,9 +420,6 @@ items:
     - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
       displayName: polybase
-    - name: Azure Synapse Analytics (Artifacts)
-      href: connector-azure-synapse-analytics-artifacts.md
-      displayName: polybase
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
       displayName: timeout

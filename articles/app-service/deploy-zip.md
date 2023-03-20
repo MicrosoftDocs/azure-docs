@@ -4,8 +4,7 @@ description: Learn to deploy various app packages or discrete libraries, static 
 ms.topic: article
 ms.date: 08/13/2021
 ms.reviewer: sisirap
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.custom: seodec18
 ---
 
 # Deploy files to App Service

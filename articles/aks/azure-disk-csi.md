@@ -413,6 +413,7 @@ The output of the command resembles the following example:
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi].
 - To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-csi].
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
+- For more information about disk-based storage solutions, see [Disk-based solutions in AKS][disk-based-solutions].
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -451,3 +452,4 @@ The output of the command resembles the following example:
 [enable-on-demand-bursting]: ../virtual-machines/disks-enable-bursting.md?tabs=azure-cli
 [az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
+[disk-based-solutions]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage#disk-based-solutions

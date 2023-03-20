@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Logz.io - Azure AD Integration | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Logz.io'
 description: Learn how to configure single sign-on between Azure Active Directory and Logz.io - Azure AD Integration.
 services: active-directory
 author: jeevansd
@@ -13,7 +13,7 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) set up for Logz.io - Azure AD Integration
+# Tutorial: Azure Active Directory single sign-on (SSO) set up for Logz.io
 
 ## Single sign-on (SSO) for the Logz.io - Azure portal integration
 

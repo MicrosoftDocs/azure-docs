@@ -16,7 +16,7 @@ Azure Files offers two industry-standard file system protocols for mounting Azur
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
-> NFS Azure file shares aren't supported for Windows clients. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues.
+> NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues. NFS access control lists (ACLs) aren't supported.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
@@ -29,7 +29,7 @@ NFS file shares are often used in the following scenarios:
 - Fully POSIX-compliant file system.
 - Hard link support.
 - Symbolic link support. 
-- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and encryption-in-transit are not supported.
+- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, ACLs, and encryption-in-transit aren't supported.
 
 > [!NOTE]
 > Creating a hard link from an existing symbolic link isn't currently supported.

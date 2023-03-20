@@ -1,5 +1,5 @@
 ---
-title: Enable combined security information registration - Azure Active Directory
+title: Enable combined security information registration
 description: Learn how to simplify the end-user experience with combined Azure AD Multi-Factor Authentication and self-service password reset registration.
 
 services: active-directory

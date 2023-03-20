@@ -238,7 +238,7 @@ Where the v2 SDK exposed the session token of a response as `ResourceResponse.Se
 
 ### Timestamp
 
-Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../account-databases-containers-items.md#properties-of-an-item) to a property in their model.
+Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](../resource-model.md#properties-of-an-item) to a property in their model.
 
 ### OpenAsync
 

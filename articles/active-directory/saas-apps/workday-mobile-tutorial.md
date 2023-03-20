@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Application | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday Mobile Application'
 description: Learn how to configure single sign-on between Azure Active Directory and Workday Mobile Application.
 services: active-directory
 author: jeevansd

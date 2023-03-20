@@ -2,27 +2,24 @@
 title: Improve performance by compressing files in Azure CDN | Microsoft Docs
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
-documentationcenter: ''
 author: duongau
-manager: danielgi
-editor: ''
-
+manager: kumudd
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/28/2018
+ms.date: 02/27/2023
 ms.author: duau
 
 ---
 # Improve performance by compressing files in Azure CDN
-File compression is a simple and effective method to improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server. File compression can reduce bandwidth costs and provide a more responsive experience for your users.
+File compression is a simple and effective method to improve file transfer speed and increase page-load performance by reducing a file's size before it's sent from the server. File compression can reduce bandwidth costs and provide a more responsive experience for your users.
 
 There are two ways to enable file compression:
 
 - Enable compression on your origin server. In this case, Azure CDN passes along the compressed files and delivers them to clients that request them.
-- Enable compression directly on the CDN POP servers (*compression on the fly*). In this case, the CDN compresses the files and serves them to the end users, even if they were not compressed by the origin server.
+- Enable compression directly on the CDN POP servers (*compression on the fly*). In this case, the CDN compresses the files and serves them to the end users, even if they don't get compressed by the origin server.
 
 > [!IMPORTANT]
 > Azure CDN configuration changes can take some time to propagate through the network: 
@@ -105,7 +102,7 @@ If the request supports more than one compression type, brotli compression takes
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
 
-If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the CDN POP, then response sizes greater than 8MB are not supported. 
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the CDN POP, then response sizes greater than 8 MB aren't supported. 
 
 ### Azure CDN from Verizon profiles
 
@@ -118,13 +115,13 @@ These profiles support the following compression encodings:
 - DEFLATE
 - bzip2
 
-Azure CDN from Verizon does not support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
+Azure CDN from Verizon doesn't support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
 
 ### Azure CDN Standard from Akamai profiles
 
 For **Azure CDN Standard from Akamai** profiles, all files are eligible for compression. However, a file must be of a MIME type that has been [configured for compression](#enabling-compression).
 
-These profiles support gzip compression encoding only. When a profile endpoint requests a gzip-encoded file, it is always requested from the origin, regardless of the client request. 
+These profiles support gzip compression encoding only. When a profile endpoint requests a gzip-encoded file, it's always requested from the origin, regardless of the client request. 
 
 ## Compression behavior tables
 The following tables describe Azure CDN compression behavior for every scenario:

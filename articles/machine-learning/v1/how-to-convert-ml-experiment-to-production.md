@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
 ms.date: 10/21/2021
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # Convert ML experiments to production Python code
