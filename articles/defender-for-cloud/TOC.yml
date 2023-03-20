@@ -241,7 +241,7 @@
         href: how-to-manage-cloud-security-explorer.md
   - name: Data-Aware Security Posture
     items:
-    - name: Get started
+    - name: Enable data-aware security posture
       href: data-security-posture-enable.md
     - name: Review risks to sensitive data
       href: data-security-review-risks.md
