@@ -3,7 +3,7 @@ title: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
 description: Learn how to migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/17/2023
+ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
 # Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
