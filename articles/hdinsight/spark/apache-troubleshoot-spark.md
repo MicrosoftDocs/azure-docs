@@ -37,11 +37,11 @@ Spark configuration values can be tuned help avoid an Apache Spark application `
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png" alt-text="Enter a note about the changes you made" border="true":::
 
-    You are notified if any configurations need attention. Note the items, and then select **Proceed Anyway**.
+    You're notified if any configurations need attention. Note the items, and then select **Proceed Anyway**.
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png" alt-text="Select Proceed Anyway" border="true":::
 
-1. Whenever a configuration is saved, you are prompted to restart the service. Select **Restart**.
+1. Whenever a configuration is saved, you're prompted to restart the service. Select **Restart**.
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png" alt-text="Select restart" border="true":::
 
@@ -89,7 +89,7 @@ Launch spark-shell by using a command similar to the following. Change the actua
 spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
 ```
 
-### Additional reading
+### Extra reading
 
 [Apache Spark job submission on HDInsight clusters](/archive/blogs/azuredatalake/spark-job-submission-on-hdinsight-101)
 
