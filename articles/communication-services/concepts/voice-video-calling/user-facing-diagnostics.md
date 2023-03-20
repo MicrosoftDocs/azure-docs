@@ -32,12 +32,12 @@ let userFacingDiagnostics = self.call?.feature(Features.diagnostics)
 
 ### Native Android
 ```java
-DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGONSTICS_CALL);
+DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);
 ```
 
 ### Native Windows
 ```csharp
-this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtension(HandleType.DiagnosticsCallFeature);
+this.diagnosticsCallFeature = call.Features.Diagnostics;
 ```
 
 ## Diagnostic values
@@ -145,25 +145,104 @@ userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```swift
 extension CallObserver: MediaDiagnosticsDelegate {
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeBooleanDiagnosticValue args: MediaBooleanDiagnosticChangedEventArgs) {
-    let diagnostic = args.diagnostic // Which media diagnostic value is changing.
-    let value = args.value // Boolean indicating new value.
-    // Handle the diagnostic event value changed...
+                        didChangeCameraFreezeValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for CameraFreeze
+  }
+    
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeSpeakerMutedValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for SpeakerMuted
+  }
+
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeCameraStartFailedValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for CameraStartFailed
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeSpeakerNotFunctioningValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for SpeakerNotFunctioning
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeCameraPermissionDeniedValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for CameraPermissionDenied
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeMicrophoneNotFunctioningValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for MicrophoneNotFunctioning
+  }
+
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeMicrophoneMuteUnexpectedlyValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for MicrophoneMuteUnexpectedly
+  }
+
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeCameraStartTimedOutValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for CameraStartTimedOut
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeSpeakerVolumeIsZeroValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for SpeakerVolumeIsZero
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeNoSpeakerDevicesEnumeratedValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for NoSpeakerDevicesEnumerated
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeNoMicrophoneDevicesEnumeratedValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for NoMicrophoneDevicesEnumerated
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeSpeakingWhileMicrophoneIsMutedValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for SpeakingWhileMicrophoneIsMuted
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeSpeakerNotFunctioningDeviceInUseValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for SpeakerNotFunctioningDeviceInUse
+  }
+  
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeMicrophoneNotFunctioningDeviceInUseValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for MicrophoneNotFunctioningDeviceInUse
   }
 }
 
 extension CallObserver: NetworkDiagnosticsDelegate {
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeBooleanDiagnosticValue args: NetworkBooleanDiagnosticChangedEventArgs) {
-    let diagnostic = args.diagnostic // Which network diagnostic value is changing.
-    let value = args.value // Boolean indicating new value.
+                          didChangeNoNetworkValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for NoNetwork
     // Handle the diagnostic event value changed...
   }
 
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeQualityDiagnosticValue args: NetworkQualityDiagnosticChangedEventArgs) {
-    let diagnostic = args.diagnostic // Which network diagnostic value is changing.
-    let value = args.value // DiagnosticQuality indicating the new value.
+                          didChangeNetworkReconnectValue args: QualityDiagnosticChangedEventArgs) {
+    let value = args.value // Boolean indicating new value for NetworkReconnect
+    // Handle the diagnostic event value changed...
+  }
+
+  func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
+                          didChangeNetworkSendQualityValue args: QualityDiagnosticChangedEventArgs) {
+    let value = args.value // Quality scale indicating new value for NetworkSendQuality
+    // Handle the diagnostic event value changed...
+  }
+
+  func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
+                          didChangeNetworkReceiveQualityValue args: QualityDiagnosticChangedEventArgs) {
+    let value = args.value // Quality scale indicating new value for NetworkReceiveQuality
+    // Handle the diagnostic event value changed...
+  }
+
+  func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
+                          didChangeNetworkRelaysNotReachableValue args: FlagDiagnosticChangedEventArgs) {
+    let value = args.value // Quality scale indicating new value for NetworkRelaysNotReachable
     // Handle the diagnostic event value changed...
   }
 }
@@ -185,44 +264,43 @@ self.networkDiagnostics?.delegate = self.callObserver
 ```java
 DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);
 
-/* NetworkQualityDiagnostic */
-NetworkQualityDiagnosticChangedListener networkQualityChangedListener = (NetworkQualityDiagnosticChangedEvent args) -> {
-    NetworkDiagnosticType diagnostic = args.getDiagnostic();
-    DiagnosticQuality value = args.getValue();
-    // Handle the diagnostic event value changed...
+/* NetworkDiagnostic */
+ FlagDiagnosticChangedListener listener = (FlagDiagnosticChangedEvent args) -> {
+  Boolean mediaValue = args.getValue();
+  // Handle new value for no network diagnostic.
 };
 
-NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
-networkDiagnostics.addOnNetworkQualityDiagnosticChangedListener(networkQualityChangedListener);
+NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetworkDiagnostics();
+networkDiagnostics.addOnNoNetworkChangedListener(listener);
 
 // To remove listener for network quality event
-networkDiagnostics.removeOnNetworkQualityDiagnosticChangedListener(networkQualityChangedListener);
+networkDiagnostics.removeOnNoNetworkChangedListener(listener);
 
-/* NetworkBooleanDiagnostic */
-NetworkBooleanDiagnosticChangedListener networkBooleanChangedListener = (NetworkBooleanDiagnosticChangedEvent args) -> {
-    NetworkDiagnosticType diagnostic = args.getDiagnostic();
-    Boolean value = args.getValue();
-    // Handle the diagnostic event value changed...
+// Quality Diagnostics
+DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);
+QualityDiagnosticChangedListener listener = (QualityDiagnosticChangedEvent args) -> {
+  DiagnosticQuality diagnosticQuality = args.getValue();
+  // Handle new value for network reconnect diagnostic.
 };
 
-NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
-networkDiagnostics.addOnNetworkBooleanDiagnosticChangedListener(networkBooleanChangedListener);
+NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetworkDiagnostics();
+networkDiagnostics.addOnNetworkReconnectChangedListener(listener);
 
-// To remove listener for network boolean event
-networkDiagnostics.removeOnNetworkBooleanDiagnosticChangedListener(networkBooleanChangedListener);
+// To remove listener for media flag event
+networkDiagnostics.removeOnNetworkReconnectChangedListener(listener);
 
-/* MediaBooleanDiagnostic */
-MediaBooleanDiagnosticChangedListener mediaBooleanChangedListener = (MediaBooleanDiagnosticChangedEvent args) -> {
-    MediaDiagnosticType diagnostic = args.getDiagnostic();
-    Boolean value = args.getValue();
-    // Handle the diagnostic event value changed...
+/* MediaDiagnostic */
+DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);
+FlagDiagnosticChangedListener listener = (FlagDiagnosticChangedEvent args) -> {
+  Boolean mediaValue = args.getValue();
+  // Handle new value for speaker not functioning diagnostic.
 };
 
 MediaDiagnostics mediaDiagnostics = diagnosticsCallFeature.getMedia();
-mediaDiagnostics.addOnMediaBooleanDiagnosticChangedListener(mediaBooleanChangedListener);
+mediaDiagnostics.addOnSpeakerNotFunctioningChangedListener(listener);
 
 // To remove listener for media flag event
-mediaDiagnostics.removeOnMediaDiagnosticTypeChangedListener(mediaBooleanChangedListener);
+mediaDiagnostics.removeOnSpeakerNotFunctioningChangedListener(listener);
 
 ```
 
@@ -231,44 +309,43 @@ mediaDiagnostics.removeOnMediaDiagnosticTypeChangedListener(mediaBooleanChangedL
 - Implement listeners for diagnostic events.
 
 ```csharp
-private async void Call__OnNetworkQualityDiagnosticsChanged(object sender, NetworkQualityDiagnosticChangedEventArgs args)
+private async void Call__OnNoNetworkChanged(object sender, FlagDiagnosticChangedEventArgs args)
 {
-    var diagnostic = args.Diagnostic;
-    var value = args.Value;
-    // Handle the diagnostic event value changed...
+  var value = args.Value;
+  // Handle the diagnostic event value changed...
 }
 
-private async void Call__OnNetworkBooleanDiagnosticChanged(object sender, NetworkBooleanDiagnosticChangedEventArgs args)
+// Listen to other network diagnostics
+
+private async void Call__OnMediaSpeakerNotFunctioningChanged(object sender, FlagDiagnosticChangedEventArgs args)
 {
-    var diagnostic = args.Diagnostic;
-    var value = args.Value;
-    // Handle the diagnostic event value changed...
+  var value = args.Value;
+  // Handle the diagnostic event value changed...
 }
 
-private async void Call__OnMediaBooleanDiagnosticChanged(object sender, MediaBooleanDiagnosticChangedEventArgs args)
-{
-    var diagnostic = args.Diagnostic;
-    var value = args.Value;
-    // Handle the diagnostic event value changed...
-}
+// Listen to other media diagnostics
 ```
 
 - Set event methods for listening to events.
 
 ```csharp
-this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtension(HandleType.DiagnosticsCallFeature);
+this.diagnosticsCallFeature = call.Features.Diagnostics;
 this.networkDiagnostics = diagnosticsCallFeature.Network;
 this.mediaDiagnostics = diagnosticsCallFeature.Media;
 
-this.networkDiagnostics.OnNetworkQualityDiagnosticChanged += Call__OnNetworkQualityDiagnosticsChanged;
-this.networkDiagnostics.OnNetworkBooleanDiagnosticChanged += Call__OnNetworkBooleanDiagnosticChanged;
-this.mediaDiagnostics.OnMediaBooleanDiagnosticChanged += Call__OnMediaBooleanDiagnosticChanged;
+this.networkDiagnostics.NoNetworkChanged += Call__OnNoNetworkChanged;
+// Listen to other network events as well ... 
+
+this.mediaDiagnostics.SpeakerNotFunctioningChanged += Call__OnMediaSpeakerNotFunctioningChanged;
+// Listen to other media events as well ... 
 
 // Removing listeners
 
-this.networkDiagnostics.OnNetworkQualityDiagnosticChanged -= Call__OnNetworkQualityDiagnosticsChanged;
-this.networkDiagnostics.OnNetworkBooleanDiagnosticChanged -= Call__OnNetworkBooleanDiagnosticChanged;
-this.mediaDiagnostics.OnMediaBooleanDiagnosticChanged -= Call__OnMediaBooleanDiagnosticChanged;
+this.networkDiagnostics.NoNetworkChanged -= Call__OnNoNetworkChanged;
+// Remove the other listeners as well ... 
+
+this.mediaDiagnostics.SpeakerNotFunctioningChanged -= Call__OnMediaSpeakerNotFunctioningChanged;
+// Remove the other listeners as well ... 
 
 ```
 
@@ -316,13 +393,13 @@ console.log(
 
 ### Native / iOS SDK
 
-- Get the latest diagnostic values that were raised. If a we still didn't receive a value for the diagnostic, `nil` is returned.
+- Get the latest diagnostic values that were raised. If we still didn't receive a value for the diagnostic, `nil` or `.unknown` is returned.
 
 ```swift
 let lastSpeakerNotFunctionValue = self.mediaDiagnostics.latest.speakerNotFunctioning // Boolean?
 let lastNetworkRelayNotReachableValue = self.networkDiagnostics.latest.networkRelaysNotReachable // Boolean?
-let lastReceiveQualityValue = self.networkDiagnostics.lates.networkReceiveQuality // DiagnosticQuality? (.good, .poor, .bad)
-
+let lastReceiveQualityValue = self.networkDiagnostics.latest.networkReceiveQuality // DiagnosticQuality (.good, .poor, .bad)
+// or .unknown if there isn't a diagnostic for this.
 ```
 
 ### Native / Android SDK
@@ -334,13 +411,12 @@ DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTIC
 NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
 MediaDiagnostics mediaDiagnostics = diagnosticsCallFeature.getMedia();
 
-LatestNetworkDiagnostics latestNetwork = networkDiagnostics.getLatest();
-java.util.Optional<Boolean> lastNetworkValue = latestNetwork.getNoNetwork();
-java.util.Optional<DiagnosticQuality> lastReceiveQualityValue = latestNetwork.getNetworkReceiveQuality();
+NetworkDiagnosticValues latestNetwork = networkDiagnostics.getLatest();
+Boolean lastNetworkValue = latestNetwork.isNoNetwork(); // null if there isn't a value for this diagnostic.
+DiagnosticQuality lastReceiveQualityValue = latestNetwork.getNetworkReceiveQuality(); //  UNKNOWN if there isn't a value for this diagnostic.
 
-
-LatestMediaDiagnostics latestMedia = networkDiagnostics.getLatest();
-java.util.Optional<Boolean> lastSpeakerNotFunctionValue = latestMedia.getSpeakerNotFunctioning();
+MediaDiagnosticValues latestMedia = networkDiagnostics.getLatest();
+Boolean lastSpeakerNotFunctionValue = latestMedia.isSpeakerNotFunctioning(); // null if there isn't a value for this diagnostic.
 
 // Use the last values ...
 
@@ -348,15 +424,16 @@ java.util.Optional<Boolean> lastSpeakerNotFunctionValue = latestMedia.getSpeaker
 
 ### Native / Windows SDK
 
-- Get the latest diagnostic values that were raised in current call. If a we still didn't receive a value for the diagnostic, an error is thrown.
+- Get the latest diagnostic values that were raised in current call. If a we still didn't receive a value for the diagnostic, `null` or `.unknown` for is returned.
 
 ```csharp
-this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtension(HandleType.DiagnosticsCallFeature);
+this.diagnosticsCallFeature = call.Features.Diagnostics;
 this.networkDiagnostics = diagnosticsCallFeature.Network;
 this.mediaDiagnostics = diagnosticsCallFeature.Media;
 
-bool? lastSpeakerNotFunctionValue = this.mediaDiagnostics.Latest.SpeakerNotFunctioning; // Boolean?
-bool? lastNetworkRelayNotReachableValue = this.networkDiagnostics.Latest.NetworkRelaysNotReachable; // Boolean?
-DiagnosticQuality? lastReceiveQualityValue = this.networkDiagnostics.Latest.NetworkReceiveQuality; // DiagnosticQuality? (.good, .poor, .bad)
+bool? lastSpeakerNotFunctionValue = this.mediaDiagnostics.GetLatest().IsSpeakerNotFunctioning; // Boolean?
+bool? lastNetworkRelayNotReachableValue = this.networkDiagnostics.GetLatest().IsNetworkRelaysNotReachable; // Boolean?
+DiagnosticQuality lastReceiveQualityValue = this.networkDiagnostics.GetLatest().NetworkReceiveQuality; // DiagnosticQuality (.good, .poor, .bad)
+// or .unknown if there isn't a diagnostic for this.
 
 ```
