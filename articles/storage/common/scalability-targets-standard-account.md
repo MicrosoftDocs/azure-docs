@@ -26,3 +26,5 @@ The service-level agreement (SLA) for Azure Storage accounts is available at [SL
 
 - [Scalability targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md)
 - [Azure subscription limits and quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+++ To include Default maximum egress for general-purpose v1 for all the regions : 120Gbps
+++ Change the Default maximum Ingress for general-purpose v1 for all the regions : 60Gbps in the document it is mentioned as 10 Gbps which in incorrect as per this ICM:https://portal.microsofticm.com/imp/v3/incidents/details/360162422/home
