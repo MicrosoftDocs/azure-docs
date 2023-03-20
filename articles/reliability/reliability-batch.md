@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: batch
+ms.service: batch
 ms.date: 03/09/2023
 ---
 

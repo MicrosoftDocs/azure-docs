@@ -45,7 +45,7 @@ Azure reliability guidance is a collection of service-specific reliability guide
 [Azure App Service](/azure/architecture/framework/services/compute/azure-app-service/reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#why-use-app-service)|
 [Azure App Service- App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Batch](reliability-batch.com)|
+[Azure Batch](reliability-batch.md)|
 [Azure Bot Service](reliability-bot.md)|
 [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Cognitive Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
