@@ -29,7 +29,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) and Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
+> The new programming model for authoring Functions in Python (V2) and Node.js (V4) is currently in preview. Compared to the current models, the new experiences are designed to be more idiomatic and intuitive for Python and JavaScript/TypeScript developers. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
 >
 > In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
 

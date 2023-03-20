@@ -7,38 +7,29 @@ ms.service: dev-box
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/01/2023
+ms.date: 03/16/2023
 adobe-target: true
 ---
 
 # What is Microsoft Dev Box Preview?
 
-Microsoft Dev Box Preview gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with tools, source code, and prebuilt binaries that are specific to your project, so you can immediately start work. If you're a developer, you can use dev boxes in your day-to-day workflows.
+Microsoft Dev Box Preview gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. If you're a developer, you can use dev boxes in your day-to-day workflows.
 
-The Dev Box service was designed with three organizational roles in mind: dev infrastructure (infra) admins, project admins, and dev box users.
+The Dev Box service was designed with three organizational roles in mind: dev infrastructure (infra) admins, developer team leads, and developers.
 
-:::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles-placeholder.png" alt-text="Diagram that shows roles and responsibilities for dev boxes.":::
+:::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for dev boxes." border="false":::
 
-Dev infra admins provide developer infrastructure and tools to the dev teams. Dev infra admins set and manage security settings, network configurations, and organizational policies to help ensure that dev boxes can access resources securely.
+Dev infra admins and IT admins work together to provide developer infrastructure and tools to the developer teams. Dev infra admins set and manage security settings, network configurations, and organizational policies to ensure that dev boxes can access resources securely.
 
-Project admins are experienced developers who have in-depth knowledge of their projects and can assist with creating and managing the developer experience. Project admins create and manage pools of dev boxes.
+Developer team leads are experienced developers who have in-depth knowledge of their projects. They can be assigned the DevCenter Project Admin role and assist with creating and managing the developer experience. Project admins create and manage pools of dev boxes.
 
-Dev box users are members of a development team. They can self-serve one or more dev boxes on demand from the dev box pools that have been enabled for a project. Dev box users can work on multiple projects or tasks by creating multiple dev boxes.  
+Members of a development team are assigned the DevCenter Dev Box User role. They can then self-serve one or more dev boxes on demand from the dev box pools that have been enabled for a project. Dev box users can work on multiple projects or tasks by creating multiple dev boxes.  
 
 Microsoft Dev Box bridges the gap between development teams and IT, by bringing control of project resources closer to the development team.
 
 ## Scenarios for Microsoft Dev Box
 
 Organizations can use Microsoft Dev Box Preview in a range of scenarios.
-
-### Developer scenarios
-
-An organization that has globally distributed development teams can configure Dev Box to enable developers to create their own dev boxes in their closest region. Developers can create dev boxes as needed, without waiting for the IT admin team. Users can access dev boxes from any device and from any operating system.
-
-Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
-
-Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
-
 ### Dev infra scenarios
 
 Dev Box helps dev infra teams provide the appropriate dev boxes for each user's workload. Dev infra admins can:
@@ -52,7 +43,7 @@ Dev Box helps dev infra teams provide the appropriate dev boxes for each user's 
 
 Dev Box has the following benefits for IT admins:
 
-- You can manage dev boxes like any other device on your network:
+- Manage dev boxes like any other device on your network:
   - Dev boxes automatically enroll in Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
   - If a dev box is compromised, isolate it while helping users get back up and running on a new dev box.
@@ -62,6 +53,21 @@ Dev Box has the following benefits for IT admins:
   - Require multifactor authentication at sign-in.
   - Configure risk-based sign-in policies for dev boxes that access sensitive source code and customer data.
 
+### Developer team lead scenarios
+
+After a developer team lead is assigned the DevCenter Project Admin role, they can help manage the project. Project Admins can:
+
+- Create dev box pools and add appropriate dev box definitions.
+- Control costs by using auto-stop schedules.
+
+### Developer scenarios
+
+An organization that has globally distributed development teams can configure Dev Box to enable developers to create their own dev boxes in their closest region. Developers can create dev boxes as needed, without waiting for the IT admin team. Users can access dev boxes from any device and from any operating system.
+
+Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
+
+Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
+
 ## How does Dev Box work?
 
 This diagram shows the components of the Dev Box Preview service and the relationships between them.
@@ -70,7 +76,7 @@ This diagram shows the components of the Dev Box Preview service and the relatio
 
 Dev Box service configuration begins with the creation of a dev center, which represents the units of organization in the enterprise. Dev centers are logical containers to help organize dev box resources. There's no limit on the number of dev centers that you can create, but most organizations need only one.
 
-Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box will join Azure AD. Use an Azure AD join to connect exclusively to cloud-based resources, or use a hybrid Azure AD join to connect to on-premises resources and cloud-based resources.
+Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Azure AD. Use an Azure AD join to connect exclusively to cloud-based resources, or use a hybrid Azure AD join to connect to on-premises resources and cloud-based resources.
 
 Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. Or you can create your own custom image and store it in Azure Compute Gallery. Specify a SKU with compute and storage to complete the dev box definition.
 

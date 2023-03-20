@@ -96,6 +96,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/governance/manage-lifecycle-workflows.md",
+      "redirect_url": "/azure/active-directory/governance/understanding-lifecycle-workflows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/lifecycle-workflows-developer-reference.md",
       "redirect_url": "/graph/api/resources/identitygovernance-workflow",
       "redirect_document_id": false
