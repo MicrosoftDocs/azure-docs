@@ -26,7 +26,7 @@ items:
     - name: Launch your first event-driven app
       href: quickstart-deploy-event-driven-app-standard-consumption.md
     - name: Set up autoscale
-      href: quickstart-apps-autoscale.md
+      href: quickstart-apps-autoscale-standard-consumption.md
     - name: Map a custom domain to Azure Spring Apps
       href: quickstart-custom-domain.md
     - name: Access apps in a VNet
