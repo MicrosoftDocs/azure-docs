@@ -325,7 +325,7 @@ How-to articles provide additional detail into what functionality automated ML o
 
 +  Learn how to [train computer vision models with Python (v1)](../how-to-auto-train-image-models.md).
 
-+  Learn how to [view the generated code from your automated ML models](../how-to-generate-automl-training-code.md).
++  Learn how to [view the generated code from your automated ML models](how-to-generate-automl-training-code.md).
    
 ### Jupyter notebook samples 
 

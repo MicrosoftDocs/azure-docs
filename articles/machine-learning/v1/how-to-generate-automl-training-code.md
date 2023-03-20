@@ -39,9 +39,9 @@ The following diagram illustrates that you can generate the code for automated M
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](../tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train-v1.md) to see the main automated machine learning experiment design patterns.
 
 * Automated ML code generation is only available for experiments run on remote Azure Machine Learning compute targets. Code generation isn't supported for local runs.
 
@@ -394,5 +394,5 @@ print(returned_job.studio_url) # link to naviagate to submitted run in Azure Mac
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](./v1/how-to-deploy-and-where.md).
+* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.

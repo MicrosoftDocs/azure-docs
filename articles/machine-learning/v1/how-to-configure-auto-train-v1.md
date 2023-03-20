@@ -422,7 +422,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](how-to-configure-auto-features.md#scaling-and-normalization). 
 
 > [!TIP]
-> Automated ML also let's you [view the generated model training code for Auto ML trained models](../how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
+> Automated ML also let's you [view the generated model training code for Auto ML trained models](how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 
