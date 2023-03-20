@@ -267,7 +267,7 @@ The app must register a delegate to get notified about when it should start or s
                    // Can check details about error in case of failure.
                }
            }
-           syncSema?.signal()
+           syncSema?.wait()
        }
 
        private func stopRunning() {

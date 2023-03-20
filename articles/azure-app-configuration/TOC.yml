@@ -27,6 +27,8 @@
           href: quickstart-python-provider.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
+        - name: Azure Container Apps
+          href: quickstart-container-apps.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -113,6 +115,7 @@
           href: monitor-app-configuration.md
         - name: Reference for monitoring data
           href: monitor-app-configuration-reference.md
+
 - name: Samples
   items:
     - name: Azure CLI

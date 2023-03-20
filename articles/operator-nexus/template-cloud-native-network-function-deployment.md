@@ -1,9 +1,9 @@
 ---
 title: "Operator Nexus: Sample CNF deployment script"
 description: "Sample script to create the resources required for CNF deployment on Operator Nexus. After the resources have been created, the Azure Network Function Manager is used to deploy the CNF."
-author: atwumbarimah
-ms.author: atwumbarimah
-ms.date: 01/24/2023
+author: dramasamymsft
+ms.author: dramasamy
+ms.date: 03/02/2023
 ms.topic: sample
 # ms.prod: used for on prem applications
 ms.service: azure
@@ -11,8 +11,8 @@ ms.service: azure
 
 # Sample: CNF deployment script
 
-This script creates the resources required to deploy a CNF on an Azure Operator
-Distributed Services cluster (instance) on your premises. Once the resources have
+This script creates the resources required to deploy a CNF on an Operator
+Nexus cluster (instance) on your premises. Once the resources have
 been created, the Azure Network Function Manager is used to deploy the CNF.
 
 The first step is to create the workload networks, followed by the AKS-Hybrid
@@ -51,7 +51,7 @@ Get list of `internalnetworks` in the L3 isolation-domain `$myl3isd`
      -g "$myrg" --subscription "$mysub"
 ```
 
-## Create `cloudservicesnetwork`
+## Create Cloud Services Network
 
 ```bash
 export mycsn="******"
@@ -97,13 +97,13 @@ az networkcloud cloudservicesnetwork create --name "$mycsn" \
 --debug
 ```
 
-### Validate `cloudservicesnetwork` has been created
+### Validate Cloud Services Network has been created
 
 ```azurecli
 az networkcloud cloudservicesnetwork show --name "$mycsn" --resource-group "$myrg" --subscription "$mysub" -o table
 ```
 
-## Create `DefaultCNINetwork` Instance
+## Create Default CNI Network
 
 ```bash
 export myl3n=="******"
@@ -130,7 +130,7 @@ az networkcloud defaultcninetwork create --name "$myl3n" \
   --vlan $myvlan
 ```
 
-### Validate `defaultcninetwork` has been created
+### Validate Default CNI Network has been created
 
 ```azurecli
 az networkcloud defaultcninetwork show --name "$myl3n" \
@@ -143,7 +143,7 @@ az networkcloud defaultcninetwork show --name "$myl3n" \
 export myhakscustloc=="******"
 ```
 
-## Create AKS-Hybrid Network cloud services network vNET
+## Create AKS-Hybrid Network Cloud Services Network vNET
 
 The AKS-Hybrid (HAKS) Virtual Networks are different from the Azure to on-premises Virtual Networks.
 
@@ -161,23 +161,7 @@ az hybridaks vnet create \
   --aods-vnet-id "$myncnw"
 ```
 
-## Create AKS-Hybrid Network default services network vNET
-
-```bash
-export myhaksvnetname=="******"
-export myncnw=="******"
-```
-
-```azurecli
-az hybridaks vnet create \
-  --name "$myhaksvnetname" \
-  --resource-group "$myrg" \
-  --subscription "$mysub" \
-  --custom-location "$myhakscustloc" \
-  --aods-vnet-id "$myncnw"
-```
-
-## Create AKS-Hybrid cluster
+## Create AKS-Hybrid Cluster
 
 The AKS-Hybrid (HAKS) cluster will be used to host the CNF.
 
@@ -211,4 +195,4 @@ az hybridaks create \
 
 ## Next Step
 
-Deploy the CNF on the AKS-Hybrid cluster using Azure Network Function Manager.
+Deploy the CNF on the AKS-Hybrid Cluster using Azure Network Function Manager.

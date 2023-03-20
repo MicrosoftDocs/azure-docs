@@ -4,6 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create an AKS cluster with managed NAT integration
 author: asudbring
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/26/2021
 ms.author: allensu
@@ -17,16 +18,15 @@ This article shows you how to create an AKS cluster with a Managed NAT Gateway f
 
 ## Before you begin
 
-To use Managed NAT gateway, you must have the following prerequisites:
-
-* The latest version of [Azure CLI][az-cli]
-* Kubernetes version 1.20.x or above
+* Make sure you're using the latest version of [Azure CLI][az-cli].
+* Make sure you're using Kubernetes version 1.20.x or above.
+* Managed NAT Gateway is incompatible with custom virtual networks.
 
 ## Create an AKS cluster with a Managed NAT Gateway
 
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. If you want the NAT gateway to be able to operate out of availability zones, specify the zones using `--zones`.
 
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
+The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -43,7 +43,7 @@ az aks create \
 ```
 
 > [!IMPORTANT]
-> If no value the outbound IP address is specified, the default value is one.
+> If no value for the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
 

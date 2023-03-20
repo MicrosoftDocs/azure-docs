@@ -2,11 +2,11 @@
 title: Azure IoT device management with Azure IoT Tools for VSCode
 description: Use the Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 author: formulahendry
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/04/2019
+
 ms.author: junhan
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 01/04/2019
 ---
 
 # Use Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management
@@ -26,7 +26,7 @@ In this article, you learn how to use Azure IoT Tools for Visual Studio Code wit
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
+Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](device-twins-node.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -102,7 +102,7 @@ New-Item demo.java
 
 ### Azure Maps services
 
-| Service Name  | Maven package           |  Samples     |
+| Service name  | Maven package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][java search readme] | [azure-maps-search][java search package] | [search samples][java search sample] |
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |

@@ -3,6 +3,7 @@ title: Using a user-assigned managed identity for an Azure Automation account
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 ms.date: 10/26/2021
 ms.topic: conceptual 
 ---
@@ -20,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
-- The user-assigned managed identity and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
+- The [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
 
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 

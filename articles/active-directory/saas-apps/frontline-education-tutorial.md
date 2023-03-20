@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Frontline Education | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Frontline Education'
 description: Learn how to configure single sign-on between Azure Active Directory and Frontline Education.
 services: active-directory
 author: jeevansd

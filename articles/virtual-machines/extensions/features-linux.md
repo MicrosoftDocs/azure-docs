@@ -8,8 +8,7 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 05/24/2022
-ms.custom: GGAL-freshness822
-
+ms.custom: GGAL-freshness822, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Virtual machine extensions and features for Linux

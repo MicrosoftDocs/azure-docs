@@ -215,7 +215,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
 
-### My privatelink.azure.com cannot resolve to management.privatelinke.azure.com
+### My privatelink.azure.com cannot resolve to management.privatelink.azure.com
 
 This may be due to the Private DNS zone for privatelink.azure.com linked to the Bastion virtual network causing management.azure.com CNAMEs to resolve to management.privatelink.azure.com behind the scenes. Create a CNAME record in their privatelink.azure.com zone for management.privatelink.azure.com to arm-frontdoor-prod.trafficmanager.net to enable successful DNS resolution.
 

@@ -1,5 +1,5 @@
 ---
-title: What are custom security attributes in Azure AD? (Preview) - Azure Active Directory
+title: What are custom security attributes in Azure AD? (Preview)
 description: Learn about custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon

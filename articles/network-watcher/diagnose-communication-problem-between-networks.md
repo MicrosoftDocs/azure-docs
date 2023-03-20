@@ -278,7 +278,7 @@ Fix the problem by correcting the key on **to-VNet1** connection to match the ke
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 

@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Log network traffic flow to and from a virtual machine - Azure portal'
+titleSuffix: Azure Network Watcher
 description: Learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
 services: network-watcher
 author: halkazwini
@@ -300,7 +301,7 @@ When no more logging is needed, you can disable the NSG flow log that you previo
 
 When no longer needed, delete **myResourceGroup** and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 2. Select **Delete resource group**.
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
