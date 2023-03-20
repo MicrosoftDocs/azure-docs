@@ -11,14 +11,12 @@ manager: nitinme
 keywords: ChatGPT
 ---
 
-## Working with the ChatGPT and GPT-4 models
+## Working with the ChatGPT models (preview)
 
 > [!NOTE]
-> The ChatCompletion API is the recommended method of interacting with the ChatGPT and GPT-4 models.
+> The Chat Completion API is the recommended method of interacting with the ChatGPT (gtp-45-turbo) models.
 
-The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
-
-**GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+The following code snippet shows the most basic way to use the ChatGPT models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
 ```python
 import os
@@ -29,7 +27,7 @@ openai.api_version = "2022-12-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
-  engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+  engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model
   prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
@@ -53,16 +51,16 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-Currently, only version `"0301"` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
+Currently, only version `0301` is available for ChatGPT. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
 
 <a id="chatml"></a>
 
 ## Working with Chat Markup Language (ChatML)
 
 > [!NOTE]  
-> OpenAI continues to improve the ChatGPT and GPT-4 models and the Chat Markup Language used with the models will continue to evolve in the future. We'll keep this document updated with the latest information.
+> OpenAI continues to improve the ChatGPT and the Chat Markup Language used with the models will continue to evolve in the future. We'll keep this document updated with the latest information.
 
-OpenAI trained the ChatGPT and GPT-4 models on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
+OpenAI trained the ChatGPT on special tokens that delineate the different parts of the prompt. The prompt starts with a system message that is used to prime the model followed by a series of messages between the user and the assistant.
 
 The format of a basic ChatML prompt is as follows:
 
@@ -211,7 +209,7 @@ You can also provide instructions in the system message to guide the model on ho
 
 ## Managing conversations
 
-The token limit for `gpt-35-turbo` is 4096 tokens, whereas the token limits for `gpt-4` and `gpt-4-32k` are 8192 and 32768 respectively. This limit includes the token count from both the prompt and completion. The number of tokens in the prompt combined with the value of the `max_tokens` parameter must stay under 4096 or you'll receive an error.
+The token limit for `gpt-35-turbo` is 4096 tokens. This limit includes the token count from both the prompt and completion. The number of tokens in the prompt combined with the value of the `max_tokens` parameter must stay under 4096 or you'll receive an error.
 
 It’s your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the token limit.
 
@@ -241,7 +239,7 @@ system_message = f"<|im_start|>system\n{'<your system message>'}\n<|im_end|>"
 messages = [{"sender": "user", "text": user_input}]
 
 response = openai.Completion.create(
-    engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
+    engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model.
     prompt=create_prompt(system_message, messages),
     temperature=0.5,
     max_tokens=250,
@@ -257,7 +255,7 @@ print(response['choices'][0]['text'])
 
 ## Staying under the token limit
 
-The simplest approach to staying under the token limit is to truncate the oldest messages in the conversation when you reach the token limit.
+The simplest approach to staying under the token limit is to remove the oldest messages in the conversation when you reach the token limit.
 
 You can choose to always include as many tokens as possible while staying under the limit or you could always include a set number of previous messages assuming those messages stay within the limit. It's important to keep in mind that longer prompts take longer to generate a response and incur a higher cost than shorter prompts.
 
