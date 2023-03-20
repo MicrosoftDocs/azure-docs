@@ -3,7 +3,7 @@ title: Troubleshoot Apache Spark in Azure HDInsight
 description: Get answers to common questions about working with Apache Spark and Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/22/2019
+ms.date: 03/20/2023
 ms.custom: seodec18
 ---
 
@@ -15,7 +15,7 @@ Learn about the top issues and their resolutions when working with Apache Spark 
 
 Spark configuration values can be tuned help avoid an Apache Spark application `OutofMemoryError` exception. The following steps show default Spark configuration values in Azure HDInsight:
 
-1. Log in to Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen displays an overview dashboard. There are slight cosmetic differences between HDInsight 3.6 and 4.0.
+1. Log in to Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen displays an overview dashboard. There are slight cosmetic differences between HDInsight 4.0.
 
 1. Navigate to **Spark2** > **Configs**.
 
