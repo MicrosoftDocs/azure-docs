@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/20/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -15,7 +15,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Kubernetes Ser
 
 ## Supported regions
 
-AKS backup is available in all the Azure public cloud regions.
+AKS backup is available in all the Azure public cloud regions, East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North.
 
 ## Limitations
 
