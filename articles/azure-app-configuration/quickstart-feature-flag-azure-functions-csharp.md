@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 8/26/2020
+ms.date: 3/20/2023
 ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app

@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/19/2020
+ms.date: 3/20/2023
 ms.author: malev
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
 ---

@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other
-ms.date: 07/12/2021
+ms.date: 03/20/2023
 ms.author: malev
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
