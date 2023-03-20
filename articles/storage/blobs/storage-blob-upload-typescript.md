@@ -35,17 +35,17 @@ Use the following table to find the correct upload method based on the blob clie
 
 The following example uploads a local file to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) object allows you to pass in your own metadata and [tags](storage-manage-find-blobs.md#blob-index-tags-and-data-management), used for indexing, at upload time:
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/blob-upload-from-local-file-path.ts" id="Snippet_UploadBlob" :::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-local-file-path.ts" id="Snippet_UploadBlob" :::
 
 ## <a name="upload-by-using-a-stream"></a>Upload with BlockBlobClient by using a Stream
 
 The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions) to affect the upload:
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts" id="Snippet_UploadBlob" :::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts" id="Snippet_UploadBlob" :::
 
 Transform the stream during the upload for data clean up.
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts" id="Snippet_Transform" :::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts" id="Snippet_Transform" :::
 
 The following code demonstrates how to use the function.
 
@@ -85,11 +85,11 @@ await createBlobFromReadStream(containerClient, `my-text-file.txt`, readableStre
 
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-buffer.ts" id="Snippet_UploadBlob" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-buffer.ts" id="Snippet_UploadBlob" :::
 
 The following code demonstrates how to use the function.
 
-```javascript
+```typescript
 // fully qualified path to file
 const localFileWithPath = path.join(__dirname, `daisies.jpg`);
 
@@ -140,10 +140,10 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 View code samples from this article (GitHub):
 
-- [Upload from local file path](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-local-file-path.js)
-- [Upload from buffer](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-buffer.js)
-- [Upload from stream](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.js)
-- [Upload from string](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.js)
+- [Upload from local file path](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-local-file-path.ts)
+- [Upload from buffer](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-buffer.ts)
+- [Upload from stream](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts)
+- [Upload from string](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.ts)
 
 [!INCLUDE [storage-dev-guide-resources-typescript](../../../includes/storage-dev-guides/storage-dev-guide-resources-typescript.md)]
 

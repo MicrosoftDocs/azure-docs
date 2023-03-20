@@ -122,7 +122,7 @@ If you plan to deploy the application to servers and clients that run outside of
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) from the storage account name and account key. Then pass the StorageSharedKeyCredential to the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class constructor to create a client.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-service-connect-with-account-name-and-key.ts" highlight="10-23":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-service-connect-from-account-name-and-key.ts" highlight="10-23":::
 
 The `dotenv` package is used to read your storage account name and key from a `.env` file. This file should not be checked into source control.
 
@@ -209,7 +209,7 @@ List of Blob clients:
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-blob-sas-token.ts":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-blob-sas-token.ts":::
 
 -----------------
 
@@ -218,7 +218,6 @@ The `dotenv` package is used to read your storage account name from a `.env` fil
 ## See also
 
 - [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-- [Samples](../common/storage-samples-typescript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 - [API reference](/javascript/api/@azure/storage-blob/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
