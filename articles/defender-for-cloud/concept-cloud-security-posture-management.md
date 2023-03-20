@@ -46,7 +46,7 @@ The following table summarizes each plan and their cloud availability.
 > [!NOTE]
 > If you have enabled Defender for DevOps, you will only gain cloud security graph and attack path analysis to the artifacts that arrive through those connectors. 
 >
-> To enable Governance for for DevOps related recommendations, the Defender CSPM plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
+> To enable Governance for DevOps related recommendations, the Defender CSPM plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
 
 ## Next steps
 
