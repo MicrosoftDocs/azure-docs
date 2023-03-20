@@ -41,9 +41,9 @@ Data in a Redis server is stored in memory by default. This data isn't encrypted
 
 In the **Enterprise** tier, disk encryption is used to encrypt:
 
-- the persistence disk, which holds persisted RDB or AOF files as part of the [data persistence](cache-how-to-premium-persistence.md) 
-- data that is exported using [export](cache-how-to-import-export-data.md) feature 
-- and the OS disk 
+- the persistence disk, which holds persisted RDB or AOF files as part of [data persistence](cache-how-to-premium-persistence.md) 
+- temporary files for data that is exported using the [export](cache-how-to-import-export-data.md) feature. (Encryption of the final exported data is controlled by settings in the storage account.)
+- the OS disk 
 
 MMK is used to encrypt these disks by default, but CMK can also be used.
 
@@ -64,7 +64,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 ### General prerequisites and limitations
 
 - Disk encryption isn't available in the Basic and Standard tiers for the C0 or C1 SKUs
-- Only user-assigned managed identity is supported to connect to Azure Key Vault
+- Only user assigned managed identity is supported to connect to Azure Key Vault
 - Changing between MMK and CMK on an existing cache instance triggers a long-running maintenance operation. We don't recommend this for production use as service disruption will occur. 
 
 ### Azure Key Vault prerequisites and limitations
@@ -73,7 +73,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 - [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Purge protection isn't enabled by default.
 - When you use firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](/azure/key-vault/general/network-security).
 - Only RSA keys are supported
-- The user-assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. 
+- The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. 
 
 ## How to configure CMK encryption on Enterprise caches
 
