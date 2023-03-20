@@ -149,7 +149,6 @@ The following quickstarts and articles will help you get started using Standard 
 * Create Azure Spring Apps in Azure Container Apps Environment with an existing VNet
 * Autoscale your apps in Standard consumption
 * Analyze Logs and Metrics
-* Migration to Standard consumption
 
 ### Get started with Enterprise tier
 
