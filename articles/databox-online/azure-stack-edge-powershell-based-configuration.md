@@ -6,20 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/17/2023
+ms.date: 03/20/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. Use the steps in this article as alternatives to the local web user interface setup sequence.
+This article describes how to use PowerShell to automate initial device configuration and activation of Azure Stack Edge devices. Use the steps in this article as alternatives to the local web user interface setup sequence.
 
 You can run as many rounds of device configuration as necessary. You can also use the Azure portal or the device local user interface to modify device configuration.
 
 ## Usage considerations
 
-- You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file. You can apply changes with a JSON file at any point in the appliance lifecycle. 
+- You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file.
+- You can apply changes with a JSON file at any point in the appliance lifecycle. 
 - To manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
 - You can't change device authentication using this method. To change device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 - Cluster formation is not supported using PowerShell cmdlets. For more information about Azure Stack Edge clusters, see [Install a two-node cluster](azure-stack-edge-gpu-deploy-install.md?pivots=two-node).  
@@ -84,17 +85,9 @@ Use the following steps to import the PowerShell module and sign in to the devic
    Set-Login "https://<IP address>" "<Password1>" "<NewPassword>"
    ```
 
-## Change password and fetch the device configuration
+## Fetch the device configuration
 
-Use the following steps to sign in to a device, change the password, and fetch the device configuration:
-
-1. Sign in to the device and specify a new device password.
-
-   ```azurepowershell
-   Set-Login "https://<IP address>" "<CurrentPassword>" "<NewPassword>"
-   ```
-
-1. Fetch the device configuration.
+Use the following cmdlet to fetch the device configuration:
 
    ```azurepowershell
    Get-DeviceConfiguration | To-json
@@ -181,7 +174,7 @@ Run the following cmdlets in PowerShell:
 Once a config.json file has been created, as shown in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
 
 > [!NOTE]
-> Use a config.json file that meets the needs of your organization. [Sample JSON files are available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/PowerShellBasedConfiguration/).
+> Use a config.json file that meets the needs of your organization. [Sample JSON files are available here](https://aka.ms/aseztp-ps).
 
 ### Configure a single-node device
 
@@ -249,7 +242,7 @@ Run the following cmdlets in PowerShell:
 
 ### Configure a two-node device
 
-This sequence of PowerShell cmdlets signs in to a two-node device, applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
+This sequence of PowerShell cmdlets applies device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
 > [!NOTE]
 > Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices. 
@@ -712,7 +705,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    Get-DeviceConfiguration | To-json
    ```
 
-   Here's sample output showing device activation status:
+   Here's sample output showing that the device is activated:
 
    ```output
    PS C:\> Get-DeviceConfiguration | To-json
@@ -736,7 +729,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 ## Quickly fetch or change device configuration settings
 
-Use the following steps to sign in to the device, fetch the status of the `WebProxy` properties, set the `WebProxy` property to “isEnabled = true” and set the `WebProxy` URI, and then fetch the status of the changed `WebProxy` properties. After running the package, verify the new device configuration.
+Use the following steps to fetch the status of the `WebProxy` properties, set the `WebProxy` property to “isEnabled = true” and set the `WebProxy` URI, and then fetch the status of the changed `WebProxy` properties. After running the package, verify the new device configuration.
 
 1. Load the device configuration cmdlet.
  
@@ -817,7 +810,7 @@ Use the following steps to sign in to the device, fetch the status of the `WebPr
                   }
    ```
 
-## Enable proactive log consent
+## Enable proactive log collection
 
 Proactive log collection gathers system health indicators on your Azure Stack Edge device to help you efficiently troubleshoot any device issues. Proactive log collection is enabled by default. For more information, see [Proactive log collection](azure-stack-edge-gpu-proactive-log-collection.md).
 
@@ -855,9 +848,9 @@ Use the following steps to fetch the current setting and then enable or disable 
 
 ## Run device diagnostics
 
-To diagnose and troubleshoot any device errors, you can run the diagnostics tests. For more information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
+To diagnose and troubleshoot device errors, run diagnostic tests. For more information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
 
-Use the following steps to sign in to the device and run device diagnostics to verify status after you apply a device configuration package.
+Use the following steps to verify device status after you apply a configuration package.
 
 1. Run device diagnostics.
 
@@ -997,7 +990,7 @@ Use the following steps to sign in to the device and run device diagnostics to v
 > [!NOTE]
 > Two-node configurations are only supported on Azure Stack Edge Pro GPU and Azure Stack Edge Pro 2 devices.
 
-Define a virtual IP that allows you to connect to a clustered device instead of a specific node. A virtual IP is an available IP in the cluster network. Any client connecting to the cluster network on the two-node device should be able to access this IP. 
+A virtual IP is an available IP in the cluster network. Set a virtual IP to connect to a clustered device instead of an individual node. Any client connecting to the cluster network on the two-node device must be able to access the virtual IP.
 
 You can set either an Azure Consistent Services or a Network File System configuration. Additional options include static or DHCP network settings. For more information about setting virtual IPs, see [Configure virtual IPs](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md#configure-virtual-ips).
 
