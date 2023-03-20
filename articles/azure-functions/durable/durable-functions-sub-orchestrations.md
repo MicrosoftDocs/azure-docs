@@ -20,7 +20,7 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 > [!NOTE]
 > The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
 >
-> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experience.
 
 ## Example
 
