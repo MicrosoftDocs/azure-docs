@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service | Introduction to Prompt engineering
 titleSuffix: Azure OpenAI
-description: Learn about how to use prompt engineering to optimize your work with Azure OpenAI Service
+description: Learn how to use prompt engineering to optimize your work with Azure OpenAI Service.
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 03/21/2023
@@ -13,7 +13,7 @@ recommendations: false
 keywords: 
 ---
 
-# Introduction to Prompt Engineering
+# Introduction to prompt engineering
 
 GPT-3, GPT-3.5, and GPT-4 models from OpenAI are prompt-based. With prompt-based models, the user interacts with the model by entering a text prompt, to which the model responds with a text completion. This completion is the model’s continuation of the input text.
 
