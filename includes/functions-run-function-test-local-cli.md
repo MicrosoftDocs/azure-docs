@@ -9,7 +9,7 @@ ms.custom: devdivchpfy22
 
 ## Run the function locally
 
-1. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder. Be sure Azurite is running first if you have `UseDevelopmentStorage=true`.
+1. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder.
 
     ```console
     func start

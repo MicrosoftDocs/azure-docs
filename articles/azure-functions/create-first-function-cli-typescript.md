@@ -166,28 +166,16 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
         }
     }
     ```
-    You can also use the Azure Storage emulator, [Azurite](/azure/storage/common/storage-use-azurite?tabs=npm#install-azurite).
-    ```json
-    {
-        "Values": {
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "AzureWebJobsStorage": "UseDevelopmentStorage=true"
-        }
-    }
-    ```
 5. (Optional) If you want to learn more about a particular function, say HTTP trigger, you can run the following command:
 
     ```console
     func help httptrigger
     ```
-
->[!NOTE]
-> In the v4 programming model, functions are not organized in their own separate directories like in the v3 model. This was designed to give you more flexibility in organizing your functions. Also, the file *function.json* is no longer needed. To learn more about function app structure in the v4 model, see [Azure Functions JavaScript developer guide](functions-reference-node.md)
 ::: zone-end
 
 ## Run the function locally
 
-1. If you're using Azurite, you need to [launch it](/azure/storage/common/storage-use-azurite?tabs=npm#run-azurite) in another process *before* running your function. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
+1. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
     ::: zone pivot="nodejs-model-v3" 
     ```console
