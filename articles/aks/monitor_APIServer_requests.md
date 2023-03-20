@@ -19,6 +19,14 @@ This article describes how to use Azure diagnostics to enable logging for kube-a
 
 Since AKS control plane is managed by Microsoft, the Kubernetes Audit logging is not enabled by default.
 
+> [!NOTE]
+>
+> Please note that there could be substantial cost involved once kube-audit logs are enabled.
+> 
+> Refer to Azure Monitoring under [Azure Pricing Calculater](https://azure.microsoft.com/en-au/pricing/calculator/) to estimate the costs involved.
+> 
+> Consider disabling kube-audit logging when not required.
+
 ## Enable Kubernetes Audit Logging:
 
 ### To enable kubernetes audit logs 
@@ -55,7 +63,7 @@ AzureDiagnostics
 | where Category == "kube-audit"
 | extend event = parse_json(log_s)
 | extend HttpMethod = tostring(event.verb)
-| extend User = tostring(parse_json(log_s).user.username)
+| extend User = tostring(event.user.username)
 | extend Apiserver = pod_s
 | extend SourceIP = tostring(event.sourceIPs[0])
 | project TimeGenerated, Category, HttpMethod, User, Apiserver, SourceIP, OperationName, event
@@ -63,60 +71,4 @@ AzureDiagnostics
 
 ![Screenshot of the query results](https://user-images.githubusercontent.com/17014671/221722983-b20995df-338b-4d13-8b59-702e4d749890.png)
 
-
-Now that we have this data, the next step is to trigger alerts based on this output. For example, we can trigger an alert if there is a certain number and type of http requests coming from a particular user.
-
-### Configure alerts
-
-To configure an alert:
-1.  Login to the Azure Portal
-2.  Navigate to the AKS cluster for which we want the alert to be fired
-3.  Click on +Create and choose Alert rule
-![image](https://user-images.githubusercontent.com/17014671/223591363-4860343e-d935-4ef2-bd54-e0172b9377d2.png)
-
-4. This will take to the Create an alert rule window
-5. The scope is already selected since we are navigating this from the AKS cluster.
-![image](https://user-images.githubusercontent.com/17014671/223591409-63fcc187-f8e1-49c4-9ce0-6272d7885e5b.png)
-
-5. Go to the Condition tab to select a signal.
-6. In the dropdown options select Custom log search
-![image](https://user-images.githubusercontent.com/17014671/223592180-6dd595e1-9dfa-454d-a925-c92b970b48ad.png)
-
-7. In the search query paste the query that we used above
-![image](https://user-images.githubusercontent.com/17014671/223598175-f3e351c6-af4c-4b50-a6a5-8707e23215cc.png)
-
-8. Under Measurement select the Aggregation type as Count and choose the Aggregation granularity as per your requirement
-
-9. Select the category under the Dimension name for which you want the alert to be fired.  In this example we have chosen HttpMethod as the trigger.
-![image](https://user-images.githubusercontent.com/17014671/223599268-b5bb61da-36f4-4b68-b374-04f56169f1bf.png)
-
-10. Under Alert logic choose the Operator, Threshold Value and Frequency of evaluation as per your requirements to fire the alerts.
-11. Under Advanced options select the Number of violations and Evaluation period to trigger the alert.
-12. If you have set a time range in the query, that can be overriden using the Override query time range.
-
-Now that we have set the conditions to trigger the alert, next we need to configure who should receive the alert and the alert delivery method.
-
-To deliver the alerts we will leverage the action groups.  Either we can select an existing one or create a new action group to receive the alerts.
-
-> [!NOTE]
->
-> Refer this article to [configure action groups](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/azure-monitor/alerts/action-groups.md)
-
-
-Go to the Details tab:
-
-13. Under Project details select the subscription and resource group to save this alert.  This should be auto populated since we are creating this from the resource itself.
-
-14. Under Alert rule details choose the appropriate Severity for the alert, give it a name and description.
-15. Optionally, under Advanced options you can include custom properties that needs to be sent along with the alert.
-16. Select the option Enable upon creation to start triggering the alert.
-17. Configure tags if needed.
-18. Click Review + Create.
-
-![image](https://user-images.githubusercontent.com/17014671/223608498-2433ea41-b4b4-45fc-a909-9551cf437ee8.png)
-
-Once the alert is setup, allow sometime depending on the alert rule conditions to see the triggered alerts in the portal or to get notified via the chosen method.
-
-This is the alert that was triggered for the alert rule setup in the above example.
-![image](https://user-images.githubusercontent.com/17014671/223620056-ed563dd7-a4d5-4286-ad69-9a0f47f755be.png)
-
+In this example we are querying the http requests originating from a SourceIP. The above query can be modified to project data in different dimensions.
