@@ -80,6 +80,14 @@ Tips when creating and using custom roles for delegating application management:
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).
 
+
+
+## What to do when I do not have permission to register applications in the directory?
+
+You can not register application in the directory because your directory admin has [restricted who can create applications](delegate-app-roles.md#restrict-who-can-create-applications).
+
+You should reach out to your administrator about this issue. The aministrator can either [grant you permissions to create and consent to applications](delegate-app-roles.md#grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled) by assigning you the Application Developer role, or create the application for you and [assign built-in application admin roles](delegate-app-roles.md#assign-application-owners) to you.
+
 ## Next steps
 
 - [Application registration subtypes and permissions](custom-available-permissions.md)
