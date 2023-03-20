@@ -65,6 +65,7 @@ To successfully create a data connection, users must first ensure that they have
 1. From the **Role** tab, select **Contributor**. Click **Next**. 
 1. Open the **Members** tab. Click **+ Select members** to open a configuration pane. Search for **“EASM API”** and click on the value in the members list. Once done, click **Select**, then **Review + assign.** 
 1. Once the role assignment has been created, select **Agents** from the **Settings** section of the left-hand navigation menu.
+   
    ![Log Analytics Agents.](media/data-connections/picture-3.png)
 
 1. Expand the **Log Analytics agent instructions** section to view your Workspace ID and Primary key. These values will be used to set up your data connection. Save the values in the following format: *WorkspaceId=XXX;ApiKey=YYY*
