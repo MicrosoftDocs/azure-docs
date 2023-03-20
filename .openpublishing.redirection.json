@@ -22440,6 +22440,11 @@
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/communications-gateway/rotate-secrets.md",
+            "redirect_URL": "/azure/communications-gateway/whats-new",
+            "redirect_document_id": false
         }
     ]
 }
