@@ -20,7 +20,7 @@ recommendations: false
 
 > [!IMPORTANT]
 >
-> * The Form Recognizer Studio query fields extraction feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+> * The Form Recognizer Studio add-on capabilities feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 > * Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
 > [!NOTE]
