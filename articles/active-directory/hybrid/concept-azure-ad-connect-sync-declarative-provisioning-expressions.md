@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Declarative Provisioning Expressions | Microsoft Docs'
+title: 'Azure AD Connect: Declarative Provisioning Expressions'
 description: Explains the declarative provisioning expressions.
 services: active-directory
 documentationcenter: ''

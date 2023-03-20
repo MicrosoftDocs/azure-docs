@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 ---
 # Train models with the Azure Machine Learning Python SDK (v1)
 

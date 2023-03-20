@@ -4,12 +4,12 @@ description: In this Quickstart, learn how to create an Azure Red Hat OpenShift 
 author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell
 ms.author: johnmarc
 ms.date: 02/15/2023
 keywords: azure, openshift, aro, red hat, arm, bicep
-#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
+#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 ---
 
 # Quickstart: Deploy an Azure Red Hat OpenShift cluster with an Azure Resource Manager template or Bicep file

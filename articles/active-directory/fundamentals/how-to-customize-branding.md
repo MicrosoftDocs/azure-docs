@@ -1,5 +1,5 @@
 ---
-title: Add company branding to your organization's sign-in page (preview) - Azure AD
+title: Add company branding to your organization's sign-in page (preview)
 description: Instructions about how to add your organization's branding to the sign-in experience.
 services: active-directory
 author: shlipsey3

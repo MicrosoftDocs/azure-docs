@@ -93,7 +93,7 @@ Application Insights is the feature of Azure Monitor for monitoring your cloud n
 
 You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separately from your Log Analytics workspace as described in [Data structure](logs/log-analytics-workspace-overview.md#data-structure).
 
- When you create the application, you must select whether to use classic or workspace based. See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application.
+ When you create the application, you must select whether to use classic or workspace based. See [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) to create a classic application.
 See [Workspace-based Application Insights resources (preview)](app/create-workspace-resource.md) to create a workspace-based application.
 
  A fundamental design decision is whether to use separate or a single application resource for multiple applications. Separate resources can save costs and prevent mixing data from different applications, but a single resource can simplify your monitoring by keeping all relevant telemetry together. See [How many Application Insights resources should I deploy](app/separate-resources.md) for criteria to help you make this design decision.
@@ -107,7 +107,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 - [Applications hosted on Azure Web Apps](app/azure-web-apps.md)
 - [Java applications](app/opentelemetry-enable.md?tabs=java)
 - [ASP.NET applications hosted in IIS on Azure Virtual Machines or Azure Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)
-- [ASP.NET applications hosted in IIS on-premises](app/status-monitor-v2-overview.md)
+- [ASP.NET applications hosted in IIS on-premises](app/application-insights-asp-net-agent.md)
 
 **Code-based monitoring** is more customizable and collects more telemetry, but it requires adding a dependency to your code on the Application Insights SDK NuGet packages. For information on how to enable monitoring based on your application, see:
 
@@ -123,7 +123,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 
 Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free. You can also create a sequence of web requests to simulate user transactions, which have associated costs.
 
-See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a summary of the different kinds of tests and information on creating them.
+See [Monitor the availability of any website](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) for a summary of the different kinds of tests and information on creating them.
 
 ### Configure Profiler
 

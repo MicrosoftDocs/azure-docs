@@ -3,6 +3,7 @@ title: Enhance device discovery with a Microsoft Defender for IoT Enterprise IoT
 description: Learn how to register an Enterprise IoT network sensor in Defender for IoT for extra device visibility not covered by Defender for Endpoint.
 ms.topic: tutorial
 ms.date: 10/19/2022
+ms.custom: enterprise-iot
 ---
 
 # Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)

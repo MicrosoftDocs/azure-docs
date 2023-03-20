@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
 ms.date: 11/1/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 #customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
 

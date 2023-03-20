@@ -11,13 +11,68 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/1/2023
+ms.date: 3/14/2023
 ms.author: gunnarc
 ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## March 2023 Guest OS
+
+>[!NOTE] 
+
+>The March Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the March Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 23-03 |  [5023697]  |  Latest Cumulative Update(LCU) | 5.79 | Mar 14, 2023 |
+|  Rel 23-03 |  [5022835]  |  IE Cumulative Updates | 2.135, 3.122, 4.115 | Feb 14, 2023 |
+|  Rel 23-03 |  [5023705]  |  Latest Cumulative Update(LCU) | 7.23 | Mar 14, 2023 |
+|  Rel 23-03 |  [5023702]  |  Latest Cumulative Update(LCU) | 6.55 | Mar 14, 2023 |
+|  Rel 23-03 |  [5022523]  |  .NET Framework 3.5 Security and Quality Rollup  | 2.135 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022515]  |  .NET Framework 4.6.2 Security and Quality Rollup  | 2.135 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022574]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.115 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022513]  |  .NET Framework 4.6.2 Security and Quality Rollup  | 4.115 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022574]  |  .NET Framework 3.5 Security and Quality Rollup  | 3.122 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022512]  |  .NET Framework 4.6.2 Security and Quality Rollup  | 3.122 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022511]  |  . NET Framework 4.7.2 Cumulative Update  | 6.55 | Feb 14, 2023 |
+|  Rel 23-03 |  [5022507]  |  .NET Framework 4.8 Security and Quality Rollup  | 7.23 | Feb 14, 2023 |
+|  Rel 23-03 |  [5023769]  |  Monthly Rollup  | 2.135 | Mar 14, 2023 |
+|  Rel 23-03 |  [5023756]  |  Monthly Rollup  | 3.122 | Mar 14, 2023 |
+|  Rel 23-03 |  [5023765]  |  Monthly Rollup  | 4.115 | Mar 14, 2023 |
+|  Rel 23-03 |  [5023791]  |  Servicing Stack Update  | 3.122 | Mar 14, 2023 |
+|  Rel 23-03 |  [5023790]  |  Servicing Stack update | 4.115 | Mar 14, 2022 |
+|  Rel 23-03 |  [4578013]  |  OOB Standalone Security Update  | 4.115 | Aug 19, 2020 |
+|  Rel 23-03 |  [5023788]  |  Servicing Stack Update | 5.79 | Mar 14, 2023 |
+|  Rel 23-03 |  [5017397]  |  Servicing Stack Update LKG  | 2.135 | Sep 13, 2022 |
+|  Rel 23-03 |  [4494175]  |  Microcode  | 5.79 | Sep 1, 2020 |
+|  Rel 23-03 |  [4494174]  |  Microcode  | 6.55 | Sep 1, 2020 |
+|  Rel 23-03 |  [5023793]  |  Servicing Stack Update  | 7.23 |  |
+
+[5023697]: https://support.microsoft.com/kb/5023697
+[5022835]: https://support.microsoft.com/kb/5022835
+[5023705]: https://support.microsoft.com/kb/5023705
+[5023702]: https://support.microsoft.com/kb/5023702
+[5022523]: https://support.microsoft.com/kb/5022523
+[5022515]: https://support.microsoft.com/kb/5022515
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022513]: https://support.microsoft.com/kb/5022513
+[5022574]: https://support.microsoft.com/kb/5022574
+[5022512]: https://support.microsoft.com/kb/5022512
+[5022511]: https://support.microsoft.com/kb/5022511
+[5022507]: https://support.microsoft.com/kb/5022507
+[5023769]: https://support.microsoft.com/kb/5023769
+[5023756]: https://support.microsoft.com/kb/5023756
+[5023765]: https://support.microsoft.com/kb/5023765
+[5023791]: https://support.microsoft.com/kb/5023791
+[5023790]: https://support.microsoft.com/kb/5023790
+[4578013]: https://support.microsoft.com/kb/4578013
+[5023788]: https://support.microsoft.com/kb/5023788
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
 
 
 ## February 2023 Guest OS

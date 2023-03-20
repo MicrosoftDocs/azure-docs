@@ -2,7 +2,7 @@
 title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ms.date: 11/17/2022
 ---
 

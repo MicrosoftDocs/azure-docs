@@ -305,7 +305,7 @@ When you go to delete an existing VM, you'll find an option to apply force delet
 
 ### [CLI](#tab/cli4)
 
-Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm?view=azure-cli-latest#az-vm-delete&preserve-view=true). 
+Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm#az-vm-delete). 
 
 ```azurecli-interactive
 az vm delete \
@@ -337,7 +337,7 @@ Force delete allows you to forcefully delete your **Uniform** Virtual Machine Sc
 
 ### [Portal](#tab/portal5)
 
-When you go to delete an existing scale set, you will find an option to apply force delete in the delete pane.  
+When you go to delete an existing scale set, you'll find an option to apply force delete in the delete pane.  
 
 1. Open the [portal](https://portal.azure.com).
 1. Navigate to your Virtual Machine Scale Set.
@@ -347,7 +347,7 @@ When you go to delete an existing scale set, you will find an option to apply fo
 
 ### [CLI](#tab/cli5)
 
-Use the `--force-deletion` parameter for [az vmss delete](/cli/azure/vmss?view=azure-cli-latest#az-vmss-delete&preserve-view=true). 
+Use the `--force-deletion` parameter for [`az vmss delete`](/cli/azure/vmss#az-vmss-delete). 
 
 ```azurecli-interactive
 az vmss delete \

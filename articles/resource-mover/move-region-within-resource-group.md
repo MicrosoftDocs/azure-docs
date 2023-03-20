@@ -7,8 +7,10 @@ ms.service: resource-mover
 ms.topic: how-to
 ms.date: 02/10/2023
 ms.author: ankitadutta
+
 #Customer intent: As an Azure admin,  I want to move Azure resources to a different Azure region.
 ---
+
 # Move resources across regions (from resource group)
 
 In this article, learn how to move resources in a specific resource group to a different Azure region. In the resource group, you select the resources you want to move. Then, you move them using [Azure Resource Mover](overview.md).

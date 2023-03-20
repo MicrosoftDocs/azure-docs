@@ -156,5 +156,5 @@ To connect to the logic app that you exported with your Power Apps flow:
 
 ## Next steps
 
-* Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
-* Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

@@ -50,7 +50,7 @@ The following table compares the features available with each product.
 | [Custom domain name support](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Geo-filtering](cdn-restrict-access-by-country-region.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**|
-| [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [DDOS protection](https://www.cisa.gov/news-events/news/understanding-denial-service-attacks)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
 | Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/custom-domains/enable-custom-https#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||

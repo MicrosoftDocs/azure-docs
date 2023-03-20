@@ -3,9 +3,8 @@ title: Entity Linking cognitive skill (v3)
 titleSuffix: Azure Cognitive Search
 description: Extract different linked entities from text in an enrichment pipeline in Azure Cognitive Search.
 
-manager: jennmar
-author: nitinme
-ms.author: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 08/17/2022

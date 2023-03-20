@@ -96,7 +96,8 @@ The first step in creating a customized model is to choose a base model. The cho
 - `curie`
 - `code-cushman-001`\*
 - `davinci`\*
-    \* available by request
+
+    \* currently unavailable for new customers. 
 
 You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 

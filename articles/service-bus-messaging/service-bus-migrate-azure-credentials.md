@@ -8,9 +8,7 @@ ms.reviewer: randolphwest
 ms.date: 12/07/2022
 ms.service: service-bus
 ms.topic: how-to
-ms.custom:
-  - devx-track-csharp
-  - passwordless-dotnet
+ms.custom: devx-track-csharp, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: csharp
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Reflektive | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Reflektive'
 description: Learn how to configure single sign-on between Azure Active Directory and Reflektive.
 services: active-directory
 author: jeevansd
