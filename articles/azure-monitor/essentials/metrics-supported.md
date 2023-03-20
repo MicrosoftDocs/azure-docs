@@ -1458,8 +1458,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaxAllowedResourceCount |Yes |Maximum allowed entities count |Count |Maximum |Maximum allowed entities count |No Dimensions |
 |PipelineCancelledRuns |Yes |Cancelled pipeline runs metrics |Count |Total |Cancelled pipeline runs metrics |FailureType, CancelledBy, Name |
 |PipelineElapsedTimeRuns |Yes |Elapsed Time Pipeline Runs Metrics |Count |Total |Elapsed Time Pipeline Runs Metrics |RunId, Name |
-|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Name |
-|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Name |
+|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Pipeline |
+|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Pipeline |
 |ResourceCount |Yes |Total entities count |Count |Maximum |Total entities count |No Dimensions |
 |SSISIntegrationRuntimeStartCancel |Yes |Cancelled SSIS integration runtime start metrics |Count |Total |Cancelled SSIS integration runtime start metrics |IntegrationRuntimeName |
 |SSISIntegrationRuntimeStartFailed |Yes |Failed SSIS integration runtime start metrics |Count |Total |Failed SSIS integration runtime start metrics |IntegrationRuntimeName |
@@ -1469,9 +1469,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SSISPackageExecutionCancel |Yes |Cancelled SSIS package execution metrics |Count |Total |Cancelled SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionFailed |Yes |Failed SSIS package execution metrics |Count |Total |Failed SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionSucceeded |Yes |Succeeded SSIS package execution metrics |Count |Total |Succeeded SSIS package execution metrics |IntegrationRuntimeName |
-|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Name, FailureType |
-|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Name, FailureType |
-|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Name, FailureType |
+|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Pipeline, FailureType |
+|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Pipeline, FailureType |
+|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Pipeline, FailureType |
 
 
 ## Microsoft.DataLakeAnalytics/accounts  
