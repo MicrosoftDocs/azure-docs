@@ -98,7 +98,7 @@ To enable the feature flag follow these steps:
 
 1. To register the *TrustedAccessPreview* feature flag, run the `az feature register` command.
 
-   **Eexample**
+   **Example**
 
    ```azurecli-interactive
    az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
@@ -108,7 +108,7 @@ To enable the feature flag follow these steps:
 
 1. To verify the registration status, run the `az feature show` command.
 
-   **Eexample**
+   **Example**
 
    ```azurecli-interactive
    az feature show --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview"
