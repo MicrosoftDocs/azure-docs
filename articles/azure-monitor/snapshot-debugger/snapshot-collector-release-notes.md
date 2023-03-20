@@ -118,7 +118,7 @@ A point release to address a couple of high-impact issues.
 
 ## [1.3.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.1)
 - Remove support for collecting snapshots with the RtlCloneUserProcess API and only support PssCaptureSnapshots API.
-- Increase the default limit on how many snapshot can be captured in 10 minutes from 1 to 3.
+- Increase the default limit on how many snapshots can be captured in 10 minutes from 1 to 3.
 - Allow SnapshotUploader.exe to negotiate TLS 1.1 and 1.2
 - Report additional telemetry when SnapshotUploader logs a warning or an error
 - Stop taking snapshots when the backend service reports the daily quota was reached (50 snapshots per day)
