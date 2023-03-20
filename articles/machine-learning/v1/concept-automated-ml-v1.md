@@ -256,7 +256,7 @@ To help confirm that such bias isn't applied to the final recommended model, aut
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
-Learn how to [configure AutoML experiments to use test data (preview) with the SDK (v1)](../how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) or with the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+Learn how to [configure AutoML experiments to use test data (preview) with the SDK (v1)](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) or with the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 You can also [test any existing automated ML model (preview) (v1)](../how-to-configure-auto-train.md)), including models from child jobs, by providing your own test data or by setting aside a portion of your training data. 
 

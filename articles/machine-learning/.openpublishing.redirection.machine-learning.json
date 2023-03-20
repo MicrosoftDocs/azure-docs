@@ -11,6 +11,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-generate-automl-training-code.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-geenerate-automl-training-code",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/reference-checkpoint-performance-with-Nebula.md",
         "redirect_url": "/azure/machine-learning/reference-checkpoint-performance-for-large-models",
         "redirect_document_id": true

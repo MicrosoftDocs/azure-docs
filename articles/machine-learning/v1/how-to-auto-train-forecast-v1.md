@@ -72,7 +72,7 @@ automl_config = AutoMLConfig(task='forecasting',
 ```
 
 
-You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](../how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 Learn more about how AutoML applies cross validation to [prevent over-fitting models](../concept-manage-ml-pitfalls.md#prevent-overfitting).
 
