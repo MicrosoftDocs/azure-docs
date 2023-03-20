@@ -87,11 +87,11 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | Command | Supported |
 |---------|---------|
 | `cloneCollectionAsCapped` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `collMod` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `collMod` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Partial |
 | `compact` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `connPoolSync` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `convertToCapped` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `create` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `create` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Partial |
 | `createIndexes` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `currentOp` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `drop` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -110,7 +110,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `listDatabases`  | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `listIndexes` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `logRotate` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `reIndex` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `reIndex` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `renameCollection` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `rotateCertificates` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `setFeatureCompatibilityVersion` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -193,7 +193,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `refineCollectionShardKey` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `removeShard` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `removeShardFromZone` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `reshardCollection` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `reshardCollection` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `setShardVersion` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `shardCollection` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `shardingState` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -210,7 +210,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `buildInfo`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `collStats` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `connPoolStats` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `connectionStatus` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `connectionStatus` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Partial |
 | `cursorInfo` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `dataSize` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `dbHash` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -220,7 +220,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `features` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `getCmdLineOpts` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `getLog`| :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
-| `hostInfo` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `hostInfo` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Partial |
 | `_isSelf` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `listCommands` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `lockInfo` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -269,7 +269,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$changeStream` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$count` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$currentOp` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$facet` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$facet` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$geoNear` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$graphLookup` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$group` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -298,7 +298,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$unwind` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 
 > [!NOTE]
-> The `$lookup` aggregation does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
+> The `$lookup` aggregation does not yet support using variable expressions using 'let'.
 
 ### Boolean expressions
 
@@ -312,17 +312,17 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 
 | Command | Supported |
 |---------|---------|
-| `$type` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toLong` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toString` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$convert` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toDate` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toDecimal` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toObjectId` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toDouble` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toBool` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toInt` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$isNumber` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$type` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toLong` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toString` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$convert` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toDate` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toDecimal` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toObjectId` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toDouble` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toBool` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toInt` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$isNumber` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 
 ### Set expressions
 
@@ -372,7 +372,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$divide` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$ceil` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$floor` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
-| `$trunc` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$trunc` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$abs` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$mod` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$pow` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -381,7 +381,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$ln` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$log` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$log10` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
-| `$round` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$round` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 
 ### Timestamp expressions
 
@@ -415,7 +415,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | Command | Supported |
 |---------|---------|
 | `$concat` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$dateToString` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$dateToString` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$toLower` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$toString` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$substr` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -454,11 +454,11 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$slice` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$filter` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$map` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$objectToArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$arrayToObject` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$objectToArray` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$arrayToObject` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$reduce` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$indexOfArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$concatArrays` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$concatArrays` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$isArray` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$zip` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$reverseArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
@@ -532,22 +532,22 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 
 | Command | Supported |
 |---------|---------|
-| `$dateToString` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$month` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$year` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$hour` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$minute` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$second` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$dayOfMonth` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$week` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$millisecond` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$toDate` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$dateToParts` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$dayOfWeek` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$dayOfYear` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$isoWeek` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$isoWeekYear` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$isoDayOfWeek` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$dateToString` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$month` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$year` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$hour` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$minute` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$second` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$dayOfMonth` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$week` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$millisecond` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$toDate` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$dateToParts` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$dayOfWeek` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$dayOfYear` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$isoWeek` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$isoWeekYear` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$isoDayOfWeek` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$dateAdd` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$dateDiff` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$dateFromParts` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
