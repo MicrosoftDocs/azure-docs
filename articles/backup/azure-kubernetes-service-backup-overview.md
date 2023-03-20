@@ -3,7 +3,7 @@ title: Azure Kubernetes Service backup - Overview
 description: This article gives you an understanding about Azure Kubernetes Service (AKS) backup, the cloud-native process to back up and restore the containerized applications and data running in AKS clusters.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/14/2023
+ms.date: 03/20/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -12,30 +12,38 @@ ms.author: jsuri
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for cluster state and application data (persistent volumes - CSI driver-based Azure Disks). The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning developer/test environments, or cluster upgrade scenarios. 
 
-AKS backup integrates with Backup center (with other backup management capabilities) to provide a single pane of glass that helps you govern, monitor, operate, and analyze backups at scale.
+AKS backup integrates with Backup center, providing a single pane of glass that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the *AKS portal* under the **Settings** section.
 
 ## How does AKS backup work?
 
-AKS backup enables you to back up your Kubernetes workloads and persistent volumes deployed in AKS clusters. The solution requires a [**Backup Extension**](../azure-arc/kubernetes/conceptual-extensions.md) to be installed in the AKS cluster. Backup vault communicates to the Backup Extension to perform backup and restore related operations. You can configure scheduled backups for your clusters as per your backup policy and can restore the backups to the original or an alternate cluster within the same subscription and region. The extension also allows you to enable granular controls to choose a specific namespace or an entire cluster as a backup/restore configuration while performing the specific operation.
+AKS Backup enables you to back up your Kubernetes workloads and Persistent Volumes deployed in AKS clusters. The solution requires a [**Backup Extension**](/azure/azure-arc/kubernetes/conceptual-extensions) to be installed inside the AKS cluster and Backup Vault communicates to the Extension to perform backup and restore related operations. **Backup Extension** is mandatory to be installed inside AKS cluster to enable backup and restore. As part of installation, a storage account and a blob container is to be provided in input where backups will be stored. 
+
+Along with Backup Extension, a *User Identity* is created in the AKS cluster's Managed Resource Group (called Extension Identity). This extension identity gets the *Storage Account Contributor* role assigned to it on the storage account where backups are stored in a blob container.
+
+To support Public, Private, and Authorized IP based clusters, AKS backup requires *Trusted Access* to be enabled between *Backup vault* and *AKS cluster*. Trusted Access allows Backup vault to access the AKS clusters as specific permissions assigned to it related to the *Backup operations*. For more information on AKS Trusted Access, see [Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access](../aks/trusted-access-feature.md).
 
 >[!Note]
->- You must install Backup Extension in the AKS cluster to enable backups and restores. With the extension installation, a User Identity is created in the AKS cluster's managed resource group (Extension Identity), which gets assigned a set of permissions to access the storage account with the backups stored in the blob container.
-> 
->- An AKS cluster can have only one Backup Extension installed at a time.
->
->- Currently, AKS backup allows storing backups in Operational Tier. Operational Tier is a local data store and backups aren't moved to a vault but are stored in your own tenant. However, the Backup vault still serves as the unit for managing backups. 
+>AKS backup currently allows storing backups in *Operational Tier*. Operational Tier is a local data store and backups aren't moved to a vault, but are stored in your own tenant. However, the Backup vault still serves as the unit of managing backups.
 
-The backup solution enables backups for your Kubernetes workloads deployed in the cluster and the data stored in the persistent volume. Currently, the solution only supports persistent volumes of CSI driver-based Azure Disks. During backups, other *PV* types (such as File Share and Blobs) are skipped by the solution. The Kubernetes workloads are stored in a blob container and the Disk-based persistent volumes are backed up as Disk snapshots.   
+Once *Backup Extension* is installed and *Trusted Access* is enabled, you can configure scheduled backups for the clusters as per your backup policy, and can restore the backups to the original or an alternate cluster in the same subscription and region. AKS backup allows you to enable granular controls to choose a specific *namespace* or an *entire cluster* as a backup/restore configuration while performing the specific operation.
+
+The *backup solution* enables backup operation for your Kubernetes workloads deployed in the cluster and the data stored in the *Persistent Volume*. The Kubernetes workloads are stored in a blob container and the *Disk-based Persistent Volumes* are backed up as *Disk Snapshots* in a Snapshot Resource Group 
+
+>[!Note]
+>Currently, the solution only supports Persistent Volumes of CSI Driver-based Azure Disks. During backups, other Persistent Volume types (File Share, Blobs) are skipped by the solution.
 
 ## Backup
  
 To configure backup for AKS cluster, first you need to create a *Backup vault*. The vault gives you a consolidated view of the backups configured across different workloads. AKS backup supports only Operational Tier backup.
-Note: Copying backups to the Vault Tier is currently not supported. So, the Backup vault storage redundancy setting (LRS/GRS) doesn't apply to the backups stored in Operational Tier.  
+
+>[!Note]
+>- The Backup vault and the AKS cluster to be backed up or restored should be in the same region and subscription.
+>- Copying backups to the *Vault Tier* is currently not supported. So, the *Backup vault storage redundancy* setting (LRS/GRS) doesn't apply to the backups stored in Operational Tier.
 
 AKS backup automatically triggers scheduled backup job that copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based persistent volumes as per the backup frequency. Older backups are deleted as per the retention duration specified by the backup policy.
 
 >[!Note]
->AKS backup allows creating multiple backup instances for a single AKS cluster. You can create multiple backup Instances with different backup configurations, as required. However, each backup instance of an AKS cluster should be created with a different backup policy, either in the same or in a different Backup vault.
+>AKS backup allows creating multiple backup instances for a single AKS cluster with different backup configurations, as required. However, each backup instance of an AKS cluster should be created either in a different Backup vault or with a different backup policy in the same Backup vault.
 
 ## Backup management 
 

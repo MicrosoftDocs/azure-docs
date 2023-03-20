@@ -20,7 +20,7 @@
   - name: Implement CI/CD with GitOps
     displayName: flux
     href: tutorial-gitops-flux2-ci-cd.md
-  - name: Multi-cluster workload management with GitOps  
+  - name: Manage multi-cluster workloads with GitOps  
     displayName: flux
     href: tutorial-workload-management.md
 - name: Samples
@@ -65,6 +65,8 @@
       - name: CI/CD workflow using GitOps
         displayName: flux
         href: conceptual-gitops-flux2-ci-cd.md
+      - name: Multi-cluster workload management with GitOps
+        href: conceptual-workload-management.md
       - name: Inner loop developer experience
         href: conceptual-inner-loop-gitops.md
       - name: GitOps with Flux v1
@@ -81,9 +83,6 @@
             href: use-gitops-with-helm.md
           - name: At-scale Flux v1 configurations using Azure Policy
             href: use-azure-policy.md
-      - name: Workload management in a multi-cluster environment with GitOps
-        href: conceptual-workload-management.md
-
   - name: Security
     items:
     - name: Security baseline

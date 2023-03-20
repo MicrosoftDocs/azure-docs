@@ -1,5 +1,5 @@
 ---
-title: Add and verify custom domain names - Azure Active Directory
+title: Add and verify custom domain names
 description: Management concepts and how-tos for managing a domain name in Azure Active Directory
 services: active-directory
 documentationcenter: ''
