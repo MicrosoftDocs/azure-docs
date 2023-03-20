@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 03/20/2023
 ms.author: cshoe
 ---
 
@@ -126,6 +126,18 @@ ARM64 based clusters aren't supported at this time.
 - Add probes to EasyAuth container(s)
 - Increased memory limit for dapr-operator
 - Added prevention of platform header overwriting
+
+### Container Apps extension v1.0.49 (February 2023)
+
+ - Upgrade of KEDA to 2.9.1
+ - Upgrade of Dapr to 1.9.5
+ - Increase Envoy Controller resource limits to 200m CPU
+ - Increase Container App Controller resource limites to 1GB memory
+ - Reduce EasyAuth sidecar resource limits to 50m CPU
+ - Resolve KEDA error logging for missing metric values
+
+### Container Apps extension v1.0.50 (March 2023)
+ - Updated logging images in sync with Public Cloud
 
 ## Next steps
 
