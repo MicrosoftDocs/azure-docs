@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/12/2023
 ---
 
 # What can I accomplish with Microsoft Purview DevOps policies?
@@ -64,7 +64,7 @@ Bob and Alice are involved with the DevOps process at their company. Given their
 |                  |Supports the Principle of Least Privilege via data resource scopes and the role definitions.|
 |||
 
-## Mapping of popular DMVs/DMFs
+## Mapping of popular DMVs and DMFs
 SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as an illustration some of the most popular ones, mapped to their role definition in Microsoft Purview DevOps policies and linked to the URL, along with their description.
 
 | **Accessible by DevOps role** | **Popular DMV / DMF** | **Description**|
@@ -83,17 +83,15 @@ SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as
 ||[sys.dm_audit_class_type_map](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql)|When events are fired, they record the object type, not the securable class. This DMV maps the class_type field in the audit log to the class_desc field in sys.dm_audit_actions|
 ||||
 
+For more on these DMVs/DMFs you can check these docs
+- [Monitoring Microsoft Azure SQL Database performance using dynamic management views](/azure/azure-sql/database/monitoring-with-dmvs)
+- [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
+
 ## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.
 - Once saved, DevOps policies get automatically published.
 
 ## Next steps
 To get started with DevOps policies, consult the following blogs, videos and guides:
-* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
-* Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
-* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
-* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
-* Doc: [Microsoft Purview DevOps policies on resource groups and subscriptions](./how-to-policies-devops-resource-group.md)
-* Blog: [New granular permissions for SQL Server 2022 and Azure SQL to help PoLP](https://techcommunity.microsoft.com/t5/sql-server-blog/new-granular-permissions-for-sql-server-2022-and-azure-sql-to/ba-p/3607507)
+* Try DevOps policies for Azure SQL Database: [Quick start guide](https://aka.ms/quickstart-DevOps-policies)
+See [other videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)

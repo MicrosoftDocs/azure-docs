@@ -3,6 +3,7 @@ title: Use Planned Maintenance to schedule and control upgrades for your Azure K
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 01/17/2023
 ms.author: qpetraroia
 author: qpetraroia
@@ -321,4 +322,3 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 [auto-upgrade]: auto-upgrade-cluster.md
 [node-image-auto-upgrade]: auto-upgrade-node-image.md
 [pm-weekly]: ./aks-planned-maintenance-weekly-releases.md
-

@@ -47,7 +47,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 > [!NOTE]
 > This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log alert rules created in the previous UI.
 
-## Enable recommended alert rules in the Azure portal (preview)
+## Enable recommended alert rules in the Azure portal
 
 If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
 
@@ -56,7 +56,7 @@ The system compiles a list of recommended alert rules based on:
 - Telemetry that tells us what customers commonly alert on for this resource.
 
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for:
+> The alert rule recommendations feature is enabled for:
 > - Virtual machines
 > - AKS resources
 > - Log Analytics workspaces

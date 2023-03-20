@@ -65,8 +65,8 @@ items:
   - name: Monitor
     expanded: false
     items:
-    - name: Use the monitoring tab
-      href: how-to-use-monitoring-tab.md
+    - name: Use the monitoring and health checks tabs
+      href: how-to-use-monitoring-and-health-checks-tabs.md
     - name: Configure metrics
       href: how-to-configure-metrics.md
     - name: Enable diagnostic settings

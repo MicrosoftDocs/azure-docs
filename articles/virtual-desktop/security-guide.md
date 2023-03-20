@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 03/09/2023
 ms.author: helohr
 ms.service: virtual-desktop
 ms.custom: ignite-2022
@@ -12,9 +12,9 @@ manager: femila
 ---
 # Security best practices
 
-Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
+Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In an Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
 
-This article describes additional steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
+This article describes steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
 
 ## Security responsibilities
 
@@ -216,6 +216,18 @@ The following operating systems support using Windows Defender Application Contr
 
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
+
+## Windows Update
+
+Windows Update provides a secure way to keep your devices up-to-date. Its end-to-end protection prevents manipulation of protocol exchanges and ensures updates only include approved content. You may need to update firewall and proxy rules for some of your protected environments in order to get proper access to Windows Updates. For more information, see [Windows Update security](/windows/deployment/update/windows-update-security).
+
+## Client updates on other OS platforms
+
+Software updates for the Remote Desktop clients you can use to access Azure Virtual Desktop services on other OS platforms are secured according to the security policies of their respective platforms. All client updates are delivered directly by their platforms. For more information, see the respective store pages for each app:
+
+- [macOS](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)
+- [iOS](https://apps.apple.com/us/app/remote-desktop-mobile/id714464092)
+- [Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx)
 
 ## Next steps
 
