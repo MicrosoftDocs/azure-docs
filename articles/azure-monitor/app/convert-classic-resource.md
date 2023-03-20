@@ -15,7 +15,7 @@ Workspace-based resources:
 > [!div class="checklist"]
 > - Support full integration between Application Insights and [Log Analytics](../logs/log-analytics-overview.md).
 > - Send Application Insights telemetry to a common [Log Analytics workspace](../logs/log-analytics-workspace-overview.md).
-> - - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location.
+> - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location.
 > - Enable common [Azure role-based access control](../../role-based-access-control/overview.md) across your resources.
 > - Eliminate the need for cross-app/workspace queries.
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
@@ -79,24 +79,18 @@ If you don't need to migrate an existing resource, and instead want to create a 
 
 To migrate a classic Application Insights resource to a workspace-based resource:
 
-1. From your Application Insights resource, select **Properties** under the **Configure** heading in the menu on the left.
+1. 1. From your Application Insights resource, select **Properties** under the **Configure** heading in the menu on the left.
 
    ![Screenshot that shows Properties under the Configure heading.](./media/convert-classic-resource/properties.png)
 
 1. Select **Migrate to Workspace-based**.
-
-   ![Screenshot that shows the Migrate to Workspace-based button.](./media/convert-classic-resource/migrate.png)
 
 1. Select the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription or a different subscription that shares the same Azure Active Directory tenant. The Log Analytics workspace doesn't have to be in the same resource group as the Application Insights resource.
 
    > [!NOTE]
    > Migrating to a workspace-based resource can take up to 24 hours, but the process is usually faster. Rely on accessing data through your Application Insights resource while you wait for the migration process to finish. After it's finished, you'll see new data stored in the Log Analytics workspace tables.
 
-   ![Screenshot that shows the Migration wizard UI with the option to select target workspace.](./media/convert-classic-resource/migration.png)
-
    After your resource is migrated, you'll see the corresponding workspace information in the **Overview** pane.
-
-   ![Screenshot that shows the Workspace name.](./media/create-workspace-resource/workspace-name.png)
 
    Selecting the blue link text takes you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
@@ -309,13 +303,13 @@ If you can't change the access control mode for security reasons for your curren
 
 The legacy **Continuous export** functionality isn't supported for workspace-based resources. Prior to migrating, you need to disable continuous export.
 
-1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
+1. 1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
 
     ![Screenshot that shows the Continuous export menu item.](./media/convert-classic-resource/continuous-export.png)
 
 1. Select **Disable**.
 
-    ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
+1.  ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
 
    - After you select **Disable**, you can go back to the migration UI. If the **Edit continuous export** page prompts you that your settings aren't saved, select **OK**. This prompt doesn't pertain to disabling or enabling continuous export.
 
@@ -797,4 +791,5 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
+
 
