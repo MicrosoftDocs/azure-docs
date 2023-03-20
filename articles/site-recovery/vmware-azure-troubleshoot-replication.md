@@ -129,6 +129,12 @@ To resolve the issue, use the following steps to verify the service status:
    exit
    ```
 
+### Protection couldn't be successfully enabled for the virtual machine [error 78253]
+
+This happens when the replication policy associated with the Configuration Server is not valid. To confirm this is the cause, navigate to the Recovery Vault, manage Site Recovery Infrastructure, then view Replication policies for VMWare and Physical Machines to check the status of the configured policies.
+
+To resolve the issue, create a new replication policy and associate this with the Configuration Server in use. The invalid policy can be disocciated and deleted.
+
 ## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
 Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
