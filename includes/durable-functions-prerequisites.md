@@ -15,12 +15,12 @@ ms.author: glenga
 
 # [JavaScript (PM3)](#tab/javascript-v3)
 
-* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md?pivots=node-model-v3)
+* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md?pivots=nodejs-model-v3)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/v2.x/samples)
   
 # [JavaScript (PM4)](#tab/javascript-v4)
 
-* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md?pivots=node-model-v4)
+* [Complete the quickstart article](../articles/azure-functions/durable/quickstart-js-vscode.md?pivots=nodejs-model-v4)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/v3.x/samples-js)
 
 # [Python](#tab/python)

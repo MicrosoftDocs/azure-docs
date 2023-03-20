@@ -21,7 +21,7 @@ Durable Functions is an extension of [Azure Functions](../functions-overview.md)
 This article gives you an overview of orchestrator functions and how they can help you solve various app development challenges. If you are not already familiar with the types of functions available in a Durable Functions app, read the [Durable Function types](durable-functions-types-features-overview.md) article first.
 
 > [!NOTE]
-> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=node-model-v4).
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
 >
 > In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experiences.
 
