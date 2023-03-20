@@ -333,6 +333,6 @@ The http request and response types are now a subset of the [fetch standard](htt
 
 ## Troubleshooting
 
-If you see the following error, make sure you're using the minimum versions required of all [prerequisites](#prerequisites):
+If you see the following error, make sure you're using the minimum versions required of all [requirements](#requirements):
 
 > No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
