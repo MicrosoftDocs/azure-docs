@@ -42,7 +42,7 @@ First, you run several commands locally to setup a sample app to use with this t
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|8.1" --deployment-local-git
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
 git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
 cd App-Service-Troubleshoot-Azure-Monitor
