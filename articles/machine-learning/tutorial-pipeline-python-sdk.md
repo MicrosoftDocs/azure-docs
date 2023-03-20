@@ -23,21 +23,22 @@ ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 
 The core of a machine learning pipeline is to split a complete machine learning task into a multistep workflow. Each step is a manageable component that can be developed, optimized, configured, and automated individually. Steps are connected through well-defined interfaces. The Azure Machine Learning pipeline service automatically orchestrates all the dependencies between pipeline steps. The benefits of using a pipeline are standardized the MLOps practice, scalable team collaboration, training efficiency and cost reduction. To learn more about the benefits of pipelines, see [What are Azure Machine Learning pipelines](concept-ml-pipelines.md).
 
-In this tutorial, you use Azure Machine Learning to create a production ready machine learning (ML) project, using Azure Machine Learning Python SDK v2.
+In this tutorial, you use Azure Machine Learning to create a production ready machine learning project, using Azure Machine Learning Python SDK v2.
 
-In this tutorial you learn how to use the Azure Machine Learning Python SDK v2 to:
+This means you will be able to leverage the AzureML Python SDK to:
 
 > [!div class="checklist"]
->
-> - Connect to your Azure Machine Learning workspace
+> - Get a handle to your Azure Machine Learning workspace
 > - Create Azure Machine Learning data assets
 > - Create reusable Azure Machine Learning components
-> - Create, validate and run Azure Machine Learning  pipelines
+> - Create, validate and run Azure Machine Learning pipelines
 
+During this tutorial, you create an Azure Machine Learning pipeline to train a model for credit default prediction. The pipeline handles two steps: 
 
-During this tutorial, you create an Azure Machine Learning  pipeline to train a model for credit default prediction. The pipeline handles the data preparation, training and registering the trained model. Then run the pipeline, deploy the model and use it.
+1. Data preparation
+1. Training and registering the trained model
 
-The next image shows a simple pipeline as you'll see it in the Azure portal once submitted.
+The next image shows a simple pipeline as you'll see it in the Azure studio once submitted.
 
 The two steps are first data preparation and second training.
 
@@ -45,21 +46,29 @@ The two steps are first data preparation and second training.
 
 ## Prerequisites
 
-* Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
-    * Create a workspace.
-    * Create a cloud-based compute instance to use for your development environment.
-    * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/pipeline.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+1. Everything in Azure Machine Learning starts with a workspace.  If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md).  
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    * Or, open **tutorials/get-started-notebooks/pipeline.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
 
-1. On the top bar above your opened notebook, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
+
+1. On the top bar above your opened notebook, create a compute instance if you don't already have one.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
+
+## Set your kernel
 
 1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+1. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
+
+> [!Important]
+> The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
+>
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/pipeline.ipynb -->
 
@@ -74,15 +83,15 @@ Before creating the pipeline, you need the following resources:
 * The software environment to run the pipeline
 * A compute resource to where the job runs
 
-## Connect to the workspace
+## Create handle to workspace
 
-Before we dive in the code, you need to connect to your Azure Machine Learning workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+Before we dive in the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
 
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
-In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. You see the values you need for **<SUBSCRIPTION_ID>**, **<RESOURCE_GROUP>**, and **<AML_WORKSPACE_NAME>**.
-1. Copy a value, then close the window and paste that into your code.  Open the tool again to get the next value.
+1. Copy the value for workspace, resource group and subscription ID into the code.
+1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
 
 
@@ -101,10 +110,8 @@ ml_client = MLClient(
 )
 ```
 
-The result is a handler to the workspace that you use to manage other resources and jobs.
-
-> [!IMPORTANT]
-> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook, that will happen during dataset registration).
+> [!NOTE]
+> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during compute creation).
 
 ## Register data from an external url
 
@@ -663,8 +670,8 @@ There are two important results you'll want to see about training:
 
 * View your logs:
     1. Select the **Outputs+logs** tab.
-    1. Open the folders to `user_logs` > `std_log.txt`
-    This section shows the script run stdout.
+    1. Open the folders to `user_logs` > `std_log.txt` This section shows the script run stdout.
+
     :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt." lightbox="media/tutorial-pipeline-python-sdk/user-logs.jpg":::
 
 * View your metrics: Select the **Metrics** tab.  This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
@@ -673,6 +680,9 @@ There are two important results you'll want to see about training:
 
 ## Deploy the model as an online endpoint
 To learn how to deploy your model to an online endpoint, see [Deploy a model as an online endpoint tutorial](tutorial-deploy-model.md).
+
+
+<!-- nbend -->
 
 
 ## Clean up resources

@@ -17,15 +17,13 @@ ms.date: 03/15/2023
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning to train a model.  In this example, we use the associated credit card dataset. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
+Learn how a data scientist uses Azure Machine Learning to train a model.  In this example, we use the associated credit card dataset to show how you can use Azure Machine Learning for a classification problem. The goal is to predict if a customer has a high likelihood of defaulting on a credit card payment.
 
 The training script handles the data preparation, then trains and registers a model. This tutorial takes you through steps to submit a cloud-based training job (command job). If you would like to learn more about how to load your data into Azure, see [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md). 
-
-
 The steps are:
 
 > [!div class="checklist"]
-> * Connect to your Azure Machine Learning workspace
+>  * Get a handle to your Azure Machine Learning workspace
 > * Create your compute resource and job environment
 > * Create your training script
 > * Create and run your command job to run the training script on the compute resource, configured with the appropriate job environment and the data source
@@ -35,27 +33,31 @@ The steps are:
 
 ## Prerequisites
 
-* Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
-* Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
-    * Create a workspace.
-    * Create a cloud-based compute instance to use for your development environment.
-    * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio.  Then select **Clone this notebook** to add the notebook to your **Files**.
+1. Everything in Azure Machine Learning starts with a workspace.  If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md).  
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    * Or, open **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio.    Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
 
-## Set your notebook kernel
 
-1. On the top bar above your opened notebook, you see the compute instance you created during [Create resources you need to get started](quickstart-create-resources.md) to use for running the notebook.
+1. On the top bar above your opened notebook, create a compute instance if you don't already have one.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
+
+## Set your kernel
 
 1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+1. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/train-model.ipynb -->
+> [!Important]
+> The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
+>
 
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/train-model.ipynb -->
 
 ## Use a command job to train a model in Azure Machine Learning
 
@@ -75,13 +77,11 @@ In this tutorial, we'll focus on using a command job to create a custom training
 In this tutorial we'll provide all these items for our example: creating a classifier to predict customers who have a high likelihood of defaulting on credit card payments.
 
 
-## Connect to the workspace
+## Create handle to workspace
 
-Before you dive in the code, you need to connect to your Azure Machine Learning workspace.
+Before we dive in the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
 
-We're using `DefaultAzureCredential` to get access to workspace. `DefaultAzureCredential` handles most Azure SDK authentication scenarios.
-
-In this cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
 1. Copy the value for workspace, resource group and subscription ID into the code.
@@ -102,6 +102,9 @@ ml_client = MLClient(
     workspace_name="<AML_WORKSPACE_NAME>",
 )
 ```
+
+> [!NOTE]
+> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during compute creation).
 
 ## Create a compute cluster to run your job
 
