@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 03/08/2023
+ms.date: 03/17/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -38,6 +38,7 @@ The following table lists the features of Azure Synapse Analytics that are curre
 | **Distributed Deep Neural Network Training**  | Learn more about new distributed training libraries like Horovod, Petastorm, TensorFlow, and PyTorch in [Deep learning tutorials](./machine-learning/concept-deep-learning.md). |
 | **Embed ADX dashboards** | Azure Data Explorer dashboards be [embedded in an IFrame and hosted in third party apps](/azure/data-explorer/kusto/api/monaco/host-web-ux-in-iframe). |
 | **Multi-column distribution in dedicated SQL pools** | You can now Hash Distribute tables on multiple columns for a more even distribution of the base table, reducing data skew over time and improving query performance. For more information on opting-in to the preview, see [CREATE TABLE distribution options](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#TableDistributionOptions) or [CREATE TABLE AS SELECT distribution options](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse#table-distribution-options).|
+| **Reject options for delimited text files** | Reject options for CREATE EXTERNAL TABLE on delimited files is in preview. |
 | **Time-To-Live in managed virtual network (VNet)** | Reserve compute for the time-to-live (TTL) in managed virtual network TTL period, saving time and improving efficiency. For more information on this preview, see [Announcing public preview of Time-To-Live (TTL) in managed virtual network](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-time-to-live-ttl-in-managed-virtual/ba-p/3552879).|
 | **User-Assigned managed identities** | Now you can use user-assigned managed identities in linked services for authentication in Synapse Pipelines and Dataflows.To learn more, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory).|
 

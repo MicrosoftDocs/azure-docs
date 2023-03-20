@@ -123,6 +123,8 @@ You can define allowed values for a parameter. You provide the allowed values in
 param demoEnum string
 ```
 
+If you define allowed values for an array parameter, the actual value can be any subset of the allowed values.
+
 ### Length constraints
 
 You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
