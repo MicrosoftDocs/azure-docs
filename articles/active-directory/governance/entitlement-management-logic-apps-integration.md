@@ -65,7 +65,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 1. The pre-expiration workflow supports the policy stages: 14 days until access package assignment expiry, and 1 day until access package assignment expiration. This extension type doesn't support Launch and Wait. 
 
-    :::image type="content" source="media/trigger-custom-task/custom-task-extension-launch-wait.png" alt-text="Screenshot of launch and wait extension selection.":::
+    :::image type="content" source="media/entitlement-management-logic-apps/extension-configuration-launch-wait.png" alt-text="Screenshot of launch and wait configuration options.":::
 
 1. The **Extension Configuration** tab allows you to decide if your extension has “launch and continue” or “launch and wait” behavior. With “Launch and continue” the linked policy action on the access package, such as a request, triggers the Logic App attached to the custom extension. After the Logic App is triggered, the entitlement management process associated with the access package will continue. For “Launch and wait”, we'll pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. If no response is sent back in the wait time period defined, this process would be considered a failure. This process is further described below in its own section [Launch and Wait](entitlement-management-logic-apps-integration.md#launch-and-wait). 
 
