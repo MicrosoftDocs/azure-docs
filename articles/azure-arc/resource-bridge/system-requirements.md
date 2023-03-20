@@ -19,6 +19,9 @@ If you're deploying on VMware, a x64 Python environment is required. The [pip](h
 
 If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
 
+
+Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
+
 ## Minimum resource requirements
 
 Arc resource bridge has the following minimum resource requirements:
@@ -71,7 +74,7 @@ The reserved appliance VM IP has the following requirements:
 - The appliance VM needs to be able to resolve the management machine and vice versa.
 - Internet access.
 - Connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy and firewall.
-- Static IP assigned, used for the `k8snodeippoolend` in configuration command. (If using DHCP, then the address must be reserved.)
+- - Static IP assigned, used for the `k8snodeippoolend` in configuration command. (If using DHCP, then the address must be reserved.)
 - Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
 
 ## Control plane IP requirements
@@ -122,3 +125,4 @@ When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
