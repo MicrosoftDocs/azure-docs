@@ -25,11 +25,7 @@ You need the following prerequisites:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md).
 
-To run the procedures in this article:
-
-- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-
-- Replace the placeholders in the examples with your own values.
+To run the procedures in this article, sign in to the [Azure portal](https://portal.azure.com) with your Azure account. You can replace the placeholders in the examples with your own values.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -93,11 +89,13 @@ To work with NICs, your account must be assigned to the [network contributor](..
 
 ## Create a network interface
 
-The portal doesn't provide the option to assign a public IP address to a NIC when you create it. If you want to create a NIC with a public IP address, use Azure CLI or PowerShell. To add a public IP address to a NIC after you create it, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
+You can create a NIC in the Azure portal or by using Azure CLI or Azure PowerShell.
 
-The portal does create a public IP address and assign it to a NIC when you create a VM. A VM you create in the Azure portal has one NIC with default settings. To create a NIC with custom settings and attach it to a VM, or to add a NIC to an existing VM, use PowerShell or Azure CLI.
+- The portal doesn't provide the option to assign a public IP address to a NIC when you create it. If you want to create a NIC with a public IP address, use Azure CLI or PowerShell. To add a public IP address to a NIC after you create it, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
 
-The portal doesn't provide the option to assign the NIC to application security groups when you create the NIC, but Azure CLI and PowerShell do. However, you can assign an existing NIC to an application security group by using the portal if the NIC is attached to a VM. For more information, see [Add to or remove from application security groups](#add-or-remove-from-application-security-groups).
+- The portal does create a NIC with default settings and a public IP address when you create a VM. To create a NIC with custom settings and attach it to a VM, or to add a NIC to an existing VM, use PowerShell or Azure CLI.
+
+- The portal doesn't provide the option to assign a NIC to application security groups when you create the NIC, but Azure CLI and PowerShell do. However, if an existing NIC is attached to a VM, you can use the portal to assign that NIC to an application security group. For more information, see [Add to or remove from application security groups](#add-or-remove-from-application-security-groups).
 
 To create a NIC, use the following procedure.
 

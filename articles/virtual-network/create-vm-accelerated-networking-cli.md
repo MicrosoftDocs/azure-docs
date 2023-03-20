@@ -12,13 +12,13 @@ ms.date: 03/20/2023
 ms.author: allensu
 ms.custom: fasttrack-edit, devx-track-azurecli
 ---
-# Use Azure CLI to create a VM with Accelerated Networking
+# Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 
-This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure command-line interface, Azure CLI. The article also discusses application binding requirements, and how to enable and manage Accelerated Networking on existing VMs.
+This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
-You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about managing Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
+You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about using the Azure portal to manage Accelerated Networking on VMs, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
-To use Azure PowerShell to create a Windows VM with Accelerated Networking enabled, see [Use Azure CLI to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
+To use Azure PowerShell to create a Windows VM with Accelerated Networking enabled, see [Use Azure PowerShell to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-powershell.md).
 
 ## Prerequisites
 
@@ -60,8 +60,8 @@ In the following examples, you can replace the example parameters such as `<myRe
 
 1. The NSG contains several default rules, one of which disables all inbound access from the internet. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to open a port to allow remote desktop protocol (RDP) or secure shell (SSH) access to the VM.
 
-# [Windows](#tab/windows)
-
+   # [Windows](#tab/windows)
+   
    ```azurecli
    az network nsg rule create \
      --resource-group <myResourceGroup> \
@@ -76,9 +76,9 @@ In the following examples, you can replace the example parameters such as `<myRe
      --destination-address-prefix "*" \
      --destination-port-range 3389
    ```
-
-# [Linux](#tab/linux)
-
+   
+   # [Linux](#tab/linux)
+   
    ```azurecli
    az network nsg rule create \
      --resource-group <myResourceGroup> \
@@ -120,7 +120,7 @@ In the following examples, you can replace the example parameters such as `<myRe
 
 ### Create a VM and attach the NIC
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [[Windows and Linux Accelerated Networking]](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
 
 # [Windows](#tab/windows)
 
@@ -154,7 +154,7 @@ az vm create \
 
 ---
 
-After the VM is created, you get output similar to the following example. Take note of the `publicIpAddress`, which you use to access the VM in later steps.
+After the VM is created, you get output similar to the following example. For a Linux machine, take note of the `publicIpAddress`, which you enter to access the VM in the next step.
 
 ```output
 {

@@ -17,7 +17,7 @@ ms.author: allensu
 
 This article describes how to use Azure PowerShell to create a Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
-You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about managing Accelerated Networking on VMs through the Azure portal, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
+You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about using the Azure portal to manage Accelerated Networking on VMs, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
 
 To use Azure CLI to create a Linux or Windows VM with Accelerated Networking enabled, see [Use Azure CLI to create a VM with Accelerated Networking](create-vm-accelerated-networking-cli.md).
 
