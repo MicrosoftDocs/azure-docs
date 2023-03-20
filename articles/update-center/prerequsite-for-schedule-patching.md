@@ -18,7 +18,7 @@ ms.author: sudhirsneha
 
 This article provides an overview of a new prerequisite for scheduled patching in update management center (preview). 
 
-##New prerequisite
+## New prerequisite
 
 To ensure that a group of VMs are correctly auto and scheduled patched and don't run the risk of an accidental autopatching, a new patch mode is introduced for the schedule patching to set the patch mode as **Azure orchestrated with user managed schedules(Preview)**. 
 The patch mode enables the following two VM properties on your behalf after receiving the consent:
@@ -30,7 +30,7 @@ The patch mode enables the following two VM properties on your behalf after rece
 > - For Azure-Arc enabled machines, there are no prerequisites needed to enable scheduled patching.
 
 
-## User Scenarios
+## User scenarios
 
 **VMs** | **Azure orchestrated using Automatic guest patching patch mode** | **BypassPlatformSafteyChecksOnUserSchedule** | **Expected behavior in Azure** |
 --- | --- | --- | --- |
