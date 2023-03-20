@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/12/2023
+ms.date: 03/20/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -92,6 +92,15 @@ The following App Service language monitoring policies are set to be deprecated 
 Customers can use alternative built-in policies to monitor any specified language version for their App Services. 
 
 These will no longer be in Defender for Cloud's built-in recommendations. You can add them as custom recommendations to have Defender for Cloud monitor them.
+
+### Deprecation of legacy compliance standards across cloud environments
+
+**Estimated date for change: April 2023**
+
+We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+
+Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ### Multiple changes to identity recommendations
 
