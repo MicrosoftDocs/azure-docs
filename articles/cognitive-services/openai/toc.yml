@@ -24,6 +24,8 @@ items:
       href: chatgpt-quickstart.md  
 - name: Concepts
   items:
+    - name: Prompt engineering
+      href: ./concepts/prompt-engineering.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
