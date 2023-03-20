@@ -186,9 +186,64 @@ The following table describes the default resource usage:
 
 ## Configure application performance monitoring
 
-There are several types of application performance monitoring (APM) Java agents provided by Spring Cloud Gateway to monitor a gateway managed by Azure Spring Apps.
+To monitor Spring Cloud Gateway, you can configure application performance monitoring (APM) in it. There are five types of application performance monitoring (APM) Java agents provided by Spring Cloud Gateway:
 
-### [Azure portal](#tab/Azure-portal)
+- [ApplicationInsights](###use-application-insights)
+- [Dynatrace](###use-dynatrace)
+- [NewRelic](###use-new-relic)
+- [AppDynamics](###use-appdynamics)
+- [ElasticAPM](###use-elasticapm)
+
+### use-application-insights
+The following list shows the required environment variables:
+- `APPLICATIONINSIGHTS_CONNECTION_STRING`
+For other supported environment variables, see [Application Insights public document](../azure-monitor/app/app-insights-overview.md?tabs=net).
+
+### use-dynatrace
+The following list shows the required environment variables:
+- `APPLICATIONINSIGHTS_CONNECTION_STRING`
+
+For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar).
+
+- `DT_TENANT`
+- `DT_TENANTTOKEN`
+- `DT_CONNECTION_POINT`
+
+### use-new-relic
+The following list shows the required environment variables:
+- `NEW_RELIC_LICENSE_KEY`
+- `NEW_RELIC_APP_NAME`
+
+For other supported environment variables, see [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+
+### Use AppDynamics
+The following list shows the required environment variables:
+
+- `APPDYNAMICS_AGENT_APPLICATION_NAME`
+- `APPDYNAMICS_AGENT_TIER_NAME`
+- `APPDYNAMICS_AGENT_NODE_NAME`
+- `APPDYNAMICS_AGENT_ACCOUNT_NAME`
+- `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
+- `APPDYNAMICS_CONTROLLER_HOST_NAME`
+- `APPDYNAMICS_CONTROLLER_SSL_ENABLED`
+- `APPDYNAMICS_CONTROLLER_PORT`
+
+For other supported environment variables, see [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
+
+### Use ElasticAPM
+The following list shows the required environment variables:
+
+- `ELASTIC_APM_SERVICE_NAME`
+- `ELASTIC_APM_APPLICATION_PACKAGES`
+- `ELASTIC_APM_SERVER_URL`
+
+For other supported environment variables, see [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
+
+### Manage APM in Spring Cloud Gateway
+
+To setup APM in gateway, you need to specify which type of APM to use and corresponding APM environment variables supported by this type of APM Java agents with Azure portal or Azure CLI.
+
+#### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to set up APM using the Azure portal:
 
@@ -202,7 +257,7 @@ Use the following steps to set up APM using the Azure portal:
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
-### [Azure CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to set up APM using Azure CLI:
 
@@ -213,11 +268,20 @@ az spring gateway update \
     --secrets <key=value>
 ```
 
+Allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. Take Application Insights as an example, update gateway with Azure CLI command like:
+
+```azurecli
+az spring gateway update \
+    --apm-types ApplicationInsights \
+    --properties APPLICATIONINSIGHTS_CONNECTION_STRING=<THE CONNECTION STRING OF YOUR APPINSIGHTS> APPLICATIONINSIGHTS_SAMPLE_RATE=10
+```
+
+You can also put environment variables in `--secrets` parameter instead of `--properties`, which makes environment variable more secure in network transmission and data storage in backend.
+
 ---
 
-The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. For more information about the functions provided and which environment variables are exposed, see the public documentation for the APM Java agent you're using. Azure Spring Apps will upgrade the APM agent with the same cadence as deployed apps to keep compatibility of agents between Spring Cloud Gateway and apps.
-
 > [!NOTE]
+> Azure Spring Apps will upgrade the APM agent with the same cadence as deployed apps to keep compatibility of agents between Spring Cloud Gateway and apps.
 > By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are mixed with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
 > To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
 
