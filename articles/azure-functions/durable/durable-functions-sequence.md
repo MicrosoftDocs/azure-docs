@@ -39,9 +39,6 @@ The code calls `E1_SayHello` three times in sequence with different parameter va
 
 # [JavaScript (PM3)](#tab/javascript-v3)
 
-> [!NOTE]
-> JavaScript Durable Functions are available for the Functions 3.0 runtime only.
-
 #### function.json
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
@@ -68,9 +65,6 @@ All JavaScript orchestration functions must include the [`durable-functions` mod
 The `context` object contains a `df` durable orchestration context object that lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` array, which is returned at the end of the function.
 
 # [JavaScript (PM4)](#tab/javascript-v4)
-
-> [!NOTE]
-> JavaScript Durable Functions for the V4 node programming model is available for the Functions 4.16+ runtime only.
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
 
