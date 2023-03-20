@@ -544,4 +544,4 @@ For general information on how model explanations and feature importance can be 
 
 + Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md).
 
-+ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).
++ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

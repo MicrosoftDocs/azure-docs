@@ -1505,4 +1505,4 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 
 ## Next steps
 * [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models.md)
-* [Troubleshoot AutoML experiments](how-to-troubleshoot-auto-ml.md)
+* [Troubleshoot AutoML experiments (SDK v1)](how-to-troubleshoot-auto-ml.md?view=azureml-api-1)

@@ -222,4 +222,4 @@ https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/auto
 
 ## Next steps
 + Learn more about [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
-+ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md). 
++ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
