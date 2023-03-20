@@ -6,7 +6,7 @@
  ms.topic: include
  ms.date: 09/10/2021
  ms.author: timlt
- ms.custom: include file, devx-track-azurecli 
+ ms.custom: include file, devx-track-azurecli
  ms.devlang: azurecli
 ---
 
@@ -50,11 +50,11 @@ gcc --version
 ```
 
 ### Windows
-To complete this quickstart on Windows, install Visual Studio 2019 and add the required components for C and C++ development.
+To complete this quickstart on Windows, install Visual Studio 2022 and add the required components for C and C++ development.
 
-1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2019](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
+1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2033](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
     > [!NOTE]
-    > For existing Visual Studio 2019 users, select Windows **Start**, type *Visual Studio Installer*, and start the installer.
+    > For existing Visual Studio 2022 users, select Windows **Start**, type *Visual Studio Installer*, start the installer, and then select **Modify**. 
 1. In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
 1. Run the installation.
 
