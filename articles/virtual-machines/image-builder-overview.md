@@ -115,7 +115,7 @@ az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPub
 
 ---
 
-To access the Azure VM Image Builder public preview in the China North 3 region, you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
+To access the Azure VM Image Builder public preview in the China North 3 region, you must register the *Microsoft.VirtualMachineImages/MooncakePublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
