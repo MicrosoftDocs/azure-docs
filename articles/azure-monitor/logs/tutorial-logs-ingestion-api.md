@@ -38,7 +38,7 @@ Go to your workspace in the **Log Analytics workspaces** menu in the Azure porta
 
 :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot that shows the workspace resource ID.":::
 
-## Configure an application
+## Create an Azure AD application
 Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
@@ -60,62 +60,6 @@ Start by registering an Azure Active Directory application to authenticate again
 1. Select **Add** to save the secret and then note the **Value**. Ensure that you record this value because you can't recover it after you leave this page. Use the same security measures as you would for safekeeping a password because it's the functional equivalent.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
-
-## Create a new table in a Log Analytics workspace
-The custom table must be created before you can send data to it. The table for this tutorial will include five columns shown in the schema below. The `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
-
-> [!NOTE]
-> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API. You can use any other valid method to make these calls.
-
-> [!IMPORTANT]
-> Custom tables must use a suffix of `_CL`.
-
-1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
-
-    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot that shows opening Cloud Shell.":::
-
-1. Copy the following PowerShell code and replace the variables in the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it.
-
-    ```PowerShell
-    $tableParams = @'
-    {
-        "properties": {
-            "schema": {
-                "name": "MyTable_CL",
-                "columns": [
-                    {
-                        "name": "TimeGenerated",
-                        "type": "datetime",
-                        "description": "The time at which the data was generated"
-                    },
-                   {
-                        "name": "Computer",
-                        "type": "string",
-                        "description": "The computer that generated the data"
-                    },
-                    {
-                        "name": "AdditionalContext",
-                        "type": "dynamic",
-                        "description": "Additional message properties"
-                    },
-                    {
-                        "name": "CounterName",
-                        "type": "string",
-                        "description": "Name of the counter"
-                    },
-                    {
-                        "name": "CounterValue",
-                        "type": "real",
-                        "description": "Value collected for the counter"
-                    }
-                ]
-            }
-        }
-    }
-    '@
-
-    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
-    ```
 
 ## Create data collection endpoint
 A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the DCR and the Log Analytics workspace where the data will be sent.
@@ -183,6 +127,63 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 1. Select **JSON View** to view other details for the DCE. Copy the **Resource ID** and the **logsIngestion endpoint** which you'll need in a later step.
 
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
+
+
+## Create a new table in a Log Analytics workspace
+The custom table must be created before you can send data to it. The table for this tutorial will include five columns shown in the schema below. The `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
+
+> [!NOTE]
+> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API. You can use any other valid method to make these calls.
+
+> [!IMPORTANT]
+> Custom tables must use a suffix of `_CL`.
+
+1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+
+    :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot that shows opening Cloud Shell.":::
+
+1. Copy the following PowerShell code and replace the variables in the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it.
+
+    ```PowerShell
+    $tableParams = @'
+    {
+        "properties": {
+            "schema": {
+                "name": "MyTable_CL",
+                "columns": [
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime",
+                        "description": "The time at which the data was generated"
+                    },
+                   {
+                        "name": "Computer",
+                        "type": "string",
+                        "description": "The computer that generated the data"
+                    },
+                    {
+                        "name": "AdditionalContext",
+                        "type": "dynamic",
+                        "description": "Additional message properties"
+                    },
+                    {
+                        "name": "CounterName",
+                        "type": "string",
+                        "description": "Name of the counter"
+                    },
+                    {
+                        "name": "CounterValue",
+                        "type": "real",
+                        "description": "Value collected for the counter"
+                    }
+                ]
+            }
+        }
+    }
+    '@
+
+    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+    ```
 
 ## Create data collection rule
 The [DCR](../essentials/data-collection-rule-overview.md) defines how the data will be handled once it's received. This includes:
