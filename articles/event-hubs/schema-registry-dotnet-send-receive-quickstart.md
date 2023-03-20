@@ -14,7 +14,6 @@ In this quickstart, you learn how to send events to and receive events from an e
 > **Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to **exchange data without having to manage and share the schema**. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
 
 
-
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
@@ -22,7 +21,6 @@ To complete this quickstart, you need the following prerequisites:
 - If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - **Microsoft Visual Studio 2022**. 
     The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax isn't available. To make use of the full syntax, we recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).    
-
 
 ## Create an event hub
 Follow instructions from the quickstart: [Create an Event Hubs namespace and an event hub](event-hubs-create.md) to create an Event Hubs namespace and an event hub. Then, follow instructions from [Get the connection string](event-hubs-get-connection-string.md) to get a connection string to your Event Hubs namespace. 
@@ -59,6 +57,16 @@ Follow instructions from [Create schemas using Schema Registry](create-schema-re
     } 
     ```
 
+## Add user to Schema Registry Reader role
+Add your user account to the **Schema Registry Reader** role at the namespace level. You can also use the **Schema Registry Contributor** role, but that's not necessary for this quickstart.  
+
+1. On the **Event Hubs Namespace** page, select **Access control (IAM)** on the left menu.
+2. On the **Access control (IAM)** page, select **+ Add** -> **Add role assignment** on the menu. 
+3. On the **Assignment type** page, select **Next**.
+4. On the **Roles** page, select **Schema Registry Reader (Preview)**, and then select **Next** at the bottom of the page.
+5. Use the **+ Select members** link to add your user account to the role, and then select **Next**. 
+6. On the **Review + assign** page, select **Review + assign**.
+
 ## Produce events to event hubs with schema validation
 
 
@@ -88,7 +96,7 @@ Follow instructions from [Create schemas using Schema Registry](create-schema-re
     Install-Package Azure.ResourceManager.Compute
     ```
 1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](/dotnet/api/overview/azure/identity-readme#authenticating-via-visual-studio).  
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Contributor` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
+1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
 
 ### Code generation using the Avro schema  
 1. Use the same content you used to create the schema to create a file named ``Order.avsc``. Save the file in the project or solution folder. 
@@ -213,7 +221,7 @@ This section shows how to write a .NET Core console application that receives ev
     Install-Package Azure.ResourceManager.Compute
     ```
 1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](/dotnet/api/overview/azure/identity-readme#authenticating-via-visual-studio). 
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` or `Schema Registry Contributor` roles at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
+1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
 1. Add the `Order.cs` file you generated as part of creating the producer app to the **OrderConsumer** project. 
 1. Right-click **OrderConsumer** project, and select **Set as Startup project**. 
 
