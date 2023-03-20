@@ -16,7 +16,7 @@ ms.date: 03/17/2022
 **Applies to:** :heavy_check_mark: Linux VMs in Azure Kubernetes Service
 
 > [!NOTE]
-> This family of VMs is the nested confidential VMs. The memory encryption capabilites for these VMs are only activated by choosing these VM sizes for deploying your containers in Azure Kubernetes Serivice. If you provision a VM from this family via regular VM deployments, your VM will not get the same security features. To deploy memory encrypted, confidential VMs via regular VM deployment, head to  [confidential VMs](../confidential-computing/confidential-vm-overview.md).
+> This family of VMs is the nested confidential VMs. The memory encryption capabilites for these VMs are only activated by choosing these VM sizes for deploying your containers in Azure Kubernetes Serivice. If you provision a VM from this family via regular VM deployments, your VM will not get the same security features. To deploy memory encrypted, confidential VMs via regular VM deployment, head to  [confidential VMs](../../../articles/confidential-computing/confidential-vm-overview.md).
 
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -57,4 +57,4 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions-amd.md)
+> [Confidential virtual machine options on AMD processors](../../../articles/confidential-computing/confidential-vm-overview.md)
