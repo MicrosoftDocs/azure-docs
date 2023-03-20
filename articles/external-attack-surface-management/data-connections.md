@@ -47,11 +47,12 @@ Attack Surface Insights provide an actionable set of results based on the key in
 **Accessing data connections**
 Users can access Data Connections from the **Manage** section of the left-hand navigation pane within their Defender EASM resource blade. This page displays the data connectors for both Log Analytics and Azure Data Explorer, listing any current connections and providing the option to add, edit or remove connections. 
 
-    ![Data Connections.](media/data-connections/picture-1.png)
 
+![Data Connections.](media/data-connections/picture-1.png)
 
 **Connection prerequisites**
 To successfully create a data connection, users must first ensure that they have completed the required steps to grant Defender EASM permission to the tool of their choice. This process enables the application to ingest our exported data and provides the authentication credentials needed to configure the connection. 
+
 
 
 **Configuring Log Analytics permissions via UI** 
@@ -88,7 +89,6 @@ To successfully create a data connection, users must first ensure that they have
 8.	Your database is now ready to connect to Defender EASM. You will need the cluster name, database name and region in the following format when configuring your Data Connection: *ClusterName=XXX;Region=YYY;DatabaseName=ZZZ*
 
 
-
 **Add a data connection**
 Users can connect their Defender EASM data to either Log Analytics or Azure Data Explorer. To do so, simply select **“Add connection”** for the appropriate tool from the Data Connections page.
 A configuration pane will open on the right-hand side of the Data Connections screen. The following four fields are required:
@@ -103,6 +103,7 @@ A configuration pane will open on the right-hand side of the Data Connections sc
    
   
 Once all four fields are configured, select **Add** to create the data connection. At this point, the Data Connections page will display a banner that indicates the resource has been successfully created and data will begin populating within 30 minutes. Once connections are created, they will be listed under the applicable tool on the main Data Connections page. 
+
 
 
 **Edit or delete a data connection**
