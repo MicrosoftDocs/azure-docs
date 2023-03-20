@@ -36,7 +36,7 @@ A point release to revert a breaking change introduced in 1.4.0.
 - Fix [Method not found in WebJobs](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/15)
 
 ## [1.4.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.0)
-Address multiple improvements and added support for Azure Active Directory (AAD) authentication for Application Insights ingestion.
+Address multiple improvements and added support for Azure Active Directory (Azure AD) authentication for Application Insights ingestion.
 ### Changes
 - Snapshot Collector package size reduced by 60%. From 10.34 MB to 4.11 MB.
 - Target netstandard2.0 only in Snapshot Collector.
