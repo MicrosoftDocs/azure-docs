@@ -210,6 +210,12 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+    - name: Call Recording
+      items:
+      - name: Record a call
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
+      - name: Record every call in the resource
+        href: how-tos/call-automation/record-every-call.md
     - name: Raw Media
       items:
       - name: Access raw audio and video
@@ -326,14 +332,16 @@ items:
       items:
       - name: Build a workflow for customer interactions 
         href: quickstarts/call-automation/callflows-for-customer-interactions.md
-      - name: Record a call
-        href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
       - name: Customize voice prompts to users with play action 
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+    - name: Call Recording
+      items:
+      - name: Record a call
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
     - name: Events
