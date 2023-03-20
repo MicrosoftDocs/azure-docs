@@ -71,6 +71,16 @@ You may need to perform the following tasks (all or a subset):
 
 Azure Monitor offers a set of different tools to explore data and prepare it for analytics and/or machine learning. One of the quickest ways to get started with data exploration is using Log Analytics Tool or using notebooks running
 
+||KQL operators and functions||Custom models||
+|-|-|-|-|-|
+||Inside Azure Monitor Logs|Run full ML pipeline “On top AzMon”|Run full ML pipeline outside AzMon|Hybrid mode: Data Exploration “On top AzMon”, Train outside, score “On top AzMon”|
+|Machine learning libraries ||All ML libraries<br>Examples:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure ML SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
+|||
+|Log export needed?|No|No|Yes|Training – Yes, Scoring - No |
+|Other Azure services|Optional|Optional (Azure Synapse, Azure ML can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
+|Pros|Optimal performance, cost savings, no custom code needed|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
+|Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
+|When to use|For small-medium volumes of data (up to several GB/few millions of records), when built-in functions suit your needs|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
 ## Next steps
 
 - [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
