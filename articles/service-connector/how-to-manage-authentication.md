@@ -1,5 +1,5 @@
 ---
-title: Manage authentication
+title: Manage authentication in Service Connector
 description: Learn how to select and manage authentication parameters in Service Connector. 
 author: maud-lv
 ms.service: service-connector
@@ -16,7 +16,7 @@ In this guide, learn about the different authentication options available in Ser
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free).
 - An Azure App Service, Azure Container Apps or Azure Spring Apps instance.
-- This guide assumes that you already know how the basics of connecting services using Service Connector. To review our quickstarts, go to [App Service,](quickstart-portal-app-service-connection.md), [Container Apps](quickstart-portal-container-apps.md) or [Azure Spring Apps](quickstart-portal-spring-cloud-connection.md).
+- This guide assumes that you already know how the basics of connecting services using Service Connector. To review our quickstarts, go to [App Service](quickstart-portal-app-service-connection.md), [Container Apps](quickstart-portal-container-apps.md) or [Azure Spring Apps](quickstart-portal-spring-cloud-connection.md).
 
 ## Start creating a new connection
 
