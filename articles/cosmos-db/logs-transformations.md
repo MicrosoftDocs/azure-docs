@@ -3,15 +3,18 @@ title: 'Tutorial: Add a workspace transformation to Cosmos DB Azure Monitor Logs
 description: Describes how to add a custom transformation to data flowing through Azure Monitor Logs by using the Azure portal.
 ms.topic: tutorial
 ms.date: 03/17/2023
+author: StefArroyo
+ms.author: esarroyo
+ms.service: Azure Cosmos DB
 ---
 # Cost Optimizations for Log Analytics Workbooks 
 To help improve costs for enabling Log Analytics, we now support adding Data Collection Rules and transformations on your Log Analytics resources to filter out columns, reduce number of results returned, and create new columns before the data is sent to the destination.
 
 
 ## Tutorial: Add a transformation in a workspace data collection rule by using the Azure portal
-This tutorial walks you through configuration of a sample [transformation in a workspace data collection rule (DCR)](../essentials/data-collection-transformations.md) by using the Azure portal. 
+This tutorial walks you through configuration of a sample [transformation in a workspace data collection rule (DCR)](../articles/azure-monitor/essentials/data-collection-transformations.md) by using the Azure portal. 
 
-Workspace transformations are stored together in a single [DCR](../essentials/data-collection-rule-overview.md) for the workspace, which is called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
+Workspace transformations are stored together in a single [DCR](../articles/azure-monitor/essentials/data-collection-rule-overview.md) for the workspace, which is called the workspace DCR. Each transformation is associated with a particular table. The transformation will be applied to all data sent to this table from any workflow not using a DCR.
 
 > [!NOTE]
 > This tutorial uses the Azure portal to configure a workspace transformation. For the same tutorial using Azure Resource Manager templates and REST API, see [Tutorial: Add transformation in workspace data collection rule to Azure Monitor using resource manager templates](tutorial-workspace-transformations-api.md).
@@ -19,16 +22,16 @@ Workspace transformations are stored together in a single [DCR](../essentials/da
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Configure a [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformation-dcr) for a table in a Log Analytics workspace.
+> * Configure a [workspace transformation](../articles/azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr) for a table in a Log Analytics workspace.
 > * Write a log query for a workspace transformation.
 
 ## Prerequisites
 To complete this tutorial, you need:
 
-- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- A Log Analytics workspace where you have at least [contributor rights](../articles/azure-monitor/logs/manage-access.md#azure-rbac).
+- [Permissions to create DCR objects](../articles/azure-monitor/data-collection-rule-overview.md#permissions) in the workspace.
 - A table that already has some data.
-- The table can't be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
+- The table can't be linked to the [workspace transformation DCR](../articles/azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr).
 
 ## Overview of the tutorial
 In this tutorial, you'll reduce the storage requirement for the `CDBDataPlaneRequests` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [CDBDataPlaneRequests table](monitor-resource-logs.md) is created when you enable [log analytics](monitor-resource-logs.md) in a workspace. 
@@ -49,7 +52,7 @@ Now that the table's created, you can create the transformation for it.
 
     :::image type="content" source="media/tutorial-workspace-transformations-portal/create-transformation.png" lightbox="media/tutorial-workspace-transformations-portal/create-transformation.png" alt-text="Screenshot that shows creating a new transformation.":::
 
-2. Because this transformation is the first one in the workspace, you must create a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr). If you create transformations for other tables in the same workspace, they'll be stored in this same DCR. Select **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Enter a name for the DCR and select **Done**.
+2. Because this transformation is the first one in the workspace, you must create a [workspace transformation DCR](../articles/azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr). If you create transformations for other tables in the same workspace, they'll be stored in this same DCR. Select **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Enter a name for the DCR and select **Done**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-portal/new-data-collection-rule.png" lightbox="media/tutorial-workspace-transformations-portal/new-data-collection-rule.png" alt-text="Screenshot that shows creating a new data collection rule.":::
 
@@ -102,6 +105,5 @@ A known issue currently affects dynamic columns. A temporary workaround is to ex
 
 ## Next steps
 
-- [Read more about transformations](../essentials/data-collection-transformations.md)
-- [See which tables support workspace transformations](tables-feature-support.md)
-- [Learn more about writing transformation queries](../essentials/data-collection-transformations-structure.md)
+- [Read more about transformations](../articles/azure-monitor/essentials/data-collection-transformations.md)
+- [Learn more about writing transformation queries](../articles/azure-monitor/essentials/data-collection-transformations-structure.md)
