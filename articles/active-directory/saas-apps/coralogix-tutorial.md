@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coralogix | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coralogix'
 description: Learn how to configure single sign-on between Azure Active Directory and Coralogix.
 services: active-directory
 author: jeevansd

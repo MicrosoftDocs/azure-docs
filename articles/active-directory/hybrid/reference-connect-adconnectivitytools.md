@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference | Microsoft Docs'
+title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference'
 description: This document provides reference information for the ADConnectivityTools.psm1 PowerShell module.
 author: billmath
 manager: amycolannino

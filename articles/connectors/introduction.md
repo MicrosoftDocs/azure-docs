@@ -186,6 +186,6 @@ The following table includes known issues for connectors in Azure Logic Apps:
 
 > [!div class="nextstepaction"]
 >
-> [Create a Consumption logic app workflow - Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+> [Create a Consumption logic app workflow - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
 >
 > [Create a Standard logic app workflow - Azure portal](../logic-apps/create-single-tenant-workflows-azure-portal.md)

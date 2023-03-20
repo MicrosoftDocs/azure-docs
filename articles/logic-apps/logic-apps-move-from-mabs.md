@@ -242,4 +242,4 @@ which lets you synchronize B2B data across integration accounts in different reg
 ## Next steps
 
 * [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
-* [Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md), or quickly get started using a [pre-built template](../logic-apps/logic-apps-create-logic-apps-from-templates.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md), or quickly get started using a [pre-built template](../logic-apps/logic-apps-create-logic-apps-from-templates.md)

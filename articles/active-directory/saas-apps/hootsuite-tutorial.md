@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hootsuite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hootsuite'
 description: Learn how to configure single sign-on between Azure Active Directory and Hootsuite.
 services: active-directory
 author: jeevansd

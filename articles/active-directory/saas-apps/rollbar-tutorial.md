@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Rollbar | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Rollbar'
 description: Learn how to configure single sign-on between Azure Active Directory and Rollbar.
 services: active-directory
 author: jeevansd

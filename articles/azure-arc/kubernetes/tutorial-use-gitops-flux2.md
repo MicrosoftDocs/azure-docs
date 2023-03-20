@@ -64,7 +64,7 @@ To deploy applications using GitOps with Flux v2, you need the following:
   az upgrade
   ```
 
-* The Kubernetes command-line client, [kubectl](https://kubernetes.io/docs/user-guide/kubectl/). `kubectl` is already installed if you use Azure Cloud Shell.
+* The Kubernetes command-line client, [kubectl](https://kubernetes.io/docs/reference/kubectl/). `kubectl` is already installed if you use Azure Cloud Shell.
 
   Install `kubectl` locally using the [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command:
 
@@ -582,7 +582,7 @@ When you delete a Flux configuration, all of the Flux configuration objects in t
 
 When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster will be removed.
 
-For an Azure Arc-enabled Kubernetes cluster, navigate to the cluster and select **Extensions**. Select the `flux` extension and select **Delete**, then confirm the deletion.
+For an Azure Arc-enabled Kubernetes cluster, navigate to the cluster and select **Extensions**. Select the `flux` extension and select **Uninstall**, then confirm the deletion.
 
 For AKS clusters, you can't use the Azure portal to delete the extension. Instead, use the following Azure CLI command:
 

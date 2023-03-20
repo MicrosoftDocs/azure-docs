@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 01/26/2022
+ms.date: 03/14/2023
 ---
 
 # Create and access an environment by using the Azure CLI
@@ -21,28 +21,7 @@ This article shows you how to create and access an [environment](concept-environ
 
 - [Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
 - [Create and configure a project](quickstart-create-and-configure-projects.md).
-- Install the Azure Deployment Environments Azure CLI extension:
-
-  1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
-  1. Install the Azure Deployment Environments AZ CLI extension:
-
-     - **Automated installation**
-  
-       In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
-
-       ```powershell
-       iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
-       ```
-  
-       The script uninstalls any existing dev center extension and installs the latest version.
-
-     - **Manual installation**
-  
-       Run the following command in the Azure CLI:
-
-       ```azurecli
-       az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
-       ```
+- [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an environment
 
@@ -56,6 +35,12 @@ Complete the following steps in the Azure CLI to create an environment and confi
     ```azurecli
     az login
     ```
+
+1. Install the Azure Dev Center extension for the CLI.
+
+   ```azurecli
+   az extension add --name devcenter --upgrade
+   ```
 
 1. List all the Azure Deployment Environments projects you have access to:
 
@@ -73,7 +58,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 
    ```azurecli
    az config set defaults.group=<name>
-   ```  
+   ```
 
 1. List the type of environments you can create in a specific project:
 
@@ -90,18 +75,18 @@ Complete the following steps in the Azure CLI to create an environment and confi
 1. Create an environment by using a *catalog-item* (an infrastructure as code template defined in the [manifest.yaml](configure-catalog-item.md#add-a-new-catalog-item) file) from the list of available catalog items:
 
    ```azurecli
-   az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> --environment-name <name> --environment-type <environment-type-name> 
-       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
+   az devcenter dev environment create --dev-center-name <devcenter-name>
+       --project-name <project-name> --environment-name <name> --environment-type <environment-type-name>
+       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name>
    ```
 
     If the specific *catalog-item* requires any parameters, use `--parameters` and provide the parameters as a JSON string or a JSON file. For example:
 
    ```json
    $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
-   az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> --environment-name <name> --environment-type <environment-type-name> 
-       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
+   az devcenter dev environment create --dev-center-name <devcenter-name>
+       --project-name <project-name> --environment-name <name> --environment-type <environment-type-name>
+       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name>
        --parameters $params
    ```
 
@@ -130,7 +115,7 @@ To access an environment:
 
    ```azurecli
     az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
-   ```  
+   ```
 
 1. View the access endpoints to various resources as defined in the ARM template outputs.
 1. Access the specific resources by using the endpoints.

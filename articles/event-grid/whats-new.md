@@ -67,7 +67,7 @@ This release corresponds to REST API version 2021-06-01-preview, which includes 
         - NumberNotInRange
         - IsNullOrUndefined
         - IsNotNull
-- [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+- [Allow Event Grid schema to CloudEvents 1.0 schema transformations for custom topics and domains](cloudevents-schema.md#configure-for-cloudevents)
         
 
 ## 6.0.0 (2020-06)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Active and Thriving | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Active and Thriving'
 description: Learn how to configure single sign-on between Azure Active Directory and Active and Thriving.
 services: active-directory
 author: jeevansd

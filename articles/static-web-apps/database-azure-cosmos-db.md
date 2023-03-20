@@ -72,7 +72,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. Select **OK**.
 
-1. Select the *MyTestPersonTable* container. 
+1. Select the *MyTestPersonContainer* container. 
 
 1. Select its *Items*.
 
@@ -220,7 +220,7 @@ Next, create the configuration file that your static web app uses to interface w
   },
   "entities": {
     "Person": {
-      "source": "MyTestPersonTable",
+      "source": "MyTestPersonContainer",
       "permissions": [
         {
           "actions": ["*"],

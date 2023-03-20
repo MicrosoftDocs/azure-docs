@@ -576,16 +576,8 @@
         displayName: Windows custom images, images, windows, upload, prepare, VHD
         href: ./windows/prepare-for-upload-vhd-image.md
       - name: Generalizing a VM
+        displayName: generalize sysprep deprovision
         href: generalize.md
-      - name: Upload a VHD and create a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, managed
-        href: ./windows/upload-generalized-managed.md
-      - name: Capture a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, managed, capture
-        href: ./windows/capture-image-resource.md
-      - name: Create a VM from a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, create, managed
-        href: ./windows/create-vm-generalized-managed.md
       - name: Visual Studio
         href: /visualstudio/install/using-visual-studio-vm
     - name: VM Image Builder
@@ -674,6 +666,8 @@
       - name: Windows
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
+    - name: Capture a legacy managed image
+      href: capture-image-resource.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -1372,6 +1366,8 @@
       - name: PowerShell
         displayName: Convert disk to another disk type
         href: ./windows/convert-disk-storage.md
+    - name: Migrate AWS and on-premises disk to Azure
+      href: ./windows/on-prem-to-azure.md
     - name: Migrate to premium SSDs with Azure Site Recovery
       items:
       - name: Linux
@@ -1642,14 +1638,37 @@
       href: security-controls-policy.md
     - name: Policy reference
       href: policy-reference.md
-    - name: Use policies
+    - name: Assign policies
       items:
-      - name: Linux
-        displayName: Use policies
-        href: ./linux/policy.md
-      - name: Windows
-        displayName: Use policies
-        href: ./windows/policy.md
+      - name: Portal
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-portal.md?context=/azure/virtual-machines/context/context
+      - name: Azure CLI
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-azurecli.md?context=/azure/virtual-machines/context/context
+      - name: Terraform
+        displayName: assign, compliance, hcl, policy
+        href: ../governance/policy/assign-policy-terraform.md?context=/azure/virtual-machines/context/context      
+      - name: Azure PowerShell
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-powershell.md?context=/azure/virtual-machines/context/context
+      - name: .NET
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-dotnet.md?context=/azure/virtual-machines/context/context
+      - name: JavaScript
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-javascript.md?context=/azure/virtual-machines/context/context
+      - name: Python
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-python.md?context=/azure/virtual-machines/context/context
+      - name: REST
+        displayName: policy, governance
+        href: ../governance/policy/assign-policy-rest-api.md?context=/azure/virtual-machines/context/context
+      - name: ARM template
+        displayName: assign, compliance, resource manager
+        href: ../governance/policy/assign-policy-template.md?context=/azure/virtual-machines/context/context
+      - name: Bicep
+        href: ../governance/policy/assign-policy-bicep.md?context=/azure/virtual-machines/context/context
   - name: Bastion
     items:
     - name: Overview
@@ -1952,16 +1971,11 @@
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
-      items:
-      - name: CLI
-        displayName: Change subscription or resource group
-        href: ./linux/move-vm.md
-      - name: PowerShell
-        displayName: Change subscription or resource group
-        href: ./windows/move-vm.md
-      - name: Change subscription for Marketplace VMs
-        displayName: Change subscription or resource group
-        href: azure-cli-change-subscription-marketplace.md
+      displayName: move migrate
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md
+    - name: Change subscription for Marketplace VMs
+      displayName: offer plan sku marketplace
+      href: azure-cli-change-subscription-marketplace.md
     - name: Move VMs to another region
       href: ../site-recovery/azure-to-azure-tutorial-migrate.md?context=/azure/virtual-machines/context/context
     - name: Move to an availability zone
@@ -1970,15 +1984,8 @@
       href: move-region-maintenance-configuration.md
     - name: Move Maintenance Control configuration resources to another region
       href: move-region-maintenance-configuration-resources.md
-    - name: Migrate AWS and on-premises VMs
-      href: ./windows/on-prem-to-azure.md
-      items:
-      - name: Migrate from Amazon Web Services (AWS) to Azure
-        href: ./windows/aws-to-azure.md
-      - name: Upload on-premises VM
-        href: ./linux/upload-vhd.md
-      - name: Use Azure Site Recovery
-        href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
+    - name: Migrate AWS VMs to Azure
+      href: /azure/migrate/tutorial-migrate-aws-virtual-machines
 - name: Infrastructure automation
   items:
   - name: Overview

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with In Case of Crisis - Online Portal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with In Case of Crisis - Online Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and In Case of Crisis - Online Portal.
 services: active-directory
 author: jeevansd
