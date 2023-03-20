@@ -241,6 +241,8 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    vf_tx_dropped: 0
    ```
 
+---
+
 ## Handle dynamic binding and revocation of virtual function
 
 Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement for all applications that take advantage of Accelerated Networking. If an application runs directly over the VF NIC, it doesn't receive all packets that are destined to the VM, because some packets show up over the synthetic interface.
@@ -248,8 +250,6 @@ Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement
 You must run an application over the synthetic NIC to guarantee that the application receives all packets that are destined to it. Binding to the synthetic NIC also ensures that the application keeps running even if the VF is revoked during host servicing.
 
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
-
----
 
 <a name="enable-accelerated-networking-on-existing-vms"></a>
 ## Manage Accelerated Networking on existing VMs
