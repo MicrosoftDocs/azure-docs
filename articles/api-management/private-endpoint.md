@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 03/20/2023
 
 ---
 
@@ -98,7 +98,7 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
 1. In the left-hand menu, select **Network**.
 
-1. Select **Private endpoint connections** > **+ Add endpoint**.
+1. Select **Inbound private endpoint connections** > **+ Add endpoint**.
 
     :::image type="content" source="media/private-endpoint/add-endpoint-from-instance.png" alt-text="Add a private endpoint using Azure portal":::
 
@@ -153,7 +153,7 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
 ### List private endpoint connections to the instance
 
-After the private endpoint is created, it appears in the list on the API Management instance's **Private endpoint connections** page in the portal.
+After the private endpoint is created, it appears in the list on the API Management instance's **Inbound private endpoint connections** page in the portal.
 
 You can also use the [Private Endpoint Connection - List By Service](/rest/api/apimanagement/current-ga/private-endpoint-connection/list-by-service) REST API to list private endpoint connections to the service instance.
 
@@ -202,7 +202,7 @@ After the private endpoint is created, confirm its DNS settings in the portal:
 
 1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
 
-1. In the left-hand menu, select **Network** > **Private endpoint connections**, and select the private endpoint you created.
+1. In the left-hand menu, select **Network** > **Inbound private endpoint connections**, and select the private endpoint you created.
 
 1. In the left-hand navigation, select **DNS configuration**.
 
