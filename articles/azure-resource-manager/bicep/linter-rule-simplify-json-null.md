@@ -17,7 +17,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-The following example fails this test because `json(null)` is used.:
+The following example fails this test because `json('null')` is used.:
 
 ```bicep
 @description('The name of the API Management service instance')
