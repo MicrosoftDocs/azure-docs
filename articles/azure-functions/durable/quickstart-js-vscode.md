@@ -7,7 +7,7 @@ ms.date: 02/13/2023
 ms.reviewer: azfuncdf, antchu
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete
-zone_pivot_groups: node-functions-model
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Create your first durable function in JavaScript
