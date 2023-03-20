@@ -1,5 +1,5 @@
 ---
-title: List Azure AD role definitions - Azure AD
+title: List Azure AD role definitions
 description: Learn how to list Azure built-in and custom roles.
 services: active-directory
 author: rolyon

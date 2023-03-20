@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: msExchUserHoldPolicies and cloudMsExchUserHoldPolicies | Microsoft Docs'
+title: 'Azure AD Connect: msExchUserHoldPolicies and cloudMsExchUserHoldPolicies'
 description: This topic describes attribute behavior of the msExchUserHoldPolicies and cloudMsExchUserHoldPolicies attributes
 services: active-directory
 documentationcenter: ''

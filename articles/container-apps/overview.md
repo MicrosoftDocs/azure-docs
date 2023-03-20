@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: overview
-ms.date: 06/23/2022
+ms.date: 03/13/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # Azure Container Apps overview
 
-Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
+Azure Container Apps is a fully managed environment that enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
 - Deploying API endpoints
 - Hosting background processing applications

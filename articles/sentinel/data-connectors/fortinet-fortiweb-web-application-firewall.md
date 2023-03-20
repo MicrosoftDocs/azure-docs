@@ -17,7 +17,7 @@ The [fortiweb](https://www.fortinet.com/products/web-application-firewall/fortiw
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (Fortiweb)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples

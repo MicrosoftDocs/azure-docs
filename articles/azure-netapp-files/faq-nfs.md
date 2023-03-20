@@ -50,8 +50,6 @@ For example, if a client mounting a volume becomes unresponsive or crashes beyon
 
 A grace period defines a period of special processing in which clients can try to reclaim their locking state during a server recovery. The default timeout for the leases is 30 seconds with a grace period of 45 seconds. After that time, the client's lease will be released. 
 
-Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
-
 ## Why is the `.snapshot` directory not visible in an NFSv4.1 volume, but it's visible in an NFSv3 volume?
 
 By design, the .snapshot directory is never visible to NFSv4.1 clients. By default, the `.snapshot `directory is visible to NFSv3 clients. To hide the `.snapshot` directory from NFSv3 clients, edit the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).

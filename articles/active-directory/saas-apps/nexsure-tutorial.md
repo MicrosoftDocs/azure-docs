@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nexsure | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nexsure'
 description: Learn how to configure single sign-on between Azure Active Directory and Nexsure.
 services: active-directory
 author: jeevansd

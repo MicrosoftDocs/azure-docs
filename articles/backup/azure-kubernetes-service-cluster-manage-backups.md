@@ -3,7 +3,7 @@ title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 03/03/2023
+ms.date: 03/15/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -23,7 +23,7 @@ This section provides the set of Azure CLI commands to create, update, delete op
 To install the Backup Extension, use the following command:
 
    ```azurecli-interactive
-   az k8s-extension create --name azure-aks-backup --extension-type Microsoft.DataProtection.Kubernetes --scope cluster --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train preview --configuration-settings blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid
+   az k8s-extension create --name azure-aks-backup --extension-type Microsoft.DataProtection.Kubernetes --scope cluster --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train stable --configuration-settings blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid
    ```
 
 ### Update resources in Backup Extension
@@ -31,7 +31,7 @@ To install the Backup Extension, use the following command:
 To update blob container, CPU, and memory in the Backup Extension, use the following command:
 
    ```azurecli-interactive
-   az k8s-extension update --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train preview --configuration-settings [blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid] [cpuLimit=1] [memoryLimit=1Gi]
+   az k8s-extension update --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg --release-train stable --configuration-settings [blobContainer=containername storageAccount=storageaccountname storageAccountResourceGroup=storageaccountrg storageAccountSubscriptionId=subscriptionid] [cpuLimit=1] [memoryLimit=1Gi]
    
    []: denotes the 3 different sub-groups of updates possible (discard the brackets while using the command)
 

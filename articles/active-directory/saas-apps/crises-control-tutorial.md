@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Crises Control | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Crises Control'
 description: Learn how to configure single sign-on between Azure Active Directory and Crises Control.
 services: active-directory
 author: jeevansd

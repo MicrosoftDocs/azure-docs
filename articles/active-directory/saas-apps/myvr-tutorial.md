@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with MyVR | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with MyVR'
 description: Learn how to configure single sign-on between Azure Active Directory and MyVR.
 services: active-directory
 author: jeevansd

@@ -33,7 +33,7 @@ This section explains steps to create VMs for VNF workloads
 
 ### Step V1: create Isolation domain for VM workloads
 
-Isolation Domains enable creation of layer 2 and layer 3 connectivity between Operator Nexus and network fabric network functions.
+Isolation Domains enable creation of layer 2 and layer 3 connectivity between network functions running on Operator Nexus.
 This connectivity enables inter-rack and intra-rack communication between the workloads.
 You can create as many L2 and L3 Isolation Domains as needed.
 
@@ -150,7 +150,7 @@ Your VM requires at least one Cloud Services Network. You need the egress endpoi
 
 Operator Nexus Virtual Machines (VMs) are used for hosting VNF(s) within a Telco network.
 The Nexus platform provides `az networkcloud virtualmachine create` to create a customized VM.
-For hosting a VNF on your VM, have it [Microsoft Azure Arc-enrolled](//azure/azure-arc/servers/overview),
+For hosting a VNF on your VM, have it [Microsoft Azure Arc-enrolled](/azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
 
 #### Parameters

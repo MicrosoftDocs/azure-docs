@@ -12,7 +12,7 @@ ms.date: 03/10/2023
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure App Service](../app-service/overview.md), and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends; and adds the power of Microsoft Azure to your application, such as:
 
@@ -21,7 +21,7 @@ Azure App Service is an HTTP-based service for hosting web applications, REST AP
 - Autoscaling
 - Automated management
 
-To explore how Azure App Service can bolster the resiliency of your application workload, see [Why use App Service?](/azure/app-service/overview#why-use-app-service)
+To explore how Azure App Service can bolster the resiliency of your application workload, see [Why use App Service?](../app-service/overview.md#why-use-app-service)
 
 ## Availability zone support
 
@@ -31,7 +31,7 @@ Azure App Service Environment can be deployed across [availability zones (AZ)](.
 
 When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
 
-Availability zone support is a property of the App Service plan. App Service plans can be created on managed multi-tenant environment or dedicated environment using App Service Environment. To Learn more regarding App Service Environment, see [App Service Environment overview](/azure/app-service/environment/overview).
+Availability zone support is a property of the App Service plan. App Service plans can be created on managed multi-tenant environment or dedicated environment using App Service Environment. To Learn more regarding App Service Environment, see [App Service Environment overview](../app-service/environment/overview.md).
 
 For App Services that aren't configured to be zone redundant, VM instances are not zone resilient and can experience downtime during an outage in any zone in that region.
 
@@ -51,7 +51,7 @@ Availability zone support is a property of the App Service plan. The following a
 -  App Service Environment v1 doesn't support availability zones.  
 
     >[!IMPORTANT]
-    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](/azure/app-service/environment/overview). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
+    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](../app-service/environment/overview.md). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](../app-service/environment/migration-alternatives.md) to migrate to the new version.
      
 - Minimum instance count of three zones is enforced. The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 
@@ -85,7 +85,7 @@ Availability zone support is a property of the App Service plan. The following a
     - West US 3 
 
 
-- To see which regions support App Services for dedicated environments v3, see [Regions](/azure/app-service/environment/overview#regions).
+- To see which regions support App Services for dedicated environments v3, see [Regions](../app-service/environment/overview.md#regions).
 
 ### Create a resource with availability zone enabled
 
@@ -149,7 +149,7 @@ The Azure Resource Manager template snippet below shows the new ***zoneRedundant
 
 #### To deploy a zone-redundant App Service using a dedicated environment
 
-To learn how to create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](/azure/app-service/environment/creation).
+To learn how to create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](../app-service/environment/creation.md).
 
 ### Fault tolerance
 

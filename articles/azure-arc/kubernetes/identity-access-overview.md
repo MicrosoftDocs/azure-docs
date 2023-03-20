@@ -23,7 +23,7 @@ For more information, see [Cluster connect access to Azure Arc-enabled Kubernete
 
 ## Azure RBAC
 
-[Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) is an authorization system built on Azure Resource Manager  and Azure Active Directory (Azure AD) that provides fine-grained access management of Azure resources.
+[Azure role-based access control (RBAC)](../../role-based-access-control/overview.md) is an authorization system built on Azure Resource Manager  and Azure Active Directory (Azure AD) that provides fine-grained access management of Azure resources.
 
 With Azure RBAC, role definitions outline the permissions to be applied. You assign these roles to users or groups via a role assignment for a particular scope. The scope can be across the entire subscription or limited to a resource group or to an individual resource such as a Kubernetes cluster.
 
@@ -33,6 +33,6 @@ For more information, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptua
 
 ## Next steps
 
-- Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](/azure/aks/concepts-identity).
+- Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](../../aks/concepts-identity.md).
 - Learn about [Cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
 - Learn about [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md)

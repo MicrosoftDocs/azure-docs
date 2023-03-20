@@ -116,6 +116,10 @@ A. Flexible Server support for private link is on our road map as our highest pr
 
 A. Flexible Server support for cross-region read replicas is on our roadmap as our highest priority. Cross-Region Read Replicas for flexible server (for paired region) is in private preview, and you can start migrating your single server. Cross-Region Read Replicas for flexible server (for any cross-region) is on the road map for later this year, post, which you can migrate your single server.
 
+**Q. I have TLS v1.0/1.1 configured for my v8.0 single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
+
+A. To support modern security standards, MySQL community edition has discontinued support for communication over Transport Layer Security (TLS) 1.0 and 1.1 protocols starting with version 8.0.28. We recommend you upgrade your client drivers to support TLSv1.2 to connect securely to Azure Database for MySQL - Single Server and then proceed to migrate to Flexible Server.
+
 **Q. Is there an option to rollback a Single Server to Flexible Server migration?**
 
 A. You can perform any number of test migrations, and after gaining confidence through testing, perform the final migration. A test migration doesn’t affect the source single server, which remains operational and continues replicating until you perform the actual migration. If there are any errors during the test migration, you can choose to postpone the final migration and keep your source server running. You can then reattempt the final migration after you resolve the errors. After you've performed a final migration to Flexible Server and the source single server has been shut down, you can't perform a rollback from Flexible Server to Single Server.

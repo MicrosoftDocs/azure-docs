@@ -148,7 +148,7 @@ In the next tutorial, you'll learn how to deploy an application to your cluster.
 > [Deploy an application in AKS][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [k8s-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
