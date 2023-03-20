@@ -15,13 +15,13 @@ ms.custom: how-to, devx-track-python
 
 # Manage models registries in Azure Machine Learning with MLflow
 
-Azure Machine Learning supports MLflow for model management. This represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client. The following article describes the different capabilities and how it compares with other options.
+Azure Machine Learning supports MLflow for model management. Such approach represents a convenient way to support the entire model lifecycle for users familiar with the MLFlow client. The following article describes the different capabilities and how it compares with other options.
 
 ### Prerequisites
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
-* Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial will use the object `client` to refer to such MLflow client.
+* Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial uses the object `client` to refer to such MLflow client.
 
     ```python
     using mlflow
@@ -35,7 +35,7 @@ The models registry offer a convenient and centralized way to manage models in a
 
 ### Creating models from an existing run 
 
-If you have an MLflow model logged inside of a run and you want to register it in a registry, you can do that by using the run ID and the path where the model was logged. See [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) to know how to query this information if you don't have it.
+If you have an MLflow model logged inside of a run and you want to register it in a registry, use the run ID and the path where the model was logged. See [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) to know how to query this information if you don't have it.
 
 ```python
 mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
@@ -96,7 +96,7 @@ client.search_registered_models(order_by=["name ASC"])
 
 ### Getting specific versions of the model
 
-The command above will retrieve the model object which contains all the model versions. However, if you want to get the last registered model version of a given model, you can use `get_registered_model`:
+The `search_registered_models()` command retrieves the model object, which contains all the model versions. However, if you want to get the last registered model version of a given model, you can use `get_registered_model`:
 
 ```python
 client.get_registered_model(model_name)
@@ -154,7 +154,7 @@ Transitioning a model's version to a particular stage can be done using the MLfl
 client.transition_model_version_stage(model_name, version=3, stage="Staging")
 ```
 
-By default, if there were an existing model version in that particular stage, it will remain there. Hence, it won't be replaced as multiple model's versions can be in the same stage at the same time. Alternatively, you can indicate `archive_existing_versions=True` to tell MLflow to move the existing model's version to the stage `Archived`.
+By default, if there were an existing model version in that particular stage, it remains there. Hence, it isn't replaced as multiple model's versions can be in the same stage at the same time. Alternatively, you can indicate `archive_existing_versions=True` to tell MLflow to move the existing model's version to the stage `Archived`.
 
 ```python
 client.transition_model_version_stage(
