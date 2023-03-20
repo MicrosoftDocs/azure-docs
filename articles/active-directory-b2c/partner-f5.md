@@ -78,7 +78,7 @@ Obtain custom attributes from Azure AD B2C user objects, federated IdPs, API con
 
 Legacy applications expect specific attributes, so include them in your user flow. You can replace them with attributes your application requires. Or if you're setting up a test app using the instructions, then user any headers.
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com/) as Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as Global Administrator.
 2. In the left-hand pane, select **User attributes**.
 3. Select **Add** to create two custom attributes.
 4. For Agent ID, select String **Data Type**.
@@ -93,7 +93,7 @@ Legacy applications expect specific attributes, so include them in your user flo
 5. Add the **Display Name** attribute. These attributes are collected during user sign-up.
 6. Select **Application claims**.
 7. Add both custom attributes.
-8. Add the **Display Name**. These attributes got to the BIG-IP.
+8. Add the **Display Name**. These attributes go to the BIG-IP.
 9. Select **Run user flow**.
 10. In the user flow menu, on the left navigation bar, verify the prompts for defined attributes.
 
@@ -302,7 +302,7 @@ A BIG-IP supports SSO options, but in OAuth client mode the Guided Configuration
 |Header Value | `%{session.oauth.client.last.id_token.extension_AgentGeo}`|
  
   >[!Note]
-  > APM session variables in curly brackets are case-sensitive. Entering agentid when the Azure AD B2C attribute name is sent as AgentID causes an attribute mapping failure. We recommend defining attributes in lowercase. In Azure AD B2C, the user flow prompts the user for more attributes, using the attribute name in the portal. Therefore, sentence case instead of lowercase might be preferable.
+  > APM session variables in curly brackets are case-sensitive. Entering agentid, when the Azure AD B2C attribute name is sent as AgentID, causes an attribute mapping failure. Define attributes in lowercase. In Azure AD B2C, the user flow prompts the user for more attributes, using the attribute name in the portal. Therefore, use sentence case instead of lowercase.
 
    ![Screenshot of single sign-on settings, including type and headers.](./media/partner-f5/single-sign-on.png)
 
