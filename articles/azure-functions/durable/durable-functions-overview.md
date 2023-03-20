@@ -22,7 +22,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | - | - | - | - |
 | .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process | n/a |
 | JavaScript/TypeScript (V3 prog. model) | Functions 2.0+ | Node 8+ | 2.x bundles |
-| JavaScript/TypeScript (V4 prog. model) | Functions 4.16+ | Node 18+ | 3.15+ bundles |
+| JavaScript/TypeScript (V4 prog. model) | Functions 4.16.5+ | Node 18+ | 3.15+ bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
