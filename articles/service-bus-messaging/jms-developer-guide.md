@@ -109,7 +109,11 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, 
 Create a [service principal](authenticate-application.md#register-your-application-with-an-azure-ad-tenant) on Azure, and use this identity to create a `TokenCredential`.
 
 ```java
-TokenCredential tokenCredential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>").build();
+TokenCredential tokenCredential = new new ClientSecretCredentialBuilder()
+                .tenantId("")
+                .clientId("")
+                .clientSecret("")
+                .build();;
 ```
 
 The Connection factory can then be instantiated with the below parameters.
