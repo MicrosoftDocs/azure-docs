@@ -42,28 +42,34 @@ Currently ACS calls aren't allowed to change state of other participants, for ex
 ```csharp
 
 // remove raise hand states for all participants on the call
-raiseHandCallFeature.LowerHandForEveryoneAsync();
+raiseHandCallFeature.LowerAllHandsAsync();
 
 // remove raise hand states for all remote participants on the call
 var participants = call.RemoteParticipants;
 var identifiers = participants.Select(p => p.Identifier).ToList().AsReadOnly();
-raiseHandCallFeature.LowerHandAsync(identifiers);
+raiseHandCallFeature.LowerHandsAsync(identifiers);
 
 // remove raise hand state of specific user
 var identifiers = new List<CallIdentifier>();
 identifiers.Add(new UserCallIdentifier("USER_ID"));
-raiseHandCallFeature.LowerHandAsync(identifiers);
+raiseHandCallFeature.LowerHandsAsync(identifiers);
 ```
 
 ### Handle changed states
-The `Raise Hand` API allows you to subscribe to `didReceiveRaiseHandEvent` events. A `didReceiveRaiseHandEvent` event comes from a `call` instance and contain information about participant and new state.
+The `Raise Hand` API allows you to subscribe to `RaisedHandReceived` events. A `LoweredhandReceived` event comes from a `call` instance and contain information about participant and new state.
 ```swift
 raiseHandCallFeature = (RaiseHandCallFeature)call.GetCallFeatureExtension(CallFeatureType.RaiseHand);
-raiseHandCallFeature.OnRaiseHandReceived += OnRaiseHandChange;
+raiseHandCallFeature.RaisedHandReceived += OnRaisedHandChange;
+raiseHandCallFeature.LoweredHandReceived += OnLoweredHandChange;
 
-private async void OnRaiseHandChange(object sender, RaiseHandEvent raiseHandEvent)
+private async void OnRaisedHandChange(object sender, RaisedHandChangedEventArgs args)
 {
-    Trace.WriteLine("RaiseHandEvent: participant " + raiseHandEvent.Identifier + " is raised hand " + raiseHandEvent.IsRaised);
+    Trace.WriteLine("RaiseHandEvent: participant " + args.Identifier + " is raised hand");
+}
+
+private async void OnLoweredHandChange(object sender, RaisedHandChangedEventArgs args)
+{
+    Trace.WriteLine("RaiseHandEvent: participant " + args.Identifier + " is lowered hand");
 }
 ```
 
@@ -71,7 +77,7 @@ private async void OnRaiseHandChange(object sender, RaiseHandEvent raiseHandEven
 To get information about all participants that have Raise Hand state on current call, you can use this api array is sorted by order field:
 ```swift
 raiseHandCallFeature = (RaiseHandCallFeature)call.GetCallFeatureExtension(CallFeatureType.RaiseHand);
-foreach (RaiseHand rh in raiseHandCallFeature.Status.ToList())
+foreach (RaiseHand rh in raiseHandCallFeature.RaisedHands.ToList())
 {
     Trace.WriteLine("Participant " + rh.Identifier.RawId + " has raised hand ");
 }
@@ -79,12 +85,11 @@ foreach (RaiseHand rh in raiseHandCallFeature.Status.ToList())
 
 ### Order of raised Hands
 It possible to get order of all raised hand states on the call, order is started from 1 and will be sorted.
-There are two ways: get all raise hand state on the call or use `didReceiveRaiseHandEvent` event subscription.
 In event subscription when any participant will lower a hand - call will generate only one event, but not for all participants with order above.
 
 ```swift
 raiseHandCallFeature = (RaiseHandCallFeature)call.GetCallFeatureExtension(CallFeatureType.RaiseHand);
-foreach (RaiseHand rh in raiseHandCallFeature.Status.ToList())
+foreach (RaiseHand rh in raiseHandCallFeature.RaisedHands.ToList())
 {
     Trace.WriteLine(rh.Order + ". " + rh.Identifier.RawId);
 }

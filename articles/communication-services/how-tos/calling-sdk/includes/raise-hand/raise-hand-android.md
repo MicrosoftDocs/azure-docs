@@ -39,23 +39,23 @@ Currently ACS calls aren't allowed to change state of other participants, for ex
 ```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
 //lower all hands on the call
-raiseHandFeature.lowerHandForEveryone();
+raiseHandFeature.lowerAllHands();
 //or we can provide array of CommunicationIdentifier to specify list of participants
 List<CommunicationIdentifier> identifiers = new ArrayList<>();
 CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
 MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>);
 identifiers.add(new CommunicationUserIdentifier("<USER_ID>"));
 identifiers.add(new MicrosoftTeamsUserIdentifier("<USER_ID>"));
-raiseHandFeature.lowerHand(identifiers);
+raiseHandFeature.lowerHands(identifiers);
 ```
 
 ### Handle changed states
-The `Raise Hand` API allows you to subscribe to `raiseHandChanged` events. A `raiseHandChanged` event comes from a `call` instance and contain information about participant and new state.
+The `Raise Hand` API allows you to subscribe to `raiseHandChanged` or `loweredHandChanged` events. Event comes from a `call` instance and contain information about participant and new state.
 ```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND)
 
 // event example : {identifier: CommunicationIdentifier, isRaised: true, order:1}
-call.feature(Features.RAISE_HAND).addOnRaiseHandReceivedListener(raiseHandEvent -> {
+call.feature(Features.RAISE_HAND).addOnRaisedHandReceivedListener(raiseHandEvent -> {
     Log.i(TAG, String.format("Raise Hand: %s : %s", Utilities.toMRI(raiseHandEvent.getIdentifier()), raiseHandEvent.isRaised()));
 });
 ```
@@ -64,24 +64,17 @@ call.feature(Features.RAISE_HAND).addOnRaiseHandReceivedListener(raiseHandEvent 
 To get information about all participants that have Raise Hand state on current call, you can use this api array is sorted by order field:
 ```java
 RaiseHandFeature raiseHandFeature = call.feature(Features.RAISE_HAND);
-List<RaiseHand> activeStates = raiseHandFeature.getStatus();
+List<RaiseHand> activeStates = raiseHandFeature.getRaisedHands();
 ```
 
 ### Order of raised Hands
 It possible to get order of all raised hand states on the call, this order is started from 1.
-There are two ways: get all raise hand state on the call or use `raiseHandChanged` event subscription.
 In event subscription when any participant will lower a hand - call will generate only one event, but not for all participants with order above.
 
 ```java
 const raiseHandFeature = call.feature(Features.RaiseHand );
-for (RaiseHand state : raiseHandFeature.getStatus() {
+for (RaiseHand state : raiseHandFeature.getRaisedHands() {
     CommunicationIdentifier identifier = state.getIdentifier();
     int order = state.getOrder();
 }
-
-
-// event example: {identifier: CommunicationIdentifier, isRaised: true, order:1}
-call.feature(Features.RAISE_HAND).addOnRaiseHandReceivedListener(raiseHandEvent -> {
-    Log.i(TAG, String.format("Raise Hand: %s : %s", Utilities.toMRI(raiseHandEvent.getIdentifier()), raiseHandEvent.getOrder()));
-});
 ```

@@ -50,7 +50,7 @@ Currently ACS calls aren't allowed to change state of other participants, for ex
 ```swift
 
 // remove raise hand states for all participants on the call
-raisehandFeature.lowerHandForEveryone(completionHandler: { (error) in
+raisehandFeature.lowerAllHands(completionHandler: { (error) in
     if let error = error {
         print ("Feature failed lower all hands %@", error as Error)
     }
@@ -58,7 +58,7 @@ raisehandFeature.lowerHandForEveryone(completionHandler: { (error) in
 
 // remove raise hand states for all remote participants on the call
 let identifiers = (call?.remoteParticipants.map {$0.identifier})!;
-raisehandFeature.lowerHand(participants: identifiers, completionHandler: { (error) in
+raisehandFeature.lowerHands(participants: identifiers, completionHandler: { (error) in
     if let error = error {
         print ("Feature failed lower hands %@", error as Error)
     }
@@ -67,7 +67,7 @@ raisehandFeature.lowerHand(participants: identifiers, completionHandler: { (erro
 // remove raise hand state of specific user
 var identifiers : [CommunicationIdentifier] = []
 identifiers.append(CommunicationUserIdentifier("<USER_ID>"))
-raisehandFeature.lowerHand(participants: identifiers, completionHandler: { (error) in
+raisehandFeature.lowerHands(participants: identifiers, completionHandler: { (error) in
     if let error = error {
         print ("Feature failed lower hands %@", error as Error)
     }
@@ -76,7 +76,7 @@ raisehandFeature.lowerHand(participants: identifiers, completionHandler: { (erro
 ```
 
 ### Handle changed states
-The `Raise Hand` API allows you to subscribe to `didReceiveRaiseHandEvent` events. A `didReceiveRaiseHandEvent` event comes from a `call` instance and contain information about participant and new state.
+The `Raise Hand` API allows you to subscribe to `didReceiveRaisedHand` and `didReceiveLoweredHand` events. Event comes from a `call` instance and contain information about participant and new state.
 ```swift
 self.callObserver = CallObserver(view:self)
 
@@ -85,10 +85,16 @@ raisehandFeature!.delegate = self.callObserver
 
 public class CallObserver : NSObject, RaiseHandCallFeatureDelegate
 {
-    // event example : {identifier: CommunicationIdentifier, isRaised: true, order:1}
-    public func raiseHandCallFeature(_ raiseHandCallFeature: RaiseHandCallFeature, didReceiveRaiseHandEvent args: RaiseHandEvent) {
-        os_log("Raise hand feature updated: %s : %d", log:log, Utilities.toMri(args.identifier), args.isRaised)
-        raiseHandCallFeature.status.forEach { raiseHand in
+    // event example : {identifier: CommunicationIdentifier}
+    public func raiseHandCallFeature(_ raiseHandCallFeature: RaiseHandCallFeature, didReceiveRaisedHand args: RaisedHandChangedEventArgs) {
+        os_log("Raise hand feature updated: %s is raised hand", log:log, Utilities.toMri(args.identifier))
+        raiseHandCallFeature.raisedHands.forEach { raiseHand in
+            os_log("Raise hand active: %s", log:log, Utilities.toMri(raiseHand.identifier))
+        }
+    }
+    public func raiseHandCallFeature(_ raiseHandCallFeature: RaiseHandCallFeature, didReceiveLoweredHand args: LoweredHandChangedEventArgs) {
+        os_log("Raise hand feature updated: %s is lowered hand", log:log, Utilities.toMri(args.identifier))
+        raiseHandCallFeature.raisedHands.forEach { raiseHand in
             os_log("Raise hand active: %s", log:log, Utilities.toMri(raiseHand.identifier))
         }
     }
@@ -99,19 +105,19 @@ public class CallObserver : NSObject, RaiseHandCallFeatureDelegate
 To get information about all participants that have Raise Hand state on current call, you can use this api array is sorted by order field:
 ```swift
 raisehandFeature = self.call!.feature(Features.raiseHand)
-raisehandFeature.status.forEach { raiseHand in
+raisehandFeature.raisedHands.forEach { raiseHand in
     os_log("Raise hand active: %s", log:log, Utilities.toMri(raiseHand.identifier))
 }
 ```
 
 ### Order of raised Hands
 It possible to get order of all raised hand states on the call, order is started from 1 and will be sorted.
-There are two ways: get all raise hand state on the call or use `didReceiveRaiseHandEvent` event subscription.
+There are two ways: get all raise hand state on the call or use `didReceiveRaisedHand` event subscription.
 In event subscription when any participant will lower a hand - call will generate only one event, but not for all participants with order above.
 
 ```swift
 raisehandFeature = self.call!.feature(Features.raiseHand)
-raisehandFeature.status.forEach { raiseHand in
+raisehandFeature.raisedHands.forEach { raiseHand in
     os_log("Raise hand active: %s with order %d", log:log, Utilities.toMri(raiseHand.identifier), raiseHand.order)
 }
 ```

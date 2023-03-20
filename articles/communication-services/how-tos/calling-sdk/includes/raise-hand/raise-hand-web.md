@@ -39,47 +39,50 @@ Currently ACS calls aren't allowed to change state of other participants, for ex
 ```js
 const raiseHandFeature = call.feature(Features.RaiseHand );
 //lower all hands on the call
-raiseHandFeature.lowerHandForEveryone();
+raiseHandFeature.lowerAllHands();
 //or we can provide array of CommunicationIdentifier to specify list of participants
 CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
 MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>)
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser, teamsUser };
-raiseHandFeature.lowerHand(participants);
+raiseHandFeature.lowerHands(participants);
 ```
 
 ### Handle changed states
-The `Raise Hand` API allows you to subscribe to `raiseHandChanged` events. A `raiseHandChanged` event comes from a `call` instance and contain information about participant and new state.
+The `Raise Hand` API allows you to subscribe to `raisedHandEvent` or `loweredHandEvent` events. Events comes from a `call` instance and contain information about participant.
 ```js
 const raiseHandFeature = call.feature(Features.RaiseHand );
 
-// event : {identifier: CommunicationIdentifier, isRaised: true, order:1}
-const isRaiseHandChangedHandler = (event) => {
-    console.log(`Participant ${event.identifier} ${event.isRaised ? "Raised" : "Lower"} hand`);
+// event : {identifier: CommunicationIdentifier}
+const raisedHandChangedHandler = (event) => {
+    console.log(`Participant ${event.identifier} raised hand`);
 };
-raiseHandFeature.feature(SDK.Features.RaiseHand).on('raiseHandChanged', isRaiseHandChangedHandler):
+const loweredHandChangedHandler = (event) => {
+    console.log(`Participant ${event.identifier} lowered hand`);
+};
+raiseHandFeature.feature(SDK.Features.RaiseHand).on('raisedHandEvent', raisedHandChangedHandler):
+raiseHandFeature.feature(SDK.Features.RaiseHand).on('loweredHandEvent', loweredHandChangedHandler):
 ```
 
 ### List of all participants with active state
 To get information about all participants that have Raise Hand state on current call, you can use this api array is sorted by order field:
 ```js
 const raiseHandFeature = call.feature(Features.RaiseHand );
-let activeStates = raiseHandFeature.getStatus();
+let activeStates = raiseHandFeature.getRaisedHands();
 ```
 
 ### Order of raised Hands
 It possible to get order of all raised hand states on the call, this order is started from 1.
-There are two ways: get all raise hand state on the call or use `raiseHandChanged` event subscription.
 In event subscription when any participant will lower a hand - call will generate only one event, but not for all participants with order above.
 
 ```js
 const raiseHandFeature = call.feature(Features.RaiseHand );
 
 // event : {identifier: CommunicationIdentifier, isRaised: true, order:1}
-const isRaiseHandChangedHandler = (event) => {
+const raiseHandChangedHandler = (event) => {
     console.log(`List of participants with raised hand`);
-    for (let state : raiseHandFeature.getStatus()) {
+    for (let state : raiseHandFeature.getRaisedHands()) {
         console.log(`Participant ${state.identifier} has order ${state.order}`);
     }
 };
-raiseHandFeature.feature(SDK.Features.RaiseHand).on('raiseHandChanged', isRaiseHandChangedHandler):
+raiseHandFeature.feature(SDK.Features.RaiseHand).on('raisedHandEvent', raiseHandChangedHandler):
 ```
