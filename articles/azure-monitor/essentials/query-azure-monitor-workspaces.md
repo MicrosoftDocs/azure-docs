@@ -105,20 +105,33 @@ Save the access token from the response for use in the following HTTP requests.
 
 ## Query Endpoints 
 
-Two endpoints are supported for querying Azure Monitor workspaces:
-+  The Azure monitor workspace query endpoint, using POST
-   For example:
-    POST: Query endpoint from the over view page
-    https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query
+### GET/query
 
-+  The Azure management endpoint using GET.
-    
     ```
-        GET https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<amwName>?api-version=2021-06-01-preview
+        GET https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<workspace name>/api/v1/label/__name__/values?api-version=2021-06-01-preview
+        --header 'Authorization:  Bearer <access token>'
     ```
+        When using the management end point, request a token using `--data-urlencode 'resource= https://management.azure.com'` 
 
-    When using the management end point, request a token using `--data-urlencode 'resource= https://management.azure.com'` instead of `prometheus.monitor.azure.com`
+### POST / query 
 
+POST uses the Azure Monitor workspace query endpoint  
+
+    ```http
+        https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query  
+
+      --header 'Authorization:  Bearer <access token>'
+      --header 'Content-Type: application/x-www-form-urlencoded' 
+      --data-urlencode 'query=sum(
+            container_memory_working_set_bytes 
+            * on(namespace,pod)
+            group_left(workload, workload_type) namespace_workload_pod:kube_pod_owner:relabel{ workload_type="deployment"}) by (pod)'
+
+    ```
+    When using the Azure Monitor workspace query endpoint, request a token using `--data-urlencode 'resource= https://prometheus.monitor.azure.com'`
+
+Find your workspace's query endpoint on the overview page.
+:::image type="content" source="./media/query-azure-monitor-workspaces/find-query-endpoint.png" lightbox='./media/query-azure-monitor-workspaces/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoin on the Azure Monitor workspace overview page.":::
 ## Supported APIs
 The following queries are supported:
 
