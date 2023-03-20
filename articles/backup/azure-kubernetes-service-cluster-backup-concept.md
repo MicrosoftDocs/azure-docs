@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/14/2023
+ms.date: 03/20/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -24,6 +24,10 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You need to install Backup Extension on both the source cluster to be backed up and the target cluster where the restore will happen.
 
+- Backup Extension can be installed in the cluster from the *AKS portal* blade on the **Backup** tab under **Settings**. You can also use the Azure CLI commands to [manage the installation and other operations on the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
+
+- Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#register-the-resource-provider).
+
 Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
 
 ## Trusted Access
@@ -33,6 +37,8 @@ Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly access
 Your Azure resources access AKS clusters through the AKS regional gateway using system-assigned managed identity authentication. The managed identity must have the appropriate Kubernetes permissions assigned via an Azure resource role.
 
 For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access to configure backups and restores. The Backup vault is assigned a pre-defined role **Microsoft.DataProtection/backupVaults/backup-operator** in the AKS cluster, allowing it to only perform specific backup operations. 
+
+Before you enable Trusted Access between a Backup vault and an AKS cluster, [enable a *feature flag* on the cluster's subscription](azure-kubernetes-service-cluster-manage-backups.md#enable-the-feature-flag).
 
 Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#enable-trusted-access).
 
@@ -55,6 +61,11 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 
+- Install Backup Extension on the AKS clusters following the [required FQDN/application rules](../aks/limit-egress-traffic.md#required-fqdn--application-rules-6).
+
+- If you've any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
+
+
 ## Required roles and permissions
 
 To perform AKS backup and restore operations as a user, you need to have specific roles on the AKS cluster, Backup vault, Storage account, and Snapshot resource group.
@@ -75,7 +86,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 | --- | --- | --- | --- |
 | Reader | Backup vault | AKS cluster | Allows the Backup vault to perform *List* and *Read* operations on AKS cluster. |
 | Reader | Backup vault | Snapshot resource group | Allows the Backup vault to perform *List* and *Read* operations on snapshot resource group. |
-| Disk Snapshot Contributor | AKS cluster | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group. |
+| Contributor | AKS cluster | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group. |
 | Storage Account Contributor | Extension Identity | Storage account | Allows Backup Extension to store cluster resource backups in the blob container. |
 
 >[!Note]
