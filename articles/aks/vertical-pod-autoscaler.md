@@ -2,6 +2,7 @@
 title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 01/12/2023
 ---
 

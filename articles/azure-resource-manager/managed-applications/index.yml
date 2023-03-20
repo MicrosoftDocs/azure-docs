@@ -11,7 +11,7 @@ metadata:
   ms.collection: na
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 01/02/2020
+  ms.date: 03/03/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -38,13 +38,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Publish application definition
-            url: ./publish-service-catalog-app.md
+            url: publish-service-catalog-app.md
+          - text: Publish definition with bring your own storage
+            url: publish-service-catalog-bring-your-own-storage.md
           - text: Deploy service catalog app
             url: deploy-service-catalog-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Create definition files
-            url: publish-service-catalog-app.md
           - text: Publish marketplace application
             url: ../../marketplace/azure-app-offer-setup.md
           - text: Create managed application with custom provider

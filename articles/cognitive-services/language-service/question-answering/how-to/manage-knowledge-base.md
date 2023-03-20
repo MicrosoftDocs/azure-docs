@@ -1,5 +1,5 @@
 ---
-title: Manage knowledge bases - question answering
+title: Manage projects - question answering
 description: Custom question answering allows you to manage projects by providing access to the project settings and content.
 ms.service: cognitive-services
 ms.subservice: language-service
@@ -10,7 +10,7 @@ ms.custom: language-service-question-answering, ignite-fall-2021
 
 # Create and manage project settings
 
-Question answering allows you to manage your projects/knowledge bases by providing access to the project settings and data sources. If you haven't created a question answering project before we recommend starting with the [getting started article](create-test-deploy.md).
+Question answering allows you to manage your projects by providing access to the project settings and data sources. If you haven't created a question answering project before we recommend starting with the [getting started article](create-test-deploy.md).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Question answering allows you to manage your projects/knowledge bases by providi
 
     |Setting| Value|
     |-------|------|
-    |**Name** | Enter your unique project name here ("project" and "knowledge base" refer to the same thing in question answering.) |
+    |**Name** | Enter your unique project name here|
     |**Description** | Enter a description for your project |
     |**Source language** | Whether or not this value is greyed out, is dependent on the selection that was made when the first project associated with the language resource was created.  |
     |**Default answer** | The default answer the system will send if there was no answer found for the question. You can change this at any time in Project settings.
@@ -46,7 +46,7 @@ From the main question answering page in Language Studio you can:
 - Create projects
 - Delete projects
 - Export existing projects for backup or to migrate to other language resources
-- Import projects/knowledge bases. (The expected file format is a `.zip` file containing a project/knowledge base that was exported in `excel` or `.tsv` format).
+- Import projects. (The expected file format is a `.zip` file containing a project that was exported in `excel` or `.tsv` format).
 - Projects can be ordered by either **Last modified** or **Last published** date.
 
 ## Manage sources
@@ -64,7 +64,7 @@ From the main question answering page in Language Studio you can:
 
 ## Manage large projects
 
-From the **Edit knowledge base page** you can:
+From the **Edit project page** you can:
 
 * **Search project**: You can search the project by typing in the text box at the top of question answer panel. Hit enter to search on the question, answer, or metadata content.
 

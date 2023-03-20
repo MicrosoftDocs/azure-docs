@@ -4,14 +4,14 @@ ms.author: jife
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: include
-ms.date: 08/17/2022
+ms.date: 02/16/2023
 ---
 
 ## Prerequisites
 
 ### Microsoft Purview prerequisites
 
-* [A Microsoft Purview account](../create-catalog-portal.md). You can also use two Microsoft Purview accounts, one for data provider and one for data consumer to test both workflows.
+* [A Microsoft Purview account](../create-catalog-portal.md). You can also use two Microsoft Purview accounts, one for data provider and one for data consumer to test both scenarios.
 * Your recipient's Azure sign-in email address that you can use to send the invitation to. The recipient's email alias won't work.
 
 ### Azure Storage account prerequisites
@@ -54,12 +54,13 @@ ms.date: 08/17/2022
     > This registration is only needed the first time when sharing or receiving data into a storage account in the Azure subscription.
 
 ### Required roles
+
 Below are required roles for sharing data and receiving shares.
 
 | | Azure Storage Account Roles | Microsoft Purview Collection Roles |
 |:--- |:--- |:--- |
-| **Data Provider** |Owner OR Storage Blob Data Owner|Data Share Contributor|
-| **Data Consumer** |Contributor OR Owner OR Storage Blob Data Contributor OR Storage Blob Data Owner|Data Share Contributor|
+| **Data Provider** |Owner OR Storage Blob Data Owner|Data Reader|
+| **Data Consumer** |Contributor OR Owner OR Storage Blob Data Contributor OR Storage Blob Data Owner|Data Reader|
 
 > [!NOTE]
 > If you created the Microsoft Purview account, you're automatically assigned all the roles to the root collection. Refer to [Microsoft Purview permissions](../catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.

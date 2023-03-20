@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Learning Pool LMS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Learning Pool LMS'
 description: Learn how to configure single sign-on between Azure Active Directory and Learning Pool LMS.
 services: active-directory
 author: jeevansd

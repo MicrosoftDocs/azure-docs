@@ -144,7 +144,7 @@ Each type of resource is represented by one or more associated Python classes. H
 
 * [Document](https://pymongo.readthedocs.io/en/stable/tutorial.html#documents) - A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that documents in the same collection don't need to have the same set of fields or structure. And common fields in a collection's documents may hold different types of data.
 
-To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../resource-model.md) article.
 
 ## See also
 

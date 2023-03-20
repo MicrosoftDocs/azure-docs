@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/18/2022
 ms.author: jianleishen
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: mode-api
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 

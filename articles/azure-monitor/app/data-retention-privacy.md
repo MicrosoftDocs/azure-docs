@@ -45,7 +45,7 @@ They all send telemetry to the same service.
 
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at runtime](./status-monitor-v2-overview.md). There are different SDKs for different application types. There's also an [SDK for webpages](./javascript.md), which loads into the user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at runtime](./application-insights-asp-net-agent.md). There are different SDKs for different application types. There's also an [SDK for webpages](./javascript.md), which loads into the user's browser along with the page.
   
   * Each SDK has many [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
@@ -331,5 +331,5 @@ No. Data is read-only and can only be deleted via the purge functionality. To le
 [java]: ./opentelemetry-enable.md?tabs=java
 [platforms]: ./app-insights-overview.md#supported-languages
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./status-monitor-v2-overview.md
+[redfield]: ./application-insights-asp-net-agent.md
 [start]: ./app-insights-overview.md

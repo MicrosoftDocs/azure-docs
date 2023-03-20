@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Sectigo Certificate Manager | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Sectigo Certificate Manager'
 description: Learn how to configure single sign-on between Azure Active Directory and Sectigo Certificate Manager.
 services: active-directory
 author: jeevansd

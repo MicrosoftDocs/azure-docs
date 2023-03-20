@@ -1,5 +1,5 @@
 ---
-title: 'What is Azure AD Connect cloud sync? | Microsoft Docs'
+title: 'What is Azure AD Connect cloud sync?'
 description: Describes Azure AD Connect cloud sync.
 services: active-directory
 author: billmath
@@ -74,7 +74,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Groups with up to 50,000 members |● |● |
 | Large groups with up to 250,000 members |● |  |
 | Cross domain references|● |● |
-| On-demand provisioning|● |● |
+| On-demand provisioning| |● |
 | Support for US Government|● |● |
 
 ## Next steps 

@@ -12,34 +12,34 @@
     href: concepts-observability.md
 - name: Quickstarts
   items:
-  - name: Create Network fabric Controller and Cluster Manager
-    href: quickstart-network-fabric-controller-cluster-manager-create.md
-  - name: Before you start platform deployment
-    href: quickstarts-platform-prerequisites.md
-  - name: Platform deployment
-    href: quickstarts-platform-deployment.md
   - name: Before you start workload deployment
     href: quickstarts-tenant-workload-prerequisites.md
   - name: Tenant workload deployment
     href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
-  - name: BareMetal Functions
-    href: howto-baremetal-functions.md
+  - name: Before you start Operator Nexus NFC and CM deployment
+    href: howto-azure-operator-nexus-prerequisites.md
+  - name: Network Fabric Controller
+    href: howto-configure-network-fabric-controller.md
   - name: Cluster Manager
     href: howto-cluster-manager.md
-  - name: isolation-domain
-    href: howto-configure-isolation-domain.md
-  - name: Network fabric
+  - name: Before you start Operator Nexus platform deployment
+    href: howto-platform-prerequisites.md
+  - name: Network Fabric
     href: howto-configure-network-fabric.md
-  - name: Network fabric Controller
-    href: howto-configure-network-fabric-controller.md
+  - name: Cluster
+    href: howto-configure-cluster.md
+  - name: BareMetal Functions
+    href: howto-baremetal-functions.md
+  - name: Isolation Domain
+    href: howto-configure-isolation-domain.md
   - name: AKS-Hybrid
     href: howto-hybrid-aks.md
   - name: Monitor AKS-Hybrid Cluster
-    href: howto-monitoring-aks-h-cluster.md
+    href: howto-monitor-aks-h-cluster.md
   - name: Monitor VMs for VNF
-    href: howto-monitoring-virtualized-network-functions-virtual-machines.md
+    href: howto-monitor-virtualized-network-functions-virtual-machines.md
   - name: Pre-certification 
     href: howto-precertification.md
 - name: Sample Deployment

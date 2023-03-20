@@ -200,7 +200,7 @@ This project focuses on migrating SSO capability from WAM systems to Azure AD. T
 
 ### Define an application server management strategy
 
-In terms of infrastructure management, on-premises environments often use a combination of Group Policy objects (GPOs) and Microsoft Endpoint Configuration Manager features to segment management duties. For example, duties can be segmented into security policy management, update management, configuration management, and monitoring.
+In terms of infrastructure management, on-premises environments often use a combination of Group Policy objects (GPOs) and Microsoft Configuration Manager features to segment management duties. For example, duties can be segmented into security policy management, update management, configuration management, and monitoring.
 
 Active Directory is for on-premises IT environments, and Azure AD is for cloud-based IT environments. One-to-one parity of features isn't present here, so you can manage application servers in several ways. 
 
@@ -210,9 +210,9 @@ Use the following table to determine what Azure-based tools you can use to repla
 
 | Management area | On-premises (Active Directory) feature | Equivalent Azure AD feature |
 | - | - | -|
-| Security policy management| GPO, Microsoft Endpoint Configuration Manager| [Microsoft 365 Defender for Cloud](https://azure.microsoft.com/services/security-center/) |
-| Update management| Microsoft Endpoint Configuration Manager, Windows Server Update Services| [Azure Automation Update Management](../../automation/update-management/overview.md) |
-| Configuration management| GPO, Microsoft Endpoint Configuration Manager| [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) |
+| Security policy management| GPO, Microsoft Configuration Manager| [Microsoft 365 Defender for Cloud](https://azure.microsoft.com/services/security-center/) |
+| Update management| Microsoft Configuration Manager, Windows Server Update Services| [Azure Automation Update Management](../../automation/update-management/overview.md) |
+| Configuration management| GPO, Microsoft Configuration Manager| [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) |
 | Monitoring| System Center Operations Manager| [Azure Monitor Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) |
 
 Here's more information that you can use for application server management:
@@ -223,7 +223,7 @@ Here's more information that you can use for application server management:
 
 * If you must wait to migrate or perform a partial migration, you can use GPOs with [Azure AD DS](https://azure.microsoft.com/services/active-directory-ds/).
 
-If you require management of application servers with Microsoft Endpoint Configuration Manager, you can't achieve this by using Azure AD DS. Microsoft Endpoint Configuration Manager isn't supported to run in an Azure AD DS environment. Instead, you'll need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you'll need to deploy a new Active Directory instance to an Azure IaaS virtual network.
+If you require management of application servers with Microsoft Configuration Manager, you can't achieve this by using Azure AD DS. Microsoft Configuration Manager isn't supported to run in an Azure AD DS environment. Instead, you'll need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you'll need to deploy a new Active Directory instance to an Azure IaaS virtual network.
 
 ### Define the migration strategy for legacy applications
 

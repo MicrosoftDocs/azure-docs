@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: balapv
 author: balapv
 ms.date: 05/10/2022
-ms.custom: cliv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, cliv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Azure Machine Learning SDK & CLI (v1) 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service.
 services: active-directory
 author: jeevansd

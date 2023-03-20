@@ -16,13 +16,13 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://developer.apple.com/xcode/), along with a valid developer certificate installed into your Keychain.
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). You'll need to **record your connection string** for this quickstart.
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 ### Creating the Xcode project
@@ -227,7 +227,7 @@ struct ContentView_Previews: PreviewProvider {
 ```
 
 ### Authenticate the client
-In order to initialize a CallAgent instance we need a User Access Token which will enable us to make and receive calls. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
+In order to initialize a CallAgent instance we need a User Access Token which will enable us to make and receive calls. Refer to the [user access token](../../../identity/access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
 
 Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You'll need to replace `<USER ACCESS TOKEN>` with a valid user access token** for your resource:
 

@@ -9,7 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/25/2023
 ms.author: oriwolman 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell compute-evergreen
 
 ---
 

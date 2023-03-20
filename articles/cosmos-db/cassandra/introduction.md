@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Introduction/Overview
 titleSuffix: Azure Cosmos DB for Apache Cassandra
 description: Use Azure Cosmos DB for Apache Cassandra to power existing and new applications with Cassandra drivers and CQL.
 author: TheovanKraay
@@ -8,11 +8,11 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: overview
-ms.date: 11/30/2022
+ms.date: 02/28/2023
 ms.custom: ignite-2022
 ---
 
-# Introduction to Azure Cosmos DB for Apache Cassandra
+# What is Azure Cosmos DB for Apache Cassandra?
 
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
@@ -47,17 +47,6 @@ The API for Cassandra has added benefits of being built on Azure Cosmos DB:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get started with our Python Quickstart](manage-data-python.md)
-
-Want to learn more?
-
-- You can quickly get started with building the following language-specific apps to create and manage API for Cassandra data:
-  - [Node.js app](manage-data-nodejs.md)
-  - [.NET app](manage-data-dotnet.md)
-  - [Python app](manage-data-python.md)
 - Get started with [creating a API for Cassandra account, database, and a table](create-account-java.md) by using a Java application.
 - [Load sample data to the API for Cassandra table](load-data-table.md) by using a Java application.
 - [Query data from the API for Cassandra account](query-data.md) by using a Java application.
-- To learn about Apache Cassandra features supported by Azure Cosmos DB for Apache Cassandra, see [Cassandra support](support.md) article.
-- Read the [Frequently Asked Questions](cassandra-faq.yml).

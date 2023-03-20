@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -21,17 +21,17 @@ ms.devlang: csharp, golang, java, javascript, python
 
 # Quickstart: Azure Cognitive Services Translator
 
-Try the latest version of Azure Translator. In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
+Try the latest version of Azure Translator. In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice or the REST API. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
 ## Prerequisites
 
-To get started, you'll need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
 * Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
 * After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 
-  * You need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+  * You need the key and endpoint from the resource to connect your application to the Translator service. You paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
@@ -50,14 +50,14 @@ To get started, you'll need an active Azure subscription. If you don't have an A
 
 ## Headers
 
-To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to include the following headers with each request. Don't worry, we'll include the headers for you in the sample code for each programming language.
+To call the Translator service via the [REST API](reference/rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code for each programming language.
 
 For more information on Translator authentication options, _see_ the [Translator v3 reference](./reference/v3-0-reference.md#authentication) guide.
 
 Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|&bullet; ***Required***|
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a multi-service Cognitive Services or regional (non-global) resource.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
 |**Content-Length**|The **length of the request** body.|&bullet; ***Optional***|
 
@@ -67,7 +67,7 @@ Header|Value| Condition  |
 
 ## Translate text
 
-The core operation of the Translator service is translating text. In this quickstart, you'll build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response.
+The core operation of the Translator service is translating text. In this quickstart, you build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we review some parameters that can be used to adjust both the request and the response.
 
 ### [C#: Visual Studio](#tab/csharp)
 
@@ -381,7 +381,7 @@ After a successful call, you should see the following response:
     mkdir translator-text-app; cd translator-text-app
    ```
 
-1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from the translator-text-app directory. This command creates essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
 
     ```console
     gradle init --type basic
@@ -422,7 +422,7 @@ After a successful call, you should see the following response:
     mkdir -p src/main/java
     ```
 
-   You'll create the following directory structure:
+   You create the following directory structure:
 
     :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure.":::
 
