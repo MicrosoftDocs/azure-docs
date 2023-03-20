@@ -20,14 +20,14 @@ This article shows you how to use Draft with the DevX extension to draft a Docke
 * You need an Azure resource group and an AKS cluster with an attached ACR. To attach an ACR to your AKS cluster, use `az aks update -n <cluster-name> -g <resource-group-name> --attach-acr <acr-name>` or follow the instructions in [Authenticate with ACR from AKS][aks-acr-authenticate].
 * Download and install the [Azure Kubernetes Service DevX Extension for Visual Studio Code][devx-extension].
 
-## Use Draft with the DevX extension for Visual Studio Code
+## Draft with the DevX extension for Visual Studio Code
 
 To get started with Draft in Visual Studio Code, press **Ctrl + Shift + P** in your Visual Studio Code window and enter **AKS Developer**. From here, you'll see available Draft commands:
 
-    - Get started
-    - Draft a DockerFile
-    - Draft a Kubernetes Deployment and Service
-    - Build an Image on Azure Container Registry
+* Get started
+* Draft a DockerFile
+* Draft a Kubernetes Deployment and Service
+* Build an Image on Azure Container Registry
 
 ### Get started
 
