@@ -111,7 +111,7 @@ Follow these steps to grant permissions to the Azure Lab Service service princip
     1. Assign the Owner role to service principal on the compute gallery:
 
         ```azurecli-interactive
-        az role assignment create --assignee-object-id <service-principal-object-id> --role Reader --scope <gallery-id>
+        az role assignment create --assignee-object-id <service-principal-object-id> --role Owner --scope <gallery-id>
         ```
 
         Replace the text placeholders *`<service-principal-object-id>`* and *`<gallery-id>`* with the outcomes of the previous commands.
