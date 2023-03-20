@@ -76,6 +76,14 @@ You can install any provider package by editing the airflow environment from the
 
    :::image type="content" source="media/concept-managed-airflow/airflow-integration.png" lightbox="media/concept-managed-airflow/airflow-integration.png" alt-text="Screenshot shows airflow integration.":::
 
+## Limitations
+
+* Airflow availability in other regions will be available by GA (Tentative GA : Q2 2023 ).
+* Data Sources connecting through airflow should be publicly accessible. 
+* Blob Storage behind VNet are not supported during the public preview (Tentative GA : Q2 2023)
+* KeyVault configuration in storageLinkedServices not supported to import dags.(Tentative GA : Q2 2023)
+* Airflow supports officially Blob Storage but also allows to use of ADLS with some limitations.
+
 ## Next steps
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
