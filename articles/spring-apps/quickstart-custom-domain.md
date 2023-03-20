@@ -42,23 +42,23 @@ First, use the following steps to create the `CNAME` record:
        --query 'properties.customDomainConfiguration.customDomainVerificationId'
    ```
 
-After you add the `CNAME` and `TXT` record, the DNS records page will resemble the following table.
+   After you add the `CNAME` and `TXT` record, the DNS records page will resemble the following table.
 
-| Name                | Type    | Value                                                              |
-|---------------------|---------|--------------------------------------------------------------------|
-| `{subdomain}`       | `CNAME` | `testapp.agreeablewater-4c8480b3.eastus.azurecontainerapps.io`     |
-| `asuid.{subdomain}` | `A`     | `6K861CL04CATKUCFF604024064D57PB52F5DF7B67BC3033BA9808BDA8998U270` |
+   | Name                | Type    | Value                                                              |
+   |---------------------|---------|--------------------------------------------------------------------|
+   | `{subdomain}`       | `CNAME` | `testapp.agreeablewater-4c8480b3.eastus.azurecontainerapps.io`     |
+   | `asuid.{subdomain}` | `A`     | `6K861CL04CATKUCFF604024064D57PB52F5DF7B67BC3033BA9808BDA8998U270` |
 
-Next, bind the custom domain to your app by using the following command.
+1. Next, bind the custom domain to your app by using the following command.
 
-```azurecli
-az spring app custom-domain bind \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-service-instance-name> \
-    --app <app-name> \
-    --domain-name <your-custom-domain-name> \
-    --certificate <name-of-your-certificate-under-Azure-Container-Apps-environment>
-```
+   ```azurecli
+   az spring app custom-domain bind \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --app <app-name> \
+       --domain-name <your-custom-domain-name> \
+       --certificate <name-of-your-certificate-under-Azure-Container-Apps-environment>
+   ```
 
 ## Clean up resources
 
