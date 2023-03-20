@@ -52,9 +52,9 @@ gcc --version
 ### Windows
 To complete this quickstart on Windows, install Visual Studio 2022 and add the required components for C and C++ development.
 
-1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2033](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
+1. For new users, install [Visual Studio (Community, Professional, or Enterprise) 2022](https://visualstudio.microsoft.com/downloads/). Download the edition you want to install, and start the installer.
     > [!NOTE]
-    > For existing Visual Studio 2022 users, select Windows **Start**, type *Visual Studio Installer*, start the installer, and then select **Modify**. 
+    > For existing Visual Studio 2022 users, select Windows **Start**, type *Visual Studio Installer*, run the installer, and then select **Modify**. 
 1. In the installer **Workloads** tab, select the **Desktop Development with C++** workload.
 1. Run the installation.
 
