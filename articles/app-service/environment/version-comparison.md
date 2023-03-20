@@ -70,7 +70,7 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
-|Application logging to storage account over virtual network    |Yes         |Yes         |No. The recommendation is to use [diagnostics logging](../overview-diagnostics.md) instead. If you need to use a firewall for the logging storage account, teh storage account must be in a different region and use the outbound public addresses of the App Service Environment in the rules. For more information, see [networking considerations](../troubleshoot-diagnostic-logs.md#networking-considerations).       |
+|Application logging to storage account over virtual network    |Yes         |Yes         |No. The recommendation is to use [diagnostics logging](../overview-diagnostics.md) instead. If you need to use a firewall for the logging storage account, the storage account must be in a different region and use the outbound public addresses of the App Service Environment in the rules. For more information, see [networking considerations](../troubleshoot-diagnostic-logs.md#networking-considerations).       |
 |Azure Policy integration|Yes |Yes |Yes |
 |Azure Advisor integration|Yes |Yes |Yes |
 
