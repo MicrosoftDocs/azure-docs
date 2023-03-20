@@ -581,14 +581,14 @@ sections:
           * [Page view counts](app/usage-overview.md)
           * [AJAX calls](app/asp-net-dependencies.md): Requests made from a running script
           * Page view load data
-          * Configurable page [visit time](./app/data-model-pageview-telemetry.md)
+          * Configurable page [visit time](./app/data-model-complete.md#pageview)
           * User and session counts
           * [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
           
           From other sources, if you configure them:
           
           * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md)
-          * [Import to analytics](logs/data-collector-api.md)
+          * [Import to Log Analytics](logs/data-collector-api.md)
           * [Log Analytics](logs/data-collector-api.md)
           * [Logstash](logs/data-collector-api.md)
           
@@ -695,9 +695,9 @@ sections:
       - question: |
           Why are the counts in Search and Metrics charts unequal?
         answer: |
-          [Sampling](app/sampling.md) reduces the number of telemetry items (requests, custom events, and so on) that are sent from your app to the portal. In Search, you see the number of items received. In metric charts that display a count of events, you see the number of original events that occurred.
+          [Sampling](app/sampling.md) reduces the number of telemetry items (like requests and custom events) that are sent from your app to the portal. In Search, you see the number of items received. In metric charts that display a count of events, you see the number of original events that occurred.
           
-          Each item that's transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Analytics:
+          Each item that's transmitted carries an `itemCount` property that shows how many original events that item represents. To observe sampling in operation, you can run this query in Log Analytics:
           
           ```
               requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -708,11 +708,11 @@ sections:
         answer: |
           Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
           
-          1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace-based](./app/create-workspace-resource.md)) in the new region.
+          1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](./app/create-workspace-resource.md)) in the new region.
           1. Re-create all unique customizations specific to the original resource in the new resource.
           1. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).
           1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
-          1. At this point, you can either keep or delete the original Application Insights resource. Deleting a classic Application Insights resource results in *all historical data being lost*. If the original resource was workspace based, its data remains in Log Analytics. Keeping the original Application Insights resource allows you to access its historical data until its data retention settings run out.
+          1. At this point, you can either keep or delete the original Application Insights resource. If you delete a classic Application Insights resource, *all historical data is lost*. If the original resource was workspace based, its data remains in Log Analytics. Keeping the original Application Insights resource allows you to access its historical data until its data retention settings run out.
           
           Unique customizations that commonly need to be manually re-created or updated for the resource in the new region include but aren't limited to:
           
@@ -726,7 +726,7 @@ sections:
           - Diagnostic settings in workspace-based resources must be configured again.
           
           > [!NOTE]
-          > If the resource you're creating in a new region is replacing a classic resource, we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace based](app/convert-classic-resource.md).
+          > If the resource you're creating in a new region is replacing a classic resource, we recommend that you explore the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md). Alternatively, [migrate your existing resource to workspace based](app/convert-classic-resource.md).
 
       - question: |
           Automation
@@ -745,7 +745,7 @@ sections:
           
           ### Query the telemetry
           
-          Use the [REST API](/rest/api/application-insights/) to run [Analytics](./logs/log-query-overview.md) queries.
+          Use the [REST API](/rest/api/application-insights/) to run [Log Analytics](./logs/log-query-overview.md) queries.
           
       - question: |
           How can I set an alert on an event?
@@ -763,7 +763,7 @@ sections:
       - question: |
           Can I send telemetry to the Application Insights portal?
         answer: |
-          We recommend that you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/app-insights-overview.md#supported-languages). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+          We recommend that you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/app-insights-overview.md#supported-languages). These SDKs handle processes like buffering, compression, throttling, and retries. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
           
       - question: |
           Can I monitor an intranet web server?
@@ -812,8 +812,8 @@ sections:
           
           ### Proxy passthrough
           
-          Proxy passthrough can be achieved by configuring either a machine-level or application-level proxy.
-          See dotnet's article on [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+          To achieve proxy passthrough, configure a machine-level proxy or an application-level proxy.
+          See [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
           
           Example Web.config:
           
@@ -830,8 +830,8 @@ sections:
         answer: |
           Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
-          * Firewall door: Allow requests to your server from [the long and changeable list of web test agents](app/ip-addresses.md).
-          * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
+          * **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](app/ip-addresses.md).
+          * **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
           
       - question: |
           How long does it take for telemetry to be collected?
@@ -852,9 +852,9 @@ sections:
           
           If the 502 or 503 response was sent from a server with server-side monitoring enabled, the errors are collected by the Application Insights SDK.
           
-          There are still cases where even when server-side monitoring is enabled on an application's web server, a 502 or 503 error won't be captured by Application Insights. Many modern web servers don't allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
+          Even when server-side monitoring is enabled on an application's web server, sometimes a 502 or 503 error isn't captured by Application Insights. Many modern web servers don't allow a client to communicate directly. Instead, they employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
-          In this scenario, a 502 or 503 response could be returned to a client because of an issue at the reverse proxy layer and it wouldn't be captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
+          In this scenario, a 502 or 503 response might be returned to a client because of an issue at the reverse proxy layer, so it isn't captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
 
   - name: OpenTelemetry
     questions:
@@ -882,7 +882,7 @@ sections:
       - question: |
           How can I test out OpenTelemetry?
         answer: |
-          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md). Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to get notified of major releases.
+          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md). Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to receive notifications about major releases.
 
       - question: |
           What's the current release state of features within each OpenTelemetry offering?
@@ -909,13 +909,13 @@ sections:
           
           **Key**
           - :white_check_mark: This feature is available to all customers with formal support.
-          - :warning: This feature is available as a public preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+          - :warning: This feature is available as a public preview. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
           - :x: This feature isn't available or isn't applicable.
 
       - question: |
           Can OpenTelemetry be used for web browsers?
         answer: |
-          Yes. But we don't recommend it and it isn't supported by Azure. OpenTelemetry JavaScript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
+          Yes, but we don't recommend it and Azure doesn't support it. OpenTelemetry JavaScript is heavily optimized for Node.js. Instead, we recommend using the Application Insights JavaScript SDK.
 
       - question: |
           When can we expect the OpenTelemetry SDK to be available for use in web browsers?
@@ -945,9 +945,9 @@ sections:
 
           - Sending telemetry to Azure Monitor and another vendor simultaneously.
           - Collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver). 
-          - Using features available in the OpenTelemetry-Collector.
+          - Using features available in the OpenTelemetry Collector.
           
-          For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). Although similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
+          For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). Although similar features exist in the current Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
           
           You can see our progress toward OpenTelemetry-based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
 
@@ -978,9 +978,9 @@ sections:
           OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/opentelemetry-enable.md?tabs=java). [Python](https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/util/instrumentation.py) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft doesn't currently support. All other OpenTelemetry languages are focused on manual instrumentation only.
           
       - question: |
-          Can I use the OpenTelemetry-Collector?
+          Can I use the OpenTelemetry Collector?
         answer: |
-          Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
+          Some customers have begun to use the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community has contributed an [OpenTelemetry Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
           
           We plan to support an agent-based approach in the future, but the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry-supported language to send to Azure Monitor via the [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This approach enables customers to observe applications written in languages beyond our [supported languages](./app/app-insights-overview.md#supported-languages). 
           
@@ -994,11 +994,11 @@ sections:
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
-          *Other processes* are intended to help you clearly understand the root cause of the high resource usage on your node. This information enables you to distinguish usage between containerized processes vs noncontainerized processes.
+          *Other processes* are intended to help you clearly understand the root cause of the high resource usage on your node. This information helps you to distinguish usage between containerized processes versus noncontainerized processes.
           
           What are these other processes?
           
-          These other processes are noncontainerized processes that run on your node.
+          They're noncontainerized processes that run on your node.
           
           How do we calculate this?
           
@@ -1013,7 +1013,7 @@ sections:
           - Other non-Kubernetes workloads running on node hardware or a VM.
           
       - question: |
-          I don't see Image and Name property values populated when I query the ContainerLog table.
+          Why don't I see Image and Name property values populated when I query the ContainerLog table?
         answer: |
           For agent version ciprod12042019 and later, by default these two properties aren't populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
           
@@ -1066,7 +1066,7 @@ sections:
       - question: |
           Why don't I see data in my Log Analytics workspace?
         answer: |
-          If you're unable to see any data in the Log Analytics workspace at a certain time every day, you might have reached the default 500-MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Azure Monitor Logs pricing information](logs/cost-logs.md).
+          If you're unable to see any data in the Log Analytics workspace at a certain time every day, you might have reached the default 500-MB limit or the cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Azure Monitor Logs pricing information](logs/cost-logs.md).
           
       - question: |
           What are the container states specified in the ContainerInventory table?
@@ -1145,7 +1145,7 @@ sections:
       - question: |
           Why don't I see Normal event types when I query the KubeEvents table?
         answer:
-          By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need the collection of Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
+          By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
 
 
       
@@ -1166,7 +1166,7 @@ sections:
       - question: |
           What do I do if my VM is already reporting to an existing workspace?
         answer: |
-          If you're already collecting data from your VMs, you might have already configured it to report data to an existing Log Analytics workspace. If that workspace is in one of our supported regions, you can enable VM insights to that preexisting workspace. If the workspace you're already using isn't in one of our supported regions, you can't onboard to VM insights at this time. We're working to support more regions.
+          If you're already collecting data from your VM, you might have already configured it to report data to an existing Log Analytics workspace. If that workspace is in one of our supported regions, you can enable VM insights to that preexisting workspace. If the workspace you're already using isn't in one of our supported regions, you can't onboard to VM insights at this time. We're working to support more regions.
 
       - question: |
           Why did my VM fail to onboard?
@@ -1194,17 +1194,17 @@ sections:
           * The Map view can be accessed from the VM pane and from VM insights under Azure Monitor.
           * The connections in the map are now clickable and display a view of the connection metric data in the side pane for the selected connection.
           * A new API creates the maps to better support more complex maps.
-          * Monitored VMs are now included in the client group node. The donut chart shows the proportion of monitored versus unmonitored virtual machines in the group. It can also be used to filter the list of machines when the group is expanded.
-          * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored versus unmonitored machines in the group. It can also be used to filter the list of machines when the group is expanded.
-          * The map style has been updated to be more consistent with App Map from Application insights.
+          * Monitored VMs are now included in the client group node. The donut chart shows the proportion of monitored versus unmonitored VMs in the group. It can also be used to filter the list of machines when the group is expanded.
+          * Monitored VMs are now included in the server port group nodes. The donut chart shows the proportion of monitored versus unmonitored machines in the group. It can also be used to filter the list of machines when the group is expanded.
+          * The map style was updated to be more consistent with App Map from Application insights.
           * The side panes have been updated and don't have the full set of integrations that were supported in Service Map: Update Management, Change Tracking, Security, and Service Desk.
-          * The option for choosing groups and machines to map has been updated and now supports subscriptions, resource groups, Azure virtual machine scale sets, and cloud services.
+          * The option for choosing groups and machines to map was updated and now supports subscriptions, resource groups, Azure virtual machine scale sets, and cloud services.
           * You can't create new Service Map machine groups in the VM insights Map feature.
           
       - question: |
           Why do my performance charts show dotted lines?
         answer: |
-          Dotted lines can occur for a few reasons. In cases where there's a gap in data collection, we depict the lines as dotted. 
+          Dotted lines can occur for a few reasons. In cases where there's a gap in data collection, the lines appear as dotted. 
           
           The default setting for data sampling frequency is to collect data every 60 seconds. If you modified the frequency for the performance counters enabled, dotted lines are used in the chart if you chose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart. 
           
@@ -1215,7 +1215,7 @@ sections:
         answer: |
           Yes. After you install the Dependency agent, we collect information from the VMs to display groups based on subscription, resource group, virtual machine scale sets, and cloud services. 
           
-          If you've been using Service Map and have created machine groups, these groups are displayed too. Computer groups also appear in the groups filter if you've created them for the workspace you're viewing.
+          If you've been using Service Map and have created machine groups, these groups are displayed too. Computer groups also appear in the groups filter if you created them for the workspace you're viewing.
 
       - question: |
           How do I see the information for what's driving the 95th percentile line in the aggregate performance charts?
@@ -1238,9 +1238,9 @@ sections:
           Although we've made improvements to Map to handle large and complex configurations, we realize a map can have many nodes, connections, and nodes working as a cluster. We're committed to continuing to enhance support to increase scalability.
 
       - question: |
-          Why does the network chart on the Performance tab look different than the network chart on the Azure VM Overview page?
+          Why does the network chart on the Performance tab look different than the network chart on the Azure VM overview page?
         answer: |
-          The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM overview only displays network traffic that will be billed. Inter-virtual network traffic isn't included. The data and charts shown for VM insights is based on data from the guest VM. The network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network traffic.
+          The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM overview only displays network traffic that will be billed. Inter-virtual network traffic isn't included. The data and charts shown for VM insights are based on data from the guest VM. The network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network traffic.
 
       - question: |
           How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
@@ -1273,7 +1273,7 @@ sections:
           - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           - Azure Virtual Machines (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           
-          See [Supported versions](/azure/azure-sql/database/sql-insights-overview#supported-versions) for more information and for information about scenarios with no support or limited support.
+          See [Supported versions](/azure/azure-sql/database/sql-insights-overview#supported-versions) for more information and for details about scenarios with no support or limited support.
           
       - question: |
           What operating systems for the virtual machine running SQL Server are supported?
