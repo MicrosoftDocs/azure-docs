@@ -39,7 +39,7 @@ items:
     href: how-to-create-dashboard.md
   - name: Share a dashboard
     href: how-to-share-dashboard.md
-  - name: Share an Azure Managed Grafana instance
+  - name: Share a workspace
     href: how-to-share-grafana-workspace.md
   - name: Configure SMTP settings
     href: how-to-smtp-settings.md
