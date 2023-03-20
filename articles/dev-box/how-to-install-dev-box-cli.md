@@ -32,18 +32,13 @@ az extension list
 ### Update the Dev Box CLI extension
 You can update the Dev Box CLI extension if you already have it installed.
 
-To check the version of the extension that's installed
-``` azurecli
-az extension --version
-```
-
 To update a version of the extension that's  installed
 ``` azurecli
 az extension update --name devcenter
 ```
-### Uninstall the Dev Box CLI extension
+### Remove the Dev Box CLI extension
 
-To uninstall the extension, use the following command
+To remove the extension, use the following command
 ```azurecli
 az extension remove --name devcenter
 ```

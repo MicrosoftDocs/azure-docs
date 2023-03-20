@@ -32,18 +32,13 @@ az extension list
 ### Update the Deployment Environments CLI extension
 You can update the Deployment Environments CLI extension if you already have it installed.
 
-To check the version of the extension that's installed
-``` azurecli
-az extension --version
-```
-
 To update a version of the extension that's  installed
 ``` azurecli
 az extension update --name devcenter
 ```
-### Uninstall the Deployment Environments CLI extension
+### Remove the Deployment Environments CLI extension
 
-To uninstall the extension, use the following command
+To remove the extension, use the following command
 ```azurecli
 az extension remove --name devcenter
 ```
