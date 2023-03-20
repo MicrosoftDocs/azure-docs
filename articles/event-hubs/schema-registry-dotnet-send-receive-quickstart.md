@@ -343,7 +343,7 @@ This section shows how to write a .NET Core console application that receives ev
 1. You should see a message that the events have been received. 
 
     ```bash
-    Received - Order ID: 12345
+    Received order with ID: 1234, amount: 45.29, description: First sample order.
     ```
     These events are the three events you sent to the event hub earlier by running the sender program. 
 
