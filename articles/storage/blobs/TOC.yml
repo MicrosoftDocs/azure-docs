@@ -813,6 +813,15 @@ items:
           items:
           - name: Create a container
             href: storage-blob-container-create-typescript.md
+          - name: Get container URL
+            href: storage-blob-get-url-typescript.md
+          - name: Delete and restore containers
+            href: storage-blob-container-delete-typescript.md
+          - name: List containers
+            href: storage-blob-containers-list-typescript.md
+          - name: Manage properties and metadata
+            href: storage-blob-container-properties-metadata-typescript.md
+
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator

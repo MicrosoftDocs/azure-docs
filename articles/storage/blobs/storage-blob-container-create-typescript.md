@@ -1,7 +1,7 @@
 ---
 title: Create a blob container with TypeScript
 titleSuffix: Azure Storage 
-description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
+description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library using TypeScript.
 author: pauljewellmsft
 
 ms.service: storage
@@ -50,7 +50,7 @@ The following example creates a container asynchronously from the BlobServiceCli
 
 A root container, with the specific name `$root`, enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob _without using a container name in the URI_:
 
-`https://myaccount.blob.core.windowsJavaScript/default.html`
+`https://myaccount.blob.core.windows.net/default.html`
 
 The root container must be explicitly created or deleted. It isn't created by default as part of service creation. The same code displayed in the previous section can create the root. The container name is `$root`.
 
@@ -66,6 +66,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js)
-
-[!INCLUDE [storage-dev-guide-resources-typescript](../../../includes/storage-dev-guides/storage-dev-guide-resources-typescript.md)]
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/container-create.ts)

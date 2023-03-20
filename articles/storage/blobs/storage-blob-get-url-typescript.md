@@ -1,7 +1,7 @@
 ---
 title: Get container and blob url with TypeScript
 titleSuffix: Azure Storage
-description: Learn how to get a container or blob URL in Azure Storage by using the JavaScript client library.
+description: Learn how to get a container or blob URL in Azure Storage by using the JavaScript client library using TypeScript.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -31,7 +31,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 The following example gets a container URL and a blob URL by accessing the client's **url** property:
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-get-urls.ts":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-get-url.ts":::
 
 > [!TIP]
 > For loops, you must use the object's `name` property to create a client then get the URL with the client. Iterators don't return client objects, they return item objects. 
