@@ -15,7 +15,7 @@ ms.date: 03/20/2023
 
 # Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP
 
-Learn to integrate Azure Active Directory B2C (Azure AD B2C) with F5 BIG-IP Access Policy Manager (APM). You can expose legacy applications securely to the internet through BIG-IP security, with Azure AD B2C pre-authentication, Conditional Access (CA), and single sign-on (SSO). F5 Inc. focuses on delivery, security, performance, and availability of connected services, including computing, storage, and network resources. It provides hardware, modularized software, and cloud-ready virtual appliance solutions.
+Learn to integrate Azure Active Directory B2C (Azure AD B2C) with F5 BIG-IP Access Policy Manager (APM). You can expose legacy applications securely to the internet through BIG-IP security, with Azure AD B2C preauthentication, Conditional Access (CA), and single sign-on (SSO). F5 Inc. focuses on delivery, security, performance, and availability of connected services, including computing, storage, and network resources. It provides hardware, modularized software, and cloud-ready virtual appliance solutions.
 
 Deploy F5 BIG-IP Application Delivery Controller (ADC) as a secure gateway between private networks and the internet. There are features for application-level inspection and customizable access controls. If deployed as a reverse proxy, use the BIG-IP to enable secure hybrid access to business applications, with a federated identity access layer managed by APM.
 
@@ -47,7 +47,7 @@ The following scenario is header-based, but you can use these methods to achieve
 
 For this scenario, access for an internal application relies on receiving HTTP authorization headers from a legacy broker system. Sales agents can be directed to respective areas of content. The service needs to be expanded to a broader consumer base. The application gets upgraded for consumer authentication options, or gets replaced.
 
-Ideally, an application upgrade supports direct management and governance with a modern control plane. However, time and effort to modernize introduces costs and potential downtime. Instead, deploy a BIG-IP Virtual Edition (VE) between the public internet and the internal Azure virtual network (VNet) to gate access with Azure AD B2C. BIG-IP in front of the application enables overlay of the service with Azure AD B2C pre-authentication and header-based SSO, improving the app security posture.
+Ideally, an application upgrade supports direct management and governance with a modern control plane. However, time and effort to modernize introduces costs and potential downtime. Instead, deploy a BIG-IP Virtual Edition (VE) between the public internet and the internal Azure virtual network (VNet) to gate access with Azure AD B2C. BIG-IP in front of the application enables overlay of the service with Azure AD B2C preauthentication and header-based SSO, improving the app security posture.
 
 The secure hybrid access solution has of the following components:
 
@@ -116,7 +116,7 @@ Federate BIG-IP and Azure AD B2C for mutual trust. Register the BIG-IP in the Az
 11. Enter a TTL for the secret used by the BIG-IP.
 12. Note the Client Secret for BIG-IP configuration.
 
-The redirect URI is the BIG-IP endpoint. Users are sent to the endpoint by the authorization server (Azure AD B2C), after authentication. 
+The redirect URI is the BIG-IP endpoint. After authentication, the authorization server (Azure AD B2C) sends users to the endpoint. 
 
 Learn more: [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md) for Azure AD B2C.
 
@@ -148,7 +148,7 @@ To add and manage certificates in the BIG-IP VE, go to techdocs.f5.com for [BIG-
 
 ### OAuth properties
 
-In the following sections you define properties to enable federation between the BIG-IP APM and the OAuth authorization server, the Azure AD B2C tenant. OAuth is referred to throughout BIG-IP configuration. The solution uses OIDC, an identity layer on the OAuth 2.0 protocol. OIDC clients verify user identity and obtain other profile information.
+In the following sections, define properties to enable federation between the BIG-IP APM and the OAuth authorization server, the Azure AD B2C tenant. OAuth is referred to throughout BIG-IP configuration. The solution uses OIDC, an identity layer on the OAuth 2.0 protocol. OIDC clients verify user identity and obtain other profile information.
 
 #### Configuration name
 
@@ -181,7 +181,7 @@ Add a new provider and configure it:
 
   | Properties | Description |
   |:-----------|:----------------|
-  | Scope | Leave blank, the OpenID scope for user sign-in will is added automatically |
+  | Scope | Leave blank. The OpenID scope for user sign-in is added automatically |
   | Grant type | Authorization code |
   | Enable OpenID Connect | Select the option to put the APM OAuth client in OIDC mode |
   | Flow type | Authorization code |
@@ -201,7 +201,7 @@ The following OpenID URI refers to the metadata endpoint used by OIDC clients to
 | Audience | The application client ID representing the BIG-IP in the Azure AD B2C tenant |
 | Authentication URI | The authorization endpoint in your B2C OIDC metadata |
 | Token URI | The token endpoint in your Azure AD B2C metadata |
-| Userinfo request URI | Leave empty. Azure AD B2C does not support this feature |
+| Userinfo request URI | Leave empty. Azure AD B2C doesn't support this feature |
 |OpenID URI | The OpenID URI metadata endpoint you created |
 | Ignore expired certificate validation | Leave unchecked |
 | Allow self-signed JWK config certificate | Check |
@@ -220,7 +220,7 @@ For the OIDC authorization server, being your Azure AD B2C tenant.
 
 **OAuth request settings**
 
-The BIG-IP has required Azure AD B2C requests in its pre-configured request set. However, the requests were malformed, and missing important parameters. So, we created them manually.
+The BIG-IP has required Azure AD B2C requests in its preconfigured request set. However, the requests were malformed, and missing important parameters. So, we created them manually.
 
 **Token request: Enabled**
 
@@ -314,7 +314,7 @@ In the **Form Header** text field, replace the `F5 Networks` string with a name 
 
 **Session management properties**
 
-Use the BIG-IP session management settings to define conditions that terminate sessionsor allowed them to continue. Set limits for users and IP addresses, and error pages. We recommend implementing single log out (SLO), which terminates sessions securely, reducing risks of unauthorized access.
+Use the BIG-IP session management settings to define conditions that terminate sessions or allow them to continue. Set limits for users and IP addresses, and error pages. We recommend implementing single log out (SLO), which terminates sessions securely, reducing risks of unauthorized access.
 
 ## Deploy settings
 
@@ -326,7 +326,7 @@ Learn more: [Identity Protection and Conditional Access for Azure AD B2C](condit
 
 1. As a user, go to the application external URL. 
 2. The BIG-IP’s OAuth client sign-in page appears.
-3. Sign in using the authorization code grant. To removing this step, see the **Supplemental configurations** section.
+3. Sign in using the authorization code grant. To remove this step, see the **Supplemental configurations** section.
 4. Sign up and authenticate against your Azure AD B2C tenant.
 
 The following images are the user sign in dialog and the sign-in welcome page.  
@@ -341,16 +341,16 @@ For increased security, block direct access to the application, thereby enforcin
 
 **Single log-out (SLO)**
 
-Azure AD B2C supports identity provider (IdP) and application sign out. See, [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
+Azure AD B2C supports identity provider (IdP) and application sign-out. See, [Single sign out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
-To achieve SLO, enable your application sign-out function to call the Azure AD B2C log-out endpoint. Then, Azure AD B2C issues a final redirect to the BIG-IP. This action ensures the user-application APM session terminates.
+To achieve SLO, enable your application sign out function to call the Azure AD B2C sign-out endpoint. Then, Azure AD B2C issues a final redirect to the BIG-IP. This action ensures the user-application APM session terminates.
 
-An alternative SLO process is to enable the BIG-IP to listen for the request, when selecting the applications **Sign out** button. Upon detecting the request it calls to the Azure AD B2C log-off endpoint. This approach precludes making changes to the application. 
+An alternative SLO process is to enable the BIG-IP to listen for the request, when selecting the applications **Sign out** button. Upon detecting the request, it calls to the Azure AD B2C sign-off endpoint. This approach precludes making changes to the application. 
 
 To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145).
 
 > [!NOTE]
-> Regardless of approach, ensure the Azure AD B2C tenant knows the APM log-out endpoint. 
+> Regardless of approach, ensure the Azure AD B2C tenant knows the APM sign-out endpoint. 
 
 1. In the portal, navigate to **Manage** > **Manifest**.
 2. Locate the `logoutUrl` property. It reads null.
@@ -361,7 +361,7 @@ To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring au
 
 **Optimized login flow**
 
-To improving the user sign-in experience, suppress the OAuth user sign-in prompt displayed before Azure AD pre-authentication. 
+To improve the user sign-in experience, suppress the OAuth user sign-in prompt that appears before Azure AD preauthentication. 
 
 1. Navigate to **Access** > **Guided Configuration**.
 2. On the far right of the row, select the **padlock** icon.
@@ -372,7 +372,7 @@ To improving the user sign-in experience, suppress the OAuth user sign-in prompt
 Unlocking the strict configuration prevents changes with the wizard UI. BIG-IP objects are associated with the published instance of the application, and are open for direct management.
 
 4. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)**. 
-5. For the application policy opject, in the **Per-Session Policy** column, select **Edit**.
+5. For the application policy object, in the **Per-Session Policy** column, select **Edit**.
 
    ![Screenshot of the Edit option under Access Policies, on the Access dialog.](./media/partner-f5/access-profile.png)
 
@@ -444,7 +444,7 @@ The same access log provides detail.
   5. Check the **Use Auto JWT** box.
   6. Select **Discover**.
   7. Select **Save**.
-  8. The Key (JWT) field has the token signing certificate key ID (KID) from OpenID URI metadata.
+  8. The **Key** (JWT) field has the token signing certificate key ID (KID) from OpenID URI metadata.
   9. In the top-left corner, select **Apply Access Policy**. 
   10. Select **Apply**.
 
