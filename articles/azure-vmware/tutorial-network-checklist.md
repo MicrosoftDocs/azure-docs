@@ -97,7 +97,7 @@ The subnets:
 | On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |
 | HCX Connector | connect.hcx.vmware.com<br> hybridity.depot.vmware.com | TCP | 443 | `connect` is needed to validate license key.<br> `hybridity` is needed for updates. |
 
-There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scanerios. Note that when source and destination says "on-premises", this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-premises components, you can ignore those rules as they would not be needed.
+There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scenarios. Note that when source and destination say "on-premises," this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-premises components, you can ignore those rules as they would not be needed.
 
 [Full list of HCX port requirements](https://ports.esp.vmware.com/home/VMware-HCX)
 
