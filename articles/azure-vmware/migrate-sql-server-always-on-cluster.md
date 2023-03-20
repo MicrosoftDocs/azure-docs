@@ -66,9 +66,7 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 
 1. Access your Always-On cluster with SQL Server Management Studio using administration credentials.
    - Select your primary replica and open **Availability Group** **Properties**.
-
           :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-1.png" alt-text="Diagram showing Always On Availability Group properties." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-1.png":::
-
    - Change **Availability Mode** to **Asynchronous commit** only for the replica to be migrated.
    - Change **Failover Mode** to **Manual** for every member of the availability group.
 1. Access the on-premises vCenter Server and proceed to HCX area.
