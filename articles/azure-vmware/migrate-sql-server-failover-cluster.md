@@ -74,9 +74,7 @@ For illustration purposes, in this document we're using a two-node cluster with 
 1. From vSphere Client shutdown the second node of the cluster.
 1. Access the first node of the cluster and open **Failover Cluster Manager**.
    - Verify that the second node is in **Offline** state and that all clustered services and storage are under the control of the first node.
-     
-         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Diagram showing Windows Server Failover Cluster Manager cluster storage verification." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-1.png":::
- 
+         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Diagram showing Windows Server Failover Cluster Manager cluster storage verification." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-1.png"::: 
    - Shut down the cluster.
     
         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-2.png" alt-text="Diagram showing a shut down cluster using Windows Server Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-2.png":::
