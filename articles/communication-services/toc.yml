@@ -538,8 +538,10 @@ items:
         href: concepts/notifications.md
     - name: Analytics
       items:
-      - name: Call logs overview
+      - name: Call logs
         href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Recording logs
+        href: concepts/analytics/recording-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: Known issues
@@ -610,9 +612,9 @@ items:
         href: ../event-grid/communication-services-voice-video-events.md
     - name: Analytics
       items:
-      - name: Call logs overview
+      - name: Call logs
         href: concepts/analytics/call-logs-azure-monitor.md
-      - name: Recording logs overview
+      - name: Recording logs
         href: concepts/analytics/recording-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
