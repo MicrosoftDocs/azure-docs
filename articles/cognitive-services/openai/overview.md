@@ -126,7 +126,7 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 The service provides users access to several different models. Each model provides a different capability and price point.
 
-GPT-4 models are the latest models available models. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+GPT-4 models are the latest available models. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
 
 The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 
