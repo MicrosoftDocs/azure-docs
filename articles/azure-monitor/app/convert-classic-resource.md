@@ -95,7 +95,7 @@ To migrate a classic Application Insights resource to a workspace-based resource
    ![Screenshot that shows the Migration wizard UI with the option to select target workspace.](./media/convert-classic-resource/migration.png)
 
    After your resource is migrated, you'll see the corresponding workspace information in the **Overview** pane.
-   
+
    ![Screenshot that shows the Workspace name.](./media/create-workspace-resource/workspace-name.png)
 
    Selecting the blue link text takes you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
@@ -315,7 +315,7 @@ The legacy **Continuous export** functionality isn't supported for workspace-bas
 
 1. Select **Disable**.
 
-   ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
+    ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
 
    - After you select **Disable**, you can go back to the migration UI. If the **Edit continuous export** page prompts you that your settings aren't saved, select **OK**. This prompt doesn't pertain to disabling or enabling continuous export.
 
@@ -797,5 +797,3 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
-
-
