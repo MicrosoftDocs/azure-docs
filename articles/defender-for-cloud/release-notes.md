@@ -29,7 +29,7 @@ We introduce an improved Azure security policy management experience for built-i
 
 - A simple interface allows better performance and fewer clicks when managing default security policies within Defender for Cloud, including enabling/disabling, denying, setting parameters and managing exemptions.
 - A single view of all built-in security recommendations offered by the Microsoft cloud security benchmark (formerly the Azure security benchmark). Recommendations are organized into logical groups, making it easier to understand the types of resources covered, and the relationship between parameters and recommendations.
-- New features such as filters, search, and export to CSV, have been added.
+- New features such as filters and search have been added.
 
 Learn how to  [manage security policies](tutorial-security-policy.md). 
 
