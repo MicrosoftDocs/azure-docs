@@ -45,7 +45,7 @@ To view your Log Analytics workspace health and set up health status alerts:
         1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
         1. Select **Enable**.
 
-        :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::  
+        :::image type="content" source="../alerts/media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::
 
     - To create a new alert rule:
        1. Select **Add resource health alert**.
