@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 03/20/2023
 ---
 
 # Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP
@@ -361,7 +361,7 @@ To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring au
 
 **Optimized login flow**
 
-One optional step for improving the user login experience would be to suppress the OAuth logon prompt displayed to users before Azure AD pre-authentication. 
+To improving the user sign-in experience, suppress the OAuth user sign-in prompt displayed before Azure AD pre-authentication. 
 
 1. Navigate to **Access** > **Guided Configuration**.
 2. On the far right of the row, select the **padlock** icon.
@@ -369,7 +369,7 @@ One optional step for improving the user login experience would be to suppress t
 
    ![Screenshot of input for Status, Name, and Type; also the padlock icon.](./media/partner-f5/optimized-login-flow.png)
 
-Unlocking the strict configuration prevents changes with the wizard UI. BIG-IP objects associated with the published instance of the application and open for direct management.
+Unlocking the strict configuration prevents changes with the wizard UI. BIG-IP objects are associated with the published instance of the application, and are open for direct management.
 
 4. Navigate to **Access** > **Profiles/ Policies** > **Access Profiles (Per-session Policies)**. 
 5. For the application policy opject, in the **Per-Session Policy** column, select **Edit**.
@@ -384,60 +384,65 @@ Unlocking the strict configuration prevents changes with the wizard UI. BIG-IP o
 8. In the top left corner, select **Apply Access Policy**.
 9. Close the visual editor tab.
 
-The next attempt at connecting to the application should take you straight to the Azure AD B2C sign-in page.
+When you attempt to connect to the application, the Azure AD B2C sign-in page appears.
 
 >[!Note]
->Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, so implementing this scenario by manually creating all configuration objects is recommended for production services.
+>If you re-enable strict mode and deploy a configuration, settings performed outside the Guided Configuration UI are overwritten. Implement this scenario by manually creating configuration objects for production services.
 
 ### Troubleshooting
 
-Failure to access the protected application could be down to any number of potential factors, including a misconfiguration.
+Use the following troubleshooting guidance if access to the protected application is prevented.
 
-BIG-IP logs are a great source of information for isolating all authentication and SSO issues. If troubleshooting you should increase the log verbosity level.
+#### Log verbosity
+
+BIG-IP logs have information to isolate authentication and SSO issues. Increase the log verbosity level.
 
   1. Go to **Access Policy** > **Overview** > **Event Logs** > **Settings**.
-
   2. Select the row for your published application then **Edit** > **Access System Logs**.
+  3. From the SSO list, select **Debug**.
+  4. Select **OK**. 
+  5. Before reviewing logs, reproduce your issue.
+  
+When complete, revert the previous settings. 
+  
+#### BIG-IP error message
 
-  3. Select **Debug** from the SSO list then, select **OK**. You can now reproduce your issue before looking at the logs but remember to switch this back when finished.
-
-- If you see a BIG-IP branded error immediately after successful Azure AD B2C authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+If you see a BIG-IP error message after Azure AD B2C authentication, the issue might relate to SSO from Azure AD to the BIG-IP.
 
   1. Navigate to **Access** > **Overview** > **Access reports**.
+  2. Run the report for the last hour
+  3. Review logs for clues. 
+  4. Select the **View session variables** link.
+  5. Determine if the APM receives the expected Azure AD claims.
 
-  2. Run the report for the last hour to see logs provide any clues. The View session variables link for your session will also help understand if the APM is receiving the  expected claims from Azure AD.
+#### No BIG-IP error message
 
-- If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+If no BIG-IP error message appears, the issue might be related to the back-end request, or SSO from the BIG-IP to the application.
 
   1. Go to **Access Policy** > **Overview** > **Active Sessions**.
-
   2. Select the link for your active session.
+  3. Select the **View Variables** link.
+  4. Review to determine root cause, particularly if the BIG-IP APM obtains inaccurate session attributes.
+  5. Use the application logs to help understand if it received the attributes as headers.
 
-- The View Variables link in this location may also help determine root cause, particularly if the BIG-IP APM fails to obtain the right session attributes.
-Your application’s logs would then help understand if it received those attributes as headers, or not.
+#### Guided Configuration v8 known issue
 
-- If using Guided Configuration v8, be aware of a known issue that generates the following BIG-IP error, after successful Azure AD B2C authentication.  
+If using Guided Configuration v8, a known issue generates the following error after successful Azure AD B2C authentication. The issue might be the AGC not enabling the Auto JWT setting during deployment. The APM can't obtain the current token signing keys. F5 engineering is investigating root cause.
 
-  ![Screenshot shows the error message](./media/partner-f5/error-message.png)
+  ![Screenshot of the access-denied error message.](./media/partner-f5/error-message.png)
 
-This is a policy violation due to the BIG-IP’s inability to validate the signature of the token issued by Azure AD B2C. The same access log should be able to provide more detail on the issue.
+The same access log provides detail.
 
-  ![Screenshot shows the access logs](./media/partner-f5/access-log.png)
+  ![Screenshot of Log Message details.](./media/partner-f5/access-log.png)
 
-Exact root cause is still being investigated by F5 engineering, but issue appears related to the AGC not enabling the Auto JWT setting during deployment, thereby preventing the APM from obtaining the current token signing keys.
+**Manually enable the setting**
 
-  Until resolved, one way to work around the issue is to manually enable this setting. 
-
-  1. Navigate to **Access** > **Guided Configuration** and select the small padlock icon on the far right of the row for your  header-based application.
-
-  2. With the managed configuration unlocked, navigate to **Access** > **Federation** > **OAuth Client/Resource Server** > **Providers**.
-
-  3. Select the provider for your Azure AD B2C configuration.
-
-  4. Check the **Use Auto JWT** box then select **Discover**, followed by **Save**.
-
-You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
-  
-  5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Then select **Apply** again to refresh the access profile list.
+  1. Navigate to **Access** > **Guided Configuration**.
+  2. select the small padlock icon on the far right of the row for your  header-based application.
+  3. With the managed configuration unlocked, navigate to **Access** > **Federation** > **OAuth Client/Resource Server** > **Providers**.
+  4. Select the provider for your Azure AD B2C configuration.
+  5. Check the **Use Auto JWT** box then select **Discover**, followed by **Save**.
+  6. You should now see the Key (JWT) field populated with the key ID (KID) of the token signing certificate provided through the OpenID URI metadata.
+  7. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Then select **Apply** again to refresh the access profile list.
 
 See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
