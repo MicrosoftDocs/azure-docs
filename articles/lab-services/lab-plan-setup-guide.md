@@ -128,11 +128,11 @@ When you set up a lab plan, you also can bring your own virtual network to your 
 
 After you've finished planning, you're ready to set up your lab plan.
 
-1. **Create your lab plan**. For instructions, see [Create a lab plan](./tutorial-setup-lab-plan.md#create-a-lab-plan).
+1. **Create your lab plan**. For instructions, see [Create a lab plan](./quick-create-resources.md).
 
    For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#naming).
 
-1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./quick-create-resources.md#add-a-user-to-the-lab-creator-role).
 
 1. **Connect to your virtual network**. For instructions, see [Connect to your virtual network in Azure Lab Services](./how-to-connect-vnet-injection.md).
 

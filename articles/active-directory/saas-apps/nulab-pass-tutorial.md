@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nulab Pass (Backlog,Cacoo,Typetalk) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nulab Pass (Backlog,Cacoo,Typetalk)'
 description: Learn how to configure single sign-on between Azure Active Directory and Nulab Pass (Backlog,Cacoo,Typetalk).
 services: active-directory
 author: jeevansd

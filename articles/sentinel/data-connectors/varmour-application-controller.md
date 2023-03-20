@@ -17,7 +17,7 @@ vArmour reduces operational risk and increases cyber resiliency by visualizing a
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (vArmour)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [vArmour Networks](https://www.varmour.com/contact-us/) |
 
 ## Query samples

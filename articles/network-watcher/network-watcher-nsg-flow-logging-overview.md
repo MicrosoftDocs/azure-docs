@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/27/2023
+ms.date: 03/15/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
 ---
@@ -391,7 +391,7 @@ If you want to retain data forever and don't want to apply any retention policy,
 
 ### User-defined inbound TCP rules
 
-network security groups are implemented as a [stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). But because of current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless way.
+Network security groups are implemented as a [stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). But because of current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless way.
 
 Flows that user-defined inbound rules affect become non-terminating. Additionally, byte and packet counts aren't recorded for these flows. Because of those factors, the number of bytes and packets reported in NSG flow logs (and Network Watcher traffic analytics) could be different from actual numbers.
 

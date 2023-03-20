@@ -60,6 +60,8 @@ landingContent:
             url: find-ids.md
       - linkListType: how-to-guide
         links:
+          - text: How to use a script to automate lab functionality
+            url: full-api-script.md
           - text: How to create a lab
             url: create-lab-education-hub.md
           - text: How to add a student to a lab

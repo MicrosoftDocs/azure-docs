@@ -11,7 +11,7 @@ ms.author: tarcher
 
 # Quickstart: Create an Azure Analysis Services server using Terraform
 
-This article shows how to use [Terraform](/azure/terraform) to create an [Azure Analysis Services](/azure/analysis-services/analysis-services-overview) server.
+This article shows how to use [Terraform](/azure/terraform) to create an [Azure Analysis Services](./analysis-services-overview.md) server.
 
 In this article, you learn how to:
 

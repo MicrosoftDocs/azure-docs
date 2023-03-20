@@ -476,7 +476,7 @@
           items:
             - name: Partial document update overview
               href: ../partial-document-update.md
-            - name: Getting started with Partial document update
+            - name: Get started with Partial Document Update
               href: ../partial-document-update-getting-started.md
             - name: Partial document update FAQ
               href: ../partial-document-update-faq.yml

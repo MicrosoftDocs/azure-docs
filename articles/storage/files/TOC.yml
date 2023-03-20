@@ -43,6 +43,8 @@
       href: storage-files-scale-targets.md
   - name: Understanding billing
     href: understanding-billing.md
+  - name: Windows Server to Azure Files
+    href: windows-server-to-azure-files.md    
   - name: Prevent accidental data deletion
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares

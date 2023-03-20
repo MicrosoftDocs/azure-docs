@@ -1,6 +1,6 @@
 ---
-title: "VMware Carbon Black Cloud (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector VMware Carbon Black Cloud (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "VMware Carbon Black Cloud (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector VMware Carbon Black Cloud (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# VMware Carbon Black Cloud (using Azure Function) connector for Microsoft Sentinel
+# VMware Carbon Black Cloud (using Azure Functions) connector for Microsoft Sentinel
 
 The [VMware Carbon Black Cloud](https://www.vmware.com/products/carbon-black-cloud.html) connector provides the capability to ingest Carbon Black data into Microsoft Sentinel. The connector provides visibility into Audit, Notification and Event logs in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.
 
@@ -17,7 +17,7 @@ The [VMware Carbon Black Cloud](https://www.vmware.com/products/carbon-black-clo
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | apiId<br/>apiKey<br/>workspaceID<br/>workspaceKey<br/>uri<br/>timeInterval<br/>CarbonBlackOrgKey<br/>CarbonBlackLogTypes<br/>s3BucketName<br/>EventPrefixFolderName<br/>AlertPrefixFolderName<br/>AWSAccessKeyId<br/>AWSSecretAccessKey<br/>SIEMapiId (Optional)<br/>SIEMapiKey (Optional)<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
+| **Azure functions app code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **Log Analytics table(s)** | CarbonBlackEvents_CL<br/> CarbonBlackAuditLogs_CL<br/> CarbonBlackNotifications_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft](https://support.microsoft.com/) |
