@@ -35,7 +35,7 @@ To view your security policies in Defender for Cloud:
     :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
-    > The settings of each recommendation that apply to the scope are taken into consideration and the cumulative outcome of actions taken by the recommendation is shown. For example, if in one assignment, a recommendation is Disabled, but in another it's set to Audit, then the cumulative effect applies Audit. The more active effect always takes precedence.
+    > The settings of each recommendation that apply to the scope are compared and the cumulative outcome of actions taken by the recommendation appears. For example, if in one assignment, a recommendation is Disabled, but in another it's set to Audit, then the cumulative effect applies Audit. The more active effect always takes precedence.
 
 1. Choose from the available options on this page:
 
@@ -45,7 +45,7 @@ To view your security policies in Defender for Cloud:
 
     1. To view and edit the default initiative, select it and proceed as described below.
 
-        :::image type="content" source="./media/tutorial-security-policy/policy-screen.png" alt-text="Effective policy screen.":::
+        :::image type="content" source="./media/tutorial-security-policy/policy-screen.png" alt-text="Screenshot showing effective policy screen.":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
@@ -59,7 +59,7 @@ To view your security policies in Defender for Cloud:
             **Deny** prevents deployment of non-compliant resources based on recommendation logic.<br>
             **Disabled** prevents the recommendation from running.
 
-         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Edit default assignment screen.":::
+         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Screenshot showing edit default assignment screen.":::
 
 ## Enable a security recommendation
 
@@ -75,7 +75,7 @@ To enable a disabled recommendation and ensure it's assessed for your resources:
 
 1. From the **Default initiative** section, select the relevant initiative.
 
-1. Search for the recommendation that that you want to disable, either by the search bar or filters.
+1. Search for the recommendation that you want to disable, either by the search bar or filters.
 
 1. Select the ellipses menu, select **Manage effect and parameters**.
 
@@ -83,7 +83,7 @@ To enable a disabled recommendation and ensure it's assessed for your resources:
 
 1. Select **Save**.
 
-:::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Enable security recommendation on manage effect and parameters screen.":::
+:::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Screenshot showing enable security recommendation on manage effect and parameters screen.":::
 
    > [!NOTE]
    > Setting will take effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
@@ -96,7 +96,7 @@ The **additional parameters** column indicates whether a recommendation has asso
 
 **Default** – the recommendation is running with default configuration<br>
 **Configured** – the recommendation’s configuration is modified from its default values<br>
-**None** – the recommendation does not require any additional configuration
+**None** – the recommendation doesn't require any additional configuration
 
 1. From Defender for Cloud's menu, open the **Environment settings** page.
 
@@ -106,18 +106,18 @@ The **additional parameters** column indicates whether a recommendation has asso
 
 1. From the **Default initiative** section, select the relevant initiative.
 
-1. Search for the recommendation that that you want to configure.
+1. Search for the recommendation that you want to configure.
 
    > [!TIP]
    > To view all available recommendations with additional parameters, using the filters to view the **Additional parameters** column and then default.
 
-1. Select the ellipses menu, select **Manage effect and parameters**.
+1. Select the ellipses menu and select **Manage effect and parameters**.
 
 1. From the additional parameters section, configure the available parameters with new values.
 
 1. Select **Save**.
 
-:::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Configure additional parameters on manage effect and parameters screen.":::
+:::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Screenshot showing where to configure additional parameters on the manage effect and parameters screen.":::
 
 Use the "reset to default" button to revert changes per the recommendation and restore the default value.
 
@@ -127,20 +127,20 @@ When your security policy triggers a recommendation that's irrelevant for your e
 
 The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Defender for Cloud's regulatory compliance tools. Even if you've disabled a recommendation in the built-in initiative, a recommendation in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable recommendations from regulatory standard initiatives.
 
-For more information about recommendations, see [Managing security recommendations](review-security-recommendations.md).
+Learn more about [managing security recommendations](review-security-recommendations.md).
 
 1. From Defender for Cloud's menu, open the **Environment settings** page.
 
 1. Select the subscription or management group for which you want to enable a recommendation.
 
    > [!NOTE]
-   > Remember that a management group applies its settings to its subscriptions. Therefore, if you disabled a subscription's recommendation, and the subscription belongs to a management group that still uses the same settings, then you will continue to receive the recommendation. The security policy settings will still be applied from the management level and the recommendation will still be generated.
+   > Remember that a management group applies its settings to its subscriptions. If you disabled a subscription's recommendation, and the subscription belongs to a management group that still uses the same settings, then you will continue to receive the recommendation. The security policy settings will still be applied from the management level and the recommendation will still be generated.
 
 1. Open the **Security policy** page.
 
 1. From the **Default initiative** section, select the relevant initiative.
 
-1. Search for the recommendation that that you want to enable, either by the search bar or filters.
+1. Search for the recommendation that you want to enable, either by the search bar or filters.
 
 1. Select the ellipses menu, select **Manage effect and parameters**.
 

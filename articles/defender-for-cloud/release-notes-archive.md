@@ -1424,7 +1424,7 @@ Security Center includes multiple recommendations to encrypt data at rest with c
 
 Data in Azure is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when required for compliance with a specific policy your organization is choosing to enforce.
 
-With this change, the recommendations to use CMKs are now **disabled by default**. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to **AuditIfNotExists** or **Enforce**. Learn more in [Enable a security policy](tutorial-security-policy.md#enable-a-security-policy).
+With this change, the recommendations to use CMKs are now **disabled by default**. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to **AuditIfNotExists** or **Enforce**. Learn more in [Enable a security recommendation](tutorial-security-policy.md#enable-a-security-recommendation).
 
 This change is reflected in the names of the recommendation with a new prefix, **[Enable if required]**, as shown in the following examples:
 
