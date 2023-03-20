@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/19/2023
+ms.date: 03/20/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -247,8 +247,8 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | [Environment](#environment-attributes) | Indicates that the attribute is an environment attribute, such as a private endpoint, private link, virtual network subnet, or date/time.</br>(Environment attributes are currently in preview.) | `@Environment` |
-> | [Principal](#principal-attributes) | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>(Principal attributes are currently in preview.) | `@Principal` |
+> | [Environment](#environment-attributes) | Indicates that the attribute is an environment attribute, such as a private endpoint, private link, virtual network subnet, or date/time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
+> | [Principal](#principal-attributes) | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
 > | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
 

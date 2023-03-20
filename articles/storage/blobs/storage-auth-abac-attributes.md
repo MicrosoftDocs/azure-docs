@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/19/2023
+ms.date: 03/20/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -31,20 +31,35 @@ In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used 
 > [!NOTE]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-Storage accounts support the following suboperations:
+## Azure Blob Storage actions and suboperations
+
+This section lists the supported Azure Blob Storage actions and suboperations you can target for conditions. They are summarized in the following table:
 
 > [!div class="mx-tableFixed"]
 > | Display name | DataAction | Suboperation |
 > | :--- | :--- | :--- |
+> | **Read operations** |  |  |
+> | [Find blobs by tags](#find-blobs-by-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` | n/a |
 > | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
-> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | **NOT** `Blob.List` |
-> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions (deprecated)` |
+> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `NOT Blob.List` |
+> | [Read blob index tags](#read-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` | n/a |
+> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions)</br> ***(deprecated)*** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
+> | **Write operations** |  |  |
+> | [Create a blob or snapshot, or append data](#create-a-blob-or-snapshot-or-append-data) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | n/a |
+> | [Delete a blob](#delete-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` | n/a |
+> | [Delete a version of a blob](#delete-a-version-of-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` | n/a |
+> | [Permanently delete a blob overriding soft-delete](#permanently-delete-a-blob-overriding-soft-delete) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` | n/a |
+> | [Rename a file or a directory](#rename-a-file-or-a-directory) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | n/a |
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
+> | [Write blob index tags](#write-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` | n/a |
+> | [Write blob legal hold and immutability policy](#write-blob-legal-hold-and-immutability-policy) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action` | n/a |
+> | [Write to a blob](#write-to-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | n/a |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
-
-## Azure Blob Storage actions and suboperations
-
-This section lists the supported Azure Blob Storage actions and suboperations you can target for conditions.
+> | **Permissions operations** |  |  |
+> | [Change ownership of a blob](#change-ownership-of-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` | n/a |
+> | [Modify permissions of a blob](#modify-permissions-of-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` | n/a |
+> | **HNS operations** |  |  |
+> | [All data operations for accounts with hierarchical namespace enabled](#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | n/a |
 
 ### List blobs
 
@@ -78,11 +93,12 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 
 ### Read content from a blob with tag conditions
 
-The `Read content from a blob with tag conditions` suboperation has been deprecated. Although it is currently supported for compatibility with conditions implemented during the ABAC feature preview, Microsoft recommends using the [Read a blob](#read-a-blob) action instead.
-
-When configuring ABAC conditions in the Azure portal, you might see **DEPRECATED: Read content from a blob with tag conditions**. Microsoft recommends removing the operation and replacing it with the `Read a blob` action.
-
-If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag).
+> [!IMPORTANT]
+> The `Read content from a blob with tag conditions` suboperation has been deprecated. Although it is currently supported for compatibility with conditions implemented during the ABAC feature preview, Microsoft recommends using the [Read a blob](#read-a-blob) action instead.
+>
+> When configuring ABAC conditions in the Azure portal, you might see **DEPRECATED: Read content from a blob with tag conditions**. Microsoft recommends removing the operation and replacing it with the `Read a blob` action.
+>
+> If you are authoring your own condition where you want to restrict read access by tag conditions, please refer to [Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag).
 
 ### Read blob index tags
 
@@ -92,7 +108,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Read blob index tags |
 > | **Description** | DataAction for reading blob index tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -107,7 +123,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Find blobs by tags |
 > | **Description** | DataAction for finding blobs by index tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -121,7 +137,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Write to a blob |
 > | **Description** | DataAction for writing to blobs. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -167,7 +183,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Create a blob or snapshot, or append data |
 > | **Description** | DataAction for creating blobs. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -182,7 +198,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Write blob index tags |
 > | **Description** | DataAction for writing blob index tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -198,7 +214,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Write Blob legal hold and immutability policy |
 > | **Description** | DataAction for writing Blob legal hold and immutability policy. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -212,7 +228,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Delete a blob |
 > | **Description** | DataAction for deleting blobs. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -227,7 +243,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Delete a version of a blob |
 > | **Description** | DataAction for deleting a version of a blob. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id) |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -242,7 +258,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Permanently delete a blob overriding soft-delete |
 > | **Description** | DataAction for permanently deleting a blob overriding soft-delete. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -256,7 +272,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Modify permissions of a blob |
 > | **Description** | DataAction for modifying permissions of a blob. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -270,7 +286,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Change ownership of a blob |
 > | **Description** | DataAction for changing ownership of a blob. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -284,7 +300,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | Rename a file or a directory |
 > | **Description** | DataAction for renaming files or directories. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
@@ -298,7 +314,7 @@ If you are authoring your own condition where you want to restrict read access b
 > | **Display name** | All data operations for accounts with hierarchical namespace enabled |
 > | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled.<br/>If your role definition includes the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` action, you should target this action in your condition. Targeting this action ensures the condition will still work as expected if hierarchical namespace is enabled for a storage account. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
-> | **Suboperation** |  |
+> | **Suboperation** | *n/a* |
 > | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
