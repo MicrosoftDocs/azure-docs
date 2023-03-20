@@ -2,7 +2,7 @@
 title: Linter rule - simplify JSON null
 description: Linter rule - simplify JSON null
 ms.topic: conceptual
-ms.date: 03/16/2023
+ms.date: 03/20/2023
 ---
 
 # Linter rule - simplify JSON null
@@ -17,7 +17,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-The following example fails this test because `json(null)` is used.:
+The following example fails this test because `json('null')` is used.:
 
 ```bicep
 @description('The name of the API Management service instance')
@@ -68,7 +68,7 @@ resource apiManagementService 'Microsoft.ApiManagement/service@2022-08-01' = {
 }
 ```
 
-You can fix the problem by replacing `json('null')` by `null`:
+You can simplify the syntax by replacing `json('null')` by `null`:
 
 ```bicep
 @description('The name of the API Management service instance')
@@ -119,7 +119,7 @@ resource apiManagementService 'Microsoft.ApiManagement/service@2022-08-01' = {
 }
 ```
 
-You can fix the issue automatically by selecting **Quick Fix** as shown on the following screenshot:
+You can simplify the syntax by selecting **Quick Fix** as shown on the following screenshot:
 
 :::image type="content" source="./media/linter-rule-simplify-json-null/bicep-linter-rule-simplify-json-null-quick-fix.png" alt-text="Screenshot of simplify JSON null quick fix.":::
 
