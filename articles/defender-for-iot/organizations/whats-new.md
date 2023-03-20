@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 02/22/2023
+ms.date: 03/14/2023
 ms.custom: enterprise-iot
 ---
 
@@ -20,7 +20,73 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: - [New Microsoft Sentinel incident experience for Defender for IoT](#new-microsoft-sentinel-incident-experience-for-defender-for-iot) |
+| **OT networks** | **Sensor version 22.3.6**: <br>- [Support for transient devices](#support-for-transient-devices)<br>- [Learn DNS traffic by configuring allowlists](#learn-dns-traffic-by-configuring-allowlists)<br>- [Device data retention updates](#device-data-retention-updates)<br>- [UI enhancements when uploading SSL/TLS certificates](#ui-enhancements-when-uploading-ssltls-certificates)<br>- [Activation files expiration updates](#activation-files-expiration-updates)<br>- [UI enhancements for managing the device inventory](#ui-enhancements-for-managing-the-device-inventory)<br>- [Updated severity for all Suspicion of Malicious Activity alerts](#updated-severity-for-all-suspicion-of-malicious-activity-alerts)<br>- [Automatically resolved device notifications](#automatically-resolved-device-notifications) <br><br> **Cloud features**: <br>- [New Microsoft Sentinel incident experience for Defender for IoT](#new-microsoft-sentinel-incident-experience-for-defender-for-iot) |
+
+### Support for transient devices
+
+Defender for IoT now identifies *transient* devices as a unique device type that represents devices that were detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
+
+For more information, see [Defender for IoT device inventory](device-inventory.md) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+
+### Learn DNS traffic by configuring allowlists
+
+The *support* user can now decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. 
+
+When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
+
+All OT sensor users can view the list of allowed DNS domains and their resolved IP addresses in data mining reports.  
+
+For example:
+
+:::image type="content" source="media/release-notes/data-mining-allowlist.png" alt-text="Screenshot of how to create a data mining report for DNS allowlists.":::
+    
+For more information, see [Allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network) and [Create data mining queries](how-to-create-data-mining-queries.md).
+
+    
+### Device data retention updates
+
+The device data retention period on the OT sensor and on-premises management console has been updated to 90 days from the date of the **Last activity** value.
+
+For more information, see [Device data retention periods](references-data-retention.md#device-data-retention-periods).
+
+### UI enhancements when uploading SSL/TLS certificates
+
+The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
+
+For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
+
+### Activation files expiration updates
+
+Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
+
+You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+
+For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
+
+### UI enhancements for managing the device inventory
+
+The following enhancements were added to the OT sensor's device inventory in version 22.3.6:
+
+- A smoother process for [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) on the OT sensor. Edit device details directly from the device inventory page on the OT sensor console using the new **Edit** button in the toolbar at the top of the page.
+- The OT sensor now supports [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) simultaneously.
+- The procedures for [merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages that appear when the action has completed. 
+
+For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+
+### Updated severity for all Suspicion of Malicious Activity alerts
+
+All alerts with the **Suspicion of Malicious Activity** category now have a severity of **Critical**.
+
+For more information, see [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts).
+
+   
+### Automatically resolved device notifications
+
+Starting in version 22.3.6, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
+
+After updating your sensor version, the **Inactive devices** and **New OT devices** notifications no longer appear. While any **Inactive devices** notifications that are left over from before the update are automatically dismissed, you may still have legacy **New OT devices** notifications to handle. Handle these notifications as needed to remove them from your sensor.
+
+For more information, see [Manage device notifications](how-to-work-with-the-sensor-device-map.md#manage-device-notifications).
 
 ### New Microsoft Sentinel incident experience for Defender for IoT
 
@@ -40,6 +106,7 @@ For more information, see [Tutorial: Investigate and detect threats for IoT devi
 |---------|---------|
 | **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
+
 
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2

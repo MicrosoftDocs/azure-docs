@@ -55,9 +55,10 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
     "accountSettings": {
         "arrAccountId": "<fill in the account ID from the Azure Portal>",
         "arrAccountKey": "<fill in the account key from the Azure Portal>",
-        "region": "<select from available regions>"
+        "arrAccountDomain": "<select from available regions or specify the full url>"
     },
     "renderingSessionSettings": {
+        "remoteRenderingDomain": "<select from available regions or specify the full url>",
         "vmSize": "<select standard or premium>",
         "maxLeaseTime": "<hh:mm:ss>"
     },
@@ -84,14 +85,17 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
 ### accountSettings
 
 For `arrAccountId` and `arrAccountKey`, see [Create an Azure Remote Rendering account](../how-tos/create-an-account.md).
-For `region` see the [list of available regions](../reference/regions.md).
+The `arrAccountDomain` should be a region from [list of available regions](../reference/regions.md). If you're running on a nonpublic Azure region, you have to specify the full url to the account authentication service in your region.
 
 ### renderingSessionSettings
 
 This structure must be filled out if you want to run **RenderingSession.ps1**:
 
 - **vmSize:** Selects the size of the virtual machine. Select [*standard*](../reference/vm-sizes.md) or [*premium*](../reference/vm-sizes.md). Shut down rendering sessions when you don't need them anymore.
-- **maxLeaseTime:** The duration for which you want to lease the VM. It will be shut down when the lease expires. The lease time can be extended later (see below).
+- **maxLeaseTime:** The duration for which you want to lease the VM. The VM shuts down when the lease expires. The lease time can be extended later (see [here](#change-session-properties)).
+- **remoteRenderingDomain:** The region where the remote rendering VM resides in.
+  - Can differ from the arrAccountDomain, but still should be a region from [list of available regions](../reference/regions.md)
+  - If you're running on a nonpublic Azure region, you have to specify the full url to the remote rendering service in your region.
 
 ### assetConversionSettings
 
@@ -114,7 +118,7 @@ Normal usage with a fully filled out arrconfig.json:
 .\RenderingSession.ps1
 ```
 
-The script will call the [session management REST API](../how-tos/session-rest-api.md) to spin up a rendering VM with the specified settings. On success, it will retrieve the *sessionId*. Then it will poll the session properties until the session is ready or an error occurred.
+The script calls the [session management REST API](../how-tos/session-rest-api.md) to spin up a rendering VM with the specified settings. On success, it retrieves the *sessionId*. Afterwards it polls the session properties until the session is ready or an error occurred.
 
 To use an **alternative config** file:
 
@@ -125,7 +129,7 @@ To use an **alternative config** file:
 You can **override individual settings** from the config file:
 
 ```PowerShell
-.\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
+.\RenderingSession.ps1 -ArrAccountDomain <arrAccountDomain> -RemoteRenderingDomain <remoteRenderingDomain> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
 To only **start a session without polling**, you can use:
@@ -174,7 +178,7 @@ At the moment, we only support changing the maxLeaseTime of a session.
 This script is used to convert input models into the Azure Remote Rendering specific runtime format.
 
 > [!IMPORTANT]
-> Make sure you have filled out the *accountSettings* and *assetConversionSettings* sections in arrconfig.json.
+> Make sure you have filled out the *accountSettings* and *assetConversionSettings* sections, and the *remoteRenderingDomain* option in the *renderingSessionSettings* in arrconfig.json.
 
 The script demonstrates the two options to use storage accounts with the service:
 
@@ -191,7 +195,7 @@ Using a linked storage account is the preferred way to use the conversion servic
 .\Conversion.ps1
 ```
 
-1. Upload all files contained in the `assetConversionSettings.modelLocation` to the input blob container under the given `inputFolderPath`..
+1. Upload all files contained in the `assetConversionSettings.modelLocation` to the input blob container under the given `inputFolderPath`.
 1. Call the [model conversion REST API](../how-tos/conversion/conversion-rest-api.md) to kick off the [model conversion](../how-tos/conversion/model-conversion.md)
 1. Poll the conversion status until the conversion succeeded or failed.
 1. Output details of the converted file location (storage account, output container, file path in the container).
@@ -231,7 +235,8 @@ You can **override individual settings** from the config file using the followin
 * **Id:** ConversionId used with GetConversionStatus
 * **ArrAccountId:** arrAccountId of accountSettings
 * **ArrAccountKey:** override for arrAccountKey of accountSettings
-* **Region:** override for region of accountSettings
+* **ArrAccountDomain:** override for arrAccountDomain of accountSettings
+* **RemoteRenderingDomain:** override for remoteRenderingDomain of renderingSessionSettings
 * **ResourceGroup:** override for resourceGroup of assetConversionSettings
 * **StorageAccountName:** override for storageAccountName of assetConversionSettings
 * **BlobInputContainerName:** override for blobInputContainer of assetConversionSettings
@@ -241,7 +246,7 @@ You can **override individual settings** from the config file using the followin
 * **OutputFolderPath:** override for the outputFolderPath of assetConversionSettings
 * **OutputAssetFileName:** override for outputAssetFileName of assetConversionSettings
 
-For example you can combine a number of the given options like this:
+For example you can combine the given options like this:
 
 ```PowerShell
 .\Conversion.ps1 -LocalAssetDirectoryPath "C:\\models\\box" -InputAssetPath box.fbx -OutputFolderPath another/converted/box -OutputAssetFileName newConversionBox.arrAsset
@@ -258,7 +263,7 @@ Only upload data from the given LocalAssetDirectoryPath.
 ```
 
 Only start the conversion process of a model already uploaded to blob storage (don't run Upload, don't poll the conversion status)
-The script will return a *conversionId*.
+The script returns a *conversionId*.
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
