@@ -198,7 +198,7 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
 This section shows how to write a .NET Core console application that receives events from an event hub and use schema registry to deserialize event data. 
 
 ### Additional prerequisites
-1. Create the storage account to be used the event processor.
+- Create the storage account to be used the event processor.
 
 ### Create consumer application
 
