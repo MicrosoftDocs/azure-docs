@@ -54,9 +54,9 @@ The following table describes the role of each revision created for you:
 |----|----|----|----|----|
 | `<extensionName>-k8se-activator` | Used as part of the scaling pipeline | 2 | 100 millicpu | 500 MB |
 | `<extensionName>-k8se-billing` | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100 MB |
-| `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 1 GB |
 | `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536 MB |
-| `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 200 millicpu | 500 MB |
 | `<extensionName>-k8se-event-processor` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. | 2 | 100 millicpu | 500 MB |
 | `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). | 1 | 100 millicpu | 500 MB |
 | `<extensionName>-k8se-keda-cosmosdb-scaler` | Keda Cosmos DB Scaler | 1 | 10 m | 128 MB |
@@ -65,6 +65,7 @@ The following table describes the role of each revision created for you:
 | `<extensionName>-k8se-local-envoy` | A front-end proxy layer for all data-plane tcp requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536 MB |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500 MB |
 | `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500 MB |
+| dapr-metrics | Dapr metrics pod | 1 | 100 millicpu | 500 MB |
 | dapr-operator | Manages component updates and service endpoints for Dapr | 1 | 100 millicpu | 500 MB |
 | dapr-placement-server | Used for Actors only - creates mapping tables that map actor instances to pods | 1 | 100 millicpu | 500 MB |
 | dapr-sentry | Manages mTLS between services and acts as a CA | 2 | 800 millicpu | 200 MB |
@@ -131,9 +132,9 @@ ARM64 based clusters aren't supported at this time.
 
  - Upgrade of KEDA to 2.9.1
  - Upgrade of Dapr to 1.9.5
- - Increase Envoy Controller resource limits to 200m CPU
- - Increase Container App Controller resource limites to 1GB memory
- - Reduce EasyAuth sidecar resource limits to 50m CPU
+ - Increase Envoy Controller resource limits to 200 m CPU
+ - Increase Container App Controller resource limits to 1 GB memory
+ - Reduce EasyAuth sidecar resource limits to 50 m CPU
  - Resolve KEDA error logging for missing metric values
 
 ### Container Apps extension v1.0.50 (March 2023)
