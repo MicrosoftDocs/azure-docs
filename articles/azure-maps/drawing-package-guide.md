@@ -1,16 +1,16 @@
 ---
 title: Drawing package guide for Microsoft Azure Maps Creator
 titleSuffix: Microsoft Azure Maps Creator
-description: Learn how to prepare a Drawing package for the Azure Maps Conversion service
-author: stevemunk
-ms.author: v-munksteve
+description: Learn how to prepare a drawing package for the Azure Maps Conversion service
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/31/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Conversion Drawing package guide
+# Conversion drawing package guide
 
 This guide shows you how to prepare your Drawing Package for the [Azure Maps Conversion service] using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.
 
@@ -112,7 +112,7 @@ The wall layer is meant to represent the physical extents of a facility such as 
 
 ## Step 3: Prepare the manifest
 
-The Drawing package Manifest is a JSON file. The Manifest tells the Azure Maps Conversion service how to read the facility DWG files and metadata. Some examples of this information could be the specific information each DWG layer contains, or the geographical location of the facility.
+The drawing package Manifest is a JSON file. The Manifest tells the Azure Maps Conversion service how to read the facility DWG files and metadata. Some examples of this information could be the specific information each DWG layer contains, or the geographical location of the facility.
 
 To achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the [sample drawing package]. This guide doesn't cover properties supported by the manifest. For more information about manifest properties, see  [Manifest File Properties].
 
@@ -120,7 +120,7 @@ To achieve a successful conversion, all “required” properties must be define
 
 The building level specifies which DWG file to use for which level. A level must have a level name and ordinal that describes that vertical order of each level. Every facility must have an ordinal 0, which is the ground floor of a facility. An ordinal 0 must be provided even if the drawings occupy a few floors of a facility. For example, floors 15-17 can be defined as ordinal 0-2, respectively.
 
-The following example is taken from the [sample drawing package]. The facility has three levels: basement, ground, and level 2. The filename contains the full file name and path of the file relative to the manifest file within the .zip Drawing package.  
+The following example is taken from the [sample drawing package]. The facility has three levels: basement, ground, and level 2. The filename contains the full file name and path of the file relative to the manifest file within the .zip drawing package.  
 
 ```json
     "buildingLevels": { 

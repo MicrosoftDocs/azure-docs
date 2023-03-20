@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Saviynt | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Saviynt'
 description: Learn how to configure single sign-on between Azure Active Directory and Saviynt.
 services: active-directory
 author: jeevansd

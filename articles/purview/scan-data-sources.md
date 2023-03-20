@@ -67,7 +67,7 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 
 1. Choose your scan trigger. You can set up a schedule (monthly or weekly) or run the scan once.
    >[!NOTE]
-   > **start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
+   > **Start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
 
    :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="Screenshot of the set a scan trigger page showing a recurring monthly schedule.":::
 

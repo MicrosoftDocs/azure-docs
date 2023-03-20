@@ -160,7 +160,7 @@ To use Azure Files as a file store, you must mount it, which means you assign it
 
 **[A]** To mount the Azure file share, follow the steps in [Mount the Azure file share](../../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share).
 
-To mount an Azure file share on a Windows server, ensure port 445 is open. The SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if the firewall is blocking port 445 with the `Test-NetConnection` cmdlet mentioned in the [Troubleshooting](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) guide.
+To mount an Azure file share on a Windows server, the SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if your firewall or ISP is blocking port 445 by using the `Test-NetConnection` cmdlet. See [Port 445 is blocked](../../storage/files/files-troubleshoot-smb-connectivity.md#cause-1-port-445-is-blocked).
 
 ## Configure a CMS database: Azure SQL
 

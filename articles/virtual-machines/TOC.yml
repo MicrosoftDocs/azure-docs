@@ -45,40 +45,36 @@
   items:
   - name: Linux
     items:
-    - name: 1 - Create / manage VMs
+    - name: Create / manage VMs
       href: ./linux/tutorial-manage-vm.md
-    - name: 2 - Create / manage disks
+    - name: Create / manage disks
       href: ./linux/tutorial-manage-disks.md
-    - name: 3 - Automate configuration
+    - name: Automate configuration
       href: ./linux/tutorial-automate-vm-deployment.md
-    - name: 4 - Create VM images
+    - name: Create VM images
       href: ./linux/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./linux/tutorial-availability-sets.md
-    - name: 6 - Create a scale set
-      href: ./linux/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./linux/tutorial-load-balancer.md
-    - name: 8 - Manage networking
+    - name: Manage networking
       href: ./linux/tutorial-virtual-network.md
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
+    - name: Create a scale set
+      href: ./linux/tutorial-create-vmss.md
   - name: Windows
     items:
-    - name: 1 - Create / manage a VM
+    - name: Create / manage a VM
       href: ./windows/tutorial-manage-vm.md
-    - name: 2 - Create / manage disks
+    - name: Create / manage disks
       href: ./windows/tutorial-manage-data-disk.md
-    - name: 3 - Automate configuration
+    - name: Automate configuration
       href: ./windows/tutorial-automate-vm-deployment.md
-    - name: 4 - Create VM images
+    - name: Create VM images
       href: ./windows/tutorial-custom-images.md
-    - name: 5 - Highly available VMs
-      href: ./windows/tutorial-availability-sets.md
-    - name: 6 - Create a scale set
+    - name: Manage networking
+      href: ./windows/tutorial-virtual-network.md  
+    - name: Load Balance VMs
+      href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
+    - name: Create a scale set
       href: ./windows/tutorial-create-vmss.md
-    - name: 7 - Load balance VMs
-      href: ./windows/tutorial-load-balancer.md
-    - name: 8 - Manage networking
-      href: ./windows/tutorial-virtual-network.md
 - name: Develop
   items:
   - name: REST API
@@ -119,26 +115,14 @@
   items:
   - name: Red Hat
     href: ./workloads/redhat/overview.md
-  - name: Cloud Foundry
-    href: ../cloudfoundry/index.yml
   - name: OpenShift
     items:
     - name: OpenShift overview
       href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: ./linux/openshift-container-platform-4x.md
-    - name: OpenShift Container Platform 3.11 prerequisites
-      href: ./linux/openshift-container-platform-3x-prerequisites.md
-    - name: OpenShift Container Platform 3.11
-      href: ./linux/openshift-container-platform-3x.md
-    - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
-      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
     - name: Azure Stack
       href: ./linux/openshift-azure-stack.md
-    - name: OpenShift Container Platform 3.11 post-deployment tasks
-      href: ./linux/openshift-container-platform-3x-post-deployment.md
-    - name: Troubleshooting OpenShift Container Platform 3.11 deployments
-      href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure
@@ -351,46 +335,56 @@
       - name: Overview
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
-      - name: H-series
-        items:
-        - name: H-series
-          href: h-series.md
+      - name: Set up Azure HPC or AI VMs
+        displayName: How to setup HPC/AI VMs
+        href: set-up-hpc-vms.md
+      - name: Configure and optimize VMs
+        displayName: Configure and optimize Infiniband enabled VMs
+        href: configure.md        
       - name: HB-series
         href: hb-series.md
         items:
         - name: Overview
-          href: ./workloads/hpc/hb-series-overview.md
+          href: hb-series-overview.md
         - name: Performance
-          href: ./workloads/hpc/hb-series-performance.md
+          href: hb-series-performance.md
         - name: HB-series retirement
           href: hb-series-retirement.md
       - name: HBv2-series
         href: hbv2-series.md
         items:
         - name: Overview
-          href: ./workloads/hpc/hbv2-series-overview.md
+          href: hbv2-series-overview.md
         - name: Performance
-          href: ./workloads/hpc/hbv2-performance.md
+          href: hbv2-performance.md
       - name: HBv3-series
         items:
         - name: Overview
-          href: ./workloads/hpc/hbv3-series-overview.md
+          href: hbv3-series-overview.md
         - name: HBv3-series
           href: hbv3-series.md
         - name: Performance
-          href: ./workloads/hpc/hbv3-performance.md
+          href: hbv3-performance.md
       - name: HBv4-series
         href: hbv4-series.md
       - name: HC-series
         items:
         - name: Overview
-          href: ./workloads/hpc/hc-series-overview.md
+          href: hc-series-overview.md
         - name: HC-series
           href: hc-series.md
         - name: Performance
-          href: ./workloads/hpc/hc-series-performance.md
+          href: hc-series-performance.md
       - name: HX-series
         href: hx-series.md
+      - name: HPC for HB-series and N-series VMs
+        href: overview-hb-hc.md
+      - name: Known issues with HB-series and N-series VMs
+        href: hb-hc-known-issues.md
+      - name: Setup MPI for HPC
+        href: setup-mpi.md
+      - name: Scaling HPC applications
+        href: compiling-scaling-applications.md        
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -582,16 +576,8 @@
         displayName: Windows custom images, images, windows, upload, prepare, VHD
         href: ./windows/prepare-for-upload-vhd-image.md
       - name: Generalizing a VM
+        displayName: generalize sysprep deprovision
         href: generalize.md
-      - name: Upload a VHD and create a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, managed
-        href: ./windows/upload-generalized-managed.md
-      - name: Capture a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, managed, capture
-        href: ./windows/capture-image-resource.md
-      - name: Create a VM from a managed image
-        displayName: Windows custom images, images, windows, upload, prepare, VHD, create, managed
-        href: ./windows/create-vm-generalized-managed.md
       - name: Visual Studio
         href: /visualstudio/install/using-visual-studio-vm
     - name: VM Image Builder
@@ -680,6 +666,8 @@
       - name: Windows
         displayName: Image builder, images, building, packer
         href: ./windows/build-image-with-packer.md
+    - name: Capture a legacy managed image
+      href: capture-image-resource.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -743,9 +731,6 @@
     - name: Linux
       displayName: Azure Hybrid Benefit, Linux, AHB
       href: ./linux/azure-hybrid-benefit-linux.md
-    - name: Linux BYOS
-      displayName: Azure Hybrid Benefit BYOS, Linux, AHB
-      href: ./linux/azure-hybrid-benefit-byos-linux.md
     - name: Windows
       displayName: Azure Hybrid Benefit, AHB
       href: ./windows/hybrid-use-benefit-licensing.md
@@ -960,6 +945,9 @@
       - name: Windows
         displayName: InfiniBand Drivers, Infiband, drivers
         href: ./extensions/hpc-compute-infiniband-windows.md
+      - name: Enable Infiniband
+        displayName: InfiniBand Drivers, Infiband, drivers, extensions
+        href: ./extensions/enable-infiniband.md        
     - name: NVIDIA GPU Drivers
       items:
       - name: Linux
@@ -1114,12 +1102,6 @@
     - name: Overview
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: availability-set-overview.md
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./linux/tutorial-availability-sets.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/tutorial-availability-sets.md
     - name: Change an availability set
       displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
       href: ./windows/change-availability-set.md
@@ -1285,6 +1267,8 @@
     - name: Deploy a premium SSD v2
       href: disks-deploy-premium-v2.md
       displayname: Performance, cost, perf, disks, disk
+    - name: Increase performance of premium SSD and standard SSD/HDDs
+      href: disks-enable-performance.md
     - name: Virtual machine and disk performance
       href: disks-performance.md
       displayname: Performance, cost, perf, disks, disk
@@ -1382,6 +1366,8 @@
       - name: PowerShell
         displayName: Convert disk to another disk type
         href: ./windows/convert-disk-storage.md
+    - name: Migrate AWS and on-premises disk to Azure
+      href: ./windows/on-prem-to-azure.md
     - name: Migrate to premium SSDs with Azure Site Recovery
       items:
       - name: Linux
@@ -1587,7 +1573,7 @@
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports and filter traffic
     items:
-    - name: CLI 
+    - name: CLI
       href: ../virtual-network/tutorial-filter-network-traffic-cli.md
     - name: PowerShell
       href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
@@ -1652,14 +1638,37 @@
       href: security-controls-policy.md
     - name: Policy reference
       href: policy-reference.md
-    - name: Use policies
+    - name: Assign policies
       items:
-      - name: Linux
-        displayName: Use policies
-        href: ./linux/policy.md
-      - name: Windows
-        displayName: Use policies
-        href: ./windows/policy.md
+      - name: Portal
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-portal.md?context=/azure/virtual-machines/context/context
+      - name: Azure CLI
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-azurecli.md?context=/azure/virtual-machines/context/context
+      - name: Terraform
+        displayName: assign, compliance, hcl, policy
+        href: ../governance/policy/assign-policy-terraform.md?context=/azure/virtual-machines/context/context      
+      - name: Azure PowerShell
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-powershell.md?context=/azure/virtual-machines/context/context
+      - name: .NET
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-dotnet.md?context=/azure/virtual-machines/context/context
+      - name: JavaScript
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-javascript.md?context=/azure/virtual-machines/context/context
+      - name: Python
+        displayName: assign, compliance
+        href: ../governance/policy/assign-policy-python.md?context=/azure/virtual-machines/context/context
+      - name: REST
+        displayName: policy, governance
+        href: ../governance/policy/assign-policy-rest-api.md?context=/azure/virtual-machines/context/context
+      - name: ARM template
+        displayName: assign, compliance, resource manager
+        href: ../governance/policy/assign-policy-template.md?context=/azure/virtual-machines/context/context
+      - name: Bicep
+        href: ../governance/policy/assign-policy-bicep.md?context=/azure/virtual-machines/context/context
   - name: Bastion
     items:
     - name: Overview
@@ -1868,19 +1877,7 @@
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
-    items:
-    - name: CLI
-      href: tag-cli.md
-      displayname: tag, tagging, tag a vm
-    - name: Portal
-      href: tag-portal.md
-      displayname: tag, tagging, tag a vm
-    - name: PowerShell
-      href: tag-powershell.md
-      displayname: tag, tagging, tag a vm
-    - name: Template
-      href: tag-template.md
-      displayname: tag, tagging, tag a vm
+    href: ../azure-resource-manager/management/tag-resources.md
   - name: Monitor metadata
     displayName: instance metadata service IMDS
     href: instance-metadata-service.md
@@ -1974,16 +1971,11 @@
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group
-      items:
-      - name: CLI
-        displayName: Change subscription or resource group
-        href: ./linux/move-vm.md
-      - name: PowerShell
-        displayName: Change subscription or resource group
-        href: ./windows/move-vm.md
-      - name: Change subscription for Marketplace VMs
-        displayName: Change subscription or resource group
-        href: azure-cli-change-subscription-marketplace.md
+      displayName: move migrate
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md
+    - name: Change subscription for Marketplace VMs
+      displayName: offer plan sku marketplace
+      href: azure-cli-change-subscription-marketplace.md
     - name: Move VMs to another region
       href: ../site-recovery/azure-to-azure-tutorial-migrate.md?context=/azure/virtual-machines/context/context
     - name: Move to an availability zone
@@ -1992,15 +1984,8 @@
       href: move-region-maintenance-configuration.md
     - name: Move Maintenance Control configuration resources to another region
       href: move-region-maintenance-configuration-resources.md
-    - name: Migrate AWS and on-premises VMs
-      href: ./windows/on-prem-to-azure.md
-      items:
-      - name: Migrate from Amazon Web Services (AWS) to Azure
-        href: ./windows/aws-to-azure.md
-      - name: Upload on-premises VM
-        href: ./linux/upload-vhd.md
-      - name: Use Azure Site Recovery
-        href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
+    - name: Migrate AWS VMs to Azure
+      href: /azure/migrate/tutorial-migrate-aws-virtual-machines
 - name: Infrastructure automation
   items:
   - name: Overview

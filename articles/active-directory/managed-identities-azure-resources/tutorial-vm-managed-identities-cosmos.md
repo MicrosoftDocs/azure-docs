@@ -9,7 +9,7 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 06/24/2022
 ms.author: barclayn
-ms.custom: ep-miar, ignite-2022
+ms.custom: ep-miar, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Azure Cosmos DB from a virtual machine using a managed identity
@@ -448,5 +448,5 @@ Learn more about managed identities for Azure resources:
 
 Learn more about Azure Cosmos DB:
 
-- [Azure Cosmos DB resource model](../../cosmos-db/account-databases-containers-items.md)
+- [Azure Cosmos DB resource model](../../cosmos-db/resource-model.md)
 - [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](../../cosmos-db/sql/sql-api-get-started.md)

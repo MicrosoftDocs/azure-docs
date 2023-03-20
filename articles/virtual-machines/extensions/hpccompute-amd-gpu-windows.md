@@ -12,8 +12,6 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/14/2021
 ms.author: vikancha 
-ms.custom: devx-track-azurepowershell
-
 ---
 # AMD GPU Driver Extension for Windows
 

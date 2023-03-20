@@ -50,7 +50,7 @@ landingContent:
           url: how-to-datastore.md
         - text: Access data in a notebook
           url: how-to-access-data-interactive.md
-        - text: Use Apache Spark in Azure ML
+        - text: Use Apache Spark in Azure Machine Learning
           url: interactive-data-wrangling-with-apache-spark-azure-ml.md
         - text: Create data assets
           url: how-to-create-data-assets.md

@@ -22,7 +22,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can create user experiences by
 
 User flows are already customizable such as [changing UI](customize-ui.md), [customizing language](language-customization.md) and using [custom attributes](user-flow-custom-attributes.md). However, these customizations might not cover all your business specific needs, which is the reason why you need custom policies.   
 
-While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how custom policy is built from scratch. In this how-to guide series, you'll learn what you need to understand for you to customize the behavior of your user experience by using custom policies. At the end of this how-to guide series, you should be able to read and understand existing custom policies or write your own from scratch.
+While you can use pre-made [custom policy starter pack](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how custom policy is built from scratch. In this how-to guide series, you'll learn what you need to understand for you to customize the behavior of your user experience by using custom policies. At the end of this how-to guide series, you should be able to read and understand existing custom policies or write your own from scratch.
 
 ## Prerequisites
 

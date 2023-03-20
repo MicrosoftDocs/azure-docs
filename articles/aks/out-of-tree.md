@@ -1,11 +1,10 @@
 ---
 title: Enable Cloud Controller Manager 
 description: Learn how to enable the Out of Tree cloud provider
-services: container-service
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 04/08/2022
 ms.author: juda
-
 ---
 
 # Enable Cloud Controller Manager 

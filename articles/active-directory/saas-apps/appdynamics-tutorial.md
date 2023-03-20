@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with AppDynamics | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with AppDynamics'
 description: Learn how to configure single sign-on between Azure Active Directory and AppDynamics.
 services: active-directory
 author: jeevansd

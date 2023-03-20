@@ -21,13 +21,13 @@ Workflows created using Lifecycle Workflows allow for the automation of lifecycl
 
 ## Lifecycle Workflow History Summaries
 
-Lifecycle Workflows introduce a history feature based on summaries and details. These history summaries allow you to quickly get information about for who a workflow ran, and whether or not this run was successful or not. This is valuable because the large set of information given by audit logs might become too numerous to be efficiently used. To make a large set of information processed easier to read, Lifecycle Workflows provide summaries for quick use. You can view these history summaries in three ways:
+Lifecycle Workflows introduce a history feature based on summaries and details. These history summaries allow you to quickly get information about for who a workflow ran, and whether or not this run was successful. This is valuable because the large set of information given by audit logs might become too numerous to be efficiently used. To make a large set of information processed easier to read, Lifecycle Workflows provide summaries for quick use. You can view these history summaries in three ways:
 
-- **Users summary**: Shows a summary of users processed by a workflow, and which tasks failed, successfully, and totally ran for each specific user. 
+- **Users summary**: Shows a summary of users processed by a workflow. Successfully, failed, and total ran information for each specific user is shown.
 - **Runs summary**: Shows a summary of workflow runs in terms of the workflow. Successful, failed, and total task information when workflow runs are noted.
 - **Tasks summary**: Shows a summary of tasks processed by a workflow, and which tasks failed, successfully, and totally ran in the workflow.
 
-Summaries allow you to quickly gain details about how a workflow ran for itself, or users, without going into further details in logs.  For a step by step guide on getting this information, see [Check the status of a workflow (Preview)](check-status-workflow.md)
+Summaries allow you to quickly gain details about how a workflow ran for itself, or users, without going into further details in logs.  For a step by step guide on getting this information, see [Check the status of a workflow (Preview)](check-status-workflow.md).
 
 ## Users Summary information
 
@@ -113,7 +113,7 @@ Task detailed history information allows you to filter for specific information 
 - **Completed date**: You can filter a specific range from as short as 24 hours up to 30 days of when the workflow ran.
 - **Tasks**: You can filter based on specific task names.
 
-Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters](lifecycle-workflow-tasks.md#common-task-parameters-preview).
+Separating processing of the workflow from the tasks is important because, in a workflow, processing a user certain tasks could be successful, while others could fail. Whether or not a task runs after a failed task in a workflow depends on parameters such as enabling continue On Error, and their placement within the workflow. For more information, see [Common task parameters (preview)](lifecycle-workflow-tasks.md#common-task-parameters).
 
 ## Next steps
 
@@ -123,4 +123,3 @@ Separating processing of the workflow from the tasks is important because, in a 
 - [taskProcessingResult resource type](/graph/api/resources/identitygovernance-taskprocessingresult?view=graph-rest-beta&preserve-view=true)
 - [Understanding Lifecycle Workflows](understanding-lifecycle-workflows.md)
 - [Lifecycle Workflow templates](lifecycle-workflow-templates.md)
-

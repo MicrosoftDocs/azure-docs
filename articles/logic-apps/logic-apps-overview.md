@@ -69,7 +69,7 @@ To access and run operations on resources in services such as Azure, Microsoft, 
 
 For more information, review the following documentation:
 
-* [Connectors overview for Azure Logic Apps](../connectors/apis-list.md)
+* [About connectors in Azure Logic Apps](../connectors/introduction.md)
 
 * [Managed connectors](../connectors/managed.md)
 
@@ -181,17 +181,17 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 
 When you're ready, try one or more of the following quickstart guides for Azure Logic Apps. Learn how to create a basic workflow that monitors an RSS feed and sends an email for new content.
 
-* [Create a multi-tenant based logic app in the Azure portal](quickstart-create-first-logic-app-workflow.md)
+* [Create a multi-tenant based logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md)
 
-* [Create a multi-tenant based logic app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Create a multi-tenant based logic app workflow in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 
-* [Create a multi-tenant based logic app in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+* [Create a multi-tenant based logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 You might also want to explore other quickstart guides for Azure Logic Apps:
 
-* [Create a multi-tenant based logic app using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Create a multi-tenant based logic app workflow using an ARM template](quickstart-create-deploy-azure-resource-manager-template.md)
 
-* [Create a multi-tenant based logic app using the Azure CLI](quickstart-logic-apps-azure-cli.md)
+* [Create a multi-tenant based logic app workflow using the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
 ## Other resources
 
@@ -201,4 +201,4 @@ Learn more about the Azure Logic Apps platform with these introductory videos:
 
 ## Next steps
 
-* [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)

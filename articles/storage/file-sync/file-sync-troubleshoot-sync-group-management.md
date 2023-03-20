@@ -158,5 +158,4 @@ A server endpoint may not log sync activity for several hours due to a bug or in
 - [Troubleshoot Azure File Sync agent installation and server registration](file-sync-troubleshoot-installation.md)
 - [Troubleshoot Azure File Sync cloud tiering](file-sync-troubleshoot-cloud-tiering.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files problems](../files/files-troubleshoot.md)

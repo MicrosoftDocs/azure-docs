@@ -10,8 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/24/2022
 ms.author: allensu
-ms.custom: fasttrack-edit
-
+ms.custom: fasttrack-edit, devx-track-azurecli
 ---
 # Create a Linux virtual machine with Accelerated Networking using Azure CLI
 

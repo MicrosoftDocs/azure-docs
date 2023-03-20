@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Draup, Inc | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Draup, Inc'
 description: Learn how to configure single sign-on between Azure Active Directory and Draup, Inc.
 services: active-directory
 author: jeevansd

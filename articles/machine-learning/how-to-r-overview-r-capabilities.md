@@ -59,7 +59,7 @@ A typical workflow for using R with Azure Machine Learning:
 | Programmatic model registering/recording from a running job with R isn't supported. |  |
 | Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported. | Create a custom container with `plumber` for deployment. |
 | Scoring an R model with batch endpoints isn't supported. |  |
-| AzureML online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile. | Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-r-deploy-r-model.md) for the correct way to deploy. |
+| Azure Machine Learning online deployment yml can only use image URIs directly from the registry for the environment specification; not pre-built environments from the same Dockerfile. | Follow the steps in [How to deploy a registered R model to an online (real time) endpoint](how-to-r-deploy-r-model.md) for the correct way to deploy. |
 
 
 

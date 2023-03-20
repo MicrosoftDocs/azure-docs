@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/10/2023
 ms.custom:
 ---
 # Provision access to system metadata in Azure Arc-enabled SQL Server 2022
@@ -63,70 +63,14 @@ Follow this link for the steps to [delete a DevOps policies in Microsoft Purview
 >[!Important]
 > DevOps policies are auto-published and changes can take up to **5 minutes** to be enforced by the data source.
 
-## Test the policy
+## Test the DevOps policy
+See how to [test the policy you created](./how-to-policies-devops-authoring-generic.md#test-the-devops-policy)
 
-The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
-
-### Force policy download
-It is possible to force an immediate download of the latest published policies to the current SQL database by running the following command. The minimal permission required to run it is membership in ##MS_ServerStateManager##-server role.
-
-```sql
--- Force immediate download of latest published policies
-exec sp_external_policy_refresh reload
-```  
-
-### Analyze downloaded policy state from SQL
-The following DMVs can be used to analyze which policies have been downloaded and are currently assigned to Azure AD accounts. The minimal permission required to run them is VIEW DATABASE SECURITY STATE - or assigned Action Group *SQL Security Auditor*.
-
-```sql
-
--- Lists generally supported actions
-SELECT * FROM sys.dm_server_external_policy_actions
-
--- Lists the roles that are part of a policy published to this server
-SELECT * FROM sys.dm_server_external_policy_roles
-
--- Lists the links between the roles and actions, could be used to join the two
-SELECT * FROM sys.dm_server_external_policy_role_actions
-
--- Lists all Azure AD principals that were given connect permissions  
-SELECT * FROM sys.dm_server_external_policy_principals
-
--- Lists Azure AD principals assigned to a given role on a given resource scope
-SELECT * FROM sys.dm_server_external_policy_role_members
-
--- Lists Azure AD principals, joined with roles, joined with their data actions
-SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
-```
-
-## Additional information
-
-### Policy action mapping
-
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Arc-enabled SQL Server.
-
-| **Microsoft Purview policy action** | **Data source specific actions**     |
-|-------------------------------------|--------------------------------------|
-|                                     |                                      |
-| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
-|||               
-| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
-|||
+## Role definition detail
+See the [mapping of DevOps role to data source actions](./how-to-policies-devops-authoring-generic.md#role-definition-detail)
 
 ## Next steps
-Check the blogs, videos and related docs
-* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
-* Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
-* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
-* Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
-* Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
-* Doc: [Microsoft Purview DevOps policies on resource groups and subscriptions](./how-to-policies-devops-resource-group.md)
+See [related videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)
+
+
+
