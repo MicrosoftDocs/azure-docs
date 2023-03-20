@@ -105,7 +105,9 @@ WITH
 ```
 
 > [!NOTE]
-> Multi-column distribution is currently in preview for Azure Synapse Analytics. For more information on joining the preview, see multi-column distribution with [CREATE MATERIALIZED VIEW](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), or [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
+> Multi-column distribution in Azure Synapse Analytics can be enabled by changing the database's compatibility level to 50 with this command. 
+> `ALTER DATABASE SCOPED CONFIGURATION SET DW_COMPATIBILITY_LEVEL = 50;`
+> For more information on setting the database compatibility level, see [ALTER DATABASE SCOPED CONFIGURATION](./alter-database-scoped-configuration-transact-sql.md). Also see multi-column distribution with [CREATE MATERIALIZED VIEW](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), or [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 
 Data stored in the distribution column(s) can be updated. Updates to data in distribution column(s) could result in data shuffle operation.
 
