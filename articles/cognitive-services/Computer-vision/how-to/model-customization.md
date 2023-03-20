@@ -37,22 +37,11 @@ You can run through all of the model customization steps using a configured Jupy
 > [!TIP]
 > Contents of _cognitive_service_vision_model_customization.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/cognitive_service_vision_model_customization.ipynb)**.
 
-# Tutorial: Cognitive Service Vision Model Customization using Python: Generic Image Classification and Object Detection
-
-This is a tutorial about using Cognitive Service Vision Model Customization to train your own image classifier (IC) or object detector (OD) with your own data using Python.
-
-Currently, both IC and OD are available in **EastUS**, **West US2**, and **West Europe** regions.
-
-Please create a computer vision resource on Azure portal, in **EastUS**, **West US2**, or **West Europe** region, if you don't already have one. You can use [Multi-service resource](https://learn.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows) as well. 
-
-![check media/create_cv_resource.png if pic does not show up](./media/create_cv_resource.png)
+Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
 
 ## Credentials
 
-Resource name and resource key are needed for accessing the service, which you can find here:
-
-![check media/credentials.png if pic does not show up](./media/credentials.png)
-
+Enter your Computer Vision endpoint URL and key, as well as the name of the resource, in the code below.
 
 ```python
 # Resource and key
@@ -77,34 +66,33 @@ resource_key = '{specify_your_resource_key}'
 
 ## Install the python samples package
 
-Install the sample code including utility code helping you to train/predict with Python:
+Install the [sample code](https://pypi.org/project/cognitive-service-vision-model-customization-python-samples/) to train/predict custom models with Python:
 
 
-```python
-
+```bash
 pip install cognitive-service-vision-model-customization-python-samples
 ```
 
+## Prepare a dataset from Azure blob storage
 
-## Prepare/register a dataset from Azure blob storage
+To train a model with your own dataset, the dataset should be prepared conformed with the COCO format described below, hosted on Azure blob storage, and accessible from your Computer Vision resource.
 
-To train a model with your own dataset, the dataset should be prepared conformed with the coco format described below, hosted on Azure blob storage, and accessible from your Computer Vision resource.
-
-Quota limit information, including the max number of images and categories supported, max image size, etc, can be found at [quota_limit.md](./quota_limit.md).
+> [!TIP]
+> Quota limit information, including the maximum number of images and categories supported, maximum image size, and so on, can be found on the [concept page](../concept-model-customization.md).
 
 ### Dataset annotation format
 
-We use coco format for indexing/organizing the images and their annotations. Below are the examples and explanations of what specific format is needed for multiclass classification and object detection.
+We use COCO format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for multiclass classification and object detection.
 
 Note that
 
-- Cognitive service vision model customization for classification is different than other vision training, as we **utilize your class names as text information in training**, in addtion to your image data, so please provide meaningful category names in the annotations.
-- **Note that in our example dataset, there are only two images, just for the simplicity of the example**. Although [Florence models](https://www.microsoft.com/en-us/research/publication/florence-a-new-foundation-model-for-computer-vision/) running in the service achieves great few-shot performance (aka high model quality even with little data available), it is still great to have more data for the model to learn. Our recommendation is to have at least 5 images per class and the more the better.
-- **Once your coco annotation file is prepared, you can use [`check_coco_annotation.ipynb`](./check_coco_annotation.ipynb) in this repo to check your annotation file format.**
+- Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
+- Note that in the example dataset, there are few images for the sake of simplicity. Although [Florence models](https://www.microsoft.com/en-us/research/publication/florence-a-new-foundation-model-for-computer-vision/) achieve great few-shot performance (high model quality even with little data available), it's good to have more data for the model to learn. Our recommendation is to have at least five images per class, and the more the better.
+- Once your COCO annotation file is prepared, you can use the [COCO file verification script](tbd) to check the format.
 
 #### Multiclass classification example
 
-```{json}
+```json
 {
   "images": [{"id": 1, "width": 224.0, "height": 224.0, "file_name": "images/siberian-kitten.jpg", "absolute_url": "https://{your_blob}.blob.core.windows.net/datasets/cat_dog/images/siberian-kitten.jpg"},
               {"id": 2, "width": 224.0, "height": 224.0, "file_name": "images/kitten-3.jpg", "absolute_url": "https://{your_blob}.blob.core.windows.net/datasets/cat_dog/images/kitten-3.jpg"}],
@@ -116,11 +104,11 @@ Note that
 }
 ```
 
-Besides `absolute_url`, you can also use `coco_url`, which works too (system accepts both field names, no difference.).
+Besides `absolute_url`, you can also use `coco_url` (the system accepts either field name).
 
 #### Object detection example
 
-```{json}
+```json
 {
   "images": [{"id": 1, "width": 224.0, "height": 224.0, "file_name": "images/siberian-kitten.jpg", "absolute_url": "https://{your_blob}.blob.core.windows.net/datasets/cat_dog/images/siberian-kitten.jpg"},
               {"id": 2, "width": 224.0, "height": 224.0, "file_name": "images/kitten-3.jpg", "absolute_url": "https://{your_blob}.blob.core.windows.net/datasets/cat_dog/images/kitten-3.jpg"}],
@@ -133,11 +121,11 @@ Besides `absolute_url`, you can also use `coco_url`, which works too (system acc
 }
 ```
 
-`bbox: [left, top, width, height]` is expected to be numbers relative the image width and height.
+The values in `bbox: [left, top, width, height]` are relative the image width and height.
 
-#### Blob/File directory structure
+### Blob storage directory structure
 
-Following the examples above, the data directory in your Azure Blob Container `https://{your_blob}.blob.core.windows.net/datasets/` should be like below, where `train_coco.json` is the annotation file, the format of which is described above.
+Following the examples above, the data directory in your Azure Blob Container `https://{your_blob}.blob.core.windows.net/datasets/` should be arranged like below, where `train_coco.json` is the annotation file.
 
 ```
 cat_dog/
@@ -149,25 +137,31 @@ cat_dog/
 
 ### Grant your Computer Vision resource access to your Azure data blob
 
-#### Option 1: Shared access signatures (SAS)
+You need to take an extra step to give your Computer Vision resource access to read the contents of your Azure blog storage container. There are two ways to do this.
 
-You can generate SAS token with at least read permission on your Azure Blob Container for your data annotation and images, example usage of which can be found in the code below. For instructions of acquiring SAS token, check this [documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers).
+#### Option 1: Shared access signature (SAS)
 
-#### Option 2: Managed identity or public accessible
+You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](/azure/cognitive-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers).
 
-If your data is not public accessible, make sure to grant the Computer Vision resoure you created the access to your blob `https://{your_blob}.blob.core.windows.net/`, via [managed identiy](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview):
+#### Option 2: Managed Identity or public accessible
 
-Below is a standard practice for using system assigned managed identity of your created Computer Vision resource to access your blob storage, on Azure portal:
+`https://{your_blob}.blob.core.windows.net/`
 
-- Once created the Computer Vision resource, go to the "Identity / System assigned" tab, change the "Status" to "On"
-- Go to your blob storage; go to "Access Control (IAM) / Role assignment", Click "Add / Add role assignment", choose "Storage Blob Data Contributor" or "Storage Blob Data Reader"
-- Click "Next", and choose "Managed Identity" for "Assign access to", and then click on "Select members"
-- Choose your subscription, Managed Identity being "Computer Vision", and look up the one that match your Computer Vision resource's name
+You can also use [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) to grant access.
 
+Below is a series of steps for allowing the system-assigned Managed Identity of your Computer Vision resource to access your blob storage. In the Azure portal:
 
-### Register dataset
+1. Go to the **Identity / System assigned** tab of your Computer Vision resource, and change the **Status** to **On**.
+1. Go to the **Access Control (IAM) / Role assignment** tab of your blob storage resource, select **Add / Add role assignment**, and choose either **Storage Blob Data Contributor** or **Storage Blob Data Reader**.
+1. Select **Next**, and choose **Managed Identity** under **Assign access to**, and then select **Select members**.
+1. Choose your subscription, with the Managed Identity being Computer Vision, and look up the one that matches your Computer Vision resource name.
 
-Once dataset has been properly prepared and hosted on your azure blob storage, with access granted to your Computer Vision resource, now let us register it in the service (**Data access only happens during training, service does not retain copies of your data beyond training cycle**).
+### Register the dataset
+
+Once your dataset has been prepared and hosted on your azure blob storage container, with access granted to your Computer Vision resource, you can register it with the service.
+
+> [!NOTE]
+> The service only accesses your storage data during training. It doesn't keep copies of your data beyond the training cycle.
 
 
 ```python
@@ -203,8 +197,7 @@ if eval_dataset:
 
 ## Train a model
 
-After registering a dataset, let us train a model with the registered dataset:
-
+After you registering the dataset, use it to train a custom model:
 
 ```python
 from cognitive_service_vision_model_customization_python_samples import TrainingClient, Model, ModelKind, TrainingParameters, EvaluationParameters
@@ -222,6 +215,7 @@ logging.info(f'Start training: {model.__dict__}')
 
 ## Check the training status
 
+Use the following code to check the status of the asynchronous training operation.
 
 ```python
 from cognitive_service_vision_model_customization_python_samples import TrainingClient
@@ -232,7 +226,7 @@ model = training_client.wait_for_completion(model_name, 30)
 
 ## Predict with a sample image
 
-
+Use the following code to get a prediction with a new sample image.
 
 ```python
 from cognitive_service_vision_model_customization_python_samples import PredictionClient
@@ -246,7 +240,6 @@ logging.info(f'Prediction: {prediction}')
 ```
 
 <!-- nbend -->
-
 
 
 #### [Vision Studio](#tab/studio)
