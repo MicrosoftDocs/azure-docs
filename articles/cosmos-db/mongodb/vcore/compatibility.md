@@ -298,7 +298,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$unwind` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 
 > [!NOTE]
-> The `$lookup` aggregation does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
+> The `$lookup` aggregation does not yet support using variable expressions using 'let'.
 
 ### Boolean expressions
 
