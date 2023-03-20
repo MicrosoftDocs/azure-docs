@@ -808,7 +808,31 @@ items:
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-python.md
       - name: TypeScript
-        items:
+        items: 
+        - name: Get started
+          href: storage-blob-javascript-get-started.md
+        - name: Authorize access from your application
+          items:
+          - name: Azure Active Directory
+            items:
+            - name: Overview
+              href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            - name: Auth using developer service principals
+              href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            - name: Auth using developer accounts
+              href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            - name: Auth from Azure-hosted apps
+              href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            - name: Auth from on-premises apps
+              href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+          - name: Work with SAS tokens
+            items:
+            - name: User delegation SAS
+              href: storage-blob-create-user-delegation-sas-javascript.md
+            - name: Service SAS
+              href: sas-service-create-javascript.md  
+            - name: Account SAS
+              href: storage-blob-account-delegation-sas-create-javascript.md      
         - name: Container actions
           items:
           - name: Create a container
