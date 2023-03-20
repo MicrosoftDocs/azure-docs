@@ -112,7 +112,7 @@ Now go back to the Azure portal to get your connection string information and co
     
 ## Run the console app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install required packages
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
