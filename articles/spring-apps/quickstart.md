@@ -255,7 +255,7 @@ az spring app create \
 
 Azure Spring Apps creates an empty welcome application and provides its URL in the field named `properties.url`.
 
-:::image type="content" source="media/quickstart/bannerapp.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/bannerapp.png":::
+:::image type="content" source="media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page." lightbox="media/quickstart/app-welcome-page.png":::
 
 ## Clone and build the Spring Boot sample project
 
