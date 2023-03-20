@@ -27,7 +27,7 @@ OpenTelemetry offerings are available for .NET, Node.js, Python and Java applica
 - <a name="PREVIEW"> :warning: 2</a>: OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!NOTE] 
-> For a feature-by-feature release status, see the [FAQ](../faq.yml#what-is-the-current-release-state-of-features-within-each-opentelemetry-offering-).
+> For a feature-by-feature release status, see the [FAQ](../faq.yml#what-s-the-current-release-state-of-features-within-each-opentelemetry-offering-).
 
 ## Get started
 
@@ -748,7 +748,7 @@ Depending on your language and signal type, there are different ways to collect 
  
 The following table represents the currently supported custom telemetry types:
 
-|                                           | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
+|    Custom Telemetry Types                 | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **.NET**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |

@@ -142,7 +142,7 @@ sections:
           You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to a different subscription or resource group](logs/move-workspace.md).
           
       - question: |
-          Why can't I see **Query Explorer** and **Save** buttons in Log Analytics?
+          Why can't I see Query Explorer and Save buttons in Log Analytics?
         answer: |
           **Query Explorer**, **Save**, and **New alert rule** buttons aren't available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts or save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md).
           
@@ -257,7 +257,7 @@ sections:
           Azure Monitor Agent is the new, improved agent that consolidates features from all the other legacy monitoring agents. It also provides extra benefits like centralized data collection, filtering, and multihoming. See [Overview of the Azure Monitor agents](agents/agents-overview.md).  
           
           The legacy agents include:
-          - Azure Diagnostics extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
+          - Azure Diagnostics extension is for Azure Virtual Machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
           - The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. These agents will be deprecated by August 2024.
                   
       - question: |
