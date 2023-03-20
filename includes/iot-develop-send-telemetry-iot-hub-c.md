@@ -35,7 +35,7 @@ Install the remaining prerequisites for your operating system.
 ### Linux or Raspberry Pi OS
 To complete this quickstart on Linux or Raspberry Pi OS, install the following software:
 
-Install **GCC**, **Git**, **cmake**, and the required dependencies using the `apt-get` command:
+Install **GCC**, **Git**, **CMake**, and the required dependencies using the `apt-get` command:
 
 ```sh
 sudo apt-get update
