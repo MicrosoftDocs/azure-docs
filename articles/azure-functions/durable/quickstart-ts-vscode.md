@@ -55,7 +55,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project. 
 
-1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     ![Create function](media/quickstart-js-vscode/functions-create-project.png)
 
@@ -299,9 +299,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 To enable your V4 programming model app to run in Azure, you need to add the `EnableWorkerIndexing` flag under the `AzureWebJobsFeatureFlags` app setting.
 
-1. In Visual Studio Code, press **F1** to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-2. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press **Enter**.
-3. For the value, type `EnableWorkerIndexing` and press **Enter**.'
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+2. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>.
+3. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.'
 
 ::: zone-end
 
