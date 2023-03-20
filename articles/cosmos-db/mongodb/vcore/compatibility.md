@@ -41,7 +41,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `find` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `findAndModify` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `getLastError` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `getMore` | :::image type="icon" source="media/compatibility/no-icon.svg"::: Partial |
+| `getMore` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Partial |
 | `insert` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `resetError` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `update` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
