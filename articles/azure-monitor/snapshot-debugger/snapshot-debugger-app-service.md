@@ -49,7 +49,7 @@ If you're running a different type of Azure service, here are instructions for e
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines and Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
   
 ## Enable Snapshot Debugger for other clouds
@@ -89,7 +89,7 @@ For User-Assigned Identity:
 
 |App Setting    | Value    |
 |---------------|----------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AD;ClientId={Client id of the User-Assigned Identity}    |
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | Authorization=AD;ClientID={Client ID of the User-Assigned Identity}    |
 
 ## Disable Snapshot Debugger
 
