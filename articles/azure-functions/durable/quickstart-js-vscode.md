@@ -96,7 +96,7 @@ To work with Durable Functions in a Node.js function app, you use a library call
 To use the V4 programming model, you need to install the preview `v3.x` version of `durable-functions`.
 ::: zone-end
 
-1. Use the *View* menu or Ctrl+Shift+` to open a new terminal in VS Code.
+1. Use the *View* menu or <kbd>Ctrl+Shift+`</kbd> to open a new terminal in VS Code.
 
 ::: zone pivot="nodejs-model-v3"
 2. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
