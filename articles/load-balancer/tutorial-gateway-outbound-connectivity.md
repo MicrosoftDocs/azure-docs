@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 ## Chain a virtual machine to a gateway load balancer
 
-This example uses hain an existing virtual machine’s public IP to a gateway load balancer. A gateway load balancer can be inserted in the path of outbound traffic by chaining to virtual machine instance level public IPs. This method secures both inbound and outbound traffic reaching or originating from this virtual machine’s public IP.
+In this section, you chain an existing virtual machine’s public IP to a gateway load balancer. A gateway load balancer can be inserted in the path of outbound traffic by chaining to virtual machine instance level public IPs. This method secures both inbound and outbound traffic reaching or originating from this virtual machine’s public IP.
 
-1. Navigate to your existing virtual machine. This example uses irtual machine is named myVM1. 
+1. Navigate to your existing virtual machine. This example uses a virtual machine named **myVM1**. 
 
 1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
 
@@ -53,7 +53,7 @@ This example uses hain an existing virtual machine’s public IP to a gateway lo
 
 ## Create a load balancer frontend
 
-In this example, you create a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
+In this section, you create a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
 
 1. Navigate to your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
 
@@ -119,7 +119,7 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-In this tutorial, you created: 
+In this tutorial, you learned how to: 
 
 - Chained a virtual machine’s IP address to a Gateway Load Balancer.
 - Created a new load balancer frontend IP configuration.
