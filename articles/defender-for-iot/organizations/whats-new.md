@@ -59,7 +59,7 @@ For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-
 
 Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You'll only need to update you activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -75,7 +75,7 @@ For more information, see [Manage your OT device inventory from a sensor console
 
 ### Updated severity for all Suspicion of Malicious Activity alerts
 
-All alerts with the **Suspicion of Malicious Activity** category now have an severity of **Critical**.
+All alerts with the **Suspicion of Malicious Activity** category now have a severity of **Critical**.
 
 For more information, see [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts).
 
