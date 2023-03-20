@@ -6,6 +6,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-configure-auto-features.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-configure-auto-features",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/reference-checkpoint-performance-with-Nebula.md",
         "redirect_url": "/azure/machine-learning/reference-checkpoint-performance-for-large-models",
         "redirect_document_id": true

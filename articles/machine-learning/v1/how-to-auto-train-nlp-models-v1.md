@@ -26,7 +26,7 @@ In this article, you learn how to train natural language processing (NLP) models
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
-You can seamlessly integrate with the [Azure Machine Learning data labeling](../how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning’s MLOps capabilities. 
+You can seamlessly integrate with the [Azure Machine Learning data labeling](../how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning's MLOps capabilities. 
 
 ## Prerequisites
 
@@ -192,7 +192,7 @@ Multi-class text classification|    `'eng'` <br>  `'deu'` <br> `'mul'`|  English
 Named entity recognition (NER)|    `'eng'` <br>  `'deu'` <br> `'mul'`|  English&nbsp;BERT&nbsp;[cased](https://huggingface.co/bert-base-cased) <br>  [German BERT](https://huggingface.co/bert-base-german-cased)<br>  [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
 
 
-You can specify your dataset language in your `FeaturizationConfig`. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](../how-to-configure-auto-features.md#bert-integration-in-automated-ml).
+You can specify your dataset language in your `FeaturizationConfig`. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

@@ -93,7 +93,7 @@ ML professionals and developers across industries can use automated ML to:
 
 ### Classification
 
-Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization (v1) options](../how-to-configure-auto-features.md#featurization). 
+Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization (v1) options](how-to-configure-auto-features.md#featurization). 
 
 The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. Learn more and see an example at [Create a classification model with automated ML (v1)](../tutorial-first-experiment-automated-ml.md).
 
@@ -264,7 +264,7 @@ You can also [test any existing automated ML model (preview) (v1)](../how-to-con
 
 Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization.
 
-For automated machine learning experiments, featurization is applied automatically, but can also be customized based on your data. [Learn more about what featurization is included (v1)](../how-to-configure-auto-features.md#featurization) and how AutoML helps [prevent over-fitting and imbalanced data](../concept-manage-ml-pitfalls.md) in your models.  
+For automated machine learning experiments, featurization is applied automatically, but can also be customized based on your data. [Learn more about what featurization is included (v1)](how-to-configure-auto-features.md#featurization) and how AutoML helps [prevent over-fitting and imbalanced data](../concept-manage-ml-pitfalls.md) in your models.  
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
@@ -280,7 +280,7 @@ Enable this setting with:
 
 + Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these  (v1) steps](../how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization (v1)](../how-to-configure-auto-features.md). 
++ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization (v1)](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble"></a> Ensemble models
 

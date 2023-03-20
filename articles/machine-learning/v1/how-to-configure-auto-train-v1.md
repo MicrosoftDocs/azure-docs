@@ -275,7 +275,7 @@ The recommendations are similar to those noted for regression scenarios.
 ### Data featurization
 
 In every automated ML experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
-See [Featurization in AutoML](../how-to-configure-auto-features.md) for more detail and code examples. 
+See [Featurization in AutoML](how-to-configure-auto-features.md) for more detail and code examples. 
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same featurization steps applied during training are applied to your input data automatically.
@@ -284,9 +284,9 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](../how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
+|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
 |`"featurization": 'off'`| Indicates featurization step shouldn't be done automatically.|
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](../how-to-configure-auto-features.md#customize-featurization).|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-featurization).|
 
 
 
@@ -417,9 +417,9 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md).
 
-* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](../how-to-configure-auto-features.md#featurization-transparency). 
+* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
-You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](../how-to-configure-auto-features.md#scaling-and-normalization). 
+You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](how-to-configure-auto-features.md#scaling-and-normalization). 
 
 > [!TIP]
 > Automated ML also let's you [view the generated model training code for Auto ML trained models](../how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
