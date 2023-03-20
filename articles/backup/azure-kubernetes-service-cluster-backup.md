@@ -3,7 +3,7 @@ title: Back up Azure Kubernetes Service (AKS) using Azure Backup
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 03/17/2023
+ms.date: 03/20/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -89,27 +89,27 @@ To configure backups for AKS cluster, follow these steps:
 
 5. Select **Install/Fix Extension** to install the **Backup Extension** on the cluster.
 
-6. In the *context* pane, provide the *storage account* and *blob container* where you need to store the backup, and then select **Generate Command**.
+6. In the *context* pane, provide the *storage account* and *blob container* where you need to store the backup, and then select **Click on Install Extension**.
 
 7. To enable *Trusted Access* and *other role permissions*, select **Grant Permission** > **Next**.
 
 8. Select the backup policy that defines the schedule and retention policy for AKS backup, and then select **Next**.
 
-10. Select **Add/Edit** to define the *backup instance configuration*.
+9. Select **Add/Edit** to define the *backup instance configuration*.
 
-9. In the *context* pane, enter the *cluster resources* that you want to back up.
+10. In the *context* pane, enter the *cluster resources* that you want to back up.
 
     Learn about the [backup configurations](#backup-configurations).
 
-10. Select the *snapshot resource group* where *persistent volume (Azure Disk) snapshots* need to be stored, and then select **Validate**.
+11. Select the *snapshot resource group* where *persistent volume (Azure Disk) snapshots* need to be stored, and then select **Validate**.
 
    After validation, if the appropriate roles aren't assigned to the vault over snapshot resource group, the error **Role assignment not done** appears.
 
-11. To resolve the error, select the *checkbox* corresponding to the *Datasource*, and then select **Assign Missing Role**.
+12. To resolve the error, select the *checkbox* corresponding to the *Datasource*, and then select **Assign Missing Role**.
 
-12. Once the *role assignment* is successful, select **Next**.
+13. Once the *role assignment* is successful, select **Next**.
 
-13. Select **Configure Backup**. 
+14. Select **Configure Backup**. 
 
    Once the configuration is complete, the **Backup Instance** gets created.
 

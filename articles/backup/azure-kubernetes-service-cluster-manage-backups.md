@@ -3,7 +3,7 @@ title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 03/17/2023
+ms.date: 03/20/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -62,6 +62,14 @@ To stop the Backup Extension install operation, use the following command:
 
    ```azurecli-interactive
    az k8s-extension delete --name azure-aks-backup --cluster-type managedClusters --cluster-name aksclustername --resource-group aksclusterrg
+   ```
+
+### Grant permission on storage account
+
+To provide *Storage Account Contributor Permission* to the Extension Identity on storage account, run the following command:
+
+   ```azurecli-interactive
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname 
    ```
 
 ### View Backup Extension installation status
@@ -131,8 +139,7 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 
    ```
 
->[!Note]
->AKS backup experience via Azure portal allows you to perform both Backup Extension installation and Trusted Access enablement, required to make the AKS cluster ready for backup and restore operations.
+Learn more about [other commands related to Trusted Access](../aks/trusted-access-feature.md#trusted-access-feature-overview).
 
 ## Next steps
 
