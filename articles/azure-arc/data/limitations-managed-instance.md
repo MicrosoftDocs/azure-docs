@@ -54,7 +54,7 @@ This table summarizes answers to frequently asked questions regarding support ro
 
 \* Azure services
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Customers and their partners own the and operate the infrastructure that Azure Arc hybrid services run on so Microsoft can't provide the SLA.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Customers and their partners own and operate the infrastructure that Azure Arc hybrid services run on so Microsoft can't provide the SLA.
 
 ## Next steps
 
