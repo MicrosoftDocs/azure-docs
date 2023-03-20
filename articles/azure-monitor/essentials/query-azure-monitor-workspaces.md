@@ -10,81 +10,53 @@ ms.reviewer: aul
 
 # Query Prometheus metrics from an Azure Monitor Workspace using PromQL.
 
-Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes Clusters and stores them in an Azure Monitor workspace.  PromQL - Prometheus query language, is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in a Azure Monitor workspace. 
+Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes Clusters and stores them in an Azure Monitor workspace.  PromQL - Prometheus query language, is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
 
-This article describes how to query an Azure Monitor workspace using PromQL via  REST API .
-For more information on ProQL, see [QUERYING PROMETHEUS](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
+This article describes how to query an Azure Monitor workspace using PromQL via  REST API.
+For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
 ## Prerequisites 
-To query a n Azure montior workspace using PromQL you need the following:
+To query an Azure monitor workspace using PromQL you need the following prerequisites:
 + An Azure Kubernetes Cluster or remote Kubernetes cluster.
 + Azure Monitor managed service for Prometheus (preview) scraping metrics from a Kubernetes cluster
-+ An Azure Monitor Workspace where Prometheus metrics asr being stored.
++ An Azure Monitor Workspace where Prometheus metrics Azure Site Recovery being stored.
 
 ## Authentication
 
-To query your Azure Monitor workspace, you must use authenticate using Azure Active Directory.
+To query your Azure Monitor workspace, authenticate using Azure Active Directory.
 The API supports Azure Active Directory authentication using Client credentials. Register a client app with Azure Active Directory and request a token.
-
-1. [Register an app in Azure Active Directory](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/api/register-app-for-token)
-
-On the app's overview page, select API permissions.
-
-Select Add a permission.
-
-On the APIs my organization uses tab, search for Log Analytics and select Log Analytics API from the list.
 
 To set up Azure Active Directory authentication, follow the steps below:
 
 1. Register an app with Azure Active Directory.
 1. Grant access for the app to your Azure Monitor workspace.
-1. Configure your self-hosted Grafana with the app's credentials.
+1. Request a token.
+
 
 ### Register an app with Azure Active Directory
 
-1. To register an app, open the Active Directory Overview page in the Azure portal.
+1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token?tabs=portal)
 
-1. Select **Add** from the tool bar and **App registration** from the dropdown.
+<<<<Is this required ?>>>>>
+1. On the app's overview page, select API permissions.
 
-1. On the **Register an application page**, enter a Name for the application.
+1. Select Add a permission.
 
-1. Select Register.
-
-1. Note the** Application (client) ID** and **Directory(Tenant) ID**. They're used in the body of the authentication request.
-    :::image type="content" source="./media/query-azure-monitor-workspaces/app-registration-overview.png" lightbox="./media/query-azure-monitor-workspaces/app-registration-overview.png" alt-text="A screen shot showing an app registration overview page.":::
-    
-1. On the app's overview page, select **Certificates and Secrets**.
-
-1. In the Client secrets tab, select New client secret.
-
-1. Enter a Description.
-
-1. Select an expiry period from the dropdown and select Add.
-
-    >[!Note]
-    > Create a process to renew the secret and update your API REST calls before the secret expires. Once the secret expires you won't able to authenticate with this client ID and won't be able to query data from your Azure Monitor workspace using the API.
-
-    :::image type="content" source="./media/query-azure-monitor-workspaces/add-a-client-secret.png" lightbox="./media/query-azure-monitor-workspaces/add-a-client-secret.png" alt-text="A screenshot showing the Add client secret page.":::
-
-1. Copy and save the client secret Value.
-
->[!Note]
-> Client secret values can only be viewed immediately after creation. Be sure to save the secret value before leaving the page.  
-
-   :::image type="content" source="./media/query-azure-monitor-workspaces/client-secret.png" lightbox="./media/query-azure-monitor-workspaces/client-secret.png" alt-text="A screenshot showing the client secret page with generated secret value.":::
+1. On the APIs my organization uses tab, search for Log Analytics and select Log Analytics API from the list.
 
 ### Allow your app access to your workspace
 Allow your app to query data from your Azure Monitor workspace.
 
 1. Open your Azure Monitor workspace in the Azure portal.
 
-1. On the Overview page, take note of your Query endpoint. The query endpoint is used when setting up your Grafana data source.
+1. On the Overview page, take note of your Query endpoint foe use in your REST request.
 
-1. Select Access control (IAM). A screenshot showing the Azure Monitor workspace overview page
+1. Select Access control (IAM).  
+    :::image type="content" source="./media/query-azure-monitor-workspaces/workspace-overview.png" lightbox="./media/query-azure-monitor-workspaces/workspace-overview.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
 
 1. Select **Add**, then **Add role assignment** from the Access Control (IAM) page.
 
-1. On the Add role Assignment page, search for *Monitoring*.
+1. On the **Add role Assignment page**, search for *Monitoring*.
 
 1. Select **Monitoring Data Reader**, then select the Members tab.
 
@@ -94,16 +66,16 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. Search for the app that you registered in the Register an app with Azure Active Directory section and select it.
 
-1. Click **Select**.
+1. Choose **Select**.
 
 1. Select **Review + assign**. 
 
   :::image type="content" source="./media/query-azure-monitor-workspaces/select-members.png" lightbox="./media/query-azure-monitor-workspaces/select-members.png.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
 
-You've created your App registration and have assigned it access to query data from your Azure Monitor workspace. 
+You've created your App registration and have assigned it access to query data from your Azure Monitor workspace.  You can now generate a token and use it in a query.
 
 
-## Request a Token
+### Request a Token
 Send the following request in the command prompt or by using a client like Postman.
 
 ```shell
@@ -129,18 +101,62 @@ Sample response body:
 }
 ```
 
-## Endpoints 
+Save the access token from the response for use in the following HTTP requests.  
 
-Two endpoints are supported for wuering Azure Monitor workspaces:
-+ Azure monitor workspace query endpoint 
+## Query Endpoints 
+
+Two endpoints are supported for querying Azure Monitor workspaces:
++  The Azure monitor workspace query endpoint, using POST
    For example:
     POST: Query endpoint from the over view page
     https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query
 
-+ https://management.azure.com resource endpoint
-   For example:
-    GET: https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<amwName>?api-version=2021-06-01-preview
-When using the management end point, request a token using `--data-urlencode 'resource= https://prometheus.monitor.azure.com'` instead of `prometheus.monitor.azure.com`
++  The Azure management endpoint using GET.
+    
+    ```
+        GET https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<amwName>?api-version=2021-06-01-preview
+    ```
 
+    When using the management end point, request a token using `--data-urlencode 'resource= https://management.azure.com'` instead of `prometheus.monitor.azure.com`
 
-Save the access token from the response for use in the following HTTP requests.
+## Supported APIs
+The following queries are supported:
+
++ [Instant queries](https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries): /api/v1/query
+
++ [Range queries](https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries): /api/v1/query_range
+
++ [Series](https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers): /api/v1/series
+
++ [Labels](https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names): /api/v1/labels
+
++ [Label values](https://prometheus.io/docs/prometheus/latest/querying/api/#querying-label-values): /api/v1/label/__name__/values.
+
+    **name** is the only supported version of this API, which effectively means GET all metric names. Any other /api/v1/label/{name}/values aren't supported.   <<<< More explanantion needed>>>>
+
+For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
+## API limitations
+(differing from prom specification)
++ Scoped to metric
+    Any time series fetch queries (/series or /query or /query_range) must contain name label matcher that is, each query must be scoped to a metric. And there should be exactly one name label matcher in a query, not more than one.
+    <<< name label matcher ??>>>
+
++ Supported time range
+    + /query_range API supports a time range of 32 days (end time minus start time).
+    <<<history depth ?>>>
+
+    + /series API fetches data only for 12 hours time range. If endTime isn't provided, endTime = time.now().
+
+    + range selectors (time range baked in query itself) supports 32d.
+            <<<more explanation needed - time range baked in query itself>>>
++ Ignore time range  
+    Start time and end time provided with /labels and /label/name/values are ignored, and all retained data in MDM is queried.
+<<<more explanation needed>>>
+
++ Experimental features  
+The experimental features such as exemplars, @ Modifier, or negative offsets aren't  supported.
+
+For more information on Prometheus metrics limits, see [Prometheus metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/service-limits#prometheus-metrics)
+
+>[!NOTE]
+> Some of the limits can be increased. Please contact [PromWebApi](promwebapi@microsoft.com) to request an increase for these limits on your Azure Monitor workspace.
