@@ -21,7 +21,7 @@ ms.custom: has-adal-ref
 This article provides information that you can use to plan your [single sign-on (SSO)](what-is-single-sign-on.md) deployment in Azure Active Directory (Azure AD). When you plan your SSO deployment with your applications in Azure AD, you need to consider the following questions:
 
 - What are the administrative roles required for managing the application?
-- Does the Security Assertion Markup Language (SAML) applicationcertificate need to be renewed?
+- Does the Security Assertion Markup Language (SAML) application certificate need to be renewed?
 - Who needs to be notified of changes related to the implementation of SSO?
 - What licenses are needed to ensure effective management of the application?
 - Are shared and guest user accounts used to access the application?
