@@ -311,15 +311,15 @@ Use the following steps to create the project:
 
 1. Use [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. The following URL provides default settings for you.
 
-```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
-```
+   ```url
+   https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
+   ```
 
-The following image shows the recommended Initializr settings for the *hellospring* sample project.
+   The following image shows the recommended Initializr settings for the *hellospring* sample project.
 
-This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**.
+   This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**.
 
-:::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
+   :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
 1. When all dependencies are set, select **Generate**.
 1. Download and unpack the package, and then create a web controller for your web application by adding the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
