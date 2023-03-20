@@ -11,13 +11,13 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# SMS Insights
+# SMS Insights Dashboard
 
 ## Overview
 
 The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It's powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
 
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview-full.png" alt-text="Screenshot of SMS insights overview":::
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview-full.png" alt-text="Screenshot of SMS insights overview page":::
 
 The SMS Insights Dashboard can be found as part of the Insights blade on the left hand navigation of your Azure Communication Services resource.
 
@@ -43,7 +43,7 @@ Great to help answer general questions like:
 - What is my message distribution by country?
 
 #### Top metrics
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview.png" alt-text="Screenshot of SMS insights overview":::
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview.png" alt-text="Screenshot of SMS insights overview graphs":::
 
 
 #### SMS by country
@@ -56,7 +56,7 @@ Can help answer questions like:
 - Are there particular days where I'm seeing fewer deliveries?
 - Are there any geographies where delivery suffers most?
 
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-message-rates.png" alt-text="Screenshot of SMS insights overview":::
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-message-rates.png" alt-text="Screenshot of SMS insights message rates":::
 
 ### Opt-in & opt-out rates
 The Opt-in & opt-out rates section provides insights into end user responses for opt-ins/outs and help.
@@ -64,7 +64,7 @@ The Opt-in & opt-out rates section provides insights into end user responses for
 Answer questions like:
 - What percentage of my users are opt-in vs opt-out?
 
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-opt-in-out.png" alt-text="Screenshot of SMS insights overview":::
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-opt-in-out.png" alt-text="Screenshot of SMS insights opt in and out":::
 
 ### Response patterns
 The Response patterns section provides insights into the total SMS usage in a day across messages delivered, received, failed, and blocked.
@@ -72,16 +72,16 @@ The Response patterns section provides insights into the total SMS usage in a da
 This section helps you understand:
 - How is my solution performing over time?
 
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-response-patterns.png" alt-text="Screenshot of SMS insights overview":::
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-response-patterns.png" alt-text="Screenshot of SMS insights response patterns":::
 
 ## Exporting logs
 The SMS logs can be exported by clicking on the Download button on the top right corner of the logs table:
 
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-response-patterns.png" alt-text="Screenshot of SMS insights overview":::
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-export.png" alt-text="Screenshot of SMS insights export":::
 
 ## Editing dashboards
 
-The **Insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
+The **SMS insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
 
 :::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Dashboard editing":::
 
