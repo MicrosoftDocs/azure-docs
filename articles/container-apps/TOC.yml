@@ -155,7 +155,7 @@
       href: dapr-github-actions.md
     - name: Event-driven work using Dapr Bindings
       href: microservices-dapr-bindings.md
-    - name: Microservices communication using Dapr Pub/sub messaging
+    - name: Microservices communication using Dapr Publish and Subscribe
       href: microservices-dapr-pubsub.md
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
