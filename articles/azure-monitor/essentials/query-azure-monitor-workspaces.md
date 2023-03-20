@@ -70,7 +70,7 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. Select **Review + assign**. 
 
-  :::image type="content" source="./media/query-azure-monitor-workspaces/select-members.png" lightbox="./media/query-azure-monitor-workspaces/select-members.png.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
+    :::image type="content" source="./media/query-azure-monitor-workspaces/select-members.png" lightbox="./media/query-azure-monitor-workspaces/select-members.png.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
 
 You've created your App registration and have assigned it access to query data from your Azure Monitor workspace.  You can now generate a token and use it in a query.
 
@@ -167,7 +167,7 @@ For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://p
 <<<more explanation needed>>>
 
 + Experimental features  
-The experimental features such as exemplars, @ Modifier, or negative offsets aren't  supported.
+The experimental features such as exemplars aren't  supported.
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/service-limits#prometheus-metrics)
 
