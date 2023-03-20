@@ -6,7 +6,7 @@ author: maud-lv
 
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 03/14/2023
 ms.author: malev
 
 #Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm.
@@ -36,7 +36,7 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A Kubernetes cluster.
 
-# Add key-values
+## Add key-values
 
 Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values pairs to your App Configuration store:
 

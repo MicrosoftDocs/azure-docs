@@ -21,7 +21,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [.NET Core SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
-# Add a key-value
+## Add a key-value
 
 Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
 

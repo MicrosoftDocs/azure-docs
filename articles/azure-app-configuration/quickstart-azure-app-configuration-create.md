@@ -141,7 +141,7 @@ When no longer needed, delete the resource group. Deleting a resource group also
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az group delete](/cli/azure/groupg/#az-group-delete) command. Replace the placeholder `<name>` with the name of the App Configuration store:
+Run the [az group delete](/cli/azure/group/#az-group-delete) command. Replace the placeholder `<name>` with the name of the App Configuration store:
 
 
 ```azurecli
