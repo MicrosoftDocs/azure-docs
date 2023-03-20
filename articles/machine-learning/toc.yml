@@ -533,7 +533,7 @@
         # v1
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-          href: how-to-configure-environment-v1.md
+          href: ./v1/how-to-configure-environment-v1.md
         # end v1
         - name: Install and set up the CLI (v2)
           displayName: azurecli, mlops
@@ -750,9 +750,6 @@
               href: how-to-configure-auto-train.md
             - name: Use automated ML (interface)
               href: how-to-use-automated-ml-for-ml-models.md
-            - name: Use automated ML with Databricks
-              displayName: automl
-              href: how-to-configure-databricks-automl-environment.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -786,6 +783,9 @@
               href: ./v1/how-to-configure-auto-features.md
             - name: Generate AutoML training code
               href: ./v1/how-to-generate-automl-training-code.md
+            - name: Use automated ML with Databricks
+              displayName: automl
+              href: ./v1/how-to-configure-databricks-automl-environment.md
             # end v1
             - name: Time series forecasting
               items:
@@ -811,9 +811,6 @@
             - name: Local inference using ONNX
               displayName: SDK, automl
               href: ./v1/how-to-inference-onnx-automl-image-models-v1.md
-            - name: Use automated ML with Databricks
-              displayName: automl
-              href: how-to-configure-databricks-automl-environment.md
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
             # end v1

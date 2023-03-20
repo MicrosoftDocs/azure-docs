@@ -163,7 +163,7 @@ Error message non-vision experiments: ` Schema mismatch error: (an) additional c
 Error message for vision datasets: `Schema mismatch error: (an) additional column(s): "dataType: String, dataSubtype: String, dateTime: Date, category: String, subcategory: String, status: String, address: String, latitude: Decimal, longitude: Decimal, source: String, extendedProperties: String", (a) missing column(s): "image_url: Stream, image_details: DataRow, label: List" Vision dataset error(s): Vision dataset should have a target column with name 'label'. Vision dataset should have labelingProjectType tag with value as 'Object Identification (Bounding Box)'.`
 
 ## Databricks
-See [How to configure an automated ML experiment with Databricks (Azure Machine Learning SDK v1)](how-to-configure-databricks-automl-environment.md#troubleshooting).
+See [How to configure an automated ML experiment with Databricks (Azure Machine Learning SDK v1)](./v1/how-to-configure-databricks-automl-environment.md#troubleshooting).
 
 
 ## Forecasting R2 score is always zero
