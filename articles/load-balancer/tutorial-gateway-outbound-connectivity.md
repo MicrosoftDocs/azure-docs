@@ -34,10 +34,11 @@ This example uses hain an existing virtual machine’s public IP to a gateway lo
 
 1. Navigate to your existing virtual machine. This example uses irtual machine is named myVM1. 
 
-1. To verify your virtual machine has a standard SKU public IP associated with it, go to **Public IP address > Overview** and confirm that the SKU is **Standard**.
+1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
 
-    :::image type="content" source="media/gateway-configure-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku.":::
+    :::image type="content" source="media/gateway-configure-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku." lightbox="media/gateway-configure-outbound-connectivity/confirm-sku-thumb.png":::
 
+1. Return to your virtual machine.
 1. In the **Overview** page of the virtual machine, select **Networking** under **Settings**.
 1. Select the network interface attached to the virtual machine. This example uses **myvm1229**.
 
@@ -52,7 +53,7 @@ This example uses hain an existing virtual machine’s public IP to a gateway lo
 
 ## Create a load balancer frontend
 
-This example uses reate a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
+In this example, you create a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
 
 1. Navigate to your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
 
@@ -71,7 +72,7 @@ This example uses reate a new frontend IP configuration for outbound traffic in 
 
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/add-frontend-ip-configuration.png" alt-text="Screenshot of Add frontend ip configuration screen.":::
-
+<<PickUpdHere>>
 1.	Select Save.
 
 > [!NOTE] 
