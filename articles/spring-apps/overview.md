@@ -140,16 +140,6 @@ Azure Spring Apps, including Enterprise tier, runs on Azure in a fully managed e
 
 After you create your Enterprise tier service instance and deploy your applications, you can monitor with Application Insights or any other application performance management tools of your choice.
 
-### Get started with the Standard consumption plan
-
-The following quickstarts and articles will help you get started using Standard consumption:
-
-* Launch your first app - Provision an Azure Spring Apps service on Standard consumption and launch your first app
-* Launch your first event-driven app – launch an event-driven app on Standard consumption
-* Create Azure Spring Apps in Azure Container Apps Environment with an existing VNet
-* Autoscale your apps in Standard consumption
-* Analyze Logs and Metrics
-
 ### Get started with Enterprise tier
 
 The following quickstarts will help you get started using the Enterprise tier:
