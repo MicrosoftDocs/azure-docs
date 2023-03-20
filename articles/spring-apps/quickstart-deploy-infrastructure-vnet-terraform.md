@@ -63,7 +63,7 @@ The configuration file used in this quickstart is from the [Azure Spring Apps re
 
 To apply the Terraform plan, follow these steps:
 
-1. Save the *variables.tf* file for [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-apps-reference-architecture/main/terraform/brownfield-deployment/Standard/variable.tf) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-apps-reference-architecture/main/terraform/brownfield-deployment/Enterprise/variable.tf) locally, then open it in an editor.
+1. Save the *variables.tf* file for [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-apps-landing-zone-accelerator/reference-architecture/terraform/brownfield-deployment/Standard/variable.tf) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-apps-landing-zone-accelerator/reference-architecture/terraform/brownfield-deployment/Enterprise/variable.tf) locally, then open it in an editor.
 
 1. Edit the file to add the following values:
 

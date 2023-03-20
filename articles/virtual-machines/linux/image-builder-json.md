@@ -1172,7 +1172,7 @@ You can use the `validate` property to validate platform images and any customiz
 
 Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` property. If the `sourceValidationOnly` property is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
 
-The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
+The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports File, PowerShell and Shell validators.
 
 The `continueDistributeOnFailure` property is responsible for whether the output image(s) will be distributed if validation fails. By default, if validation fails and this property is set to false, the output image(s) won't be distributed. If validation fails and this property is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed if a validation failure. This property has no effect on whether validation succeeds or not.
 
@@ -1191,31 +1191,37 @@ How to use the `validate` property to validate Windows images:
 
 ```json
 {
-  "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "PowerShell",
-          "name": "test PowerShell validator inline",
-          "inline": [
-            "<command to run inline>"
-          ],
-          "validExitCodes": <exit code>,
-          "runElevated": <true or false>,
-          "runAsSystem": <true or false>
-        },
-        {
-          "type": "PowerShell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-          "runElevated": <true false>,
-          "sha256Checksum": "<sha256 checksum>"
-        }
-      ]
-    }
-  }
+   "properties":{
+      "validate":{
+         "continueDistributeOnFailure":false,
+         "sourceValidationOnly":false,
+         "inVMValidations":[
+            {
+               "type":"File",
+               "destination":"string",
+               "sha256Checksum":"string",
+               "sourceUri":"string"
+            },
+            {
+               "type":"PowerShell",
+               "name":"test PowerShell validator inline",
+               "inline":[
+                  "<command to run inline>"
+               ],
+               "validExitCodes":"<exit code>",
+               "runElevated":"<true or false>",
+               "runAsSystem":"<true or false>"
+            },
+            {
+               "type":"PowerShell",
+               "name":"<name>",
+               "scriptUri":"<path to script>",
+               "runElevated":"<true false>",
+               "sha256Checksum":"<sha256 checksum>"
+            }
+         ]
+      }
+   }
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 
-title: What is Azure Active Directory monitoring? | Microsoft Docs
+title: What is Azure Active Directory monitoring?
 description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
 author: shlipsey3

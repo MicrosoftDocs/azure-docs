@@ -22,6 +22,6 @@ Check the following step-by-step tutorials for more information about each speci
 |---------|---------|
 SQL Server to Azure SQL Managed Instance| [Online](../articles/dms/tutorial-sql-server-managed-instance-online-ads.md) / [Offline](../articles/dms/tutorial-sql-server-managed-instance-offline-ads.md)
 SQL Server to SQL Server on Azure Virtual Machine|[Online](../articles/dms/tutorial-sql-server-to-virtual-machine-online-ads.md) / [Offline](../articles/dms/tutorial-sql-server-to-virtual-machine-offline-ads.md)
-SQL Server to Azure SQL Database (Preview)| [Offline](../articles/dms/tutorial-sql-server-azure-sql-database-offline-ads.md)
+SQL Server to Azure SQL Database | [Offline](../articles/dms/tutorial-sql-server-azure-sql-database-offline-ads.md)
 
 To learn more, see [Migrate databases with Azure SQL Migration extension for Azure Data Studio](../articles/dms/migration-using-azure-data-studio.md).

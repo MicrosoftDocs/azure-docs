@@ -97,7 +97,7 @@ This risk detection indicates that the application's valid credentials have been
    
 5. Get the TenantID and Application(Client)ID in the **Overview** page.
 6. Ensure you disable the application via **Azure Active Directory** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
-7. Create a **public** GitHub Repository, add the following config and commit the change.
+7. Create a **public** GitHub Repository, add the following config and commit the change as a file with the .txt extension.
    ```GitHub file
      "AadClientId": "XXXX-2dd4-4645-98c2-960cf76a4357",
      "AadSecret": "p3n7Q~XXXX",

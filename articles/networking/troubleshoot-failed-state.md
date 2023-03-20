@@ -5,10 +5,10 @@ services: networking
 author: stegag
 
 ms.service: virtual-network
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/08/2022
 ms.author: stegag
-
 ---
 
 # Troubleshoot Azure Microsoft.Network failed provisioning state

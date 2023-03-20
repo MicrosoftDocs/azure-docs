@@ -1075,7 +1075,7 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
-      - name: HawkeyeBSB
+      - name: Hawkeye Platform
         href: hawkeyebsb-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
@@ -1445,6 +1445,8 @@
         href: lecorpio-tutorial.md
       - name: Ledgy
         href: ledgy-tutorial.md
+      - name: LegalForce
+        href: legalforce-tutorial.md
       - name: Lenses.io
         href: lensesio-tutorial.md
       - name: Lessonly
@@ -1607,7 +1609,7 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
-      - name: MURAL Identity
+      - name: Mural Identity
         href: mural-identity-tutorial.md  
       - name: MVISION Cloud Azure AD SSO Configuration
         href: skyhighnetworks-tutorial.md
@@ -1915,7 +1917,7 @@
         href: productive-tutorial.md  
       - name: Profit.co
         href: profitco-saml-app-tutorial.md
-      - name: Projectplace
+      - name: ProjectPlace
         href: projectplace-tutorial.md
       - name: Prolorus
         href: prolorus-tutorial.md
@@ -2209,6 +2211,8 @@
         href: signagelive-tutorial.md
       - name: SignalFx
         href: signalfx-tutorial.md
+      - name: Signiant Media Shuttle
+        href: signiant-media-shuttle-tutorial.md
       - name: Sigstr
         href: sigstr-tutorial.md
       - name: SilkRoad Life Suite
@@ -2343,6 +2347,8 @@
         href: sumologic-tutorial.md
       - name: SumTotalCentral
         href: sumtotalcentral-tutorial.md
+      - name: SuperAnnotate
+        href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
       - name: SURFsecureID - Azure MFA
@@ -3132,7 +3138,7 @@
         href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: Netsparker Enterprise
+      - name: NetsparkerEnterprise
         href: netsparker-enterprise-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
@@ -3288,6 +3294,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Thrive LXP
         href: thrive-lxp-provisioning-tutorial.md
+      - name: Torii
+        href: torii-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
       - name: Tribeloo

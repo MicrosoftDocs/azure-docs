@@ -982,6 +982,8 @@
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
+    - name: SAP audit log workbook
+      href: sap/sap-audit-log-workbook.md
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
