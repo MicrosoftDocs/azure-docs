@@ -8,8 +8,6 @@ ms.service: active-directory
 ms.topic: tutorial
 ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
-
-# Review Stage 3: PM Review - (ADO-54212)
 ---
 
 # Tutorial: Prepare an application for authentication
