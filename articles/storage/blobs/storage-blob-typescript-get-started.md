@@ -18,7 +18,7 @@ ms.custom: template-how-to, devx-track-ts, devguide-ts, passwordless-js
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
-[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-typescript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Prerequisites
 
@@ -112,7 +112,7 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
 
 Once your Azure storage account identity roles and your local environment are set up, create a TypeScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-service-connect-from-default-azure-credential.ts" highlight="10-16":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-service-connect-from-default-azure-credential.ts" highlight="10-16":::
 
 The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control. If you use a local service principal as part of your DefaultAzureCredential set up, any security information for that credential will also go into the `.env` file.
 
@@ -122,7 +122,7 @@ If you plan to deploy the application to servers and clients that run outside of
 
 Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) from the storage account name and account key. Then pass the StorageSharedKeyCredential to the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class constructor to create a client.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-service-connect-with-account-name-and-key.ts" highlight="10-23":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-service-connect-with-account-name-and-key.ts" highlight="10-23":::
 
 The `dotenv` package is used to read your storage account name and key from a `.env` file. This file should not be checked into source control.
 
@@ -138,7 +138,7 @@ https://YOUR-RESOURCE-NAME.blob.core.windows.net?YOUR-SAS-TOKEN
 
 Depending on which tool you use to generate your SAS token, the querystring `?` may already be added to the SAS token.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-service-connect-from-sas-token.ts" highlight="6-18":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-service-connect-from-sas-token.ts" highlight="6-18":::
 
 The `dotenv` package is used to read your storage account name and sas token from a `.env` file. This file should not be checked into source control.
 
@@ -158,23 +158,23 @@ You can create the [ContainerClient](/javascript/api/@azure/storage-blob/contain
 
 Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object from the BlobServiceClient.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-container-client-from-blob-service-client.ts" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-blob-service-client.ts" :::
 
 ### Create ContainerClient directly
 
 #### [Passwordless](#tab/azure-ad)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-container-client-from-default-azure-credential.ts" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-default-azure-credential.ts" :::
 
 
 #### [Account key](#tab/account-key)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-container-client-from-account-name-and-key.ts" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-account-name-and-key.ts" :::
 
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-container-client-from-sas-token.ts" highlight="19, 24":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-sas-token.ts" highlight="19, 24":::
 
 
 -----------------
@@ -195,21 +195,21 @@ List of Blob clients:
 
 ### Create BlobClient object from ContainerClient
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-blob-client-from-container-client.ts" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-container-client.ts" :::
 
 ### Create BlobClient directly
 
 #### [Passwordless](#tab/azure-ad)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-blob-client-from-default-azure-credential.ts" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-default-azure-credential.ts" :::
 
 #### [Account key](#tab/account-key)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/auth-blob-client-from-account-name-and-key.ts" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-account-name-and-key.ts" :::
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/auth-blob-client-from-blob-sas-token.ts":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-blob-sas-token.ts":::
 
 -----------------
 

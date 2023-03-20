@@ -36,7 +36,7 @@ The following code example sets blob HTTP  system properties on a blob.
 
 To set the HTTP properties for a blob, create a [BlobClient](storage-blob-typescript-get-started.md#create-a-blobclient-object) then call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.ts" id="snippet_setHTTPHeaders" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts" :::
 
 
 ## Set metadata
@@ -47,7 +47,7 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 The following code example sets metadata on a blob. 
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.ts" id="snippet_setBlobMetadata" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts" :::
 
 To read the metadata, get the blob's properties (shown below), specifically referencing the `metadata` property. 
 
@@ -55,7 +55,7 @@ To read the metadata, get the blob's properties (shown below), specifically refe
 
 The following code example gets a blob's system properties, including HTTP headers and metadata, and displays those values. 
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.ts" id="snippet_getProperties" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts" :::
 
 ## Resources
 

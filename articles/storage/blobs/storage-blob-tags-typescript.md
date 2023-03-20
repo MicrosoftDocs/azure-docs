@@ -34,7 +34,7 @@ To set tags at blob upload time, create a [BlobClient](storage-blob-typescript-g
 
 The following example performs this task.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/blob-set-tags.ts" id="Snippet_setTags" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-tags.ts" id="Snippet_setTags" :::
 
 You can delete all tags by passing an empty JSON object into the setTags method.
 
@@ -54,7 +54,7 @@ To get tags, create a [BlobClient](storage-blob-typescript-get-started.md#create
 
 The following example shows how to get and iterate over the blob's tags.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/blob-set-tags.ts" id="Snippet_getTags" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-tags.ts" id="Snippet_getTags" :::
 
 ## Filter and find data with blob index tags
 
@@ -80,7 +80,7 @@ To find blobs, create a [BlobClient](storage-blob-typescript-get-started.md#crea
 
 The following example finds all blobs matching the tagOdataQuery parameter.
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/blob-set-and-retrieve-tags.ts" id="Snippet_findBlobsByQuery" :::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-and-retrieve-tags.ts" id="Snippet_findBlobsByQuery" :::
 
 
 And example output for this function shows the matched blobs and their tags, based on the console.log code in the preceding function:
