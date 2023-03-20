@@ -38,7 +38,7 @@ The recommendations engine calculates savings plan purchases for the selected te
 
 ## Recommendations for management groups
 
-Currently, the Azure portal doesn't provide savings plan recommendations for management groups. However, you can get the details of per hour commitment of Subscriptions based recommendation from Azure Portal and combine the amount based on Subscriptions grouping as part of Management group and apply the Savings Plan.
+Currently, the Azure portal doesn't provide savings plan recommendations for management groups. However, you can get the details of per hour commitment of Subscriptions based recommendation from Azure portal and combine the amount based on Subscriptions grouping as part of Management group and apply the Savings Plan.
 
 
 ## Need help? Contact us
