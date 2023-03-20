@@ -7,7 +7,7 @@ ms.date: 03/16/2023
 
 # Linter rule - simplify JSON null
 
-This rule finds `json(null)`.
+This rule finds `json('null')`.
 
 ## Linter rule code
 
