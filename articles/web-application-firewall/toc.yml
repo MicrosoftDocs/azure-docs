@@ -72,6 +72,8 @@
       href: ./ag/bot-protection-overview.md
     - name: WAF engine
       href: ./ag/waf-engine.md
+    - name: Log scrubbing
+      href: ./ag/waf-log-scrubbing.md
     - name: Best practices
       href: ./ag/best-practices.md
     - name: FAQ
@@ -102,10 +104,6 @@
       href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
-  - name: Log scrubbing
-    href: ./shared/waf-log-scrubbing.md
-  - name: Configure log scrubbing
-    href: ./shared/waf-log-scrubbing-configure.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -142,6 +140,8 @@
        href: ./ag/web-application-firewall-logs.md
      - name: Monitoring and logging
        href: ./ag/application-gateway-waf-metrics.md
+     - name: Configure log scrubbing
+       href: ./ag/waf-log-scrubbing-configure.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
