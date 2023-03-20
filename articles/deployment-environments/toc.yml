@@ -45,14 +45,16 @@ items:
       href: how-to-configure-deployment-environments-user.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
+    - name: Use Azure CLI devcenter extension
+      href: how-to-install-devcenter-cli-extension.md  
     - name: Create environments with the CLI
       href: how-to-create-access-environments.md  
 - name: Reference
   items:
+    - name: Azure CLI
+      href: https://aka.ms/CLI-reference
     - name: REST API
       href: /rest/api/devcenter/
-    - name: CLI
-      href: how-to-configure-use-cli.md
 - name: Resources
   items: 
     - name: Azure roadmap
