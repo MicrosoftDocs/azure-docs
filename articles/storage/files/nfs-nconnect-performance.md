@@ -59,9 +59,16 @@ Depending on your workload requirements, it’s important to correctly size the 
 Queue depth is the number of pending I/O requests that a storage resource can service. We don't recommend exceeding the optimal queue depth of 64. If you do, you won't see any more performance gains. For more information, see [Queue depth](understand-performance.md#queue-depth).
 
 ### `Nconnect` per-mount configuration 
-If a workload requires mounting multiple shares with one or more storage accounts with different `nconnect` settings from a single client, we can't guarantee that those settings will persist when mounting over the public endpoint. Per-mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 2.
+If a workload requires mounting multiple shares with one or more storage accounts with different `nconnect` settings from a single client, we can't guarantee that those settings will persist when mounting over the public endpoint. Per-mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
 
-#### Scenario 1: (not supported) `nconnect` per-mount configuration over public endpoint
+#### Scenario 1: (supported) `nconnect` per-mount configuration over private endpoint with multiple storage accounts
+
+- StorageAccount.file.core.windows.net = 10.10.10.10
+- StorageAccount2.file.core.windows.net = 10.10.10.11
+  - `Mount StorageAccount.file.core.windows.net:/FileShare1 nconnect=4`
+  - `Mount StorageAccount2.file.core.windows.net:/FileShare1`
+
+#### Scenario 2: (not supported) `nconnect` per-mount configuration over public endpoint
 
 - StorageAccount.file.core.windows.net = 52.239.238.8
 - StorageAccount2.file.core.windows.net = 52.239.238.7
@@ -71,13 +78,6 @@ If a workload requires mounting multiple shares with one or more storage account
 
 > [!NOTE]
 > Even if the storage account resolves to different IP address, we can't guarantee that address will persist because public endpoints aren't static addresses.
-
-#### Scenario 2: (supported) `nconnect` per-mount configuration over private endpoint with multiple storage accounts
-
-- StorageAccount.file.core.windows.net = 10.10.10.10
-- StorageAccount2.file.core.windows.net = 10.10.10.11
-  - `Mount StorageAccount.file.core.windows.net:/FileShare1 nconnect=4`
-  - `Mount StorageAccount2.file.core.windows.net:/FileShare1`
 
 #### Scenario 3: (not supported) `nconnect` per-mount configuration over private endpoint with multiple shares on single storage account
 
