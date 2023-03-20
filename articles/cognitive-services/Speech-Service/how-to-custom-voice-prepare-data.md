@@ -88,7 +88,7 @@ The issues are divided into three types. Refer to the following tables to check 
 
 **Auto-rejected**
 
-Data with these errors won't be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can [fix these data errors online](#resolve-data-issues-online) or uploaded the corrected data again for training.  
+Data with these errors won't be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can [fix these data errors online](#resolve-data-issues-online) or upload the corrected data again for training.  
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
