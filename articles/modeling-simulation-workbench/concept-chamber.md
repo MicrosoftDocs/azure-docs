@@ -45,7 +45,7 @@ The Chamber Admin is responsible for the following chamber activities:
 - Install and manage applications and licenses
 - Installation and configuration of tools related to compute, network, and storage within the chamber
 
-Chamber users can execute HPC workloads, scripts, and schedulers based on their access permissions to chamber storages. They can utilize the [data pipeline](./concept-datapipeline.md), bringing data into the chamber and requesting data to be extracted from chamber.
+Chamber users can execute HPC workloads, scripts, and schedulers based on their access permissions to chamber storages. They can utilize the [data pipeline](./concept-data-pipeline.md), bringing data into the chamber and requesting data to be extracted from chamber.
 
 ### Right-sizing
 

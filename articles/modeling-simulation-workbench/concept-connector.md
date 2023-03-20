@@ -24,7 +24,7 @@ For those organizations who don't have an Azure network setup, or prefer to use 
 
 ## Next steps
 
-- [What's next - Data Pipeline](./concept-datapipeline.md)
+- [What's next - Data Pipeline](./concept-data-pipeline.md)
 
 Choose an article to know more:
 

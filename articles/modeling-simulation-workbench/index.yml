@@ -33,7 +33,7 @@ landingContent:
           - text: Connector
             url: ./concept-connector.md
           - text: Data Pipeline
-            url: ./concept-datapipeline.md
+            url: ./concept-data-pipeline.md
 
   # Card: Get started
   - title: Get started

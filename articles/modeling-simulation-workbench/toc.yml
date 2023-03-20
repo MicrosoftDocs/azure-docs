@@ -26,7 +26,7 @@ items:
     - name: Connector
       href: ./concept-connector.md
     - name: Data pipeline
-      href: ./concept-datapipeline.md
+      href: ./concept-data-pipeline.md
 - name: How-to guides
   items: 
     - name: Manage chamber
