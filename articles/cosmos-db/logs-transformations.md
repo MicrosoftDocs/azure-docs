@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 03/17/2023
 author: StefArroyo
 ms.author: esarroyo
-ms.service: Azure Cosmos DB
+ms.service: cosmos-db
 ---
 # Cost Optimizations for Log Analytics Workbooks 
 To help improve costs for enabling Log Analytics, we now support adding Data Collection Rules and transformations on your Log Analytics resources to filter out columns, reduce number of results returned, and create new columns before the data is sent to the destination.
