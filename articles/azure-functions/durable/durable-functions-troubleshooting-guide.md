@@ -121,7 +121,7 @@ let start = datetime(2017-09-30T04:30:00);
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"])) 
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay != true 
-| where instanceId in ("XXX", "XXX", ”XXX”) //edit this
+| where instanceId in ("XXX", "XXX", "XXX") //edit this
 | sort by timestamp asc 
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName 
 ```
