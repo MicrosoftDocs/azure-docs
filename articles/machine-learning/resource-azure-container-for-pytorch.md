@@ -9,7 +9,7 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 03/17/2023
+ms.date: 03/20/2023
 ---
 
 # Azure Container for PyTorch (ACPT)
@@ -19,14 +19,13 @@ Azure Container for PyTorch is a lightweight, standalone environment that includ
 > [!NOTE]
 > Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment).
 
-
 ## Why should I use ACPT?
 
 * Use as is with preinstalled packages or build on top of the curated environment.
 * Optimized training framework to set up, develop, accelerate PyTorch model on large workloads.
 * Up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, etc.
 * Ease of use: All components installed and validated against dozens of Microsoft workloads to reduce setup costs and accelerate time to value.
-* Latest Training Optimization Technologies: [ONNX RunTime](https://onnxruntime.ai/) , [DeepSpeed](https://www.deepspeed.ai/),  [MSCCL](https://github.com/microsoft/msccl),and others.
+* Latest Training Optimization Technologies: [ONNX RunTime](https://onnxruntime.ai/) , [DeepSpeed](https://www.deepspeed.ai/),  [MSCCL](https://github.com/microsoft/msccl),and others.
 * Integration with Azure Machine Learning: Track your PyTorch experiments on Azure Machine Learning studio or using the SDK.
 * The image is also available as a [Data Science Virtual Machine (DSVM)](https://azure.microsoft.com/products/virtual-machines/data-science-virtual-machines/). To learn more about Data Science Virtual Machines, see [the DSVM overview documentation](data-science-virtual-machine/overview.md).
 * Azure customer support reduces training and deployment latency.
@@ -45,14 +44,18 @@ The following configurations are supported:
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|acpt-pytorch-2.0-cuda11.7 | Ubuntu 20.04 | cu117|3.8| 2.0 | 1.14.1 | 0.8.2 | 0.15.1 |
-|acpt-pytorch-1.13-cuda11.7 | Ubuntu 20.04  | cu117 | 3.8 | 1.13.1 | 1.14.0 | 0.8.0 | 1.14.0 |
-| acpt-pytorch-1.12-py39-cuda11.6 | Ubuntu 20.04  | cu116 | 3.9 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
-| acpt-pytorch-1.12-cuda11.6 | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
-|acpt-pytorch-1.11-cuda11.5 | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 |
-|acpt-pytorch-1.11-cuda11.5 | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.1 |
+|acpt-pytorch-2.0-cuda11.7|Ubuntu 20.04|cu117|3.8|2.0|1.14.1|0.8.2 |0.14.0|
+|acpt-pytorch-1.13-cuda11.7|Ubuntu 20.04|cu117|3.8|1.13.1|1.14.1|0.8.2| 1.14.0|
+|acpt-pytorch-1.12-py39-cuda11.6|Ubuntu 20.04|cu116|3.9 |1.12.1|1.14.1| 0.8.2|1.14.0|
+|acpt-pytorch-1.12-cuda11.6|Ubuntu 20.04|cu116|3.8|1.12.1|1.14.1|0.8.2| 1.14.0|
+|acpt-pytorch-1.11-cuda11.5|Ubuntu 20.04|cu115|3.8|1.11.0|1.11.1|0.7.3| 1.11.0| 
+|acpt-pytorch-1.11-cuda11.3|Ubuntu 20.04|cu113|3.8|1.11.0|1.14.1|0.8.2| 1.14.0| 
+
 
 Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest, pytorch-lightning, tensorboard, NebulaML, torchvision, torchmetrics to support all training needs
+
+[!NOTE]
+> Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only acpt-pytorch-1.11-cuda11.3 with cuda 11.3 and torch 1.11 can be used.
 
 ## Support
 
