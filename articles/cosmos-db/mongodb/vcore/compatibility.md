@@ -415,7 +415,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | Command | Supported |
 |---------|---------|
 | `$concat` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$dateToString` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$dateToString` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$toLower` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$toString` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$substr` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
