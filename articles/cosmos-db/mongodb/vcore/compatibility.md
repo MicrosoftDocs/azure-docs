@@ -269,7 +269,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$changeStream` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$count` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$currentOp` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$facet` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$facet` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$geoNear` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$graphLookup` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$group` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
