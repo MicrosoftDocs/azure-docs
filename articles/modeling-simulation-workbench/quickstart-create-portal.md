@@ -195,7 +195,7 @@ Take note of the properties in the next steps:
 
 1. Select **Next : Chamber >** button at the bottom of the page.
 
-:::image type="content" source="./media/quickstart-create-portal/create02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values":::
+    :::image type="content" source="./media/quickstart-create-portal/create02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values":::
 
 1. In the **Chamber** tab, under **Chamber**, choose the following values:
 

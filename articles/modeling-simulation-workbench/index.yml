@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Modeling and Simulation Workbench?
-            url: ./modelingandsimulationworkbench-overview.md
+            url: ./modeling-simulation-workbench-overview.md
       - linkListType: concept
         links:
           - text: Modeling and Simulation Workbench

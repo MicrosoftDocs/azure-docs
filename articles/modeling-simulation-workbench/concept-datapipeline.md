@@ -20,7 +20,7 @@ The data pipeline enables users to bring data into the [chamber](./concept-chamb
 
 ## Data Pipeline features
 
-Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token. This token can be acquired from the chamber component. The user can then utilize AzCopy to move data into the data pipeline endpoint. The chamber recognizes the data pipeline request and move the file into the chamber, in addition, the data pipeline makes visible within the chamber a files object representing the data in file request for traceability.
+Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token. This token can be acquired from the chamber component. The user can then utilize AzCopy to move data into the data pipeline endpoint. The chamber recognizes the data pipeline request and moves the file into the chamber, in addition, the data pipeline makes visible within the chamber a files object representing the data in file request for traceability.
 
 Users with access to the chamber can extract data from the chamber via the data pipeline through a series of steps.
 
