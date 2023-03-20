@@ -15,7 +15,7 @@ ms.subservice: sms
 
 # Toll-Free Verification Filling Guidelines
 
-In this document, we will review the guidelines on filling out an application to verify your toll-free number. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](../sms-faq#toll-free-verification.md). The toll-free verification application consists of 5 sections:  
+In this document, we will review the guidelines on filling out an application to verify your toll-free number. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](./sms-faq#toll-free-verification.md). The toll-free verification application consists of 5 sections:  
 
 - Application Type  
 - Company Details  
@@ -87,5 +87,5 @@ Message senders are required to disclose all the types/categories of messages wi
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [SMS FAQ](../sms-faq#toll-free-verification.md)
+- Familiarize yourself with the [SMS FAQ](./sms-faq#toll-free-verification.md)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)

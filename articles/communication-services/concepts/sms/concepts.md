@@ -40,4 +40,4 @@ The following documents may be interesting to you:
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
 - Get a [short code](../../quickstarts/sms/apply-for-short-code.md)
 - [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
-- [Toll-free verification FAQ](../sms/sms-faq#toll-free-verification.md)
+- Apply for [Toll-free verification](./sms-faq#toll-free-verification.md)

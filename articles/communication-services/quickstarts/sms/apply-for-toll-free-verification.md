@@ -21,7 +21,7 @@ ms.custom: mode-other
 - Toll-free number 
  
 ### What is toll free verification?
-The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](../../concepts/sms/sms-faq#toll-free-verification.md). 
+The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](../../concepts/sms/messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](../../concepts/sms/sms-faq.md#toll-free-verification.md).
 
 Verification is **required** for best SMS delivery experience.
 
