@@ -40,7 +40,7 @@ To view your Log Analytics workspace health and set up health status alerts:
 1. To set up health status alerts, you can either [enable recommended out-of-the-box alert](../alerts/alerts-overview.md#recommended-alert-rules) rules, or manually create new alert rules.
     - To enable the recommended alert rules:
         1. select **Alerts**, then select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
-        1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, You can change the default values if you would like.
+        1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, you can change the default values if you would like.
         1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
         1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
         1. Select **Enable**.

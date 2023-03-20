@@ -38,7 +38,7 @@ Then you define these elements for the resulting alert actions by using:
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
 1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
-1. (Optional.) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. FIlter by:
+1. (Optional.) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
     - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
 
