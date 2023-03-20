@@ -92,21 +92,26 @@ Select the configuration that you're using:
 
 # [Service tag/NSG](#tab/servicetag)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
-* `BatchNodeManagement.<region>`
-* `AzureMachineLearning`
-* `Storage.<region>` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+| Service tag | Protocol | Port |
+| ----- | ----- | ----- |
+| `BatchNodeManagement.<region>` | ANY | 443 |
+| `AzureMachineLearning` | TCP | 443 |
+| `Storage.<region>` | TCP | 443 |
+
+> [!NOTE]
+> For the storage outbound, a Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
 # [Firewall](#tab/firewall)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __ANY port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `<region>.batch.azure.com`
 * `<region>.service.batch.com`
 
 > [!WARNING]
-> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts:
+> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts over __TCP port 443__:
 > * `*.blob.core.windows.net`
 > * `*.queue.core.windows.net`
 > * `*.table.core.windows.net`

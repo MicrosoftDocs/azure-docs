@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SumoLogic | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SumoLogic'
 description: Learn how to configure single sign-on between Azure Active Directory and SumoLogic.
 services: active-directory
 author: jeevansd

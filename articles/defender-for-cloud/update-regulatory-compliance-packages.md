@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 03/12/2023
+ms.date: 03/20/2023
 ms.custom: ignite-2022
 ---
 
@@ -52,7 +52,7 @@ By default, every Azure subscription has the Microsoft cloud security benchmark 
 - Australian Government ISM Protected
 - RMIT Malaysia
 
-**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned and can be viewed under Recommendations. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
 Users that have one Defender bundle enabled can enable other standards. 
 

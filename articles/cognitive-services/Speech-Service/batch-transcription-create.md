@@ -18,6 +18,9 @@ ms.custom: devx-track-csharp
 
 With batch transcriptions, you submit the [audio data](batch-transcription-audio-data.md), and then retrieve transcription results asynchronously. The service transcribes the audio data and stores the results in a storage container. You can then [retrieve the results](batch-transcription-get.md) from the storage container.
 
+> [!NOTE]
+> To use batch transcription, you need to use a standard (S0) Speech resource. Free resources (F0) aren't supported. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ## Create a transcription job
 
 ::: zone pivot="rest-api"

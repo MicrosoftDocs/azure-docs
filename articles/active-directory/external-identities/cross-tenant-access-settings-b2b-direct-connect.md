@@ -1,5 +1,5 @@
 ---
-title: Configure B2B direct connect cross-tenant access - Azure AD
+title: Configure B2B direct connect cross-tenant access
 description: Use cross-tenant access settings to manage how you collaborate with other Azure AD organizations. Learn how to configure  outbound access to external organizations and inbound access from external Azure AD for B2B direct connect.
 services: active-directory
 ms.service: active-directory

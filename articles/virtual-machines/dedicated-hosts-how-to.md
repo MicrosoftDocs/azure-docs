@@ -22,12 +22,11 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
-
 - Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
-
 - Currently dedicated hosts do not support 'ultra disks' on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (ultra disks are supported on these sizes for multi tenant VMs).
-
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
+- Users can not select hardware capabilities like accelerated networking when creating a dedicated host.
+- Users would not be able to create VMs/VMSS with accelerated networking enabled on a dedicated host.
 
 ## Create a host group
 

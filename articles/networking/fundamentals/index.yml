@@ -39,6 +39,8 @@ landingContent:
         links:
           - text: Azure Networking Solutions
             url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
+          - text: Implement Azure network security
+            url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
   
   # Card (optional)
   - title: Get started

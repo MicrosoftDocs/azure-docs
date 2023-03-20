@@ -24,7 +24,7 @@ When working with calls in Azure Communication Services, problems may arise that
 User-facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
-const userFacingDiagnostics = call.api(Features.UserFacingDiagnostics);
+const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 ```
 
 ## Diagnostic values
