@@ -7,7 +7,6 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/27/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway listener configuration
@@ -50,8 +49,6 @@ Associate a frontend port. You can select an existing port or create a new one. 
 > - Protocol: TCP
 > 
 > **Outbound Rule**: (no specific requirement)
-
-**Limitation**: The portal currently supports private and public listeners creation only for the Public clouds.
 
 ## Protocol
 

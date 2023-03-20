@@ -23,8 +23,6 @@
       href: faq-data-collection-agents.yml
     - name: Azure Virtual Machines questions
       href: faq-vms.yml
-    - name: Azure Log Analytics questions
-      href: faq-azure-monitor-logs.yml
 
 - name: Quickstarts
   items:
@@ -94,7 +92,7 @@
     items:
     - name: User roles and permissions
       href: permissions.md
-    - name: Azure cloud support
+    - name: Defender for Cloud support matrices
       displayName: coverage, supported platforms, cloud services, roles, permissions
       href: support-matrix-defender-for-cloud.md
     - name: Defender for Servers support matrices
@@ -107,7 +105,11 @@
     items:
     - name: The Defender for Cloud multicloud solution
       href: multicloud.yml
+    - name: Protecting your GCP projects and organizations
+      displayName: GCP, connector, project, organizations
+      href: concept-gcp-connector.md
     - name: Zero Trust infrastructure and integrations
+      displayName: zero trust, zero, trust
       href: zero-trust.md
     - name: Planning multicloud security
       items:
@@ -143,7 +145,7 @@
       - name: Policies, initiatives, and recommendations
         displayName: policies, security, initiative, Microsoft cloud security benchmark, mcsb, recommendation
         href: security-policy-concept.md
-      - name: Security posture
+      - name: Secure score
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
       - name: Cloud Security Posture Management (CSPM)
@@ -152,7 +154,7 @@
       - name: Microsoft cloud security benchmark (MCSB)
         displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
-      - name: What is the cloud security graph
+      - name: Identify and analyze risks across your environment
         displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer, explore, analysis
         href: concept-attack-path.md
       - name: External attack surface management (EASM)
@@ -654,6 +656,8 @@
       href: episode-twenty-five.md
     - name: Governance capability improvements in Defender for Cloud
       href: episode-twenty-six.md
+    - name: Demystifying Defender for Servers
+      href: episode-twenty-seven.md
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

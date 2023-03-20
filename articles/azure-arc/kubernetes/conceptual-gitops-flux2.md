@@ -3,6 +3,7 @@ title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
 ms.date: 02/07/2023
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ---
 
 # GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes

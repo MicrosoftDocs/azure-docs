@@ -22,7 +22,7 @@ Support for Active Directory Authentication Library (ADAL) will end in December,
 
 ## Sign-ins workbook
 
-Workbooks are a set of queries that collect and visualize information that is available in Azure Active Directory (Azure AD) logs. [Learn more about the sign-in logs schema here](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). The Sign-ins workbook in the Azure AD admin portal now has a table to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
+Workbooks are a set of queries that collect and visualize information that is available in Azure Active Directory (Azure AD) logs. [Learn more about the sign-in logs schema here](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). The Sign-ins workbook in the Azure portal now has a table to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
 
 ## Step 1: Send Azure AD sign-in events to Azure Monitor
 
@@ -40,7 +40,7 @@ Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor a
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**
    1. In the **Usage** section, open the **Sign-ins** workbook
 
-   :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory portal workbooks interface highlighting the sign-ins workbook.":::
+   :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure portal workbooks interface highlighting the sign-ins workbook.":::
 
 ## Step 3: Identify apps that use ADAL
 

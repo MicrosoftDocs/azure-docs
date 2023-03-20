@@ -34,6 +34,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `display_name` | string | Display name of the component in the studio UI. Can be non-unique within the workspace. | | |
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
+| `is_deterministic` | boolean |This option determines if the component will produce the same output for the same input data. You should usually set this to `false` for components that load data from external sources, such as importing data from a URL. This is because the data at the URL might change over time. | | `true` |
 | `command` | string | **Required.** The command to execute. | | |
 | `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
 | `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |

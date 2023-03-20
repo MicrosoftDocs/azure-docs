@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
-ms.date: 01/23/2023
+ms.date: 03/10/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,24 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.23 - October 2022
+
+### New features
+
+- The minimum PowerShell version required on Windows Server has been reduced to PowerShell 4.0
+- The Windows agent installer is now compatible with systems that enforce a Microsoft publisher-based Windows Defender Application Control policy.
+- Added support for Rocky Linux 8 and Debian 11.
+
+### Fixed
+
+- Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
+- An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
+- The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
+- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
+- Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
+- Improved logging during the installation process.
+- The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
 
 ## Version 1.22 - September 2022
 

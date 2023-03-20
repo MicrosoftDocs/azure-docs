@@ -9,12 +9,12 @@ manager: kavithag
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 03/01/2023
 ms.author: ramankum
 ---
 

@@ -746,7 +746,7 @@ In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services concepts](./weather-services-concepts.md)
+> [Weather services in Azure Maps](./weather-services-concepts.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services REST API](/rest/api/maps/weather)
+> [Azure Maps Weather services](/rest/api/maps/weather)

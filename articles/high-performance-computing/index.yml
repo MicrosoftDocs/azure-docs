@@ -28,7 +28,7 @@ highlightedContent:
     # Card
     - title: Getting started with HPC VMs
       itemType: get-started
-      url: ../virtual-machines/workloads/hpc/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
+      url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
     # Card
     - title: HPC Architecture
       itemType: architecture
@@ -108,7 +108,7 @@ conceptualContent:
             - url: ../virtual-machines/hx-series.md
               itemType: concept
               text: Memory Optimized VMs
-            - url: ../virtual-machines/workloads/hpc/configure.md#ubuntu-hpc-vm-images
+            - url: ../virtual-machines/configure.md#ubuntu-hpc-vm-images
               itemType: concept
               text: HPC VM Images      
         # Card

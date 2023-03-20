@@ -369,7 +369,6 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
 ```yaml
-kind: containerapp
 location: canadacentral
 name: mycontainerapp
 resourceGroup: myresourcegroup
@@ -442,9 +441,20 @@ properties:
                   value: "startup probe"
             initialDelaySeconds: 3
             periodSeconds: 3
+        volumeMounts:
+          - mountPath: /myempty
+            volumeName: myempty
+          - mountPath: /myfiles
+            volumeName: azure-files-volume
     scale:
       minReplicas: 1
       maxReplicas: 3
+    volumes:
+      - name: myempty
+        storageType: EmptyDir
+      - name: azure-files-volume
+        storageType: AzureFile
+        storageName: myazurefiles
 ```
 
 ---

@@ -150,7 +150,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
     - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone, will be merged into one device.
 
-1. [Upload a new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files) for your sensors under the new subscription.
+1. [Upload a new activation file](how-to-manage-individual-sensors.md#upload-a-new-activation-file) for your sensors under the new subscription.
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 

@@ -95,11 +95,11 @@ APIs to be changed:
  
 For a full description of [Azure Video Indexer REST API](/rest/api/videoindexer/preview/accounts) calls and documentation, follow the link.
 
-For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
+For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/Program.cs).
 
 ### Next steps
 
-Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
+Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/).
   
 <!-- links -->
 [docs-arm-overview]: ../azure-resource-manager/management/overview.md

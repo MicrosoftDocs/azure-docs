@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 07/25/2022
+ms.date: 02/14/2023
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
@@ -20,8 +20,9 @@ When auditing / configuring both Windows and Linux, machine configuration uses a
 be in.
 
 > [!IMPORTANT]
-> Custom packages that audit the state of an environment are Generally Available,
-> but packages that apply configurations are **in preview**. **The following limitations apply:**
+> Custom packages that audit the state of an environment and apply
+>  configurations are in generally available (GA) support status. However, the following
+> limitations apply:
 >
 > To use machine configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
@@ -29,10 +30,11 @@ be in.
 >
 > To test creating and applying configurations on Linux, the
 > `GuestConfiguration` module is only available on Ubuntu 18 but the package
-> and policies produced by the module can be used on any Linux distro/version
+> and policies produced by the module can be used on any Linux distribution
+> and version
 > supported in Azure or Arc.
 >
-> Testing packages on MacOS is not available.
+> Testing packages on macOS is not available.
 >
 > Don't use secrets or confidential information in custom content packages.
 
