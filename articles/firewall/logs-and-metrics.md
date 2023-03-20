@@ -183,6 +183,20 @@ The following metrics are available for Azure Firewall:
 
    If your firewall is running into SNAT port exhaustion, you should add at least five public IP address. This increases the number of SNAT ports available. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
 
+- **AZFW Latency Probe (Preview)** - Estimates Azure Firewall average latency.
+
+   Unit: m/s
+
+   This metric measures the overall or average latency of Azure Firewall. Administrators can use this metric for the following purposes: 
+
+   - Diagnose if Azure Firewall is the cause of latency in the network 
+
+   - Monitor and alert if there are any latency or performance issues, so IT teams can proactively engage.  
+
+   There may be various reasons that can cause high latency in Azure Firewall. 
+
+   This metric does not measure end-to-end latency of a given network path. In other words, this latency health probe does not measure how much latency Azure Firewall adds. 
+
 
 ## Next steps
 

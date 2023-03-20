@@ -44,12 +44,11 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 
 |Role  |Scope  |Description  |
 |---------|---------|---------|
-|API Management Workspace Owner     |  workspace       | Can modify workspace details, manage members and their role assignments; has read and write access to all entities within the workspace. This role should be assigned on the workspace scope.          |
 |API Management Workspace Contributor     |  workspace       | Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope.        |
 |API Management Workspace Reader     | workspace        | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope.         |
 |API Management Workspace API Developer      |   workspace      |   Has read access to entities in the workspace and read and write access to entities for editing APIs. This role should be assigned on the workspace scope.  |
 |API Management Workspace API Product Manager     |  workspace       |   Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope.  |
-| API Management Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
+| API Management Service Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
 |  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.      |
 
  
