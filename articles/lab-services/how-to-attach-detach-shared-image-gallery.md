@@ -14,7 +14,7 @@ ms.date: 03/01/2023
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-This article shows how to attach or detach an Azure Compute Gallery to a lab plan. If you use a lab account, see how to [attach or detach a compute gallery to a lab account](how-to-attach-detach-shared-image-gallery-1.md).
+This article shows how to attach or detach an Azure compute gallery to a lab plan. If you use a lab account, see how to [attach or detach a compute gallery to a lab account](how-to-attach-detach-shared-image-gallery-1.md).
 
 > [!IMPORTANT]
 > To show a virtual machine image in the list of images during lab creation, you need to replicate the compute gallery image to the same region as the lab plan. You need to manually [replicate images](../virtual-machines/shared-image-galleries.md) to other regions in the compute gallery.
@@ -46,7 +46,7 @@ When you [save a template image of a lab](how-to-use-shared-image-gallery.md#sav
 A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services.
 
 > [!IMPORTANT]
-> While using an Azure Compute Gallery, Azure Lab Services supports only images that use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks won't be shown in the list of virtual machine images during lab creation.
+> While using an Azure compute gallery, Azure Lab Services supports only images that use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks won't be shown in the list of virtual machine images during lab creation.
 
 ## Attach a new compute gallery to a lab plan
 
