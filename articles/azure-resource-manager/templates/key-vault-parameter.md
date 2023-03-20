@@ -2,14 +2,8 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.date: 06/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
-=======
-ms.date: 05/07/2021
-ms.custom: devx-track-azurepowershell
->>>>>>> 41c433564be63634b15b378304a7aaefe18616e6
 ---
 
 # Use Azure Key Vault to pass secure parameter value during deployment
@@ -17,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID.
 
 > [!IMPORTANT]
-> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to. 
+> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to.
 >
 > This article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
