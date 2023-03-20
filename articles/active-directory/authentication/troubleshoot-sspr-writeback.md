@@ -25,11 +25,20 @@ If you have problems with SSPR writeback, the following troubleshooting steps an
 
 If you have problems with password writeback for Azure AD Connect, review the following steps that may help resolve the problem. To recover your service, we recommend that you follow these steps in order:
 
-* [Confirm network connectivity](#confirm-network-connectivity)
-* [Restart the Azure AD Connect Sync service](#restart-the-azure-ad-connect-sync-service)
-* [Disable and re-enable the password writeback feature](#disable-and-re-enable-the-password-writeback-feature)
-* [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
-* [Troubleshoot password writeback](#common-password-writeback-errors)
+- [Troubleshoot self-service password reset writeback in Azure Active Directory](#troubleshoot-self-service-password-reset-writeback-in-azure-active-directory)
+  - [Troubleshoot connectivity](#troubleshoot-connectivity)
+    - [Confirm network connectivity](#confirm-network-connectivity)
+    - [Restart the Azure AD Connect Sync service](#restart-the-azure-ad-connect-sync-service)
+    - [Disable and re-enable the password writeback feature](#disable-and-re-enable-the-password-writeback-feature)
+    - [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
+  - [Verify that Azure AD Connect has the required permissions](#verify-that-azure-ad-connect-has-the-required-permissions)
+  - [Common password writeback errors](#common-password-writeback-errors)
+  - [Password writeback event log error codes](#password-writeback-event-log-error-codes)
+    - [If the source of the event is ADSync](#if-the-source-of-the-event-is-adsync)
+    - [If the source of the event is PasswordResetService](#if-the-source-of-the-event-is-passwordresetservice)
+  - [Azure AD forums](#azure-ad-forums)
+  - [Contact Microsoft support](#contact-microsoft-support)
+  - [Next steps](#next-steps)
 
 ### Confirm network connectivity
 
@@ -45,7 +54,11 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*
 
-If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+If you need more granularity, see the [list of Microsoft Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+
+For Azure GOV, see the [list of Microsoft Azure IP Ranges and Service Tags for US Government Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=57063).
+
+These files are updated weekly.
 
 To determine if access to a URL and port are restricted in an environment, run the following cmdlet:
 
