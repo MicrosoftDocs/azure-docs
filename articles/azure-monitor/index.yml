@@ -50,6 +50,36 @@ landingContent:
             url: best-practices-cost.md
 
   # Card 
+  - title: Common scenarios
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Multi-cloud monitoring
+            url: best-practices-multicloud.md
+          - text: Monitor virtual machines
+            url: ./vm/monitor-virtual-machine.md
+          - text: Monitor containers
+            url: ./containers/container-insights-overview.md
+          - text: Migrate from SCOM
+            url:  azure-monitor-operations-manager.md
+          - text: Migrate from Splunk to Azure Monitor Logs
+            url: ./logs/migrate-splunk-to-azure-monitor-logs.md
+
+ # Card
+  - title: Get started with Log Analytics
+    linkLists: 
+      - linkListType: deploy
+        links:
+          - text: Log Analytics workspace
+            url: logs/log-analytics-workspace-overview.md
+          - text: Design a Log Anlytics workspace architecture
+            url: logs/workspace-design.md
+          - text: Create a Log Analytics workspace
+            url: logs/quick-create-workspace.md
+          - text: Create a dashboard of Log Analytics data
+            url: /visualize/tutorial-logs-dashboards.md          
+
+   # Card 
   - title: Get started with Application Insights
     linkLists:
       - linkListType: get-started
@@ -67,21 +97,29 @@ landingContent:
           - text: Application map
             url: app/app-map.md
 
-  # Card 
-  - title: Common scenarios
-    linkLists:
+ # Card
+  - title: Visualize monitoring data
+    linkLists: 
       - linkListType: deploy
         links:
-          - text: Multi-cloud monitoring
-            url: best-practices-multicloud.md
-          - text: Monitor virtual machines
-            url: ./vm/monitor-virtual-machine.md
-          - text: Monitor containers
-            url: ./containers/container-insights-overview.md
-          - text: Migrate from SCOM
-            url:  azure-monitor-operations-manager.md
-          - text: Migrate from Splunk to Azure Monitor Logs
-            url: ./logs/migrate-splunk-to-azure-monitor-logs.md
+          - text: Workbooks 
+            url: /visualize/workbooks-overview.md
+          - text: Dashboards
+            url: /visualize/tutorial-logs-dashboards.md
+          - text: Power BI
+            url: /logs/log-powerbi.md
+          - text: Grafana
+            url: /visualize/grafana-plugin.md
+
+ # Card
+  - title: Respond to issues
+    linkLists: 
+      - linkListType: deploy
+        links:
+          - text: Alerts 
+            url: /alerts/alerts-overview.md
+          - text: Autoscale
+            url: /autoscale/autoscale-overview.md
 
   # Card
   - title: Training
