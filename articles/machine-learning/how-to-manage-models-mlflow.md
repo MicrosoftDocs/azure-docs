@@ -31,7 +31,7 @@ Azure Machine Learning supports MLflow for model management. This represents a c
 
 ## Registering new models in the registry
 
-The models registry offer a convenient and centralized way to manage models in a workspace. Each workspace has its own independent models registry. The following section explains multiple way to register models in the registry using MLflow SDK.
+The models registry offer a convenient and centralized way to manage models in a workspace. Each workspace has its own independent models registry. The following section explains multiple ways to register models in the registry using MLflow SDK.
 
 ### Creating models from an existing run 
 
@@ -85,7 +85,7 @@ for model in client.search_registered_models():
     print(f"{model.name}")
 ```
 
-Use `order_by` to order by an specific property like `name`, `version`, `creation_timestamp`, and `last_updated_timestamp`:
+Use `order_by` to order by a specific property like `name`, `version`, `creation_timestamp`, and `last_updated_timestamp`:
 
 ```python
 client.search_registered_models(order_by=["name ASC"])
