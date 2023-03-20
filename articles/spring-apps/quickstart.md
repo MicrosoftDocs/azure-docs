@@ -21,7 +21,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 This article explains how to deploy a small application to run on Azure Spring Apps.
 
-The application code used in this tutorial is a simple app. When you've completed this example, the application will be accessible online, and you can manage it through the Azure portal.
+The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
 
 This quickstart explains how to:
 
@@ -32,7 +32,7 @@ This quickstart explains how to:
 > - Build and deploy an app with a public endpoint.
 > - Clean up the resources.
 
-At the end of this quickstart, you'll have a working spring app running on Azure Spring Apps.
+At the end of this quickstart, you have a working spring app running on Azure Spring Apps.
 
 ## [Azure CLI](#tab/Azure-CLI)
 
@@ -360,7 +360,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
    - **Subscription**: Select the subscription you want to be billed for this resource.
    - **Resource group**: Creating new resource groups for new resources is a best practice.
-   - **Service Name**: Specify the service instance name. You'll use this name later in this article where the *\<Azure-Spring-Apps-instance-name\>* placeholder appears. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+   - **Service Name**: Specify the service instance name. You use this name later in this article where the *\<Azure-Spring-Apps-instance-name\>* placeholder appears. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
    - **Region**: Select the region for your service instance.
 
    :::image type="content" source="media/quickstart/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/quickstart/portal-start.png":::
