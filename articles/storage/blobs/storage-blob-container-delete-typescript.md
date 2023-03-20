@@ -32,7 +32,7 @@ After you delete a container, you can't create a container with the same name fo
 
 The following example deletes the specified container. Use the BlobServiceClient to delete a container:
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/containers-delete.ts" id="snippet_delete_container" :::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/containers-delete.ts" id="snippet_delete_container_immediately" :::
 
 ## Delete container with ContainerClient
 
