@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 03/20/2023
 ms.author: malev
 
 #Customer intent: I want to dynamically update my .NET Framework app to use the latest configuration data in App Configuration.

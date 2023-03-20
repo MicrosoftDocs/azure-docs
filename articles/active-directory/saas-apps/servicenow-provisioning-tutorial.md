@@ -3,12 +3,13 @@ title: Configure ServiceNow for automatic user provisioning with Azure Active Di
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to ServiceNow.
 services: active-directory
 author: twimmers
-manager: CelesteDG
-ms.reviewer: celested
+writer: twimmers
+manager: beatrizd
+ms.assetid: 5f03d8b7-c3a0-443e-91af-99cc3956fa18
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 3/10/2023
 ms.author: thwimmer
 ---
@@ -87,13 +88,13 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 1. Set **Provisioning Mode** to **Automatic**.
 
 1. In the **Admin Credentials** section, enter your ServiceNow tenant URL, Client ID, Client Secret and Authorization Endpoint. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. [This ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) outlines how to generate these values.
+   ![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
-- Tenant URL: https://**InsertInstanceName**.service-now.com/api/now/scim
-- Authorization Endpoint: https://**InsertInstanceName**.service-now.com/oauth_auth.do?response_type=code&client_id=**InsertClientID**&state=1&scope=useraccount&redirect_uri=https%3A%2F%2Fportal.azure.com%2FTokenAuthorize
-- Token Endoint: https://**InsertInstanceName**.service-now.com/api/now/scim
-
-![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
-
+   > [!NOTE]
+   > - Tenant URL: https://**InsertInstanceName**.service-now.com/api/now/scim
+   > - Authorization Endpoint: https://**InsertInstanceName**.service-now.com/oauth_auth.do?response_type=code&client_id=**InsertClientID**&state=1&scope=useraccount&redirect_uri=https%3A%2F%2Fportal.azure.com%2FTokenAuthorize
+   > - Token Endoint: https://**InsertInstanceName**.service-now.com/api/now/scim
+   
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
 1. Select **Save**.
