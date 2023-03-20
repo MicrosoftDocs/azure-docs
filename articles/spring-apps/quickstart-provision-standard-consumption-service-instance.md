@@ -35,11 +35,11 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps resource with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps resource with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -58,11 +58,11 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
      - Select **Create new** to create a new Azure Container Apps environment, or select an existing environment from the dropdown menu.
 
-     :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png":::
+     :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png":::
 
 1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create App Environment blade." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/create-azure-container-apps-environment.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create App Environment blade." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
 
 1. Select **Review and create**.
 
