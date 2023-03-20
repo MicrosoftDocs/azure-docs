@@ -6045,6 +6045,52 @@
             "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-api-reference.md",
             "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-request-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-dependency-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-exception-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-trace-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-event-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-metric-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-pageview-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-context.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
         }
+
     ]
 }
