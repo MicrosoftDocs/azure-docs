@@ -2094,6 +2094,14 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+- id: deploy-python-web-app-postgressql
+  title: Workflows
+  prompt: Choose your path
+  pivots:
+  - id: deploy-portal
+    title: Azure portal
+  - id: deploy-azd
+    title: Azure Developer CLI
 # Owner: daknappe (Azure Virtual Desktop)
 - id: azure-virtual-desktop-host-pool-types
   title: Azure Virtual Desktop host pool management type
