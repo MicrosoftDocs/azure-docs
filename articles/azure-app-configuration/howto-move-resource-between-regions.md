@@ -32,7 +32,7 @@ To create a new App Configuration store in the Azure portal, follow these steps:
 
 1. In the upper-left corner of the home page, select **Create a resource**.
 1. In the search box, enter *App Configuration* and select **App Configuration** from the search results.
-    :::image type="content" source="../../includes/media/azure-app-configuration-create/azure-portal-find-app-configuration.png" alt-text="Screenshot of the Azure portal that shows the App Configuration service in the search bar.":::
+    :::image type="content" source="media/azure-app-configuration-create/azure-portal-find-app-configuration.png" alt-text="Screenshot of the Azure portal that shows the App Configuration service in the search bar.":::
 1. Select **Create**.
 
 1. On the **Create App Configuration** pane, enter the following settings:
