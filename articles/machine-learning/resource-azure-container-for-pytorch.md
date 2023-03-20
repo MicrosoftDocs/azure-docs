@@ -55,7 +55,7 @@ Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest, pytorc
 
 To learn more, see [Create custom ACPT curated environments](how-to-azure-container-for-pytorch-environment.md).
 
-[!NOTE]
+> [!NOTE]
 > Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only acpt-pytorch-1.11-cuda11.3 with cuda 11.3 and torch 1.11 can be used.
 
 ## Support

@@ -39,7 +39,7 @@ This article lists the curated environments with latest framework versions in Az
 
 The learn more, see [Azure Container for PyTorch (ACPT)](resource-azure-container-for-pytorch.md).
 
-[!NOTE]
+> [!NOTE]
 > Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only acpt-pytorch-1.11-cuda11.3 with cuda 11.3 and torch 1.11 can be used.
 
 ### PyTorch
