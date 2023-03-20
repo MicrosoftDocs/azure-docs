@@ -471,7 +471,7 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
   -  400 — Cluster is in deleting state. Wait for the Async operation to complete and try again.
 
   **Cluster Get**
-    -  404 — 404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process. 
+    -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process. 
 
 ## Next steps
 
