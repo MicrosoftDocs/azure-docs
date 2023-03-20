@@ -68,7 +68,7 @@ Updating enrollment entries for rolled certificates is accomplished on the **Man
 
    :::image type="content" source="./media/how-to-roll-certificates/manage-enrollments-portal.png" alt-text="Screenshot that shows the Manage enrollments page in the Azure portal.":::
 
-1. Select the **Individual enrollments** tab, and select the registration ID entry in the list.
+1. Select the **Individual enrollments** tab, and select the registration ID entry from the list.
 
 1. Check the **Remove or replace primary/secondary certificate** checkboxes if you want to delete an existing certificate. Select the file folder icon to browse for and upload the new certificates.
 
@@ -122,9 +122,9 @@ If you are rolling certificates to handle certificate expirations, you should us
 
 1. Select **Manage enrollments** from the **Settings** section of the navigation menu for your Device Provisioning Service instance, and select the **Enrollment groups** tab.
 
-1. Select the group name in the list.
+1. Select the group name grom the list.
 
-2. Check the **Remove or replace primary/secondary certificate** checkboxes if you want to delete an existing certificate. Select the file folder icon to browse for and upload the new certificates.
+1. Check the **Remove or replace primary/secondary certificate** checkboxes if you want to delete an existing certificate. Select the file folder icon to browse for and upload the new certificates.
 
    If any of your certificates were compromised, you should remove them as soon as possible.
 
@@ -133,8 +133,8 @@ If you are rolling certificates to handle certificate expirations, you should us
    Each intermediate certificate should be signed by a verified root CA certificate that has already been added to the provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
 
    :::image type="content" source="./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png" alt-text="Screenshot that shows replacing an intermediate certificate for an enrollment group.":::
-   
-3. If you removed a compromised certificate from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways:
+
+1. If you removed a compromised certificate from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways:
 
     The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.
 

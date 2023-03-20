@@ -87,15 +87,17 @@ For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetri
 
 1. Select **Next: IoT hubs**.
 
-1. On the **IoT hubs** tab of the **Add enrollment group** page, select **Add link to IoT hub** in the **Target IoT hubs** section.
+1. Use the following steps to add your two IoT hubs to the enrollment group:
 
-1. On the **Add link to IoT hub** page, select the IoT hub that you created in the *eastus* region and assign it the *iothubowner* access.
+   1. On the **IoT hubs** tab of the **Add enrollment group** page, select **Add link to IoT hub** in the **Target IoT hubs** section.
 
-1. Select **Save**.
+   1. On the **Add link to IoT hub** page, select the IoT hub that you created in the *eastus* region and assign it the *iothubowner* access.
 
-1. Select **Add link to IoT hub** again, and follow the same steps to add the IoT hub that you created in the *westus2* region.
+   1. Select **Save**.
 
-1. In the **Target IoT hubs** dropdown menu, select both IoT hubs.
+   1. Select **Add link to IoT hub** again, and follow the same steps to add the IoT hub that you created in the *westus2* region.
+
+   1. In the **Target IoT hubs** dropdown menu, select both IoT hubs.
 
 1. For the **Allocation policy**, select **Lowest latency**.
 
@@ -103,13 +105,7 @@ For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetri
 
 1. On the **Review + create** tab, verify all of your values then select **Create**.
 
-1. Repeat Steps 5 through 7 for the second IoT hub that you created for the *westgus* location.
-
-1. Select the two IoT Hubs you created in the **Select the IoT hubs this group can be assigned to** drop down.
-
-1. Select **Save**
-
-1. Select *contoso-us-devices* from the enrollment groups list.
+1. Once your enrollment group is creted, select its name *contoso-us-devices* from the enrollment groups list.
 
 1. Copy the *Primary key*. This key will be used later to generate unique device keys for both simulated devices.
 

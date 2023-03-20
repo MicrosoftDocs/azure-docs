@@ -75,7 +75,7 @@ For a walkthrough of how to create and use individual enrollments with X.509 cer
 To create a X.509 certificate individual enrollment:
 
 <!-- INCLUDE -->
-[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
+[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
 
 # [TPM](#tab/tpm)
 
@@ -84,7 +84,7 @@ For a walkthrough of how to create and use individual enrollments using TPM atte
 To create a TPM individual enrollment:
 
 <!-- INCLUDE -->
-[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
 
 ---
 

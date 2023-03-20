@@ -91,18 +91,18 @@ To disallow an individual device in an enrollment group, follow these steps:
 
    - If you have the device certificate, provide the following values on the **Add enrollment** page:
 
-   | Field | Description |
-   | :---- | :---------- |
-   | **Attestation mechanism** | Select **X.509 client certificates** |
-   | **Primary certificate file** | Upload the device certificate. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication. |
+     | Field | Description |
+     | :---- | :---------- |
+     | **Attestation mechanism** | Select **X.509 client certificates** |
+     | **Primary certificate file** | Upload the device certificate. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication. |
 
    - If you don't have the device certificate, provide the following values on the **Add enrollment** page:
 
-   | Field | Description |
-   | :---- | :---------- |
-   | **Attestation mechanism** | Select **Symmetric key** |
-   | **Generate symmetric keys automatically** |: Make sure this checkbox is selected. The keys don't matter for this scenario. |
-   | **Registration ID** | If the device has already been provisioned, use its IoT Hub device ID. You can find this in the registration records of the enrollment group, or in the IoT hub that the device was provisioned to. If the device has not yet been provisioned, enter the device certificate CN. (In this latter case, you don't need the device certificate, but you will need to know the CN.) |
+     | Field | Description |
+     | :---- | :---------- |
+     | **Attestation mechanism** | Select **Symmetric key** |
+     | **Generate symmetric keys automatically** |: Make sure this checkbox is selected. The keys don't matter for this scenario. |
+     | **Registration ID** | If the device has already been provisioned, use its IoT Hub device ID. You can find this in the registration records of the enrollment group, or in the IoT hub that the device was provisioned to. If the device has not yet been provisioned, enter the device certificate CN. (In this latter case, you don't need the device certificate, but you will need to know the CN.) |
 
 1. Scroll to the bottom of the **Add enrollment** page and uncheck the **Enable this enrollment** checkbox.
 

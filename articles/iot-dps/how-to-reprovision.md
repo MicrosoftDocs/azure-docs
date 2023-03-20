@@ -18,11 +18,15 @@ For more a more detailed overview of reprovisioning scenarios, see [IoT Hub Devi
 
 ## Set the reprovision policy
 
+The following steps configure the reprovision policy for an individual enrollment or enrollment group:
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-2. Select **Manage enrollments**, and then select the enrollment group or individual enrollment that you want to configure for reprovisioning.
+2. Select **Manage enrollments**, and then select either the **Enrollment groups** or **Individual enrollments** tabs.
 
-3. Use the dropdown menu under **Reprovision policy** to choose one of the following reprovisioning policies:
+3. Select the name of the enrollment group or individual enrollment that you want to configure for reprovisioning.
+
+4. Use the dropdown menu under **Reprovision policy** to choose one of the following reprovisioning policies:
 
    * **Never reprovision device**.
 
@@ -30,7 +34,7 @@ For more a more detailed overview of reprovisioning scenarios, see [IoT Hub Devi
 
    * **Reprovision device and migrate current state**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
 
-4. Select **Save** to enable the reprovisioning of the device based on your changes.
+5. Select **Save** to enable the reprovisioning of the device based on your changes.
 
 ## Configure the enrollment allocation policy
 
@@ -40,11 +44,13 @@ The following steps configure the allocation policy for a device's enrollment:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-2. Select **Manage enrollments**, and then select the enrollment group or individual enrollment that you want to configure for reprovisioning.
+2. Select **Manage enrollments**, and then select either the **Enrollment groups** or **Individual enrollments** tabs.
 
-3. On the **Enrollment details** page, select the **IoT hubs** tab.
+3. Select the name of the enrollment group or individual enrollment that you want to configure for reprovisioning.
 
-4. Select one of the following allocation policies:
+4. On the **Enrollment details** page, select the **IoT hubs** tab.
+
+5. Select one of the following allocation policies:
 
     * **Static**: This policy requires a desired IoT hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single IoT hub that you want to assign devices to.
 
@@ -54,7 +60,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
     * **Custom (use Azure Function)**: This policy uses a custom webhook hosted in Azure Functions to assign devices to one or more IoT hubs. Custom allocation policies give you more control over how devices are assigned to your IoT hubs. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
 
-5. Under **Target IoT hubs**, select the linked IoT hubs that you want included in your allocation policy. Optionally, add a new linked Iot hub using the **Add link to IoT hub** button.
+6. Under **Target IoT hubs**, select the linked IoT hubs that you want included in your allocation policy. Optionally, add a new linked Iot hub using the **Add link to IoT hub** button.
 
     * With the **Static configuration** allocation policy, select the IoT hub you want devices assigned to.
 
@@ -64,7 +70,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
     * With the **Custom** allocation policy, select the IoT hubs you want evaluated for assignment by your custom allocation webhook.
 
-6. Select **Save**.
+7. Select **Save**.
 
 ## Send a provisioning request from the device
 
