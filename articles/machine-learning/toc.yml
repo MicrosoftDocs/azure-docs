@@ -778,7 +778,7 @@
               href: how-to-configure-cross-validation-data-splits.md
             - name: Featurization in automated ML (Python)
               displayName: automl, feature engineering, feature importance, BERT
-              href: how-to-configure-auto-features.md
+              href: ./v1/how-to-configure-auto-features.md
             - name: Generate AutoML training code
               href: how-to-generate-automl-training-code.md
             # end v1
@@ -1309,17 +1309,17 @@
     - name: Migrate from ML Studio (classic)
       items: 
       - name: Migration overview
-        href: migrate-overview.md
+        href: ./v1/migrate-overview.md
       - name: Migrate datasets
-        href: migrate-register-dataset.md
+        href: ./v1/migrate-register-dataset.md
       - name: Rebuild experiments
-        href: migrate-rebuild-experiment.md
+        href: ./v1/migrate-rebuild-experiment.md
       - name: Rebuild web services
-        href: migrate-rebuild-web-service.md
+        href: ./v1/migrate-rebuild-web-service.md
       - name: Migrate client applications
-        href: migrate-rebuild-integrate-with-client-app.md
+        href: ./v1/migrate-rebuild-integrate-with-client-app.md
       - name: Rebuild Execute R Script components
-        href: migrate-execute-r-script.md
+        href: ./v1/migrate-execute-r-script.md
     # end v1
 - name: Resources
   items:
