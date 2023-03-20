@@ -20,15 +20,13 @@ You can remove workflows that are no longer needed. Deleting these workflows all
 
 ## Prerequisites
 
-- Azure AD Premium P2
-
-For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ## Delete a workflow using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. In the left menu, select **Lifecycle Workflows (Preview)**.
 
@@ -66,17 +64,9 @@ After deleting workflows, you can view them on the **Deleted Workflows (Preview)
 
 To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta&preserve-view=true).
 
-
-To view
-
-Workflows can be deleted by running the following call:
-```http
-DELETE https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id> 
-```
 ## View deleted workflows using Microsoft Graph
 
 To View a list of deleted workflows using API via Microsoft Graph, see: [List deleted workflows](/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems).
-
 
 ## Permanently delete a workflow using Microsoft Graph
 
