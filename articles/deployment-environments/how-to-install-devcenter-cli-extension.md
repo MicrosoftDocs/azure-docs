@@ -45,6 +45,8 @@ az extension remove --name devcenter
 
 ## Get started with the Deployment Environments CLI extension
 
+You might find the following commands useful as you work with the Deployment Environments CLI extension.
+
 1. Sign in to Azure CLI with your work account.
 
     ```azurecli
