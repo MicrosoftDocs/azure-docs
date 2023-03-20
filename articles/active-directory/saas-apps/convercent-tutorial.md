@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Convercent | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Convercent'
 description: Learn how to configure single sign-on between Azure Active Directory and Convercent.
 services: active-directory
 author: jeevansd

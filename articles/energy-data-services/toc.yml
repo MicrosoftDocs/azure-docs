@@ -89,7 +89,7 @@
   - name: REST API
     items:
     - name: Data plane
-      href: https://microsoft.github.io/meds-samples/
+      href: https://microsoft.github.io/adme-samples/
 - name: Resources
   items:
   - name: FAQ

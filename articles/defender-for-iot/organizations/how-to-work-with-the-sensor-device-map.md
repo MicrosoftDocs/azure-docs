@@ -132,7 +132,7 @@ Use one of the following options to import and export device data:
     |  **Activity Report**   | Generates an activity report for the device for the selected timespan.        |
     | **Simulate Attack Vectors**    |   Generates an [attack vector simulation](how-to-create-attack-vector-reports.md) for the selected device.      |
     | **Add to custom group**    | Creates a new [custom group](#create-a-custom-device-group) with the selected device.        |
-    |  **Delete**   |Deletes the device from the inventory.     |
+    |  **Delete**   | Deletes the device from the inventory.     |
 
 ## Merge devices
 

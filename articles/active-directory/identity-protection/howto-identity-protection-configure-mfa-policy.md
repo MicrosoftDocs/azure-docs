@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 01/03/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,9 +34,9 @@ For more information on Azure AD multifactor authentication, see [What is Azure 
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users or groups from the policy.
+   1. Under **Assignments** > **Users**
+      1. Under **Include**, select **All users** or **Select individuals and groups** if limiting your rollout.
+      1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
 1. **Enforce Policy** - **On**
 1. **Save**
 
@@ -51,7 +51,5 @@ For an overview of the related user experience, see:
 ## Next steps
 
 - [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)
-
 - [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
-
 - [Enable Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md)

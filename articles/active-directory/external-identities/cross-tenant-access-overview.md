@@ -1,5 +1,5 @@
 ---
-title: Cross-tenant access overview - Azure AD
+title: Cross-tenant access overview
 description: Get an overview of cross-tenant access in Azure AD External Identities. Learn how to manage your B2B collaboration with other Azure AD organizations through this overview of cross-tenant access settings.
 services: active-directory
 ms.service: active-directory
