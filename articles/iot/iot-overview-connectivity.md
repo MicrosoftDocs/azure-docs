@@ -1,7 +1,7 @@
 ---
 title: Device infrastructure and connectivity
 titleSuffix: Azure IoT
-description: An overview of device infrastructure and connectivity in an Azure IoT solution, including protocols and gateways.
+description: An overview of device infrastructure and connectivity in an Azure IoT solution, including gateways and protocols such as MQTT and OPC-UA.
 ms.service: iot-fundamentals
 services: iot-fundamentals
 author: dominicbetts
@@ -40,7 +40,7 @@ An Azure IoT hub exposes a collection of per-device endpoints that let devices e
 - *Retrieve and update device twin properties*. A device uses this endpoint to access its device twin properties.
 - *Receive direct method requests*. A device uses this endpoint to listen for direct method requests.
 
-Every IoT hub has a unique hostname that is used to connect devices to the hub. The hostname is in the format `iothubname.azure-devices.net`. If you use one of the device SDKs, you don't need to know the full names of the individual endpoints because the SDKs provide higher level abstractions. However, the device does need to know the hostname of the IoT hub it's connecting to.
+Every IoT hub has a unique hostname that is used to connect devices to the hub. The hostname is in the format `iothubname.azure-devices.net`. If you use one of the device SDKs, you don't need to know the full names of the individual endpoints because the SDKs provide higher level abstractions. However, the device does need to know the hostname of the IoT hub to which it's connecting.
 
 A device can establish a connection to an IoT hub:
 
@@ -90,6 +90,8 @@ To learn more about how to choose a protocol for your devices to connect to the 
 - [Communicate with DPS using the MQTT protocol](../iot-dps/iot-dps-mqtt-support.md)
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
+
+Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to IoT Hub, use the OPC Publisher that runs as a module on IoT Edge. To learn more, see [What is the OPC Publisher?](../industrial-iot/overview-what-is-opc-publisher.md)
 
 ## Connection patterns
 

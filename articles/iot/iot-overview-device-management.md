@@ -44,7 +44,7 @@ Azure IoT solutions can use the following primitives for both device management 
 - *Device twins* to share and synchronize state data with the cloud. For example, a device can use the device twin to report the current state of a valve it controls to the cloud and to receive a desired target temperature from the cloud.
 - *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices.
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot in 30 seconds.
-- *Cloud-to-device* messages receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
+- *Cloud-to-device* messages to receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
 
 ## Device registration
 
@@ -60,9 +60,9 @@ To lean more, see [Understand the identity registry in your IoT hub](../iot-hub/
 
 ## Device provisioning
 
-You must configure each device in your solution with the details of the IoT hub it should connect to. You can manually configure each device in your solution, but this may not be practical for a large number of devices. To get around this problem, you can use the Device Provisioning Service (DPS) to automatically register each device with an IoT hub and then provision each device with the required connection information. If your IoT solution uses multiple IoT hubs, you can use DPS to provision devices to a hub based on criteria such as which is the closest hub to the device.
+You must configure each device in your solution with the details of the IoT hub it should connect to. You can manually configure each device in your solution, but this may not be practical for a large number of devices. To get around this problem, you can use the Device Provisioning Service (DPS) to automatically register each device with an IoT hub, and then provision each device with the required connection information. If your IoT solution uses multiple IoT hubs, you can use DPS to provision devices to a hub based on criteria such as which is the closest hub to the device.
 
-If your IoT solution uses IoT Hub, then using DPS is optional. If you're using IoT Central, then your solution automatically uses a DPS instance that's managed by IoT Central.
+If your IoT solution uses IoT Hub, then using DPS is optional. If you're using IoT Central, then your solution automatically uses a DPS instance that IoT Central manages.
 
 To learn more, see [Device provisioning service overview](../iot-dps/about-iot-dps.md).
 
@@ -74,9 +74,9 @@ To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 ## Device updates
 
-Typically, your IoT solution must include a way to update device software. In the case of an IoT Edge device, you can update the modules that run on the device by updating the deployment manifest.
+Typically, your IoT solution must include a way to update device software. For an IoT Edge device, you can update the modules that run on the device by updating the deployment manifest.
 
-In the case of a non-IoT Edge device, you need to have a way to update the device firmware. This could be a process that uses a cloud-to-device message to notify the device that a firmware update is available. Then the device runs custom code to download and install the update.
+For a non-IoT Edge device, you need to have a way to update the device firmware. This update process could use a cloud-to-device message to notify the device that a firmware update is available. Then the device runs custom code to download and install the update.
 
 The Device Update for IoT Hub service provides a managed solution for updating devices. It enables you to upload firmware updates to the cloud and then distribute them to devices. It also lets your monitor the update process and roll back to a previous version if the update fails.
 
@@ -84,7 +84,7 @@ To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update
 
 ## Device key management and rotation
 
-During the lifecycle of your IoT solution you may need to roll over the keys used to authenticate devices. For example, you may need to do this if you suspect that a key has been compromised or if a certificate expires:
+During the lifecycle of your IoT solution, you may need to roll over the keys used to authenticate devices. For example, you may need to roll over your keys if you suspect that a key has been compromised or if a certificate expires:
 
 - [Roll over the keys used to authenticate devices in IoT Hub and DPS](../iot-dps/how-to-roll-certificates.md#roll-x509-device-certificates)
 - [Roll over the keys used to authenticate devices in IoT Central](../iot-central/core/how-to-connect-devices-x509.md#roll-x509-device-certificates)
@@ -114,9 +114,13 @@ To send commands to your devices to control their behavior, use:
 
 To learn more, see [Cloud-to-device communications guidance](../iot-hub/iot-hub-devguide-c2d-guidance.md).
 
+Device control can be automated based in feedback loops. For example, if the device temperature is too high, logic running in the cloud can send a command to turn on a fan. The cloud process can then send a command to turn off the fan when the temperature is back to normal.
+
+It's also possible to run this kind of automation locally. For example, if you're using IoT Edge to implement your gateway device, you can run the logic that controls the device in an IoT Edge module. Running this kind of logic at the edge can reduce latency and provide resilience in the case of a network outage.
+
 ## Jobs
 
-You can use direct methods, desired properties, and cloud-to-device messages to send commands to individual devices. If you need to send commands to multiple devices, you can use jobs. Jobs let you to schedule and send commands and desired property updates to multiple devices at the same time. You can also use jobs to monitor the progress of the commands and to roll back to a previous state if the commands fail.
+You can use direct methods, desired properties, and cloud-to-device messages to send commands to individual devices. If you need to send commands to multiple devices, you can use jobs. Jobs let you schedule and send commands and desired property updates to multiple devices at the same time. You can also use jobs to monitor the progress of the commands and to roll back to a previous state if the commands fail.
 
 To learn more, see:
 

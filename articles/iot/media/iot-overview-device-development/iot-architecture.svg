@@ -69,8 +69,8 @@
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Base" v:index="0"/>
 		<v:layer v:name="Connectivity" v:index="1" v:visibility="hidden"/>
-		<v:layer v:name="Device developer" v:index="2" v:visibility="hidden"/>
-		<v:layer v:name="Device management" v:index="3"/>
+		<v:layer v:name="Device developer" v:index="2"/>
+		<v:layer v:name="Device management" v:index="3" v:visibility="hidden"/>
 		<v:layer v:name="Message processing" v:index="4" v:visibility="hidden"/>
 		<v:layer v:name="Analyze" v:index="5" v:visibility="hidden"/>
 		<v:layer v:name="Solution management" v:index="6" v:visibility="hidden"/>
@@ -406,16 +406,14 @@
 			</v:userDefs>
 			<rect x="0" y="517.776" width="104.882" height="77.4992" class="st14"/>
 		</g>
-		<g id="shape1002-155" v:mID="1002" v:groupContext="shape" v:layerMember="2" transform="translate(28.3465,-195.024)"
-				display="none">
+		<g id="shape1002-155" v:mID="1002" v:groupContext="shape" v:layerMember="2" transform="translate(28.3465,-195.024)">
 			<title>Rectangle.1002</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<rect x="0" y="294.236" width="113.386" height="301.039" class="st14"/>
 		</g>
-		<g id="shape1003-157" v:mID="1003" v:groupContext="shape" v:layerMember="2" transform="translate(141.732,-256.989)"
-				display="none">
+		<g id="shape1003-157" v:mID="1003" v:groupContext="shape" v:layerMember="2" transform="translate(141.732,-256.989)">
 			<title>Rectangle.1003</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
@@ -517,19 +515,5 @@
 			<v:textRect cx="36.7228" cy="575.008" width="73.45" height="40.5354"/>
 			<rect x="0" y="554.74" width="73.4457" height="40.5354" class="st6"/>
 			<text x="5.63" y="578.01" class="st2" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Device updates</text>		</g>
-		<g id="shape1021-195" v:mID="1021" v:groupContext="shape" v:layerMember="3" transform="translate(337.323,-192.756)">
-			<title>Rectangle.1021</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<rect x="0" y="506.013" width="146.835" height="89.263" class="st14"/>
-		</g>
-		<g id="shape1022-197" v:mID="1022" v:groupContext="shape" v:layerMember="3" transform="translate(141.732,-269.291)">
-			<title>Rectangle.1022</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<rect x="0" y="536.244" width="73.4457" height="59.0315" class="st14"/>
-		</g>
 	</g>
 </svg>
