@@ -217,6 +217,27 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
+## Update app settings
+
+To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
+
+Run the following command to add this setting to your new function app in Azure. Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli 
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
+```
+
+---
+::: zone-end
+
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]

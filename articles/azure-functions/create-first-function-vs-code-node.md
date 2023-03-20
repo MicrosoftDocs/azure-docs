@@ -80,6 +80,18 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
+::: zone pivot="nodejs-model-v4" 
+## Update app settings
+
+To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+
+1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
+
+1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
+::: zone-end
+
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
 ::: zone pivot="nodejs-model-v3" 
