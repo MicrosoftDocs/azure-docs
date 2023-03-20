@@ -82,16 +82,16 @@ To authorize with Azure AD, you'll need to use a security principal. The type of
 
 An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
 
-The following example creates a `BlobServiceClient` object using `DefaultAzureCredential`:
+The following example creates a `BlobServiceClient` object authorized using `DefaultAzureCredential`:
 
 ```csharp
-public static void GetBlobServiceClient(ref BlobServiceClient blobServiceClient, string accountName)
+public BlobServiceClient GetBlobServiceClient(string accountName)
 {
-    TokenCredential credential = new DefaultAzureCredential();
+    BlobServiceClient client = new(
+        new Uri($"https://{accountName}.blob.core.windows.net"),
+        new DefaultAzureCredential());
 
-    string blobUri = "https://" + accountName + ".blob.core.windows.net";
-
-    blobServiceClient = new BlobServiceClient(new Uri(blobUri), credential);          
+    return client;
 }
 ```
 
