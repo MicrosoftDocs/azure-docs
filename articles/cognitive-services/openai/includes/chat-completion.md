@@ -12,11 +12,11 @@ keywords: ChatGPT
 
 ---
 
-## Working with the ChatGPT and GPT-4 models
+## Working with the ChatGPT and GPT-4 models (preview)
 
-The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the ChatCompletion API. If this is your first time using these models programmatically, we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
+The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently in limited preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+**GPT-4 models are currently in preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 ```python
 import os
@@ -86,13 +86,13 @@ Consider setting `max_tokens` to a slightly higher value than normal such as 300
 
 Unlike previous GPT-3 and GPT-3.5 models, the `gpt-35-turbo` model as well as the `gpt-4` and `gpt-4-32k` models will continue to be updated. When creating a [deployment](../how-to/create-resource.md#deploy-a-model) of these models, you'll also need to specify a model version.
 
-Currently, only version `"0301"` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
+Currently, only version `0301` is available for ChatGPT and `0314` for GPT-4 models. We'll continue to make updated versions available in the future. You can find model deprecation times on our [models](../concepts/models.md) page.
 
-## Working with the ChatCompletion API
+## Working with the Chat Completion API
 
 OpenAI trained the ChatGPT and GPT-4 models to accept input formatted as a conversation. The messages parameter takes an array of dictionaries with a conversation organized by role.
 
-The format of a basic ChatCompletion is as follows:
+The format of a basic Chat Completion is as follows:
 
 ```
 {"role": "system", "content": "Provide some context and/or instructions to the model"},
@@ -169,7 +169,7 @@ Context:
 {"role": "user", "content": "What is Azure OpenAI Service?"}
 ```
 
-#### Few shot learning with ChatCompletion
+#### Few shot learning with Chat Completion
 
 You can also give few shot examples to the model. The approach for few shot learning has changed slightly because of the new prompt format. You can now include a series of messages between the user and the assistant in the prompt as few shot examples. These examples can be used to seed answers to common questions to prime the model or teach particular behaviors to the model.
 
@@ -183,9 +183,9 @@ This is only one example of how you can use few shot learning with ChatGPT and G
 {"role": "assistant", "content": "You can check the status of your tax refund by visiting https://www.irs.gov/refunds"},
 ```
 
-#### Using ChatCompletion for non-chat scenarios
+#### Using Chat Completion for non-chat scenarios
 
-The ChatCompletion API is designed to work with multi-turn conversations, but it also works well for non-chat scenarios.
+The Chat Completion API is designed to work with multi-turn conversations, but it also works well for non-chat scenarios.
 
 For example, for an entity extraction scenario, you might use the following prompt:
 
@@ -201,7 +201,7 @@ For example, for an entity extraction scenario, you might use the following prom
 
 ## Creating a basic conversation loop
 
-The examples so far have shown you the basic mechanics of interacting with the ChatCompletion API. This example shows you how to create a conversation loop that performs the following actions:
+The examples so far have shown you the basic mechanics of interacting with the Chat Completion API. This example shows you how to create a conversation loop that performs the following actions:
 
 - Continuously takes console input, and properly formats it as part of the messages array as user role content.
 - Outputs responses that are printed to the console and formatted and added to the messages array as assistant role content.
