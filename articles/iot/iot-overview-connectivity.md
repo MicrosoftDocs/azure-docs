@@ -7,7 +7,7 @@ services: iot-fundamentals
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/14/2023
+ms.date: 03/20/2023
 ms.custom: template-overview
 
 # As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
@@ -15,7 +15,7 @@ ms.custom: template-overview
 
 # Device infrastructure and connectivity
 
-This overview introduces some of the key concepts that relate to how devices connect to the cloud in a typical Azure IoT solution. The article also introduces optional infrastructure elements such as gateways and bridges. Each section includes links to content that provides further detail and guidance.
+This overview introduces the key concepts around how devices connect to the cloud in a typical Azure IoT solution. The article also introduces optional infrastructure elements such as gateways and bridges. Each section includes links to content that provides further detail and guidance.
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
@@ -32,6 +32,8 @@ Azure IoT devices use the following primitives to exchange data with cloud servi
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot.
 - *Cloud-to-device* messages receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
 
+To learn more, see [Device-to-cloud communications guidance](../iot-hub/iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](../iot-hub/iot-hub-devguide-c2d-guidance.md).
+
 ## Device-facing cloud endpoints
 
 An Azure IoT hub exposes a collection of per-device endpoints that let devices exchange data with the cloud. These endpoints include:
@@ -40,14 +42,14 @@ An Azure IoT hub exposes a collection of per-device endpoints that let devices e
 - *Retrieve and update device twin properties*. A device uses this endpoint to access its device twin properties.
 - *Receive direct method requests*. A device uses this endpoint to listen for direct method requests.
 
-Every IoT hub has a unique hostname that is used to connect devices to the hub. The hostname is in the format `iothubname.azure-devices.net`. If you use one of the device SDKs, you don't need to know the full names of the individual endpoints because the SDKs provide higher level abstractions. However, the device does need to know the hostname of the IoT hub to which it's connecting.
+Every IoT hub has a unique hostname that's used to connect devices to the hub. The hostname is in the format `iothubname.azure-devices.net`. If you use one of the device SDKs, you don't need to know the full names of the individual endpoints because the SDKs provide higher level abstractions. However, the device does need to know the hostname of the IoT hub to which it's connecting.
 
-A device can establish a connection to an IoT hub:
+A device can establish a secure connection to an IoT hub:
 
 - Directly, in which case you must provide the device with a connection string that includes the hostname.
-- Indirectly through DPS, in which case the device connects to a well-known DPS endpoint to retrieve the connection string for the IoT hub it should connect to.
+- Indirectly by using DPS, in which case the device connects to a well-known DPS endpoint to retrieve the connection string for the IoT hub it's assigned to.
 
-The advantage of using DPS is that you don't need to configure all of your devices with connection-strings that are specific to your IoT hub. Instead, you configure your devices to connect to a well-known, common DPS endpoint to discover their connection details. To learn more, see [Device Provisioning Service](/iot-dps/).
+The advantage of using DPS is that you don't need to configure all of your devices with connection-strings that are specific to your IoT hub. Instead, you configure your devices to connect to a well-known, common DPS endpoint where they discover their connection details. To learn more, see [Device Provisioning Service](/iot-dps/about-iot-dps.md).
 
 ## Device connection strings
 
@@ -55,11 +57,11 @@ A device connection string provides a device with the information it needs to co
 
 - The hostname of the IoT hub.
 - The device ID that's registered with the IoT hub.
-- Security information that the device needs to establish a secure connection to the IoT hub.
+- The security information the device needs to establish a secure connection to the IoT hub.
 
 ## Authentication and authorization
 
-Azure IoT devices use TLS to verify the authenticity of the IoT hub they're connecting to. The device SDKs include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to the IoT hub. To learn more, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md) and [TLS support in Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/tls-support.md).
+Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. The device SDKs include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to the IoT hub. To learn more, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md) and [TLS support in Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/tls-support.md).
 
 Azure IoT devices can use either shared access signature (SAS) tokens or X.509 certificates to authenticate themselves to an IoT hub. X.509 certificates are recommended in a production environment. To learn more about device authentication, see:
 
@@ -109,7 +111,7 @@ Ephemeral connections are brief connections for devices to send telemetry to you
 
 Field gateways (sometimes referred to as edge gateways) are typically deployed on-premises and close to your IoT devices. Field gateways handle communication with the cloud on behalf of your IoT devices. Field gateways may:
 
-- Do protocol translation. For example, enabling Bluetooth devices to connect to the cloud.
+- Do protocol translation. For example, enabling Bluetooth enabled devices to connect to the cloud.
 - Manage offline and disconnected scenarios. For example, buffering telemetry when the cloud endpoint is unreachable.
 - Filter, compress, or aggregate telemetry before it's sent to the cloud.
 - Run logic at the edge to remove the latency associated with running logic on behalf of devices in the cloud. For example, detecting a spike in temperature and opening a valve in response.
@@ -128,4 +130,5 @@ The open source IoT Central Device Bridge acts as a translator that forwards tel
 
 Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include
 
-- [Device management and control in IoT solutions](iot-overview-device-management.md).
+- [IoT device development](iot-overview-device-development.md)
+- [Device management and control in IoT solutions](iot-overview-device-management.md)

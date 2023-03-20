@@ -7,7 +7,7 @@ services: iot-fundamentals
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/10/2023
+ms.date: 03/20/2023
 ms.custom: template-overview
 
 # As a solution builder or device developer I want a high-level overview of the issues around device management and control so that I can easily find relevant content.
@@ -15,13 +15,13 @@ ms.custom: template-overview
 
 # Device management and control
 
-This overview introduces some of the key concepts around managing and controlling devices in a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
+This overview introduces the key concepts around managing and controlling devices in a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
 :::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
-In Azure IoT, device management refers to the processes such as provisioning and updating devices. Device management includes the following tasks:
+In Azure IoT, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
 
 - Device registration
 - Device provisioning
@@ -46,9 +46,11 @@ Azure IoT solutions can use the following primitives for both device management 
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot in 30 seconds.
 - *Cloud-to-device* messages to receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
 
+To learn more, see [Cloud-to-device communications guidance](../iot-hub/iot-hub-devguide-c2d-guidance.md).
+
 ## Device registration
 
-Before a device can connect to an IoT hub, it must be registered. Device registration is the process of creating a device identity in the cloud. Each IoT hub has its own internal device registry. The device identity is used to authenticate the device when it connects to Azure IoT. Device registration entry includes the following properties:
+Before a device can connect to an IoT hub, it must be registered. Device registration is the process of creating a device identity in the cloud. Each IoT hub has its own internal device registry. The device identity is used to authenticate the device when it connects to Azure IoT. A device registration entry includes the following properties:
 
 - A unique device ID.
 - Authentication information such as symmetric keys or X.509 certificates.
@@ -57,6 +59,8 @@ Before a device can connect to an IoT hub, it must be registered. Device registr
 If you think a device has been compromised or isn't functioning correctly, you can disable it in the device registry to prevent it from connecting to the cloud. To allow a device to connect back to a cloud after the issue is resolved, you can re-enable it in the device registry. You can also permanently remove a device from the device registry to completely prevent it from connecting to the cloud.
 
 To lean more, see [Understand the identity registry in your IoT hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+
+IoT Central provides a UI to manage the device registry in the underlying IoT hub. To learn more, see [Add a device (IoT Central)](../iot-central/core/howto-manage-devices-individually.md#add-a-device).
 
 ## Device provisioning
 
@@ -68,9 +72,11 @@ To learn more, see [Device provisioning service overview](../iot-dps/about-iot-d
 
 ## Device deployment
 
-In Azure IoT, device deployment typically refers to the process of installing software on an IoT Edge device. When an IoT Edge device connects to an IoT hub, it receives a *deployment manifest* that contains details of the modules to run on the device. The deployment manifest also contains configuration information for the modules. There are a number of standard modules that are available for IoT Edge devices. You can also create your own custom modules.
+In Azure IoT, device deployment typically refers to the process of installing software on an IoT Edge device. When an IoT Edge device connects to an IoT hub, it receives a *deployment manifest* that contains details of the modules to run on the device. The deployment manifest also contains configuration information for the modules. There are a number of standard modules available for IoT Edge devices. You can also create your own custom modules.
 
 To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+
+If you're using IoT Central, you can [manage your deployment manifests](../iot-central/core/howto-manage-deployment-manifests.md) by using the IoT Central UI.
 
 ## Device updates
 
@@ -78,9 +84,7 @@ Typically, your IoT solution must include a way to update device software. For a
 
 For a non-IoT Edge device, you need to have a way to update the device firmware. This update process could use a cloud-to-device message to notify the device that a firmware update is available. Then the device runs custom code to download and install the update.
 
-The Device Update for IoT Hub service provides a managed solution for updating devices. It enables you to upload firmware updates to the cloud and then distribute them to devices. It also lets your monitor the update process and roll back to a previous version if the update fails.
-
-To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update/understand-device-update.md)
+The [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md) service provides a managed solution for updating devices. It enables you to upload firmware updates to the cloud and then distribute them to devices. It also lets your monitor the update process and roll back to a previous version if the update fails.
 
 ## Device key management and rotation
 
@@ -95,12 +99,15 @@ As part of overall solution monitoring, you may want to monitor the health of yo
 
 - Devices use the device twin to report its current state to the cloud. For example, a device can report its current internal temperature or its current battery level.
 - Devices can raise alerts by sending telemetry messages to the cloud.
-- IoT Hub can raise events when devices connect or disconnect from the cloud.
+- IoT Hub can [raise events](../iot-hub/iot-hub-event-grid.md) when devices connect or disconnect from the cloud.
+- IoT Central can use [rules](../iot-central/core/howto-configure-rules.md) to run actions when specified criteria are met.
 - Use machine learning tools to analyze device telemetry streams to identify anomalies that indicate a problem with the device.
+
+To learn more, see [Monitor device connection status (IoT Hub)](../iot-hub/monitor-device-connection-state.md).
 
 ## Device migration
 
-If you need to migrate a device from IoT Central to IoT Hub, you can use the Device Migration tool. To learn more, see [Migrate devices from IoT Central to IoT Hub](../iot-central/core/howto-migrate-to-iothub.md).
+If you need to migrate a device from IoT Central to IoT Hub, you can use the Device Migration tool. To learn more, see [Migrate devices from IoT Central to IoT Hub](../iot-central/core/howto-migrate-to-iot-hub.md).
 
 ## Command and control
 
@@ -114,7 +121,7 @@ To send commands to your devices to control their behavior, use:
 
 To learn more, see [Cloud-to-device communications guidance](../iot-hub/iot-hub-devguide-c2d-guidance.md).
 
-Device control can be automated based in feedback loops. For example, if the device temperature is too high, logic running in the cloud can send a command to turn on a fan. The cloud process can then send a command to turn off the fan when the temperature is back to normal.
+In some scenarios, you can automate device control based on feedback loops. For example, if the device temperature is too high, logic running in the cloud can send a command to turn on a fan. The cloud process can then send a command to turn off the fan when the temperature is back to normal.
 
 It's also possible to run this kind of automation locally. For example, if you're using IoT Edge to implement your gateway device, you can run the logic that controls the device in an IoT Edge module. Running this kind of logic at the edge can reduce latency and provide resilience in the case of a network outage.
 
@@ -131,4 +138,5 @@ To learn more, see:
 
 Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include
 
-- [Device infrastructure and connectivity](iot-overview-connectivity.md).
+- [IoT device development](iot-overview-device-development.md)
+- [Device infrastructure and connectivity](iot-overview-connectivity.md)

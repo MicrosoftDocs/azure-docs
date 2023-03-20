@@ -7,21 +7,21 @@ services: iot-fundamentals
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 03/20/2023
 ms.custom: template-overview
 
 # As a solution builder or device developer I want a high-level overview of the issues around device development so that I can easily find relevant content.
 ---
 
-# Device development
+# IoT device development
 
-This overview introduces some of the key concepts around developing devices to connect to a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
+This overview introduces the key concepts around developing devices that connect to a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
 :::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
-In Azure IoT, a device developer writes the code to run on the device. This code typically:
+In Azure IoT, a device developer writes the code to run on the devices in the solution. This code typically:
 
 - Establishes a secure connection to a cloud endpoint.
 - Sends telemetry collected from attached sensors to the cloud.
@@ -32,11 +32,13 @@ In Azure IoT, a device developer writes the code to run on the device. This code
 
 ## Device types
 
-IoT devices can be separated into two broad categories, microcontrollers (MCUs) and microprocessors (MPUs).
+IoT devices can be separated into two broad categories, microcontrollers (MCUs) and microprocessors (MPUs):
 
-MCUs are less expensive and simpler to operate than MPUs. An MCU contains many of the functions, such as memory, interfaces, and I/O within the chip itself. An MPU draws this functionality from components in supporting chips. An MCU often uses a real-time OS (RTOS) or runs bare-metal (no OS) and provides real-time responses and highly deterministic reactions to external events.
+- MCUs are less expensive and simpler to operate than MPUs.
+- An MCU contains many of the functions, such as memory, interfaces, and I/O on the chip itself. An MPU accesses this functionality from components in supporting chips.
+- An MCU often uses a real-time OS (RTOS) or runs bare-metal (no OS) and provides real-time responses and highly deterministic reactions to external events. MPUs generally run a general purpose OS, such as Windows, Linux, or macOS that provides a nondeterministic real-time response. There's typically no guarantee as to when a task will complete.
 
-MPUs generally run a general purpose OS, such as Windows, Linux, or MacOSX that provides a nondeterministic real-time response. There's typically no guarantee as to when a task will complete.
+Examples of specialized hardware and operating systems include:
 
 [Windows for IoT](/windows/iot/product-family/windows-iot) is an embedded version of Windows for MPUs with cloud connectivity that lets you create secure devices with easy provisioning and management.
 
@@ -46,7 +48,7 @@ MPUs generally run a general purpose OS, such as Windows, Linux, or MacOSX that 
 
 ## Primitives
 
-An Azure IoT device can use the following primitives when it interacts with the cloud:
+An Azure IoT device can use the following primitives to interact with the cloud:
 
 - *Device-to-cloud* messages to send time series telemetry to the cloud. For example, temperature data collected from a sensor attached to the device.
 - *File uploads* for media files such as captured images and video. Intermittently connected devices can send telemetry batches. Devices can compress uploads to save bandwidth.
@@ -54,6 +56,8 @@ An Azure IoT device can use the following primitives when it interacts with the 
 - *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices.
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot in 30 seconds.
 - *Cloud-to-device* messages to receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
+
+To learn more, see [Device-to-cloud communications guidance](../iot-hub/iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](../iot-hub/iot-hub-devguide-c2d-guidance.md).
 
 ## Device SDKs
 
@@ -73,9 +77,11 @@ For MCU devices, see:
 - [FreeRTOS Middleware](https://github.com/Azure/azure-iot-middleware-freertos)
 - [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 
-## Samples
+## Samples and guidance
 
 All of the device SDKs include samples that demonstrate how to use the SDK to connect to the cloud, send telemetry, and use the other primitives.
+
+The [IoT device development](../iot-develop/about-iot-develop.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
 
 You can find more samples in the [code sample browser](/samples/browse/?expanded=azure&products=azure-iot%2Cazure-iot-edge%2Cazure-iot-pnp%2Cazure-rtos).
 
@@ -98,6 +104,10 @@ IoT Plug and Play enables solution builders to integrate IoT devices with their 
 
 You can group these elements in interfaces to reuse across models to make collaboration easier and to speed up development.
 
+The model is specified by using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl).
+
+The use of IoT Plug and Play, modeling, and DTDL is optional in typical IoT solutions. You can use the IoT device primitives without using IoT Plug and Play or modeling. The [Azure Digital Twins](../digital-twins/overview.md) service also uses DTDL models to create twin graphs based on digital models of environments such as buildings or factories.
+
 As a device developer, when you implement an IoT Plug and Play device there are a set of conventions to follow. These conventions provide a standard way to implement the device model in code by using the primitives available in the device SDKs.
 
 To learn more, see:
@@ -107,25 +117,26 @@ To learn more, see:
 
 ## Containerized device code
 
-Using containers, such as Docker, to run your device code lets you deploy code to your devices by using the capabilities of the container infrastructure. Containers also let you define a runtime environment for your code with all the required library and package versions installed. Containers make it easier to deploy updates and to manage the lifecycle of your devices.
+Using containers, such as Docker, to run your device code lets you deploy code to your devices by using the capabilities of the container infrastructure. Containers also let you define a runtime environment for your code with all the required library and package versions installed. Containers make it easier to deploy updates and to manage the lifecycle of your IoT devices.
 
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
 > [!TIP]
-> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement field gateways. For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md).
+> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-connectivity.md#field-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 ## Development tools
 
-The following table lists some of the key development tools that you can use to develop IoT devices:
+The following table lists some of the available IoT development tools:
 
 | Tool | Description |
 | --- | --- |
 | [Azure IoT Hub (VS Code extension)](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) | This VS Code extension lets you manage your IoT Hub resources and devices from within VS Code. |
 | [Azure IoT explorer](howto-use-iot-explorer.md) | This cross-platform tool lets you manage your IoT Hub resources and devices from a desktop application. |
-| [Azure IoT extension for Azure CLI](https://learn.microsoft.com/en-gb/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
+| [Azure IoT extension for Azure CLI](https://learn.microsoft.com/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
 
 ## Next steps
 
 Now that you've seen an overview of device development in Azure IoT solutions, some suggested next steps include:
 
-- [Device infrastructure and connectivity](iot-overview-connectivity.md).
+- [Device infrastructure and connectivity](iot-overview-connectivity.md)
+- [Device management and control](iot-overview-device-management.md)

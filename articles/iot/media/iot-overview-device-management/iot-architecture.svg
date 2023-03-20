@@ -531,5 +531,12 @@
 			</v:userDefs>
 			<rect x="0" y="536.244" width="73.4457" height="59.0315" class="st14"/>
 		</g>
+		<g id="shape1023-199" v:mID="1023" v:groupContext="shape" v:layerMember="3" transform="translate(368.504,-403.937)">
+			<title>Rectangle.1023</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<rect x="0" y="488.976" width="90.7087" height="106.299" class="st14"/>
+		</g>
 	</g>
 </svg>
