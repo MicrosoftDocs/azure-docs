@@ -10,6 +10,7 @@ ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
+monikerRange: 'azureml-api-1'
 ---
 
 # Rebuild a Studio (classic) web service in Azure Machine Learning

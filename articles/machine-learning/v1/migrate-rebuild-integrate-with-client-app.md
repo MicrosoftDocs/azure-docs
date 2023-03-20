@@ -10,6 +10,7 @@ ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/31/2022
+monikerRange: 'azureml-api-1'
 ---
 
 # Consume pipeline endpoints from client applications

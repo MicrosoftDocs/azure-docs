@@ -11,6 +11,7 @@ ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
+monikerRange: 'azureml-api-1'
 ---
 
 # Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning 

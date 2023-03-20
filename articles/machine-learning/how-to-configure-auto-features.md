@@ -11,6 +11,7 @@ ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ms.date: 01/24/2022
+monikerRange: 'azureml-api-1'
 ---
 
 # Data featurization in automated machine learning

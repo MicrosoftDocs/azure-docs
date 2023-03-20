@@ -11,6 +11,7 @@ ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
+monikerRange: 'azureml-api-1'
 ---
 
 # Troubleshoot automated ML experiments in Python
@@ -207,7 +208,7 @@ If you have over 100 automated ML experiments, this may cause new automated ML e
 
 ## VNet Firewall Setting Download Failure
 
-If you are under virtual networks (VNets), you may run into model download failures when using AutoML NLP. This is because network traffic is blocked from downloading the models and tokenizers from Azure CDN. To unblock this, please allow list the below URLs in the “Application rules” setting of the VNet firewall policy:
+If you are under virtual networks (VNets), you may run into model download failures when using AutoML NLP. This is because network traffic is blocked from downloading the models and tokenizers from Azure CDN. To unblock this, please allow list the below URLs in the "Application rules" setting of the VNet firewall policy:
 
 * aka.ms 
 * https://automlresources-prod.azureedge.net 
