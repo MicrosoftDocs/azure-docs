@@ -37,7 +37,7 @@ This article lists the curated environments with latest framework versions in Az
 **Name**: AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu  
 **Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It is optimized for large, distributed deep learning workloads and comes pre-packaged with the best of Microsoft technologies for accelerated training, e.g., OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc.
 
-The learn more, see [Azure Container for PyTorch (ACPT)](reference-azure-container-for-pytorch.md).
+The learn more, see [Azure Container for PyTorch (ACPT)](resource-azure-container-for-pytorch.md).
 
 [!NOTE]
 > Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only acpt-pytorch-1.11-cuda11.3 with cuda 11.3 and torch 1.11 can be used.

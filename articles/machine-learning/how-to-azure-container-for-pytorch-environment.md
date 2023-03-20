@@ -1,5 +1,5 @@
 ---
-title: Create Azure Container for PyTorch Custom Curated Environment
+title: How to create Azure Container for PyTorch Custom Curated Environment
 titleSuffix: Azure Machine Learning
 description: Create custom curated Azure Container for PyTorch Environments in Azure Machine Learning studio to run your machine learning models and reuse it in different scenarios.
 services: machine-learning
@@ -20,7 +20,7 @@ If you're looking to extend curated environment and add Hugging Face (HF) transf
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/en-us/free/).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
