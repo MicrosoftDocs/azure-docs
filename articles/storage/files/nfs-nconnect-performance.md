@@ -77,7 +77,7 @@ If a workload requires mounting multiple shares with one or more storage account
   - `Mount StorageAccount2.file.core.windows.net:/FileShare1`
 
 > [!NOTE]
-> Even if the storage account resolves to different IP address, we can't guarantee that address will persist because public endpoints aren't static addresses.
+> Even if the storage account resolves to a different IP address, we can't guarantee that address will persist because public endpoints aren't static addresses.
 
 #### Scenario 3: (not supported) `nconnect` per-mount configuration over private endpoint with multiple shares on single storage account
 
@@ -106,35 +106,59 @@ While these tests focus on random I/O access patterns, you get similar results w
 
 #### High IOPS: 100% reads
 
-- 4k I/O size - random read - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=4k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300`
+**4k I/O size - random read - 64 queue depth**
 
-- 8k I/O size - random read - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=8k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300`
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=4k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
+```
+
+**8k I/O size - random read - 64 queue depth**
+
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=8k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
+```
 
 #### High throughput: 100% reads
 
-- 64k I/O size - random read - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300`
+**64k I/O size - random read - 64 queue depth**
 
-- 1024k I/O size - 100% random read - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300`
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
+```
+
+**1024k I/O size - 100% random read - 64 queue depth**
+
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
+```
 
 #### High IOPS: 100% writes
 
-- 4k I/O size - 100% random write - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=4k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300`
+**4k I/O size - 100% random write - 64 queue depth**
 
-- 8k I/O size - 100% random write - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=8k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300`
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=4k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
+```
+
+**8k I/O size - 100% random write - 64 queue depth**
+
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=8k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
+```
 
 #### High throughput: 100% writes
 
-- 64k I/O size  - 100% random write - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300`
+**64k I/O size  - 100% random write - 64 queue depth**
 
-- 1024k I/O size  - 100% random write - 64 queue depth
-- `fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300`
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
+```
+
+**1024k I/O size  - 100% random write - 64 queue depth**
+
+```bash
+fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
+```
 
 ## Performance considerations
 
