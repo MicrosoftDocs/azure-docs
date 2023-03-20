@@ -159,6 +159,15 @@ No, only the [global Azure cloud](https://azure.microsoft.com/global-infrastruct
 
 Yes, IoT Central uses both IoT Hub and DPS in the backend. The TLS migration will affect your solution, and you need to update your devices to maintain connection.
 
+You can migrate your application from the Baltimore CyberTrust Root to the DigiCert Global G2 Root on your own schedule. We recommend the following process:  
+1. **Keep the Baltimore CyberTrust Root on your device until the transition period is completed on 15 February 2024** (necessary to prevent connection interruption). 
+2. **In addition** to the Baltimore Root, ensure the DigiCert Global G2 Root is added to your trusted root store. 
+3. Make sure you aren’t pinning any intermediate or leaf certificates and are using the public roots to perform TLS server validation. 
+4. In your IoT Central application you can find the Root Certification settings under **Settings** > **Application** > **Baltimore Cybertrust Migration**.  
+   1. Select **DigiCert Global G2 Root** to migrate to the new certificate root. 
+   2. Click **Save** to initiate the migration. 
+   3. If needed, you can migrate back to the Baltimore root by selecting **Baltimore CyberTrust Root** and saving the changes. This option is available until 15 May 2023 and will then be disabled as Microsoft will start initiating the migration. 
+
 ### How long will it take my devices to reconnect?
 
 Several factors can affect device reconnection behavior.
