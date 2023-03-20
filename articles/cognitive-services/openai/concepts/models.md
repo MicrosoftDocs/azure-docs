@@ -196,10 +196,10 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 |  Model ID                | Supports Completions | Supports Embeddings |  Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  ----------------------- | -------------------- | ------------------- | ------------------------- | ------------------- | -------------------- | ---------------------- |
-| `gpt-4` <sup>1</sup><sup>2</sup>     | Yes                  | No                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup><sup>2</sup> | Yes                  | No                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup>     | Yes                  | No                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup> | Yes                  | No                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
 
-<sup>1</sup> The model is in limited preview and only available by request.
+<sup>1</sup> The model is in limited preview and only available by request.<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
 
 ### Codex Models
