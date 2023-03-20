@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
- This article shows you how to map a custom web site domain, such as such as `https://www.contoso.com`, to your app in Azure Spring Apps. This mapping is accomplished by using a `CNAME` record that the Domain Name Service (DNS) uses to store node names throughout the network.
+ This article shows you how to map a custom web site domain, such as `https://www.contoso.com`, to your app in Azure Spring Apps. This mapping is accomplished by using a `CNAME` record that the Domain Name Service (DNS) uses to store node names throughout the network.
 
 The mapping secures the custom domain with a certificate and enforces Transport Layer Security (TLS), also known as the Secure Sockets Layer (SSL).
 
