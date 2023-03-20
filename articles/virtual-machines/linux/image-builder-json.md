@@ -161,7 +161,7 @@ To access the Azure VM Image Builder public preview in the Fairfax regions (USGo
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name FairfaxPublicPreview
 ```
 
@@ -177,7 +177,7 @@ To access the Azure VM Image Builder public preview in the China North 3 region,
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name MooncakePublicPreview
 ```
 
