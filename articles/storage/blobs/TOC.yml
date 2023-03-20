@@ -821,7 +821,26 @@ items:
             href: storage-blob-containers-list-typescript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-typescript.md
-
+        - name: Blob actions
+          items:
+          - name: Upload blobs
+            href: storage-blob-upload-typescript.md
+          - name: Get blob URL
+            href: storage-blob-get-url-typescript.md
+          - name: Download blobs
+            href: storage-blob-download-typescript.md
+          - name: Copy blobs
+            href: storage-blob-copy-typescript.md
+          - name: List blobs
+            href: storage-blobs-list-typescript.md
+          - name: Delete and restore blobs
+            href: storage-blob-delete-typescript.md
+          - name: Find blobs using tags
+            href: storage-blob-tags-typescript.md
+          - name: Manage blob properties and metadata
+            href: storage-blob-properties-metadata-typescript.md
+          - name: Use access tiers
+            href: storage-blob-use-access-tier-typescript.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator

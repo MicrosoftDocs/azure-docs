@@ -1,7 +1,7 @@
 ---
 title: List blob containers with TypeScript
 titleSuffix: Azure Storage 
-description: Learn how to list blob containers in your Azure Storage account using the JavaScript client library using TypeScript.
+description: Learn how to list blob containers with TypeScript in your Azure Storage account using the JavaScript client library using TypeScript.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -21,7 +21,7 @@ When you list the containers in an Azure Storage account from your code, you can
 
 ## Understand container listing options
 
-To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
+To list containers in your storage account, create a [BlobServiceClient](storage-blob-typescript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
 
 - BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers)
 
@@ -49,7 +49,7 @@ Use the options parameter to the **listContainers** method to filter results wit
 
 To filter the list of containers, specify a string for the **prefix** property. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
-```javascript
+```typescript
 async function listContainers(
   blobServiceClient: BlobServiceClient,
   containerNamePrefix: string
@@ -77,7 +77,7 @@ async function listContainers(
 
 To return container metadata with the results, specify the **metadata** value for the BlobContainerTraits enum. Azure Storage includes metadata with each container returned, so you do not need to fetch the container metadata as a separate operation.
 
-```javascript
+```typescript
 async function listContainers(
   blobServiceClient: BlobServiceClient,
   containerNamePrefix: string
@@ -112,9 +112,9 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-containers.js)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/containers-list.ts)
 
-[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+[!INCLUDE [storage-dev-guide-resources-typescript](../../../includes/storage-dev-guides/storage-dev-guide-resources-typescript.md)]
 
 ## See also
 

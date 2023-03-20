@@ -14,7 +14,7 @@ ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts
 ---
 
-# Manage container properties and metadata with JavaScript
+# Manage container properties and metadata with TypeScript
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
@@ -66,6 +66,6 @@ The `getProperties` method retrieves container properties and metadata by callin
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/container-set-properties-and-metadata.js)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/container-set-properties-and-metadata.js)
 
-[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+[!INCLUDE [storage-dev-guide-resources-typescript](../../../includes/storage-dev-guides/storage-dev-guide-resources-typescript.md)]
