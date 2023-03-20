@@ -454,11 +454,11 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$slice` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$filter` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$map` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$objectToArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$arrayToObject` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$objectToArray` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$arrayToObject` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$reduce` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$indexOfArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `$concatArrays` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$concatArrays` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$isArray` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$zip` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `$reverseArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
