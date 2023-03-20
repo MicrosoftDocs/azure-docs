@@ -18,7 +18,7 @@ ms.author: sudhirsneha
 
 This article provides an overview of a new prerequisite for scheduled patching in update management center (preview). 
 
-**New prerequisite**
+##New prerequisite
 
 To ensure that a group of VMs are correctly auto and scheduled patched and don't run the risk of an accidental autopatching, a new patch mode is introduced for the schedule patching to set the patch mode as **Azure orchestrated with user managed schedules(Preview)**. 
 The patch mode enables the following two VM properties on your behalf after receiving the consent:
@@ -32,7 +32,7 @@ The patch mode enables the following two VM properties on your behalf after rece
 
 ## User Scenarios
 
-**VMs** | **Azure orchestrated using Automatic guest patching patch mode** | ***BypassPlatformSafteyChecksOnUserSchedule** | **Expected behavior in Azure** |
+**VMs** | **Azure orchestrated using Automatic guest patching patch mode** | **BypassPlatformSafteyChecksOnUserSchedule** | **Expected behavior in Azure** |
 --- | --- | --- | --- |
 VM1 | Yes |Yes | If the schedule is associated, then schedule patch runs as defined by user. </br> If the schedule isn't associated, then neither autopatch nor the schedule patch will run.|
 VM2 | Yes | No | If schedule is associated, then neither autopatch nor schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met. </br> If the schedule isn't associated, the VM is autopatched.
