@@ -19,7 +19,7 @@ This article describes reliability support in Azure Batch and covers both intra-
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure. If one zone is affected by the failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure. When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
@@ -27,7 +27,7 @@ Batch maintains parity with Azure on supporting availability zones.
 
 ### Prerequisites
 
-- For [user subscription mode Batch accounts](../batch/accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To see if your subscription doesn't have any restrictions , call the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `ResourceSkuRestrictions`. If a zone restriction exists, you can submit a support ticket to remove the zone restriction.
+- For [user subscription mode Batch accounts](../batch/accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To see if your subscription doesn't have any restrictions, call the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `ResourceSkuRestrictions`. If a zone restriction exists, you can submit a support ticket to remove the zone restriction.
 
 - Because InfiniBand doesn't support inter-zone communication, you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
