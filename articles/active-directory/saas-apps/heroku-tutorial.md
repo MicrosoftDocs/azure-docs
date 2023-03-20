@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Heroku | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Heroku'
 description: Learn how to configure single sign-on between Azure Active Directory and Heroku.
 services: active-directory
 author: jeevansd

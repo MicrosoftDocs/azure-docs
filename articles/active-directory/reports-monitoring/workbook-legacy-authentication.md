@@ -1,6 +1,6 @@
 ---
 
-title: Sign-ins using legacy authentication workbook in Azure AD | Microsoft Docs
+title: Sign-ins using legacy authentication workbook in Azure AD
 description: Learn how to use the sign-ins using legacy authentication workbook.
 services: active-directory
 author: shlipsey3

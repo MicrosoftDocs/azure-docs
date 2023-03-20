@@ -6,7 +6,7 @@ ms.author: jroth
 ms.reviewer: maghan
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.date: 05/02/2022
 ---
 

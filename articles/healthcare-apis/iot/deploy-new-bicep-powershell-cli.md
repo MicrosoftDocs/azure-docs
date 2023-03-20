@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/27/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
@@ -14,14 +14,9 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
-Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
-
-In this quickstart, you'll learn how to:
-
-> [!div class="checklist"]
-> - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+In this quickstart, you'll learn how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
 > [!TIP]
 > To learn more about Bicep, see [What is Bicep?](../../azure-resource-manager/bicep/overview.md?tabs=bicep)

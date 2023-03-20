@@ -6,22 +6,22 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 02/22/2022 
+ms.date: 03/10/2023 
 ---
 
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](/azure/app-service/overview), and covers intra-regional resiliency with availability zones. Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
+This article describes reliability support in [Azure App Service](../app-service/overview.md), and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure App Service adds the power of Microsoft Azure to your application, such as:
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends; and adds the power of Microsoft Azure to your application, such as:
 
 - Security
 - Load balancing
 - Autoscaling
 - Automated management
 
-To explore how Azure App Service can bolster the resiliency of your application workload, see [Why use App Service?](/azure/app-service/overview#why-use-app-service)
+To explore how Azure App Service can bolster the resiliency of your application workload, see [Why use App Service?](../app-service/overview.md#why-use-app-service)
 
 ## Availability zone support
 
@@ -31,7 +31,7 @@ Azure App Service Environment can be deployed across [availability zones (AZ)](.
 
 When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
 
-Availability zone support is a property of the App Service plan. App Service plans can be created on managed multi-tenant environment or dedicated environment using App Service Environment. To Learn more regarding App Service Environment, see [App Service Environment overview](/azure/app-service/environment/overview).
+Availability zone support is a property of the App Service plan. App Service plans can be created on managed multi-tenant environment or dedicated environment using App Service Environment. To Learn more regarding App Service Environment, see [App Service Environment overview](../app-service/environment/overview.md).
 
 For App Services that aren't configured to be zone redundant, VM instances are not zone resilient and can experience downtime during an outage in any zone in that region.
 
@@ -51,7 +51,7 @@ Availability zone support is a property of the App Service plan. The following a
 -  App Service Environment v1 doesn't support availability zones.  
 
     >[!IMPORTANT]
-    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](/azure/app-service/environment/overview). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](/azure/app-service/environment/migration-alternatives) to migrate to the new version.
+    >[App Service Environment v2 and v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). App Service Environment v3 is easier to use and runs on more powerful infrastructure. To learn more about App Service Environment v3, see [App Service Environment overview](../app-service/environment/overview.md). If you're currently using App Service Environment v2 or v1 and you want to upgrade to v3, please follow the [steps in this article](../app-service/environment/migration-alternatives.md) to migrate to the new version.
      
 - Minimum instance count of three zones is enforced. The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 
@@ -85,7 +85,7 @@ Availability zone support is a property of the App Service plan. The following a
     - West US 3 
 
 
-- To see which regions support App Services for dedicated environments v3, see [Regions](/azure/app-service/environment/overview#regions).
+- To see which regions support App Services for dedicated environments v3, see [Regions](../app-service/environment/overview.md#regions).
 
 ### Create a resource with availability zone enabled
 
@@ -149,13 +149,13 @@ The Azure Resource Manager template snippet below shows the new ***zoneRedundant
 
 #### To deploy a zone-redundant App Service using a dedicated environment
 
-To learn how to create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](/azure/app-service/environment/creation).
+To learn how to create the App Service Environment v3 on Isolated v2 plan, see [Create an App Service Environment](../app-service/environment/creation.md).
 
 ### Fault tolerance
 
 To prepare for availability zone failure, you should over-provision capacity of service to ensure that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 
-## Zone down experience
+### Zone down experience
 
 Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](../azure-monitor/autoscale/autoscale-overview.md) and that your autoscale instance count specification doesn't need to be a multiple of three. It's also important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to create and configure your App Service plans to account for losing a zone as described in the next section.
 
@@ -165,9 +165,9 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 ### Availability zone migration
 
-You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create upir resources with availability` zones enabled](#create-a-resource-with-availability-zone-enabled).
+You cannot migrate existing App Service instances or environment resources from non-availability zone support to availability zone support. To get support for availability zones, you'll need to [create your resources with availability zones enabled](#create-a-resource-with-availability-zone-enabled).
 
-## Pricing
+### Pricing
 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
 

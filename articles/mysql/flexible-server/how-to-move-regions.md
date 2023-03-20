@@ -1,6 +1,6 @@
 ---
-title: Move Azure regions - Azure portal - Azure Database for MySQL Flexible server
-description: Move an Azure Database for MySQL Flexible server from one Azure region to another using the Azure portal.
+title: Move Azure regions - Azure portal - Azure Database for MySQL - Flexible Server
+description: Move an Azure Database for MySQL - Flexible Server from one Azure region to another using the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -11,11 +11,11 @@ ms.date: 04/08/2022
 #Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---
 
-# Move an Azure Database for MySQL flexible server to another region by using the Azure portal
+# Move an Azure Database for MySQL - Flexible Server to another region by using the Azure portal
 
-There are various scenarios for moving an existing Azure Database for MySQL flexible server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
+There are various scenarios for moving an existing Azure Database for MySQL - Flexible Server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
 
-You can use Azure Database for MySQL flexible server's [geo-restore](concepts-backup-restore.md#geo-restore) feature to complete the move to another region. To do so, first ensure geo-redundancy is enabled for your flexible server. Next, trigger geo-restore for your geo-redundant server and move your server to the geo-paired region.
+You can use Azure Database for MySQL - Flexible Server's [geo-restore](concepts-backup-restore.md#geo-restore) feature to complete the move to another region. To do so, first ensure geo-redundancy is enabled for your flexible server. Next, trigger geo-restore for your geo-redundant server and move your server to the geo-paired region.
 
 > [!NOTE]
 > This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../../azure-resource-manager/management/move-resource-group-and-subscription.md) article.
@@ -28,7 +28,7 @@ You can use Azure Database for MySQL flexible server's [geo-restore](concepts-ba
 
 ## Move
 
-To move the Azure Database for MySQL flexible server to the geo-paired region using the Azure portal, use the following steps:
+To move the Azure Database for MySQL - Flexible Server to the geo-paired region using the Azure portal, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
@@ -60,7 +60,7 @@ The new server created by geo-restore has the same server admin login name and p
 
 ## Clean up source server
 
-You may want to delete the source Azure Database for MySQL flexible server. To do so, use the following steps:
+You may want to delete the source Azure Database for MySQL - Flexible Server. To do so, use the following steps:
 
 1. Once the replica has been created, locate and select your Azure Database for MySQL source flexible server.
 1. In the **Overview** window, select **Delete**.
@@ -69,8 +69,8 @@ You may want to delete the source Azure Database for MySQL flexible server. To d
 
 ## Next steps
 
-In this tutorial, you moved an Azure Database for MySQL flexible server from one region to another by using the Azure portal and then cleaned up the unneeded source resources.
+In this tutorial, you moved an Azure Database for MySQL - Flexible Server from one region to another by using the Azure portal and then cleaned up the unneeded source resources.
 
 - Learn more about [geo-restore](concepts-backup-restore.md#geo-restore)
-- Learn more about [Azure paired regions](overview.md#azure-regions) supported for Azure Database for MySQL flexible server
+- Learn more about [Azure paired regions](overview.md#azure-regions) supported for Azure Database for MySQL - Flexible Server
 - Learn more about [business continuity](concepts-business-continuity.md) options

@@ -5,6 +5,7 @@ author: joharder
 ms.author: joharder
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
+ms.custom: devx-track-azurecli
 ms.date: 02/23/2022
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---

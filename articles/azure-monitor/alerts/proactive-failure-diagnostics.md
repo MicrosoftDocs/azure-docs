@@ -456,4 +456,4 @@ These diagnostic tools help you inspect the data from your app:
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](./alerts-log.md)
-* [Availability web tests](../app/monitor-web-app-availability.md)
+* [Availability web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability)

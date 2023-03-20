@@ -94,7 +94,7 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 ## Remove VMInsights solution from workspace
 If you have completely migrated your virtual machines to Azure Monitor agent and no longer want to support virtual machines with the Log Analytics agent in your workspace, then you should remove the *VMInisghts* solution from the workspace. This will ensure that you don't collect data from any Log Analytics agents that inadvertently remain. 
 
-To remove the *VMInsights*solution, use the same process as [removing any other solution from a workspace](../insights/solutions.md#remove-a-monitoring-solution).
+To remove the *VMInsights*solution, use the same process as [removing any other solution from a workspace](/previous-versions/azure/azure-monitor/insights/solutions#remove-a-monitoring-solution).
 
 1. Select the **Solutions** menu in the Azure portal.
 2. Locate the *VMInsights* solution for your workspace and select it to view its detail.
@@ -104,4 +104,4 @@ To remove the *VMInsights*solution, use the same process as [removing any other 
 
 ## Next steps
 - See [Onboard agents to VM insights](vminsights-enable-overview.md) to connect agents to VM insights.
-- See [Targeting monitoring solutions in Azure Monitor (Preview)](../insights/solution-targeting.md) to limit the amount of data sent from a solution to the workspace.
+- See [Targeting monitoring solutions in Azure Monitor (Preview)](/previous-versions/azure/azure-monitor/insights/solution-targeting) to limit the amount of data sent from a solution to the workspace.
