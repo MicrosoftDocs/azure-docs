@@ -68,8 +68,8 @@ Before you begin the tutorial:
   Domain federation between local Active Directory Domain Services (AD DS) and Azure Active Directory (Azure AD) has to be set up by an administrator. This configuration is required so that the on-premises Windows users can be synced with the company Azure AD. The login migrations process would then be able to create an external login for the corresponding Azure AD user in the target managed instance. 
   
   In case the domain federation hasn't been set up yet in your Azure Active Directory tenant, the administrator can refer to the following links to get started:
-    - [Tutorial: Basic Active Directory environment](/azure/active-directory/cloud-sync/tutorial-basic-ad-azure)
-    - [Tutorial: Integrate a single forest with a single Azure AD tenant](/azure/active-directory/cloud-sync/tutorial-single-forest)
+    - [Tutorial: Basic Active Directory environment](../active-directory/cloud-sync/tutorial-basic-ad-azure.md)
+    - [Tutorial: Integrate a single forest with a single Azure AD tenant](../active-directory/cloud-sync/tutorial-single-forest.md)
     - [Provision Azure AD admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)  
 
 - Windows account migrations are supported **only for Azure SQL Managed Instance targets**. The Login Migration wizard will show you a prompt, where you have to enter the Azure AD domain name to convert the Windows users to their Azure AD versions. 
@@ -181,7 +181,7 @@ The following table describes the current status of the Login migration support 
 
 ## Next steps
 
-- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](/azure/dms/migration-using-azure-data-studio)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](/azure/dms/tutorial-sql-server-azure-sql-database-offline-ads)
-- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads)
-- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](/azure/dms/tutorial-sql-server-to-virtual-machine-online-ads)
+- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
+- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)

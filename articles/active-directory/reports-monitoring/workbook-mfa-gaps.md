@@ -1,6 +1,6 @@
 ---
 
-title: Multifactor Authentication Gaps workbook in Azure AD | Microsoft Docs
+title: Multifactor Authentication Gaps workbook in Azure AD
 description: Learn how to use the MFA Gaps workbook.
 services: active-directory
 author: shlipsey3

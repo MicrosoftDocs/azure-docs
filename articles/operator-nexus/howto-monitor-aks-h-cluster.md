@@ -144,7 +144,7 @@ export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_
 ./dcr.sh
 ```
 
-View/manage the DCR from the Azure portal or [CLI](/azure/monitor/data-collection/rule).
+View/manage the DCR from the Azure portal or [CLI](/cli/azure/monitor/data-collection/rule).
 By default, the Linux Syslog log level is set to "INFO". You can change the log level as needed.
 
 > [!NOTE]

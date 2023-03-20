@@ -1,5 +1,5 @@
 ---
-title: OATH tokens authentication method - Azure Active Directory
+title: OATH tokens authentication method
 description: Learn about using OATH tokens in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory

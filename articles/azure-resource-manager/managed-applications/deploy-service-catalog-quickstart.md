@@ -1,10 +1,10 @@
 ---
 title: Deploy a service catalog managed application
-description: Describes how to deploy a service catalog's managed application for an Azure Managed Application.
+description: Describes how to deploy a service catalog's managed application for an Azure Managed Application using Azure PowerShell, Azure CLI, or Azure portal.
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 03/16/2023
 ---
 
 # Quickstart: Deploy a service catalog managed application
@@ -55,6 +55,34 @@ $definitionid = (Get-AzManagedApplicationDefinition -ResourceGroupName appDefini
 
 You use the `$definitionid` variable's value when you deploy the managed application.
 
+# [Azure CLI](#tab/azure-cli)
+
+To get the managed application's definition with Azure CLI, run the following commands.
+
+In Visual Studio Code, open a new Bash terminal session and sign in to your Azure subscription. If you have Git installed, select Git Bash.
+
+```azurecli
+az login
+```
+
+The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
+From Azure CLI, get your managed application's definition. In this example, use the resource group name _appDefinitionGroup_ that was created when you deployed the managed application definition.
+
+```azurecli
+az managedapp definition list --resource-group appDefinitionGroup
+```
+
+The command lists all the available definitions in the specified resource group, like _sampleManagedApplication_.
+
+Create a variable for the managed application definition's resource ID.
+
+```azurecli
+definitionid=$(az managedapp definition show --resource-group appDefinitionGroup --name sampleManagedApplication --query id --output tsv)
+```
+
+You use the `$definitionid` variable's value when you deploy the managed application.
+
 # [Portal](#tab/azure-portal)
 
 To get the managed application's definition from the Azure portal, use the following steps.
@@ -72,7 +100,7 @@ To get the managed application's definition from the Azure portal, use the follo
 
 1. Select **Sample managed application** and then select **Create**.
 
-   The portal displays the managed application definitions that you created with the quickstart articles to publish an application definition.
+   The portal displays the managed application definitions that you published with the quickstart articles.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/select-service-catalog-managed-application.png" alt-text="Screenshot that shows managed application definitions that you can deploy.":::
 
@@ -99,7 +127,7 @@ $mrgname = $mrgprefix + $mrgtimestamp
 $mrgname
 ```
 
-The `$mrgprefix` and `$mrgtimestamp` variables are concatenated to create a resource group name like _rg-sampleManagedApplication-20230310100148_ that's stored in the `$mrgname` variable. You use the `$mrgname` variable's value when you deploy the managed application.
+The `$mrgprefix` and `$mrgtimestamp` variables are concatenated to create a managed resource group name like _rg-sampleManagedApplication-20230310100148_ that's stored in the `$mrgname` variable. The name's format `rg-{definitionName}-{dateTime}` is the same format as the portal's default value. You use the `$mrgname` variable's value when you deploy the managed application.
 
 You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backtick (`` ` ``) character. The backtick is also used for line continuation so that commands can use multiple lines.
 
@@ -116,6 +144,52 @@ $params="{ `"appServicePlanName`": {`"value`":`"demoAppServicePlan`"}, `
 `"appServiceNamePrefix`": {`"value`":`"demoApp`"}, `
 `"storageAccountNamePrefix`": {`"value`":`"demostg1234`"}, `
 `"storageAccountType`": {`"value`":`"Standard_LRS`"} }"
+```
+
+The parameters to create the managed resources:
+
+- `appServicePlanName`: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
+- `appServiceNamePrefix`: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
+- `storageAccountNamePrefix`: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
+- `storageAccountType`: The default is Standard_LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
+
+# [Azure CLI](#tab/azure-cli)
+
+Create a resource group for the managed application that's used during the deployment.
+
+```azurecli
+az group create --name applicationGroup --location westus3
+```
+
+You also need to create a name and path for the managed application resource group. The resource group is created when you deploy the managed application.
+
+Run the following commands to create the managed resource group's path.
+
+```azurecli
+mrgprefix='rg-sampleManagedApplication-'
+mrgtimestamp=$(date +%Y%m%d%H%M%S)
+mrgname="${mrgprefix}${mrgtimestamp}"
+subid=$(az account list --query [].id --output tsv)
+mrgpath="/subscriptions/$subid/resourceGroups/$mrgname"
+```
+
+The `mrgprefix` and `mrgtimestamp` variables are concatenated to create a managed resource group name like _rg-sampleManagedApplication-20230310100148_ that's stored in the `mrgname` variable. The name's format:`rg-{definitionName}-{dateTime}` is the same format as the portal's default value. The `mrgname` and `subid` variable's are concatenated to create the `mrgpath` variable value that creates the managed resource group during the deployment.
+
+You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backslash (`\`) character. The backslash is also used for line continuation so that commands can use multiple lines.
+
+The JSON formatted string's syntax is as follows:
+
+```json
+"{ \"parameterName\": {\"value\":\"parameterValue\"}, \"parameterName\": {\"value\":\"parameterValue\"} }"
+```
+
+For readability, the completed JSON string uses the backtick for line continuation. The values are stored in the `params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
+
+```azurecli
+params="{ \"appServicePlanName\": {\"value\":\"demoAppServicePlan\"}, \
+\"appServiceNamePrefix\": {\"value\":\"demoApp\"}, \
+\"storageAccountNamePrefix\": {\"value\":\"demostg1234\"}, \
+\"storageAccountType\": {\"value\":\"Standard_LRS\"} }"
 ```
 
 The parameters to create the managed resources:
@@ -157,7 +231,7 @@ The parameters to create the managed resources:
 
 # [PowerShell](#tab/azure-powershell)
 
-Run the following command to deploy the managed application from your Azure PowerShell session.
+Run the following command to deploy the managed application.
 
 ```azurepowershell
 New-AzManagedApplication `
@@ -175,10 +249,35 @@ The parameters used in the deployment command:
 - `Name`: Specify a name for the managed application. For this example, use _demoManagedApplication_.
 - `ResourceGroupName`: Name of the resource group you created for the managed application.
 - `Location`: Specify the region to deploy the resources. For this example, use _westus3_.
-- `ManagedResourceGroupName`: Uses the `$mrgname` parameters value. The managed resource group is created when the managed application is deployed.
+- `ManagedResourceGroupName`: Uses the `$mrgname` variable's value. The managed resource group is created when the managed application is deployed.
 - `ManagedApplicationDefinitionId`: Uses the `$definitionid` variable's value for the managed application definition's resource ID.
 - `Kind`: Specifies that type of managed application. This example uses _ServiceCatalog_.
-- `Parameter`: Uses the `$parms` variable's value in the JSON formatted string.
+- `Parameter`: Uses the `$params` variable's value in the JSON formatted string.
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following command to deploy the managed application.
+
+```azurecli
+az managedapp create \
+  --name demoManagedApplication \
+  --resource-group applicationGroup \
+  --location westus3 \
+  --managed-rg-id $mrgpath \
+  --managedapp-definition-id $definitionid \
+  --kind ServiceCatalog \
+  --parameters "$params"
+```
+
+The parameters used in the deployment command:
+
+- `name`: Specify a name for the managed application. For this example, use _demoManagedApplication_.
+- `resource-group`: Name of the resource group you created for the managed application.
+- `location`: Specify the region to deploy the resources. For this example, use _westus3_.
+- `managed-rg-id`: Uses the `$mrgpath` variable's value. The managed resource group is created when the managed application is deployed.
+- `managedapp-definition-id`: Uses the `$definitionid` variable's value for the managed application definition's resource ID.
+- `kind`: Specifies that type of managed application. This example uses _ServiceCatalog_.
+- `parameters`: Uses the `$params` variable's value in the JSON formatted string.
 
 # [Portal](#tab/azure-portal)
 
@@ -198,7 +297,7 @@ After the deployment is finished, you can check your managed application's statu
 
 # [PowerShell](#tab/azure-powershell)
 
-Run the following commands to check the managed application's status.
+Run the following command to check the managed application's status.
 
 ```azurepowershell
 Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup
@@ -208,6 +307,20 @@ Expand the properties to make it easier to read the `Properties` information.
 
 ```azurepowershell
 Get-AzManagedApplication -Name demoManagedApplication -ResourceGroupName applicationGroup | Select-Object -ExpandProperty Properties
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following command to check the managed application's status.
+
+```azurecli
+az managedapp list --resource-group applicationGroup
+```
+
+The following command parses the data about the managed application to show only the application's name and provisioning state.
+
+```azurecli
+az managedapp list --resource-group applicationGroup --query "[].{Name:name, provisioningState:provisioningState}"
 ```
 
 # [Portal](#tab/azure-portal)
@@ -252,6 +365,34 @@ You can also list the deny assignments for the managed resource group.
 Get-AzDenyAssignment -ResourceGroupName $mrgname
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+To display the managed resource group's resources, run the following command. You created the `$mrgname` variable when you created the parameters.
+
+```azurecli
+az resource list --resource-group $mrgname
+```
+
+Run the following command to list only the name, type, and provisioning state for the managed resources.
+
+```azurecli
+az resource list --resource-group $mrgname --query "[].{Name:name, Type:type, provisioningState:provisioningState}"
+```
+
+Run the following command to list the role assignment for the group that was used in the managed application's definition.
+
+```azurecli
+az role assignment list --resource-group $mrgname
+```
+
+The following command parses the data for the group's role assignment.
+
+```azurecli
+az role assignment list --resource-group $mrgname --role Owner --query "[].{ResourceGroup:resourceGroup, GroupName:principalName, RoleDefinition:roleDefinitionId, Role:roleDefinitionName}"
+```
+
+To review the managed resource group's deny assignments, use the Azure portal or Azure PowerShell commands.
+
 # [Portal](#tab/azure-portal)
 
 Go to the managed resource group with the name prefix **rg-sampleManagedApplication** and select **Overview** to display the resources that were deployed. The resource group contains an App Service, App Service plan, and storage account.
@@ -281,6 +422,14 @@ The command prompts you to confirm that you want to remove the resource group.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name applicationGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The command prompts for confirmation, and then returns you to command prompt while resources are being deleted.
+
+```azurecli
+az group delete --resource-group applicationGroup --no-wait
 ```
 
 # [Portal](#tab/azure-portal)

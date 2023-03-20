@@ -1,5 +1,5 @@
 ---
-title: Self-service password reset policies - Azure Active Directory
+title: Self-service password reset policies
 description: Learn about the different Azure Active Directory self-service password reset policy options
 
 services: active-directory

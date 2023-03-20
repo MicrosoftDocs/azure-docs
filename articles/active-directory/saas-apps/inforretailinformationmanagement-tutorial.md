@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Infor Retail – Information Management | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Infor Retail – Information Management'
 description: Learn how to configure single sign-on between Azure Active Directory and Infor Retail – Information Management.
 services: active-directory
 author: jeevansd
