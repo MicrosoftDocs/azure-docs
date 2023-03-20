@@ -3,7 +3,7 @@ title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 03/08/2023
+ms.date: 03/20/2023
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -25,6 +25,9 @@ Defender for Cloud continually assesses your resources, subscriptions and organi
 Defender for cloud offers foundational multicloud CSPM capabilities for free. These capabilities are automatically enabled by default on any subscription or account that has onboarded to Defender for Cloud. The foundational CSPM includes asset discovery, continuous assessment and security recommendations for posture hardening, compliance with Microsoft Cloud Security Benchmark (MCSB), and a [Secure score](secure-score-access-and-track.md) which measure the current status of your organization’s posture.
 
 The optional Defender CSPM plan, provides advanced posture management capabilities such as [Attack path analysis](how-to-manage-attack-path.md), [Cloud security explorer](how-to-manage-cloud-security-explorer.md), advanced threat hunting, [security governance capabilities](concept-regulatory-compliance.md), and also tools to assess your [security compliance](review-security-recommendations.md) with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, or region. 
+
+> [!NOTE]
+> Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Compute, Databases, and Storage resources. Billable workloads are VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines. Existing Microsoft Defender for Cloud customers receive automatically applied discounts for Defender CSPM. Billing will begin May 1st, 2023. ​
 
 The following table summarizes each plan and their cloud availability.
 
