@@ -8,8 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 12/07/2022
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Azure Disk Encryption scenarios on Linux VMs

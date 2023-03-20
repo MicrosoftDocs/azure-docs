@@ -18,13 +18,13 @@ ms.author: rifox
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -129,7 +129,7 @@ Use the `createChatThread` method to create a chat thread.
 `createChatThreadOptions` is used to describe the thread request.
 
 - Use the `topic` parameter of the constructor to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-- Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
+- Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../identity/access-tokens.md) quickstart.
 
 `CreateChatThreadResult` is the response returned from creating a chat thread.
 It contains a `getChatThread()` method, which returns the `ChatThread` object that can be used to get the thread client from which you can get the `ChatThreadClient` for performing operations on the created thread: add participants, send message, etc.
@@ -244,7 +244,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 
 Use the `addParticipants` method to add participants to the thread.
 
-- `communicationIdentifier`, required, is the CommunicationIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
+- `communicationIdentifier`, required, is the CommunicationIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../identity/access-tokens.md) quickstart.
 - `displayName`, optional, is the display name for the thread participant.
 - `shareHistoryTime`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
 

@@ -772,7 +772,7 @@
     },
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
-      "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-apps-landing-zone-accelerator",
       "branch": "reference-architecture",
       "branch_mapping": {}
     },
@@ -923,6 +923,18 @@
     {
       "path_to_root": "azure-cosmos-db-mongodb-python-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-ai-vision-sdk",
+      "url": "https://github.com/Azure-Samples/azure-ai-vision-sdk",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cache-redis-samples",
+      "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
       "branch": "main",
       "branch_mapping": {}
     }

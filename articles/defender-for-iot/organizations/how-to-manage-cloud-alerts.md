@@ -3,6 +3,7 @@ title: View and manage alerts on the Azure portal - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts triggered by cloud-connected Microsoft Defender for IoT network sensors on the Azure portal.
 ms.date: 12/12/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # View and manage alerts from the Azure portal

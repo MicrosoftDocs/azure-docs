@@ -9,9 +9,9 @@ ms.date: 02/02/2023
 ms.custom: template-how-to
 ---
 
-# How To interact with AKS-hybrid cluster
+# How to manage and lifecyle the AKS-Hybrid cluster
 
-This document shows how to manage an AKS-Hybrid cluster that you use for your CNF workloads.
+This document shows how to manage an AKS-Hybrid cluster that you use for CNF workloads.
 
 ## Before you begin
 

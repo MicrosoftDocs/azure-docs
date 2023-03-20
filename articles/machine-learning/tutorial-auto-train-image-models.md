@@ -10,7 +10,7 @@ author: swatig007
 ms.author: swatig
 ms.reviewer: ssalgado
 ms.date: 05/26/2022
-ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ---
 
 # Tutorial: Train an object detection model with AutoML and Python

@@ -7,10 +7,8 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
 ms.date: 10/07/2022
+#Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
-
-<!--#Customer intent:  I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
-
 
 # Reliability in Azure Functions
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Services with managed identities support - Azure AD
+title: Azure Services with managed identities support
 description: List of services supporting managed identities
 services: active-directory
 author: barclayn

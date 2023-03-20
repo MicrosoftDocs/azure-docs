@@ -80,4 +80,4 @@ This section outlines the steps to complete the day of your hackathon.
 
 ## Next steps
 
-Start with creating a lab plan in labs by following instructions in the article: [Tutorial: Setup a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+Start with creating a lab plan in labs by following instructions in the article: [Quickstart: Set up a lab plan with Azure Lab Services](quick-create-resources.md).

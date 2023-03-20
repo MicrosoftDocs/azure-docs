@@ -7,9 +7,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
+ms.custom: devx-track-azurepowershell
 ms.date: 07/18/2022
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Store and share images in an Azure Compute Gallery
@@ -233,7 +233,7 @@ No, you may replicate the image versions across regions in a subscription and us
 
 ### Can I share image versions across Azure AD tenants? 
 
-Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](./windows/share-images-across-tenants.md) or [CLI](./linux/share-images-across-tenants.md).
+Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 
 ### How long does it take to replicate image versions across the target regions?
 

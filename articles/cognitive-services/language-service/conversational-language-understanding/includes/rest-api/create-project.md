@@ -32,6 +32,7 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Content-Type`| 'application/merge-patch+json' |
 
 ### Body
 

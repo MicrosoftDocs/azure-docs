@@ -8,6 +8,7 @@ ms.author: mbaldwin
 ms.date: 09/12/2022
 ms.topic: quickstart
 ms.devlang: azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure Payment HSM with Azure PowerShell
