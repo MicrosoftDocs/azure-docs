@@ -262,6 +262,11 @@ sections:
           1. Retrieve the `RefreshToken` again.
           
       - question: |
+         I use multiple tabs in a web browser to sign in to multiple applications that I registered in the same Azure AD B2C tenant. When I try to perform a single sign out, not all of the applications are signed out. Why does this happen? 
+        answer: |
+          Currently, Azure AD B2C doesn't support single sign out for this specific scenario. It's caused by cookie contention as all the applications operates on the same cookie simultaneously.
+          
+      - question: |
           How do I report issues with Azure AD B2C?
         answer: |
           See [File support requests for Azure Active Directory B2C](find-help-open-support-ticket.md).
