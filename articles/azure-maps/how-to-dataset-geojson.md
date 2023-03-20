@@ -172,7 +172,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Creator resource]: how-to-manage-creator.md
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
 [dataset]: creator-indoor-maps.md#datasets
