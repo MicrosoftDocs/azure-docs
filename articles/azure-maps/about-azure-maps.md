@@ -217,7 +217,7 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 > [!NOTE]
 > Azure Maps shares customer-provided address/location queries with third-party TomTom for mapping functionality purposes. These queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals.
 >
-> TomTom is a subprocessor that is authorized to subprocess Azure Maps customer data. For more information, see [Data protection and privacy].
+> TomTom is a subprocessor that is authorized to subprocess Azure Maps customer data. For more information, see the Microsoft Online Services [Subprocessor List] located in the [Microsoft Trust Center].
 
 ## Supported regions
 
@@ -255,4 +255,5 @@ Stay up to date on Azure Maps:
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
 [TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
 [Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
-[Data protection and privacy]: https://www.microsoft.com/trust-center/privacy
+[Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy
+[Subprocessor List]: https://servicetrust.microsoft.com/DocumentPage/aead9e68-1190-4d90-ad93-36418de5c594
