@@ -20,4 +20,4 @@ Refer to the table below to find details about resolution dates or possible work
 
 In this article, you learned about the current known issues with the Azure VMware Solution.
 
-For more information, see [About Azure VMware Solution](introduction.md).
+For more information see [About Azure VMware Solution](introduction.md).
