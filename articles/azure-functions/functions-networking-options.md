@@ -13,7 +13,7 @@ This article describes the networking features available across the hosting opti
 
 The hosting models have different levels of network isolation available. Choosing the correct one helps you meet your network isolation requirements.
 
-You can host function apps in a couple of ways:
+You can host function apps in a couple of ways :
 
 * You can choose from plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The [Consumption plan](consumption-plan.md) scales dynamically in response to load and offers minimal network isolation options.
