@@ -17,12 +17,15 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 This article shows how to copy a blob in a storage account using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). It also shows how to abort an asynchronous copy operation.
 
-## Essentials
+## Prerequisites
 
 To work with the code examples in this article, here are a few things you'll need:
 
-- An authorized client object to connect with Blob Storage data resources. To learn about client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- When authorizing a client object, make sure that the authorization mechanism has the correct permissions to perform a copy operation. To learn more, see the authorization section for [Copy Blob](/rest/api/storageservices/copy-blob#authorization) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url#authorization).
+- Create or reuse an authorized client object to connect with Blob Storage data resources. To learn about client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+- Make sure that the authorization mechanism has the correct permissions to perform a copy operation. To learn more, see the REST API authorization sections for the following operations:
+    - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
+    - [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url#authorization)
+    - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
 - Install the necessary packages and include the proper `using` directives in your code file. To learn more, see the project setup section in [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
 ## About copying blobs
