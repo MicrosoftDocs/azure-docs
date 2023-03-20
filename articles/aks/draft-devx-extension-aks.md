@@ -9,7 +9,7 @@ ms.author: schaffererin
 
 # Use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS) (preview)
 
-[Draft][draft] is an open-source project that streamlines Kubernetes development by taking a non-containerized application and generating the DockerFiles, Kubernetes manifests, Helm charts, Kustomize configurations, and other artifacts associated with a containerized application. Draft can also create a GitHub Action workflow file to quickly build and deploy applications onto any Kubernetes cluster. The Azure Kubernetes Service (AKS) DevX extension for Visual Studio code enhances non-cluster experiences, allowing you to create deployment files and configure GitHub Action workflows to deploy your applications to AKS. Draft is the available feature included in the DevX extension.
+[Draft][draft] is an open-source project that streamlines Kubernetes development by taking a non-containerized application and generating the DockerFiles, Kubernetes manifests, Helm charts, Kustomize configurations, and other artifacts associated with a containerized application. The Azure Kubernetes Service (AKS) DevX extension for Visual Studio code enhances non-cluster experiences, allowing you to create deployment files to deploy your applications to AKS. Draft is the available feature included in the DevX extension.
 
 This article shows you how to use Draft with the DevX extension to draft a DockerFile, draft a Kubernetes deployment and service, and build an image on Azure Container Registry (ACR).
 
