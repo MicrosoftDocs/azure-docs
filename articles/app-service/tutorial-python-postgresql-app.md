@@ -495,7 +495,7 @@ If you encounter any errors related to connecting to the database, check if the 
 
 ## Provision and deploy using the Azure Developer CLI
 
-Sample Python application templates using the Flask and Django framework are provided for this tutorial. The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) greatly streamlines the process of provisioning application resources and deploying code on Azure. For a more step-by-step approach using the Azure Portal and other tools, toggle to the **Azure portal** approach at the top of the page.
+Sample Python application templates using the Flask and Django framework are provided for this tutorial. The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) greatly streamlines the process of provisioning application resources and deploying code on Azure. For a more step-by-step approach using the Azure portal and other tools, toggle to the **Azure portal** approach at the top of the page.
 
 The Azure Developer CLI (azd) provides end-to-end support for project initialization, provisioning, deploying, monitoring and scaffolding a CI/CD pipeline to run against real Azure resources. You can use `azd` to provision and deploy the resources for the sample application in an automated and streamlined way.
 
@@ -535,7 +535,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     The name of the resource group that was created is also displayed in the console output. Locate the resource group in the Azure portal to see all of the provisioned resources. 
 
-    :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/azd-resources-small.png" lightbox="./media/tutorial-python-postgresql-app/azd-resources.png" alt-text="The resources deployed by the Azure Developer CLI.":::
+    :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/azd-resources-small.png" lightbox="./media/tutorial-python-postgresql-app/azd-resources.png" alt-text="A screenshot showing the resources deployed by the Azure Developer CLI.":::
 
 The Azure Developer CLI also enables you to configure your application to use a CI/CD pipeline for deployments, setup monitoring functionality, and even remove the provisioned resources if you want to tear everything down. For more information about these additional workflows, visit the project [README](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/blob/main/README.md).
 
@@ -556,7 +556,7 @@ The `azd up` command cloned the sample app project template to your machine. The
 
 ### 2. Provisioned the Azure resources
 
-The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage Infrastructure as Code in Azure. Some of the key resources and and configurations created by the template include:
+The `azd up` command created all of the resources for the sample application in Azure using the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project template. [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a declarative language used to manage Infrastructure as Code in Azure. Some of the key resources and configurations created by the template include:
 
 * **Resource group**: A resource group was created to hold all of the other provisioned Azure resources. The resource group keeps your resources well organized and easier to manage. The name of the resource group is based off of the environment name you specified during the `azd up` initialization process.
 * **Azure Virtual Network**: A virtual network was created to enable the provisioned resources to securely connect and communicate with one another. Related configurations such as setting up a private DNS zone link were also applied.
@@ -687,7 +687,7 @@ resource postgresServer 'Microsoft.DBforPostgreSQL/flexibleServers@2022-01-20-pr
 
 The `azd up` command also deployed the sample application code to the provisioned Azure resources. The Developer CLI understands how to deploy different parts of your application code to different services in Azure using the `azure.yaml` file at the root of the project. The `azure.yaml` file specifies the app source code location, the type of app, and the Azure Service that should host that app. 
 
-Consider the following `azure.yaml` file. These configurations tells the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the created App Service.
+Consider the following `azure.yaml` file. These configurations tell the Azure Developer CLI that the Python code that lives at the root of the project should be deployed to the created App Service.
 
 ### [Flask](#tab/flask)
 
