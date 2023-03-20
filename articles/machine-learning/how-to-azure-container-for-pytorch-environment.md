@@ -68,4 +68,4 @@ That's it! You've now created a custom environment in Azure Machine Learning stu
 - Learn more about environment objects:
     - [What are Azure Machine Learning Environments? ](concept-environments.md).
     -  Learn more about [curated environments](concept-environments.md).
-- Learn more about [training models in AML](concept-train-machine-learning-model.md).
+- Learn more about [training models in Azure Machine learning](concept-train-machine-learning-model.md).
