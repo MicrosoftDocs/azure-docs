@@ -260,17 +260,16 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse kind = regex RawData with *
+    ':"'
     ClientIP:string
-    ' ' *
-    ' ' *
-    ' [' * '] "' RequestType:string
-    " " Resource:string
+    " - -" * '"'
+    RequestType:string
+    ' '
+    Resource:string
     " " *
     '" ' ResponseCode:int
     " " *
-    | where ResponseCode != 200
-    | project-away Time, RawData
     ```
 
 1. Select **Run** to view the results.
