@@ -331,29 +331,28 @@ This section lists the Azure Blob Storage attributes you can use in your conditi
 
 The following table summarizes the available attributes by source:
 
-> [!div class="mx-tableFixed"]
-> | Attribute Source | Display name             | Description                                                        |
-> | :--------------- | :----------------------- | :----------------------------------------------------------------- |
-> | **Environment**  | | |
-> | | [Is private link](#is-private-link)       | Is access over a private link?                                     |
-> | | [Private endpoint](#private-endpoint)     | The name of the private endpoint from which an object is accessed. |
-> | | [Subnet name](#subnet-name)               | The name of the subnet from which an object is accessed.           |
-> | | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time.           |
-> | **Request**       | | |
-> | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
-> | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
-> | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed.                              |
-> | | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot.                     |
-> | | [Version ID](#version-id)                 | The version ID of the versioned Blob.                              |
-> | **Resource**      | | |
-> | | [Account name](#account-name)             | The storage account name.                                          |
-> | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
-> | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
-> | | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource.        |
-> | | [Container name](#container-name)         | Name of a storage container or file system.                        |
-> | | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data.           |
-> | | [Is current version](#is-current-version) | Whether the resource is the current version of the blob.           |
-> | | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account. |
+| Attribute Source | Display name             | Description                                                        |
+| :--------------- | :----------------------- | :----------------------------------------------------------------- |
+| **Environment**  | | |
+| | [Is private link](#is-private-link)       | Is access over a private link?                                     |
+| | [Private endpoint](#private-endpoint)     | The name of the private endpoint from which an object is accessed. |
+| | [Subnet name](#subnet-name)               | The name of the subnet from which an object is accessed.           |
+| | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time.           |
+| **Request**       | | |
+| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
+| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
+| | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed.                              |
+| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot.                     |
+| | [Version ID](#version-id)                 | The version ID of the versioned Blob.                              |
+| **Resource**      | | |
+| | [Account name](#account-name)             | The storage account name.                                          |
+| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |
+| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key). |
+| | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource.        |
+| | [Container name](#container-name)         | Name of a storage container or file system.                        |
+| | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data.           |
+| | [Is current version](#is-current-version) | Whether the resource is the current version of the blob.           |
+| | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account. |
 
 ### Account name
 
