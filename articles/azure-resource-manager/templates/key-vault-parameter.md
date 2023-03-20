@@ -2,9 +2,14 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
+<<<<<<< HEAD
 ms.date: 06/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
+=======
+ms.date: 05/07/2021
+ms.custom: devx-track-azurepowershell
+>>>>>>> 41c433564be63634b15b378304a7aaefe18616e6
 ---
 
 # Use Azure Key Vault to pass secure parameter value during deployment
