@@ -38,7 +38,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
         * Select an Azure **Subscription**.
         * Select or create an Azure **Resource group**, such as *myResourceGroup*.
     - **Cluster details**:
-        * Ensure the the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+        * Ensure the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
         * Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
         * Select a **Region** for the AKS cluster, and leave the default value selected for **Kubernetes version**.
         * Select **99.5%** for **API server availability**.
