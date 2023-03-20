@@ -4,8 +4,8 @@ description: Learn how to access applications in a virtual network that are usin
 author: karlerickson
 ms.author: haojianzhong
 ms.service: spring-apps
-ms.topic: how-to
-ms.date: 03/14/2023
+ms.topic: quickstart
+ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
@@ -13,18 +13,18 @@ ms.custom: devx-track-java
 
 This article describes how to access your application in a virtual network using Azure Spring Apps Standard Consumption plan.
 
-When you create an Azure Container Apps Environment in an existing virtual network, all the apps inside the environment can be accessed only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps Environment, the applications in the Azure Spring Apps instance can be accessed only from the virtual network. For more information, see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
+When you create an Azure Container Apps environment in an existing virtual network, you can access all the apps inside the environment only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps environment, you can access the applications in the Azure Spring Apps instance only from the virtual network. For more information, see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
 
 ## Create a private DNS zone
 
-Create a private DNS zone named as the Container App Environment’s default domain `<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`, with an A record.
+Create a private DNS zone named as the Azure Container App environment’s default domain `<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`, with an A record.
 
-Use the following command to get the default domain of Azure Container Apps Environment.
+Use the following command to get the default domain of Azure Container Apps environment.
 
 ```azurecli
 az containerapp env show \
-    --name <Azure-Container-Apps-environment-name> \
     --resource-group <resource-group-name> \
+    --name <Azure-Container-Apps-environment-name> \
     --query 'properties.defaultDomain'
 ```
 
@@ -38,14 +38,14 @@ az network private-dns zone create \
 
 ## Create an A record
 
-Create an A record that contains the name `<DNS Suffix>` and the static IP address of the Azure Container Apps Environment.
+Create an A record that contains the name `<DNS Suffix>` and the static IP address of the Azure Container Apps environment.
 
-Use the following command to get the static IP address for an Azure Container Apps Environment.
+Use the following command to get the static IP address for an Azure Container Apps environment.
 
 ```azurecli
 az containerapp env show \
-    --name <Azure-Container-Apps-environment-name> \
     --resource-group <resource-group-name> \
+    --name <Azure-Container-Apps-environment-name> \
     --query 'properties.staticIp'
 ```
 
@@ -74,6 +74,19 @@ az network private-dns link vnet create \
 
 ## Access the application
 
-Now you can access an application in an Azure Spring Apps instance within your virtual network, using the url of the application.
+Now you can access an application in an Azure Spring Apps instance within your virtual network, using the URL of the application.
+
+## Clean up resources
+
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Next steps
+
+- [Azure Spring Apps documentation](./index.yml)
