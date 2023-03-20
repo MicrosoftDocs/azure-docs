@@ -25,20 +25,11 @@ If you have problems with SSPR writeback, the following troubleshooting steps an
 
 If you have problems with password writeback for Azure AD Connect, review the following steps that may help resolve the problem. To recover your service, we recommend that you follow these steps in order:
 
-- [Troubleshoot self-service password reset writeback in Azure Active Directory](#troubleshoot-self-service-password-reset-writeback-in-azure-active-directory)
-  - [Troubleshoot connectivity](#troubleshoot-connectivity)
-    - [Confirm network connectivity](#confirm-network-connectivity)
-    - [Restart the Azure AD Connect Sync service](#restart-the-azure-ad-connect-sync-service)
-    - [Disable and re-enable the password writeback feature](#disable-and-re-enable-the-password-writeback-feature)
-    - [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
-  - [Verify that Azure AD Connect has the required permissions](#verify-that-azure-ad-connect-has-the-required-permissions)
-  - [Common password writeback errors](#common-password-writeback-errors)
-  - [Password writeback event log error codes](#password-writeback-event-log-error-codes)
-    - [If the source of the event is ADSync](#if-the-source-of-the-event-is-adsync)
-    - [If the source of the event is PasswordResetService](#if-the-source-of-the-event-is-passwordresetservice)
-  - [Azure AD forums](#azure-ad-forums)
-  - [Contact Microsoft support](#contact-microsoft-support)
-  - [Next steps](#next-steps)
+* [Confirm network connectivity](#confirm-network-connectivity)
+* [Restart the Azure AD Connect Sync service](#restart-the-azure-ad-connect-sync-service)
+* [Disable and re-enable the password writeback feature](#disable-and-re-enable-the-password-writeback-feature)
+* [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
+* [Troubleshoot password writeback](#common-password-writeback-errors)
 
 ### Confirm network connectivity
 
