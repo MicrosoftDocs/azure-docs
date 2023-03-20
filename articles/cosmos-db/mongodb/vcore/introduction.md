@@ -27,7 +27,7 @@ Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the b
 
 :::image type="content" source="media/introduction/cluster_tiers.png" alt-text="Screenshot of several cluster tier options":::
 
-## A solution that simply works
+*East US region
 
 Azure Cosmos DB for MongoDB vCore is organized into easy to understand cluster tiers based on vCPUs, RAM, and attached storage, making it easy to lift and shift your existing workloads or build new applications.
 
