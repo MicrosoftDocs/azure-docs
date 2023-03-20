@@ -40,7 +40,7 @@ A sample control file is as below:
 ```json
 [
   {
-    "checkPointKey":"cba2acf0-d5e2-4d84-a552-e0a059b6d320",
+    "checkPointKey":"CheckPointFor_ZPERFCDPOS$F",
     "sapContext": "ABAP_CDS",
     "sapObjectName": "ZPERFCDPOS$F",
     "sapRunMode": "fullAndIncrementalLoad",
@@ -68,7 +68,7 @@ A sample control file is as below:
     "stagingStorageFolder":"stagingcontainer/stagingfolder"
   },
   {
-    "checkPointKey":"fgaeca7f-d3d4-406f-bb48-a17faa83f76c",
+    "checkPointKey":"CheckPointFor_Z0131",
     "sapContext": "SAPI",
     "sapObjectName": "Z0131",
     "sapRunMode": "incrementalLoad",
