@@ -24,7 +24,7 @@ As per the industry's compliance requirements, CA vendors began revoking CA cert
 
 The new certificate is rolled out and in effect starting December, 2022 (12/2022). 
 
-## What change scheduled to be performed starting December 2022 (12/2022)?
+## What change was scheduled to be performed starting December 2022 (12/2022)?
 
 Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) is  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity need to follow directions to add new certificates to certificate store to maintain connectivity.
 
@@ -130,7 +130,7 @@ For servers created after November 30, 2022, you'll continue to use the [Baltimo
 
 ### 9. How often does Microsoft update their certificates or what is the expiry policy?
 
-These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft  need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft  need to make the certificate rotation at the earliest similar to the change performed on February 15, 2021 to ensure the service is secure and compliant always.
+These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft  need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft  needs to make the certificate rotation at the earliest similar to the change performed on February 15, 2021 to ensure the service is secure and compliant always.
 
 ### 10. If I am using read replicas, do I need to perform this update only on the primary server , or the read replicas?
 
