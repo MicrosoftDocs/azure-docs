@@ -22,7 +22,7 @@ Data-aware security posture in Microsoft Defender for Cloud aims to proactively 
 
 **Support** | **Details**
 --- | ---
-What Defender for Cloud plans support data-aware security? | Defender for Storage v2<br/><br/> Defender for CSPM<br/><br/> [Help me](#which-plan-should-I-use.md) to choose a plan.
+What Defender for Cloud plans support data-aware security? | Defender for Storage v2<br/><br/> Defender for CSPM<br/><br/> [Help me](#which-plan-should-I-use) to choose a plan.
 What data resources can I scan? | Azure storage accounts (v1/v2), including storage containers<br/><br/> AWS S3 buckets<br/><br/> Behind a private network you can scan blob storage accounts (no specific configuration required).
 What file types are supported? | All the following file types (no partial selection):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc
 What Azure regions are supported? | You can scan Azure storage accounts in: Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central U; East Asia; East US; East US 2; France Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Center US; South India: Sweden Central; Switzerland North; UAE North; UK South; UK West: West Centra US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
@@ -61,12 +61,12 @@ Data-aware security in Defender for Cloud automatically identifies resources con
 
 ### Sensitive information types
 
-Defender for Cloud uses sensitive information types to classify what data is sensitive. These types align to those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about?view=o365-worldwide).  Defender for Cloud turns some of these information types on by default. 
+Defender for Cloud uses sensitive information types to classify what data is sensitive. These types align to those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about).  Defender for Cloud turns some of these information types on by default. 
  
 Sensitivity settings are set at the Azure tenant level, and apply to all subscriptions that have the relevant Defender for Cloud plans enabled.
 
 You can modify default settings by turning off information types, or by creating custom types. Note that:
-- To modify default sensitive information types, you need to either be an Azure subscription owner, or have these permissions:
+- To modify default sensitive information types you need to either be an Azure subscription owner, or have these permissions:
     - Microsoft.Storage/storageAccounts/{read/write}
     - Microsoft.Authorization/roleAssignments/{read/write/delete}
 - Detection for changes to sensitivity information types runs every seven days
@@ -80,9 +80,9 @@ If you’re using Microsoft Purview, you can optionally add additional Purview i
 If you have Purview sensitivity labels that are automatically assigned to resources when conditions are met, you can turn on the the sensitivity label threshold setting in Defender for Cloud, and integrate those sensitivity labels into data-aware posture management. In order to use these labels you need:
 
 - In the Microsoft Purview portal, you consented to use the labels in Defender for Cloud.
-- One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) in Microsoft Purview.
-- The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
-- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide) with a label policy that’s in effect.
+- One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.
+- The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).
+- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
 
 #### Things to note
 
