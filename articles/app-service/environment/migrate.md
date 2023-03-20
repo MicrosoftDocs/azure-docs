@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -21,7 +21,6 @@ At this time, the migration feature doesn't support migrations to App Service En
 
 ### Azure Public:
 
-- Japan West
 - Jio India West
 - UAE Central
 
