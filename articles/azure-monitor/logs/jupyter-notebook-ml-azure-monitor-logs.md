@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 ## Limitations 
 
 - Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
-- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome as suggested later. 
+- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome up to curtain degree as suggested later. 
 
 ## Prerequisites 
 In this tutorial, you need:
