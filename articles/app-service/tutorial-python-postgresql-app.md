@@ -544,7 +544,7 @@ The Azure Developer CLI also enables you to configure your application to use a 
 The sections ahead review the steps that `azd` handled for you in more depth. You can explore this workflow to better understand the requirements for deploying your own apps to Azure. When you ran `azd up`, the Azure Developer CLI completed the following steps:
 
 > [!NOTE]
-> You can also use the steps outlined in the **Step by step** version of this flow to gain additional insights into the tasks that `azd` completed for you.
+> You can also use the steps outlined in the **Azure portal** version of this flow to gain additional insights into the tasks that `azd` completed for you.
 
 ### 1. Cloned and initialized the project
 
