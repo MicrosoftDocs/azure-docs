@@ -103,7 +103,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 **Supported until**: 02/2024
 
-Version 22.3.7 includes the same features as 22.3.6. We had internal issues with version 22.3.6 and strongly recommend that you update to version 22.3.7. 
+Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 installed, we strongly recommend that you update to version 22.3.7, which also includes important bug fixes.
 
 - [Support for transient devices](device-inventory.md#supported-devices)
 - [Auto-resolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
