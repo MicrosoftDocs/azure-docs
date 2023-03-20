@@ -209,7 +209,7 @@ Because Redis persistence creates data at rest, encrypting this data is an impor
 
 With the **Premium** tier, data is streamed directly from the cache instance to Azure Storage when persistence is initiated. Various encryption methods can be used with Azure Storage, including Microsoft-managed keys, customer-managed keys, and customer-provided keys. For information on encryption methods, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md). 
 
-With the **Enterprise** and **Enterprise Flash** tiers, data is stored on a managed disk mounted to the cache instance. By default, the disk holding the persistence data, and the OS disk are encrypted using Microsoft-managed keys. A customer-managed key (CMK) can also be used to encrypt these disks. See [Encryption on Enterprise tier caches](cache-how-to-encryption.md) for instructions.  
+With the **Enterprise** and **Enterprise Flash** tiers, data is stored on a managed disk mounted to the cache instance. By default, the disk holding the persistence data, and the OS disk are encrypted using Microsoft-managed keys. A customer-managed key (CMK) can also be used to control data encryption. See [Encryption on Enterprise tier caches](cache-how-to-encryption.md) for instructions.  
 
 ## Persistence FAQ
 
