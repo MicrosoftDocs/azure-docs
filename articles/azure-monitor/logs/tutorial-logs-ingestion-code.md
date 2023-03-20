@@ -6,14 +6,16 @@ ms.date: 02/01/2023
 ---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API
+This article provides sample code using the Logs ingestion API.
 
-## Call REST API using PowerShell
+
+
+## [PowerShell](#tab/powershell)
 
 The following PowerShell code sends data to the endpoint by using HTTP REST fundamentals.
 
-### Prerequisites
-
-- PowerShell v7.0 or later
+> [!NOTE]
+> This sample requires PowerShell v7.0 or later.
 
 1. Run the following PowerShell command, which adds a required assembly for the script.
 
@@ -92,19 +94,19 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 
 1. After you execute this script, you should see an `HTTP - 204` response. In a few minutes, the data arrives to your Log Analytics workspace.
 
-## Python client library
+## [Python](#tab/python)
 
 The following script uses the [Azure Monitor Ingestion client library for Python](/python/api/overview/azure/monitor-ingestion-readme).
 
-### Prerequisites
+> [!NOTE]
+> This sample requires Python 3.7 or later.
 
-- Python 3.7 or later
 
-
-1. Install the Azure Monitor Ingestion client library for Python with the following command using [pip](https://pypi.org/project/pip/).
+1. Use [pip](https://pypi.org/project/pip/) to install the Azure Monitor Ingestion client library for Python and the Azure Identify library, which is required for the authentication used in this sample.
 
     ```bash
     pip install azure-monitor-ingestion
+    pip install azure-identity
     ```
 
 
@@ -177,18 +179,16 @@ except HttpResponseError as e:
 ```
 
 
-## JavaScript client library
-The following script uses the [Azure Monitor Ingestion client library for JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme).
+## [JavaScript](#tab/javascript)
 
-
-1. Install the Azure Monitor Ingestion client library for JS with [npm](https://www.npmjs.com/).
+1. Use [npm](https://www.npmjs.com/) to install the Azure Monitor Ingestion client library for JavaScript and the Azure Identify library which is required for the authentication used in this sample.
 
     ```bash
-    npm install @azure/monitor-ingestion
+    npm install --save @azure/monitor-ingestion
+    npm install --save @azure/identity
     ```
 
-
-2. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
+3. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
 
 ```javascript
 const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
@@ -235,20 +235,26 @@ main().catch((err) => {
   console.error("The sample encountered an error:", err);
   process.exit(1);
 });
-
-module.exports = { main };
 ```
 
+1. Use NuGet to install the Azure Monitor Ingestion client library and the Azure Identify library which is required for the authentication used in this sample..
+ 
+    ```bash
+    dotnet add package Azure.Identity
+    dotnet add package Azure.Monitor.Ingestion
 
-## Java client library
+
+## [Java](#tab/java)
 
 
+
+## [.Net](#tab/net)
 ## .NET client library
 The following script uses the [Azure Monitor Ingestion client library for .NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme).
 
 
 
-1. Install the Azure Monitor Ingestion client library for .NET with NuGet:.
+1. Use NuGet to install the Azure Monitor Ingestion client library for .NET.
 
     ```dotnetcli
     dotnet add package Azure.Monitor.Ingestion
@@ -257,7 +263,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 
 2. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
 
-
+---
 
 ## Next steps
 

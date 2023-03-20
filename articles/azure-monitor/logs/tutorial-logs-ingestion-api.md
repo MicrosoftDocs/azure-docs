@@ -9,19 +9,18 @@ ms.date: 02/01/2023
 The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries.
 
 > [!NOTE]
-> This tutorial uses ARM templates to configure custom logs. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md).
+> This tutorial uses ARM templates to configure the components required to support the Logs ingestion API. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md).
 
-In this tutorial, you learn to:
+The steps required to configure the Logs ingestion API are as follows:
 
-> [!div class="checklist"]
-> * Create a custom table in a Log Analytics workspace.
-> * Create a data collection endpoint (DCE) to receive data over HTTP.
-> * Create a data collection rule (DCR) that transforms incoming data to match the schema of the target table.
-> * Create a sample application to send custom data to Azure Monitor using both REST API and client libraries.
+1. Create an Azure AD application to authenticate against the API.
+2. Create a custom table in a Log Analytics workspace. This is the table you'll be sending data to.
+3. Create a data collection endpoint (DCE) to receive data.
+4. Create a data collection rule (DCR) to direct the data to the target table. You Azure AD application will require access to this DCR.
+
+One this configuration is complete, examples are showing sending sample data to the API using REST API calls and different client libraries.
 
 > [!NOTE]
-> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API and the Azure portal to install ARM templates. You can use any other method to make these calls.
-> 
 > See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the Logs ingestion API client libraries for other languages.
 
 
@@ -63,9 +62,10 @@ Start by registering an Azure Active Directory application to authenticate again
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
 
 ## Create a new table in a Log Analytics workspace
-The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the following schema. The `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
+The custom table must be created before you can send data to it. The table for this tutorial will include five columns shown in the schema below. The `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
 
-Use the **Tables - Update** API to create the table with the following PowerShell code.
+> [!NOTE]
+> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls by using the Azure Monitor **Tables** API. You can use any other valid method to make these calls.
 
 > [!IMPORTANT]
 > Custom tables must use a suffix of `_CL`.
@@ -74,7 +74,7 @@ Use the **Tables - Update** API to create the table with the following PowerShel
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot that shows opening Cloud Shell.":::
 
-1. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it.
+1. Copy the following PowerShell code and replace the variables in the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it.
 
     ```PowerShell
     $tableParams = @'
@@ -87,6 +87,11 @@ Use the **Tables - Update** API to create the table with the following PowerShel
                         "name": "TimeGenerated",
                         "type": "datetime",
                         "description": "The time at which the data was generated"
+                    },
+                   {
+                        "name": "Computer",
+                        "type": "string",
+                        "description": "The computer that generated the data"
                     },
                     {
                         "name": "AdditionalContext",
@@ -112,8 +117,8 @@ Use the **Tables - Update** API to create the table with the following PowerShel
     Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
     ```
 
-## Create a data collection endpoint
-A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent.
+## Create data collection endpoint
+A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the DCR and the Log Analytics workspace where the data will be sent.
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
@@ -142,13 +147,8 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
             "location": {
                 "type": "string",
                 "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
-                    "description": "Specifies the location in which to create the Data Collection Endpoint."
+                    "description": "Specifies the location for the Data Collection Endpoint."
                 }
             }
         },
@@ -180,34 +180,34 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 
 1. Select **Review + create** and then select **Create** after you review the details.
 
-1. After the DCE is created, select it so that you can view its properties. Note the **Logs ingestion URI** because you'll need it in a later step.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" alt-text="Screenshot that shows the DCE URI.":::
-
-1. Select **JSON View** to view other details for the DCE. Copy the **Resource ID** because you'll need it in a later step.
+1. Select **JSON View** to view other details for the DCE. Copy the **Resource ID** and the **logsIngestion endpoint** which you'll need in a later step.
 
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
-## Create a data collection rule
-The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of data that's being sent to the HTTP endpoint and the [transformation](../essentials/data-collection-transformations.md) that will be applied to it before it's sent to the workspace. The DCR also defines the destination workspace and table the transformed data will be sent to.
+## Create data collection rule
+The [DCR](../essentials/data-collection-rule-overview.md) defines how the data will be handled once it's received. This includes:
+
+- Schema of data that's being sent to the endpoint
+- [Transformation](../essentials/data-collection-transformations.md) that will be applied to the data before it's sent to the workspace
+- Destination workspace and table the transformed data will be sent to
 
 1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows how to deploy a custom template.":::
 
-1. Select **Build your own template in the editor**.
+2. Select **Build your own template in the editor**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows how to build a template in the editor.":::
 
-1. Paste the following ARM template into the editor and then select **Save**.
+3. Paste the following ARM template into the editor and then select **Save**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows how to edit an ARM template.":::
 
     Notice the following details in the DCR defined in this template:
 
-    - `dataCollectionEndpointId`: Identifies the Resource ID of the data collection endpoint.
-    - `streamDeclarations`: Defines the columns of the incoming data.
-    - `destinations`: Specifies the destination workspace.
+    - `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
+    - `streamDeclarations`: Column definitions of the incoming data.
+    - `destinations`: Destination workspace.
     - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
 
     ```json
@@ -278,7 +278,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
                         "logAnalytics": [
                             {
                                 "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                                "name": "clv2ws1"
+                                "name": "myworkspace"
                             }
                         ]
                     },
@@ -288,7 +288,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
                                 "Custom-MyTableRawData"
                             ],
                             "destinations": [
-                                "clv2ws1"
+                                "myworkspace"
                             ],
                             "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, CounterName=tostring(jsonContext.CounterName), CounterValue=toreal(jsonContext.CounterValue)",
                             "outputStream": "Custom-MyTable_CL"
@@ -306,13 +306,13 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines the schema of 
     }
     ```
 
-1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the DCR. Then provide values defined in the template. The values include a **Name** for the DCR and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and will be used for the location of the DCR.
+4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the DCR. Then provide values defined in the template. The values include a **Name** for the DCR and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and will be used for the location of the DCR.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot that shows how to edit custom deployment values.":::
 
-1. Select **Review + create** and then select **Create** after you review the details.
+5. Select **Review + create** and then select **Create** after you review the details.
 
-1. When the deployment is complete, expand the **Deployment details** box and select your DCR to view its details. Select **JSON View**.
+6. When the deployment is complete, expand the **Deployment details** box and select your DCR to view its details. Select **JSON View**.
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot that shows DCR details.":::
 
@@ -345,9 +345,10 @@ After the DCR has been created, the application needs to be given permission to 
 
 ## Sample code
 
-## [PowerShell](#tab/powershell)
+## [REST API Call](#tab/rest-api)
 
-The following PowerShell code sends data to the endpoint by using HTTP REST fundamentals.
+The following PowerShell code sends data to the endpoint by using HTTP REST fundamentals. You can use any other method to make these calls.
+
 
 > [!NOTE]
 > This tutorial uses commands that require PowerShell v7.0 or later. Make sure your local installation of PowerShell is up to date or execute this script by using Azure Cloud Shell.
