@@ -91,7 +91,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `compact` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `connPoolSync` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `convertToCapped` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `create` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `create` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Partial |
 | `createIndexes` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `currentOp` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `drop` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -110,7 +110,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 | `listDatabases`  | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `listIndexes` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `logRotate` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `reIndex` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `reIndex` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `renameCollection` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `rotateCertificates` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `setFeatureCompatibilityVersion` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
