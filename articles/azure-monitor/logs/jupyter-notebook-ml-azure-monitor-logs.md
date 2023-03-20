@@ -43,8 +43,9 @@ In this tutorial, you learn how to:
 >- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
-- Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
 - [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome up to curtain degree as suggested later. 
+- Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
+
 
 ## Prerequisites 
 In this tutorial, you need:
@@ -89,7 +90,7 @@ In this tutorial, you need:
 1. Install the Azure Monitor Ingestion client library for Python:
 
     ```python
-    ppip install azure-monitor-ingestion
+    pip install azure-monitor-ingestion
     ``` 
 
 1. Install Plotly:
