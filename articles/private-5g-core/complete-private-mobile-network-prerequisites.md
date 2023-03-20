@@ -65,6 +65,8 @@ The following IP address must be shared by all the data networks in the site:
 
 You can optionally configure your Azure Stack Edge Pro device with virtual local area network (VLAN) tags. You can use this to enable layer 2 traffic separation on the N2, N3 and N6 interfaces, or their 4G equivalents. For example, you might want to separate N2 and N3 traffic (which share a port on the ASE device) or separate traffic for each connected data network.
 
+Allocate VLAN IDs for each network as required.
+
 ## Allocate user equipment (UE) IP address pools
 
 Azure Private 5G Core supports the following IP address allocation methods for UEs.
