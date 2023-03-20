@@ -73,22 +73,27 @@ In the bottom pane, you see images in the compute gallery. There are no images i
 
 ## Attach an existing compute gallery to a lab plan
 
-You can also attach an existing Azure compute gallery to your lab plan. To attach an existing compute gallery, you first need to grant the Azure Lab Services service principal permissions to the compute gallery. Next, you can attach the existing compute gallery to your lab plan.
+If you already have an Azure compute gallery, you can also attach it to your lab plan. To attach an existing compute gallery, you first need to grant the Azure Lab Services service principal permissions to the compute gallery. Next, you can attach the existing compute gallery to your lab plan.
 
 ### Configure compute gallery permissions
 
 The Azure Lab Services service principal needs to have the Owner Azure RBAC role on the Azure compute gallery. There are two Azure Lab Services service principals:
 
-- Application ID *c7bb12bf-0b39-4f7f-9171-f418ff39b76a*: used for lab plans (Azure Lab Services V2).
-- Application ID *1a14be2a-e903-4cec-99cf-b2e209259a0f*: used for lab accounts.
+- Service principal for lab plans (Azure Lab Services V2): application ID = *c7bb12bf-0b39-4f7f-9171-f418ff39b76a*.
+- Service principal for lab accounts: application ID = *1a14be2a-e903-4cec-99cf-b2e209259a0f*.
 
-To attach a compute gallery to a lab plan, assign the Owner role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`. Follow these steps to assign the permissions by using the Azure CLI:
+To attach a compute gallery to a lab plan, assign the Owner role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`.
+
+> [!NOTE]
+> When you add a role assignment in the Azure portal, the user interface shows the *object ID* of the service principal, which is different from the *application ID*. The object ID for a service principal can be different in each Azure subscription. You can find the service principal object ID in Azure Active Directory, based on its application ID. Learn more about [Service principal objects](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
+Follow these steps to grant permissions to the Azure Lab Service service principal by using the Azure CLI:
 
 1. Open [Azure Cloud Shell](https://shell.azure.com). Alternately, select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com).
 
     Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. Learn how to get started with [Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-1. Enter the following commands in the cloud shell:
+1. Enter the following commands in Cloud Shell:
  
     1. Select the service principal object ID, based on the application ID:
 
