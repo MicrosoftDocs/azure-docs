@@ -30,7 +30,7 @@ Version 4 of the Node.js programming model requires the following minimum versio
 - [Azure Functions Runtime](./functions-versions.md) v4.16+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.4915+ (if running locally)
 
-## npm package
+## Include the npm package
 
 For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model for Azure Functions. Previously, that code shipped directly in Azure and the npm package only had the TypeScript types. Moving forward both JavaScript and TypeScript users need to include this package in their app. v3 apps _can_ include the npm package, but it isn't required.
 
@@ -40,7 +40,7 @@ For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azur
 > npm install @azure/functions@preview
 > ```
 
-## App entry point
+## Set your app entry point
 
 In v4 of the programming model, you can structure your code however you want. The only files you need at the root of your app are `host.json` and `package.json`. Otherwise, you define the file structure by setting the `main` field in your `package.json` file. The `main` field can be set to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). Common values for the `main` field may be:
 - TypeScript
@@ -53,14 +53,14 @@ In v4 of the programming model, you can structure your code however you want. Th
 > [!TIP]
 > _**Action Item**_: Make sure you define a `main` field in your `package.json` file
 
-## Order of arguments
+## Switch the order of arguments
 
 The trigger input is now the first argument to your function handler instead of the invocation context. The invocation context, now the second argument, was simplified in v4 and isn't as required as the trigger input - it can be left off if you aren't using it.
 
 > [!TIP]
 > _**Action Item**_: Switch the order of your arguments. For example if you are using an http trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
 
-## Define function in code
+## Define your function in code
 
 Say goodbye 👋 to `function.json` files! All of the configuration that you were previously specifying in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
 
@@ -132,11 +132,11 @@ module.exports = async function (context, req) {
 > _**Action Item**_: Move the config from your `function.json` file to your code. The type of the trigger will correspond to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, you will now call `app.http()` in your code to register the function. If you use `timerTrigger`, you will now call `app.timer()` and so on.
 
 
-## Simplified context, inputs, and outputs
+## Review your usage of context
 
 The `context` object has been simplified to reduce duplication and make it easier to write unit tests. For example, we streamlined the primary input and output so that they're only accessed as the argument and return value of your function handler. The primary input and output can't be accessed on the `context` object anymore, but you must still access _secondary_ inputs and outputs on the `context` object. For more information about secondary inputs and outputs, see the [Node.js developer guide](./functions-reference-node.md#extra-inputs-and-outputs).
 
-### Getting the primary input (trigger)
+### Get the primary input as an argument
 
 The primary input is also called the "trigger" and is the only required input or output. You must have one and only one trigger.
 
@@ -165,7 +165,7 @@ async function helloWorld1(context, request) {
 > [!TIP]
 > _**Action Item**_: Make sure you aren't using `context.req` or `context.bindings` to get the input.
 
-### Setting the primary output
+### Set the primary output as your return value
 
 # [v4](#tab/v4)
 
@@ -226,7 +226,7 @@ Not possible 😮
 
 ---
 
-## New HTTP types
+## Review your usage of HTTP types
 
 The http request and response types are now a subset of the [fetch standard](https://developer.mozilla.org/docs/Web/API/fetch) instead of being types unique to Azure Functions. The types use Node.js's [`undici`](https://undici.nodejs.org/) package, which follows the fetch standard and is [currently being integrated](https://github.com/nodejs/undici/issues/1737) into Node.js core.
 
