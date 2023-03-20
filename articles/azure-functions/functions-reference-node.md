@@ -23,14 +23,14 @@ As a JavaScript developer, you might also be interested in one of the following 
 | -- | -- | -- | 
 | <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./create-first-function-cli-node.md)</li><li>[Node.js function using the Azure portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/training/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-## Programming Model
+## Programming model
 
 The "programming model" as discussed in this article loosely represents the Node.js layer of Azure Functions. If you are authoring code in JavaScript or TypeScript, the code patterns you use are governed by the programming model. For example, it defines how you register a function, get a function's input, or interact with the invocation context. The programming model version is strictly tied to the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package and is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), even if the major version numbers are coincidentally similar.
 
 > [!NOTE]
 > You can only use one major version of the programming model at a time.
 
-### Supported Versions
+### Supported versions
 
 The following table shows each version of the Node.js programming model along with its supported versions of the Azure Functions runtime and Node.js.
 

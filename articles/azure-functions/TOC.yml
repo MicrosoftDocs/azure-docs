@@ -381,7 +381,7 @@
           href: functions-reference-node.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
-        - name: Upgrade to v4.x
+        - name: Upgrade to model v4.x
           href: functions-node-upgrade-v4.md
     - name: Java
       href: functions-reference-java.md

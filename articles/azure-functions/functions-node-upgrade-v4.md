@@ -1,5 +1,5 @@
 ---
-title: Upgrade to Azure Functions Node.js programming model v4
+title: Upgrade to v4 of the Node.js model for Azure Functions
 description: This article shows you how to upgrade your existing function apps running on v3 of the Node.js programming model to v4.
 ms.service: azure-functions
 ms.date: 03/15/2023
@@ -7,24 +7,22 @@ ms.devlang: javascript, typescript
 ms.topic: how-to
 ---
 
-# Upgrade to Azure Functions Node.js programming model v4
+# Upgrade to version 4 of the Node.js programming model for Azure Functions
 
 The Node.js programming model for Azure Functions defines how you author serverless code in JavaScript or TypeScript. The version of the programming model matches the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package that should be included with your app. This article discusses the differences between both versions and how to upgrade an existing v3 app. If you want to create a brand new v4 app, see the tutorial for either [VS Code](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md).
 
-> [!NOTE]
-> v4 of the Node.js programming model is currently in public preview. This version number is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), which is coincidentally using "4" as its latest major version. Lastly, you can't mix v3 and v4 of the programming models.
-
-## Motivation
-
-v4 was designed with the following goals in mind:
+Version 4 was designed with the following goals in mind:
 
 - Provide a familiar and intuitive experience to Node.js developers
 - Make the file structure flexible with support for full customization
 - Switch to a code-centric approach for defining function configuration
 
-## Prerequisites
+> [!NOTE]
+> v4 of the Node.js programming model is currently in public preview. This version number is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), which is coincidentally using "4" as its latest major version. Lastly, you can't mix v3 and v4 of the programming models.
 
-Before you start upgrading your app, v4 of the Node.js programming model is only supported with the following minimum versions:
+## Requirements
+
+Version 4 of the Node.js programming model requires the following minimum versions:
 
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.8+
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
@@ -44,7 +42,7 @@ For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azur
 
 ## App entry point
 
-v4 of the programming model lets you structure your code however you want. The only files you need at the root of your app are `host.json` and `package.json`. Otherwise, you define the file structure by setting the `main` field in your `package.json` file. The `main` field can be set to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). Common values for the `main` field may be:
+In v4 of the programming model, you can structure your code however you want. The only files you need at the root of your app are `host.json` and `package.json`. Otherwise, you define the file structure by setting the `main` field in your `package.json` file. The `main` field can be set to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). Common values for the `main` field may be:
 - TypeScript
     - `dist/src/index.js`
     - `dist/src/functions/*.js`
