@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
-Before you get started, make sure you are familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
+Before you get started, make sure you're familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [What is single sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
