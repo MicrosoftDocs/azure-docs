@@ -76,8 +76,10 @@ If you already have an Azure compute gallery, you can also attach it to your lab
 
 The Azure Lab Services service principal needs to have the Owner Azure RBAC role on the Azure compute gallery. There are two Azure Lab Services service principals:
 
-- Service principal for lab plans (Azure Lab Services V2): application ID = *c7bb12bf-0b39-4f7f-9171-f418ff39b76a*.
-- Service principal for lab accounts: application ID = *1a14be2a-e903-4cec-99cf-b2e209259a0f*.
+| Name | Application ID | Description |
+| ---- | ----- | ---- |
+| Azure Lab Services | c7bb12bf-0b39-4f7f-9171-f418ff39b76a | Service principal for Azure Lab Services lab plans (V2). |
+| Azure Lab Services | 1a14be2a-e903-4cec-99cf-b2e209259a0f | Service principal for Azure Lab Services lab accounts (V1). |
 
 To attach a compute gallery to a lab plan, assign the Owner role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`.
 
