@@ -215,7 +215,7 @@ items:
       - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add video background effects
-      href: quickstarts/voice-video-calling/get-started-video-effects.md
+        href: quickstarts/voice-video-calling/get-started-video-effects.md
     - name: Diagnostics
       items:
       - name: Diagnose your network
