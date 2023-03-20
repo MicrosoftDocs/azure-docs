@@ -44,9 +44,6 @@
       href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Use X.509 certificates
       items:
-        - name: Introduction
-          displayName: X.509 certificates
-          href: tutorial-x509-introduction.md
         - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
