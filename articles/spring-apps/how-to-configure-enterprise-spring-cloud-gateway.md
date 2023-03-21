@@ -188,28 +188,27 @@ The following table describes the default resource usage:
 
 To monitor Spring Cloud Gateway, you can configure application performance monitoring (APM) in it. There are five types of application performance monitoring (APM) Java agents provided by Spring Cloud Gateway:
 
-- [ApplicationInsights](###use-application-insights)
-- [Dynatrace](###use-dynatrace)
-- [NewRelic](###use-new-relic)
-- [AppDynamics](###use-appdynamics)
-- [ElasticAPM](###use-elasticapm)
+- ApplicationInsights
+- Dynatrace
+- NewRelic
+- AppDynamics
+- ElasticAPM
 
-### use-application-insights
+### Use Application Insights
 The following list shows the required environment variables:
 - `APPLICATIONINSIGHTS_CONNECTION_STRING`
+
 For other supported environment variables, see [Application Insights public document](../azure-monitor/app/app-insights-overview.md?tabs=net).
 
-### use-dynatrace
+### use Dynatrace
 The following list shows the required environment variables:
-- `APPLICATIONINSIGHTS_CONNECTION_STRING`
-
-For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar).
-
 - `DT_TENANT`
 - `DT_TENANTTOKEN`
 - `DT_CONNECTION_POINT`
 
-### use-new-relic
+For other supported environment variables, see [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar).
+
+### Use New Relic
 The following list shows the required environment variables:
 - `NEW_RELIC_LICENSE_KEY`
 - `NEW_RELIC_APP_NAME`
@@ -218,7 +217,6 @@ For other supported environment variables, see [New Relic Environment Variables]
 
 ### Use AppDynamics
 The following list shows the required environment variables:
-
 - `APPDYNAMICS_AGENT_APPLICATION_NAME`
 - `APPDYNAMICS_AGENT_TIER_NAME`
 - `APPDYNAMICS_AGENT_NODE_NAME`
