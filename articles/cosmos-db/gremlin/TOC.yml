@@ -155,10 +155,10 @@
               href: ../latest-restore-timestamp-continuous-backup.md
             - name: Auditing restore action with continuous backup
               href: ../audit-restore-continuous.md
-        - name: Manage periodic backup
+        - name: Periodic backup
           items:
             - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
+              href: ../periodic-backup-restore-introduction.md
             - name: Update backup storage redundancy
               href: ../update-backup-storage-redundancy.md
     - name: Global distribution
@@ -328,12 +328,6 @@
               href: ../restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: ../migrate-continuous-backup.md
-        - name: Manage periodic backup
-          items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure IP firewall
