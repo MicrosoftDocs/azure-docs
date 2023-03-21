@@ -261,6 +261,11 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 The Shared AD feature enables all NetApp accounts to share an Active Directory (AD) connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.   
 
+>[!NOTE]
+>If you have registered for [Multiple AD accounts](#multi-ad), you cannot subsequently register for the Shared AD feature.
+>
+>You can register for Multiple AD accounts if you are already enrolled in the preview for Shared AD. If you currently meet the maximum of 10 NetApp accounts per Azure region per subscription, you will have to initiate a [support request](azure-netapp-files-resource-limits.md#request-limit-increase) to increase the limit. 
+
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
@@ -276,6 +281,40 @@ This feature is currently in preview. You need to register the feature before us
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+
+## <a name="multi-ad"></a> Create multiple Active Directory configurations in a region scoped to each Netapp account only (preview)
+
+The multiple Active Directory feature enables each NetApp account within a subscription to have its own Active Directory (AD) connection. All NetApp accounts can use their own AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md)
+
+>[!NOTE]
+>If a subscription has both [Shared Active Directory](#shared_ad) and Multiple Active Directory features enabled, its existing accounts will still share the AD configuration. Any new NetApp accounts created on the subscription can use their own AD configurations.
+
+### Considerations
+
+* A single account can contain a maximum of 10 AD connections.
+* The scope of each AD configuration is limited to its parent NetApp account. 
+* Once you have registered the feature, you can confirm the configuration on the **Account overview** page with the **AD Type** field.
+
+### Register the feature
+
+The multiple Active Directory accounts feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 

@@ -19,6 +19,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Multiple Active Directory support](create-active-directory-connections.md#multi-ad)
+
+    <!-- PM -->
+
+
 ## March 2023
 
 * [Disable showmount](disable-showmount.md) (Preview)
