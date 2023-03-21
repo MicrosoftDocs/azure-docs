@@ -6,7 +6,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
 ms.topic: include file
-ms.date: 03/20/20223
+ms.date: 03/20/2023
 ms.author: kpunjabi
 ---
 
@@ -14,15 +14,12 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - An app with voice and video calling, refer to our [Voice](../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
-- [Access tokesn](../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
-- [Access tokesn](../../quickstarts/identity/access-tokens.md) for External identity users.
-- For Translated captions you will need to have a [Teams premium] license. 
+- [Access tokens](../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
+- [Access tokens](../../quickstarts/identity/access-tokens.md) for External identity users.
+- For Translated captions you will need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license. 
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in the quickstart below.
-
-## Join a Teams meeting
-
+>Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |
@@ -32,45 +29,84 @@ ms.author: kpunjabi
 | TeamsCaptionHandler | Callback definition for handling CaptionsReceivedEventType event |
 | TeamsCaptionsInfo | Data structure received for each CaptionsReceivedEventType event |
 
-## Get captions feature for External Identity users
+## Get closed captions feature 
+
+### External Identity users
+
+If you're building an application that allows ACS users to join a Teams meeting. 
 
 ``` typescript
 let teamsCaptions: SDK.TeamsCaptionsCallFeature = call.feature(SDK.Features.TeamsCaptions);
 ```
 
-## Get captions feature for Microsoft 365 users on ACS SDK
+### Microsoft 365 users on ACS SDK
+
+If you're building an app for Microsoft 365 Users using ACS SDK. 
 
 ``` typescript
 let teamsCaptions: SDK.TeamsCaptionsCallFeature = teamsCall.feature(SDK.Features.TeamsCaptions);
 ```
 
-## Set captions handler and start captions
+## Subscribe to listeners
 
-Set the `captionsReceived` event handler via the `on` API
+### Add a listener to receive captions active/inactive status
 
-``` typescript
-const teamsCaptionsHandler = (data: TeamsCaptionsInfo) => { /* USER CODE HERE - E.G. RENDER TO DOM */ }; 
-
-try { 
-// on the call object, associated with External Identity users 
-const teamsCaptionsApi = call.feature(Features.TeamsCaptions); 
-teamsCaptionsApi.on('captionsReceived', teamsCaptionsHandler); 
-await teamsCaptionsApi.startCaptions({ spokenLanguage: 'en-us' }); 
-
-// alternatively, on the TeamsCall object, associated with M365 identity users const teamsCaptionsApi = teamsCall.feature(Features.TeamsCaptions); teamsCaptionsApi.on('captionsReceived', teamsCaptionsHandler); await teamsCaptionsApi.startCaptions({ spokenLanguage: 'en-us' }); 
-} catch (e) { 
-console.log('Internal error occurred when Starting Teams Captions'); } 
+```typescript
+const isCaptionsActiveChangedHandler = () => {
+    if (teamsCaptions.isCaptionsFeatureActive()) {
+        /* USER CODE HERE - E.G. RENDER TO DOM */
+    }
+}
+teamsCaptions.on('isCaptionsActiveChanged', isCaptionsActiveChangedHandler);
 ```
 
-## Get supported languages 
+### Add a listener for captions data received
 
-Access the `supportedSpokenLanguages` property on the `Features.TeamsCaptions` API. Earlier, the API was set to TeamsCaptionsApi. The property will return an array of langauges in bcp-47 format. 
-
-``` typescript
-const spokenLanguages = teamsCaptionsApi.supportedSpokenLanguages; 
+```typescript
+const captionsReceivedHandler : TeamsCaptionsHandler = (data: TeamsCaptionsInfo) => { /* USER CODE HERE - E.G. RENDER TO DOM */ }; 
+teamsCaptions.on('captionsReceived', captionsReceivedHandler); 
 ```
 
-## Update spoken language
+## Start captions
+
+Once you've got all your listeners setup you can now start captions.
+
+``` typescript
+try {
+    await teamsCaptions.startCaptions({ spokenLanguage: 'en-us' });
+} catch (e) {
+    /* USER ERROR HANDLING CODE HERE */
+}
+```
+
+## Stop captions
+
+``` typescript
+try {
+    teamsCaptionsApi.stopCaptions(); 
+} catch (e) {
+    /* USER ERROR HANDLING CODE HERE */
+}
+```
+
+## Unsubscribe to listeners
+```typescript
+teamsCaptions.off('isCaptionsActiveChanged', isCaptionsActiveChangedHandler);
+teamsCaptions.off('captionsReceived', captionsReceivedHandler); 
+```
+
+## Spoken language support
+
+### Get a list of supported spoken languages 
+
+Get a list of supported spoken languages that your users can select from when enabling closed captions.
+The property will return an array of langauges in bcp 47 format. 
+
+``` typescript
+const spokenLanguages = teamsCaptions.supportedSpokenLanguages; 
+```
+
+### Set spoken language
 
 Pass a value in from the supported spoken languages array to ensure that the requested language is supported. By default, if contoso provides no language or an unsupported language, the spoken language defaults to 'en-us'.
 
@@ -78,37 +114,39 @@ Pass a value in from the supported spoken languages array to ensure that the req
 // bcp 47 formatted language code
 const language = 'en-us'; 
 
-// Altneratively, pass a value fromt he supported spoken languages array
+// Altneratively, pass a value from the supported spoken languages array
 const language = spokenLanguages[0]; 
-teamsCaptionsApi.setSpokenLanguage(language);
+
+try {
+    teamsCaptions.setSpokenLanguage(language);
+} catch (e) {
+    /* USER ERROR HANDLING CODE HERE */
+}
 ```
 
-## Get supported caption languages
+## Caption language support
 
-If your organization has Teams premium license you can allow your users to leverage translated captions provided by Teams captions. The property returns an array of two-letter langauge codes in `ISO 639-1` standard. 
+### Get a list of supported caption languages
 
-Access the `supportedCaptionLanguages` property on the `Features.TeamsCaptions` API. 
+If your organization has an active Teams premium license you can allow your users to leverage translated captions provided by Teams captions. As for users with a Microsoft 365 identity, if the meeting organizer does not have an active Teams premium license, captions language check will be done against the Microsoft 365 users account.
+
+The property returns an array of two-letter langauge codes in `ISO 639-1` standard. 
 
 ``` typescript
-const captionLanguages = teamsCaptionsApi.supportedCaptionLanguages;
+const captionLanguages = teamsCaptions.supportedCaptionLanguages;
 ```
 
-## Update caption language
-If your organization has Teams premium license you can allow your users to leverage translated captions provided by Teams captions. Contoso can generate a list of supported caption languages by calling `teamsCaptions.supportedCaptionLanguages` that returns an array of two-letter langauge codes in `ISO 639-1` standard. 
-
-Pass a value in from the supported caption languages array to ensure that the requested language is supported. 
+### Set caption language
 
 ``` typescript
 // ISO 639-1 formatted language code
-const language = 'en-us'; 
+const language = 'en'; 
 
-// Altneratively, pass a value fromt he supported spoken languages array
-const language = captionLanguages[0]; teamsCaptionsApi.setCaptionLanguage(language);
-```
-
-## Stop captions
-
-``` typescript
-teamsCaptionsApi.stopCaptions(); 
-teamsCaptionsApi.off('captionsReceived', teamsCaptionsHandler);
+// Altneratively, pass a value from the supported caption languages array
+const language = captionLanguages[0];
+try {
+    teamsCaptions.setCaptionLanguage(language);
+} catch (e) {
+    /* USER ERROR HANDLING CODE HERE */
+}
 ```
