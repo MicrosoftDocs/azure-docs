@@ -22,6 +22,9 @@ In this guide, you'll:
 
 - Install the [latest and greatest .NET Core SDK](https://dotnet.microsoft.com/download/dotnet).
 - Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Review the following samples for context:
+  - [Enable Service Profiler for containerized ASP.NET Core Application (.NET 6)](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/EnableServiceProfilerForContainerAppNet6)
+  - [Application Insights Profiler for Worker Service Example](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/ServiceProfilerInWorkerNet6)
 
 ## Set up the project locally
 
@@ -41,22 +44,17 @@ In this guide, you'll:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs` for `WebAPI`:
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs` for the `WebAPI` class. [Add custom Profiler settings, if applicable](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/Configurations.md).
 
     ```csharp
     // Add services to the container.
     builder.Services.AddApplicationInsightsTelemetry();
-    builder.Services.AddServiceProfiler(profilerSettings =>
-    {
-        profilerSettings.Duration = TimeSpan.FromMinutes(1);
-    });
+    builder.Services.AddServiceProfiler();
     ```
 
-    You can also enable Application Insights and Profiler for `Worker`. Update the `Program.cs` file for the `Worker` with the following:
+1. **Optional:** You can also enable Application Insights and Profiler by [creating and configuring a `Worker` class](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/examples/ServiceProfilerInWorkerNet6/Worker.cs). If you do use a `Worker` class, [add code like the following to your project's `Program.cs`](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/examples/ServiceProfilerInWorkerNet6/Program.cs):
 
     ```csharp
-    using ServiceProfilerInWorkerNet6;
-    
     IHost host = Host.CreateDefaultBuilder(args)
         .ConfigureServices(services =>
         {
