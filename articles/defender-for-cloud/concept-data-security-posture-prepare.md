@@ -81,5 +81,5 @@ The CloudFormation template creates a new role in AWS IAM, to allow permission f
 
 ## Next steps
 
-[Set up](data-security-posture-enable.md) data-aware security posture management.
+[Enable](data-security-posture-enable.md) data-aware security
 
