@@ -48,6 +48,12 @@ If you enable a key vault firewall or virtual network after creating an encrypte
 
 If the problem persists, contact Azure Support.
 
+## Identity expiry error
+
+The identity attached to a registry is set for auto-renewal to avoid expiry. If you disassociate an identity from a registry, an error message will occur explaining you cannot remove the identity in use for CMK. Attempting to remove the identity will also jeopardize the auto-renewal of identity. The artifact pull/push operations work until the identity expires (Usually three months). After the identity expiration, you will see the HTTP 403 with an error message "The identity associated with the registry is inactive. This could be due to attempted removal of the identity. Please reassign the identity manually". 
+
+You have to reassign the identity back to registry explicitly.
+
 ## Accidental deletion of a key vault or key
 
 Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
