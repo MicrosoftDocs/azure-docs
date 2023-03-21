@@ -633,8 +633,27 @@ After testing, you can set the mirror traffic to zero to disable mirroring:
 
 # [Studio](#tab/azure-studio)
 
-The studio doesn't support mirrored traffic. See the Azure CLI or Python tabs for steps to mirror traffic to a deployment.
+To mirror 10% of the traffic to the `green` deployment:
 
+1. From the endpoint Details page, Select **Update traffic**.
+1. Slide the button to **Enable mirrored traffic (Preview)**.
+1. Select the **green** deployment in the "Deployment name" dropdown menu.
+1. Keep the default traffic allocation of 10%.
+1. Select **Update**.
+ 
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/mirror-traffic-to-green-deployment.png" alt-text="Screenshot showing how to mirror a percentage of traffic to the green deployment." lightbox="media/how-to-safely-rollout-managed-endpoints/mirror-traffic-to-green-deployment.png":::
+
+The endpoint details page now shows mirrored traffic allocation of 10% to the `green` deployment.
+
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png" alt-text="Endpoint details page showing mirrored traffic allocation in the deployment summary." lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png":::
+
+<!-- M.A.: Test mirrored traffic and confirm that the specific percentage of traffic was mirrored to the green deployment -->
+
+After testing, you can disable mirroring:
+
+1. From the endpoint Details page, Select **Update traffic**.
+1. Slide the button next to **Enable mirrored traffic (Preview)** again to disable mirrored traffic.
+1. Select **Update**.
 ---
 
 ## Allocate a small percentage of live traffic to the new deployment
@@ -707,7 +726,7 @@ Use the following steps to delete an individual deployment from a managed online
 # [Studio](#tab/azure-studio)
 
 > [!NOTE]
-> You cannot delete a deployment that has traffic allocated to it. You must first [set traffic allocation](#send-all-traffic-to-your-new-deployment) for the deployment to 0% before deleting it.
+> You cannot delete a deployment that has live traffic allocated to it. You must first [set traffic allocation](#send-all-traffic-to-your-new-deployment) for the deployment to 0% before deleting it.
 
 1. In the endpoint Details page, find the blue deployment.
 1. Select the **delete icon** next to the deployment name.
@@ -737,13 +756,14 @@ If you aren't going to use the endpoint and deployment, you should delete them. 
 1. Select an endpoint by checking the circle next to the model name.
 1. Select **Delete**.
 
-Alternatively, you can delete a managed online endpoint directly by selecting the **Delete** icon in the [endpoint details page](#view-managed-online-endpoints).
+Alternatively, you can delete a managed online endpoint directly by selecting the **Delete** icon in the endpoint's details page.
 
 ---
 
 ## Next steps
 - [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
+- [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
