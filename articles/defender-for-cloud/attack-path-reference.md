@@ -77,6 +77,14 @@ Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md
 | Internet exposed Kubernetes pod is running a container with RCE vulnerabilities | An internet exposed Kubernetes pod in a namespace is running a container using an image that has vulnerabilities allowing remote code execution. |
 | Kubernetes pod running on an internet exposed node uses host network is running a container with RCE vulnerabilities | A Kubernetes pod in a namespace with host network access enabled is exposed to the internet via the host network. The pod is running a container using an image that has vulnerabilities allowing remote code execution. |
 
+### GitHub repositories
+
+Prerequisite: [Enable Defender for DevOps](defender-for-devops-introduction.md).
+
+| Attack Path Display Name	| Attack Path Description |
+|--|--|
+| Internet exposed GitHub repository with plaintext secret is publicly accessible (Preview) | A GitHub repositorie is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
+
 ## Cloud security graph components list
 
 This section  lists all of the cloud security graph components (connections and insights) that can be used in queries with the [cloud security explorer](concept-attack-path.md).
@@ -89,7 +97,7 @@ This section  lists all of the cloud security graph components (connections and 
 | Contains sensitive data | Indicates that a resource contains sensitive data based on Microsoft Purview scan and applicable only if Microsoft Purview is enabled. For more details, you can learn how to [prioritize security actions by data sensitivity](./information-protection.md). | Azure SQL Server, Azure Storage Account, AWS S3 bucket |
 | Has tags | Lists the resource tags of the cloud resource | All Azure and AWS resources |
 | Installed software | Lists all software installed on the machine. This insight is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
-| Allows public access | Indicates that a public read access is allowed to the data store with no authorization required | Azure storage account, AWS S3 bucket |
+| Allows public access | Indicates that a public read access is allowed to the resource with no authorization required | Azure storage account, AWS S3 bucket, GitHub repository |
 | Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | AAD User account, IAM user |
 | Is external user | Indicates that the user account is outside the organization's domain | AAD User account |
 | Is managed | Indicates that an identity is managed by the cloud provider | Azure Managed Identity |

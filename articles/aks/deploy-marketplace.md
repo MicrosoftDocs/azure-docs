@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to
 ms.date: 09/30/2022
-ms.custom: devx-track-azurecli, ignite-fall-2022, references_regions
+ms.custom: ignite-fall-2022, references_regions
 ---
 
 # Deploy a container offer from Azure Marketplace (preview)

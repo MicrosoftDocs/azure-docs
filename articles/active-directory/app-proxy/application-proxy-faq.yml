@@ -128,7 +128,7 @@ sections:
           ```
           
       - question: |
-         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
+         Why is the connector still showing in Azure portal after I uninstalled the connector from the Server?
         answer: |
            When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
            There is no way to remove the Inactive connector manually from the Azure portal.

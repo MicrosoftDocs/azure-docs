@@ -12,6 +12,9 @@ ms.date: 02/16/2023
 
 This article discusses how to view the lineage of datasets shared using [Microsoft Purview Data Sharing](concept-data-share.md). With these tools, users can discover and track lineage of data across boundaries like organizations, departments, and even data centers.
 
+>[!IMPORTANT]
+> This article is about lineage for [Microsoft Purview Data Sharing](concept-data-share.md). If you are using Azure Data Share, use this article for lineage: [Azure Data Share lineage](how-to-link-azure-data-share.md).
+
 ## Common scenarios
 
 Data Sharing lineage aims to provide detailed information for root cause analysis and impact analysis.

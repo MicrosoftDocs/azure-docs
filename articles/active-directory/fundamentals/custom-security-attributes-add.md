@@ -1,8 +1,9 @@
 ---
-title: Add or deactivate custom security attributes in Azure AD (Preview) - Azure Active Directory
+title: Add or deactivate custom security attributes in Azure AD (Preview)
 description: Learn how to add new custom security attributes or deactivate custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -35,7 +36,7 @@ To add or deactivate custom security attributes, you must have:
 
 An attribute set is a collection of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
@@ -55,7 +56,7 @@ An attribute set is a collection of related attributes. All custom security attr
 
 ## Add a custom security attribute
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
@@ -110,7 +111,7 @@ An attribute set is a collection of related attributes. All custom security attr
 
 Once you add a new custom security attribute, you can later edit some of the properties. Some properties are immutable and cannot be changed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
@@ -128,7 +129,7 @@ Once you add a new custom security attribute, you can later edit some of the pro
 
 Once you add a custom security attribute, you can't delete it. However, you can deactivate a custom security attribute.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 

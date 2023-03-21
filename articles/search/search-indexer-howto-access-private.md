@@ -14,7 +14,7 @@ ms.date: 02/22/2023
 
 # Make outbound connections through a private endpoint
 
-If you have an Azure PaaS resource that has a private connection enabled through [Azure Private Link](/azure/private-link/private-link-overview), you'll need to create a *shared private link* to reach those resources from Azure Cognitive Search. This article walks you through the steps for creating, testing, and managing a private link.
+If you have an Azure PaaS resource that has a private connection enabled through [Azure Private Link](../private-link/private-link-overview.md), you'll need to create a *shared private link* to reach those resources from Azure Cognitive Search. This article walks you through the steps for creating, testing, and managing a private link.
 
 ## When to use a shared private link
 
@@ -25,7 +25,7 @@ Cognitive Search makes outbound calls to other Azure PaaS resources in the follo
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions or similar resource
 
-For those service-to-service communication scenarios, Search typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](/azure/private-link/private-endpoint-overview), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
+For those service-to-service communication scenarios, Search typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](../private-link/private-endpoint-overview.md), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
 
 A shared private link is:
 
@@ -38,7 +38,7 @@ Only your search service can use the private links that it creates, and there ca
 Once you set up the private link, it's used automatically whenever Search connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
 > [!NOTE]
-> There are two scenarios for using [Azure Private Link](/azure/private-link/private-link-overview) and Azure Cognitive Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
+> There are two scenarios for using [Azure Private Link](../private-link/private-link-overview.md) and Azure Cognitive Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
 ### Limitations
 
@@ -86,15 +86,15 @@ You can create a shared private link for the following resources.
 
 1. Type "private link" in the top search bar, and then select **Private Link** to open the Private Link Center.
 
-1. Select **Private endpoints** to view existing endpoints. The Azure PaaS resource for which you're creating a shared private link must have a private endpoint in this list. See [Manage private endpoint connections](/azure/private-link/manage-private-endpoint?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) for details.
+1. Select **Private endpoints** to view existing endpoints. The Azure PaaS resource for which you're creating a shared private link must have a private endpoint in this list. See [Manage private endpoint connections](../private-link/manage-private-endpoint.md?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) for details.
 
 These Private Link tutorials provide steps for creating a private endpoint for Azure PaaS:
 
-+ [Tutorial: Connect to a storage account using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal)
++ [Tutorial: Connect to a storage account using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-storage-portal.md)
 
-+ [Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-cosmosdb-portal)
++ [Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-cosmosdb-portal.md)
 
-+ [Tutorial: Connect to a web app using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-webapp-portal)
++ [Tutorial: Connect to a web app using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-webapp-portal.md)
 
 ## 1 - Create a shared private link
 

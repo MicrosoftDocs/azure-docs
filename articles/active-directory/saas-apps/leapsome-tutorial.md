@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Leapsome | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Leapsome'
 description: Learn how to configure single sign-on between Azure Active Directory and Leapsome.
 services: active-directory
 author: jeevansd

@@ -47,7 +47,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 > [!NOTE]
 > This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log alert rules created in the previous UI.
 
-## Enable recommended alert rules in the Azure portal (preview)
+## Enable recommended alert rules in the Azure portal
 
 If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
 
@@ -56,7 +56,7 @@ The system compiles a list of recommended alert rules based on:
 - Telemetry that tells us what customers commonly alert on for this resource.
 
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for:
+> The alert rule recommendations feature is enabled for:
 > - Virtual machines
 > - AKS resources
 > - Log Analytics workspaces
@@ -68,6 +68,7 @@ To enable recommended alert rules:
 1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
 1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
+1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
 1. Select **Enable**.
 
     :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 

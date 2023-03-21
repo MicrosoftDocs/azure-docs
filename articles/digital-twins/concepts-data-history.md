@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the data history feature for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2023
+ms.date: 03/08/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -28,9 +28,9 @@ For more of an introduction to data history, including a quick demo, watch the f
 ## Resources and data flow
 
 Data history requires the following resources:
-* Azure Digital Twins instance, with a [system-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled
-* [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub
-* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database 
+* Azure Digital Twins instance, with a [system-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled.
+* [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub.
+* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database. The cluster must have public network access enabled.
 
 These resources are connected into the following flow:
 

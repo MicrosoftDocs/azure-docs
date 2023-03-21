@@ -249,11 +249,6 @@
         "source_path_from_root": "/articles/purview/how-to-monitor-scan-runs.md",
         "redirect_url": "/azure/purview/how-to-monitor-data-map-population",
         "redirect_document_id": true
-      },
-      {
-        "source_path_from_root": "/articles/purview/how-to-link-azure-data-share.md",
-        "redirect_url": "/azure/purview/how-to-lineage-purview-data-sharing",
-        "redirect_document_id": true
       }
 ]
 }

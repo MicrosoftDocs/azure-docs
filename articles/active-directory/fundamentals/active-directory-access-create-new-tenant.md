@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Access & create new tenant - Azure AD
+title: Quickstart - Access & create new tenant
 description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization.
 services: active-directory
 author: barclayn

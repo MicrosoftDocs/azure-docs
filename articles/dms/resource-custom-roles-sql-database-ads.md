@@ -1,22 +1,17 @@
 ---
-title: "Custom roles for SQL Server to Azure SQL Database (preview) migrations in Azure Data Studio"
+title: "Custom roles for SQL Server to Azure SQL Database migrations in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Learn how to use custom roles for SQL Server to Azure SQL Database (preview) migrations in Azure Data Studio.
-services: database-migration
+description: Learn how to use custom roles for SQL Server to Azure SQL Database migrations in Azure Data Studio.
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: ""
-ms.topic: conceptual
 ms.date: 09/28/2022
+ms.service: dms
+ms.topic: conceptual
 ---
 
-# Custom roles for SQL Server to Azure SQL Database (preview) migrations in Azure Data Studio
+# Custom roles for SQL Server to Azure SQL Database migrations in Azure Data Studio
 
-This article explains how to set up a custom role in Azure for SQL Server database migrations. A custom role will have only the permissions that are required  to create and run an instance of Azure Database Migration Service with Azure SQL Database (preview) as a target.
+This article explains how to set up a custom role in Azure for SQL Server database migrations. A custom role will have only the permissions that are required to create and run an instance of Azure Database Migration Service with Azure SQL Database as a target.
 
 Use the AssignableScopes section of the role definition JSON string to control where the permissions appear in the **Add role assignment** UI in the Azure portal. To avoid cluttering the UI with extra roles, you might want to define the role at the level of the resource group, or even the level of the resource. The resource that the custom role applies to doesn't perform the actual role assignment.
 
@@ -67,7 +62,7 @@ You can use either the Azure portal, Azure PowerShell, the Azure CLI, or the Azu
 
 For more information, see [Create custom roles by using the Azure portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-## Permissions required to migrate to Azure SQL Database (preview)
+## Permissions required to migrate to Azure SQL Database
 
 | Permission action    | Description       |
 | ------------------------------------------- | --------------------------------------------------------------------|

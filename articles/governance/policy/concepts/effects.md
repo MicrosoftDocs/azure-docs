@@ -18,7 +18,7 @@ These effects are currently supported in a policy definition:
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction](#denyaction)
+- [DenyAction (preview)](#denyaction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual (preview)](#manual-preview)
@@ -453,7 +453,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
     }
 }
 ```
-## DenyAction
+## DenyAction (preview)
 
 `DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect will help prevent any accidental deletion of critical resources.
 
@@ -463,6 +463,9 @@ When a request call with an applicable action name and targeted scope is submitt
 assignment.
 
 `Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
+
+> [!NOTE]
+> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
 
 #### Subscription deletion
 Policy won't block removal of resources that happens during a subscription deletion.

@@ -305,7 +305,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | Sao Paulo |
 | **[Webair](https://opti9tech.com/partners/)**| Megaport | New York |
 | **[Windstream](https://www.windstreamenterprise.com/solutions/)**| Equinix | Chicago, Silicon Valley, Washington DC |
-| **[X2nsat Inc.](http://www.x2nsat.com/expressroute/)** |Coresite |Silicon Valley, Silicon Valley 2|
+| **[X2nsat Inc.](https://x2n.com/expressroute/)** |Coresite |Silicon Valley, Silicon Valley 2|
 | **Zain** |Equinix |London|
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **Zirro**| Cologix, Equinix | Montreal, Toronto |

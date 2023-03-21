@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Illusive Networks | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Illusive Networks'
 description: Learn how to configure single sign-on between Azure Active Directory and Illusive Networks.
 services: active-directory
 author: jeevansd

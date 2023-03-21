@@ -1,7 +1,7 @@
 ---
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.date: 03/06/2023
 ms.topic: tutorial
 author: mayurigupta13

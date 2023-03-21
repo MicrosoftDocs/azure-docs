@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 10/11/2022
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.custom: "seodec18, H1Hack27Feb2017, devx-track-azurepowershell"
+ms.custom: seodec18, H1Hack27Feb2017
 ---
 
 # Push your first image to your Azure container registry using the Docker CLI

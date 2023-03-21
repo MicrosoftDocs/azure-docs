@@ -760,7 +760,7 @@
     },
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
-      "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-apps-landing-zone-accelerator",
       "branch": "reference-architecture",
       "branch_mapping": {}
     },
