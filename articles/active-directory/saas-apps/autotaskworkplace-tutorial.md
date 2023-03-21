@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Autotask Workplace | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Autotask Workplace'
 description: Learn how to configure single sign-on between Azure Active Directory and Autotask Workplace.
 services: active-directory
 author: jeevansd

@@ -16,6 +16,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/aws-to-azure.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-aws-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
             "redirect_document_id": false
@@ -183,6 +198,16 @@
         {
             "source_path_from_root": "/articles/virtual-machines/troubleshooting/rdp.md",
             "redirect_url": "/troubleshoot/azure/virtual-machines/rdp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/capture-image.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/upload-vhd.md",
+            "redirect_url": "/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli",
             "redirect_document_id": false
         },
         {
@@ -4920,6 +4945,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/policy.md",
+            "redirect_url": "/azure/governance/policy/assign-policy-azurecli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/policy.md",
+            "redirect_url": "/azure/governance/policy/assign-policy-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-series-overview.md",
             "redirect_url": "/azure/virtual-machines/hb-series-overview",
             "redirect_document_id": false
@@ -4958,6 +4993,41 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hc-series-performance.md",
             "redirect_url": "/azure/virtual-machines/hc-series-performance",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/overview.md",
+            "redirect_url": "/azure/virtual-machines/overview-hb-hc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/set-up-hpc-vms.md",
+            "redirect_url": "/azure/virtual-machines/set-up-hpc-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/configure.md",
+            "redirect_url": "/azure/virtual-machines/configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/enable-infiniband.md",
+            "redirect_url": "/azure/virtual-machines/extensions/enable-infiniband",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/setup-mpi.md",
+            "redirect_url": "/azure/virtual-machines/setup-mpi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/compiling-scaling-applications.md",
+            "redirect_url": "/azure/virtual-machines/compiling-scaling-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
+            "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
+            "redirect_document_id": false
+        }        
     ]
 }

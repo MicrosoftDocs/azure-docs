@@ -1,5 +1,5 @@
 ---
-title: Conditions in Conditional Access policy - Azure Active Directory
+title: Conditions in Conditional Access policy
 description: What are conditions in an Azure AD Conditional Access policy
 
 services: active-directory

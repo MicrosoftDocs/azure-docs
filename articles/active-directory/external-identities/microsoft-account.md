@@ -1,6 +1,6 @@
 ---
 
-title: Add Microsoft account (MSA) as an identity provider - Azure AD
+title: Add Microsoft account (MSA) as an identity provider
 description: Use Azure AD to enable an external user (guest) to sign in to your Azure AD apps with their Microsoft account (MSA).
 
 services: active-directory

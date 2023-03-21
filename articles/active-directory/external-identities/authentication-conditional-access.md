@@ -1,5 +1,5 @@
 ---
-title: Authentication and Conditional Access for B2B users - Azure AD
+title: Authentication and Conditional Access for B2B users
 description: Learn how to enforce multi-factor authentication policies for Azure Active Directory B2B users.
 
 services: active-directory

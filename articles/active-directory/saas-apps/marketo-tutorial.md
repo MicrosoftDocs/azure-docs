@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Marketo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Marketo'
 description: Learn how to configure single sign-on between Azure Active Directory and Marketo.
 services: active-directory
 author: jeevansd

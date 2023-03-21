@@ -1,5 +1,5 @@
 ---
-title: Use Application Proxy to integrate on-premises apps with Defender for Cloud Apps - Azure Active Directory
+title: Use Application Proxy to integrate on-premises apps with Defender for Cloud Apps
 description: Configure an on-premises application in Azure Active Directory to work with Microsoft Defender for Cloud Apps. Use the Defender for Cloud Apps Conditional Access App Control to monitor and control sessions in real-time based on Conditional Access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
 author: kenwith
 manager: amycolannino

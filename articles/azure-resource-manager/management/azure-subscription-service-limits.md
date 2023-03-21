@@ -281,7 +281,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Event Grid limits
 
-[!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
+[!INCLUDE [event-grid-limits](../../../articles/event-grid/includes/limits.md)]
 
 ## Event Hubs limits
 [!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]

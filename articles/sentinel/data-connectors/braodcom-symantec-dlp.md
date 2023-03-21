@@ -19,7 +19,7 @@ The [Broadcom Symantec Data Loss Prevention (DLP)](https://www.broadcom.com/prod
 | **Kusto function alias** | SymantecDLP |
 | **Kusto function url** | https://aka.ms/sentinel-symantecdlp-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (SymantecDLP)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

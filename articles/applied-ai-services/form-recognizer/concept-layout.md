@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/15/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -173,7 +173,7 @@ The paragraph roles are best used with unstructured documents.  Paragraph roles 
 
 ::: moniker range="form-recog-2.1.0"
 
-### Data extraction
+### Data extraction support
 
 | **Model**   | **Text** | **Tables**  | Selection marks|
 | --- | --- | --- | --- |
@@ -367,7 +367,7 @@ The Layout model extracts annotations in documents, such as checks and crosses. 
 }
 ```
 
-### Extracting barcodes from documents
+### Barcode extraction
 
 The Layout model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page.
 
