@@ -137,8 +137,10 @@ The following metrics are collected by default from each default target. All oth
 
 ## Targets scraped for windows
 
+There are two default jobs that can be run for windows which scrape metrics required for the dashboards specific to windows.
+
 > [!NOTE]
-> This requires an update in the ama-metrics-settings-configmap and installing windows exporter on all windows nodepools. Please refer to the enablement document for more information.
+> This requires an update in the ama-metrics-settings-configmap and installing windows exporter on all windows nodepools. Please refer to the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection) for more information
 
 - `windows-exporter` (`job=windows-exporter`)
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
