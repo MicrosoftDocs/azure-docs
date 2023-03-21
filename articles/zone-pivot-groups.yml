@@ -1449,6 +1449,15 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-chat
+  title: API Options
+  prompt: Chat API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-chat-ml
+    title: ChatML
+# Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
   prompt: Choose your preferred resource creation method
