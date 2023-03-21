@@ -290,4 +290,4 @@ resource account 'Microsoft.DocumentDB/databaseAccounts@2022-05-15' = {
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [TODO](about:blank)
+> [Request data restoration from a backup](periodic-backup-request-data-restore.md)
