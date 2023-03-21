@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 #  Configure Ingress for your app in Azure Container Apps
 
-This article shows you how to enable ingress features for your container app.  Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
+This article shows you how to enable [ingress](ingress-overview.md) features for your container app.  Ingress is an application-wide setting. Changes to ingress settings apply to all revisions simultaneously, and don't generate new revisions.
 
 When you enable ingress, you have the following options:
 
@@ -162,14 +162,11 @@ az containerapp ingress enable \
 
 | Option | Property | Description | Values | Required |
 | --- | --- | --- | --- | --- |
-| `--type` | external | Allow ingress to your app from outside its Container Apps environment. |
-| `external` or `internal`  | Yes |
+| `--type` | external | Allow ingress to your app from outside its Container Apps environment. | `external` or `internal`  | Yes |
 |`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. |  | No |
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
-|`--exposed-port | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
+|`--exposed-port` | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 |`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
-
-
 
 # [Portal](#tab/portal)
 
