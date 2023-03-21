@@ -44,21 +44,13 @@ In this guide, you'll:
 1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
 
     ```csharp
-   .ConfigureServices(services =>
+    // Add services to the container.
+    builder.Services.AddApplicationInsightsTelemetry();
+    builder.Services.AddServiceProfiler(profilerSettings =>
     {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.AddServiceProfiler();
-
-        services.AddHostedService<Worker>();
-    })
+        profilerSettings.Duration = TimeSpan.FromMinutes(1);
+    });
     ```
-
-1. In the worker file of your project (for example, `Worker.cs`), add a line of code to randomly delay a few seconds:
-
-    ```csharp
-    await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
-    ```
-
 1. Save and commit your changes to the local repository:
 
     ```console
