@@ -34,7 +34,7 @@ Connect a branch location to NaaS VPN service.
 
 ## Edit top-level branch settings
 
-# Test branch connectivity to a NaaS VPN service
+## Test branch connectivity to a NaaS VPN service
 
 ## (optional) Test branch connectivity with Tenant Restrictions v2 (TRv2)
 
