@@ -22,7 +22,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 | Feature | Azure OpenAI |
 | --- | --- |
-| Models available | **NEW GPT-4 series (limited preview)** <br> GPT-3 base series <br>**NEW ChatGPT (gpt-35-turbo)**<br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Models available | **NEW GPT-4 series (preview)** <br> GPT-3 base series <br>**NEW ChatGPT (gpt-35-turbo) (preview)**<br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
 | Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable. \*\*East US and West Europe Fine-tuning is currently unavailable to new customers. Please use US South Central for US based training|
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support & private link support | Yes | 
@@ -51,7 +51,7 @@ All solutions using Azure OpenAI are also required to go through a use case revi
 
 ## Comparing Azure OpenAI and OpenAI
 
-Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-4, GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
 
 With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering.  
 
@@ -126,7 +126,7 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 The service provides users access to several different models. Each model provides a different capability and price point.
 
-GPT-4 models are the latest available models. These models are currently in limited preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+GPT-4 models are the latest available models. These models are currently in preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
 
 The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 

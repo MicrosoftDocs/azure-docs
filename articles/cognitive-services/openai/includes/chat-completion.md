@@ -1,7 +1,7 @@
 ---
-title: How to work with the Chat Markup Language (preview)
+title: How to work with the Chat Completion API (preview)
 titleSuffix: Azure OpenAI
-description: Learn how to work with Chat Markup Language (preview)
+description: Learn how to work with Chat Completion API (preview)
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
