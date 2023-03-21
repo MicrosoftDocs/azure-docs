@@ -38,9 +38,9 @@ With Defender for CSPM, you can:
 
 Defender for Storage monitors Azure storage accounts with advanced threat detection capabilities. It detects potential data breaches by identifying harmful attempts to access or exploit data, and by identifying suspicious configuration changes that could lead to a breach.
 
-When early suspicious signs are detected, Defender for Storage generates a security alert, which allows security teams to quickly respond and mitigate.
+When early suspicious signs are detected, Defender for Storage generates security alerts, allowing security teams to quickly respond and mitigate.
 
-By applying sensitivity settings on storage resources, you can prioritize your focus on sensitive data alerts. 
+By applying sensitivity settings on storage resources, you can prioritize alerts that focus on sensitive data.
 
 ## Scanning with smart sampling
 
