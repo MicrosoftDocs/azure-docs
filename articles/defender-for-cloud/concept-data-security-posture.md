@@ -31,7 +31,7 @@ Defender CSPM provides visibility and contextual insights into your organization
 
 With Defender for CSPM, you can:
 
-- Leverage cloud security explorer queries to find misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can query data resources, networks, access controls and data flow security attributes, to determine where data is stored, how it's exposed, and how it flows across the enterprise. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
+- Leverage cloud security explorer query templates, or build your own queries, to find misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can query data resources, networks, access controls and data flow security attributes, to determine where data is stored, how it's exposed, and how it flows across the enterprise. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
 - Discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores. [Review] attack paths(attack-path-reference.md#attack-paths).
 
 ## Data security in Defender for Storage
