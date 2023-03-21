@@ -296,16 +296,6 @@ items:
         href: tutorials/add-chat-push-notifications.md
       - name: Using chat SDK with React Native
         href: quickstarts/chat/react-native.md
-      - name: Using the mobile UI Library
-        items: 
-        - name: Setup localization
-          href: how-tos/ui-library-sdk/localization.md
-        - name: Setup theming
-          href: how-tos/ui-library-sdk/theming.md
-        - name: Participant view data injection
-          href: how-tos/ui-library-sdk/data-model.md
-        - name: Troubleshooting
-          href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
       - name: Validate events
