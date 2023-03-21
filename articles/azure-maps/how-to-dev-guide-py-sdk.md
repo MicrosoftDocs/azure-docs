@@ -16,9 +16,9 @@ The Azure Maps Python SDK can be integrated with Python applications and librari
 
 ## Prerequisites
 
-- [Azure Maps account][Azure Maps account].
-- [Subscription key][Subscription key] or other form of [authentication][authentication].
-- Python on 3.7 or later. It's recommended to use the [latest release][python latest release]. For more information, see [Azure SDK for Python version support policy][support policy].
+- [Azure Maps account].
+- [Subscription key] or other form of [authentication].
+- Python on 3.7 or later. It's recommended to use the [latest release]. For more information, see [Azure SDK for Python version support policy].
 
 > [!TIP]
 > You can create an Azure Maps account programmatically, Here's an example using the Azure CLI:
@@ -49,9 +49,9 @@ pip install azure-maps-search --pre
 
 ### Azure Maps services
 
-Azure Maps Python SDK supports Python version 3.7 or later. For more information on future Python versions, see [Azure SDK for Python version support policy][support policy].
+Azure Maps Python SDK supports Python version 3.7 or later. For more information on future Python versions, see [Azure SDK for Python version support policy].
 
-| Service Name               | PyPi package            |  Samples     |
+| Service name               | PyPi package            |  Samples     |
 |----------------------------|-------------------------|--------------|
 | [Search][py search readme] | [azure-maps-search][py search package] | [search samples][py search sample] |
 | [Route][py route readme]   | [azure-maps-route][py route package] |  [route samples][py route sample] |
@@ -63,19 +63,19 @@ Azure Maps Python SDK supports Python version 3.7 or later. For more information
 You'll need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps][authentication].
 
 > [!TIP]
-> The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search package client library][Search package client library] to learn more about the search methods available.
+> The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search package client library] to learn more about the search methods available.
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity package][Azure Identity package]. To use the [DefaultAzureCredential][defaultazurecredential] provider, you'll need to install the Azure Identity client package:
+You can authenticate with Azure AD using the [Azure Identity package]. To use the [DefaultAzureCredential] provider, you'll need to install the Azure Identity client package:
 
 ```powershell
 pip install azure-identity 
 ```
 
-You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
 
-Next you'll need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details][View authentication details].
+Next you'll need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details].
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
@@ -340,18 +340,18 @@ if __name__ == '__main__':
 
 ## Additional information
 
-The [Azure Maps Search Package client library for Python][Search package client library] in the *Azure SDK for Python Preview* documentation.
+The [Azure Maps Search package client library] in the *Azure SDK for Python Preview* documentation.
 
 <!--------------------------------------------------------------------------------------------------------------->
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 [authentication]: azure-maps-authentication.md
 
-[Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
-[python latest release]: https://www.python.org/downloads/
+[Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
+[latest release]: https://www.python.org/downloads/
 
 <!--  Python SDK Developers Guide  --->
-[support policy]: https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy
+[Azure SDK for Python version support policy]: https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy
 [py search package]: https://pypi.org/project/azure-maps-search
 [py search readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-search/README.md
 [py search sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-search/samples
@@ -367,6 +367,6 @@ The [Azure Maps Search Package client library for Python][Search package client 
 
 <!--- Authentication ---->
 [Azure Identity package]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
-[defaultazurecredential]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#DefaultAzureCredential
+[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [View authentication details]: how-to-manage-authentication.md#view-authentication-details

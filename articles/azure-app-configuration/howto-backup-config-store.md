@@ -95,7 +95,7 @@ az storage account create -n $storageName -g $resourceGroupName -l westus --sku 
 az storage queue create --name $queueName --account-name $storageName --auth-mode login
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your App Configuration store events
 
@@ -249,7 +249,7 @@ If you don't see the new setting in your secondary store:
 - Make sure the backup function was triggered *after* you created the setting in your primary store.
 - It's possible that Event Grid couldn't send the event notification to the queue in time. Check if your queue still contains the event notification from your primary store. If it does, trigger the backup function again.
 - Check [Azure Functions logs](../azure-functions/functions-create-scheduled-function.md#test-the-function) for any errors or warnings.
-- Use the [Azure portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) to ensure that the Azure function app contains correct values for the application settings that Azure Functions is trying to read.
+- Use the [Azure portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) to ensure that the Azure function app contains correct values for the application settings that the Azure function is trying to read.
 - You can also set up monitoring and alerting for Azure Functions by using [Azure Application Insights](../azure-functions/functions-monitoring.md?tabs=cmd).
 
 ## Clean up resources

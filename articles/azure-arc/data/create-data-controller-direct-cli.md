@@ -8,6 +8,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 ms.date: 05/27/2022
 ms.topic: overview
 ---
@@ -120,4 +121,3 @@ kubectl get datacontrollers --namespace arc
 [Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
 [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
-

@@ -1,5 +1,5 @@
 ---
-title: Create an access review of groups and applications - Azure AD
+title: Create an access review of groups and applications
 description: Learn how to create an access review of group members or application access in Azure Active Directory. 
 services: active-directory
 author: amsliu

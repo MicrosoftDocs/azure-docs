@@ -28,7 +28,7 @@ Your batch receiver and batch sender need to share the same Azure subscription *
 
 * An Azure account and subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/). Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* An email account with any [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
+* An email account with any [email provider supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -36,7 +36,7 @@ Your batch receiver and batch sender need to share the same Azure subscription *
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 * To use Visual Studio rather than the Azure portal, make sure that you [set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -48,7 +48,7 @@ Before you can send messages to a batch, that batch must first exist as the dest
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, create a logic app with this name: `BatchReceiver`
 
-1. In the Logic App Designer, add the **Batch** trigger, which starts your logic app workflow. In the search box, enter `batch`, and select this trigger: **Batch messages**
+1. In the workflow designer, add the **Batch** trigger, which starts your logic app workflow. In the search box, enter `batch`, and select this trigger: **Batch messages**
 
    ![Add "Batch messages" trigger](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
@@ -105,7 +105,7 @@ Before you can send messages to a batch, that batch must first exist as the dest
 
    * In the **Body** box, when the dynamic content list appears, select the **Message Id** field.
 
-     The Logic App Designer automatically adds a **For each** loop around the send email action because that action treats the output from the previous action as a collection, rather than a batch.
+     The workflow designer automatically adds a **For each** loop around the send email action because that action treats the output from the previous action as a collection, rather than a batch.
 
      ![For "Body", select "Message Id"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 

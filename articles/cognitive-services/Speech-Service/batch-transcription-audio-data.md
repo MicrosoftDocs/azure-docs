@@ -11,7 +11,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 10/21/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Locate audio files for batch transcription

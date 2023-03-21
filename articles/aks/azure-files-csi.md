@@ -29,14 +29,12 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
 |skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GiB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
-|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`| Yes | `ext4` for Linux|
 |location | Specify Azure region where Azure storage account will be created. | For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
 |resourceGroup | Specify the resource group where the Azure Disks will be created. | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
 |shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
 |shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
 |folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name does not exist in file share, mount will fail. |
 |shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
-|accountAccessTier | [Access tier for storage account][access-tiers-overview] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
 |server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
 |disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
@@ -268,11 +266,11 @@ Filesystem                                                                      
 
 ## Use a persistent volume with private Azure Files storage (private endpoint)
 
-If your Azure Files resources are protected with a private endpoint, you must create your own storage class that's customized with the following parameters:
+If your Azure Files resources are protected with a private endpoint, you must create your own storage class. Make sure that you've [configured your DNS settings to resolve the private endpoint IP address to the FQDN of the connection string][azure-private-endpoint-dns].  that's customized with the following parameters:
 
 * `resourceGroup`: The resource group where the storage account is deployed.
 * `storageAccount`: The storage account name.
-* `server`: The FQDN of the storage account's private endpoint (for example, `<storage account name>.privatelink.file.core.windows.net`).
+* `server`: The FQDN of the storage account's private endpoint.
 
 Create a file named `private-azure-file-sc.yaml`, and then paste the following example manifest in the file. Replace the values for `<resourceGroup>` and `<storageAccountName>`.
 
@@ -286,7 +284,7 @@ allowVolumeExpansion: true
 parameters:
   resourceGroup: <resourceGroup>
   storageAccount: <storageAccountName>
-  server: <storageAccountName>.privatelink.file.core.windows.net 
+  server: <storageAccountName>.file.core.windows.net 
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:
@@ -300,7 +298,7 @@ mountOptions:
   - actimeo=30  # reduce latency for metadata-heavy workload
 ```
 
-Create the storage class by using the [kubectl apply][kubectl-apply] command:
+Create the storage class by using the `kubectl apply` command:
 
 ```console
 kubectl apply -f private-azure-file-sc.yaml
@@ -342,7 +340,7 @@ This option is optimized for random access workloads with in-place data updates 
 
 ### Prerequisites
 
-- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the resource group hosting the VNet.
+- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role on the VNet and NetworkSecurityGroup.
 - Your AKS cluster's service principal or managed service identity (MSI) must be added to the Contributor role to the storage account.
 
 > [!NOTE]
@@ -512,3 +510,4 @@ The output of the commands resembles the following example:
 [access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume
+[azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration

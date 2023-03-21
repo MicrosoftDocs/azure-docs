@@ -5,6 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jianleishen

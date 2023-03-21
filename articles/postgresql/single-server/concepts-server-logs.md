@@ -65,7 +65,7 @@ To enable resource logs using the Azure portal:
    2. Select *Add Diagnostic Setting*.
    3. Name this setting. 
    4. Select your preferred endpoint (storage account, event hub, log analytics). 
-   5. Select the log type **PostgreSQLLogs**.
+   5. Select the log type **PostgreSQL Server Logs**.
    7. Save your setting.
 
 To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) article.

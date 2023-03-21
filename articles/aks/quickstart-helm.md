@@ -2,6 +2,7 @@
 title: Develop on Azure Kubernetes Service (AKS) with Helm
 description: Use Helm with AKS and Azure Container Registry to package and run application containers in a cluster.
 ms.topic: article
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 03/03/2023
 ---
 
@@ -301,7 +302,7 @@ For more information about using Helm, see the [Helm documentation][helm-documen
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [helm]: https://helm.sh/
 [helm-documentation]: https://helm.sh/docs/
 [helm-existing]: kubernetes-helm.md

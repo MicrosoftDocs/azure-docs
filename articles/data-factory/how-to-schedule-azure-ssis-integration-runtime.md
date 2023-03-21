@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: chugugrace
 ms.author: chugu
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-azurepowershell
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 

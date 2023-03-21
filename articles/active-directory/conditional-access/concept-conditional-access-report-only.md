@@ -1,5 +1,5 @@
 ---
-title: What is Conditional Access report-only mode? - Azure Active Directory
+title: What is Conditional Access report-only mode?
 description: How can report-only mode help with Conditional Access policy deployment
 
 services: active-directory

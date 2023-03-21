@@ -49,14 +49,14 @@ To manually configure Azure Virtual Desktop for Azure Stack HCI, follow these hi
 
 ### Step 1: Create a new virtual machine on Azure Stack HCI
 
-Create a new virtual machine with a supported operating system on your Azure Stack HCI infrastructure. For step-by-step instructions about how to create a VM, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). For information about supported operating system and licenses, see [Operating systems and licenses](/prerequisites#operating-systems-and-licenses).
+Create a new virtual machine with a supported operating system on your Azure Stack HCI infrastructure. For step-by-step instructions about how to create a VM, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). For information about supported operating system and licenses, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
 > [!NOTE]
 > [Install the Remote Desktop Session Host (RDSH) role](/troubleshoot/windows-server/remote/install-rds-host-role-service-without-connection-broker) if the VM is running a Windows Server operating system.
 
 ### Step 2: Install Connected Machine agent on the virtual machine
 
-To manage the new VM from Azure via Azure Arc, install the Connected Machine agent on the VM. For step-by-step instructions on how to install the Windows agent on the VM, see [Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
+To manage the new VM from Azure via Azure Arc, install the Connected Machine agent on the VM. For step-by-step instructions on how to install the Windows agent on the VM, see [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 ### Step 3: Deploy a custom template
 
