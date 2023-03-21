@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-wellbore-ddms.md
           - text: Well delivery DDMS tutorial
             url: tutorial-well-delivery-ddms.md
+          - text: Petrel DDMS Tutorial
+            url: tutorial-petrel-ddms.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
