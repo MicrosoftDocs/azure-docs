@@ -144,6 +144,8 @@ Use the following steps to update backup storage redundancy.
     New-AzCosmosDBAccount @parameters
     ```
 
+---
+
 ## Add an Azure Policy for backup storage redundancy
 
 Azure Policy helps you to enforce organizational standards and to assess compliance at-scale. For more information, see [what is Azure Policy?](../governance/policy/overview.md).
