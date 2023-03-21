@@ -25,7 +25,7 @@ In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, i
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
-1. On the left-side tab, select **Logs**. Here you will see the query explorer. Exit out the *Queries* view. 
+1. On the left-side tab, select **Logs**. Here you'll see the query explorer. Exit out the *Queries* view. 
 
 
     :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-select-logs-in-workspace.png" alt-text="Screenshot of viewing a log analytics workspace.":::
@@ -62,7 +62,7 @@ The following table lists the field names and descriptions:
 | **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 | **PublicIpAddress** | Your public IP address. |
 
-### DDOoS Mitigation FlowLogs
+### DDoS Mitigation FlowLogs
 
 Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting data-points during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
 
