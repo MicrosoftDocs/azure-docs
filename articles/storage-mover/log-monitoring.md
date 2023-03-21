@@ -5,12 +5,12 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 03/20/2023
 ---
 
 # Monitoring Azure Storage Mover copy and job logs
 
-When you use a migration tool to move your critical data from on-premise sources to Azure destination targets, you want to monitor copy operations for outages and errors. Monitoring includes metrics and logs that provide visibility into the success of your migration. **Copy logs** and **Job run logs** are especially useful because they allow you to trace the migration result of individual files. Metrics relating to **Job run metrics** are also available, and can be analyzed to help pinpoint periods of low performance and other trends.
+When you use a migration tool to move your critical data from on-premises sources to Azure destination targets, you want to monitor copy operations for outages and errors. Monitoring includes metrics and logs that provide visibility into the success of your migration. **Copy logs** and **Job run logs** are especially useful because they allow you to trace the migration result of individual files. Metrics relating to **Job run metrics** are also available, and can be analyzed to help pinpoint periods of low performance and other trends.
 
 Logs and metrics can be sent or streamed to the destinations listed in the following table. To ensure the security of data in transit, we strongly encourage you to configure Transport Layer Security (TLS). All destination endpoints support TLS 1.2.
 
@@ -33,13 +33,13 @@ You can read more about Azure Monitor by visiting the [Azure Monitor overview](.
 
 ## Configuring Azure Monitor and Storage Mover
 
-Before you can view the logs generated during your migration, you'll need to ensure that you've configured both Azure Monitor and your Storage Mover instance. This section briefly describes how to configure an Azure Monitor Log Analytics Workspace and Storage Mover diagnostic settings. After completing the following steps, you'll be able to query the data provided by your Storage Mover resource.
+Before you can view the logs generated during your migration, you need to ensure that you've configured both Azure Monitor and your Storage Mover instance. This section briefly describes how to configure an Azure Monitor Log Analytics Workspace and Storage Mover diagnostic settings. After completing the following steps, you'll be able to query the data provided by your Storage Mover resource.
 
 ### Create a Log Analytics workspace
 
-Storage Mover collects copy and job logs, and stores the information in an Azure Log Analytics workspace. You can create multiple workspaces, but each workspace must have a unique workspace ID and resource ID for a given resource group. After you've created a workspace you can configure Storage Mover to save its data there. If you don't have an existing worksapce, you can quickly create one in the Azure portal.
+Storage Mover collects copy and job logs, and stores the information in an Azure Log Analytics workspace. You can create multiple workspaces, but each workspace must have a unique workspace ID and resource ID for a given resource group. After you've created a workspace, you can configure Storage Mover to save its data there. If you don't have an existing workspace, you can quickly create one in the Azure portal.
 
-Enter **Log Analytics** in the search box and select **Log Analytics workspace**. In the content pane, select either **Create** or **Create log analytics workspace** to create a workspace. Provide values for the **Subscription**, **Resource Group**, **Name**, and **Region** fields, and select **Review + Crerate**.
+Enter **Log Analytics** in the search box and select **Log Analytics workspace**. In the content pane, select either **Create** or **Create log analytics workspace** to create a workspace. Provide values for the **Subscription**, **Resource Group**, **Name**, and **Region** fields, and select **Review + Create**.
 
 :::image type="content" source="media/log-monitoring/workspace-create-sml.png" lightbox="media/log-monitoring/workspace-create-lrg.png" alt-text="This image illustrates the methods of creating an Azure Analytics Workspace." :::
 
@@ -49,15 +49,15 @@ You can get more detailed information about Log Analytics and its features by vi
 
 After an analytics workspace has been created, you can specify it as the destination in which Storage Mover logs and metrics can be displayed.
 
-There are two options for configuring Storage Mover to send logs to your analytics workspace. First, you have the option to configure diagnostic settings during the initial deployment of your top-level Storage Mover resource. The following example shows how to specify diagnostic settings in the Azure portal during Storage Mover resource creation.
+There are two options for configuring Storage Mover to send logs to your analytics workspace. First, you can configure diagnostic settings during the initial deployment of your top-level Storage Mover resource. The following example shows how to specify diagnostic settings in the Azure portal during Storage Mover resource creation.
 
 :::image type="content" source="media/log-monitoring/monitoring-configure-sml.png" lightbox="media/log-monitoring/monitoring-configure-lrg.png" alt-text="This image highlights the ability to enable monitoring during initial deployment." :::
 
-You also have the option to add a diagnostic setting to a Storage Mover resource after it's been deployed. To add the diagnostic setting, navigate to the Storage Mover resource. In the menu pane, select **Diagnostic settings** and then select **Add diagnostic setting** as shown in the following example.
+You may also choose to add a diagnostic setting to a Storage Mover resource after it's been deployed. To add the diagnostic setting, navigate to the Storage Mover resource. In the menu pane, select **Diagnostic settings** and then select **Add diagnostic setting** as shown in the following example.
 
 :::image type="content" source="media/log-monitoring/diagnostic-settings-sml.png" lightbox="media/log-monitoring/diagnostic-settings-lrg.png" alt-text="This image highlights the ability to add a diagnostic setting after deployment." :::
 
-In the **Diagnostic setting** pane, provide a value for the **Diagnostic setting name**. Within the **Logs** group, select one or more log categories to be collected. You may also select the **Job runs** option within the **Metrics** group to view the results of your individual job runs. Within the **Destination details** group, select **Send to Log Analytics workspace**, the name of your subscription, and the name of the Log Analytics workspace that will collect your log data. Finally, select **Save** to add your new diagnostic setting. You can view the image provided as a reference.
+In the **Diagnostic setting** pane, provide a value for the **Diagnostic setting name**. Within the **Logs** group, select one or more log categories to be collected. You may also select the **Job runs** option within the **Metrics** group to view the results of your individual job runs. Within the **Destination details** group, select **Send to Log Analytics workspace**, the name of your subscription, and the name of the Log Analytics workspace to collect your log data. Finally, select **Save** to add your new diagnostic setting. You can view the image provided as a reference.
 
 :::image type="content" source="media/log-monitoring/setting-add-sml.png" lightbox="media/log-monitoring/setting-add-lrg.png" alt-text="This image illustrates the location of the fields required to add a Diagnostic Setting to an existing Storage Mover resource." :::
 
