@@ -19,9 +19,9 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
 
-## Prerequisites
-
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+
+## Prerequisite: Prepare to deploy a private mobile network and site
 
 - [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Commission the AKS cluster](commission-cluster.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
@@ -47,9 +47,9 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 You must complete the following steps in order to successfully deploy a private mobile network, site and SIM. Each step must be fully complete before proceeding to the next.
 
-### Open Azure Cloud Shell
+## Sign in to Azure
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Create a Mobile Network resource
 
@@ -124,21 +124,6 @@ New-AzMobileNetworkDataNetwork -MobileNetworkName MOBILENETWORK -Name
  DATANETWORK -ResourceGroupName RESOURCEGROUP -Location eastus
 ```
 
-### Attach the Data Network
-
-Use `New-AzMobileNetworkAttachedDataNetwork` to attach the **Data Network** you created. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
-
-|Placeholder|Value|
-|-|-|
-| DATANETWORK   | Enter the name for the data network.      |
-| CONTROLPLANE | Enter the name of the packet core control plane.  |
-| DATAPLANE   | Enter the name of the packet core data plane.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
-
-```powershell
-New-AzMobileNetworkAttachedDataNetwork -Name DATANETWORK -PacketCoreControlPlaneName CONTROLPLANE -PacketCoreDataPlaneName DATAPLANE -ResourceGroupName RESOURCEGROUP -DnsAddress $dns -Location eastus -UserPlaneDataInterfaceIpv4Address 10.0.0.10 -UserPlaneDataInterfaceIpv4Gateway 10.0.0.1 -UserPlaneDataInterfaceIpv4Subnet 10.0.0.0/24 -UserPlaneDataInterfaceName N6
-```
-
 ### Create a SIM Group
 
 Use `New-AzMobileNetworkSimGroup` to create a new **SIM Group**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
@@ -210,6 +195,21 @@ Use `New-AzMobileNetworkSim` to create a new **SIM**. The example command uses t
 $staticIp = New-AzMobileNetworkSimStaticIPPropertiesObject -StaticIPIpv4Address 10.0.0.20
 
 New-AzMobileNetworkSim -GroupName SIMGROUP -Name SIM -ResourceGroupName RESOURCEGROUP  -InternationalMobileSubscriberIdentity 000000000000001 -AuthenticationKey 00112233445566778899AABBCCDDEEFF -DeviceType Mobile -IntegratedCircuitCardIdentifier 8900000000000000001 -OperatorKeyCode 00000000000000000000000000000001 -SimPolicyId "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/RESOURCEGROUP/providers/Microsoft.MobileNetwork/mobileNetworks/MOBILENETWORK/simPolicies/SIMPOLICY" -StaticIPConfiguration $staticIp
+```
+
+### Attach the Data Network
+
+Use `New-AzMobileNetworkAttachedDataNetwork` to attach the **Data Network** you created. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisites](#prerequisites).
+
+|Placeholder|Value|
+|-|-|
+| DATANETWORK   | Enter the name for the data network.      |
+| CONTROLPLANE | Enter the name of the packet core control plane.  |
+| DATAPLANE   | Enter the name of the packet core data plane.      |
+| RESOURCEGROUP   | Enter the name of the resource group. |
+
+```powershell
+New-AzMobileNetworkAttachedDataNetwork -Name DATANETWORK -PacketCoreControlPlaneName CONTROLPLANE -PacketCoreDataPlaneName DATAPLANE -ResourceGroupName RESOURCEGROUP -DnsAddress $dns -Location eastus -UserPlaneDataInterfaceIpv4Address 10.0.0.10 -UserPlaneDataInterfaceIpv4Gateway 10.0.0.1 -UserPlaneDataInterfaceIpv4Subnet 10.0.0.0/24 -UserPlaneDataInterfaceName N6
 ```
 
 ## Clean up resources
