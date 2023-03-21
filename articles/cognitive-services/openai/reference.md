@@ -108,6 +108,8 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 }
 ```
 
+In the example response, `finish_reason` equals `stop`. If `finish_reason` equals `content_filter` consult our [content filtering guide](./concepts/content-filter.md) to understand why this is occurring.
+
 ## Embeddings
 Get a vector representation of a given input that can be easily consumed by machine learning models and other algorithms.
 
@@ -211,6 +213,8 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 "choices":[{"message":{"role":"assistant",
 "content":"Yes, other Azure Cognitive Services also support customer managed keys. Azure Cognitive Services offer multiple options for customers to manage keys, such as using Azure Key Vault, customer-managed keys in Azure Key Vault or customer-managed keys through Azure Storage service. This helps customers ensure that their data is secure and access to their services is controlled."},"finish_reason":"stop","index":0}]}
 ```
+
+In the example response, `finish_reason` equals `stop`. If `finish_reason` equals `content_filter` consult our [content filtering guide](./concepts/content-filter.md) to understand why this is occurring.
 
 Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
 
