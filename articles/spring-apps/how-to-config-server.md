@@ -18,6 +18,9 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
+> [!NOTE]
+> Config Server feature for Standard consumption plan is currently under Private Preview. Please [fill this form](https://aka.ms/asa-consumption-middleware-signup) to sign-up for this feature.
+
 This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps service.
 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
