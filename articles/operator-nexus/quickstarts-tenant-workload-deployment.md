@@ -498,7 +498,8 @@ This section describes how to create an AKS-Hybrid cluster
     --control-plane-count <count> \
     --location <dc-location> \
     --node-count <worker node count> \
-    --node-vm-size <Operator Nexus SKU>
+    --node-vm-size <Operator Nexus SKU> \
+    --zones <comma separated list of availability zones>
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
