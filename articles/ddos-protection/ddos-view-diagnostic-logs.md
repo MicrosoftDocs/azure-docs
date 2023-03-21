@@ -6,11 +6,13 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/14/2023
+ms.date: 03/21/2023
 ms.author: abell
 ---
 
+# View Azure DDOS Protection logs in log analytics workspace
 
+In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -18,7 +20,7 @@ ms.author: abell
 - Configured DDoS Protection diagnostic logs. 
 - Simulated an attack.
 
-### View Azure DDOS Protection logs in log analytics workspace
+### View in log analytics workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
@@ -28,34 +30,93 @@ ms.author: abell
 
     :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-select-logs-in-workspace.png" alt-text="Screenshot of viewing a log analytics workspace.":::
 
-1. Type in the following Kusto Query and change the time range to Custom and change the time range to last three months, then hit *Run* to view results.
+1. Type in your query then hit *Run* to view results.
+
+    :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-notification-logs.png" alt-text="Screenshot of viewing DDoS Protection notification logs in log analytics workspace.":::
+
+## Example log queries
+
+### DDOoS Protection Notifications
+
+Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
 
     ```kusto
     AzureDiagnostics
     | where Category == "DDoSProtectionNotifications"
     ```
-    :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-notification-logs.png" alt-text="Screenshot of viewing DDoS Protection notification logs in log analytics workspace.":::
 
-1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
+
+The following table lists the field names and descriptions:
+
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the notification was created. |
+| **ResourceId** | The resource ID of your public IP address. |
+| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
+| **Message** | Details of the attack. |
+| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
+| **PublicIpAddress** | Your public IP address. |
+
+### DDOoS Mitigation FlowLogs
+
+Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting data-points during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
 
     ```kusto
     AzureDiagnostics
     | where Category == "DDoSMitigationFlowLogs"
     ```
 
-1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the flow log was created. |
+| **ResourceId** | The resource ID of your public IP address. |
+| **Category** | For flow logs, this will be `DDoSMitigationFlowLogs`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For flow logs, this will be `DDoSMitigationFlowLogs`. |
+| **Message** | Details of the attack. |
+| **SourcePublicIpAddress** | The public IP address of the client generating traffic to your public IP address. |
+| **SourcePort** | Port number ranging from 0 to 65535. |
+| **DestPublicIpAddress** | Your public IP address. |
+| **DestPort** | Port number ranging from 0 to 65535. |
+| **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
+
+### DDOoS Mitigation FlowLogs
+
+Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
     ```kusto
     AzureDiagnostics
     | where Category == "DDoSMitigationReports"
     ```
 
-For more information on log schemas, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md#diagnostic-logs).
+| Field name | Description |
+| --- | --- |
+| **TimeGenerated** | The date and time in UTC when the notification was created. |
+| **ResourceId** | The resource ID of your public IP address. |
+| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
+| **SubscriptionId** | Your DDoS protection plan subscription ID. |
+| **Resource** | The name of your public IP address. |
+| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
+| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
+| **Message** | Details of the attack. |
+| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
+| **PublicIpAddress** | Your public IP address. |
+
+
 ## Next steps
 
-In this guide, you learned how to view log data in workbooks.
+In this guide, you learned how to view log data in log analytics workspace.
 
-To learn how to configure attack alerts, continue to the next tutorial.
+To learn how to engage with Azure DDoS Rapid Response, continue to the next guide.
 
 > [!div class="nextstepaction"]
-> [View and configure DDoS protection alerts](alerts.md)
+> [View and configure DDoS protection alerts](ddos-rapid-response.md)
