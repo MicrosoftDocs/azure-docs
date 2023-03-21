@@ -189,8 +189,8 @@ main = df.Orchestrator.create(orchestrator_function)
 ```powershell
 param($Context)
 
-$input = $Context.Input
-$input
+$InputData = $Context.Input
+$InputData
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
@@ -691,9 +691,9 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 
 **run.ps1**
 ```powershell
-param([string] $input, $TriggerMetadata)
+param([string]$InputData, $TriggerMetadata)
 
-$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $input
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $InputData
 ```
 
 ::: zone-end  
