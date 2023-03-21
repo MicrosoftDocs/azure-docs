@@ -46,7 +46,7 @@ if not result:
 if "access_token" in result:
     print("Access token: %s" % result["access_token"])
 else:
-    print("Error code: %s" % result.get("error_code"))
+    print("Error: %s" % result.get("error"))
 
 ```
 
