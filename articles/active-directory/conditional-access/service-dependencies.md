@@ -1,5 +1,5 @@
 ---
-title: Conditional Access service dependencies - Azure Active Directory 
+title: Conditional Access service dependencies 
 description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
 
 services: active-directory

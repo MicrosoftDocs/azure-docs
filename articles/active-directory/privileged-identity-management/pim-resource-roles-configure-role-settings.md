@@ -1,5 +1,5 @@
 ---
-title: Configure Azure resource role settings in PIM - Azure Active Directory
+title: Configure Azure resource role settings in PIM
 description: Learn how to configure Azure resource role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

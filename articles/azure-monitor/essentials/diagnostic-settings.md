@@ -44,7 +44,10 @@ Information on these newer features is included in this article.
 
 ## Sources
 
-Here are the source options.
+There are three sources for diagnostic information:
+* Metrics
+* Resource Logs 
+* Activity logs
 
 ### Metrics
 

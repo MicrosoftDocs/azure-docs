@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Viareport (Europe) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Viareport (Europe)'
 description: Learn how to configure single sign-on between Azure Active Directory and Viareport (Europe).
 services: active-directory
 author: jeevansd

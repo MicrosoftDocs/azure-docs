@@ -23,7 +23,7 @@ This article walks you through all the steps needed to publish and subscribe to 
 > To learn about Azure Event Grid topics and subscriptions, see [Event Grid Concepts](concepts.md).
 
 ## Prerequisites 
-In order to complete this tutorial, you will need:
+In order to complete this tutorial, you need:
 
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
 * **Azure IoT Hub and IoT Edge device** - Follow the steps in the quickstart for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
@@ -42,7 +42,7 @@ There are several ways to deploy modules to an IoT Edge device and all of them w
 1. Navigate to your IoT Hub.
 1. Select **IoT Edge** from the menu in the **Automatic Device Management** section. 
 1. Click on the ID of the target device from the list of devices
-1. Select **Set Modules**. Keep the page open. You will continue with the steps in the next section.
+1. Select **Set Modules**. Keep the page open. You'll continue with the steps in the next section.
 
 ### Configure a deployment manifest
 
@@ -58,7 +58,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Container Create Options**:
 
-   [!INCLUDE [event-grid-edge-module-version-update](../includes/event-grid-edge-module-version-update.md)]
+   [!INCLUDE [edge-module-version-update](../includes/edge-module-version-update.md)]
 
     ```json
         {
@@ -87,7 +87,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 ## Deploy Event Grid Subscriber IoT Edge module
 
-This section shows you how to deploy another IoT module which would act as an event handler to which events can be delivered.
+This section shows you how to deploy another IoT module, which would act as an event handler to which events can be delivered.
 
 ### Add modules
 
@@ -115,7 +115,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
 ## Create a topic
 
-As a publisher of an event, you need to create an event grid topic. In Azure Event Grid, a topic refers to an endpoint where publishers can send events to.
+As a publisher of an event, you need to create an Event Grid topic. In Azure Event Grid, a topic refers to an endpoint where publishers can send events to.
 
 1. Create topic.json with the following content. For details about the payload, see our [API documentation](api.md).
 
@@ -128,7 +128,7 @@ As a publisher of an event, you need to create an event grid topic. In Azure Eve
         }
     ```
 
-1. Run the following command to create an event grid topic. Confirm that you see the HTTP status code is `200 OK`.
+1. Run the following command to create an Event Grid topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -158,9 +158,9 @@ As a publisher of an event, you need to create an event grid topic. In Azure Eve
 
 ## Create an event subscription
 
-Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest.
+Subscribers can register for events published to a topic. To receive any event, you need to create an Event Grid subscription for a topic of interest.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [deploy-iot-edge](../includes/edge-persist-event-subscriptions.md)]
 
 1. Create subscription.json with the following content. For details about the payload, see our [API documentation](api.md)
 
@@ -281,7 +281,7 @@ Subscribers can register for events published to a topic. To receive any event, 
 
 
 ## Next steps
-In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
+In this tutorial, you created an Event Grid topic, subscription, and published events. Now that you know the basic steps, see the following articles: 
 
 - To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 - Create/update subscription with [filters](advanced-filtering.md).

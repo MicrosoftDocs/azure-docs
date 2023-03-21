@@ -44,9 +44,9 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   - Microsoft.Resources
 
 ## Dependant Azure resources setup
-- Establish [ExpressRoute](/azure/azure/expressroute/expressroute-introduction) connectivity
+- Establish [ExpressRoute](/azure/expressroute/expressroute-introduction) connectivity
   from your on-premises network to an Azure Region:
-  - ExpressRoute circuit [creation and verification](/azure/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
+  - ExpressRoute circuit [creation and verification](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
     can be performed via the Azure portal
   - In the ExpressRoute blade, ensure Circuit status indicates the status
     of the circuit on the Microsoft side. Provider status indicates if

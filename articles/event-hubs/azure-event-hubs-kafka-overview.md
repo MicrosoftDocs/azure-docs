@@ -130,7 +130,7 @@ The most common reason Azure Event Hubs customers ask for Kafka Streams support 
 Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many alternative frameworks and services, most of which have built-in streaming SQL interfaces, and all of which integrate with Azure Event Hubs today:
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
-- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration.md)
+- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-hubs-integration.md)
 - [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)

@@ -15,7 +15,7 @@ keywords: ChatGPT
 
 The ChatGPT model (`gpt-35-turbo`) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat. While the prompt format was designed specifically for multi-turn conversations, you'll find it can also work well for non-chat scenarios too.
 
-The ChatGPT model can be used with the same [completion API](/azure/cognitive-services/openai/reference#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format known as Chat Markup Language (ChatML). It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
+The ChatGPT model can be used with the same [completion API](../reference.md#completions) that you use for other models like text-davinci-002, but it requires a unique prompt format known as Chat Markup Language (ChatML). It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses.
 
 ## Working with the ChatGPT model
 
@@ -139,7 +139,7 @@ When are my taxes due?
 
 #### Using data for grounding
 
-You can also include relevant data or information in the system message to give the model extra context for the conversation. If you only need to include a small amount of information, you can hard code it in the system message. If you have a large amount of data that the model should be aware of, you can use [embeddings](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line) or a product like [Azure Cognitive Search](https://azure.microsoft.com/services/search/) to retrieve the most relevant information at query time.
+You can also include relevant data or information in the system message to give the model extra context for the conversation. If you only need to include a small amount of information, you can hard code it in the system message. If you have a large amount of data that the model should be aware of, you can use [embeddings](../tutorials/embeddings.md?tabs=command-line) or a product like [Azure Cognitive Search](https://azure.microsoft.com/services/search/) to retrieve the most relevant information at query time.
 
 ```
 <|im_start|>system

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workday'
 description: Learn how to configure single sign-on between Azure Active Directory and Workday.
 services: active-directory
 author: jeevansd
