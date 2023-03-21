@@ -12,9 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-## Choose the best Form Recognizer model
-
-Which Form Recognizer model should I use?
+# Which Form Recognizer model should I use?
 
 The following will help you decide the best **Form Recognizer v3.0** supported model to meet your needs and those of your application.
 
