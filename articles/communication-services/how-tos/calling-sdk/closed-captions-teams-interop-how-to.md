@@ -20,13 +20,18 @@ Learn how to allow your users to enable closed captions during a Teams interoper
 [!INCLUDE [Public Preview](..../../../includes/public-preview-include-document.md)]
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Closed captions with Typescript](./includes/closed-captions-teams-interop-web.md)]
+[!INCLUDE [Closed captions with Typescript](./includes/closed-captions/closed-captions-teams-interop-web.md)]
 ::: zone-end
 
+::: zone pivot="platform-android"
+[!INCLUDE [Closed captions with Android](./includes/closed-captions/closed-captions-teams-interop-android.md)]
+::: zone-end
 
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources here](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?pivots=platform-azp&tabs=windows#clean-up-resources). 
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources here](../../quickstarts/create-communication-resource.md#clean-up-resources). 
 
-## Next stepsFor more information, see the following articles:
+## Next steps
+
+For more information, see the following articles:
