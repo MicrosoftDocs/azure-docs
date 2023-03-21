@@ -88,7 +88,7 @@ Note that
 
 - Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
 - Note that in the example dataset, there are few images for the sake of simplicity. Although [Florence models](https://www.microsoft.com/en-us/research/publication/florence-a-new-foundation-model-for-computer-vision/) achieve great few-shot performance (high model quality even with little data available), it's good to have more data for the model to learn. Our recommendation is to have at least five images per class, and the more the better.
-- Once your COCO annotation file is prepared, you can use the [COCO file verification script](tbd) to check the format.
+- Once your COCO annotation file is prepared, you can use the [COCO file verification script](coco-verification.md) to check the format.
 
 #### Multiclass classification example
 
