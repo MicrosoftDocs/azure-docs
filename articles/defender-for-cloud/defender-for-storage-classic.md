@@ -10,8 +10,8 @@ ms.topic: overview
 # Overview of Microsoft Defender for Storage (classic)
 
 > [!NOTE]
-> Upgrade to the new [Microsoft Defender for Storage plan](defender-for-storage-introduction.md) and use advanced security capabilities, including Malware Scanning and sensitive data threat detection. Benefit from a more predictable and granular pricing structure that charges per storage account, with additional costs for high-volume transactions. This new pricing plan also encompasses all new security features and detections.
-> If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage (classic) plan to access these features and pricing. Learn about [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
+> Upgrade to the new Microsoft Defender for Storage plan. The new Defender for Storage plan was launched on March 28, 2023. It includes new features like Malware Scanning and Sensitive Data Threat Detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Additionally, all new Defender for Storage features will only be released in the new plan.
+> If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage (classic) plan to access these features and pricing. Learn about the benefits of [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
 
 **Microsoft Defender for Storage (classic)** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
@@ -93,7 +93,7 @@ Alerts include details of the incident that triggered them, and recommendations 
 
 ### Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?
 
-Yes. The new Defender for Storage plan offers additional security capabilities, such as near real-time malware scanning and sensitive data threat detection. This plan also provides a more predictable pricing structure for better control over protection and costs. Learn more about the [benefits of migrating to the new plan](defender-for-storage-classic-migrate.md).
+Yes. The new Defender for Storage plan offers additional security capabilities, such as near real-time malware scanning and sensitive data threat detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Learn more about the [benefits of migrating to the new plan](defender-for-storage-classic-migrate.md).
 
 ### How do I estimate charges at the account level? 
 
@@ -109,7 +109,7 @@ Yes, you can move to the new Defender for Storage plan with per-storage account 
 
 ### Can I exclude specific storage accounts from protection in the new Defender for Storage plan?
 
-Yes, the new Defender for Storage plan with per-storage account pricing allows you to exclude and configure specific storage accounts within protected subscriptions.
+Yes, the new Defender for Storage plan with per-storage account pricing allows you to exclude and configure specific storage accounts within protected subscriptions. However, you'll need to set up the exclusion again after you migrate to the new plan. Learn about how to [migrate to the new Defender for Storage](defender-for-storage-classic-migrate.md).
 
 ## Next steps
 
