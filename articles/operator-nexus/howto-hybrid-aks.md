@@ -68,7 +68,7 @@ To delete the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 
 ## Add nodepool command
 
-To add nodepool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
+To add a nodepool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 ```azurecli
     az hybridaks nodepool add \
       --name <name of the nodepool> \
@@ -78,4 +78,15 @@ To add nodepool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
       --node-count <worker node count> \
       --node-vm-size <Operator Nexus SKU> \
       --zones <comma separated list of availability zones>
+```
+
+## Delete nodepool command
+
+To delete a nodepool from the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
+
+```azurecli
+    az hybridaks nodepool delete \
+      --name <name of the nodepool> \
+      --cluster-name "<YourAKS-HybridClustername>" \
+      --resource-group "<YourResourceGroupName>"
 ```
