@@ -687,6 +687,6 @@ Learn more by reading:
 <!--------------------- Drawing Package v2 links--------------------------------------------------->
 [Conversion service v2]: https://aka.ms/creator-conversion
 [sample drawing package v2]: ttps://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0
-[Georeference]: drawing-package-guide-2023-03-01-preview.md#georeference
+[Georeference]: drawing-package-guide.md#georeference
 [featureClass]: #featureclass
 [featureClassProperty]: #featureclassproperty
