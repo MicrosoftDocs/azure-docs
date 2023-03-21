@@ -24,17 +24,17 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
-- Make sure you have the CLI extension v2.23 or higher version installed.
+- Ensure you have the CLI extension v2.23 or higher version installed.
 
 ### Limitations
 
 - Can only be enabled on new node pools.
 - Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
-- Requires an AKS cluster and node pool based on Virtual Machine Scale Sets as *VM set type*.
+- Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
 
 ## Use host-based encryption on new clusters
 
-Configure the cluster agent nodes to use host-based encryption when the cluster is created.
+Configure the cluster agent nodes to use host-based encryption when the cluster is created. 
 
 ```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
@@ -52,13 +52,11 @@ az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-gr
 
 If you want to create new node pools without the host-based encryption feature, you can do so by omitting the `--enable-encryption-at-host` parameter.
 
-> [!NOTE]
-> Once you've enabled host-based encryption, make sure you provide the proper permissions to grant access to your Azure Key Vault keys. For more information, see [Full control of your keys][full-control-keys] and [Built-in roles for Key Vault data plane operations][akv-built-in-roles].
-
 ## Next steps
 
-- Review [best practices for AKS cluster security][best-practices-security].
-- Read more about [host-based encryption](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Review [best practices for AKS cluster security][best-practices-security]
+Read more about [host-based encryption](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+
 
 <!-- LINKS - external -->
 
@@ -72,5 +70,3 @@ If you want to create new node pools without the host-based encryption feature, 
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[full-control-keys]: ../virtual-machines/disk-encryption#full-control-of-your-keys
-[akv-built-in-roles]: ../key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations
