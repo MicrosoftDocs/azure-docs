@@ -1053,7 +1053,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
     ```
 
 1. Update the device with the `DeviceVIP` property.
