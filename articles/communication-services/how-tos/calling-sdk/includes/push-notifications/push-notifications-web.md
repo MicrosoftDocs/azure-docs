@@ -9,7 +9,7 @@ ms.date: 03/20/2023
 ms.author: chwhilar
 ---
 
-# ACS Web Calling SDK - Web push notifications quickstart
+ACS Web Calling SDK - Web push notifications quickstart
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 ACS Web Calling SDK - Web push notifications are in public preview and available as part of version 1.12.0-beta.2+.
