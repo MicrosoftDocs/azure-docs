@@ -1,9 +1,10 @@
 ---
-title: 'Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)'
-description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using a REST API (Azure portal version).
+title: 'Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)'
+description: Tutorial on how sending data to a Log Analytics workspace in Azure Monitor using the Logs ingestion API. Supporting components configured using the Azure portal.
 ms.topic: tutorial
-ms.date: 07/15/2022
-ms.author: guywild
+ms.date: 03/20/2023
+author: bwren
+ms.author: bwren
 ms.reviewer: ivkhrul 
 ms.service: azure-monitor
 ---
@@ -12,19 +13,17 @@ ms.service: azure-monitor
 The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor. The sample application collects entries from a text file and 
 
 > [!NOTE]
-> This tutorial uses the Azure portal to configure the components to support the Logs ingestion API. For a similar tutorial that uses Azure Resource Manager templates to configure these components, see [Tutorial: Send data to Azure Monitor Logs by using a REST API (Resource Manager templates)](tutorial-logs-ingestion-api.md).
+> This tutorial uses the Azure portal to configure the components to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a similar tutorial that uses Azure Resource Manager templates to configure these components and that has sample code for client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
 
 
 The steps required to configure the Logs ingestion API are as follows:
 
 1. Create an Azure AD application to authenticate against the API.
-2. Create a custom table in a Log Analytics workspace. This is the table you'll be sending data to.
 3. Create a data collection endpoint (DCE) to receive data.
-4. Create a data collection rule (DCR) to direct the data to the target table. You Azure AD application will require access to this DCR.
+2. Create a custom table in a Log Analytics workspace. This is the table you'll be sending data to. As part of this process, you will create a data collection rule (DCR) to direct the data to the target table.
+5. Give the AD application access to the DCR.
+6. Use sample code to send data to using the Logs ingestion API.
 
-
-> [!NOTE]
-> This tutorial uses PowerShell to call the Logs ingestion API. See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the client libraries for other languages.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -38,7 +37,7 @@ In this tutorial, you'll use a PowerShell script to send sample Apache access lo
 
 After the configuration is finished, you'll send sample data from the command line, and then inspect the results in Log Analytics.
 
-## Create an Azure AD application
+## Create Azure AD application
 Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
@@ -61,7 +60,7 @@ Start by registering an Azure Active Directory application to authenticate again
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
 
-## Create a data collection endpoint
+## Create data collection endpoint
 A [data collection endpoint](../essentials/data-collection-endpoint-overview.md) is required to accept the data from the script. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE does not need to be in the same region as the Log Analytics workspace where the data will be sent or the data collection rule being used.
 
 1. To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then select **Create**.
@@ -77,7 +76,7 @@ A [data collection endpoint](../essentials/data-collection-endpoint-overview.md)
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" alt-text="Screenshot that shows DCE URI.":::
 
 
-## Add a custom log table
+## Create new table in Log Analytics workspace
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.

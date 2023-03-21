@@ -353,11 +353,14 @@ items:
       href: logs/custom-logs-migrate.md
     - name: Tutorials
       items:
-      - name: Configure Logs ingestion API with Azure portal
+      - name: Configure with Azure portal
+        displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-portal.md
-      - name: Configure Logs ingestion API with ARM templates
+      - name: Configure with ARM templates
+        displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
-      - name: Sample code Logs ingestion API
+      - name: Sample code
+        displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
     - name: Data collector API
       items:

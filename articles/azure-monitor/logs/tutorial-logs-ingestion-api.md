@@ -1,28 +1,26 @@
 ---
-title: 'Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)'
-description: Tutorial on how to send custom data to a Log Analytics workspace in Azure Monitor by using the Logs ingestion API. Required configuration performed with Azure Resource Manager templates.
+title: 'Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Resource Manager templates)'
+description: Tutorial on how sending data to a Log Analytics workspace in Azure Monitor using the Logs ingestion API. Supporting components configured using Resource Manager templates.
 ms.topic: tutorial
-ms.date: 02/01/2023
+author: bwren
+ms.author: bwren
+ms.date: 03/20/2023
 ---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)
-The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries.
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
 
 > [!NOTE]
-> This tutorial uses ARM templates to configure the components required to support the Logs ingestion API. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md).
+> This tutorial uses ARM templates to configure the components required to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](tutorial-logs-ingestion-api.md) for a similar tutorial that uses Azure Resource Manager templates to configure these components.
 
 The steps required to configure the Logs ingestion API are as follows:
 
 1. Create an Azure AD application to authenticate against the API.
-2. Create a custom table in a Log Analytics workspace. This is the table you'll be sending data to.
 3. Create a data collection endpoint (DCE) to receive data.
-4. Create a data collection rule (DCR) to direct the data to the target table. You Azure AD application will require access to this DCR.
-
-One this configuration is complete, examples are showing sending sample data to the API using REST API calls and different client libraries.
-
-> [!NOTE]
-> See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the Logs ingestion API client libraries for other languages.
-
+2. Create a custom table in a Log Analytics workspace. This is the table you'll be sending data to.
+4. Create a data collection rule (DCR) to direct the data to the target table. 
+5. Give the AD application access to the DCR.
+6. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md) for sample code to send data to using the Logs ingestion API.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -38,7 +36,7 @@ Go to your workspace in the **Log Analytics workspaces** menu in the Azure porta
 
 :::image type="content" source="media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot that shows the workspace resource ID.":::
 
-## Create an Azure AD application
+## Create Azure AD application
 Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial follows the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
@@ -129,7 +127,7 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
     :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
 
-## Create a new table in a Log Analytics workspace
+## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. The table for this tutorial will include five columns shown in the schema below. The `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
 
 > [!NOTE]

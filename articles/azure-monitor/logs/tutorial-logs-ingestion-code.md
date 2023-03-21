@@ -5,9 +5,14 @@ ms.topic: tutorial
 ms.date: 02/01/2023
 ---
 
-# Tutorial: Send data to Azure Monitor using Logs ingestion API
-This article provides sample code using the Logs ingestion API.
+# Sample code to send data to Azure Monitor using Logs ingestion API
+This article provides sample code using the [Logs ingestion API](logs-ingestion-api-overview.md). Each sample requires the following to be created before the code is run. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a complete walkthrough of creating these components configured to support each of these samples.
 
+
+- Custom table in a Log Analytics workspace
+- Data collection endpoint (DCE) to receive data
+- Data collection rule (DCR) to direct the data to the target table
+- AD application with access to the DCR
 
 
 ## [PowerShell](#tab/powershell)
@@ -181,6 +186,7 @@ except HttpResponseError as e:
 
 ## [JavaScript](#tab/javascript)
 
+
 1. Use [npm](https://www.npmjs.com/) to install the Azure Monitor Ingestion client library for JavaScript and the Azure Identify library which is required for the authentication used in this sample.
 
     ```bash
@@ -190,69 +196,66 @@ except HttpResponseError as e:
 
 3. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
 
-```javascript
-const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
-const { LogsIngestionClient } = require("@azure/monitor-ingestion");
-
-require("dotenv").config();
-
-async function main() {
-  const logsIngestionEndpoint = process.env.LOGS_INGESTION_ENDPOINT || "logs_ingestion_endpoint";
-  const ruleId = process.env.DATA_COLLECTION_RULE_ID || "data_collection_rule_id";
-  const streamName = process.env.STREAM_NAME || "data_stream_name";
-  const credential = new DefaultAzureCredential();
-  const client = new LogsIngestionClient(logsIngestionEndpoint, credential);
-  const logs = [
-    {
-      Time: "2021-12-08T23:51:14.1104269Z",
-      Computer: "Computer1",
-      AdditionalContext: "context-2",
-    },
-    {
-      Time: "2021-12-08T23:51:14.1104269Z",
-      Computer: "Computer2",
-      AdditionalContext: "context",
-    },
-  ];
-  try{
-    await client.upload(ruleId, streamName, logs);
-  }
-  catch(e){
-    let aggregateErrors = isAggregateLogsUploadError(e) ? e.errors : [];
-    if (aggregateErrors.length > 0) {
-      console.log("Some logs have failed to complete ingestion");
-      for (const error of aggregateErrors) {
-        console.log(`Error - ${JSON.stringify(error.cause)}`);
-        console.log(`Log - ${JSON.stringify(error.failedLogs)}`);
+    ```javascript
+    const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
+    const { LogsIngestionClient } = require("@azure/monitor-ingestion");
+    
+    require("dotenv").config();
+    
+    async function main() {
+      const logsIngestionEndpoint = process.env.LOGS_INGESTION_ENDPOINT || "logs_ingestion_endpoint";
+      const ruleId = process.env.DATA_COLLECTION_RULE_ID || "data_collection_rule_id";
+      const streamName = process.env.STREAM_NAME || "data_stream_name";
+      const credential = new DefaultAzureCredential();
+      const client = new LogsIngestionClient(logsIngestionEndpoint, credential);
+      const logs = [
+        {
+          Time: "2021-12-08T23:51:14.1104269Z",
+          Computer: "Computer1",
+          AdditionalContext: "context-2",
+        },
+        {
+          Time: "2021-12-08T23:51:14.1104269Z",
+          Computer: "Computer2",
+          AdditionalContext: "context",
+        },
+      ];
+      try{
+        await client.upload(ruleId, streamName, logs);
       }
-    } else {
-      console.log(e);
+      catch(e){
+        let aggregateErrors = isAggregateLogsUploadError(e) ? e.errors : [];
+        if (aggregateErrors.length > 0) {
+          console.log("Some logs have failed to complete ingestion");
+          for (const error of aggregateErrors) {
+            console.log(`Error - ${JSON.stringify(error.cause)}`);
+            console.log(`Log - ${JSON.stringify(error.failedLogs)}`);
+          }
+        } else {
+          console.log(e);
+        }
+      }
     }
-  }
-}
-
-main().catch((err) => {
-  console.error("The sample encountered an error:", err);
-  process.exit(1);
-});
-```
+    
+    main().catch((err) => {
+      console.error("The sample encountered an error:", err);
+      process.exit(1);
+    });
+    ```
 
 1. Use NuGet to install the Azure Monitor Ingestion client library and the Azure Identify library which is required for the authentication used in this sample..
  
     ```bash
     dotnet add package Azure.Identity
     dotnet add package Azure.Monitor.Ingestion
-
+    ```
 
 ## [Java](#tab/java)
 
 
 
 ## [.Net](#tab/net)
-## .NET client library
 The following script uses the [Azure Monitor Ingestion client library for .NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme).
-
-
 
 1. Use NuGet to install the Azure Monitor Ingestion client library for .NET.
 
@@ -262,6 +265,54 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 
 
 2. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
+
+    ```dotnetcli
+    // Initialize variables
+    var endpoint = new Uri("<data_collection_endpoint_uri>");
+    var ruleId = "<data_collection_rule_id>";
+    var streamName = "<stream_name>";
+    
+    // Create credential and client
+    var credential = new DefaultAzureCredential();
+    LogsIngestionClient client = new(endpoint, credential);
+    
+    DateTimeOffset currentTime = DateTimeOffset.UtcNow;
+    
+    // Use BinaryData to serialize instances of an anonymous type into JSON
+    BinaryData data = BinaryData.FromObjectAsJson(
+        new[] {
+            new
+            {
+                Time = currentTime,
+                Computer = "Computer1",
+                AdditionalContext = new
+                {
+                    InstanceName = "user1",
+                    TimeZone = "Pacific Time",
+                    Level = 4,
+                    CounterName = "AppMetric1",
+                    CounterValue = 15.3
+                }
+            },
+            new
+            {
+                Time = currentTime,
+                Computer = "Computer2",
+                AdditionalContext = new
+                {
+                    InstanceName = "user2",
+                    TimeZone = "Central Time",
+                    Level = 3,
+                    CounterName = "AppMetric1",
+                    CounterValue = 23.5
+                }
+            },
+        });
+    
+    // Upload logs
+    Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
+    ```
+
 
 ---
 
