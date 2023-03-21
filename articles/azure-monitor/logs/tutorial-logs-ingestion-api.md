@@ -5,7 +5,7 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2023
-
+---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)
 The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
