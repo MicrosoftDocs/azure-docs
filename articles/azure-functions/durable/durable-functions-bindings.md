@@ -11,6 +11,24 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The [Durable Functions](durable-functions-overview.md) extension introduces three trigger bindings that control the execution of orchestrator, entity, and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
 
+::: zone pivot="programming-language-python" 
+
+> [!IMPORTANT]   
+> This article supports both Python v1 and Python v2 programming models for Durable Functions.  
+> The Python v2 programming model is currently in preview. 
+
+## Python v2 programming model
+
+Durable Functions provides preview support of the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. During the preview, you can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
+
+Using [Extension Bundles](./functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
+
+1. Remove the `extensionBundle` section of your `host.json` as described in [this Functions article](./functions-run-local.md#install-extensions).
+ 
+1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview.
+
+::: zone-end
+
 ## Orchestration trigger
 
 The orchestration trigger enables you to author [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). This trigger executes when a new orchestration instance is scheduled and when an existing orchestration instance receives an event. Examples of events that can trigger orchestrator functions include durable timer expirations, activity function responses, and events raised by external clients.
@@ -41,6 +59,8 @@ Azure Functions supports two programming models for Python. The way that you def
 # [v2](#tab/python-v2)
 The Python v2 programming model lets you define an orchestration trigger using the `orchestration_trigger` decorator directly in your Python function code. 
 
+In the v2 model, the Durable Functions triggers and bindings are accessed from an instance of `DFApp`, which is a subclass of `FunctionApp` that additionally exports Durable Functions-specific decorators. 
+
 # [v1](#tab/python-v1)
 When you write orchestrator functions in the Python v1 programming model, the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
 
@@ -57,10 +77,6 @@ When you write orchestrator functions in the Python v1 programming model, the or
 
 ---
 
-This article supports both Python programming models. 
-
-> [!IMPORTANT]   
-> The Python v2 programming model is currently in preview.  
 ::: zone-end    
 
 Internally, this trigger binding polls the configured durable store for new orchestration events, such as orchestration start events, durable timer expiration events, activity function response events, and external events raised by other functions.
