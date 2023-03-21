@@ -49,7 +49,7 @@
       - name: Architecture overview
         href: networking.md
       - name: Ingress
-        href: ingress-concept.md
+        href: ingress-overview.md
       - name: Deploy with an external environment
         href: vnet-custom.md
       - name: Deploy with an internal environment
@@ -105,7 +105,7 @@
       - name: Configure IP restrictions
         href: ip-restrictions.md
       - name: Add client certificates
-        href: client-certificate-authorization-howto.md
+        href: client-certificate-authorization.md
       - name: Configure traffic-splitting
         href: traffic-splitting.md
     - name: Custom domains and certificates

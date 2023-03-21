@@ -21,7 +21,7 @@ When you enable ingress, you have the following options:
 - Target port: The port your container listens to for incoming requests
 - Access restrictions: [Restrict access to your app by IP address](ip-restrictions.md)
 - Allow insecure traffic to your app
-- [Client certificate](client-certificate-authorization-howto.md) mode for mTLS authentication
+- [Client certificate](client-certificate-authorization.md) mode for mTLS authentication
 
 ## Ingress settings
 

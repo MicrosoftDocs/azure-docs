@@ -7,46 +7,23 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 03/20/2023
 ms.author: cshoe
+zone_pivot_groups: arm-azure-cli-portal
 ---
 
 # Traffic splitting in Azure Container Apps
 
-By default, when ingress is enabled all traffic is routed to the latest deployed revision. When you enable [multiple revision mode](revisions.md#revision-modes) in your container app, you can split incoming traffic between active revisions.  
+By default, when ingress is enabled, all traffic is routed to the latest deployed revision. When you enable [multiple revision mode](revisions.md#revision-modes) in your container app, you can split incoming traffic between active revisions.  
 
 Traffic splitting is useful for testing updates to your container app.  You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](https://martinfowler.com/bliki/BlueGreenDeployment.html) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 
 Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision.  The combined weight of all traffic split rules must equal 100%.  You can specify revision by revision name or [revision label](revisions.md#revision-labels).
 
-This article shows you how to configure traffic splitting rules for your container app.
+This article shows you how to configure traffic splitting rules for your container app. 
+To run the following examples you need a container app with multiple revisions.  
 
 ## Configure traffic splitting
 
-You can configure traffic splitting rules using the Azure portal, Azure CLI, or ARM template.
-
-
-```json
-{
-  ...
-  "configuration": {
-    "ingress": {
-      "external": true,
-      "targetPort": 80,
-      "allowInsecure": false,
-      "traffic": [
-        {
-          "revisionName": "my-example-app--5g3ty20",
-          "weight": 50
-        },
-        {
-          "revisionName": "my-example-app--qcfkbsv",
-          "weight": 50
-        }
-      ]
-    },
-  },
-```
-
-# [Azure CLI](#tab/azure-cli)
+::: zone-pivot=azure-cli
 
 Configure traffic splitting between revisions using the `az containerapp ingress traffic set` command.
 
@@ -71,12 +48,25 @@ az containerapp ingress traffic set \
 
 ```
 
-# [Portal](#tab/portal)
+::: zone-end
 
+::: zone-pivot=azure-portal
 
+1. Go to your container app in the [Azure portal](https://portal.azure.com). 
+1. Select **Revision management** from the left-hand menu.
+1. If the revision mode is *Single*, set multiple revision mode.
+    1. Select **Choose revision mode**. **Multiple revision mode**.
+    1. Select **Multiple: Several revisions active simultaneously**.
+    1. Select **Apply**.
+    1. Wait for the **Revision Mode** to update to **Multiple**.
+1. Select **Show inactive revisions**.
+1. Select **Active** for the revision you want to route traffic to.
+1. Enter the percentage of traffic you want to route to the revision in the **Traffic** column. The combined percentage of all traffic must equal 100%.
+1. Select **Save**.
 
+::: zone-end
 
-# [ARM template](#tab/arm-template)
+::: zone-pivot=azure-resource-manager
 
 Enable traffic splitting by setting the `ingress` settings in your container ARM template.
 
@@ -148,11 +138,11 @@ The following example shows traffic splitting between two revision labels:
   },
 ```
 
----
+::: zone-end
 
 ## Use cases
 
-The following scenarios describe configuration settings for common use cases.
+The following scenarios describe configuration settings for common use cases.  The examples are shown in JSON format, but you can also use the Azure portal or Azure CLI to configure traffic splitting.
 
 ### Rapid iteration
 

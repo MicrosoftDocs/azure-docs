@@ -12,11 +12,11 @@ ms.author: cshoe
 # Ingress in Azure Container Apps
 
 
-Azure Container Apps allows you to expose your container app to the public web, your VNET, and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
+Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
 
 Ingress supports:
 
-- Public and private ingress
+- [Public and private ingress](#ingress-type)
 - [HTTPS and TCP ingress types](#ingress-type)
 - [Fully qualified domain names (FQDNs)](#fully-qualified-domain-name)
 - [HTTP Headers](#http-headers)
@@ -24,22 +24,24 @@ Ingress supports:
 - [IP restrictions](#ip-restrictions)
 - [Ingress authentication](#ingress-authentication)
 
-
 > [!NOTE]
 > Add diagram here,  Talked with Anthony about this.  He thought that we should consult Sanchit.  I think that we should have a diagram that shows the ingress options and how they work together.
 
-Each container app can be configured with different ingress settings. For example, you can have one container app that is exposed to the public web and another that is only accessible from within your Container Apps environment.
 
-## Ingress type
+For configuration details, see [Configure ingress](ingress.md).
 
-You can either enable external or internal ingress for your container app. 
+## Public and private ingress
+
+When you enable ingress, you choose whether ingress to your container app is public (external) or private (internal).  
 
 - External: Allows public access to your container app.
-- Internal: Allows access only from within your Container Apps environment's private virtual network (VNET) to your container app.
+- Internal: Allows access only private access to your container app from within environment's internal VNET.
+
+Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you may have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
 ## Protocol types
 
-Container Apps supports two types of ingress: HTTP and TCP.
+Container Apps supports two protocols for ingress: HTTP and TCP.
 
 ### HTTP
 
@@ -49,7 +51,7 @@ With HTTP ingress enabled, your container app has:
 - Support for HTTP/1.1 and HTTP/2
 - Support for  WebSocket and gRPC
 - HTTPS endpoints that always use TLS 1.2, terminated at the ingress point
-- Endpoints that always expose ports 80 (for HTTP) and 443 (for HTTPS)
+- Endpoints that always expose port 80 (for HTTP) and 443 (for HTTPS)
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
 - A fully qualified domain name (FQDN)
 - Request timeout is 240 seconds
@@ -74,15 +76,15 @@ The header is added to an HTTP request or response using a *name: value* format.
 
 ### <a name="tcp"></a>TCP (preview) 
 
-TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
+Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
 > TCP ingress is in public preview and is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
 
 With TCP ingress enabled, your container app:
 
-- The container app is accessed via its fully qualified domain name (FQDN) and exposed port number.
-- Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property in the Container Apps resource) and exposed port number.
+- Has a fully qualified domain name (FQDN) and public-facing port numbers.
+- Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 
 ## DNS
 
@@ -93,7 +95,7 @@ You can configure a custom DNS domain for your Container Apps environment.  For 
 For VNET-scope ingress, you can configure:
 
 - a custom DNS domain in your Container Apps environment
-- a non-custom domain with Azure Private
+- a noncustom domain with Azure Private
 
 ### Automatic fully qualified domain names
 
@@ -110,6 +112,9 @@ For HTTP ingress, traffic is routed to individual applications based on the FQDN
 
 For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the container app's `name` property) and its `exposedPort` number.
 
+>[!NOTE]
+> I need clarification on the following:
+
 For applications with external ingress visibility, the following conditions apply:
 
 - An internal Container Apps environment has a single private IP address for applications. For container apps in internal environments, you must configure [DNS](./networking.md#dns) for VNET-scope ingress.
@@ -121,7 +126,13 @@ You can get access to the environment's unique identifier by querying the enviro
 
 ## IP restrictions
 
-Container Apps supports IP restrictions for ingress. You can restrict access to your container app by specifying a list of IP addresses or IP address ranges.  For more information, see [Configure IP restrictions](ip-restrictions.md).
+Container Apps supports IP restrictions for ingress. You can create rules to either configure IP addresses that are allowed or denied access to your container app. 
+
+- When you create *allow* rules, only the specified IP addresses have access to your app.
+- When you create *deny* rules, only the specified IP addresses are denied access to your app.  
+- Container Apps doesn't support both *allow* and *deny* rules for the same container app.
+
+For more information, see [Configure IP restrictions](ip-restrictions.md).
 
 ## Ingress authentication
 
@@ -129,22 +140,9 @@ Azure Container Apps provides built-in authentication and authorization features
 
 You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificates.md).
 
-## Ingress configuration
-
-When you enable ingress, you configure the following options:
-
-- Public and private ingress
-- Transport type: HTTPS or TCP
-- Authentication: Enable authentication for your app
-- Access restrictions: Restrict access to your app by IP address
-- Allow insecure traffic to your app
-- Traffic splitting: Split traffic between revisions of your app
-
-For configuration details, see [Configure ingress](ingress.md).
-
 ## Traffic splitting
 
-Containers Apps allows you to split incoming traffic between active revisions.  The rules are based on the percent of traffic going to each revision.  For more information, see [Traffic splitting](traffic-splitting.md).
+Containers Apps allows you to split incoming traffic between active revisions.  When you define a splitting rule, you assign the percentage of inbound traffic to go to different revisions.  For more information, see [Traffic splitting](traffic-splitting.md).
 
 ## Next steps
 
