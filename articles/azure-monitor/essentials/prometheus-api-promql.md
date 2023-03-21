@@ -115,14 +115,15 @@ Examples:
 POST https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query  
 --header 'Authorization:  Bearer <access token>'
 --header 'Content-Type: application/x-www-form-urlencoded' 
---data-urlencode 'query=sum(
-    container_memory_working_set_bytes 
-    * on(namespace,pod)
-    group_left(workload, workload_type) namespace_workload_pod:kube_pod_owner:relabel{ workload_type="deployment"}) by (pod)'
+--data-urlencode 'query=sum( \
+    container_memory_working_set_bytes \
+    * on(namespace,pod) \
+    group_left(workload, workload_type) \
+    namespace_workload_pod:kube_pod_owner:relabel{ workload_type="deployment"}) by (pod)'
 
 ```
 ```
-GET https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query?api-version=2021-06-03-preview&query=container_memory_working_set_bytes' 
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query?query=container_memory_working_set_bytes' 
 --header 'Authorization:  Bearer <access token>'
 ```
 ### Range queries
@@ -130,17 +131,17 @@ For more information, see [Range queries](https://prometheus.io/docs/prometheus/
 Path: `/api/v1/query_range`  
 Examples:
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range?api-version=2021-06-03-preview&query=container_memory_working_set_bytes&start=2023-03-01T20%3A10%3A30.781Z&end=2023-03-20T20%3A11%3A00.781Z&step=6h' \
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range?query=container_memory_working_set_bytes&start=2023-03-01T00:00:00.000Z&end=2023-03-20T00:00:00.000Z&step=6h'
 --header 'Authorization: Bearer <access token>
 ```
 
 ``` 
-POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range?api-version=2021-06-03-preview' 
+POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range' 
 --header 'Authorization:  Bearer <access token>'
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'query=up' \
---data-urlencode 'start=2023-03-01T20:10:30.781Z' \
---data-urlencode 'end=2023-03-20T20:10:30.781Z' \
+--header 'Content-Type: application/x-www-form-urlencoded' 
+--data-urlencode 'query=up' 
+--data-urlencode 'start=2023-03-01T20:10:30.781Z' 
+--data-urlencode 'end=2023-03-20T20:10:30.781Z' 
 --data-urlencode 'step=6h'
 ```
 ### Series
@@ -149,16 +150,14 @@ For more information, see [Series](https://prometheus.io/docs/prometheus/latest/
 Path: `/api/v1/series`  
 Examples:
 ```
-POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series?api-version=2021-06-03-preview' 
+POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series' 
 --header 'Authorization: Bearer <access token>
 --header 'Content-Type: application/x-www-form-urlencoded' 
---data-urlencode 'match%5B%5D=container_network_receive_bytes_total'
 --data-urlencode 'match%5B%5D=kube_pod_info{pod="bestapp-123abc456d-4nmfm"}'
 
 ```
-
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series?api-version=2021-06-03-preview&match[]=container_network_receive_bytes_total&match[]=kube_pod_info{pod="bestapp-123abc456d-4nmfm"}'
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series?match[]=container_network_receive_bytes_total{namespace="default-1669648428598"}'
 ```
 
 ### Labels
@@ -167,18 +166,16 @@ For more information, see [Labels](https://prometheus.io/docs/prometheus/latest/
 Path: `/api/v1/labels`  
 Examples:
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels?api-version=2021-06-03-preview'
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels'
 
 ```
-
 ```
-POST
-'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels?api-version=2021-06-03-preview'
+POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels'
 ```
 
 ### Label values
 For more information, see [Label values](https://prometheus.io/docs/prometheus/latest/querying/api/#query.ing-label-values)  
-Path: `/api/v1/label/\_\_name\_\_/values.`  
+Path: `/api/v1/label/__name__/values.`  
 
 
 > [!NOTE]  
@@ -186,7 +183,7 @@ Path: `/api/v1/label/\_\_name\_\_/values.`
 
 Example:
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values?api-version=2021-06-03-preview'
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values'
 ```
 
 For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
@@ -194,17 +191,21 @@ For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://p
 ## API limitations
 (differing from prom specification)
 + Query must be scoped to metric  
-    Any time series fetch queries (/series or /query or /query_range) must contain name label matcher. That is, each query must be scoped to a metric. There can only be one name label matcher in a query.
+    Any time series fetch queries (/series or /query or /query_range) must contain \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
 + Supported time range  
     + /query_range API supports a time range of 32 days. This is the maximum time range allowed including range selectors specified in the query itself.
-    For example, the query `rate(http_requests_total[5m]` for last 24 hours would actually mean data is being queried for 25 hours. A 24 hours range + 1 hour specified in query itself.
-    + /series API fetches data for a maximum 12-hour time range. If `endTime` isn't provided, endTime = time.now(). If yhr time rage is greater than 12 hours, the `startTime` is set to `endTime – 12h`
+    For example, the query `rate(http_requests_total[1h]` for last 24 hours would actually mean data is being queried for 25 hours. A 24 hours range + 1 hour specified in query itself.
+    + /series API fetches data for a maximum 12-hour time range. If `endTime` isn't provided, endTime = time.now(). If the time rage is greater than 12 hours, the `startTime` is set to `endTime – 12h`
 + Ignored time range  
-    Start time and end time provided with /labels and /label/name/values are ignored, and all retained data in the Azure Monitor Workspace is queried.
+    Start time and end time provided with `/labels` and `/label/__name__/values` are ignored, and all retained data in the Azure Monitor Workspace is queried.
 + Experimental features  
     Experimental features such as exemplars aren't supported.
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
->[!NOTE]
-> Some of the limits can be increased. Please contact [PromWebApi](mailto:promwebapi@microsoft.com) to request an increase for these limits on your Azure Monitor workspace.
+## Next Steps
+
+[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)
+[Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)
+[Overview of Azure Monitor Managed Service for Prometheus (preview)](./prometheus-metrics-overview.md)
+[Query Prometheus metrics using Azure workbooks (preview)](./prometheus-workbooks.md)
