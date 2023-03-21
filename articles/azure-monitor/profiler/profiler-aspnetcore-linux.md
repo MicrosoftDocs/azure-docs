@@ -62,7 +62,8 @@ In this guide, you'll:
         {
             services.AddApplicationInsightsTelemetryWorkerService();
             services.AddServiceProfiler();
-    
+            
+            // Assuming Worker is your background service class.
             services.AddHostedService<Worker>();
         })
         .Build();
