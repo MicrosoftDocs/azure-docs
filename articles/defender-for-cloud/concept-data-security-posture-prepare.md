@@ -15,15 +15,10 @@ Review the requirements on this page before setting up [data-aware security post
 
 Data-aware security posture is available in the Defender CSPM and Defender for Storage plans.
 
-- When you enable a plan, the Sensitive Data Discovery extension is turned on by default.
-- If you have existing plans running, data-aware security posture will be available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on.
-- You can turn the feature on and off manually for a plan.
+- When you enable one of the plans, the Sensitive Data Discovery extension is turned on by default in the plan.
+- If you have existing plans running, the extension will be available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on manually.
+- The feature is turned on at the subscription level.
 
-Note that:
-
-- Since the feature is at subscription level, turning it on and off will turn the feature on/off in both plans.
-    - It's important to note that turning on the feature doesn’t turn on the plan itself.
-    - Turning the feature on in one plan does not turn it on in the other plan. It’s enabled separately in each plan.
 
 ## What's supported
 
@@ -38,16 +33,15 @@ What AWS regions are supported? | US East (Ohio); US East (N Virginia); US West 
 Do I need to install an agent? | No, scanning is agentless.
 What's the cost? | The feature is included with each plan, and doesn’t include additional costs outside the respective plan costs.
 
-## Data sensitivity settings
+## Configuring data sensitivity settings
 
 Data sensitivity settings allow you to define what you consider sensitive data in your organization. Defender for Cloud uses the same sensitive information types provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
 
-- Sensitivity settings in Defender for Cloud are set at the Azure tenant level.
-- Default sensitivity settings are applied to all subscriptions in the tenant when the [Defender for Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan, or the Defender for Storage v2 plan is enabled.  
+Sensitivity settings in Defender for Cloud are set at the Azure tenant level, and are applied to all subscriptions in the tenant when the sensitive data discovery extension is enabled.
 
-### Modifying sensitivity types
+## Setting resource sensitivity
 
-You can modify Defender for Cloud's built-in sensitivity settings in a tenant. Note that:
+You can modify Defender for Cloud's built-in sensitivity settings. Note that:
 
 To modify default sensitive information types you need one of these permissions:
     - Global Administrator

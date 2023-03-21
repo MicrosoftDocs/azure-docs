@@ -48,12 +48,16 @@ Defender for Cloud uses smart sampling to scan a selected number of files in you
 
 ## Data sensitivity settings
 
-Data sensitivity settings allow you to define what's considered sensitive data in your organization. Defender for Cloud uses the same sensitive information types as those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
+Data sensitivity settings define what's considered sensitive data in your organization. Defender for Cloud uses the same sensitive information types as those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
 
-Defender for Cloud turns on some built-in sensitive information types by default. You can modify these types in line with your business needs.
+Defender for Cloud turns on some built-in sensitive information types by default (finance, PII, and credentials). You can modify these settings as needed.
 
-If you're using Microsoft Purview, you can add custom sensitive information types that you've defined in the Purview portal. In addition, if you're automatically assigning Microsoft Purview sensitivity labels to resources, you can integrate those into Defender for Cloud.
+:::image type="content" source=".media/data-sensitivity.png" alt-text="Steps to recover from identity compromise.":::
 
+If you're using Microsoft Purview, you can add custom sensitive information types that you've defined in the Purview portal. 
+
+You can set sensitivity label thresholds.
+In addition, if you're using Microsoft Purview automatic labelling rules to assign labels to files based on specific conditions, you can set sensitivity label thresholds in Defender for Cloud. Resources with labels above the specified threshold are considered sensitive.
 
 ## Next steps
 
