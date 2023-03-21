@@ -32,6 +32,8 @@ This article describes how to create a Network Fabric by using the Azure Command
 | resource-name | Name of the FabricResource | NF-Lab1 |True | String |
 | nf-sku  |Fabric SKU ID, based on the ordered SKU of the BoM. Contact AFO team for specific SKU value for the BoM | M8-A400-A100-C16-aa |True | String|
 | nfc-id |Network Fabric Controller ARM resource ID| |True | String |
+| rack-count |Total number of aggregation and compute racks | 9 |True | Integer |
+| server-count-per-rack |Total number of worker nodes per rack| 16 |True | Integer |
 ||
 |**managed-network-config**| Details of management network ||True ||
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 not allowed, /18 and lower allowed) | 10.246.0.0/19|True | String |
