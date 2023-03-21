@@ -1,5 +1,5 @@
 ---
-title: Configure PIM for Groups settings (preview) - Azure Active Directory
+title: Configure PIM for Groups settings (preview)
 description: Learn how to configure PIM for Groups settings (preview).
 services: active-directory
 documentationcenter: ''

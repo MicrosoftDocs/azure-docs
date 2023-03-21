@@ -190,6 +190,8 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server usi
 
 ### CLI:
 
+The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation.
+
 Prerequisites:
 
 - You must have an Azure subscription and be an administrator on that subscription.
@@ -220,45 +222,7 @@ az keyvault set-policy -g <resource_group> -n <vault_name>  --object-id $identit
 ```azurecli-interactive
 az postgres flexible-server create -g <resource_group> -n <postgres_server_name> --location <azure_region>  --key $keyIdentifier --identity <identity_name>
 ```
-## Update Customer Managed Key on the CMK enabled Flexible Server
 
-### Portal
-
-Prerequisites:
-
-- Azure Active Directory (Azure AD) user-managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
-
-- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key.
-
-Follow the steps below to update CMK on CMK enabled Flexible Server using Azure portal:
-
-1. Navigate to Azure Database for PostgreSQL - Flexible Server create a page via the Azure portal.
-
-1. Navigate to Data Encryption screen under Security tab
-
-1. Select different identity to connect to Azure Key Vault, remembering that this identity needs to have proper access rights to the Key Vault
-
-1. Select different key by choosing subscription, Key Vault and key from dropdowns provided.
-
-
-### CLI
-
-The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation.
-
-
-Prerequisites:
-- You must have an Azure subscription and be an administrator on that subscription.
-- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
-
-Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
-1. Change key/identity  for data encryption for existing server, first lets get new key identifier
-```azurecli-interactive
- newKeyIdentifier=$(az keyvault key show --vault-name <vault_name> --name <key_name>  --query key.kid -o tsv)
-```
-2. Update server with new key and\or identity
-```azurecli-interactive
-  az postgres flexible-server update --resource-group <resource_group> --name <server_name> --key $newKeyIdentifier --identity <identity_name>
-```
 
 ### Azure Resource Manager (ARM)
 ARM templates are a form of infrastructure as code, a concept where you define the infrastructure you need to be deployed.
@@ -268,7 +232,7 @@ Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
 
-Following is an example Azure ARM template that creates server with Customer MANAGED kEY (CMK) based encryption as defined in *dataEncryptionData* section of ARM template
+Following is an example Azure ARM template that creates server with Customer Managed Key (CMK) based encryption as defined in *dataEncryptionData* section of ARM template
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -597,6 +561,47 @@ Following is an example Azure ARM template that creates server with Customer MAN
     ]
 }
 ```
+## Update Customer Managed Key on the CMK enabled Flexible Server
+
+### Portal
+
+Prerequisites:
+
+- Azure Active Directory (Azure AD) user-managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
+
+- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key.
+
+Follow the steps below to update CMK on CMK enabled Flexible Server using Azure portal:
+
+1. Navigate to Azure Database for PostgreSQL - Flexible Server create a page via the Azure portal.
+
+1. Navigate to Data Encryption screen under Security tab
+
+1. Select different identity to connect to Azure Key Vault, remembering that this identity needs to have proper access rights to the Key Vault
+
+1. Select different key by choosing subscription, Key Vault and key from dropdowns provided.
+
+
+### CLI
+
+The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation.
+
+
+Prerequisites:
+- You must have an Azure subscription and be an administrator on that subscription.
+- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+
+Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
+1. Change key/identity  for data encryption for existing server, first lets get new key identifier
+```azurecli-interactive
+ newKeyIdentifier=$(az keyvault key show --vault-name <vault_name> --name <key_name>  --query key.kid -o tsv)
+```
+2. Update server with new key and\or identity
+```azurecli-interactive
+  az postgres flexible-server update --resource-group <resource_group> --name <server_name> --key $newKeyIdentifier --identity <identity_name>
+```
+
+
 
 
 

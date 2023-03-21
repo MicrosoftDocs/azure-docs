@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD Multi-Factor Authentication with NPS - Azure Active Directory
+title: Use Azure AD Multi-Factor Authentication with NPS
 description: Learn how to use Azure AD Multi-Factor Authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
 
 services: multi-factor-authentication
