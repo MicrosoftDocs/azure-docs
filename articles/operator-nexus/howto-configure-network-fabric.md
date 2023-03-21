@@ -5,7 +5,7 @@ author: surajmb #Required
 ms.author: surmb #Required
 ms.service: azure  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
+ms.date: 03/23/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -15,10 +15,10 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 ## Prerequisites
 
-* A Network Fabric Controller exists -- add link in your Azure account.
+* A Network Fabric Controller is successfully provisioned.
   * A Network Fabric Controller instance in Azure manages multiple Network Fabric Resources.
   * You can reuse a pre-existing Network Fabric Controller.
-* Physical infrastructure installed and cabled as per BoM.
+* Physical infrastructure installed and cabled as per BOM.
 * ExpressRoute connectivity established between the Azure region and your WAN (your networking).
 * The needed VLANs, Route-Targets and IP addresses configured in your network.
 * Terminal Server [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
@@ -29,7 +29,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 |-----------------------------------------------|---| ---|----|------------|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True | String |
 | location | Location of Azure region | "eastus" |True | String |
-| resource-name | Name of the FabricResource | Austin-Fabric |True | String |
+| resource-name | Name of the FabricResource | NF-Lab1 |True | String |
 | nf-sku  |Fabric SKU ID, based on the ordered SKU of the BoM. Contact AFO team for specific SKU value for the BoM | M8-A400-A100-C16-aa |True | String|
 | nfc-id |Network Fabric Controller ARM resource ID| |True | String |
 ||
