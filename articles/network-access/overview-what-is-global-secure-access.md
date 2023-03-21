@@ -1,6 +1,6 @@
 ---
-title: What is Entra Global Secure Access?
-description: Entra Global Secure Access provides control and visibility in an Internet first world. The concept is often referred to as Network as a Service (NaaS).
+title: What is Global Secure Access?
+description: Global Secure Access provides control and visibility in an Internet first world. The concept is often referred to as Network as a Service (NaaS).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# What is Entra Global Secure Access?
+# What is Global Secure Access?
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

@@ -1,6 +1,6 @@
 ---
 title: How to configure devices
-description: Learn how to configure devices for Entra Global Secure Access.
+description: Learn how to configure devices for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Learn how to configure devices for Entra Global Secure Access
+# Learn how to configure devices for Global Secure Access
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
