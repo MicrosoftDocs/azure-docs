@@ -15,7 +15,7 @@ Workspace-based resources:
 > [!div class="checklist"]
 > - Support full integration between Application Insights and [Log Analytics](../logs/log-analytics-overview.md).
 > - Send Application Insights telemetry to a common [Log Analytics workspace](../logs/log-analytics-workspace-overview.md).
-> - - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location.
+> - Allow you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a consolidated location.
 > - Enable common [Azure role-based access control](../../role-based-access-control/overview.md) across your resources.
 > - Eliminate the need for cross-app/workspace queries.
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
@@ -797,4 +797,3 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
-
