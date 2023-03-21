@@ -44,27 +44,19 @@ In this guide, you'll:
 1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
 
     ```csharp
-    public void ConfigureServices(IServiceCollection services)
+   .ConfigureServices(services =>
     {
-        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
-        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddControllersWithViews();
-    }
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.AddServiceProfiler();
+
+        services.AddHostedService<Worker>();
+    })
     ```
 
-1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
+1. In the worker file of your project (for example, `Worker.cs`), add a line of code to randomly delay a few seconds:
 
     ```csharp
-    using System.Threading;
-    ...
-
-    public IActionResult About()
-        {
-            Random r = new Random();
-            int delay = r.Next(5000, 10000);
-            Thread.Sleep(delay);
-            return View();
-        }
+    await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
     ```
 
 1. Save and commit your changes to the local repository:
