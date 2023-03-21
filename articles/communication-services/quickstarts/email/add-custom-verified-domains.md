@@ -59,7 +59,7 @@ To provision a custom domain you need to
 
 9. You can verify the ownership of the domain by clicking **Verify Domain** 
 
-    :::image type="content" source="./media/email-domains-custom-added.png" alt-text="Screenshot that shows that custom domain is successfully added for verification.":::.
+    :::image type="content" source="./media/email-domains-custom-added.png" alt-text="Screenshot that shows custom domain is successfully added for verification.":::.
 
 10. If you would like to resume the verification later, you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** .
 
