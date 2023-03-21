@@ -464,6 +464,9 @@
       - name: Simplify interpolation
         displayName: linter
         href: linter-rule-simplify-interpolation.md
+      - name: Simplify JSON null
+        displayName: linter
+        href: linter-rule-simplify-json-null.md
       - name: Use explicit values for module location parameters
         displayName: linter
         href: linter-rule-explicit-values-for-loc-params.md
