@@ -32,7 +32,7 @@ The previous tutorial used the Azure Cloud Shell as the shell for the Azure CLI.
 
 The tutorial shows how to pass the user credential provided by the frontend app to the backend app then on to an Azure service. In this tutorial, the downstream service is Microsoft Graph. The user's credential is used to get their profile from Microsoft Graph. 
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="../media/tutorial-connect-app-app-graph-javascript/architecture-app-to-app-to-graph.png" alt-text="Architectural image of App Service connecting to App Service connecting to Microsoft Graph on behalf of a signed-in user.":::
 
 **Authentication flow** for a user to get Microsoft Graph information in this architecture:
 
@@ -67,7 +67,7 @@ In this tutorial, in order to read user profile from Microsoft Graph, the back-e
     :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/azure-portal-authentication-app-api-permission-admin-consent-area.png" alt-text="Screenshot of Azure portal authentication app with admin consent button highlighted.":::
 
 1. In the pop-up window, select **Yes** to confirm the consent. 
-1. Verify the **Status** column says **Granted for Default Directory**. With this setting, the back-end app is no longer required to show a consent screen to the signed-in user and can directly request an access token. The signed-in user will have access to the `User.Read` scope setting because that is the default scope with which the app registration is created. 
+1. Verify the **Status** column says **Granted for Default Directory**. With this setting, the back-end app is no longer required to show a consent screen to the signed-in user and can directly request an access token. The signed-in user has access to the `User.Read` scope setting because that is the default scope with which the app registration is created. 
 
     :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/azure-portal-authentication-app-api-permission-admin-consent-granted.png" alt-text="Screenshot of Azure portal authentication app with admin consent granted in status column.":::
 
