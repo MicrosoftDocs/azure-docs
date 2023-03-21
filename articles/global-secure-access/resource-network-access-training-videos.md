@@ -1,5 +1,5 @@
 ---
-title: Entra Global Secure Access training videos
+title: Global Secure Access training videos
 description: Training videos for Entra Global Secure Access.
 author: kenwith
 ms.author: kenwith
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Entra Global Secure Access Training Videos
+# Global Secure Access Training Videos
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

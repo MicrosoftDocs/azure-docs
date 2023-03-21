@@ -1,6 +1,6 @@
 ---
-title: How to use enriched Office 365 logs
-description: Learn how to use enriched Office 365 logs for Entra Global Secure Access.
+title: How to define quick access ranges
+description: Learn how to define quick access ranges for Entra Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Learn how to use enriched Office 365 logs for Entra Global Secure Access
+# Learn how define quick access ranges for Global Secure Access
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

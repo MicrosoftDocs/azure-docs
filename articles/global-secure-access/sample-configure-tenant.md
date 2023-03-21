@@ -1,11 +1,11 @@
 ---
-title: How to use admin audit logging
-description: Learn how to use admin audit logging for Entra Global Secure Access.
+title: Sample - Configure Tenant for Global Secure Access
+description: Use PowerShell to configure a tenant for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
-ms.topic: how-to
-ms.date: 03/16/2023
+ms.topic: overview
+ms.date: 02/08/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -16,14 +16,14 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Learn how to use admin audit logging for Entra Global Secure Access
+# Sample - Use PowerShell to configure a tenant for Global Secure Access
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
 fundamental “why would I want to know this?” question. Keep it short.
 -->
 
-A l
+A 
 
 <!-- 3. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
