@@ -47,9 +47,9 @@ Starting February 1st, we’re excited to announce a 40% price reduction on the 
 
 This change will be implemented automatically, and customers who already have Azure discounts will continue to receive them in addition to the new pricing.
 
-|                        | **Basic Audio Analysis** | **Standard Audio Analysis** | **Advanced Audio Analysis** | **Standard Video Analysis** | **Advanced Video Analysis** |
-|----------------------- | ------------------------ | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| Per input minute       | $0.0126                  | $0.024                      | $0.04                       | $0.09                       | $0.15                       |
+|**Charge** | **Basic Audio Analysis** | **Standard Audio Analysis** | **Advanced Audio Analysis** | **Standard Video Analysis** | **Advanced Video Analysis** |
+|--------------------- | ------------ | ---------------- | --------------------------- | --------------------------- | --------------------------- |
+| Per input minute     | $0.0126      | $0.024           | $0.04                       | $0.09                       | $0.15               |
 
 ### Network Service Tag
 
