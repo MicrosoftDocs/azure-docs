@@ -436,7 +436,7 @@ roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
 # [Portal](#tab/azure-portal)
 
-For a portal definition, the group ID and role ID are part of the deployment steps.
+In the portal, the group ID and role ID are configured when you publish the managed application definition.
 
 ---
 
