@@ -346,28 +346,6 @@ After the DCR has been created, the application needs to be given permission to 
 See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md) for sample code using the components created in this tutorial.
 
 
-
-## Troubleshooting
-This section describes different error conditions you might receive and how to correct them.
-
-### Script returns error code 403
-Ensure that you have the correct permissions for your application to the DCR. You might also need to wait up to 30 minutes for permissions to propagate.
-
-### Script returns error code 413 or warning of TimeoutExpired with the message ReadyBody_ClientConnectionAbort in the response
-The message is too large. The maximum message size is currently 1 MB per call.
-
-### Script returns error code 429
-API limits have been exceeded. For information on the current limits, see [Service limits for the Logs Ingestion API](../service-limits.md#logs-ingestion-api).
-
-### Script returns error code 503
-Ensure that you have the correct permissions for your application to the DCR. You might also need to wait up to 30 minutes for permissions to propagate.
-
-### You don't receive an error, but data doesn't appear in the workspace
-The data might take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.
-
-### IntelliSense in Log Analytics doesn't recognize the new table
-The cache that drives IntelliSense might take up to 24 hours to update.
-
 ## Next steps
 
 - [Complete a similar tutorial using the Azure portal](tutorial-logs-ingestion-portal.md)
