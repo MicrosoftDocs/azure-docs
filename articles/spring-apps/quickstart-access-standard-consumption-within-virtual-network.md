@@ -16,13 +16,13 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article describes how to access your application in a virtual network using Azure Spring Apps Standard Consumption plan.
+This article describes how to access your application in a virtual network using Azure Spring Apps Standard consumption plan.
 
 When you create an Azure Container Apps environment in an existing virtual network, you can access all the apps inside the environment only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps environment, you can access the applications in the Azure Spring Apps instance only from the virtual network. For more information, see [Provide a virtual network to an internal Azure Container Apps environments](/azure/container-apps/vnet-custom-internal?tabs=bash&pivots=azure-portal).
 
 ## Create a private DNS zone
 
-Create a private DNS zone named as the Azure Container App environment’s default domain `<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`, with an A record.
+Create a private DNS zone named as the default domain of the Azure Container Apps environment - `<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io` - with an A record.
 
 Use the following command to get the default domain of Azure Container Apps environment.
 

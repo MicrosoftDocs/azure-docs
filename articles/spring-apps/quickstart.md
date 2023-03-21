@@ -204,7 +204,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location ${LOCATION}
    ```
 
-1. An Azure Container App environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). To create the environment, run the following command:
+1. An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). To create the environment, run the following command:
 
    ```azurecli-interactive
    az containerapp env create \
