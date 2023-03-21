@@ -36,7 +36,7 @@ There are two ways to use machine learning in Azure Monitor Logs:
 - Running the built-in machine learning capabilities of the Kusto Query Language to detect and analyze anomalies directly inside a Log Analytics workspace.
 - Training and running your own machine learning anomaly detection models on data in a Log Analytics workspace by integrating an external tool or service.   
 
-||KQL operators and functions |Write your own machine learning|
+||Built-in KQL machine learning for log analysis in Azure Monitor Logs |Write your own machine learning|
 |-|-|-|
 |**Scenario**|- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :x: |- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :white_check_mark:|
 |**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
