@@ -284,7 +284,7 @@ However, users still need to carry out day to day privileged operations, so enfo
 
 ### Reporting and monitoring
 
-Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Application Proxy also makes it very easy to monitor connectors from the Azure AD portal and Windows Event Logs.
+Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Application Proxy also makes it very easy to monitor connectors from the Azure portal and Windows Event Logs.
 
 #### Application audit logs
 
@@ -292,7 +292,7 @@ These logs provide detailed information about logins to applications configured 
 
 #### Application Proxy Connector monitoring
 
-The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure AD Portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
+The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
 
 ![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 

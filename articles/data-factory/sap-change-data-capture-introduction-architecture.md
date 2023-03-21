@@ -25,7 +25,7 @@ Azure Data Factory is an ETL and ELT data integration platform as a service (Paa
 
 The SAP connectors in Data Factory extract SAP source data only in batches. Each batch processes existing and new data the same. In data extraction in batch mode, changes between existing and new datasets aren't identified. This type of extraction mode isn’t optimal when you have large datasets like tables that have millions or billions of records that change often.
 
-You can keep your copy of SAP data fresh and up-to-date by frequently extracting the full dataset, but this approach is expensive and inefficient. You also can use a manual, limited workaround to extract mostly new or updated records. In a process called *watermarking*, extraction requires using a timestamp column, monotonously increasing values, and continuously tracking the highest value since the last extraction. But some tables don't have a column that you can use for watermarking. This process also doesn't identify a deleted record as a change in the dataset.
+You can keep your copy of SAP data fresh and up-to-date by frequently extracting the full dataset, but this approach is expensive and inefficient. You also can use a manual, limited workaround to extract mostly new or updated records. In a process called *watermarking*, extraction requires using a timestamp column, monotonically increasing values, and continuously tracking the highest value since the last extraction. But some tables don't have a column that you can use for watermarking. This process also doesn't identify a deleted record as a change in the dataset.
 
 ## SAP CDC capabilities
 

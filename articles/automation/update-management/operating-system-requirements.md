@@ -52,7 +52,7 @@ The following table lists operating systems not supported by Update Management:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br>For Azure Virtual Desktop, the recommended method to manage updates is [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) for Windows 10 client machine patch management. |
+|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br>For Azure Virtual Desktop, the recommended method to manage updates is [Microsoft Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) for Windows 10 client machine patch management. |
 |Windows Server 2016 Nano Server     | Not supported.       |
 |Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../../aks/node-updates-kured.md)|
 
@@ -70,7 +70,7 @@ The section describes operating system-specific requirements. For additional gui
 
 Windows Update agents must be configured to communicate with a Windows Server Update Services (WSUS) server, or they require access to Microsoft Update. For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Microsoft Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with VM insights, instead use the [Enable Enable VM insights](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
-You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/agents/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment.
+You can use Update Management with Microsoft Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/agents/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment.
 
 By default, Windows VMs that are deployed from Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 

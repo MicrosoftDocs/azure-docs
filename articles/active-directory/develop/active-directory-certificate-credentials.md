@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 02/27/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
-ms.custom: contperf-fy21q4, aaddev
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 ---
 
 # Microsoft identity platform application authentication certificate credentials
@@ -25,7 +25,7 @@ If you're interested in using a JWT issued by another identity provider as a cre
 
 ## Assertion format
 
-To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](msal-net-client-assertions.md). The information is carried by the token in its Header, Claims, and Signature.
+To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](msal-net-client-assertions.md). The information is carried by the token in its **Header**, **Claims**, and **Signature**.
 
 ### Header
 
@@ -40,10 +40,10 @@ To compute the assertion, you can use one of the many JWT libraries in the langu
 Claim type | Value | Description
 ---------- | ---------- | ----------
 `aud` | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` | The "aud" (audience) claim identifies the recipients that the JWT is intended for (here Azure AD) See [RFC 7519, Section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In this case, that recipient is the login server (login.microsoftonline.com).
-`exp` | 1601519414 | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. See [RFC 7519, Section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  This allows the assertion to be used until then, so keep it short - 5-10 minutes after `nbf` at most.  Azure AD does not place restrictions on the `exp` time currently. 
-`iss` | {ClientID} | The "iss" (issuer) claim identifies the principal that issued the JWT, in this case your client application.  Use the GUID application ID.
-`jti` | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well. The "jti" value is a case-sensitive string. [RFC 7519, Section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
-`nbf` | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Using the current time is appropriate. 
+`exp` | 1601519414 | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT **must not** be accepted for processing. See [RFC 7519, Section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  This allows the assertion to be used until then, so keep it short - 5-10 minutes after `nbf` at most.  Azure AD does not place restrictions on the `exp` time currently. 
+`iss` | {ClientID} | The "iss" (issuer) claim identifies the principal that issued the JWT, in this case your client application. Use the GUID application ID.
+`jti` | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value **must** be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well. The "jti" value is a case-sensitive string. [RFC 7519, Section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+`nbf` | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5). Using the current time is appropriate. 
 `sub` | {ClientID} | The "sub" (subject) claim identifies the subject of the JWT, in this case also your application. Use the same value as `iss`. 
 `iat` | 1601519114 | The "iat" (issued at) claim identifies the time at which the JWT was issued. This claim can be used to determine the age of the JWT. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).
 
@@ -91,7 +91,7 @@ You can associate the certificate credential with the client application in the 
 
 ### Uploading the certificate file
 
-In the Azure app registration for the client application:
+In the **App registrations** tab for the client application:
 1. Select **Certificates & secrets** > **Certificates**.
 2. Click on **Upload certificate** and select the certificate file to upload.
 3. Click **Add**.
@@ -127,12 +127,12 @@ In the Azure app registration for the client application:
    
 ## Using a client assertion
 
-Client assertions can be used anywhere a client secret would be used.  So for example, in the [authorization code flow](v2-oauth2-auth-code-flow.md), you can pass in a `client_secret` to prove that the request is coming from your app. You can replace this with `client_assertion` and `client_assertion_type` parameters. 
+Client assertions can be used anywhere a client secret would be used. For example, in the [authorization code flow](v2-oauth2-auth-code-flow.md), you can pass in a `client_secret` to prove that the request is coming from your app. You can replace this with `client_assertion` and `client_assertion_type` parameters. 
 
 | Parameter | Value | Description|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| This is a fixed value, indicating that you are using a certificate credential. |
-|`client_assertion`| JWT |This is the JWT created above. |
+|`client_assertion`| `JWT` |This is the JWT created above. |
 
 ## Next steps
 

@@ -77,7 +77,7 @@ Configuration for SAP **/hana/data** volume:
 | M32ls | 256 GiB | 500 MBps | 20,000 | 304 GB | 425 MBps | 3,000 | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MBps | 3,000 | 
 | M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 680 MBps | 5,000 | 
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
 | M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 |  
 | M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
 | M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 

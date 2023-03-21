@@ -46,13 +46,13 @@ Front Door provides two types of logs: access logs and WAF logs.
 
 ::: zone pivot="front-door-standard-premium"
 
-The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Azure Front Door logs](../../frontdoor/standard-premium/how-to-logs.md#access-log).
+The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md?pivot=front-door-standard-premium#access-log).
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md).
+The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md?pivot=front-door-classic#diagnostic-logging).
 
 ::: zone-end
 

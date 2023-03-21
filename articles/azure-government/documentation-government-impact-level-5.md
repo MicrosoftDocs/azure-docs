@@ -269,7 +269,7 @@ For Management and governance services availability in Azure Government, see [Pr
 
 ### [Azure Managed Applications](../azure-resource-manager/managed-applications/index.yml) 
 
-- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-app.md#bring-your-own-storage-for-the-managed-application-definition).
+- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-bring-your-own-storage.md).
 
 ### [Azure Monitor](../azure-monitor/index.yml)
 

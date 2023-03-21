@@ -99,7 +99,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-introduction.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../azure-monitor/insights/solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
+[Management Solutions](/previous-versions/azure/azure-monitor/insights/solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
