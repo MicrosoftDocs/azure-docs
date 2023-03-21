@@ -78,7 +78,7 @@ Nebula can
 * An Azure subscription and an Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md) for more information about workspace resource creation
 * An Azure Machine Learning compute target. See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
 * A training script that uses **PyTorch**.
-* ACPT-curated (Azure Container for Pytorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to obtain the ACPT image. Learn how to use the curated environment [here](./how-to-use-environments.md)
+* ACPT-curated (Azure Container for Pytorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt) to obtain the ACPT image. Learn how to [use the curated environment](./how-to-use-environments.md)
 * An Azure Machine Learning script run configuration file. If you don’t have one, you can follow [this resource](./how-to-set-up-training-targets.md)
 
 ## How to Use Nebula
@@ -90,7 +90,7 @@ Nebula use involves:
 - [API calls to save and load checkpoints](#call-apis-to-save-and-load-checkpoints)
 
 ### Using ACPT environment
-[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a preinstalled, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a preinstalled, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
             
 ### Initializing Nebula
 
