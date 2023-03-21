@@ -15,6 +15,7 @@ recommendations: false
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD001 -->
 
 # What's Azure Form Recognizer?
 
@@ -24,11 +25,13 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to learn data extraction from structured, semi-structured, and unstructured documents.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from your documents. You can also label and train custom models to learn specified data extraction from structured, semi-structured, and unstructured documents.
 
 Learn more about Form Recognizer models:
 
 ### Document analysis models
+
+Documents are a major communication tool between organizations. Document analysis models enable text extraction from forms and documents and returns structured business-ready content ready for your organization's action, use, or progress.
 
 :::row:::
    :::column:::
@@ -46,6 +49,8 @@ Learn more about Form Recognizer models:
 :::row-end:::
 
 ### Prebuilt models
+
+Prebuilt models are pretrained to extract key data from specific document types. Prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models
 
 :::row:::
    :::column span="":::
@@ -76,19 +81,22 @@ Learn more about Form Recognizer models:
 
 ### Custom models
 
+Custom models are trained using your labeled datasets to extract distinct data from forms and documents specific to your use cases. Standalone custom models can be combined to create composed models.
+
 :::row:::
     :::column:::
-        **Extraction models**
+        **Extraction models**</br>
+        Custom extraction models are trained to extract labeled fields from documents.
     :::column-end:::
 :::row-end:::
 
 :::row:::
-   :::column span="":::
+   :::column:::
       :::image type="icon" source="media/overview/icon-custom-template.png" link="#custom-template":::</br>
     [**Custom template**](#custom-template)
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-custom-neural.png" alt-text="Screenshot of custom neural model icon.":::</br>
+      :::image type="icon" source="media/overview/icon-custom-neural.png" link="custom-neural":::</br>
     [**Custom neural**](#custom-neural)
    :::column-end:::
       :::column span="":::
@@ -99,7 +107,8 @@ Learn more about Form Recognizer models:
 
 :::row:::
     :::column:::
-        **Classification model**
+        **Classification model**</br>
+         Custom classifiers analyze a input documents to identify the document type prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
@@ -112,10 +121,7 @@ Learn more about Form Recognizer models:
 
 ## Gated preview models
 
-> [!IMPORTANT]
->
-> * Form Recognizer Studio preview features are currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
-> * Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
+Form Recognizer Studio preview features are currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback. Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
 :::row:::
    :::column span="":::
