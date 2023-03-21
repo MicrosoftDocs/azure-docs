@@ -68,7 +68,7 @@
           href: alerts.md  
         - name: Configure diagnostic logging alerts
           href: ddos-diagnostic-alert-templates.md
-        - name: Configure DDoS diagnostic logging
+        - name: Configure diagnostic logging
           href: diagnostic-logging.md    
     - name: View Monitoring and Logging
       items: 
