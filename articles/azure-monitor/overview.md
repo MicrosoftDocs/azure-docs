@@ -70,8 +70,9 @@ Azure Monitor collects these types of data:
 |Data Type|Description|
 |---------|---------|
 |Application|Data about the performance and functionality of your application code on any platform.|
-|Infrastructure|**Container.** Data about containers, such as [Azure Kubernetes Service]](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system.** Data about the guest operating system on which your application is running.|
+|Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
 |Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>| Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |
+|Custom Sources| Data which gets into the system using Azure Monitor REST API.
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
 
@@ -79,7 +80,7 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
-:::image type="content" source="media/overview/data-platform-save-as-from-visio-test.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-overview-context.png":::
+:::image type="content" source="media/overview/data-platform.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-overview-context.png":::
 
 Click on the picture to see a larger version of the data platform diagram in context.
 
@@ -112,6 +113,7 @@ Click on the picture to see a larger version of the data collection diagram in c
 |Internal| Data is automatically sent to a destination without user configuration.  |
 |[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
 |[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
+|Event hubs| See Event hubs in the [Integrate](#integrate) section below. This is a common way to route data sources monitoring data to other non-Microsoft tools. |
 
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
@@ -191,7 +193,6 @@ Alert rules use action groups, which can perform actions like sending email or S
 ## Integrate
 
 You may need to integrate Azure Monitor with other systems or to build custom solutions that use your monitoring data. These Azure services work with Azure Monitor to provide integration capabilities.
-
 
 |Azure service  |Description  |
 |---------|---------|
