@@ -164,8 +164,10 @@
         href: concept-easm.md
   - name: Improve your data security posture
     items:
-    - name: Learn about data-aware security posture
+    - name: About data-aware security posture
       href: concept-data-security-posture.md
+    - name: Prepare for data-aware security posture
+      href: concept-data-security-posture-prepare.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations
