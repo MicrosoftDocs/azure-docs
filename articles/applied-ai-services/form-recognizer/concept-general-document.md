@@ -25,7 +25,7 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 
 ## General document features
 
-* The general document model is a pre-trained model; it doesn't require labels or training.
+* The general document model is a pretrained model; it doesn't require labels or training.
 
 * A single API extracts key-value pairs, selection marks, text, tables, and structure from documents.
 

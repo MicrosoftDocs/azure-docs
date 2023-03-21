@@ -1,7 +1,7 @@
 ---
-title: What's Azure Form Recognizer
+title: What's Azure Form Recognizer?
 titleSuffix: Azure Applied AI Services
-description: Form Recognizedr is a machine-learning based OCR and intelligent document processing service to automate extraction of text, table and structure, and key-value pairs from forms and documents.
+description: Azure Form Recognizer is a machine-learning based OCR and intelligent document processing service to automate extraction of key data from forms and documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -26,7 +26,7 @@ recommendations: false
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to learn data extraction from structured, semi-structured, and unstructured documents.
 
-Select one of the tiles below to learn more about Form Recognizer models.
+Learn more about Form Recognizer models:
 
 ### Document analysis models
 
@@ -50,7 +50,7 @@ Select one of the tiles below to learn more about Form Recognizer models.
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
-    [**Invoice**](#invoice) | Extract customer and and vendor details.
+    [**Invoice**](#invoice) | Extract customer and vendor details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
@@ -266,7 +266,7 @@ You can Use Form Recognizer to automate your document processing in applications
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Custom Template model**](concept-custom-template.md) | The custom template model extracts labeled values and fields from structured and semi-structured documents like forms and .</br> | Extract key data from highly structured documents with defined visual templates or common visual layouts, forms.| &#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+|[**Custom Template model**](concept-custom-template.md) | The custom template model extracts labeled values and fields from structured and semi-structured documents.</br> | Extract key data from highly structured documents with defined visual templates or common visual layouts, forms.| &#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#custom-models)

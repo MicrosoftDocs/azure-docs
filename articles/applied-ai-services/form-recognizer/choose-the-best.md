@@ -14,7 +14,7 @@ recommendations: false
 
 # Which Form Recognizer model should I use?
 
-The following will help you decide the best **Form Recognizer v3.0** supported model to meet your needs and those of your application.
+The following decision chart helps you decide the best **Form Recognizer v3.0** supported model to meet the needs and requirements of your applications.
 
 | Type of document | Data to extract |Document format | Your best solution |
 | -----------------|-------------------| ----------|-------------------|
