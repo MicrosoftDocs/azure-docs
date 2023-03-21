@@ -10,7 +10,7 @@ ms.date: 03/21/2023
 ms.custom: template-how-to 
 ---
 
-# Create one or more packet core instances using the Azure portal
+# Create additional Packet Core instances for a site  using the Azure portal
 
 Azure Private 5G Core private mobile networks include one or more sites. Once deployed, each site can have multiple packet core instances for redundancy. In this how-to guide, you'll learn how to add additional packet core instances to a site in your private mobile network using the Azure portal.
 
@@ -36,14 +36,14 @@ In this step, you'll create an additional packet core instance for a site in you
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge device**, and **Custom location** fields.
     - Select the recommended packet core version in the **Version** field.
 
-    > [!NOTE]
-    > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to update ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md). Once you've finished updating your ASE, go back to the beginning of this step to create the packet core resource.
+        > [!NOTE]
+        > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to update ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md). Once you've finished updating your ASE, go back to the beginning of this step to create the packet core resource.
 
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 
-1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note:
-
-    - **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
+    > [!NOTE]
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
 
 1. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site supports 5G UEs) or **ASE SGi virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
@@ -52,7 +52,7 @@ In this step, you'll create an additional packet core instance for a site in you
 
     Once you've finished filling out the fields, select **Attach**.
 
-1. Repeat the previous step for each additional data networks configured on the site.
+1. Repeat the previous step for each additional data network configured on the site.
 1. If you decided to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
 If you decided not to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificates for this site, you can skip this step.
     1. Select **+ Add** to configure a user assigned managed identity.
