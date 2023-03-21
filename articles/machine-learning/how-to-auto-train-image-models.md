@@ -1156,4 +1156,4 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
-* [Troubleshoot automated ML experiments (SDK v1)](how-to-troubleshoot-auto-ml.md?view=azureml-api-1).
+* [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true).
