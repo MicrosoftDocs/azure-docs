@@ -16,6 +16,8 @@ In addition to collecting [Metrics](standard-metrics.md) and application [Teleme
 
 The [log trace](asp-net-trace-logs.md) is associated with other telemetry to give a detailed view of the activity. Adding trace logging to existing apps only requires providing a destination for the logs; the logging framework rarely needs to be changed.
 
+:::image type="content" source="media/app-insights-overview/app-insights.png" alt-text="Screenshot of Application Insights in the Azure portal.":::
+
 Application Insights provides other features including, but not limited to:
 
 - [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment

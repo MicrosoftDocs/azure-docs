@@ -27,7 +27,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 |Feature|Automatic backups | Custom backups |
 |-|-|-|
-| Pricing tiers | **Basic**, **Standard**, **Premium**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
+| Pricing tiers | **Basic**, **Standard**, **Premium**, **Isolated**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
