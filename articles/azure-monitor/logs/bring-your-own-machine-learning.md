@@ -39,8 +39,9 @@ There are two ways to use machine learning in Azure Monitor Logs:
 ||KQL operators and functions |Write your own machine learning|
 |-|-|-|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
-|**Scenario**|- Anomaly detection and root cause analysis:white_check_mark:<br>- Alerting and automation :x: |- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :white_check_mark:|
-|**Integration**|None required|Requires integration with a tool, such as Jupyter Notebook, and a machine service.|
+|**Scenario**|- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :x: |- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :white_check_mark:|
+|**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
+
 
 ## Built-in machine learning and write your own machine learning in Azure Monitor Logs
 
