@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: yitaopan
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
@@ -91,7 +91,7 @@ Use the following steps to create a storage account and establish a file share t
 
    The storage account key is required to create the storage link in your Azure Container Apps environment.
 
-## Link the storage to the managed environment
+## Link the storage to the Azure Container Apps environment
 
 Create the storage link in the Azure Container Apps environment by using the following commands. The `az containerapp env storage set` command creates a link between the environment and the file share created with the `az storage share-rm` command.
 
@@ -138,4 +138,4 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps](./index.yml)
+- [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](./standard-consumption-customer-responsibilities.md)

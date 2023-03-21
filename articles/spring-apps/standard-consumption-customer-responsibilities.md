@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 03/14/2023
+ms.date: 03/21/2023
 ms.custom: devx-trax-java
 ---
 
@@ -73,4 +73,4 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 ## Next steps
 
-- [Azure Spring Apps](./index.yml)
+- [Azure Spring Apps documentation](./index.yml)

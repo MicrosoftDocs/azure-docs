@@ -11,6 +11,11 @@ ms.custom: devx-track-java
 
 # Quickstart: Set up autoscale for applications in Azure Spring Apps Standard consumption plan
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+
 This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses an Azure Container Apps environment to host your Spring applications, and provides the following management and support:
 
 - Manages automatic horizontal scaling through a set of declarative scaling rules.
@@ -21,8 +26,8 @@ For more information, see [Azure Container Apps documentation](../container-apps
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Apps service instance.
-- At least one application already created in your service instance.
+- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Scale definition
 
@@ -100,4 +105,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Map a custom domain to Azure Spring Apps with the Standard consumption plan](./quickstart-standard-consumption-custom-domain.md)

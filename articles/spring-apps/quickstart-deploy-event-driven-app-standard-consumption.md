@@ -4,7 +4,7 @@ description: Learn how to deploy an event-driven application to Azure Spring App
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/17/2023
+ms.date: 03/21/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
@@ -21,7 +21,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption plan.
 
-The sample project is an event-driven application that subscribes to a [Service Bus queue](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
+The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
 :::image type="content" source="media/quickstart-deploy-event-driven-app-standard-consumption/diagram.png" alt-text="Diagram of Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app-standard-consumption/diagram.png":::
 
@@ -38,13 +38,13 @@ Use the following steps to prepare the sample locally.
 
 1. The sample project is ready on GitHub. Clone sample project by using the following command:
 
-   ```shell
+   ```bash
    git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
    ```
 
 1. Build the sample project by using the following commands:
 
-   ```shell
+   ```bash
    cd ASA-Samples-Event-Driven-Application
    ./mvnw clean package -DskipTests
    ```
@@ -153,15 +153,13 @@ Use the following steps to create the environment:
 
 ## Create the Azure Spring Apps instance
 
-An Azure Spring Apps Consumption plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
+An Azure Spring Apps Standard consumption plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
-1. Install the Spring extension designed for `StandardGen2` Azure Spring Apps by using the following command:
+1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption by using the following command:
 
    ```azurecli
    az extension remove --name spring && \
-   az extension add \
-       --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.8.0-py3-none-any.whl \
-       --yes
+   az extension add --name spring
    ```
 
 1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
@@ -253,6 +251,11 @@ echo "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
+
+For more information, see the following articles:
 
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 - [Spring on Azure](/azure/developer/java/spring/)

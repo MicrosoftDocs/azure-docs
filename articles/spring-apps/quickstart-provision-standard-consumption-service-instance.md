@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
@@ -35,11 +35,11 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-start.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps resource with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/azure-spring-apps-create.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps resource with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -58,18 +58,18 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
      - Select **Create new** to create a new Azure Container Apps environment, or select an existing environment from the dropdown menu.
 
-     :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/select-azure-container-apps-environment.png":::
+     :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png":::
 
 1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and set **Zone redundancy** to **Enabled**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-plan-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create App Environment blade." lightbox="media/quickstart-provision-standard-consumption-plan-service-instance/create-azure-container-apps-environment.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create Container Apps Environment pane." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
 
 1. Select **Review and create**.
 
 1. On the Azure Spring Apps **Create** page, select **Review and Create** to finish creating the Azure Spring Apps instance.
 
 >[!NOTE]
-> Optionally, you can also create an Azure Container Apps environment with your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
+> Optionally, you can also create an Azure Container Apps environment with your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md).
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -81,7 +81,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
 
 You can create the Azure Container Apps environment in one of two ways:
 
-- Using your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
+- Using your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md).
 
 - Using a system assigned virtual network, as described in the following procedure.
 
@@ -130,7 +130,7 @@ You can create the Azure Container Apps environment in one of two ways:
 
 Use the following steps to deploy the service instance:
 
-1. Install the latest `spring` extension for Azure Spring Apps by using the following command:
+1. Install the latest Azure CLI extension for Azure Spring Apps by using the following command:
 
    ```azurecli
    az extension remove --name spring && \
@@ -196,4 +196,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps](./index.yml)
+> [!div class="nextstepaction"]
+> [Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network](./quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)

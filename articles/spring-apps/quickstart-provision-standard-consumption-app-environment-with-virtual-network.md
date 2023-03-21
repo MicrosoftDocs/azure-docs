@@ -1,20 +1,20 @@
 ---
-title: Quickstart - Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network
+title: Quickstart - Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network
 description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network
+# Quickstart: Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise  
+**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise  
 
 This article describes how create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network. An Azure Container Apps environment creates a secure boundary around a group of applications. Applications deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
@@ -186,4 +186,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps](./index.yml)
+> [!div class="nextstepaction"]
+> [Access applications using Azure Spring Apps Standard consumption plan in a virtual network](./quickstart-access-standard-consumption-within-virtual-network.md)

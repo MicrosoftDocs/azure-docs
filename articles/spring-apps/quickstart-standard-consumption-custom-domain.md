@@ -1,5 +1,5 @@
 ---
-title: Map a custom domain to Azure Spring Apps with the Standard consumption plan
+title: Quickstart - Map a custom domain to Azure Spring Apps with the Standard consumption plan
 description: Learn how to map a web domain to apps in Azure Spring Apps.
 author: karlerickson
 ms.author: haojianzhong
@@ -9,7 +9,7 @@ ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# Map a custom domain to Azure Spring Apps with the Standard consumption plan
+# Quickstart: Map a custom domain to Azure Spring Apps with the Standard consumption plan
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 
@@ -21,7 +21,8 @@ The mapping secures the custom domain with a certificate and enforces Transport 
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An application deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](/azure/spring-apps/quickstart-deploy-apps).
+- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 - A domain name registered in the DNS registry as provided by a web hosting or domain provider.
 - A certificate resource created under an Azure Container Apps environment. For more information, see [Add certificate in Container App](../container-apps/custom-domains-certificates.md).
 
@@ -73,4 +74,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Analyze logs and metrics in the Azure Spring Apps Standard consumption plan](./quickstart-analyze-logs-and-metrics-standard-consumption.md)
