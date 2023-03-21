@@ -119,7 +119,7 @@ For detailed information about data collection, see [data collection](./best-pra
 
 ## Consumption
 
-The following sections outline methods and services that consume montoring data from the Azure Monitor data platform.
+The following sections outline methods and services that consume monitoring data from the Azure Monitor data platform.
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
