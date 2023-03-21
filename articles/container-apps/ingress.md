@@ -236,4 +236,4 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ingress in Azure Container Apps](ip-restrictions.md)
+> [Ingress in Azure Container Apps](ingress-overview.md)
