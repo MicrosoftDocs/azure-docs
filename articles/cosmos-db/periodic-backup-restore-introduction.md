@@ -46,4 +46,4 @@ For example, consider a scenario where Backup Retention is configured to **240 h
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn about [periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
+> [Periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
