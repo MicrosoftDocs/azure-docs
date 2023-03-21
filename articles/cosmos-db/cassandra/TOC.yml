@@ -151,15 +151,15 @@
           href: ../online-backup-and-restore.md
         - name: Periodic backup
           items:
-            - name: Periodic backup - Introduction
+            - name: Introduction
               href: ../periodic-backup-restore-introduction.md
-            - name: Periodic backup - Storage redundancy
+            - name: Storage redundancy
               href: ../periodic-backup-storage-redundancy.md
-            - name: Periodic backup - Request data restore
+            - name: Request data restore
               href: ../periodic-backup-request-data-restore.md
-            - name: Periodic backup - Management
+            - name: Management
               href: ../periodic-backup-management.md
-            - name: Periodic backup - Permissions
+            - name: Permissions
               href: ../periodic-backup-permissions.md
     - name: Global distribution
       items:
@@ -391,9 +391,9 @@
       items:
         - name: Periodic backup
           items:
-            - name: Periodic backup - Update storage redundancy
+            - name: Update storage redundancy
               href: ../periodic-backup-update-storage-redundancy.md
-            - name: Periodic backup - Modify interval retention
+            - name: Modify interval retention
               href: ../periodic-backup-modify-interval-retention.md
     - name: Security
       items:
