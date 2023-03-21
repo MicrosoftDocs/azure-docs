@@ -96,7 +96,7 @@ Custom models are trained using your labeled datasets to extract distinct data f
     [**Custom template**](#custom-template)
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-custom-neural.png" link="custom-neural":::</br>
+      :::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural":::</br>
     [**Custom neural**](#custom-neural)
    :::column-end:::
       :::column span="":::
