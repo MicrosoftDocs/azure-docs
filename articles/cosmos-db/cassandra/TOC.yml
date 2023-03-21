@@ -155,10 +155,6 @@
               href: ../periodic-backup-restore-introduction.md
             - name: Periodic backup - Storage redundancy
               href: ../periodic-backup-storage-redundancy.md
-            - name: Periodic backup - Update storage redundancy
-              href: ../periodic-backup-update-storage-redundancy.md
-            - name: Periodic backup - Modify interval retention
-              href: ../periodic-backup-modify-interval-retention.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -385,6 +381,14 @@
           href: ../sql/create-support-request-quota-increase.md
         - name: Access preview features
           href: ../access-previews.md
+    - name: Back up and restore
+      items:
+        - name: Periodic backup
+          items:
+            - name: Periodic backup - Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Periodic backup - Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
     - name: Security
       items:
         - name: Configure IP firewall
