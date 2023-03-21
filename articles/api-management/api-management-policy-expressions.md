@@ -7,11 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-<<<<<<< HEAD
-ms.date: 02/22/2023
-=======
 ms.date: 03/07/2023
->>>>>>> 33b58b20ef1389516ca244f0b4953daade1a478b
 ms.author: danlep
 ---
 # API Management policy expressions
