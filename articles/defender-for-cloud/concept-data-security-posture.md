@@ -52,7 +52,7 @@ Data sensitivity settings define what's considered sensitive data in your organi
 
 Defender for Cloud turns on some built-in sensitive information types by default (finance, PII, and credentials). You can modify settings and add other types as needed.
 
-:::image type="content" source="./media/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
+:::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
 
 If you're using Microsoft Purview, you can add custom sensitive information types that you've defined in the Purview portal.
 
@@ -64,7 +64,7 @@ if you're using Microsoft Purview's automatic labelling rules to assign labels t
 
 You select Confidential as minimum. Highly Confidential is also consider as sensitive. General, Public, and Non-Business aren't.
 
-:::image type="content" source="./media/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
+:::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
 
 During scanning, Defender for Cloud dynamically caculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
 
