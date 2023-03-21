@@ -90,7 +90,7 @@ Following are optional parameters that you can use with the previous commands.
 
 - `--ksm-metric-annotations-allow-list` is a comma-separated list of Kubernetes annotations keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more annotations provide a list of resource names in their plural form and Kubernetes annotation keys, you would like to allow for them. A single `*` can be provided per resource instead to allow any annotations, but that has severe performance implications.
 - `--ksm-metric-labels-allow-list` is a comma-separated list of more Kubernetes label keys that will be used in the resource's labels metric. By default the metric contains only name and namespace labels. To include more labels provide a list of resource names in their plural form and Kubernetes label keys, you would like to allow for them. A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications.
-- `--enable-windows-recording-rules` lets you enable the recording rule groups required for proper functioning of the windows dashboards
+- `--enable-windows-recording-rules` lets you enable the recording rule groups required for proper functioning of the windows dashboards.
 
 **Use annotations and labels.**
 
@@ -330,7 +330,7 @@ Deploy the template with the parameter file using any valid method for deploying
 
 ## Enable windows metrics collection
 
-As of version `6.4.0-main-02-22-2023-3ee44b9e` windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics Addon will enable the windows daemonset pods to start running on your nodepools(Windows Server 2019 and Windows Server 2022 are both supported). Please follow the below mentioned steps so that the pods are able to collect metrics from your windows nodepools.
+As of version 6.4.0-main-02-22-2023-3ee44b9e, windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics Addon will enable the windows daemonset pods to start running on your nodepools.  Both Windows Server 2019 and Windows Server 2022 are supported. Follow the steps below to enable the pods to collect metrics from your windows nodepools.
 
 - For accessing windows metrics you must manually install the windows exporter on AKS nodes. Please enable the following collectors : `[defaults],container,memory,process,cpu_info`. You can deploy the following [YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file using `kubectl apply -f windows-exporter-daemonset.yaml`
 - Please refer to the [customize configuration section](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap) and enable the `windowsexporter` and `windowsexporter` boolean to true by applying the ama-metrics-settings-configmap on your cluster
