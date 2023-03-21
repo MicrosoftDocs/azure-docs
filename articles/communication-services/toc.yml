@@ -180,7 +180,7 @@ items:
       items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
-      - name: Data insights
+      - name: SMS insights
         href: concepts/analytics/insights/sms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
@@ -268,8 +268,10 @@ items:
       items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
-      - name: Data insights
+      - name: Voice and Video insights
         href: concepts/analytics/insights/voice-and-video-insights.md
+      - name: Call Recording insights
+        href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
         href: concepts/analytics/log-analytics.md
       - name: Export SDK telemetry to Application Insights
@@ -310,7 +312,7 @@ items:
       items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
-      - name: Data insights
+      - name: Chat insights
         href: concepts/analytics/insights/chat-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
@@ -346,8 +348,10 @@ items:
       items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
-      - name: Data insights
+      - name: Call Automation insights
         href: concepts/analytics/insights/call-automation-insights.md
+      - name: Call Recording insights
+        href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
         href: concepts/analytics/log-analytics.md
       - name: Export SDK telemetry to Application Insights
@@ -368,7 +372,7 @@ items:
         href: quickstarts/email/enable-user-engagement-tracking.md
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
-      - name: Data insights
+      - name: Email insights
         href: concepts/analytics/insights/email-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md

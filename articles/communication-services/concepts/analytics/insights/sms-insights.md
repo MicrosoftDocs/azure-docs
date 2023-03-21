@@ -13,9 +13,11 @@ ms.subservice: data
 
 # SMS Insights Dashboard
 
+In this document, we outline the available insights dashboard to monitor SMS logs and metrics.
+
 ## Overview
 
-The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It's powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
+The SMS Insights dashboard in your communication resource shows data visualizations based on the logs and metrics for your SMS usage. It's powered by Azure Monitor logs and metrics that are collected and stored. [Azure Monitor Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) are used to create the data visualization. To enable Azure Monitor collection to populate the SMS Insights dashboard see [Enable Azure Monitor in Diagnostic Settings](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging). Ensure that logs are sent to a [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview).
 
 :::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview-full.png" alt-text="Screenshot of SMS insights overview page":::
 
@@ -28,7 +30,7 @@ The SMS Insights dashboard in your communication resource shows data visualizati
 
 Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
 
-:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Insights navigation":::
+:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot of the Insights navigation blade":::
 
 ## Dashboard structure
 
@@ -85,10 +87,10 @@ The SMS logs can be exported by clicking on the Download button on the top right
 
 The **SMS insights** dashboards provided with your **Communication Service** resource can be customized by clicking on the **Edit** button on the top navigation bar:
 
-:::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Dashboard editing":::
+:::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Screenshot of dashboard editing process":::
 
 Editing these dashboards doesn't modify the **Insights** tab, but rather creates a separate workbook, which can be accessed on your resource’s Workbooks tab:
 
-:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Workbooks tab":::
+:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab":::
 
 For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](../../../../azure-monitor/visualize/workbooks-overview.md) documentation.
