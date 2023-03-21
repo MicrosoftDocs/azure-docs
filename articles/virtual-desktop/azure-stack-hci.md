@@ -49,7 +49,7 @@ To manually configure Azure Virtual Desktop for Azure Stack HCI, follow these hi
 
 ### Step 1: Create a new virtual machine on Azure Stack HCI
 
-Create a new virtual machine with a supported operating system on your Azure Stack HCI infrastructure. For step-by-step instructions about how to create a VM, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). For information about supported operating system and licenses, see [Operating systems and licenses](/prerequisites#operating-systems-and-licenses).
+Create a new virtual machine with a supported operating system on your Azure Stack HCI infrastructure. For step-by-step instructions about how to create a VM, see [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). For information about supported operating system and licenses, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
 > [!NOTE]
 > [Install the Remote Desktop Session Host (RDSH) role](/troubleshoot/windows-server/remote/install-rds-host-role-service-without-connection-broker) if the VM is running a Windows Server operating system.
