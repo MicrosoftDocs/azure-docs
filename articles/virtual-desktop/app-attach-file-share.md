@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Desktop
 description: How to set up a file share for MSIX app attach for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/22/2023
 ms.author: helohr
 manager: femila
 ---
@@ -63,7 +63,6 @@ If you're storing your MSIX applications in Azure Files, then for your session h
 |-----------------------------------|--------------------------------------------------|-----------------------------------------------|
 | Session hosts (VM computer objects)| Storage File Data SMB Share Reader        | Allows for read access to Azure File Share over SMB  |
 | Admins on File Share              | Storage File Data SMB Share Elevated Contributor | Full control                                  |
-| Users on File Share               | Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
 
 To assign session hosts VMs permissions for the storage account and file share:
 
