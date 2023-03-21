@@ -115,7 +115,7 @@ Not sure if your workload is ready? [Reach out to us](https://forms.office.com/p
 
 5. How do I pay for Request Units (RUs)?
 
-    Cosmos DB for MongoDB offers thre capacity modes: provisioned throughput, autoscale, and serverless. **None require an upfront commitment**. Autoscale instantaneously scales to meet your needs, and serverless only charges for the throughput you use.
+    Cosmos DB for MongoDB offers three capacity modes: provisioned throughput, autoscale, and serverless. **None require an upfront commitment**. Autoscale instantaneously scales to meet your needs, and serverless only charges for the throughput you use.
 
 6. Which features are supported in Cosmos DB for MongoDB?
 
