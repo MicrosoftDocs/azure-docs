@@ -11,12 +11,12 @@ ms.date: 03/21/2023
 ms.author: pafarley
 ---
 
+# Check the format of your COCO annotation file
+
 <!-- nbstart https://raw.githubusercontent.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/main/docs/check_coco_annotation.ipynb -->
 
 > [!TIP]
 > Contents of _check_coco_annotation.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/check_coco_annotation.ipynb)**.
-
-# Check the format of your COCO annotation file
 
 This notebook demonstrates how to check if the format of your annotation file is correct. First, install the python samples package from the command line:
 
