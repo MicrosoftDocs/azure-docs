@@ -53,7 +53,7 @@ Add Purview sensitivity labels | - Requires consent to allow the use of custom s
 Note that:
 
 - The labels appear in Defender for Cloud in the order ranking set in Microsoft Purview.
-- The two sensitivity labels that are set to highest priority in Microsoft Purview are turned on by default in Defender for Cloud. You can turn labels on and off as needed.
+- The two sensitivity labels that are set to highest priority in Microsoft Purview are turned on by default in Defender for Cloud. 
 - When you select a label in Defender for Cloud, any labels ranked above that label are turned on automatically.
 - The labels are evaluated per-file and are stored as metadata in Defender for cloud. Defender for Cloud doesn’t move or modify files.
 
