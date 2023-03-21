@@ -10,13 +10,13 @@ ms.date: 03/21/2023
 ms.author: abell
 ---
 
-# View Azure DDOS Protection logs in log analytics workspace
+# View Azure DDoS Protection logs in log analytics workspace
 
 In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection (Preview)](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
+- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - Configure DDoS Protection diagnostic logs. To learn more, see [Configure diagnostic logs](diagnostic-logging.md).
 - Simulate an attack using one of our simulation partners. To learn more, see [Test with simulation partners](test-through-simulations.md).
 
@@ -25,12 +25,11 @@ In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, i
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
-1. On the left-side tab, select **Logs**. Here you'll see the query explorer. Exit out the *Queries* view. 
-
+1. On the left-side tab, select **Logs**. Here you'll see the query explorer. Exit out the *Queries* pane to utilize the *Logs* page. 
 
     :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-select-logs-in-workspace.png" alt-text="Screenshot of viewing a log analytics workspace.":::
 
-1. Type in your query then hit *Run* to view results.
+1. In the *Logs* page, type in your query then hit *Run* to view results.
 
     :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-notification-logs.png" alt-text="Screenshot of viewing DDoS Protection notification logs in log analytics workspace.":::
 
