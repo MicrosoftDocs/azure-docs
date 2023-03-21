@@ -1,6 +1,6 @@
 ---
-title: Configure F5 BIG-IP Access Policy Manager for header-based SSO
-description: Learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
+title: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on
+description: Learn to configure F5 BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -13,83 +13,68 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO
+# Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on
 
-In this article, you’ll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications using F5’s BIG-IP advanced configuration.
+Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to header-based applications using F5 BIG-IP advanced configuration. BIG-IP published applications and Azure AD configuration benefits:
 
-Configuring BIG-IP published applications with Azure AD provides many benefits, including:
+* Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
+  * See, [What is Conditional Access?](../conditional-access/overview.md)
+  * See, [Zero Trust security](https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust)
+* Full SSO between Azure AD and BIG-IP published services
+* Manage identities and access from on control plane
+  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
-- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
+Learn more:
 
-- Full Single sign-on (SSO) between Azure AD and BIG-IP published
-  services.
-
-- Manage identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
-
-To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+* [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md)
+* [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
 
-For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content.
+For this scenario, there's a legacy application using HTTP authorization headers to control access to protected content. Ideally, application access is managed by Azure AD, however legacy lacks a modern authentication protocol. Modernization takes effort and time, while introducing downtime costs and risks. Instead, deploy a BIG-IP between the public internet and the internal application to gate inbound access to the application.
 
-Ideally, application access should be managed directly by Azure AD but being legacy it lacks any form of modern authentication protocol. Modernization would take considerable effort and time, introducing inevitable costs and risk of potential downtime. Instead, a BIG-IP deployed between the public internet and the internal application will be used to gate inbound access to the application.
-
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
-
+A BIG-IP in front of the application enables overlay of the service with Azure AD preauthentication and header-based SSO. The configuration improves the application security posture.
 
 ## Scenario architecture
 
 The secure hybrid access solution for this scenario is made up of:
 
-- **Application**: BIG-IP published service to be protected by and Azure AD SHA.
+* **Application** - BIG-IP published service to be protected by Azure AD SHA
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SSO to the BIG-IP. 
+  * With SSO, Azure AD provides the BIG-IP required session attributes, including user identifiers
+* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before header-based SSO to the back-end application
 
-- **Azure AD**: Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes including user identifiers.
+The folllowing diagram illustrates the user flow with Azure AD, BIG-IP, APM and an application.
 
-- **BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before
-performing header-based SSO to the backend application.
+   ![Diagram of the user flow with Azure AD, BIG-IP, APM and an application](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
-![Screenshot shows the architecture flow diagram](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
-
-| Step | Description |
-|:-------|:-----------|
-| 1. | User connects to application's SAML SP endpoint (BIG-IP). |
-| 2. | BIG-IP APM access policy redirects user to Azure AD (SAML IdP).|
-| 3. | Azure AD pre-authenticates user and applies any enforced CA policies. |
-| 4. | User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token. |
-| 5. | BIG-IP injects Azure AD attributes as headers in request to the application. |
-| 6. | Application authorizes request and returns payload. |
-
+1. User connects to application SAML SP endpoint (BIG-IP).
+2. BIG-IP APM access policy redirects user to Azure AD (SAML IdP).
+3. Azure AD preauthenticates user and applies ConditionalAccess policies.
+4. User is redirected to BIG-IP (SAML SP) and SSO occurs using issued SAML token. 
+5. BIG-IP injects Azure AD attributes as headers in request to the application. 
+6. Application authorizes request and returns payload.
 
 ## Prerequisites
 
-Prior BIG-IP experience isn't necessary, but you'll need:
+For the scenario you need:
 
-- An Azure AD free subscription or above
-
-- An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in
-    Azure](./f5-bigip-deployment-guide.md)
-
-- Any of the following F5 BIG-IP license SKUs
-
-  - F5 BIG-IP® Best bundle
-
-  - F5 BIG-IP Access Policy Manager™ (APM) standalone license
-
-  - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an
-    existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-
-  - 90-day BIG-IP full feature [trial
-    license](https://www.f5.com/trial/big-ip-trial.php).
-
-- User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md)
-from an on-premises directory to Azure AD
-
-- An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
-
-- [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile)
-for publishing services over HTTPS or use default certificates while testing
-
-- An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
+* See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+* Any of the following F5 BIG-IP license SKUs:
+  * F5 BIG-IP® Best bundle
+  * F5 BIG-IP Access Policy Manager™ (APM) standalone license
+  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
+* User identities synchronized from an on-premises directory to Azure AD
+  * [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+* An account with Azure AD Application Admin permissions
+* An SSL certificate to publish services over HTTPS, or use default certificates while testing
+  * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
+* A header-based application or an IIS header app for testing
+  * See, [Set up a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90))
 
 ## BIG-IP configuration methods
 
