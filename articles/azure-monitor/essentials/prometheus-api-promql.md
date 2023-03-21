@@ -189,9 +189,10 @@ GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/lab
 For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
 
 ## API limitations
-(differing from prom specification)
+The following limitations are in addition to those detailed in the Prometheus specification.  
+
 + Query must be scoped to metric  
-    Any time series fetch queries (/series or /query or /query_range) must contain \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
+    Any time series fetch queries (/series or /query or /query_range) must contain a \_\_name\_\_ label matcher. That is, each query must be scoped to a metric. There can only be one \_\_name\_\_ label matcher in a query.
 + Supported time range  
     + /query_range API supports a time range of 32 days. This is the maximum time range allowed including range selectors specified in the query itself.
     For example, the query `rate(http_requests_total[1h]` for last 24 hours would actually mean data is being queried for 25 hours. A 24 hours range + 1 hour specified in query itself.
@@ -205,7 +206,7 @@ For more information on Prometheus metrics limits, see [Prometheus metrics](../.
 
 ## Next Steps
 
-[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)
-[Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)
-[Overview of Azure Monitor Managed Service for Prometheus (preview)](./prometheus-metrics-overview.md)
+[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)  
+[Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)  
+[Overview of Azure Monitor Managed Service for Prometheus (preview)](./prometheus-metrics-overview.md)  
 [Query Prometheus metrics using Azure workbooks (preview)](./prometheus-workbooks.md)
