@@ -18,7 +18,7 @@ ms.date: 03/15/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
-> * [v1](./v1/how-to-auto-train-nlp-models-v1.md)
+> * [v1](./v1/how-to-auto-train-nlp-models-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
 
@@ -246,7 +246,7 @@ featurization:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md#bert-integration-in-automated-ml).
+You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML (SDK v1)](./v1/how-to-configure-auto-features.md?view=azureml-api-1&preserve-view=true#bert-integration-in-automated-ml).
 
 ```python
 text_classification_job.set_featurization(dataset_language='eng')
@@ -539,4 +539,4 @@ While such cases are uncommon, they're possible and the best way to handle it is
 ## Next steps
 
 + [Deploy AutoML models to an online (real-time inference) endpoint](how-to-deploy-automl-endpoint.md)
-+ [Troubleshoot automated ML experiments (SDK v1)](how-to-troubleshoot-auto-ml.md?view=azureml-api-1)
++ [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true)

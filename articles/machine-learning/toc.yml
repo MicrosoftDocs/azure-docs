@@ -812,7 +812,7 @@
               displayName: SDK, automl
               href: ./v1/how-to-inference-onnx-automl-image-models-v1.md
             - name: Troubleshoot automated ML
-              href: how-to-troubleshoot-auto-ml.md
+              href: ./v1/how-to-troubleshoot-auto-ml.md
             # end v1
         # v1 - misc training
         - name: Track experiments with MLflow
