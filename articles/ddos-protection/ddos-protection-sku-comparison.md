@@ -56,17 +56,18 @@ The following table shows features and corresponding SKUs.
 
 ## Limitations
 
-DDoS Network Protection has the following limitations:
+DDoS Network Protection and DDoS IP Protection have the following limitations:
 
 - PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN aren't currently supported. 
+- Protecting a public IP resource attached to a Virtual Network Gateway or NAT Gateway isn't supported.
 - Virtual machines in Classic/RDFE deployments aren't supported.
 - Scenarios in which a single VM is running behind a public IP isn't supported. 
-- Protected resources that include public IPs created from public IP address prefix aren't supported.
+- Protected resources that include public IP address prefix, or public IP created from public IP address prefix aren't supported. Azure Load Balancer with a public IP created from a public IP prefix is supported.
 
-DDoS IP Protection is similar to Network Protection, but has the following additional limitations:
+DDoS IP Protection is similar to Network Protection, but has the following additional limitation:
 
 - Public IP Basic SKU protection isn't supported. 
-- Protecting a public IP resource attached to a Virtual Network Gateway and NAT Gateway isn't supported.
+
 
 For more information, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
 
