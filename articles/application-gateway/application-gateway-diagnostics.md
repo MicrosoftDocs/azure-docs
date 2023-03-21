@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/25/2022
+ms.date: 03/21/2022
 ms.author: greglin 
 ---
 
@@ -181,6 +181,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
 |originalRequestUriWithArgs| This field contains the original request URL |
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
+|upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
 |originalHost| This field contains the original request host name
 ```json
 {
@@ -219,6 +220,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "serverRouted": "52.239.221.65:443",
         "serverStatus": "200",
         "serverResponseLatency": "0.028",
+        "upstreamSourcePort": "21564",
         "originalHost": "20.110.30.194",
         "host": "20.110.30.194"
     }
