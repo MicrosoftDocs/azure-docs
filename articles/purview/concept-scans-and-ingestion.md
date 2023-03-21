@@ -47,22 +47,22 @@ For example, when [creating and running a scan for an Azure SQL Database](regist
 
 For each entity (folder/table), there will be three selection states: fully selected, partially selected and not selected. In the example below, if you select “Department 1” on the folder hierarchy, “Department 1” is considered as fully selected. The parent entities for “Department 1” like “Company” and “example” are considered as partially selected as there’re other entities under the same parent not having been selected, for example “Department 2”. Different icons will be used on UI for entities with different selection states.
 
-    :::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-no-toggle.png" alt-text="Screenshot that shows the scope your scan page.":::
+:::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-no-toggle.png" alt-text="Screenshot that shows the scope your scan page.":::
 
-After you run the scan it’s likely that there will be new assets added in the source system. By default the future assets under a certain parent will be automatically selected if the parent is fully or partially selected when you run the scan again. In the example above, after you select “Department 1” and run the scan, any new assets under folder “Department 1” or directly under “Company” and “example” will be included when you run the scan again.
+After you run the scan it’s likely that there will be new assets added in the source system. By default the future assets under a certain parent will be automatically selected if the parent is fully or partially selected when you run the scan again. In the example above, after you select “Department 1” and run the scan, any new assets under folder “Department 1” or under “Company” and “example” will be included when you run the scan again.
 
 A toggle button is introduced for users to control the automatic inclusion for new assets under partially selected parent. By default the toggle will be turned off and the automatic inclusion behavior for partially selected parent is disabled. In the same example with the toggle turned off, any new assets under partially selected parents like “Company” and “example” will not be included when you run the scan again, only new assets under “Department 1” will be included in future scan.
 
-    :::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-toggle-off.png" alt-text="Screenshot that shows the scope your scan page with toggle button turned off.":::
+:::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-toggle-off.png" alt-text="Screenshot that shows the scope your scan page with toggle button turned off.":::
 
 If the toggle button is turned on, the new assets under a certain parent will be automatically selected if the parent is fully or partially selected when you run the scan again. The inclusion behavior will be the same as before the toggle button is introduced.
 
-    :::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-toggle-on.png" alt-text="Screenshot that shows the scope your scan page with toggle button turned on.":::
+:::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-toggle-on.png" alt-text="Screenshot that shows the scope your scan page with toggle button turned on.":::
 
 > [!NOTE]
-> * The availability of this feature will depend on the data source type. Currently it’s available in public preview for sources including Azure Blob Storage, Azure Data Lake Storage Gen 1, Azure Data Lake Storage Gen 2, Azure Files and Azure Dedicated SQL pool (formerly SQL DW)
+> * The availability of the toggle button will depend on the data source type. Currently it’s available in public preview for sources including Azure Blob Storage, Azure Data Lake Storage Gen 1, Azure Data Lake Storage Gen 2, Azure Files and Azure Dedicated SQL pool (formerly SQL DW).
 > * For any scans created or scheduled before the toggle button is introduced, the toggle state is set as on and can’t be changed. For any scans created or scheduled after the toggle button is introduced, the toggle state can’t be changed after the scan is saved. You need to create a new scan to change the toggle state.
-> * When the toggle button is turned off, for sources of storage type like Azure Data Lake Storage Gen 2 it may take up to 4 hours before the [browse by source type](https://learn.microsoft.com/en-us/azure/purview/how-to-browse-catalog#browse-by-source-type) experience is fully available after your scan job is completed.
+> * When the toggle button is turned off, for sources of storage type like Azure Data Lake Storage Gen 2 it may take up to 4 hours before the [browse by source type](https://learn.microsoft.com/en-us/azure/purview/how-to-browse-catalog#browse-by-source-type) experience becomes fully available after your scan job is completed.
 
 ### Known limitations
 When the toggle button is turned off:
