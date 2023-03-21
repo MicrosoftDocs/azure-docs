@@ -19,17 +19,17 @@ zone_pivot_groups: acs-csharp-java
 >Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 >Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/acs-tap-invite).
 
-With Azure Communication Services Call Automation SDK, developers can now mute participants through server based API requests. This feature can be useful when you want your application to mute participants after they have joined the meeting to avoid any interuptions or distractions to ongoing meetings.   
+With Azure Communication Services Call Automation SDK, developers can now mute participants through server based API requests. This feature can be useful when you want your application to mute participants after they've joined the meeting to avoid any interruptions or distractions to ongoing meetings.   
 
 If you’re interested in abilities to allow participants to mute/unmute themselves on the call when they’ve joined with ACS Client Libraries, you can use our [mute/unmute function](../../calling-sdk/includes/manage-calls/manage-calls-web.md#mute-and-unmute-incoming-audio) provided through our Calling Library.
 
 ## Common use cases
 
-### Contact centre supervisor call monitoring
+### Contact center supervisor call monitoring
 
-In a typical contact centre scenario, there may be times when a supervisor needs to join an on-going call to monitor the call to provide guidance to agents after the call on how they could improve their assistance. The supervisor would join muted as to not disturb the on-going call with any extra side noise.
+In a typical contact center, there may be times when a supervisor needs to join an on-going call to monitor the call to provide guidance to agents after the call on how they could improve their assistance. The supervisor would join muted as to not disturb the on-going call with any extra side noise.
 
-*This guide will help you learn how to mute participants by using the mute action provided through Azure Communication Services Call Automation SDK.*
+*This guide helps you learn how to mute participants by using the mute action provided through Azure Communication Services Call Automation SDK.*
 
 
 ::: zone pivot="programming-language-csharp"
