@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)'
-description: Tutorial on how to send custom data to a Log Analytics workspace in Azure Monitor by using the Logs ingestion API. Required configuration performed with Azure Resource Manager templates.
+title: 'Sample code to send data to Azure Monitor using Logs ingestion API'
+description: Sample code using REST API and client libraries for Logs ingestion API in Azure Monitor.
 ms.topic: tutorial
 ms.date: 02/01/2023
 ---
@@ -182,7 +182,7 @@ try:
     client.upload(rule_id=dcr_immutableid, stream_name=stream_name, logs=body)
 except HttpResponseError as e:
     print(f"Upload failed: {e}")
-```
+
 
 
 ## [JavaScript](#tab/javascript)
