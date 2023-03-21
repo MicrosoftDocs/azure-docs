@@ -41,7 +41,7 @@ In this guide, you'll:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs` for `WebAPI`:
 
     ```csharp
     // Add services to the container.
@@ -51,6 +51,26 @@ In this guide, you'll:
         profilerSettings.Duration = TimeSpan.FromMinutes(1);
     });
     ```
+
+    You can also enable Application Insights and Profiler for `Worker`. Update the `Program.cs` file for the `Worker` with the following:
+
+    ```csharp
+    using ServiceProfilerInWorkerNet6;
+    
+    IHost host = Host.CreateDefaultBuilder(args)
+        .ConfigureServices(services =>
+        {
+            services.AddApplicationInsightsTelemetryWorkerService();
+            services.AddServiceProfiler();
+    
+            services.AddHostedService<Worker>();
+        })
+        .Build();
+    
+    await host.RunAsync();
+    ```
+
+
 1. Save and commit your changes to the local repository:
 
     ```console
