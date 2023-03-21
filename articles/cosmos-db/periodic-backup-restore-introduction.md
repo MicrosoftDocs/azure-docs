@@ -29,7 +29,7 @@ The following steps show how Azure Cosmos DB performs data backup:
 
   The following image shows how an Azure Cosmos DB container with all the three primary physical partitions in West US. The container is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
 
-  :::image type="content" source="./media/configure-periodic-backup-restore/automatic-backup.png" alt-text="Diagram of periodic full backups taken of multiple Azure Cosmos DB entities in geo-redundant Azure Storage." lightbox="./media/configure-periodic-backup-restore/automatic-backup.png" border="false":::
+  :::image type="content" source="./media/periodic-backup-restore-introduction/automatic-backup.png" alt-text="Diagram of periodic full backups taken of multiple Azure Cosmos DB entities in geo-redundant Azure Storage." lightbox="./media/periodic-backup-restore-introduction/automatic-backup.png" border="false":::
 
 - The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database.
 

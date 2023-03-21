@@ -31,7 +31,7 @@ In addition to Azure Cosmos DB account name, database names, container names, yo
 
 The following screenshot illustrates how to create a support request for a container(collection/graph/table) to restore data by using Azure portal. Provide other details such as type of data, purpose of the restore, time when the data was deleted to help us prioritize the request.
 
-:::image type="content" source="./media/configure-periodic-backup-restore/backup-support-request-portal.png" alt-text="Screenshot of creating a backup support request using the Azure portal." border="true":::
+:::image type="content" source="./media/periodic-backup-request-data-restore/backup-support-request-portal.png" alt-text="Screenshot of creating a backup support request using the Azure portal." border="true":::
 
 ## Considerations for restoring the data from a backup
 
