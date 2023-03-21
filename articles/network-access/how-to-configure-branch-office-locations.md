@@ -18,33 +18,33 @@ content meets their needs. H1 format is # What is <product/service>?
 
 # Learn how to configure branch office locations for Global Secure Access
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+Learn how to configure a branch office location for Global Secure Access.
 
-A l
+## Create a branch location to connect to NaaS VPN service
+Connect a branch location to NaaS VPN service.
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
-## [Section 1 H2]
+## Create a device link at a branch location with IKEv2 and default IPsec policy
 <!-- add your content here -->
 
-## [Section 2 H2]
+## Create a device link at a branch location with IKEv2 and custom IPSec policy
 <!-- add your content here -->
 
-## [Section n H2]
+## Assign a Microsoft 365 traffic profile to a branch location
 <!-- add your content here -->
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+## Edit top-level branch settings
+
+# Test branch connectivity to a NaaS VPN service
+
+## (optional) Test branch connectivity with Tenant Restrictions v2 (TRv2)
+
+## Delete a device link from a branch location
+
+## Delete a branch
+
+## Known issues
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [abc](#)
+- [Create applications](how-to-create-applications.md)
 
