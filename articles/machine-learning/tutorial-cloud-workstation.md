@@ -24,9 +24,7 @@ Learn how to develop a training script with a notebook on an Azure Machine Learn
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
-- An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
-
+To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
 
 ## Start with Notebooks
 
@@ -35,6 +33,9 @@ The Notebooks section in your workspace is a good place to start learning about 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace if it isn't already open.
 1. On the left navigation, select **Notebooks**.
+1. If you don't have a compute instance, you'll see **Create compute** in the middle of the screen. Select **Create compute** and fill out the form.  You can use all the defaults. (If you already have a compute instance, you'll instead see **Terminal** in that spot.  You'll use **Terminal** later in this tutorial.)
+
+    :::image type="content" source="media/tutorial-cloud-workstation/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
 
 ## Set up a new environment for prototyping (optional)
 
@@ -50,7 +51,7 @@ In order for your script to run, you need to be working in an environment config
     1. Download this conda environment file, [*workstation_env.yml*](https://azuremlexampledata.blob.core.windows.net/datasets/workstation_env.yml) to your computer.
     1. Select **+** and select **Upload files** to upload it to your workspace.
     1. Select **Browse and select file(s)**.
-    1. Select **workstation_env.yml** file you just downloaded.
+    1. Select **workstation_env.yml** file you downloaded.
     1. Select **Upload**.
 
     You'll see the *workstation_env.yml* file under your username folder in the **Files** tab. Select this file to preview it, and see what dependencies it specifies.
@@ -66,7 +67,9 @@ In order for your script to run, you need to be working in an environment config
 
         :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-    1. Start your compute instance it if it's not already running.
+    1. If the compute instance is stopped, select **Start compute** and wait until it's running.
+
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
     1. Once the compute is running, you see a welcome message in the terminal, and you can start typing commands. 
     1. View your current conda environments. The active environment is marked with a *.
@@ -114,11 +117,15 @@ You now have a new kernel.  Next you'll open a notebook and use this kernel.
 
 1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
 
-1. You'll see the notebook connect to the default kernel in the top right. If you created the new **Tutorial Workstation Env** kernel, switch to it now.
+1. If the compute instance is stopped, select **Start compute** and wait until it's running.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
+
+1. You'll see the notebook is connected to the default kernel in the top right. If you created the new **Tutorial Workstation Env** kernel, switch to it now.
 
 ## Develop a training script
 
-In this section you develop a Python training script that predicts credit card default payments, using the prepared test and training datasets from the [UCI dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
+In this section, you develop a Python training script that predicts credit card default payments, using the prepared test and training datasets from the [UCI dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
 
 This code uses `sklearn` for training and MLflow for logging the metrics.
 
@@ -223,7 +230,7 @@ Now that you've tried two different models, use the results tracked by `MLFfow` 
     :::image type="content" source="media/tutorial-cloud-workstation/jobs.png" alt-text="Screenshot shows how to select Jobs in the navigation.":::
 
 1. Select the link for **Develop on cloud tutorial**.
-1. There are two different jobs shown, one for each of the models you tried.  These names are auto-generated.  As you hover over a name, use the pencil tool next to the name if you want to rename it.  
+1. There are two different jobs shown, one for each of the models you tried.  These names are autogenerated.  As you hover over a name, use the pencil tool next to the name if you want to rename it.  
 1. Select the link for the first job. The name appears at the top. You can also rename it here with the pencil tool.
 1. The page shows details of the job, such as properties, outputs, tags, and parameters.  Under **Tags**, you'll see the estimator_name, which describes the type of model.
 
@@ -249,9 +256,9 @@ Now create a Python script from your notebook for model training.
 1. Name the file **train.py**.
 1. Look through this file and delete the code you don't want in the training script.  For example, keep the code for the model you wish to use, and delete code for the model you don't want.  
     * Make sure you keep the code that starts autologging (`mlflow.sklearn.autolog()`).
-    * You may wish to delete the auto-generated comments and add in more of your own comments.
-    * When you run the Python script interactively (in a terminal or notebook), you can keep the line that defines the experiment name (`mlflow.set_experiment("Develop on cloud tutorial")`). Or even give it a different name to see it as a different entry in the **Jobs** section. But when you prepare the script for a training job, that line will not work and should be omitted - the job definition will include the experiment name.
-    * When running a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()`) are also not necessary (they will have no effect), but can be left in if you wish.
+    * You may wish to delete the autogenerated comments and add in more of your own comments.
+    * When you run the Python script interactively (in a terminal or notebook), you can keep the line that defines the experiment name (`mlflow.set_experiment("Develop on cloud tutorial")`). Or even give it a different name to see it as a different entry in the **Jobs** section. But when you prepare the script for a training job, that line won't work and should be omitted - the job definition includes the experiment name.
+    * When you train a single model, the lines to start and end a run (`mlflow.start_run()` and `mlflow.end_run()`) are also not necessary (they'll have no effect), but can be left in if you wish.
 
 1. When you're finished with your edits, save the file.
 
@@ -259,9 +266,12 @@ You now have a Python script to use for training your preferred model.
 
 ## Run the Python script
 
-For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. Later tutorials show you how to run a training script in a more scalable way on more powerful compute resources.  
+For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. [Tutorial: Train a model](tutorial-train-model.md) shows you how to run a training script in a more scalable way on more powerful compute resources.  
 
-1. On the left, select **Open terminal** to open a terminal window, just as you did earlier in this tutorial.
+1. On the left, select **Open terminal** to open a terminal window.
+
+    :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows how to open a terminal window.":::
+
 1. View your current conda environments. The active environment is marked with a *.
 
     ```bash
@@ -305,6 +315,8 @@ If you're not going to use it now, stop the compute instance:
 ## Next steps
 
 Learn more about:
+
+* [From artifacts to models in MLflow](concept-mlflow-models.md)
 * [Using Git with Azure Machine Learning](concept-train-model-git-integration.md)
 * [Running Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
 * [Working with a compute instance terminal in your workspace](how-to-access-terminal.md)
