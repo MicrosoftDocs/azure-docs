@@ -15,7 +15,7 @@ zone_pivot_groups: functions-nodejs-model
 This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you've already read the [Azure Functions developer guide](functions-reference.md).
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and the new v4 programming model in the [upgrade guide](./functions-node-upgrade-v4.md). v4 is currently in public preview.
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [upgrade guide](./functions-node-upgrade-v4.md).
 
 As a JavaScript developer, you might also be interested in one of the following articles:
 
@@ -23,14 +23,9 @@ As a JavaScript developer, you might also be interested in one of the following 
 | -- | -- | -- | 
 | <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./create-first-function-cli-node.md)</li><li>[Node.js function using the Azure portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/training/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-## Programming model
+[!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
 
-The "programming model" as discussed in this article loosely represents the Node.js layer of Azure Functions. If you are authoring code in JavaScript or TypeScript, the code patterns you use are governed by the programming model. For example, it defines how you register a function, get a function's input, or interact with the invocation context. The programming model version is strictly tied to the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package and is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), even if the major version numbers are coincidentally similar.
-
-> [!NOTE]
-> You can only use one major version of the programming model at a time.
-
-### Supported versions
+## Supported versions
 
 The following table shows each version of the Node.js programming model along with its supported versions of the Azure Functions runtime and Node.js.
 
@@ -260,9 +255,6 @@ app.http('httpTrigger1', {
     }
 });
 ```
-
-> [!NOTE]
-> You can't mix the v3 and v4 programming models. As soon as you register one v4 function in your app, any v3 functions registered in `function.json` files will be ignored.
 
 ## Inputs and outputs
 

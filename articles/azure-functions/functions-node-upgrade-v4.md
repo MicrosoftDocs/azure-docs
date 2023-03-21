@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Upgrade to version 4 of the Node.js programming model for Azure Functions
 
-The Node.js programming model for Azure Functions defines how you author serverless code in JavaScript or TypeScript. The version of the programming model matches the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package that should be included with your app. This article discusses the differences between both versions and how to upgrade an existing v3 app. If you want to create a brand new v4 app, see the tutorial for either [VS Code](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md).
+This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a brand new v4 app instead of upgrading an existing v3 app, see the tutorial for either [VS Code](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app.
 
 Version 4 was designed with the following goals in mind:
 
@@ -17,8 +17,7 @@ Version 4 was designed with the following goals in mind:
 - Make the file structure flexible with support for full customization
 - Switch to a code-centric approach for defining function configuration
 
-> [!NOTE]
-> v4 of the Node.js programming model is currently in public preview. This version number is _not_ the same thing as the Azure Functions [runtime version](./functions-versions.md), which is coincidentally using "4" as its latest major version. Lastly, you can't mix v3 and v4 of the programming models.
+[!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
 
 ## Requirements
 
@@ -35,7 +34,7 @@ Version 4 of the Node.js programming model requires the following minimum versio
 For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model for Azure Functions. Previously, that code shipped directly in Azure and the npm package only had the TypeScript types. Moving forward both JavaScript and TypeScript users need to include this package in their app. v3 apps _can_ include the npm package, but it isn't required.
 
 > [!TIP]
-> _**Action Item**_: Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your `package.json` file. You can install v4 with the command 
+> Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your `package.json` file. You can install v4 with the command 
 > ```
 > npm install @azure/functions@preview
 > ```
@@ -51,21 +50,18 @@ In v4 of the programming model, you can structure your code however you want. Th
     - `src/functions/*.js`
 
 > [!TIP]
-> _**Action Item**_: Make sure you define a `main` field in your `package.json` file
+> Make sure you define a `main` field in your `package.json` file
 
 ## Switch the order of arguments
 
 The trigger input is now the first argument to your function handler instead of the invocation context. The invocation context, now the second argument, was simplified in v4 and isn't as required as the trigger input - it can be left off if you aren't using it.
 
 > [!TIP]
-> _**Action Item**_: Switch the order of your arguments. For example if you are using an http trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
+> Switch the order of your arguments. For example if you are using an http trigger, switch `(context, request)` to either `(request, context)` or just `(request)` if you aren't using the context.
 
 ## Define your function in code
 
-Say goodbye 👋 to `function.json` files! All of the configuration that you were previously specifying in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
-
-> [!WARNING]
-> You can't mix the v3 and v4 programming models. As soon as you register one v4 function in your app, any v3 functions registered in `function.json` files will be ignored.
+Say goodbye 👋 to `function.json` files! All of the configuration that was previously specified in a `function.json` file is now defined directly in your TypeScript or JavaScript files. In addition, many properties now have a default so that you don't have to specify them every time.
 
 # [v4](#tab/v4)
 
@@ -85,8 +81,6 @@ app.http('helloWorld1', {
   }
 });
 ```
-
-No `function.json` file! ✨
 
 # [v3](#tab/v3)
 
@@ -129,7 +123,7 @@ module.exports = async function (context, req) {
 ---
 
 > [!TIP]
-> _**Action Item**_: Move the config from your `function.json` file to your code. The type of the trigger will correspond to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, you will now call `app.http()` in your code to register the function. If you use `timerTrigger`, you will now call `app.timer()` and so on.
+> Move the config from your `function.json` file to your code. The type of the trigger will correspond to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in `function.json`, you will now call `app.http()` in your code to register the function. If you use `timerTrigger`, you will now call `app.timer()` and so on.
 
 
 ## Review your usage of context
@@ -163,7 +157,7 @@ async function helloWorld1(context, request) {
 ---
 
 > [!TIP]
-> _**Action Item**_: Make sure you aren't using `context.req` or `context.bindings` to get the input.
+> Make sure you aren't using `context.req` or `context.bindings` to get the input.
 
 ### Set the primary output as your return value
 
@@ -205,7 +199,7 @@ return {
 ---
 
 > [!TIP]
-> _**Action Item**_: Make sure you are always returning the output in your function handler, instead of setting it with the `context` object.
+> Make sure you are always returning the output in your function handler, instead of setting it with the `context` object.
 
 ### Create a test context
 
@@ -329,7 +323,7 @@ The http request and response types are now a subset of the [fetch standard](htt
 ---
 
 > [!TIP]
-> _**Action Item**_: Update any logic using the http request or response types to match the new methods. If you are using TypeScript, you should receive build errors if you use old methods.
+> Update any logic using the http request or response types to match the new methods. If you are using TypeScript, you should receive build errors if you use old methods.
 
 ## Troubleshooting
 
