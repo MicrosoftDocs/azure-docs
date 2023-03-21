@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Predictix Assortment Planning | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Predictix Assortment Planning'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Assortment Planning.
 services: active-directory
 author: jeevansd

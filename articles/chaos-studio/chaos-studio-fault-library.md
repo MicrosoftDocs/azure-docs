@@ -80,7 +80,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 }
 ```
 
-### Notes
+### Limitations
 Known issues on Linux:
 1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
 2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
@@ -125,6 +125,9 @@ Known issues on Linux:
   ]
 }
 ```
+
+### Limitations
+Currently, the Windows agent doesn't reduce memory pressure when other applications increase their memory usage. If the overall memory usage exceeds 100%, the Windows agent may crash.
 
 ## Virtual memory pressure
 

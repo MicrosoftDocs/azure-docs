@@ -373,6 +373,8 @@ items:
       href: power-bi-visual-add-tile-layer.md
     - name: Add a filled map
       href: power-bi-visual-filled-map.md
+    - name: On-object interaction
+      href: power-bi-visual-on-object-interaction.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
@@ -549,3 +551,5 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+  - name: Create elevation data & services
+    href: elevation-data-services.md

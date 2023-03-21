@@ -71,12 +71,28 @@ use_service_endpoint = true
 use_private_endpoint = true
 enable_firewall_for_keyvaults_and_storage = true
 
-#management_dns_subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-#management_dns_resourcegroup_name="MGMT-DNS"
-#use_custom_dns_a_registration=true
 ```
 
+### DNS considerations
+
+When planning the DNS configuration for the deployment environment, consider the following questions:
+ - Is there an existing Private DNS that the solutions needs to integrate with?   
+ - Do you need to use a custom Private DNS zone for the deployment environment?
+ - Are you going to use predefined IP addresses for the Virtual Machines or let Azure assign them dynamically?
+
+You can integrate with exiting Private DNS Zones by providing the following values in your tfvars files:
+
+```tfvars
+management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+#management_dns_resourcegroup_name = "RESOURCEGROUPNAME"
+use_custom_dns_a_registration = false
+```
+
+Without these values a Private DNS Zone will be created in the SAP Library resource group. 
+
 For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
+
+
 
 ## SAP Library configuration
 

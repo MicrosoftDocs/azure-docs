@@ -107,7 +107,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 - [Applications hosted on Azure Web Apps](app/azure-web-apps.md)
 - [Java applications](app/opentelemetry-enable.md?tabs=java)
 - [ASP.NET applications hosted in IIS on Azure Virtual Machines or Azure Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)
-- [ASP.NET applications hosted in IIS on-premises](app/status-monitor-v2-overview.md)
+- [ASP.NET applications hosted in IIS on-premises](app/application-insights-asp-net-agent.md)
 
 **Code-based monitoring** is more customizable and collects more telemetry, but it requires adding a dependency to your code on the Application Insights SDK NuGet packages. For information on how to enable monitoring based on your application, see:
 

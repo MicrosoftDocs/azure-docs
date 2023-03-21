@@ -47,7 +47,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-> [!Note]
+> [!NOTE]
 > We can also send an email from our own verified domain [Add custom verified domains to Email Communication Service](../add-custom-verified-domains.md).
 
 ### Prerequisite check
@@ -117,20 +117,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-### Option 2: Authenticate using an AzureKeyCredential
-
-Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
-
-```java
-String endpoint = "https://<resource-name>.communication.azure.com";
-AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
-EmailClient emailClient = new EmailClientBuilder()
-    .endpoint(endpoint)
-    .credential(azureKeyCredential)
-    .buildClient();
-```
-
-### Option 3: Authenticate using Azure Active Directory
+### Option 2: Authenticate using Azure Active Directory
 
 A `DefaultAzureCredential` object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -145,6 +132,18 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
+### Option 3: Authenticate using AzureKeyCredential
+
+Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
+
+```java
+String endpoint = "https://<resource-name>.communication.azure.com";
+AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
+EmailClient emailClient = new EmailClientBuilder()
+    .endpoint(endpoint)
+    .credential(azureKeyCredential)
+    .buildClient();
+```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 

@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/27/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
@@ -18,11 +18,10 @@ The MedTech service provides multiple methods for deployment into Azure. Each de
 
 In this quickstart, you'll learn about these deployment methods:
 
-> [!div class="checklist"]
-> - Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
-> - ARM template using the **Deploy to Azure** button.
-> - ARM template using Azure PowerShell or the Azure CLI.
-> - Manually in the Azure portal. 
+- Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
+- ARM template using the **Deploy to Azure** button.
+- ARM template using Azure PowerShell or the Azure CLI.
+- Manually in the Azure portal. 
 
 ## ARM template including an Azure Iot Hub using the Deploy to Azure button
 
@@ -73,7 +72,7 @@ The following diagram outlines the basic steps of the MedTech service deployment
 
 In this quickstart, you learned about the different types of deployment methods for the MedTech service. 
 
-To learn more about the MedTech service, see
+To learn about the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)

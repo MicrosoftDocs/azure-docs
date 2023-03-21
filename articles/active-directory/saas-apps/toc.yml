@@ -2211,6 +2211,8 @@
         href: signagelive-tutorial.md
       - name: SignalFx
         href: signalfx-tutorial.md
+      - name: Signiant Media Shuttle
+        href: signiant-media-shuttle-tutorial.md
       - name: Sigstr
         href: sigstr-tutorial.md
       - name: SilkRoad Life Suite
@@ -2345,6 +2347,8 @@
         href: sumologic-tutorial.md
       - name: SumTotalCentral
         href: sumtotalcentral-tutorial.md
+      - name: SuperAnnotate
+        href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
       - name: SURFsecureID - Azure MFA

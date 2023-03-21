@@ -382,6 +382,8 @@ items:
       displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
+    - name: Power automate batch transcription
+      href: power-automate-batch-transcription.md
     - name: Speech containers
       items:
         - name: Cognitive Services containers documentation
@@ -546,6 +548,8 @@ items:
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cognitive-services&terms=speech
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
     - name: Azure products by region

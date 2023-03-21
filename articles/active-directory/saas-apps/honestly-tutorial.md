@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Honestly | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Honestly'
 description: Learn how to configure single sign-on between Azure Active Directory and Honestly.
 services: active-directory
 author: jeevansd

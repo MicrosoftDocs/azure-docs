@@ -1,8 +1,12 @@
 ---
 title: 'Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)'
 description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using a REST API (Azure portal version).
+author: bwren
+ms.author: bwren
 ms.topic: tutorial
 ms.date: 07/15/2022
+ms.reviewer: ivkhrul 
+ms.service: azure-monitor
 ---
 
 # Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)
@@ -208,7 +212,7 @@ Before you can send data to the workspace, you need to create the custom table w
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot that shows the custom log table name.":::
 
 ## Parse and filter sample data
-Instead of directly configuring the schema of the table, you can use the portal to upload sample data so that Azure Monitor can determine the schema. The sample is expected to be a JSON file that contains one or multiple log records structured in the same way they'll be sent in the body of an HTTP request of the logs ingestion API call.
+Instead of directly configuring the schema of the table, you can upload a file with a sample JSON array of data through the portal, and Azure Monitor will set the schema automatically. The sample JSON file must contain one or more log records structured as an array, in the same way they data is sent in the body of an HTTP request of the logs ingestion API call.
 
 1. Select **Browse for files** and locate the *data_sample.json* file that you previously created.
 
@@ -256,17 +260,16 @@ Instead of directly configuring the schema of the table, you can use the portal 
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse kind = regex RawData with *
+    ':"'
     ClientIP:string
-    ' ' *
-    ' ' *
-    ' [' * '] "' RequestType:string
-    " " Resource:string
+    " - -" * '"'
+    RequestType:string
+    ' '
+    Resource:string
     " " *
     '" ' ResponseCode:int
     " " *
-    | where ResponseCode != 200
-    | project-away Time, RawData
     ```
 
 1. Select **Run** to view the results.
