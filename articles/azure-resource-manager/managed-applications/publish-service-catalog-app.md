@@ -1,11 +1,11 @@
 ---
 title: Create and publish Azure Managed Application in service catalog
-description: Describes how to create and publish an Azure Managed Application in your service catalog that's intended for members of your organization.
+description: Describes how to create and publish an Azure Managed Application in your service catalog using Azure PowerShell, Azure CLI, or Azure portal.
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 03/01/2023
+ms.date: 03/17/2023
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -17,7 +17,7 @@ To publish a managed application to your service catalog, do the following tasks
 - Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
 - Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
-- Deploy the managed application definition so it's available in your service catalog.
+- Publish the managed application definition so it's available in your service catalog.
 
 If your managed application definition is more than 120 MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
 
@@ -265,6 +265,14 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 
 # [PowerShell](#tab/azure-powershell)
 
+In Visual Studio Code, open a new PowerShell terminal and sign in to your Azure subscription.
+
+```azurepowershell
+Connect-AzAccount
+```
+
+The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 ```azurepowershell
 New-AzResourceGroup -Name packageStorageGroup -Location westus3
 
@@ -287,6 +295,14 @@ Set-AzStorageBlobContent `
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+In Visual Studio Code, open a new Bash terminal session and sign in to your Azure subscription. If you have Git installed, select Git Bash.
+
+```azurecli
+az login
+```
+
+The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
 az group create --name packageStorageGroup --location westus3
@@ -320,37 +336,83 @@ az storage blob upload \
 
 For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
 
+# [Portal](#tab/azure-portal)
+
+Create a storage account in a new resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Create a resource** from the portal's **Home** page.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-resource.png" alt-text="Screenshot of Azure portal home page with create a resource highlighted.":::
+
+1. Search for _storage account_ and select it from the available options.
+1. Select **Create** on the **Storage accounts** page.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-storage-account.png" alt-text="Screenshot of the storage accounts page with the create button highlighted.":::
+
+1. On the **Basics** tab, enter the required information.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-storage-account-basics.png" alt-text="Screenshot of the Basics tab on the Azure form to create a storage account.":::
+
+   - **Resource group**: Select **Create new** to create the _packageStorageGroup_ resource group.
+   - **Storage account name**: Enter a unique storage account name. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
+   - **Region**: _West US3_
+   - **Performance**: _Standard_
+   - **Redundancy**: _Locally-redundant storage (LRS)_.
+
+1. Accept the defaults on the other tabs.
+1. Select **Review** and then select **Create**.
+1. Select **Go to resource** to go to the storage account.
+
+Create a container and upload the _app.zip_ file:
+
+1. Go to **Data storage** and select **Containers**.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-new-container.png" alt-text="Screenshot of the storage account's screen to create a new container.":::
+
+1. Configure the container's properties and select **Create**.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-new-container-properties.png" alt-text="Screenshot of the new container screen to enter a name and public access level.":::
+
+   - **Name**: _appcontainer_.
+   - **Public access level**: Select _Blob_.
+
+1. Select _appcontainer_.
+1. Select **Upload** and follow the prompts to upload your _app.zip_ file to the container.
+
+   :::image type="content" source="./media/publish-service-catalog-app/upload-zip-file.png" alt-text="Screenshot of the appcontainer to upload the zip file to your storage account.":::
+
+   You can drag and drop the file to the portal or browse to the file's location on your computer.
+
+1. After the file is uploaded, select _app.zip_ in the container.
+1. Copy the _app.zip_ file's URL from the **Overview** > **URL**.
+
+   :::image type="content" source="./media/publish-service-catalog-app/copy-file-url.png" alt-text="Screenshot of the zip file's URL with copy button highlighted.":::
+
+Make a note of the _app.zip_ file's URL because you need it to create the managed application definition.
+
 ---
 
 ## Create the managed application definition
 
-In this section you get identity information from Azure Active Directory, create a resource group, and create the managed application definition.
+In this section, you get identity information from Azure Active Directory, create a resource group, and deploy the managed application definition.
 
 ### Get group ID and role definition ID
 
 The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
+
+# [PowerShell](#tab/azure-powershell)
+
 This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use this variable's value when you deploy the managed application definition.
 
 To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
-
-# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $principalid=(Get-AzADGroup -DisplayName managedAppDemo).Id
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
-```
-
----
-
 Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use this variable's value when you deploy the managed application definition.
-
-# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $roleid=(Get-AzRoleDefinition -Name Owner).Id
@@ -358,35 +420,37 @@ $roleid=(Get-AzRoleDefinition -Name Owner).Id
 
 # [Azure CLI](#tab/azure-cli)
 
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use this variable's value when you deploy the managed application definition.
+
+To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
+
+```azurecli
+principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
+```
+
+Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use this variable's value when you deploy the managed application definition.
+
 ```azurecli
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
+# [Portal](#tab/azure-portal)
+
+In the portal, the group ID and role ID are configured when you publish the managed application definition.
+
 ---
 
-### Create the managed application definition
-
-Create a resource group for your managed application definition.
+### Publish the managed application definition
 
 # [PowerShell](#tab/azure-powershell)
+
+Create a resource group for your managed application definition.
 
 ```azurepowershell
 New-AzResourceGroup -Name appDefinitionGroup -Location westus3
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az group create --name appDefinitionGroup --location westus3
-```
-
----
-
-Create the managed application definition in the resource group.
-
-The `blob` command that's run from Azure PowerShell or Azure CLI creates a variable that's used to get the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
-
-# [PowerShell](#tab/azure-powershell)
+The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurepowershell
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -402,9 +466,26 @@ New-AzManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+When the command completes, you have a managed application definition in your resource group.
+
+Some of the parameters used in the preceding example are:
+
+- `ResourceGroupName`: The name of the resource group where the managed application definition is created.
+- `LockLevel`: The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
+- `Authorization`: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group.
+  - `"${principalid}:$roleid"` or you can use curly braces for each variable `"${principalid}:${roleid}"`.
+  - Use a comma to separate multiple values: `"${principalid1}:$roleid1", "${principalid2}:$roleid2"`.
+- `PackageFileUri`: The location of a _.zip_ package file that contains the required files.
+
 # [Azure CLI](#tab/azure-cli)
 
-In the `blob` command's `account-name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
+Create a resource group for your managed application definition.
+
+```azurecli
+az group create --name appDefinitionGroup --location westus3
+```
+
+In the `blob` command's `account-name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name. The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurecli
 blob=$(az storage blob url \
@@ -424,20 +505,62 @@ az managedapp definition create \
   --package-file-uri "$blob"
 ```
 
----
-
 When the command completes, you have a managed application definition in your resource group.
 
 Some of the parameters used in the preceding example are:
 
-- **resource group**: The name of the resource group where the managed application definition is created.
-- **lock level**: The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
-- **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group.
+- `resource-group`: The name of the resource group where the managed application definition is created.
+- `lock-level`: The `lockLevel` on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `ReadOnly` is the only supported lock level. `ReadOnly` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
+- `authorizations`: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group.
+  - `"$principalid:$roleid"` or you can use curly braces like `"${principalid}:${roleid}"`.
+  - Use a space to separate multiple values: `"$principalid1:$roleid1" "$principalid2:$roleid2"`.
+- `package-file-uri`: The location of a _.zip_ package file that contains the required files.
 
-  - **Azure PowerShell**: `"${principalid}:$roleid"` or you can use curly braces for each variable `"${principalid}:${roleid}"`. Use a comma to separate multiple values: `"${principalid1}:$roleid1", "${principalid2}:$roleid2"`.
-  - **Azure CLI**: `"$principalid:$roleid"` or you can use curly braces as shown in PowerShell. Use a space to separate multiple values: `"$principalid1:$roleid1" "$principalid2:$roleid2"`.
+# [Portal](#tab/azure-portal)
 
-- **package file URI**: The location of a _.zip_ package file that contains the required files.
+To publish a managed application definition from the Azure portal, use the following steps.
+
+1. Select **Create a resource** from the portal's **Home** page.
+1. Search for _Service Catalog Managed Application Definition_ and select it from the available options.
+1. Select **Create** from the **Service Catalog Managed Application Definition** page.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition.png" alt-text="Screenshot of the Service Catalog Managed Application Definition page with the create button highlighted.":::
+
+1. On the **Basics** tab, enter the following information and select **Next: Package**:
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-basics.png" alt-text="Screenshot of the Basics tab on the form to create a service catalog definition. ":::
+
+   - **Project details**:
+     - Select your subscription name.
+     - Create a new resource group named _appDefinitionGroup_.
+   - **Instance details**:
+      - **Name**: Enter a name like _instance-name_. The name isn't used in the definition but the form requires an entry.
+      - **Region**: _West US3_
+   - **Application details**:
+      - **Name**: _sampleManagedApplication_
+      - **Display name**: _Sample managed application_
+      - **Description**: _Sample managed application that deploys web resources_
+
+1. On the **Package** tab, enter the **Package file uri** for your _app.zip_ file.
+1. Ignore the **Management settings** tab.
+1. On the **Authentication and lock level** tab, enter the following information and then select **Review + create**.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-authentication.png" alt-text="Screenshot of the authentication and lock level for the managed application definition.":::
+
+   - **Lock level**: Select _Read Only_.
+   - Select **Add members**.
+     - **Roles**: Select _Owner_.
+     - **Select principals**: Select your group's name like _managedAppDemo_.
+
+     The **Lock level** on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `Read Only` is the only supported lock level. `Read Only` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
+
+1. After **Validation Passed** is displayed, select **Create**.
+
+   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-validation.png" alt-text="Screenshot of portal that shows validation passed for the managed application definition.":::
+
+When the deployment is complete, you have a managed application definition in your resource group.
+
+---
 
 ## Make sure users can see your definition
 
@@ -445,7 +568,7 @@ You have access to the managed application definition, but you want to make sure
 
 ## Next steps
 
-You've published the managed application definition. Now, learn how to deploy an instance of that definition.
+You've published the managed application definition. The next step is to learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy a service catalog managed application](deploy-service-catalog-quickstart.md)
