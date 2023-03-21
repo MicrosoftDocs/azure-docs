@@ -466,10 +466,10 @@ The Azure Maps Conversion service converts DWG file(s) of a facility to map data
 
 The Azure Maps Conversion service creates:
 
-- **Facility Feature**: The top-level feature of a facility that all levels of a facility are associated to. This is defined as the **Exterior** property in the [Georeference] tab of the onboarding tool.
+- **Facility Feature**: The top-level feature of a facility that all levels of a facility are associated to.
 - **Level features**: One Level feature is created for each floor of a facility. All features on a level are associated with a level.
 - **User defined features**: DWG layers are mapped to a user defined [feature class](#featureclass) and become instances of the feature class.
-- <!--DWG layers are mapped to a user defined [feature class](#featureclass). All mapped DWG layer entities become instances of the feature class.-->
+<!--DWG layers are mapped to a user defined [feature class](#featureclass). All mapped DWG layer entities become instances of the feature class.-->
 
 ## DWG file requirements
 
