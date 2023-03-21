@@ -11,17 +11,15 @@ ms.custom: template-how-to-pattern
 
 # Enable data-aware security posture
 
-To help you protect against data breaches, you can enable data-aware security posture in Microsoft Defender for Cloud. Data-aware security posture identifies sensitive data in your Azure datastores. You'll get alerts when sensitive data is uploaded to your datastores, and you can use attack paths and the security explorer to see how sensitive data is exposed to risk.
+To help you protect against data breaches, you can enable [data-aware security posture](data-security-posture-enable.md) in Microsoft Defender for Cloud. 
 
-When you enable Defender CSPM or Defender for Storage, the **Sensitive data discovery** setting is automatically enabled for the enabled plans. You can disable this setting if you don't want to use data-aware security posture. We recommend that you have **Sensitive data discovery** Defender CSPM and Defender for Storage to get the most value from Defender for Cloud.
+## Before you start
 
-Sensitive data is identified based on the data sensitivity settings. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
+- Before you enable data-aware security posture, [prepare and review prerequisites](concept-data-security-posture-prepare.md)
+- When you enable Defender CSPM or Defender for Storage, the **Sensitive data discovery** extension is automatically enabled for the plans. You can disable this setting if you don't want to use data-aware security posture, but we recommend that use the feature to get the most value from Defender for Cloud.
+- Sensitive data is identified based on the data sensitivity settings. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
 
-## Prerequisites
-
-Make sure you review the [interoperability information](support-matrix-data-security-posture.md) for data-aware security posture.
-
-## Enable Data-aware security posture in Defender CSPM for Azure subscriptions
+## Enable in Defender CSPM
 
 Before you enable data-aware security posture, you must have the **Subscription owner** role or have these permissions:
 
