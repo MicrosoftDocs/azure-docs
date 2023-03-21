@@ -34,7 +34,7 @@ The Standard service level with cool access feature provides options for the “
 * After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
 * Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.   
 * You can't use large volumes with Standard storage with cool access.
-* See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
+* See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR): 
     * If the volume is in a CRR relationship as a source volume, you can enable cool access on it only if the [mirror state](cross-region-replication-display-health-status.md#display-replication-status) is `Mirrored`. Enabling cool access on the source volume automatically enables cool access on the destination volume.
     * If the volume is in a CRR relationship as a destination volume (data protection volume), enabling cool access is not supported for the volume.
