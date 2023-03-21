@@ -130,7 +130,7 @@ You can create the Azure Container Apps environment in one of two ways:
 
 Use the following steps to deploy the service instance:
 
-1. Install the latest `spring` extension for Azure Spring Apps by using the following command:
+1. Install the latest Azure CLI extension for Azure Spring Apps by using the following command:
 
    ```azurecli
    az extension remove --name spring && \

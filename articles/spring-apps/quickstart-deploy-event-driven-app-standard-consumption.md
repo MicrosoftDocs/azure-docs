@@ -38,13 +38,13 @@ Use the following steps to prepare the sample locally.
 
 1. The sample project is ready on GitHub. Clone sample project by using the following command:
 
-   ```shell
+   ```bash
    git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
    ```
 
 1. Build the sample project by using the following commands:
 
-   ```shell
+   ```bash
    cd ASA-Samples-Event-Driven-Application
    ./mvnw clean package -DskipTests
    ```
@@ -155,7 +155,7 @@ Use the following steps to create the environment:
 
 An Azure Spring Apps Standard consumption plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
-1. Install the Spring extension designed for `StandardGen2` Azure Spring Apps by using the following command:
+1. Install the Azure CLI extension designed for `StandardGen2` Azure Spring Apps by using the following command:
 
    ```azurecli
    az extension remove --name spring && \

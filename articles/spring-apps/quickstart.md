@@ -32,7 +32,7 @@ This quickstart explains how to:
 > - Build and deploy an app with a public endpoint.
 > - Clean up the resources.
 
-At the end of this quickstart, you have a working spring app running on Azure Spring Apps.
+At the end of this quickstart, you have a working Spring app running on Azure Spring Apps.
 
 ## [Azure CLI](#tab/Azure-CLI)
 
@@ -93,7 +93,7 @@ An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one bu
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
 
-Use the following command to specify the app name on Azure Spring Apps as *hello spring*.
+Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
 
 ```azurecli-interactive
 az spring app create \
@@ -139,21 +139,21 @@ az spring app deploy \
 
 Deploying the application can take a few minutes.
 
-## [Standard consumption plan](#tab/Consumption-Plan)
+## [Standard consumption plan with Azure CLI](#tab/Consumption-Plan)
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [Azure CLI](/cli/azure/install-azure-cli). Install the spring extension for `StandardGen2` Azure Spring Apps by using the following command.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for `StandardGen2` Azure Spring Apps by using the following command.
 
-  ```shell
+  ```azurecli
   az extension add --upgrade --name spring
   ```
 
 - Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`
 
-  ```shell
+  ```azurecli
   az extension add --name containerapp --upgrade
   az provider register --namespace Microsoft.App
   az provider register --namespace Microsoft.OperationalInsights
