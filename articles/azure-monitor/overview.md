@@ -58,7 +58,7 @@ The diagram depicts the Azure Monitor system components:
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. 
 
 
-:::image type="content" source="media/overview/data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-large-in-context.png":::
+:::image type="content" source="media/overview/data-sources.png" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-large-in-overview-context.png":::
 
 
 Click on the picture to see a larger version of the data sources diagram in context.
@@ -79,7 +79,7 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
-:::image type="content" source="media/overview/data-platform-save-as-from-visio-test.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-context.png":::
+:::image type="content" source="media/overview/data-platform-save-as-from-visio-test.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-overview-context.png":::
 
 Click on the picture to see a larger version of the data platform diagram in context.
 
@@ -88,7 +88,7 @@ Click on the picture to see a larger version of the data platform diagram in con
 |---------|---------|
 |[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus metrics](essentials/prometheus-metrics-overview.md).|
 |[Azure Monitor Logs](logs/data-platform-logs.md)|Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
-|Traces|[Distributed traces](/app/distributed-tracing.md) identify the series of related events that follow a user request through a distributed system. A trace measures the operation and performance of your application across the entire set of components in your system. Traces can be used to determine the behavior of application code and the performance of different transactions. Azure Monitor gets distributed trace data from the Application Insights SDK. The trace data is stored in a separate workspace in Azure Monitor Logs.|
+|Traces|[Distributed traces](app/distributed-tracing.md) identify the series of related events that follow a user request through a distributed system. A trace measures the operation and performance of your application across the entire set of components in your system. Traces can be used to determine the behavior of application code and the performance of different transactions. Azure Monitor gets distributed trace data from the Application Insights SDK. The trace data is stored in a separate workspace in Azure Monitor Logs.|
 |Changes|Changes are a series of events in your application and resources. They're  tracked and stored when you use the [Change Analysis](./change/change-analysis.md) service, which uses [Azure Resource Graph](../governance/resource-graph/overview.md) as its store. Change Analysis helps you understand which changes, such as deploying updated code, may have caused issues in your systems.|
 
 
@@ -99,7 +99,7 @@ For less expensive, long-term archival of monitoring data for auditing or compli
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-large-in-context.png":::
+:::image type="content" source="media/overview/data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-large-in-overview-context.png":::
 
 Click on the picture to see a larger version of the data collection diagram in context.
 
@@ -119,7 +119,7 @@ For detailed information about data collection, see [data collection](./best-pra
 
 The following sections outline methods and services that consume montoring data from the data platform.
 
-:::image type="content" source="media/overview/consume.png" alt-text="Diagram that shows the Consumption section of the Azure Monitor system.  That is, Insights, Visualize, Analyze, Respond." border="false" lightbox="media/overview/consumption-large-in-context.png":::
+:::image type="content" source="media/overview/consume.png" alt-text="Diagram that shows the Consumption section of the Azure Monitor system.  That is, Insights, Visualize, Analyze, Respond." border="false" lightbox="media/overview/consumption-large-in-overview-context.png":::
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
@@ -144,12 +144,11 @@ The following table describes some of the larger insights:
 |[VM Insights](vm/vminsights-overview.md)|VM Insights monitors your Azure VMs. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.|
 |[Network Insights](vm/network-insights-overview.md)|Network Insights provides a comprehensive and visual representation through topologies, of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics as well as additional diagnostic features. |
 
-
-For more information, see the [list of insights and curated visualizations in the Azure Monitor Insights overview](/insights/insights-overview). 
+For more information, see the [list of insights and curated visualizations in the Azure Monitor Insights overview](insights/insights-overview.md). 
 
 ### Visualize
 
-:::image type="content" source="media/overview/visualize.png" alt-text="Diagram that shows the visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-large-in-overview-context.png.png":::
+:::image type="content" source="media/overview/visualize.png" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-large-in-overview-context.png.png":::
 
 Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and uses other Azure services for publishing it to different audiences. PowerBI and Grafana are not officially part of the Azure Monitor product, but they are a core integration and part of the Azure Monitor story.
 
@@ -164,7 +163,7 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 
 The Azure portal contains built in tools that allow you to analyze monitoring data.
 
-:::image type="content" source="media/overview/analyze.png" alt-text="Diagram that shows the visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-large-in-overview-context.png":::
+:::image type="content" source="media/overview/analyze.png" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-large-in-overview-context.png":::
 
 |Tool  |Description  |
 |---------|---------|
@@ -176,19 +175,18 @@ The Azure portal contains built in tools that allow you to analyze monitoring da
 
 An effective monitoring solution proactively responds to critical events, without the need for an individual or team to notice the issue. The response could be a text or email to an administrator, or an automated process that attempts to correct an error condition.
 
-:::image type="content" source="media/overview/respond.png" alt-text="Diagram that shows the visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/respond-large-in-overview-context.png":::
+:::image type="content" source="media/overview/respond.png" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/respond-large-in-overview-context.png":::
 
 **[Alerts](alerts/alerts-overview.md)** notify you of critical conditions and can take corrective action. Alert rules can be based on metric or log data. Metric alert rules provide near-real-time alerts based on collected metrics. Log alerts rules based on logs allow for complex logic across data from multiple sources. 
 Alert rules use action groups, which can perform actions like sending email or SMS notifications. Action groups can send notifications using webhooks to trigger external processes or to integrate with your IT service management tools. Action groups, actions, and sets of recipients can be shared across multiple rules.
 
 :::image type="content" source="media/overview/alerts.png" alt-text="Screenshot that shows the Azure Monitor alerts UI in the Azure portal." lightbox="media/overview/alerts.png":::
 
-
 **[Autoscale](autoscale/autoscale-overview.md)** allows you to dynamically control the number of resources running to handle the load on your application. You can create rules that use Azure Monitor metrics to determine when to automatically add resources when the load increases or remove resources that are sitting idle. You can specify a minimum and maximum number of instances, and the logic for when to increase or decrease resources to save money and to increase performance.
 
-:::image type="content" source="media/overview/autoscale.png" border="false" alt-text="Conceptual diagram showing how autoscale grows". lightbox="media/overview/autoscale.png":::
+:::image type="content" source="media/overview/autoscale.png" border="false" alt-text="Conceptual diagram showing how autoscale grows" lightbox="media/overview/autoscale.png":::
 
-**[Azure Logic Apps](../logic-apps/logic-apps-overview.md)** is a service where you can create and run automated workflows with little to no code. While not a part of the Azure Monitor product, it's a core part of the story. You can use Logic Apps to [customize responses and perform other actions in response to to Azure Monitor alerts](/alerts/alerts-logic-apps.ms).  You can also use Logic Apps to perform other [more complex actions](logs/logicapp-flow-connector.md) if the Azure Monitor infrastructure doesn't have a built-it method.
+**[Azure Logic Apps](../logic-apps/logic-apps-overview.md)** is a service where you can create and run automated workflows with little to no code. While not a part of the Azure Monitor product, it's a core part of the story. You can use Logic Apps to [customize responses and perform other actions in response to to Azure Monitor alerts](alerts/alerts-logic-apps.ms).  You can also use Logic Apps to perform other [more complex actions](logs/logicapp-flow-connector.md) if the Azure Monitor infrastructure doesn't have a built-it method.
 
 ## Integrate
 
