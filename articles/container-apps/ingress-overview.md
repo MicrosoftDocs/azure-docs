@@ -57,11 +57,11 @@ With HTTP ingress enabled, your container app has:
 
 HTTP ingress adds headers to pass metadata about the client request to your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service. The following table lists the HTTP headers that are relevant to ingress in Container Apps:
 
-| Header | Description | Values | Required |
-|---|---|---|---|
-| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` | Yes |
-| `X-Forwarded-For` | The IP address of the client that sent the request. |  | Yes |
-| `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  | Yes |
+| Header | Description | Values |
+|---|---|---|
+| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` |
+| `X-Forwarded-For` | The IP address of the client that sent the request. |  |
+| `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
 
 ### <a name="tcp"></a>TCP (preview) 
 
@@ -98,9 +98,7 @@ For HTTP ingress, traffic is routed to individual applications based on the FQDN
 
 For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the container app's `name` property) and its `exposedPort` number.
 
-You can get access to the environment's unique identifier by querying the environment settings.
-
-[!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
+You can get access to the environment's unique identifier by querying the environment settings. For more information, see [Connect applications](connect-apps.md#get-fully-qualified-domain-name).
 
 ### App names
 
