@@ -29,12 +29,10 @@ The start of a machine learning project typically involves exploratory data anal
 
 ## Prerequisites
 
-* Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
-* Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
-    * Create a workspace.
-    * Create a cloud-based compute instance to use for your development environment.
-    * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+1.  To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.   
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    * Or, open **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
 
 ## Set your notebook kernel
 
@@ -61,6 +59,7 @@ For data ingestion, the Azure Data Explorer handles raw data in [these formats](
 1. Select **Open terminal** below the three dots, as shown in this image:
 
     :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
+
 1. The terminal window opens in a new tab. 
 1. Make sure you `cd` to the same folder where this notebook is located.  For example, if the notebook is in a folder named **get-started-notebooks**:
 
@@ -80,17 +79,14 @@ For data ingestion, the Azure Data Explorer handles raw data in [these formats](
 
 [Learn more about this data on the UCI Machine Learning Repository.](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
 
-## Connect to the workspace
+## Create handle to workspace
 
-Before you dive in the code, you need to connect to your Azure Machine Learning workspace. 
+Before we dive in the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
 
-We're using `DefaultAzureCredential` to get access to workspace. 
-`DefaultAzureCredential` handles most Azure SDK authentication scenarios. 
-
-In this cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. Copy the value for workspace, resource group and subscription ID into the code.  
+1. Copy the value for workspace, resource group and subscription ID into the code.
 1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
 
@@ -111,6 +107,9 @@ ml_client = MLClient(
     workspace_name="<AML_WORKSPACE_NAME>",
 )
 ```
+
+> [!NOTE]
+> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during compute creation).
 
 
 ## Upload data to cloud storage
@@ -310,6 +309,7 @@ print(v2df.head(5))
 
 
 
+
 ## Clean up resources
 
 If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
@@ -329,7 +329,9 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-* Learn more about [data assets](how-to-create-data-assets.md) and [datastores](how-to-datastore.md).
+Read [Create data assets](how-to-create-data-assets.md) for more information about data assets.
+
+Read [Create datastores](how-to-datastore.md) to learn more about datastores.
 
 Continue with tutorials to learn how to develop a training script.
 

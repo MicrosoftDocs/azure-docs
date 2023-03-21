@@ -14,18 +14,12 @@ ms.custom: mlops #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb -->
-
-<!-- > [!TIP]
-> Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb)**.**. -->
-
 # Deploy a model as an online endpoint
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
-In this tutorial, you begin with the files for a trained MLflow model and walk through steps to register it. You then create an endpoint with a first deployment, test the deployment with data, and retrieve the deployment details. Afterward, you create a second deployment and allocate some percentage of production traffic to it. Then, you obtain logs from the second deployment and check its performance to ensure you're satisfied with it. Finally, you send all the production traffic to the second deployment and delete the first one.
+In this tutorial, we use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.
 
 The steps you'll take are:
 
@@ -43,33 +37,40 @@ The steps you'll take are:
 
 ## Prerequisites
 
-1. If you already completed the earlier training tutorial, "Train a model", you can skip to #3 in the prerequisites.
-1. If you haven't completed the earlier tutorial, be sure to do the following: 
-    * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/machine-learning) to begin.
-    * Create an Azure Machine Learning workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the compute resources you'll use in this tutorial. To view your usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
-    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
+1.  To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.   
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    * Or,  open **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
+    
+1. If you already completed the earlier training tutorial, [Train a model](tutorial-train-model.md), you can skip to the next prerequisite.
+
 1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
-    > [!NOTE]
-    > You'll use 1 instance of the [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM SKU and 2 instances of the [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) VM SKU in this tutorial. For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. To ensure proper resource allocation, you must have a quota equal to the product of:
-    > * `ceil(1.2 * number of instances requested for deployment)` and
-    > * `number of cores for the VM SKU`.
-    >
-    > This translates to `ceil(1.2 * 1) * 4` = `8` cores for the `Standard_DS3_v2` VM and `ceil(1.2 * 2) * 4` = `12` cores for the `Standard_F4s_v2` VM.
-1. Create a new notebook or copy the contents of our notebook.
-    * Follow the [Create a new notebook](quickstart-create-resources.md#create-a-new-notebook) steps to create a new notebook.
-    * Or open the notebook by opening **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. Then select **Clone this notebook** to add the notebook to your **Files**.
 
-## Connect to the workspace
+## Set your kernel
 
-Before you dive in the code, you'll need to connect to your Azure Machine Learning workspace. 
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
-We're using `DefaultAzureCredential` to get access to the workspace. 
-`DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-In the next cell, enter your Subscription ID, Resource Group name, and Workspace name. To find these values:
+1. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
+
+> [!Important]
+> The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
+>
+
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb -->
+
+
+## Create handle to workspace
+
+Before we dive in the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
+
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. Copy the value for workspace, resource group and subscription ID into the code.  
+1. Copy the value for workspace, resource group and subscription ID into the code.
 1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
 
@@ -89,19 +90,19 @@ ml_client = MLClient(
 )
 ```
 
-The result is a handle to the workspace that you'll use to manage other resources and jobs.
-
-> [!IMPORTANT]
+> [!NOTE]
 > Creating `MLClient` will not connect to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call (in this notebook, that will happen during compute creation).
 
 
 ## Register the model
 
-If you already completed the earlier training tutorial, "Train a model", you've registered an MLflow model as part of the training script and can skip to the next section. 
+If you already completed the earlier training tutorial,  [Train a model](tutorial-train-model.md), you've registered an MLflow model as part of the training script and can skip to the next section. 
 
 If you didn't complete the training tutorial, you'll need to register the model. Registering your model before deployment is a recommended best practice.
 
-In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#create-a-new-notebook), then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model. 
+In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-create-resources.md#learn-from-sample-notebooks), then run the following code as-is. Otherwise, [download the files and metadata for the model to deploy](https://azuremlexampledata.blob.core.windows.net/datasets/credit_defaults_model.zip). Update the path to the location on your local computer where you've unzipped the model's files. 
+
+The SDK automatically uploads the files and registers the model. 
 
 For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
@@ -126,7 +127,11 @@ ml_client.models.create_or_update(mlflow_model)
 
 ## Confirm that the model is registered
 
-You can check the **Models** page in [Azure Machine Learning studio](https://ml.azure.com/) to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+You can check the **Models** page in [Azure Machine Learning studio](https://ml.azure.com/) to identify the latest version of your registered model.
+
+:::image type="content" source="media/tutorial-deploy-model/registered-model-in-studio.png" alt-text="Screenshot shows the registered model in studio.":::
+
+Alternatively, the code below will retrieve the latest version number for you to use.
 
 
 ```python
@@ -179,6 +184,7 @@ First, we'll define the endpoint, using the `ManagedOnlineEndpoint` class.
 
 > [!TIP]
 > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+>
 > * Optionally, you can add a description and tags to your endpoint.
 
 
@@ -469,7 +475,7 @@ ml_client.online_deployments.begin_delete(
 If you aren't going use the endpoint and deployment after completing this tutorial, you should delete them.
 
 > [!NOTE]
-> Expect this step to take approximately 6 to 8 minutes.
+> Expect the complete deletion to take approximately 20 minutes.
 
 
 ```python

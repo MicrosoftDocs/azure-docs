@@ -18,45 +18,57 @@ ms.custom: sdkv2, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Learn how a data scientist uses Azure Machine Learning to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
+This tutorial is an introduction to some of the most used features of the Azure Machine Learning service.  In it, you will create, register and deploy a model. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage. 
 
-You'll learn how to submit a *command job* to run your *training script* on a specified *compute cluster*, configured with the *job environment* necessary to run the script.
+You'll learn how to run a training job on a scalable compute resource, then deploy it, and finally test the deployment.
 
-The *training script* handles the data preparation, then trains and registers a model. Once you have the model, you'll deploy it as an *endpoint*, then call the endpoint for inferencing.
+You'll create a training script to handle the data preparation, train and register a model. Once you train the model, you'll *deploy* it as an *endpoint*, then call the endpoint for *inferencing*.
+
+The steps you'll take are:
+
+> [!div class="checklist"]
+> * Set up a handle to your Azure Machine Learning workspace
+> * Create your training script
+> * Create a scalable compute resource, a compute cluster 
+> * Create and run a command job that will run the training script on the compute cluster, configured with the appropriate job environment
+> * View the output of your training script
+> * Deploy the newly-trained model as an endpoint
+> * Call the Azure Machine Learning endpoint for inferencing
+
 
 ## Prerequisites
 
-* Complete the [Create resources you need to get started](quickstart-create-resources.md) if you need help to:
-    * Create a workspace.
-    * Create a cloud-based compute instance to use for your development environment.
-    * Create a new notebook, if you want to copy/paste code into cells.
-    * Or, open the notebook version of this tutorial by opening **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
+1.  To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.  
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    *  Or,  open **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
 
-1. On the top bar above your opened notebook, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
+1. On the top bar above your opened notebook, create a compute instance if you don't already have one.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
+
+## Set your kernel
 
 1. If the compute instance is stopped, select **Start compute** and wait until it is running.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+1. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
-
 
 > [!Important]
 > The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
 >
-> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/quickstart.ipynb -->
 
 
-## Connect to the workspace
+## Create handle to workspace
 
-Before you dive in the code, you need to connect to your Azure Machine Learning workspace. 
+Before we dive in the code, you need a way to reference your workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-We're using `DefaultAzureCredential` to get access to workspace. 
-`DefaultAzureCredential` handles most Azure SDK authentication scenarios. 
+You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -82,20 +94,8 @@ ml_client = MLClient(
 )
 ```
 
-The result is a handler to the workspace that you'll use to manage other resources and jobs.
-
-> [!IMPORTANT]
+> [!NOTE]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during compute creation).
-
-## What is a command job?
-
-You'll create an Azure Machine Learning *command job* to train a model for credit default prediction. The command job is used to run a *training script* in a specified environment on a specified compute resource.  You've already created the environment and the compute resource.  Next you'll create the training script.
-
-The *training script* handles the data preparation, training and registering of the trained model. In this tutorial, you'll create a Python training script.
-
-Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure Machine Learning Python SDK v2 to create and run the command job.
-
-After running the training job, you'll deploy the model, then use it to produce a prediction.
 
 ## Create training script
 
@@ -229,9 +229,9 @@ You might need to select **Refresh** to see the new folder and script in your **
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/refresh.png" alt-text="Screenshot shows the refresh icon.":::
 
-## Create a compute cluster, a scalable way to run training job
+## Create a compute cluster, a scalable way to run a training job
 
-You already have a compute instance, which you're using to run the notebook.  But now you'll add another type of compute, a **compute cluster** that you'll use to run your training job. The compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+You already have a compute instance, which you're using to run the notebook.  Now you'll add a second type of compute, a **compute cluster** that you'll use to run your training job. While a compute instance is a single node machine, a compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
 You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
@@ -279,7 +279,7 @@ except Exception:
 
 ## Configure the command
 
-Now that you have a script that can perform the desired tasks, and a compute cluster to run the script, you'll use the general purpose **command** that can run command line actions. This command line action can be directly calling system commands or by running a script. 
+Now that you have a script that can perform the desired tasks, and a compute cluster to run the script, you'll use a general purpose **command** that can run command line actions. This command line action can directly call system commands or run a script. 
 
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute cluster to run the command.
@@ -338,15 +338,11 @@ The output of this job will look like this in the Azure Machine Learning studio.
 
 Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md).
 
-To deploy a machine learning service, you usually need:
-
-* The model assets (file, metadata) that you want to deploy. You've already registered these assets in your training job.
-* Some code to run as a service. The code executes the model on a given input request. This entry script receives data submitted to a deployed web service and passes it to the model, then returns the model's response to the client. The script is specific to your model. The entry script must understand the data that the model expects and returns. With an MLFlow model, as in this tutorial, this script is automatically created for you. Find more examples of [scoring scripts](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online).
-
+To deploy a machine learning service, you'll use the model you registered.
 
 ## Create a new online endpoint
 
-Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
 
 ```python
@@ -479,14 +475,17 @@ ml_client.online_endpoints.invoke(
 
 If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
 
+
+> [!NOTE]
+> Expect the complete deletion to take approximately 20 minutes.
+
+
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
-> [!NOTE]
-> Expect the complete deletion to take approximately 6 to 8 minutes.
+<!-- nbend -->
 
-If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
 ### Stop compute instance
 
@@ -511,3 +510,4 @@ Now that you have an idea of what's involved in training and deploying a model, 
 | [Model development on a cloud workstation](tutorial-cloud-workstation.md) | Start prototyping and developing machine learning models |
 | [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
 | [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |
+| [Tutorial: Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |

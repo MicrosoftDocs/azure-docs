@@ -34,7 +34,6 @@ If you  already have a workspace, skip this section and continue to [Create a co
 
 If you don't yet have a workspace, create one now: 
 
-
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Select **Create workspace**
 1. Provide the following information to configure your new workspace:
@@ -143,3 +142,5 @@ Use your compute instance with the following tutorials to train and deploy a mod
 | [Model development on a cloud workstation](tutorial-cloud-workstation.md) | Start prototyping and developing machine learning models |
 | [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
 | [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |
+| [Tutorial: Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |
+| [Tutorial: Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |
