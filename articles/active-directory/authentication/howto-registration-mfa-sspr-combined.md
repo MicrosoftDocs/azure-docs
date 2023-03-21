@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. Users were confused that similar methods were used for Azure AD Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Azure AD Multi-Factor Authentication and SSPR.
 
 > [!NOTE]
-> Effective mar. 14th, 2023 combined registration is now the default MFA and SSPR registration experience for all organizations. 
+> Effective Mar. 14th, 2023 combined registration is now the default MFA and SSPR registration experience for all organizations. 
 
 To help you understand the functionality and effects of the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
