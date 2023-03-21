@@ -5,11 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-<<<<<<< HEAD
-ms.date: 03/14/2023
-=======
 ms.date: 03/20/2023
->>>>>>> b3e43958722203be29aa4b032f1a792be813c0da
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -27,12 +23,6 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
  DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF. For more information about enabling DDoS IP Protection, see [Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell](manage-ddos-protection-powershell-ip.md).
 
-<<<<<<< HEAD
-=======
-> [!NOTE]
-> DDoS IP Protection is currently only available in Azure Preview PowerShell.
-
->>>>>>> b3e43958722203be29aa4b032f1a792be813c0da
 ## SKUs
 
 Azure DDoS Protection supports two SKU Types, DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
