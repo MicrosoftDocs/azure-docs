@@ -59,7 +59,7 @@ Learn more about [authentication concepts](../../concepts/authentication.md), ca
 To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting a resource group also deletes any other resources that are associated with it. For more information, see the "Clean up resources" section of [Create and manage Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
 ::: zone pivot="platform-nocode"
-To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+To clean up your logic app workflow and related resources, review [how to clean up Azure Logic Apps resources](../../../logic-apps/quickstart-create-example-consumption-workflow.md#clean-up-resources).
 ::: zone-end
 
 ::: zone pivot="platform-azportal,programming-language-java,programming-language-python,programming-language-javascript,programming-language-csharp,platform-azcli"

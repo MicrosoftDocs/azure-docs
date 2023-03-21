@@ -17,7 +17,7 @@ The AI Vectra Detect connector allows users to connect Vectra Detect logs with M
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (AIVectraDetect)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Vectra AI](https://www.vectra.ai/support) |
 
 ## Query samples

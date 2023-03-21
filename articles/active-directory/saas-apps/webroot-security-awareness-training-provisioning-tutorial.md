@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Webroot Security Awareness Training for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Webroot Security Awareness Training for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Webroot Security Awareness Training.
 services: active-directory
 documentationcenter: ''

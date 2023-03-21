@@ -19,7 +19,7 @@ Citrix WAF supports Common Event Format (CEF) which is an industry standard form
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (CitrixWAFLogs)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 
 ## Query samples

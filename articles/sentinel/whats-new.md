@@ -17,6 +17,12 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## March 2023
+
+### Automatically update the SAP data connector agent (Preview)
+
+You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
+
 ## February 2023
 
 - [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes) (in [Announcements](#announcements) section below)
@@ -53,7 +59,6 @@ Microsoft 365 Defender incidents, alerts, and raw event data can be ingested int
 To give you more flexibility in scheduling your analytics rule execution times and to help you avoid potential conflicts, Microsoft Sentinel now allows you to determine when newly created analytics rules will run for the first time. The default behavior is as it has been: for them to run immediately upon creation.
 
 [Learn more about advanced scheduling](detect-threats-custom.md#query-scheduling-and-alert-threshold).
-
 
 ## January 2023
 

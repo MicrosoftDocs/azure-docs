@@ -1,5 +1,5 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication

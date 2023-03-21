@@ -71,14 +71,16 @@ landingContent:
             url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
           - text: Multi-user authorization (MUA) for Backup vault
             url: ./multi-user-authorization-concept.md?tabs=backup-vault
-          - text: Immutable vault (preview)
+          - text: Immutable vault
             url: backup-azure-immutable-vault-concept.md
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
           - text: Azure Kubernetes Service backup (preview)
-            url: azure-kubernetes-service-cluster-backup-concept.md
+            url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)
             url: blob-backup-overview.md
+          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
+            url: selective-disk-backup-restore.md
   # Card
   - title: Back up Azure VMs
     linkLists:
