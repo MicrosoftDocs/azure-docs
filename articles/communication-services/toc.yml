@@ -210,6 +210,12 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+    - name: Call recording
+      items:
+      - name: Record a call
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
+      - name: Record every call in the resource
+        href: how-tos/call-automation/record-every-call.md
     - name: Editing media from the client
       items:
       - name: Access raw audio and video
@@ -326,14 +332,16 @@ items:
       items:
       - name: Build a workflow for customer interactions 
         href: quickstarts/call-automation/callflows-for-customer-interactions.md
-      - name: Record a call
-        href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
       - name: Customize voice prompts to users with play action 
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+    - name: Call recording
+      items:
+      - name: Record a call
+        href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
     - name: Events
@@ -530,8 +538,10 @@ items:
         href: concepts/notifications.md
     - name: Analytics
       items:
-      - name: Call logs overview
+      - name: Call logs
         href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Recording logs
+        href: concepts/analytics/recording-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: Known issues
@@ -582,12 +592,6 @@ items:
         href: concepts/telephony/outbound-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
-      - name: Analytics
-        items:
-        - name: Call logs overview
-          href: concepts/analytics/call-logs-azure-monitor.md
-        - name: Metrics overview
-          href: concepts/metrics.md
     - name: Call Automation
       items:
       - name: Overview
@@ -598,8 +602,8 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gathering user input 
         href: concepts/call-automation/recognize-action.md
-      - name: Call recording
-        href: concepts/voice-video-calling/call-recording.md
+    - name: Call recording
+      href: concepts/voice-video-calling/call-recording.md
     - name: Events
       items:
       - name: Overview
@@ -608,7 +612,9 @@ items:
         href: ../event-grid/communication-services-voice-video-events.md
     - name: Analytics
       items:
-      - name: Recording logs overview
+      - name: Call logs
+        href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Recording logs
         href: concepts/analytics/recording-logs.md
       - name: Metrics overview
         href: concepts/metrics.md

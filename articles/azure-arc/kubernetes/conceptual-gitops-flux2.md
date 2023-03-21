@@ -33,7 +33,9 @@ GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Micros
 The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the [most recent version](extensions-release.md#flux-gitops) of the extension.
 
 > [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so we recommend [migrating to Flux v2](#migrate-from-flux-v1) as soon as possible.
+> If you have been using Flux v1, we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
+>
+> Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
 
 ### Controllers
 

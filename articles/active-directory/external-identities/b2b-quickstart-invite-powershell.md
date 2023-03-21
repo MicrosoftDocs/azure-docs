@@ -5,12 +5,12 @@ services: active-directory
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.date: 02/16/2022
+ms.date: 03/21/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
 ms.custom: it-pro, seo-update-azuread-jan, mode-api
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 #Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
 ---
 
@@ -83,7 +83,5 @@ Remove-MgUser -UserId '3f80a75e-750b-49aa-a6b0-d9bf6df7b4c6'
 
 
 ## Next steps
-In this quickstart, you invited and added a single guest user to your directory using PowerShell. Next, learn how to invite guest users in bulk using PowerShell.
+In this quickstart, you invited and added a single guest user to your directory using PowerShell. Next, learn how to [invite guest users in bulk using PowerShell](tutorial-bulk-invite.md).
 
-> [!div class="nextstepaction"]
-> [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
