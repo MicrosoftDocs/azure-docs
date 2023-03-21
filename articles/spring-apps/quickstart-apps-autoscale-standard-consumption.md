@@ -26,8 +26,8 @@ For more information, see [Azure Container Apps documentation](../container-apps
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Apps service instance.
-- At least one application already created in your service instance.
+- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Scale definition
 
