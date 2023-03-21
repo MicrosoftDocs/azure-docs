@@ -57,7 +57,6 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
     |**Description**|Enter a description for the rule.|
   
 1. Select **Add**.
-    :::image type="content" source="media/ingress/screenshot-ip-restriction-allow-rule-settings.png" alt-text="Screenshot of IP restrictions Add DENY rule page":::
 1. Repeat steps 4-6 to add more rules.
 1. When you have finished adding rules, select **Save** to save the rules.
     :::image type="content" source="media/ingress/screenshot-save-ip-restriction.png" alt-text="Screenshot to save IP restrictions on container app Ingress page.":::

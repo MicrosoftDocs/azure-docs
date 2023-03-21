@@ -134,7 +134,7 @@ https://github.com/Azure/azure-rest-api-specs/blob/4fcd6d4eb9153ff8dbbb2940d62c3
 [Anthony] I think the descriptions in the above table should suffice for now.
 -->
 
-You can configure ingress for your container app using the Azure CLI, an ARM template or the Azure portal.
+You can configure ingress for your container app using the Azure CLI, an ARM template, or the Azure portal.
 
 # [Azure CLI](#tab/azure-cli)
 
