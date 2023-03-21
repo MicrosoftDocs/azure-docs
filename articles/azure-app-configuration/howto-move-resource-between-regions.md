@@ -24,29 +24,12 @@ Before you begin, keep in mind the following concepts:
 * Configuration store names are globally unique.
 * You need to reconfigure your access policies and network configuration settings in the new configuration store.
 
-## Create the target configuration store
+## Create a target configuration store
 
 ### [Portal](#tab/portal)
 
-To create a new App Configuration store in the Azure portal, follow these steps:
-
-1. In the upper-left corner of the home page, select **Create a resource**.
-1. In the search box, enter *App Configuration* and select **App Configuration** from the search results.
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-find-app-configuration.png" alt-text="Screenshot of the Azure portal that shows the App Configuration service in the search bar.":::
-1. Select **Create**.
-
-1. On the **Create App Configuration** pane, enter the following settings:
-
-    | Setting | Suggested value | Description |
-    |---|---|---|
-    | **Subscription** | Your subscription | Select the Azure subscription of your original store |
-    | **Resource group** | Your resource group | Select the Azure resource group of your original store |
-    | **Resource name** | Globally unique name | Enter a unique resource name to use for the target App Configuration store. This can not be the same name as the previous configuration store. |
-    | **Location** | Your target Location | Select the target region you want to move your configuration store to. |
-    | **Pricing tier** | *Standard* | Select the desired pricing tier. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration). |
-1. Select **Review + create** to validate your settings.
-1. Select **Create**. The deployment might take a few minutes.
-1. Once the resource has been deployed, recreate the access policies and network configuration settings of our source store. These will not be transferred with the configuration. This can include using manage identities, virtual networks, and public network access.
+1. Create a new App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md). For **Location** select the target region you want to move your configuration store to and for **Pricing tier** select **Standard**.
+1. Once the resource has been deployed, recreate the access policies and network configuration settings of your source store. These will not be transferred with the configuration. This can include using manage identities, virtual networks, and public network access.
 
 #### [Azure CLI](#tab/azcli)
 
@@ -81,7 +64,7 @@ To create a new App Configuration store in the CLI, follow these steps:
 
 ### [Portal](#tab/portal)
 
-Follow these steps to export your configuration to the target store using the Portal:
+Follow these steps to export your configuration to the target store using the Azure portal:
 
 1. Navigate to your source configuration store in the [Azure portal](https://portal.azure.com) and select **Import/Export** under **Operations**.
 1. Select **Export** and choose **App Configuration** in the **Target Service** dropdown.
