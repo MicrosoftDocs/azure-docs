@@ -67,7 +67,7 @@ You can integrate monitoring data from sources outside Azure, including on-premi
 
 Azure Monitor collects these types of data:
 
-|Data Type  |Description  |
+|Data Type|Description|
 |---------|---------|
 |Application|Data about the performance and functionality of your application code on any platform.|
 |Infrastructure|**Container.** Data about containers, such as [Azure Kubernetes Service]](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system.** Data about the guest operating system on which your application is running.|
@@ -142,13 +142,13 @@ The following table describes some of the larger insights:
 |[Application Insights](app/app-insights-overview.md)|Application Insights takes advantage of the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. Application Insights monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. You can use it to diagnose errors without waiting for a user to report them. Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes.|
 |[Container Insights](containers/container-insights-overview.md)|Container Insights gives you performance visibility into container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service. Container Insights collects container logs and metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.|
 |[VM Insights](vm/vminsights-overview.md)|VM Insights monitors your Azure VMs. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.|
-|[Network Insights](vm/network-insights-overview.md)|Network Insights provides a comprehensive and visual representation through topologies, of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics as well as additional diagnostic features. |
+|[Network Insights](../network-watcher/network-insights-overview.md)|Network Insights provides a comprehensive and visual representation through topologies, of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics as well as additional diagnostic features. |
 
 For more information, see the [list of insights and curated visualizations in the Azure Monitor Insights overview](insights/insights-overview.md). 
 
 ### Visualize
 
-:::image type="content" source="media/overview/visualize.png" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-large-in-overview-context.png.png":::
+:::image type="content" source="media/overview/visualize.png" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-large-in-overview-context.png":::
 
 Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and uses other Azure services for publishing it to different audiences. PowerBI and Grafana are not officially part of the Azure Monitor product, but they are a core integration and part of the Azure Monitor story.
 
