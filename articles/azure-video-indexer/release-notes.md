@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 02/07/2023
+ms.date: 03/22/2023
 ms.author: juliako
 ---
 
@@ -22,6 +22,20 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 ## Important notice
 
 [!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+
+## March 2023
+
+### New custom speech and pronunciation training
+
+Azure Video Indexer has added a new custom speech model experience. The experience includes ability to use custom pronunciation datasets to improve recognition of mispronounced words, phrases, or names. The custom models can be used to improve the transcription quality of content with industry specific terminology. To learn more, see [Customize speech model overview](customize-speech-model-overview.md).
+
+### Observed people quality improvements
+
+Observed people now supports people who are sitting. This is in addition to existing support of people who are standing or walking. This improvement makes observed people model more versatile and suitable for a wider range of use cases. We have also improved the model re-identification and grouping algorithms by 50%. The model can now more accurately track and group people across multiple camera views.
+
+### Observed people indexing duration optimization
+
+We have optimized the memory usage of the observed people model, resulting in a 60% reduction in indexing duration when using the advanced video analysis preset. You can now process your video footage more efficiently and get results faster.
 
 ## February 2023
 
