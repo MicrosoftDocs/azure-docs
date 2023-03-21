@@ -13,10 +13,10 @@ ms.date: 03/15/2023
 ms.custom: mlops #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 # Deploy a model as an online endpoint
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 Learn to deploy a model to an online endpoint, using Azure Machine Learning Python SDK v2.
 
 In this tutorial, we use a model trained to predict the likelihood of defaulting on a credit card payment. The goal is to deploy this model and show its use.
@@ -130,8 +130,8 @@ ml_client.models.create_or_update(mlflow_model)
 
 You can check the **Models** page in [Azure Machine Learning studio](https://ml.azure.com/) to identify the latest version of your registered model.
 
-:::image type="content" source="media/tutorial-deploy-model/registered-model-in-studio.png" alt-text="Screenshot shows the registered model in studio.
-":::
+:::image type="content" source="media/tutorial-deploy-model/registered-model-in-studio.png" alt-text="Screenshot shows the registered model in studio.":::
+
 Alternatively, the code below will retrieve the latest version number for you to use.
 
 
