@@ -49,6 +49,20 @@ You need:
 - your Azure account and the subscription ID of Operator Nexus cluster deployment
 - the `custom location` resource ID of your Operator Nexus cluster
 
+## AKS-Hybrid availablity zone
+`--zones` option in `az hybridaks create` or `az hybridaks nodepool add` can be used to distribute the AKS-Hybrid clusters across different zones for better fault tolerance and performance. By specifying the --zones option when creating a AKS-Hybrid cluster, you can ensure that the cluster is scheduled onto a nodes in a specific rack or distributed evenly across multiple racks for better resource utilization and fault tolerance.
+
+In case you don't specify a zone while creating a AKS-Hybrid cluster through the --zones option, Operator Nexus platform will automatically implement a default anti-affinity rule. This anti-affinity rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it is a best-effort approach and cannot guarantee it.
+
+To obtain the list of available zones in the given Operator Nexus instance, you can use the following command.
+
+```azurecli
+    az networkcloud cluster show \
+      --resource-group <Operator Nexus on-prem cluster Resource Group> \
+      --name <Operator Nexus on-prem cluster name> \
+      --query computeRackDefinitions[*].availabilityZone
+```
+
 ### Review Azure container registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
