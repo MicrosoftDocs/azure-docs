@@ -28,7 +28,7 @@ The SMS Insights dashboard in your communication resource shows data visualizati
 
 Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
 
-    :::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Insights navigation":::
+:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Insights navigation":::
 
 ## Dashboard structure
 
