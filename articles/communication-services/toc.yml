@@ -440,8 +440,8 @@ items:
         href: ../event-grid/communication-services-telephony-sms-events.md
     - name: Analytics
       items:
-      - name: Logs overview
-        href: concepts/logging-and-diagnostics.md
+      - name: SMS logs
+        href: concepts/analytics/logs/sms-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Voice and Video Calling
@@ -530,7 +530,7 @@ items:
         href: concepts/notifications.md
     - name: Analytics
       items:
-      - name: Call logs overview
+      - name: Call logs
         href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
@@ -554,8 +554,8 @@ items:
         href: concepts/notifications.md
     - name: Analytics
       items:
-      - name: Logs overview
-        href: concepts/logging-and-diagnostics.md
+      - name: Chat logs
+        href: concepts/analytics/logs/chat-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Phone calling
@@ -584,8 +584,10 @@ items:
         href: concepts/telephony/known-limitations-acs-telephony.md
       - name: Analytics
         items:
-        - name: Call logs overview
+        - name: Call logs
           href: concepts/analytics/logs/voice-and-video-logs.md
+        - name: Recording logs
+          href: concepts/analytics/logs/recording-logs.md
         - name: Metrics overview
           href: concepts/metrics.md
     - name: Call Automation
@@ -608,8 +610,10 @@ items:
         href: ../event-grid/communication-services-voice-video-events.md
     - name: Analytics
       items:
-      - name: Recording logs overview
-        href: concepts/analytics/recording-logs.md
+      - name: Call Automation logs
+        href: concepts/analytics/logs/call-automation-logs.md
+      - name: Recording logs
+        href: concepts/analytics/logs/recording-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Email
@@ -636,14 +640,18 @@ items:
         href: ../event-grid/communication-services-email-events.md
     - name: Analytics
       items:
-      - name: Logs overview
-        href: concepts/logging-and-diagnostics.md
+      - name: Email logs
+        href: concepts/analytics/logs/email-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Network Traversal
     items:
     - name: Overview
-      href: concepts/network-traversal.md    
+      href: concepts/network-traversal.md
+    - name: Analytics
+      items:
+      - name: Network Traversal logs
+        href: concepts/analytics/logs/network-traversal-logs.md    
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
