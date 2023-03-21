@@ -9,9 +9,9 @@ ms.date: 03/09/2023
 ---
 # About data-aware security posture (preview)
 
-As digital transformation accelerates in response to market shifts, cloud adoption, and remote working practices, organizations are moving from traditional on-premises environments to multi-cloud architectures. Security teams are shifting technologies, processes, and operations from traditional network perimeter-based security to asset-based security controls. Data is a critical business asset that's moving to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. Business risk frameworks must account for increasing data threats, growing attack surfaces, and higher risk of data asset loss or compromise.
+As digital transformation accelerates in response to market shifts, cloud adoption, and remote working practices, organizations are moving from traditional on-premises environments to multi-cloud architectures. Security teams are shifting technologies, processes, and operations from traditional network perimeter-based security to asset-based security controls. Data is a critical business asset that's moving to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. Business risk frameworks must account for increasing data threats, growing attack surfaces, and higher risks of data asset loss or compromise.
 
-Data-aware security in Microsoft Defender for Cloud aims to proactively protect data, reduce risk, and respond to data breaches. Using data-aware security posture you can:
+Data-aware security in Microsoft Defender for Cloud aims to proactively protect data, reduce risk, and identify data breaches. Using data-aware security posture you can:
 
 - Automatically discover sensitive data resources across multiple clouds.
 - Evaluate data sensitivity, who's accessing data, and how data flows across the organization.
@@ -29,7 +29,7 @@ Defender Cloud Security Posture Management (CSPM) provides visibility and contex
 
 Defender for Storage monitors Azure storage accounts with advanced threat detection capabilities. It detects potential data breaches by identifying harmful attempts to access or exploit data, and by identifying suspicious configuration changes that could lead to a breach.
 
-When early signs are detected, the Defender for Storage generates a security alert, which allows security teams to quickly respond and mitigate.
+When early suspicious signs are detected, Defender for Storage generates a security alert, which allows security teams to quickly respond and mitigate.
 
 ## Discovering data resources
 
@@ -51,5 +51,5 @@ In addition, Defender for Cloud integrates with Microsoft Purview. You can optio
 
 ## Next steps
 
-[Prepare](concept-data-security-posture-prepare.md) for using data-aware security posture management.
+[Prepare](concept-data-security-posture-prepare.md) and review requirements for data-aware security posture management.
 

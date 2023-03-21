@@ -13,17 +13,18 @@ Review the requirements on this page before setting up [data-aware security post
 
 ## Enabling data-aware security posture
 
-Data-aware security posture is available in both supported plans at the subscription level. That means it’s not available at storage-level in the Defender for Storage plan.
+Data-aware security posture is available in the Defender CSPM and Defender for Storage plans at the subscription level. It's not available at storage-level in the Defender for Storage plan.
 
-- When a plan is enabled, data-aware security posture is turned on by default.
-- If you have existing plans running, the feature will be available but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on.
+- When you enable a plan, data-aware security posture is turned on by default.
+- If you have existing plans running, data-aware security posture will be available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on.
 - You can turn the feature on and off manually for a plan.
 
 Note that:
 
 - In addition to turning on the feature in a plan, the feature needs to be enabled for a specific subscription.
-- Since the feature is at subscription level, turning it on and off will turn the feature on/off in both plans. It’s important to note that this doesn’t turn on the plan itself.
-- Turning the feature on in one plan does not turn it on in the other plan. It’s enabled separately in each plan.
+- Since the feature is at subscription level, turning it on and off will turn the feature on/off in both plans.
+    - It's important to note that turning on the feature doesn’t turn on the plan itself.
+    - Turning the feature on in one plan does not turn it on in the other plan. It’s enabled separately in each plan.
 
 ## Which plan should I choose?
 
@@ -38,7 +39,7 @@ Identify data threats and breaches with Defender for Cloud security alerts | N |
 
 ## What's supported
 
-The table summarizes support for data-aware posture management
+The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
@@ -54,7 +55,8 @@ What's the cost? | The feature is included with each plan, and doesn’t include
 
 Defender for Cloud provides sensitivity settings using sensitive information types that align to those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). 
 
-Sensitivity settings in Defender for Cloud are set at the Azure tenant level. Default sensitivity settings are applied to all subscriptions in the tenant when the [Defender for Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan, or the Defender for Storage v2 plan is enabled.  
+- Sensitivity settings in Defender for Cloud are set at the Azure tenant level.
+- Default sensitivity settings are applied to all subscriptions in the tenant when the [Defender for Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan, or the Defender for Storage v2 plan is enabled.  
 
 ### Modifying sensitivity types
 
@@ -152,5 +154,5 @@ You can review attack paths with the Sensitive Data Exposure category. Drill dow
 
 ## Next steps
 
-[Set up](data-security-posture-enable.md) data-aware security posture management
+[Set up](data-security-posture-enable.md) data-aware security posture management.
 
