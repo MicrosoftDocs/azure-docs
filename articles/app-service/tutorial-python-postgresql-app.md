@@ -503,13 +503,13 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
 1. Install the Azure Developer CLI. For a full list of supported installation options and tools, visit the [installation guide](/azure/developer/azure-developer-cli/install-azd).
 
-    ### [Windows](#tab/windows)
+    ### [Windows](#tab/windows-azd)
 
     ```azdeveloper
     powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
     ```
 
-    ### [Linux/MacOS](#tab/linuxmac)
+    ### [Linux/MacOS](#tab/linuxmac-azd)
 
     ```azdeveloper
     curl -fsSL https://aka.ms/install-azd.sh | bash 
