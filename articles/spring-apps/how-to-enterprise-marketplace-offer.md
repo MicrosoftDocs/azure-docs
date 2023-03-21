@@ -59,13 +59,10 @@ The Enterprise tier provides the following managed VMware Tanzu components that 
 
 As the most advanced tier in Azure Spring Apps, a Microsoft provided first party Azure service, the Enterprise tier pricing is composed of two parts that both calculate vCPU and memory storage in their pricing.
 
-- Infrastructure pricing to Microsoft, includes (on top of) managed Tanzu components.
-- Tanzu licensing pricing to VMware, includes (on top of) vCPU usage to VMware.
+- Infrastructure pricing to Microsoft, based on vCPU and memory usage of apps and managed Tanzu components.
+- Tanzu licensing pricing to VMware, based on vCPU usage of apps.
 
-To illustrate, consider a Spring app running 730 hours on 4 vCPUs for the app and 5 vCPUs on two Tanzu components. The pricing calculations would be as follows:
 
-- Microsoft infrastructure: `4 + 5 * 730 * vCPU unit price`
-- Tanzu licensing to VMware: `4 vCPU * 730 *  vCPU unit price of Tanzu license`
 
 For more information about pricing, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
