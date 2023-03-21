@@ -31,8 +31,8 @@ To get a list of AKS_Hybrid clusters in your Resource group:
 
 ```azurecli
     az hybridaks list -o table \
-    --resource-group "<YourResourceGroupName>" \
-    --subscription "<YourSubscription>"
+      --resource-group "<YourResourceGroupName>" \
+      --subscription "<YourSubscription>"
 ```
 
 ## Show command
@@ -41,8 +41,8 @@ To see the properties of AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 
 ```azurecli
   az hybridaks show --name "<YourAKS-HybridClusterName>" \
-    --resource-group "< YourResourceGroupName >" \
-    --subscription "< YourSubscription >"
+    --resource-group "<YourResourceGroupName>" \
+    --subscription "<YourSubscription>"
 ```
 
 ## Update command
@@ -51,9 +51,9 @@ To update the properties of your AKS-Hybrid cluster:
 
 ```azurecli
     az hybridaks update --name "<YourAKS-HybridClustername>" \
-    --resource-group "<YourResourceGroupName>" \
-    --subscription "< YourSubscription>" \
-    --tags "<YourAKS-HybridClusterTags>"
+      --resource-group "<YourResourceGroupName>" \
+      --subscription "<YourSubscription>" \
+      --tags "<YourAKS-HybridClusterTags>"
 ```
 
 ## Delete command
@@ -62,6 +62,20 @@ To delete the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 
 ```azurecli
     az hybridaks delete --name "<YourAKS-HybridClustername>" \
-    --resource-group "<YourResourceGroupName >" \
-    --subscription "<YourSubscription>"
+      --resource-group "<YourResourceGroupName >" \
+      --subscription "<YourSubscription>"
+```
+
+## Add nodepool command
+
+To add nodepool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
+```azurecli
+    az hybridaks nodepool add \
+      --name <name of the nodepool> \
+      --cluster-name "<YourAKS-HybridClustername>" \
+      --resource-group "<YourResourceGroupName>" \
+      --location <dc-location> \
+      --node-count <worker node count> \
+      --node-vm-size <Operator Nexus SKU> \
+      --zones <comma separated list of availability zones>
 ```
