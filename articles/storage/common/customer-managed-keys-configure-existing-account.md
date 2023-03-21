@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 03/09/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Configure customer-managed keys in an Azure key vault for an existing storage account
@@ -109,6 +109,8 @@ az role assignment create --assignee-object-id $principalId \
 
 When you configure encryption with customer-managed keys for an existing storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
+When the key version is changed, whether automatically or manually, the protection of the root encryption key changes, but the data in your Azure Storage account remains encrypted at all times. There is no additional action required on your part to ensure that your data is protected. Rotating the key version doesn't impact performance. There is no downtime associated with rotating the key version.
+
 You can use either a system-assigned or user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys for an existing storage account.
 
 > [!NOTE]
@@ -126,7 +128,7 @@ Azure Storage can automatically update the customer-managed key that is used for
 To configure customer-managed keys for an existing account with automatic updating of the key version in the Azure portal, follow the steps below:
 
 1. Navigate to your storage account.
-1. Under **Settings**, select **Encryption**. By default, key management is set to **Microsoft-Managed Keys** as shown in the image below:
+1. Under **Security + networking**, select **Encryption**. By default, key management is set to **Microsoft-Managed Keys** as shown in the image below:
 
     :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal." lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
 
@@ -269,9 +271,17 @@ When you manually update the key version, you'll need to update the storage acco
 
 ---
 
+## The impact of changing customer-managed keys
+
+When customer-managed keys are enabled or disabled, or the key or key version is changed, the protection of the root encryption key changes, but the data in your Azure Storage account remains encrypted at all times. There is no additional action required on your part to ensure that your data is protected. Rotating the key version doesn't impact performance. There is no downtime associated with rotating the key version.
+
 [!INCLUDE [storage-customer-managed-keys-change-include](../../../includes/storage-customer-managed-keys-change-include.md)]
 
+If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you choose manual updating of the key version, you will also need to [update the key vault URI](#configure-encryption-for-manual-updating-of-key-versions).
+
 [!INCLUDE [storage-customer-managed-keys-revoke-include](../../../includes/storage-customer-managed-keys-revoke-include.md)]
+
+Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected by disabling the key, see [Revoke access to a storage account that uses customer-managed keys](customer-managed-keys-overview.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
 
 [!INCLUDE [storage-customer-managed-keys-disable-include](../../../includes/storage-customer-managed-keys-disable-include.md)]
 

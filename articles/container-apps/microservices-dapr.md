@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: aawislan
-ms.custom: devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -296,8 +296,6 @@ az containerapp create \
   --user-assigned $IDENTITY_ID \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image dapriosamples/hello-k8s-node:latest \
-  --target-port 3000 \
-  --ingress 'internal' \
   --min-replicas 1 \
   --max-replicas 1 \
   --enable-dapr \
@@ -326,7 +324,6 @@ $ServiceArgs = @{
     Location = $Location
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $ServiceTemplateObj
-    IngressTargetPort = 3000
     ScaleMinReplica = 1
     ScaleMaxReplica = 1
     DaprEnabled = $true

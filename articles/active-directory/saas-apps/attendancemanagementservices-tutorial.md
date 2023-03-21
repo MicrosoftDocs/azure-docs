@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Attendance Management Services | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Attendance Management Services'
 description: Learn how to configure single sign-on between Azure Active Directory and Attendance Management Services.
 services: active-directory
 author: jeevansd

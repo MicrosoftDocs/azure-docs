@@ -24,7 +24,7 @@ In this guide, learn how to set up an automated machine learning, AutoML, traini
 
 If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
-If you prefer to submit training jobs with the Azure Machine learning CLI v2 extension, see [Train models](how-to-train-model.md).
+If you prefer to submit training jobs with the Azure Machine Learning CLI v2 extension, see [Train models](how-to-train-model.md).
 
 ## Prerequisites
 

@@ -6,6 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 03/31/2022
 ms.author: allensu

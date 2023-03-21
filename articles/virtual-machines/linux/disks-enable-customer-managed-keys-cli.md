@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-
+ms.custom: devx-track-azurecli
 ---
 
 # Use the Azure CLI to enable server-side encryption with customer-managed keys for managed disks

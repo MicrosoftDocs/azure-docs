@@ -1,5 +1,5 @@
 ---
-title: How to manage groups - Azure Active Directory | Microsoft Docs
+title: How to manage groups
 description: Instructions about how to manage Azure AD groups and group membership.
 services: active-directory
 author: shlipsey3

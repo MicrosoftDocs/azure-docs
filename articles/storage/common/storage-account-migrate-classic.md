@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: tamram
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate a classic storage account to Azure Resource Manager

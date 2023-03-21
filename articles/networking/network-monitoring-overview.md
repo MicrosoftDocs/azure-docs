@@ -46,7 +46,7 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 
 For more information, view the following articles:
 
-* [Configure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
+* [Configure a Network Performance Monitor Solution in Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/network-performance-monitor) 
 * [Use cases](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
 * Product Updates:
   * [February 2017](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
@@ -83,7 +83,7 @@ With Service Connectivity monitoring, you can now test reachability of applicati
 
 For more information, see the following articles:
 
-* [Configure Network Performance Monitor for monitoring Service Endpoints](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
+* [Configure Network Performance Monitor for monitoring Service Endpoints](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity#configuration)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics
@@ -115,8 +115,8 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](../azure-monitor/insights/dns-analytics.md)
+* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](/previous-versions/azure/azure-monitor/insights/dns-analytics)
 
 ## Miscellaneous
 
-* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)
+* [New Pricing](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-pricing-faq)

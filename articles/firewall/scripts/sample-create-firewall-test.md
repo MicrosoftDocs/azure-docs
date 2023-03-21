@@ -8,7 +8,6 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure Firewall test environment

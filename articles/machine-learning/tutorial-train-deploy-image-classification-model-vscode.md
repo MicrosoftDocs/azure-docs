@@ -20,6 +20,8 @@ ms.custom: contperf-fy20q4, cliv2, event-tier1-build-2022
 
 Learn how to train an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]

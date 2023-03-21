@@ -79,7 +79,7 @@ The CSV file is generated, and you're prompted to save it locally.
 > [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 
 > [!div class="nextstepaction"]
-> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
+> [Accelerate on-premises OT alert workflows](how-to-accelerate-alert-incident-response.md)
 
 > [!div class="nextstepaction"]
 > [Forward alert information](how-to-forward-alert-information-to-partners.md)

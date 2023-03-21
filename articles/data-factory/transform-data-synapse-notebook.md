@@ -12,7 +12,7 @@ ms.date: 07/09/2022
 ---
 
 # Transform data by running a Synapse Notebook
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 The Azure Synapse Notebook Activity in a [pipeline](concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse Analytics workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 

@@ -1,16 +1,13 @@
 ---
 title: Monitor migration activity - Azure Database Migration Service
 description: Learn to use the Azure Database Migration Service to monitor migration activity.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: how-to
 ms.date: 02/20/2020
+ms.service: dms
+ms.topic: how-to
+ms.custom: seo-lt-2019
 ---
 
 # Monitor migration activity using the Azure Database Migration Service
