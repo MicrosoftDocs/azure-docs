@@ -508,6 +508,10 @@ items:
       href: concepts/voice-video-calling/call-recording.md
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
+    - name: Video constraints
+      href: concepts/voice-video-calling/video-constraints.md
+    - name: Customizing the video background
+      href: concepts/voice-video-calling/video-effects.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
     - name: Events
