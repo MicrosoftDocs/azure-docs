@@ -10,11 +10,6 @@ ms.author: jgao
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
 
-Other articles about managing resource groups:
-
-- [Manage Azure resource groups by using Azure CLI](manage-resources-cli.md)
-- [Manage Azure resource groups by using Azure PowerShell](manage-resources-powershell.md)
-
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## What is a resource group

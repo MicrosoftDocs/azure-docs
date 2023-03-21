@@ -110,7 +110,7 @@ POST on 'subscriptions/{subscriptionId}/resourceGroups/acmedemo/providers/Micros
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/installPatches?api-version==2020-12-01 @body.json
+az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/installPatches?api-version=2020-12-01 @body.json
 ```
 
 The format of the request body for version 2020-12-01 is as follows:

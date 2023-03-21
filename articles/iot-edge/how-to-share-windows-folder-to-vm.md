@@ -19,12 +19,9 @@ The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine is isolated from
 This article shows you how to enable the folder sharing between the Windows host OS and the EFLOW virtual machine. 
 
 ## Prerequisites
-- Azure IoT Edge for Linux on Windows 1.3.1.02092 update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
+- Azure IoT Edge for Linux on Windows 1.4.4 LTS update or higher. For more information about EFLOW release notes, see [EFLOW Releases](https://aka.ms/AzEFLOW-Releases).
 - A machine with an x64/x86 processor.
-- Windows 11 Sun Valley 2 (build 22621) or higher. To get Windows SV2 update, you must be part of Windows Insider Program. For more information, see [Getting started with the Windows Insider Program](https://insider.windows.com/getting-started). After installation, you can verify your build version by running `winver` at the command prompt.
-
->[!NOTE]
->We plan to include support for Windows 10 21H2 (version 19044) version, Windows Server 2019/2022, and ARM64 processors in the upcoming months. 
+- Windows 10/11 (21H2) or higher with [November 2022](https://support.microsoft.com/en-us/topic/november-15-2022-kb5020030-os-builds-19042-2311-19043-2311-19044-2311-and-19045-2311-preview-237a9048-f853-4e29-a3a2-62efdbea95e2) update applied.
 
 If you don't have an EFLOW device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) to install, deploy and provision EFLOW.
 
@@ -45,6 +42,9 @@ Before starting with the adding and removing share mechanisms, let's define four
 
 ## Add shared folders
 The following steps provide example EFLOW PowerShell commands to share one or more Windows host OS folders with the EFLOW virtual machine. 
+
+>[!NOTE]
+>If you're using Windows 10, ensure to reboot your Windows host OS after your fresh MSI instlalation or update before adding the Windows shared folders to the EFLOW VM.
 
 1. Start by creating a new root shared folder. Go to **File Explorer** and choose a location for the *root folder* and create the folder. 
 

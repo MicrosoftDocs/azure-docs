@@ -244,7 +244,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Set the following environment variables using the required values for your deployment:
 
-    ```azurecli-interactive
+    ```azurecli
     export SUBSCRIPTION_ID=<subscription ID>
     export RESOURCE_GROUP_NAME=<resource group name>
     export LOCATION=<deployment region, for example eastus>
@@ -255,13 +255,13 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Prepare your shell environment:
 
-    ```azurecli-interactive
+    ```azurecli
     az account set --subscription "$SUBSCRIPTION_ID"
     ```
 
 1. Create the Network Function Operator Kubernetes extension:
 
-    ```azurecli-interactive
+    ```azurecli
     cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
@@ -290,7 +290,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Create the Packet Core Monitor Kubernetes extension:
 
-    ```azurecli-interactive
+    ```azurecli
     az k8s-extension create \
     --name packet-core-monitor \
     --cluster-name "$RESOURCE_NAME" \
@@ -303,7 +303,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Create the custom location:
 
-    ```azurecli-interactive
+    ```azurecli
     az customlocation create \
     -n "$CUSTOM_LOCATION" \
     -g "$RESOURCE_GROUP_NAME" \

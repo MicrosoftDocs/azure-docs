@@ -578,7 +578,7 @@ Each map entry in the list includes the following properties:
 |Index|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 | 0 | string | Yes | Sql Filter expression |
-| 1 | int | Yes | always 20 | 
+| 1 | int | Yes | always 20. This integer is the compatibility level of the sql filter. It indicates the syntax version of the sql filter. | 
 
 `com.microsoft:correlation-filter:list` is a described list, which includes:
 
@@ -601,7 +601,13 @@ Each map entry in the list includes the following properties:
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Empty Rule Action - No rule action present |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL Rule Action |
 
-`com.microsoft:sql-rule-action:list` is a described list that has two elements. The first element is a string, which contains the SQL rule action's expression. The second element is a 32-bit signed integer and its value is always 20. 
+`com.microsoft:sql-rule-action:list` is a described list that has two elements.
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Yes | SQL rule action's expression |
+| 1 | int | Yes | always 20. This integer is the compatibility level of the sql filter. It indicates the syntax version of the sql filter. | 
+
 
 ## Deferred message operations  
   

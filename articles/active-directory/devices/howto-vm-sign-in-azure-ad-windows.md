@@ -402,7 +402,7 @@ Another MFA-related error message is the one described previously: "Your credent
 
 ![Screenshot of the message that says your credentials didn't work.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-If you've configured a legacy per-user **Enabled/Enforced Azure AD Multi-Factor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
+If you've configured a legacy per-user **Enabled/Enforced Azure AD Multifactor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
 
 ```
 # Get StrongAuthenticationRequirements configure on a user
@@ -425,7 +425,7 @@ Share your feedback about this feature or report problems with using it on the [
 
 ### Missing application
 
-If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application isn't in the tenant:
+If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application is in the tenant:
 
 1. Sign in to the Azure portal.
 1. Browse to **Azure Active Directory** > **Enterprise applications**.

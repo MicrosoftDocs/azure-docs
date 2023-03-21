@@ -222,6 +222,8 @@ az storage account or-policy show \
 
 If you don't have permissions to the source storage account or if you want to use more than 10 container pairs, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
+For information about how to author a JSON file that contains the policy definition, see [Policy definition file](object-replication-overview.md#policy-definition-file).
+
 > [!NOTE]
 > Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
 

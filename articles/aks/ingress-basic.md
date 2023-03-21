@@ -3,8 +3,8 @@ title: Create an ingress controller in Azure Kubernetes Service (AKS)
 description: Learn how to create and configure an ingress controller in an Azure Kubernetes Service (AKS) cluster.
 author: asudbring
 ms.author: allensu
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/23/2023
 ---
@@ -318,7 +318,7 @@ To see the ingress controller in action, run two demo applications in your AKS c
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-one
     ```
@@ -356,7 +356,7 @@ To see the ingress controller in action, run two demo applications in your AKS c
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-two
     ```
@@ -388,7 +388,7 @@ In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to 
     spec:
       ingressClassName: nginx
       rules:
-     - http:
+      - http:
           paths:
           - path: /hello-world-one(/|$)(.*)
             pathType: Prefix
@@ -422,7 +422,7 @@ In the following example, traffic to *EXTERNAL_IP/hello-world-one* is routed to 
     spec:
       ingressClassName: nginx
       rules:
-     - http:
+      - http:
           paths:
           - path: /static(/|$)(.*)
             pathType: Prefix

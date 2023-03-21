@@ -103,8 +103,6 @@ Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
 
-[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
-
 ## Publish
 
 You can also publish a pipeline to a **pipeline endpoint**. Similar to an online endpoint, a pipeline endpoint lets you submit new pipeline jobs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.

@@ -1,14 +1,14 @@
 ---
-title: "Azure Operator Nexus: Creation of L3 isolation-domain"
-description: Learn how create L3 isolation-domain.
-author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
-ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
+title: "Azure Operator Nexus: Creation of L3 isolation domain"
+description: Learn how create L3 isolation domain.
+author: jaredr80 #Required; your GitHub user alias, with correct capitalization.
+ms.author: jaredro #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required;
 ms.topic: include #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ---
 
-- Create a L3 isolation-domain
+- Create a L3 isolation domain
 
 ```azurecli
   az nf l3domain create \
@@ -19,9 +19,8 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
     --location "<ClusterAzureRegion>"
 ```
 
-- Create an `internalnetwork` resource for every VLAN/subnet that you need to include in your L3 isolation-domain
+- Create an `internalnetwork` resource for every VLAN/subnet that you need to include in your L3 isolation domain
 
-L3 isolation-domain, you'll need to create an `internalnetwork` resource
 
 > [!NOTE]
 > The following example uses the minimal configuration you will need to create a valid internal network.
@@ -42,7 +41,7 @@ L3 isolation-domain, you'll need to create an `internalnetwork` resource
         "ipv4NeighborAddress":[{"address": "<YourSubetInfoHere> "}]}'
 ```
 
-- (Optional) Repeat, as needed, for any other `internalnetwork(s)` that have to be added to this L3 isolation-domain
+- (Optional) Repeat, as needed, for any other `internalnetwork(s)` that have to be added to this L3 isolation domain
 - Enable the L3 isolation-domain after all `internalnetworks` have been created
 
 ```azurecli
@@ -53,4 +52,4 @@ L3 isolation-domain, you'll need to create an `internalnetwork` resource
     --state Enable
 ```
 
-- Repeat to create more L3 isolation-domain(s).
+- Repeat to create more L3 isolation domain(s).

@@ -48,6 +48,16 @@ You can enable or disable the **ssl-enforcement** parameter using `Enabled` or `
 ```azurecli
 az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
+### Determining SSL connections status
+
+You can also collect all the information about your Azure Database for PostgreSQL - Single Server instance's SSL usage by process, client, and application by using the following query:
+```sql
+SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
+   FROM pg_stat_ssl
+   JOIN pg_stat_activity
+   ON pg_stat_ssl.pid = pg_stat_activity.pid
+   ORDER BY ssl;
+```
 
 ## Ensure your application or framework supports TLS connections
 

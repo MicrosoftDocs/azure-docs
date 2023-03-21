@@ -2,9 +2,8 @@
 title: Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access
 description: Learn how to use the Trusted Access feature to enable Azure resources to access Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
-services: container-service
 ms.topic: article
-ms.date: 02/23/2023
+ms.date: 03/20/2023
 ms.author: schaffererin
 ---
 
@@ -34,9 +33,11 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Resource types that support [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
-* Pre-defined Roles with appropriate [AKS permissions](concepts-identity.md).
-  * To learn about what Roles to use in various scenarios, see [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md).
-* If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
+* * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
+* To learn about what Roles to use in various scenarios, see:
+  *  [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md).
+  *  [AKS backup using Azure Backup][aks-azure-backup]
+
 
 First, install the aks-preview extension by running the following command:
 
@@ -90,7 +91,7 @@ az aks trustedaccess rolebinding create  --resource-group <AKS resource group> -
 az aks trustedaccess rolebinding create \
 -g myResourceGroup \
 --cluster-name myAKSCluster -n test-binding \
--s /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
+--source-resource-id /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
 --roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader,Microsoft.Compute/virtualMachineScaleSets/test-admin
 ```
 
@@ -153,7 +154,7 @@ az aks trustedaccess rolebinding delete --name <rolebinding name> --resource-gro
 
 For more information on AKS, see:
 
-* [Deploy and manage cluster extensions for AKS](/cluster-extensions.md)
+* [Deploy and manage cluster extensions for AKS](cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
 
 <!-- LINKS -->
@@ -161,3 +162,4 @@ For more information on AKS, see:
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-azure-backup]: ../backup/azure-kubernetes-service-backup-overview.md

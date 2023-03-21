@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 02/01/2023
+ms.date: 03/12/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -173,6 +173,15 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |vmwaresyslog |VMware Syslog |Yes |
 
 
+## microsoft.azuresphere/catalogs  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs |Audit Logs |Yes |
+|DeviceEvents |Device Events |Yes |
+
+
 ## Microsoft.Batch/batchaccounts  
 <!-- Data source : naam-->
 
@@ -232,6 +241,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |CoreAnalytics |Gets the metrics of the endpoint, e.g., bandwidth, egress, etc. |No |
+
+
+## Microsoft.Chaos/experiments  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ExperimentOrchestration |Experiment Orchestration Events |Yes |
 
 
 ## Microsoft.ClassicNetwork/networksecuritygroups  
@@ -340,6 +357,24 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ContainerRegistryRepositoryEvents |RepositoryEvent logs |No |
 
 
+## Microsoft.ContainerService/fleets  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|cloud-controller-manager |Kubernetes Cloud Controller Manager |Yes |
+|cluster-autoscaler |Kubernetes Cluster Autoscaler |Yes |
+|csi-azuredisk-controller |csi-azuredisk-controller |Yes |
+|csi-azurefile-controller |csi-azurefile-controller |Yes |
+|csi-snapshot-controller |csi-snapshot-controller |Yes |
+|guard |guard |Yes |
+|kube-apiserver |Kubernetes API Server |Yes |
+|kube-audit |Kubernetes Audit |Yes |
+|kube-audit-admin |Kubernetes Audit Admin Logs |Yes |
+|kube-controller-manager |Kubernetes Controller Manager |Yes |
+|kube-scheduler |Kubernetes Scheduler |Yes |
+
+
 ## Microsoft.ContainerService/managedClusters  
 <!-- Data source : naam-->
 
@@ -389,9 +424,8 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |accounts |Databricks Accounts |No |
-|accountsAccessControl |Databricks Accounts Access Control |Yes |
-|capsule8ContainerSecurityScanningReports |Databricks Capsule8 Container Security Scanning Reports |Yes |
-|clamAntiVirusReports |Databricks Clam AntiVirus Reports |Yes |
+|capsule8Dataplane |Databricks Capsule8 Container Security Scanning Reports |Yes |
+|clamAVScan |Databricks Clam AV Scan |Yes |
 |clusterLibraries |Databricks Cluster Libraries |Yes |
 |clusters |Databricks Clusters |No |
 |databrickssql |Databricks DatabricksSQL |Yes |
@@ -408,7 +442,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |mlflowExperiment |Databricks MLFlow Experiment |Yes |
 |modelRegistry |Databricks Model Registry |Yes |
 |notebook |Databricks Notebook |No |
-|partnerConnect |Databricks Partner Connect |Yes |
+|partnerHub |Databricks Partner Hub |Yes |
 |RemoteHistoryService |Databricks Remote History Service |Yes |
 |repos |Databricks Repos |Yes |
 |secrets |Databricks Secrets |No |
@@ -441,6 +475,11 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ActivityRuns |Pipeline activity runs log |No |
+|AirflowDagProcessingLogs |Airflow dag processing logs |Yes |
+|AirflowSchedulerLogs |Airflow scheduler logs |Yes |
+|AirflowTaskLogs |Airflow task execution logs |Yes |
+|AirflowWebLogs |Airflow web logs |Yes |
+|AirflowWorkerLogs |Airflow worker logs |Yes |
 |PipelineRuns |Pipeline runs log |No |
 |SandboxActivityRuns |Sandbox Activity runs log |Yes |
 |SandboxPipelineRuns |Sandbox Pipeline runs log |Yes |
@@ -752,6 +791,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditLogs |Audit logs |Yes |
+|DiagnosticLogs |Diagnostic logs |Yes |
 
 
 ## Microsoft.HealthcareApis/workspaces/fhirservices  
@@ -795,14 +835,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AppRequests |Requests |No |
 |AppSystemEvents |System events |No |
 |AppTraces |Traces |No |
-
-
-## Microsoft.Insights/datacollectionrules  
-<!-- Data source : naam-->
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DCRErrorLogs |DCR Error Logs |Yes |
 
 
 ## microsoft.keyvault/managedhsms  
@@ -867,6 +899,15 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |WorkflowRuntime |Workflow runtime diagnostic events |No |
+
+
+## Microsoft.MachineLearningServices/registries  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|RegistryAssetReadEvent |Registry Asset Read Event |Yes |
+|RegistryAssetWriteEvent |Registry Asset Write Event |Yes |
 
 
 ## Microsoft.MachineLearningServices/workspaces  
@@ -1038,6 +1079,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |LoadBalancerProbeHealthStatus |Load Balancer Probe Health Status |No |
 
 
+## Microsoft.Network/networkManagers  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|NetworkGroupMembershipChange |Network Group Membership Change |Yes |
+
+
 ## Microsoft.Network/networksecuritygroups  
 <!-- Data source : arm-->
 
@@ -1053,8 +1102,11 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|NspCrossPerimeterInboundAllowed |Cross perimeter inbound access allowed by perimeter link. |Yes |
+|NspCrossPerimeterOutboundAllowed |Cross perimeter outbound access allowed by perimeter link. |Yes |
 |NspIntraPerimeterInboundAllowed |Inbound access allowed within same perimeter. |Yes |
-|NspIntraPerimeterOutboundAllowed |Outbound attempted to same perimeter. |Yes |
+|NspIntraPerimeterOutboundAllowed |Outbound attempted to same perimeter. NOTE: To be deprecated in future. |Yes |
+|NspOutboundAttempt |Outbound attempted to same or different perimeter. |Yes |
 |NspPrivateInboundAllowed |Private endpoint traffic allowed. |Yes |
 |NspPublicInboundPerimeterRulesAllowed |Public inbound access allowed by NSP access rules. |Yes |
 |NspPublicInboundPerimeterRulesDenied |Public inbound access denied by NSP access rules. |Yes |
@@ -1280,6 +1332,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Analytics |Analytics |Yes |
 |Automation |Automation |Yes |
 |DataConnectors |Data Collection - Connectors |Yes |
 
@@ -1414,6 +1467,15 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AscCacheOperationEvent |HPC Cache operation event |Yes |
 |AscUpgradeEvent |HPC Cache upgrade event |Yes |
 |AscWarningEvent |HPC Cache warning |Yes |
+
+
+## Microsoft.StorageMover/storageMovers  
+<!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CopyLogsFailed |Copy logs - Failed |Yes |
+|JobRunLogs |Job run logs |Yes |
 
 
 ## Microsoft.StreamAnalytics/streamingjobs  
@@ -1578,4 +1640,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Wed Feb 01 2023 09:43:49 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Sun Mar 12 2023 11:30:35 GMT+0200 (Israel Standard Time)-->

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Change feed support in Azure Blob Storage

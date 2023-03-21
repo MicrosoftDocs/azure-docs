@@ -1,5 +1,5 @@
 ---
-title: Publish native client apps - Azure Active Directory
+title: Publish native client apps
 description: Covers how to enable native client apps to communicate with Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
@@ -33,9 +33,8 @@ Publish your proxy application as you would any other application and assign use
 
 You now need to register your application in Azure AD, as follows:
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Dashboard** for the **Azure Active Directory admin center** appears.
-1. In the sidebar, select **Azure Active Directory**. The **Azure Active Directory** overview page appears.
-1. In the Azure AD overview sidebar, select **App registrations**. The list of all app registrations appears.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **App registrations**. The list of all app registrations appears.
 1. Select **New registration**. The **Register an application** page appears.
 
    ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
@@ -99,9 +98,9 @@ if (authResult != null)
  }
 ```
 
-The required info in the sample code can be found in the Azure AD portal, as follows:
+The required info in the sample code can be found in the Azure portal, as follows:
 
-| Info required | How to find it in the Azure AD portal |
+| Info required | How to find it in the Azure portal |
 | --- | --- |
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |

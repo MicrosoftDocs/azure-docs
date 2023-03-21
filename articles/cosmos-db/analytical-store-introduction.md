@@ -461,6 +461,10 @@ df = spark.read.format("cosmos.olap")\
 
 df.select("id", "_id.objectId").show()
 ```
+
+> [!NOTE]
+> This workaround was designed to work with Spark 2.4.
+
 ###### Working with the MongoDB `_id` field in SQL
 
 ```SQL

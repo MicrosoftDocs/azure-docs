@@ -23,7 +23,7 @@ When building a FAQ bot, you may encounter use cases that require you to address
 
 ## Create project with domain specific metadata
 
-The content authors can use documents to extract question answer pairs or add custom question answer pairs to the project/knowledge base. In order to group these question and answers into specific domains or categories, you can add metadata.
+The content authors can use documents to extract question answer pairs or add custom question answer pairs to the project. In order to group these question and answers into specific domains or categories, you can add metadata.
 
 For the bot on Surface products, you can take the following steps to create a bot that answers queries for both product types:
 
@@ -34,7 +34,7 @@ For the bot on Surface products, you can take the following steps to create a bo
     >[!div class="mx-imgBorder"]
     >[![Screenshot of add URL UI.](../media/multiple-domains/add-url.png)](../media/multiple-domains/add-url.png#lightbox)
 
-2. In this knowledge base, we have question answer pairs on two products and we would like to distinguish between them such that we can search for responses among question and answers for a given product. In order to do this, we could update the metadata field for the question answer pairs.
+2. In this project, we have question answer pairs on two products and we would like to distinguish between them such that we can search for responses among question and answers for a given product. In order to do this, we could update the metadata field for the question answer pairs.
 
    As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
@@ -43,10 +43,10 @@ For the bot on Surface products, you can take the following steps to create a bo
 
 4. Now, in order to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the question answering REST API.
 
-    The REST API prediction URL can be retrieved from the Deploy knowledge base pane:
+    The REST API prediction URL can be retrieved from the Deploy project pane:
 
    >[!div class="mx-imgBorder"]
-   >[![Screenshot of the Deploy knowledge base page with the prediction URL displayed.](../media/multiple-domains/prediction-url.png)](../media/multiple-domains/prediction-url.png#lightbox)
+   >[![Screenshot of the Deploy project page with the prediction URL displayed.](../media/multiple-domains/prediction-url.png)](../media/multiple-domains/prediction-url.png#lightbox)
 
     In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response among the QnA pairs with the same metadata.
 
@@ -88,16 +88,16 @@ For the bot on Surface products, you can take the following steps to create a bo
 
 ### How large can our projects be?
 
-You can add up to 50000 question answer pairs to a single project/knowledge base. If your data exceeds 50,000 question answer pairs, you should consider splitting the knowledge base.
+You can add up to 50000 question answer pairs to a single project. If your data exceeds 50,000 question answer pairs, you should consider splitting the project.
 
 ## Create a separate project for each domain
 
-You can also create a separate project/knowledge base for each domain and maintain the projects separately. All APIs require for the user to pass on the project ID to make any update to the knowledge base or fetch an answer to the user's question.  
+You can also create a separate project for each domain and maintain the projects separately. All APIs require for the user to pass on the project name to make any update to the project or fetch an answer to the user's question.  
 
-When the user question is received by the service, you would need to pass on the `projectName` in the REST API endpoint shown to fetch a response from the relevant knowledge base. You can locate the URL in the **Deploy knowledge base** page under **Get prediction URL**:
+When the user question is received by the service, you would need to pass on the `projectName` in the REST API endpoint shown to fetch a response from the relevant project. You can locate the URL in the **Deploy project** page under **Get prediction URL**:
 
 `https://southcentralus.api.cognitive.microsoft.com/language/:query-knowledgebases?projectName=Test-Project-English&api-version=2021-10-01&deploymentName=production`
 
 ## Create a separate language resource for each domain
 
-Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two question answering resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.
+Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access projects on Surface and Xbox. In this case, it is advised to create two question answering resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.

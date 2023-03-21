@@ -2,7 +2,7 @@
 title: Azure Cosmos DB trigger for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
-ms.date: 11/29/2022
+ms.date: 03/03/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -77,9 +77,10 @@ Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb
 ```cs
 namespace CosmosDBSamplesV2
 {
+    // Customize the model with your own desired properties
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -106,7 +107,7 @@ namespace CosmosDBSamplesV2
             if (input != null && input.Count > 0)
             {
                 log.LogInformation("Documents modified " + input.Count);
-                log.LogInformation("First document Id " + input[0].Id);
+                log.LogInformation("First document Id " + input[0].id);
             }
         }
     }
@@ -186,17 +187,21 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```cs
-    #r "Microsoft.Azure.DocumentDB.Core"
-
     using System;
-    using Microsoft.Azure.Documents;
     using System.Collections.Generic;
     using Microsoft.Extensions.Logging;
 
-    public static void Run(IReadOnlyList<Document> documents, ILogger log)
+    // Customize the model with your own desired properties
+    public class ToDoItem
+    {
+        public string id { get; set; }
+        public string Description { get; set; }
+    }
+
+    public static void Run(IReadOnlyList<ToDoItem> documents, ILogger log)
     {
       log.LogInformation("Documents modified " + documents.Count);
-      log.LogInformation("First document Id " + documents[0].Id);
+      log.LogInformation("First document Id " + documents[0].id);
     }
 ```
 

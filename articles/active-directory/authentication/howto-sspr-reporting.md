@@ -1,5 +1,5 @@
 ---
-title: Self-service password reset reports - Azure Active Directory
+title: Self-service password reset reports
 description: Reporting on Azure AD self-service password reset events
 services: active-directory
 ms.service: active-directory
