@@ -16,10 +16,10 @@ This article describes how to query an Azure Monitor workspace using PromQL via 
 For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
 ## Prerequisites 
-To query an Azure monitor workspace using PromQL you need the following prerequisites:
+To query an Azure monitor workspace using PromQL, you need the following prerequisites:
 + An Azure Kubernetes Cluster or remote Kubernetes cluster.
 + Azure Monitor managed service for Prometheus (preview) scraping metrics from a Kubernetes cluster
-+ An Azure Monitor Workspace where Prometheus metrics Azure Site Recovery being stored.
++ An Azure Monitor Workspace where Prometheus metrics are being stored.
 
 ## Authentication
 
@@ -37,24 +37,17 @@ To set up Azure Active Directory authentication, follow the steps below:
 
 1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md?tabs=portal)
 
-<<<<Is this required ?>>>>>
-1. On the app's overview page, select API permissions.
-
-1. Select Add a permission.
-
-1. On the APIs my organization uses tab, search for Log Analytics and select Log Analytics API from the list.
-
 ### Allow your app access to your workspace
 Allow your app to query data from your Azure Monitor workspace.
 
 1. Open your Azure Monitor workspace in the Azure portal.
 
-1. On the Overview page, take note of your Query endpoint foe use in your REST request.
+1. On the Overview page, take note of your Query endpoint for use in your REST request.
 
-1. Select Access control (IAM).  
-    :::image type="content" source="./media/query-azure-monitor-workspaces/workspace-overview.png" lightbox="./media/query-azure-monitor-workspaces/workspace-overview.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
+1. Select Access control (IAM). 
 
 1. Select **Add**, then **Add role assignment** from the Access Control (IAM) page.
+  :::image type="content" source="./media/query-azure-monitor-workspaces/access-control.png" lightbox="./media/query-azure-monitor-workspaces/access-control.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
 
 1. On the **Add role Assignment page**, search for *Monitoring*.
 
@@ -103,23 +96,21 @@ Sample response body:
 
 Save the access token from the response for use in the following HTTP requests.  
 
-## Query Endpoints 
+## Query Endpoint
 
-### GET/query
+Find your workspace's query endpoint on the overview page.
+:::image type="content" source="./media/query-azure-monitor-workspaces/find-query-endpoint.png" lightbox="./media/query-azure-monitor-workspaces/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoint on the Azure Monitor workspace overview page.":::
 
+## Supported APIs
+The following queries are supported:
+
+### Instant queries 
+ For more information, see [Instant queries](https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries) 
+
+Path: `/api/v1/query`  
+Examples:
 ```
-GET https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.monitor/accounts/<workspace name>/api/v1/label/__name__/values?api-version=2021-06-01-preview
---header 'Authorization:  Bearer <access token>'
-   ```
-When using the management end point, request a token using `--data-urlencode 'resource= https://management.azure.com'` 
-
-### POST / query 
-
-POST uses the Azure Monitor workspace query endpoint  
-
-```http
-https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query  
-
+POST https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query  
 --header 'Authorization:  Bearer <access token>'
 --header 'Content-Type: application/x-www-form-urlencoded' 
 --data-urlencode 'query=sum(
@@ -128,47 +119,88 @@ https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query
     group_left(workload, workload_type) namespace_workload_pod:kube_pod_owner:relabel{ workload_type="deployment"}) by (pod)'
 
 ```
+```
+GET https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query?api-version=2021-06-03-preview&query=container_memory_working_set_bytes' 
+--header 'Authorization:  Bearer <access token>'
+```
+### Range queries
+For more information, see [Range queries](https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries)  
+Path: `/api/v1/query_range`  
+Examples:
+```
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range?api-version=2021-06-03-preview&query=container_memory_working_set_bytes&start=2023-03-01T20%3A10%3A30.781Z&end=2023-03-20T20%3A11%3A00.781Z&step=6h' \
+--header 'Authorization: Bearer <access token>
+```
 
-When using the Azure Monitor workspace query endpoint, request a token using `--data-urlencode 'resource= https://prometheus.monitor.azure.com'`
+``` 
+POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range?api-version=2021-06-03-preview' 
+--header 'Authorization:  Bearer <access token>'
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'query=up' \
+--data-urlencode 'start=2023-03-01T20:10:30.781Z' \
+--data-urlencode 'end=2023-03-20T20:10:30.781Z' \
+--data-urlencode 'step=6h'
+```
+### Series
+For more information, see [Series](https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers)
 
-Find your workspace's query endpoint on the overview page.
-:::image type="content" source="./media/query-azure-monitor-workspaces/find-query-endpoint.png" lightbox="./media/query-azure-monitor-workspaces/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoin on the Azure Monitor workspace overview page.":::
-## Supported APIs
-The following queries are supported:
+Path: `/api/v1/series`  
+Examples:
+```
+POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series?api-version=2021-06-03-preview' 
+--header 'Authorization: Bearer <access token>
+--header 'Content-Type: application/x-www-form-urlencoded' 
+--data-urlencode 'match%5B%5D=container_network_receive_bytes_total'
+--data-urlencode 'match%5B%5D=kube_pod_info{pod="bestapp-123abc456d-4nmfm"}'
 
-+ [Instant queries](https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries): /api/v1/query
+```
 
-+ [Range queries](https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries): /api/v1/query_range
+```
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series?api-version=2021-06-03-preview&match[]=container_network_receive_bytes_total&match[]=kube_pod_info{pod="bestapp-123abc456d-4nmfm"}'
+```
 
-+ [Series](https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers): /api/v1/series
+### Labels
 
-+ [Labels](https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names): /api/v1/labels
+For more information, see [Labels](https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names)
+Path: `/api/v1/labels`  
+Examples:
+```
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels?api-version=2021-06-03-preview'
 
-+ [Label values](https://prometheus.io/docs/prometheus/latest/querying/api/#querying-label-values): /api/v1/label/__name__/values.
+```
 
-    **name** is the only supported version of this API, which effectively means GET all metric names. Any other /api/v1/label/{name}/values aren't supported.   <<<< More explanantion needed>>>>
+```
+POST
+'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels?api-version=2021-06-03-preview'
+```
+
+### Label values
+For more information, see [Label values](https://prometheus.io/docs/prometheus/latest/querying/api/#query.ing-label-values)  
+Path: `/api/v1/label/\_\_name\_\_/values.`  
+
+
+> [!NOTE]  
+>  `__name__` is the only supported version of this API and returns all metric names. No other /api/v1/label/<label_name>/values are supported.  
+
+Example:
+```
+GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values?api-version=2021-06-03-preview'
+```
 
 For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
+
 ## API limitations
 (differing from prom specification)
-+ Scoped to metric
-    Any time series fetch queries (/series or /query or /query_range) must contain name label matcher that is, each query must be scoped to a metric. And there should be exactly one name label matcher in a query, not more than one.
-    <<< name label matcher ??>>>
-
-+ Supported time range
-    + /query_range API supports a time range of 32 days (end time minus start time).
-    <<<history depth ?>>>
-
-    + /series API fetches data only for 12 hours time range. If endTime isn't provided, endTime = time.now().
-
-    + range selectors (time range baked in query itself) supports 32d.
-            <<<more explanation needed - time range baked in query itself>>>
-+ Ignore time range  
-    Start time and end time provided with /labels and /label/name/values are ignored, and all retained data in MDM is queried.
-<<<more explanation needed>>>
-
++ Query must be scoped to metric  
+    Any time series fetch queries (/series or /query or /query_range) must contain name label matcher. That is, each query must be scoped to a metric. There can only be one name label matcher in a query.
++ Supported time range  
+    + /query_range API supports a time range of 32 days. This is the maximum time range allowed including range selectors specified in the query itself.
+    For example, the query `rate(http_requests_total[5m]` for last 24 hours would actually mean data is being queried for 25 hours. A 24 hours range + 1 hour specified in query itself.
+    + /series API fetches data for a maximum 12-hour time range. If `endTime` isn't provided, endTime = time.now(). If yhr time rage is greater than 12 hours, the `startTime` is set to `endTime – 12h`
++ Ignored time range  
+    Start time and end time provided with /labels and /label/name/values are ignored, and all retained data in the Azure Monitor Workspace is queried.
 + Experimental features  
-The experimental features such as exemplars aren't  supported.
+    Experimental features such as exemplars aren't supported.
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
