@@ -6,7 +6,7 @@ author: whhender
 ms.author: whhender
 ms.service: purview
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, references_regions
 ms.date: 03/21/23
 ---
 
