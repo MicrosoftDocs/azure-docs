@@ -61,8 +61,9 @@ For the scenario you need:
 
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* For the account, have Azure AD Application Admin permissions
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
-* See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
   * F5 BIG-IP® Best bundle
   * F5 BIG-IP Access Policy Manager™ (APM) standalone license
@@ -70,82 +71,77 @@ For the scenario you need:
   * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
 * User identities synchronized from an on-premises directory to Azure AD
   * [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
-* An account with Azure AD Application Admin permissions
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
   * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A header-based application or an IIS header app for testing
   * See, [Set up a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90))
 
-## BIG-IP configuration methods
+## BIG-IP configuration method
 
-There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios that the guided configuration templates don't cover.
+The following instructions are an advanced configuration method, a flexible way to implement SHA. Manually create BIG-IP configuration objects. Use this mehtod for scenarios not included in the Guided Configuration templates. 
 
->[!NOTE]
-> All example strings or values in this article should be replaced with those for your actual environment.
+   >[!NOTE]
+   > Replace example strings or values with those from your environment.
 
-## Adding F5 BIG-IP from the Azure AD gallery
+## Add F5 BIG-IP from the Azure AD gallery
 
-Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing SHA. It establishes the integration required for BIG-IP to hand off pre-authentication and [conditional
-access](../conditional-access/overview.md) to Azure AD, before granting access to the published service.
+To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Azure AD. The trust establishes the integration for BIG-IP to hand off pre-authentication and Conditional Access to Azure AD, before granting access to the published service.
 
-1. Sign-in to the Azure portal using an account with application administrative rights.
+Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
-2. From the left navigation pane, select the **Azure Active Directory** service
-
-3. Go to **Enterprise Applications** and from the top ribbon select **+ New application**
-
-4. Search for **F5** in the gallery and select **F5 BIG-IP APM Azure AD integration**
-
-5. Provide a name for the application, followed by **Add/Create** to add it to your tenant. The name should reflect that specific service.
+1. With an account that has Application Administrator permissions, sign in to the [Azure portal](https://azure.microsoft.com/features/azure-portal).
+2. In the left navigation pane, select the **Azure Active Directory** service.
+3. Go to **Enterprise Applications**.
+4. On the top ribbon, select **+ New application**.
+5. In the gallery, search for **F5**.
+6. Select **F5 BIG-IP APM Azure AD integration**.
+7. Enter an application **Name**.
+8. Select **Add/Create**. 
+9. The name reflects the service.
 
 ## Configure Azure AD SSO 
 
-1. With the new **F5** application properties in view, go to
-   **Manage** > **Single sign-on**
-
-2. On the **Select a single sign-on method** page, select **SAML** and skip the prompt to save the single sign-on settings by selecting **No, I'll save later**
-
-3. On the **Set up single sign-on with SAML** blade, select the pen icon for **Basic SAML Configuration** to provide the following:
-
-   a. Replace the pre-defined **Identifier** URL with the URL for your BIG-IP published service. For example, `https://mytravel.contoso.com`
-
-   b. Do the same with the **Reply URL** but include the path for the APM's SAML endpoint. For example, `https://mytravel.contoso.com/saml/sp/profile/post/acs`
+1. The new **F5** application properties appear
+2. Select **Manage** > **Single sign-on**
+3. On the **Select a single sign-on method** page, select **SAML**.
+4. Skip the prompt to save the single sign-on settings.
+5. Select **No, I'll save later**.
+6. On **Set up single sign-on with SAML**, for **Basic SAML Configuration**, select the **pen** icon.
+7. Replace the **Identifier** URL with the BIG-IP published service URL. For example, `https://mytravel.contoso.com`
+8. Repeat for **Reply URL** and include the APM SAML endpoint path. For example, `https://mytravel.contoso.com/saml/sp/profile/post/acs`
 
    >[!NOTE]
-   >In this configuration the SAML flow would operate in IdP initiated mode, where Azure AD issues the user with a SAML assertion before they are redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports both, IdP and SP initiated modes.
+   >In this configuration, the SAML flow operates in IdP mode: Azure AD issues the user a SAML assertion before being redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports IdP and SP modes.
 
-   c. For the `Logout URI` enter the BIG-IP APM Single Logout (SLO) endpoint pre-pended by the host header of the service being published. Providing an SLO URI ensures the user's BIG-IP APM session has ended after being signed out of Azure AD. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
+9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, pre-pended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign-out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
 
-    ![Screenshot shows the basic saml configuration](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
+    ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
 
     >[!Note]
-    >From TMOS v16 the SAML SLO endpoint has changed to
-`/saml/sp/profile/redirect/slo`.
+    >From Traffic Management operating system (TMOS) v16 onward, the SAML SLO endpoint changed to `/saml/sp/profile/redirect/slo`.
 
-4. Select **Save** before exiting the SAML configuration blade and skip the SSO test prompt
+10. Select **Save**.
+11. Exiting SAML configuration.
+12. Skip the SSO test prompt.
+13. To edit the **User Attributes & Claims > + Add new claim**, select the **pen** icon.
+14. For **Name** select **Employeeid**.
+15. For **Source attribute** select **user.employeeid**.
+16. Select **Save**
 
-5. Select the pen icon to edit the **User Attributes & Claims > + Add new claim**
+   ![Screenshot of input for Name and Source attribute, in the Manage claim dialog.](./media/f5-big-ip-header-advanced/manage-claims.png)
 
-6. Set the claim properties with the following then select **Save**
+17. Select **+ Add a group claim**
+18. Select **Groups assigned to the application** > **Source Attribute** > **sAMAccountName**.
 
-   | Property |Description|
-   |:------|:---------|
-   |Name | Employeeid |
-   | Source attribute | user.employeeid |
+   ![Screenshot of input for Source attribute, in the Group Claims dialog.](./media/f5-big-ip-header-advanced/group-claims.png)
 
-   ![Screenshot shows manage claims configuration](./media/f5-big-ip-header-advanced/manage-claims.png)
+19. Select **Save** the configuration.
+20. Close the view.
+21. Observe the **User Attributes & Claims** section properties. Azure AD issues users properties for BIG-IP APM authentication and SSO to the back-end application.
 
-7. Select **+ Add a group claim** and select **Groups assigned to the application** > **Source Attribute** > **sAMAccountName**
+   ![Screenshot of User Attributes and Claims information such as surname, email address, identity, etc.](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
-   ![Screenshot shows group claims configuration](./media/f5-big-ip-header-advanced/group-claims.png)
-
-8. **Save** the configuration and close the blade
-
-   Observe the properties of the **User Attributes & Claims** section. Azure AD will issue users these properties for BIG-IP APM authentication and SSO to the backend application:
-
-   ![Screenshot shows user attributes and claims configuration](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
-
-   Feel free to add any other specific claims your BIG-IP published application might expect as headers. Any claims defined in addition to the default set will only be issued if they exist in Azure AD. In the same way, Directory [roles or group](../hybrid/how-to-connect-fed-group-claims.md)
+Feel free to add any other specific claims your BIG-IP published application might expect as headers. Any claims defined in addition to the default set will only be issued if they exist in Azure AD. In the same way, Directory [roles or group](../hybrid/how-to-connect-fed-group-claims.md)
    memberships also need defining against a user object in Azure AD before they can be issued as a claim.
 
 9. In the **SAML Signing Certificate** section, select the
