@@ -134,7 +134,7 @@ sections:
       - question: |
           What's a Log Analytics workspace?
         answer: |
-          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from various sources. You might have a single Log Analytics workspace for all your monitoring data, or you might have requirements for multiple workspaces. See Design a Log Analytics workspace configuration(logs/workspace-design.md).
+          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from various sources. You might have a single Log Analytics workspace for all your monitoring data, or you might have requirements for multiple workspaces. See [Design a Log Analytics workspace configuration](logs/workspace-design.md).
           
       - question: |
           Can you move an existing Log Analytics workspace to another Azure subscription?
@@ -249,12 +249,12 @@ sections:
       - question: |
           Does Azure Monitor require an agent?
         answer: |
-          An agent is only required to collect data from the operating system and workloads in virtual machines. The virtual machines can be located in Azure, another cloud environment, or on-premises. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          An agent is only required to collect data from the operating system and workloads in virtual machines. The virtual machines can be located in Azure, another cloud environment, or on-premises. See [Azure Monitor Agent overview](agents/agents-overview.md).
           
       - question: |
           What's the difference between the Azure Monitor agents?
         answer: |
-          Azure Monitor Agent is the new, improved agent that consolidates features from all the other legacy monitoring agents. It also provides extra benefits like centralized data collection, filtering, and multihoming. See [Overview of the Azure Monitor agents](agents/agents-overview.md).  
+          Azure Monitor Agent is the new, improved agent that consolidates features from all the other legacy monitoring agents. It also provides extra benefits like centralized data collection, filtering, and multihoming. See [Azure Monitor Agent overview](agents/agents-overview.md).  
           
           The legacy agents include:
           - Azure Diagnostics extension is for Azure Virtual Machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
@@ -603,13 +603,13 @@ sections:
           Learn more about [ASP.NET](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
           
       - question: |
-          How is city, country/region, and other geo-location data calculated?
+          How is city, country/region, and other geolocation data calculated?
         answer: |
           We look up the IP address (IPv4 or IPv6) of the web client:
           
           * Browser telemetry: We collect the sender's IP address.
           * Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
-          * To learn more about how IP address and geo-location data is collected in Application Insights, see [this article](./app/ip-collection.md).
+          * To learn more about how IP address and geolocation data is collected in Application Insights, see [Geolocation and IP address handling](./app/ip-collection.md).
           
           You can configure `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
           
@@ -629,7 +629,7 @@ sections:
         answer: |
           You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. Learn more about [data retention and privacy](app/data-retention-privacy.md).
           
-          *All* octets of the client web address are always set to 0 after the geo-location attributes are looked up.
+          *All* octets of the client web address are always set to 0 after the geolocation attributes are looked up.
           
           The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
           
@@ -959,7 +959,7 @@ sections:
       - question: |
           Can I use preview builds in production environments?
         answer: |
-          We don't recommend it. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+          We don't recommend it. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
           
       - question: |
           Does Azure Monitor have an OpenTelemetry distro?
