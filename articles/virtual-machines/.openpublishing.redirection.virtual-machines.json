@@ -16,6 +16,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/aws-to-azure.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-aws-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
             "redirect_document_id": false
@@ -183,6 +198,16 @@
         {
             "source_path_from_root": "/articles/virtual-machines/troubleshooting/rdp.md",
             "redirect_url": "/troubleshoot/azure/virtual-machines/rdp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/capture-image.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/upload-vhd.md",
+            "redirect_url": "/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli",
             "redirect_document_id": false
         },
         {
@@ -4917,6 +4942,16 @@
         {
             "source_path_from_root": "/articles/virtual-machines/linux/azure-hybrid-benefit-byos-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/azure-hybrid-benefit-linux/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/policy.md",
+            "redirect_url": "/azure/governance/policy/assign-policy-azurecli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/policy.md",
+            "redirect_url": "/azure/governance/policy/assign-policy-portal",
             "redirect_document_id": false
         },
         {

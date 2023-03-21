@@ -118,10 +118,10 @@ You can also get the required meeting information from the **Join Meeting** URL 
 Run the following command to bundle your application host on a local webserver:
 
 ```console
-npx parcel index.html
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser and navigate to http://localhost:1234/. You should see the following:
+Open your browser and navigate to http://localhost:8080/. You should see the following:
 
 :::image type="content" source="../../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
 

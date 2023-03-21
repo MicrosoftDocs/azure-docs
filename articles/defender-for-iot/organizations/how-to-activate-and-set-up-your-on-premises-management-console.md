@@ -70,8 +70,7 @@ After activating an on-premises management console, you'll need to apply new act
 |Location  |Activation process  |
 |---------|---------|
 |**On-premises management console**     |  Apply a new activation file on your on-premises management console if you've [modified the number of committed devices](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks) in your subscription.      |
-|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>If you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software), you'll need to re-activate your updated sensor.  |
-|  **Locally-managed**   |   Apply a new activation file to locally managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+|**Cloud-connected and locally-managed sensors**     | Cloud-connected and locally-managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>If you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software), you'll need to re-activate your updated sensor.  |
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 

@@ -467,4 +467,4 @@ Now you can [install the SAP software](install-software.md) through Azure Center
 
 ## Next steps
 
-- [Find SAP and HANA passwords](manage-virtual-instance.md) through Azure Center for SAP solutions
+- [Install the SAP software](install-software.md) through Azure Center for SAP solutions

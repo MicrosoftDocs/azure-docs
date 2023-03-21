@@ -36,7 +36,8 @@ Instead, you should enable Automatic OS upgrades through Virtual Machine Scale S
 | Release date | Release | More info |
 |---|---|---|
 | October 24, 2022 | [Azure Service Fabric 9.1](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-1-release/ba-p/3667628)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91.md)|
-| December 8, 2022 | [Azure Service Fabric 9.1 First Refresh Release] (https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-1-first-refresh-is-now-available/ba-p/3698646)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU1.md)|
+| December 8, 2022 | [Azure Service Fabric 9.1 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-1-first-refresh-is-now-available/ba-p/3698646)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU1.md)|
+| March 1, 2023 | Azure Service Fabric 9.1 Second Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU2.md)|
 
 ## Service Fabric 9.0
 
@@ -75,6 +76,7 @@ We are excited to announce that 9.0 release of the Service Fabric runtime has st
 | September 13, 2022 | [Azure Service Fabric 9.0 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-0-third-refresh-update-release/ba-p/3631367)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU3.md)|
 | October 11, 2022 | [Azure Service Fabric 9.0 Fourth Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-0-fourth-refresh-update-release/ba-p/3658429)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU4.md)|
 | December 8, 2022 | [Azure Service Fabric 9.0 Fifth Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-0-fifth-refresh-is-now-available/ba-p/3698661)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU5.md)|
+| March 1, 2023 | Azure Service Fabric 9.0 Seventh Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU7.md)|
 
 ## Service Fabric 8.2
 
@@ -96,6 +98,7 @@ Instead, you should enable Automatic OS upgrades through Virtual Machine Scale S
 | July 14, 2022 | [Azure Service Fabric 8.2 Fourth Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-8-2-fourth-refresh-release/ba-p/3575845)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU4.md)|
 | October 11, 2022 | [Azure Service Fabric 8.2 Sixth Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-8-2-sixth-refresh-release/ba-p/3666852)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU6.md)|
 | October 24, 2022 | [Azure Service Fabric 8.2 Seventh Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-seventh-refresh-is-now-available/ba-p/3666872)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU7.md)|
+| March 1, 2023 | Azure Service Fabric 8.2 Ninth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU9.md)|
 
 
 ## Service Fabric 8.1

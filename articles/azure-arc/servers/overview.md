@@ -79,13 +79,13 @@ If a machine remains disconnected for 45 days, its status may change to **Expire
 
 ## Service limits
 
-Azure Arc-enabled servers has a limit for the number of instances that can be created in each resource group. It does not have any limits at the subscription or service level.
+There is no limit to how many Arc-enabled servers and VM extensions you can deploy in a resource group or subscription. The standard 800 resource limit per resource group applies to the Azure Arc Private Link Scope resource type.
 
 To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
 ## Data residency
 
-Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
+Azure Arc-enabled servers stores customer data. By default, customer data stays within the region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
 
 ## Next steps
 

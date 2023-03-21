@@ -49,7 +49,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
-> [!Note]
+> [!NOTE]
 > We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
 
 ### Prerequisite check
@@ -109,21 +109,38 @@ const emailClient = new EmailClient(connectionString);
 
 ### Option 2: Authenticate using Azure Active Directory
 
-You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider shown below, or other credential providers provided with the Azure SDK, please install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
+You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider in the following snippet, or other credential providers provided with the Azure SDK, install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
 
 ```bash
 npm install @azure/identity
 ```
 
-The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides a variety of credential types that your application can use to do this. The README for `@azure/identity` provides more details and samples to get you started.
+The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. The README for `@azure/identity` provides more details and samples to get you started.
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { EmailClient } from "@azure/communication-email";
+
 const endpoint = "https://<resource-name>.communication.azure.com";
 let credential = new DefaultAzureCredential();
-const client = new EmailClient(endpoint, credential);
+
+const emailClient = new EmailClient(endpoint, credential);
+```
+
+### Option 3: Authenticate using AzureKeyCredential
+
+Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+
+```javascript
+const { EmailClient } = require("@azure/communication-email");
+const { AzureKeyCredential } = require("@azure/core-auth");
+require("dotenv").config();
+
+var key = new AzureKeyCredential("<your-key-credential>");
+var endpoint = "<your-endpoint-uri>";
+
+const emailClient = new EmailClient(endpoint, key);
 ```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).

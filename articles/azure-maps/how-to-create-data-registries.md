@@ -367,9 +367,9 @@ When you register a file in Azure Maps using the data registry API, an MD5 hash 
 [Get operation]: /rest/api/maps/data-registry/get-operation
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[storage account overview]: /azure/storage/common/storage-account-overview
-[create storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
-[managed identity]: /azure/active-directory/managed-identities-azure-resources/overview
+[storage account overview]: ../storage/common/storage-account-overview.md
+[create storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
+[managed identity]: ../active-directory/managed-identities-azure-resources/overview.md
 [subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 [Azure portal]: https://portal.azure.com/
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/

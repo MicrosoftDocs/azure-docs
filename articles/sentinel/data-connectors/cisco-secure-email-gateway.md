@@ -17,7 +17,7 @@ The [Cisco Secure Email Gateway (SEG)](https://www.cisco.com/c/en/us/products/se
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (CiscoSEG)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
