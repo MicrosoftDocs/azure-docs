@@ -75,7 +75,7 @@ The following quickstarts apply to Basic/Standard only. For Enterprise quickstar
 
 The Standard consumption plan provides a flexible billing model where you pay only for compute time used instead of provisioning resources. Start with as little as 0.25 vCPU and dynamically scale out based on HTTP or events powered by Kubernetes Event-Driven Autoscaling (KEDA). You can also scale your app instance to zero and stop all charges related to the app when there are no requests to process.
 
-Standard consumption simplifies the VNet network experience for running polyglot apps. All your apps will share the same VNet when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard consumption, in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
+Standard consumption simplifies the virtual network experience for running polyglot apps. All your apps will share the same virtual network when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard consumption, in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing PetClinic apps in Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png":::
 
@@ -145,8 +145,8 @@ After you create your Enterprise tier service instance and deploy your applicati
 The following quickstarts and articles will help you get started using the Standard consumption plan:
 
 * [Provision a service instance](quickstart-provision-standard-consumption-service-instance.md)
-* [Provision in an Azure Container Apps environment with VNet](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
-* [Access apps in a VNet](quickstart-access-standard-consumption-within-virtual-network.md)
+* [Provision in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
+* [Access apps in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
 * [Deploy an event-driven app](quickstart-deploy-event-driven-app-standard-consumption.md)
 * [Set up autoscale](quickstart-apps-autoscale-standard-consumption.md)
 * [Map a custom domain to Azure Spring Apps](quickstart-standard-consumption-custom-domain.md)
