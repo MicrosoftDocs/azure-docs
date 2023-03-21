@@ -45,7 +45,7 @@ There are two ways to use machine learning in Azure Monitor Logs:
 |**Cost**|None|- Cost of machine learning service.<br>- Depending the option you choose, you might have to export data and ingest data into Azure Monitor Logs.|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
-## Create your own machine learning pipeline to leverage data in Azure Monitor Logs
+## Create your own machine learning pipeline to act on data in Azure Monitor Logs
 
 Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to gain insights about service health, usage, capacity and other trends and to generate forecasts and detect anomalies. 
 
