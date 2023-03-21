@@ -64,7 +64,7 @@ You can use these template types within CollectionContent depending on your use 
 
 and/or
 
-- [IotJsonPathContentTemplate](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub.
+- [IotJsonPathContentTemplate](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContentTemplate currently only supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md) are not supported.
 
 :::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
 
