@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 
 # Manage NAT gateway
 
-Learn how to create and remove a NAT gateway resource from a virtual network subnet. A NAT gateway enables outbound connectivity for resources in an Azure Virtual Network. You might want to change the IP address or prefix that your resources use for outbound connectivity to the internet. The public IP address and public IP address prefix associated with the NAT gateway can be changed after deployment.
+Learn how to create and remove a NAT gateway resource from a virtual network subnet. A NAT gateway enables outbound connectivity for resources in an Azure Virtual Network. You can change the public IP addresses and public IP address prefixes associated with the NAT gateway changed after deployment.
 
 This article explains how to manage the following aspects of NAT gateway:
 
@@ -45,7 +45,7 @@ To use Azure PowerShell for this article, you need:
 
 - Ensure that your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name Az.Network`.
 
-- Sign in to Azure PowerShell and select the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+- Sign in to Azure PowerShell and select the subscription that you want to use. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 To use Azure CLI for this article, you need:
 
@@ -67,16 +67,12 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
 
 1. Enter the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select your resource group or select **Create new** to create a new resource group. |
-    | **Instance details** |   |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Region | Select your region. This example uses **East US 2**. |
-    | Availability zone | Select an availability zone. This example uses **No Zone**. For more information about NAT gateway availability, see [NAT gateway and availability zones](nat-availability-zones.md). |
-    | TCP idle timeout (minutes) | Select an idle timeout. This example uses the default of **4**. |
+   - Select your **Subscription**.
+   - Select your resource group or select **Create new** to create a new resource group.
+   - **NAT gateway name**. Enter *myNATgateway*.
+   - Select your **Region**. This example uses **East US 2**.
+   - Select an **Availability zone**. This example uses **No Zone**. For more information about NAT gateway availability, see [NAT gateway and availability zones](nat-availability-zones.md). |
+   - Select a **TCP idle timeout (minutes)**. This example uses the default of **4**.
 
 1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
 
@@ -149,6 +145,7 @@ $sub = @{
     Name = 'mySubnet'
     VirtualNetwork = $vnet
     NatGateway = $natGateway
+    AddressPrefix = '10.0.2.0/24'
 }
 Set-AzVirtualNetworkSubnetConfig @sub
 
@@ -300,7 +297,7 @@ To remove a NAT gateway from an existing subnet, complete the following steps.
 
 1. Select **myNATgateway**.
 
-1. Select **Subnets** in **Settings**.
+1. Under **Settings**, select **Subnets**.
 
 1. Select **Disassociate** to remove the NAT gateway from the configured subnet.
 
@@ -357,17 +354,16 @@ Complete the following steps to add or remove a public IP address from a NAT gat
 
 1. Enter the following information in **Create public IP address**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Subscription | Select your subscription. |
-    | Resource group | Select your resource group. The example uses **myResourceGroup**. |
-    | Region | Select a region. This example uses **East US 2**. |
-    | Name | Enter *myPublicIP-NAT2*. |
-    | IP version | Select **IPv4**. |
-    | SKU | Select **Standard**. |
-    | Availability zone | Select the default of **Zone-redundant**. |
-    | Tier | Select **Regional**. |
-    | Routing preference | Leave the default of **Microsoft network**. |
+   | Setting | Value |
+   | ------- | ----- |
+   | Subscription | Select your subscription. |
+   | Resource group | Select your resource group. The example uses **myResourceGroup**. |
+   | Region | Select a region. This example uses **East US 2**. |
+   | Name | Enter *myPublicIP-NAT2*. |
+   | IP version | Select **IPv4**. |
+   | SKU | Select **Standard**. |
+   | Availability zone | Select the default of **Zone-redundant**. |
+   | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
 
@@ -533,17 +529,17 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
 
 1. Enter the following information in the **Basics** tab of **Create a public IP prefix**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |  |
-    | Subscription | Select your subscription. |
-    | Resource group | Select your resource group. This example uses **myResourceGroup**. |
-    | **Instance details** |   |
-    | Name | Enter *myPublicIPPrefix-NAT*. |
-    | Region | Select your region. This example uses **East US 2**. |
-    | IP version | Select **IPv4**. |
-    | Prefix ownership | Select **Microsoft owned**. |
-    | Prefix size | Select a prefix size. This example uses **/28 (16 addresses)**. |
+   | Setting | Value |
+   | ------- | ----- |
+   | **Project details** |  |
+   | Subscription | Select your subscription. |
+   | Resource group | Select your resource group. This example uses **myResourceGroup**. |
+   | **Instance details** |   |
+   | Name | Enter *myPublicIPPrefix-NAT*. |
+   | Region | Select your region. This example uses **East US 2**. |
+   | IP version | Select **IPv4**. |
+   | Prefix ownership | Select **Microsoft owned**. |
+   | Prefix size | Select a prefix size. This example uses **/28 (16 addresses)**. |
 
 1. Select **Review + create**, then select **Create**.
 

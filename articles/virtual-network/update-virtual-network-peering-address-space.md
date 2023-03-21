@@ -17,14 +17,14 @@ In this article, you learn how to update a peered virtual network by modifying, 
 ## Prerequisites
 
 - An existing peered virtual network with two virtual networks
-- If adding address space, ensure it doesn't overlap other address spaces
+- If you add an address space, ensure that it doesn't overlap other address spaces
 
 ## Modify the address range prefix of an existing address range
 
 In this section, you modify the address range prefix for an existing address range within your peered virtual network.
 
-1. In the search box at the top of the Azure portal, enter *virtual networks*. Select **Virtual networks** in the search results.
-1. From the list of virtual networks, select the virtual network where you're modifying an address range.
+1. In the search box at the top of the Azure portal, enter *virtual networks*. Select **Virtual networks** from the search results.
+1. From the list of virtual networks, select the virtual network to modify.
 1. Under **Settings**, select **Address space**.
 1. On the **Address space** page, change the address range prefix per your requirements, and select **Save**.
 
@@ -41,7 +41,7 @@ In this section, you modify the address range prefix for an existing address ran
     :::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="Screenshot of the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
 
 > [!NOTE]
-> When you update the address space for a virtual network, you need to sync the virtual network peer for each remote peered virtual network to learn of the new address space updates. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation.
+> When you update the address space for a virtual network, you need to sync the virtual network peer for each remote peered virtual network. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation.
 >
 > The following actions require you to sync:
 >
@@ -53,7 +53,7 @@ In this section, you modify the address range prefix for an existing address ran
 
 In this section, you add an IP address range to the IP address space of a peered virtual network.
 
-1. In the search box at the top of the Azure portal, enter *virtual networks*. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the Azure portal, enter *virtual networks*. Select **Virtual networks** from the search results.
 1. From the list of virtual networks, select the virtual network where you're adding an address range.
 1. Under **Settings**, select **Address space**.
 1. On the **Address space** page, add the address range per your requirements, and select **Save** when finished.

@@ -30,21 +30,21 @@ The provisioning state is the status of a user-initiated, control-plane operatio
 
 These states are metadata properties of the resource. They're independent from the functionality of the resource itself. Being in the failed state doesn't necessarily mean that the resource isn't functional. In most cases, it can continue operating and serving traffic without issues.
 
-In several scenarios, if the resource is in the failed state, further operations on the resource or on other resources that depend on it might fail. The state needs to be reverted back to succeeded before executing other operations.
+In several scenarios, if the resource is in the failed state, further operations on the resource or on other resources that depend on it might fail. You need to revert the state back to succeeded before running other operations.
 
 For example, you can't run an operation on a `VirtualNetworkGateway` if it has a dependent `VirtualNetworkGatewayConnection` object in failed state.
 
 ## Restoring succeeded state through a PUT operation
 
-The correct way to restore succeeded state is to execute another write (`PUT`) operation on the resource.
+To restore succeeded state, run another write (`PUT`) operation on the resource.
 
 The issue that caused the previous operation might no longer be current. The newer write operation should be successful and restore the provisioning state.
 
-The easiest way to achieve this task is to use Azure PowerShell. Issue a resource-specific *Get* command that fetches all the current configuration for the impacted resource as it is deployed. Next, run a *Set* command, or equivalent, to commit to Azure a write operation that contains all the resource properties as currently configured.
+The easiest way to achieve this task is to use Azure PowerShell. Issue a resource-specific *Get* command that fetches all the current configuration for the resource. Next, run a *Set* command, or equivalent, to commit to Azure a write operation that contains all the resource properties as currently configured.
 
 > [!IMPORTANT]
 >
-> - Running a `Set` command on the resource without first running a `Get` results in overwriting the resource with default settings. Those settings might be different from the ones you currently have configured. Don't just run a `Set` command unless resetting settings is intentional.
+> - Running a `Set` command on the resource without first running a `Get` results in overwriting the resource with default settings. Those settings might be different from the ones you currently have configured. Don't just run a `Set` command unless you intend to reset to default.
 > - Running a `Get` and `Set` operation using third party software or any tool using older API version might also result in loss of some settings. Those settings might not be present in the API version with which you run the command.
 >
 ## Azure PowerShell cmdlets to restore succeeded provisioning state
@@ -123,7 +123,7 @@ Get-AzExpressRouteGateway -Name "your_resource_name" -ResourceGroupName "your_re
 ```
 
 > [!NOTE]
-> `Microsoft.Network/expressRouteGateways` are those gateways deployed within a Virtual WAN. If you have a standalone ExpressRoute gateway in your Virtual Network, run the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
+> `Microsoft.Network/expressRouteGateways` are deployed within a Virtual WAN. If you have a standalone ExpressRoute gateway in your virtual network, run the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
 
 ### Microsoft.Network/expressRoutePorts
 
@@ -174,7 +174,7 @@ Get-AzNetworkVirtualAppliance -Name "your_resource_name" -ResourceGroupName "you
 ```
 
 > [!NOTE]
-> Most Virtual WAN related resources such as networkVirtualAppliances use the `Update` cmdlet, not the `Set`, for write operations.
+> Most Virtual WAN related resources, such as networkVirtualAppliances, use the `Update` cmdlet, not the `Set`, for write operations.
 
 ### Microsoft.Network/privateDnsZones
 
@@ -250,7 +250,7 @@ Get-AzVpnGateway -Name "your_resource_name" -ResourceGroupName "your_resource_gr
 
 > [!NOTE]
 >
-> - `Microsoft.Network/vpnGateways` are those gateways deployed within a Virtual WAN. If you have a standalone VPN gateway in your virtual network, run the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
+> - `Microsoft.Network/vpnGateways` are deployed within a Virtual WAN. If you have a standalone VPN gateway in your virtual network, run the commands related to [Microsoft.Network/virtualNetworkGateways](#microsoftnetworkvirtualnetworkgateways).
 > - Most Virtual WAN related resources, such as vpnGateways, use the `Update` cmdlet, not the `Set` for write operations.
 
 ### Microsoft.Network/vpnSites
@@ -260,11 +260,11 @@ Get-AzVpnSite -Name "your_resource_name" -ResourceGroupName "your_resource_group
 ```
 
 > [!NOTE]
-> Most Virtual WAN related resources, such as vpnSites, use the `Update` cmdlet, not the `Set` for write operations.
+> Most Virtual WAN related resources, such as vpnSites, use the `Update` cmdlet, not the `Set`, for write operations.
 
 ## Next steps
 
-If the command that you ran didn't fix the failed state, it should return an error code.
+If the command that you ran didn't resolve the failed state, it should return an error code.
 Most error codes contain a detailed description of what the problem might be and offer hints to solve it.
 
-If you're still experiencing issues, open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Make sure you specify to the support agent both the error code you received in the latest operation and the timestamp when you ran the operation.
+If you're still experiencing issues, open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specify to the support agent both the error code that you received in the latest operation and the timestamp when you ran the operation.
