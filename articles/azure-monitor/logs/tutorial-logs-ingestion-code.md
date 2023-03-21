@@ -14,6 +14,7 @@ This article provides sample code using the [Logs ingestion API](logs-ingestion-
 - Data collection rule (DCR) to direct the data to the target table
 - AD application with access to the DCR
 
+## Sample code
 
 ## [PowerShell](#tab/powershell)
 
@@ -118,62 +119,62 @@ The following script uses the [Azure Monitor Ingestion client library for Python
 2. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
 
 
-```python
-### Step 0: Set variables and get modules required for the rest of the script.
-
-# information needed to authenticate to AAD and obtain a bearer token
-tenant_id = "00000000-0000-0000-00000000000000000" # tenant ID the data collection endpoint resides in
-client_id = "00000000-0000-0000-00000000000000000" # application ID created and granted permission to the DCR
-secret_value = "0000000000000000000000000000000000000000" # value of the secret created for the application
-
-# information needed to send data to the DCR endpoint
-dce_endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # ingestion endpoint of the Data Collection Endpoint object
-dcr_immutableid = "dcr-00000000000000000000000000000000" # immutableId property of the Data Collection Rule
-stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
-
-# Import required modules
-import os
-from azure.identity import DefaultAzureCredential
-from azure.monitor.ingestion import LogsIngestionClient
-from azure.core.exceptions import HttpResponseError
-
-### Step 1: Create credential and client 
-
-# Set environment variables for the application used by DefaultAzureCredential
-os.environ["AZURE_TENANT_ID"] = tenant_id
-os.environ["AZURE_CLIENT_ID"] = client_id
-os.environ["AZURE_CLIENT_SECRET"] = secret_value
-
-credential = DefaultAzureCredential()
-client = LogsIngestionClient(endpoint=dce_endpoint, credential=credential, logging_enable=True)
-
-### Step 2: Create some sample data. 
-
-body = [
-        {
-        "Time": "2023-03-12T15:04:48.423211Z",
-        "Computer": "Computer3",
-            "AdditionalContext": {
-                "InstanceName": "user3",
-                "TimeZone": "Pacific Time",
-                "Level": 4,
-                "CounterName": "AppMetric2",
-                "CounterValue": 35.3    
+    ```python
+    ### Step 0: Set variables and get modules required for the rest of the script.
+    
+    # information needed to authenticate to AAD and obtain a bearer token
+    tenant_id = "00000000-0000-0000-00000000000000000" # tenant ID the data collection endpoint resides in
+    client_id = "00000000-0000-0000-00000000000000000" # application ID created and granted permission to the DCR
+    secret_value = "0000000000000000000000000000000000000000" # value of the secret created for the application
+    
+    # information needed to send data to the DCR endpoint
+    dce_endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # ingestion endpoint of the Data Collection Endpoint object
+    dcr_immutableid = "dcr-00000000000000000000000000000000" # immutableId property of the Data Collection Rule
+    stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
+    
+    # Import required modules
+    import os
+    from azure.identity import DefaultAzureCredential
+    from azure.monitor.ingestion import LogsIngestionClient
+    from azure.core.exceptions import HttpResponseError
+    
+    ### Step 1: Create credential and client 
+    
+    # Set environment variables for the application used by DefaultAzureCredential
+    os.environ["AZURE_TENANT_ID"] = tenant_id
+    os.environ["AZURE_CLIENT_ID"] = client_id
+    os.environ["AZURE_CLIENT_SECRET"] = secret_value
+    
+    credential = DefaultAzureCredential()
+    client = LogsIngestionClient(endpoint=dce_endpoint, credential=credential, logging_enable=True)
+    
+    ### Step 2: Create some sample data. 
+    
+    body = [
+            {
+            "Time": "2023-03-12T15:04:48.423211Z",
+            "Computer": "Computer3",
+                "AdditionalContext": {
+                    "InstanceName": "user3",
+                    "TimeZone": "Pacific Time",
+                    "Level": 4,
+                    "CounterName": "AppMetric2",
+                    "CounterValue": 35.3    
+                }
+            },
+            {
+                "Time": "2023-03-12T15:04:48.794972Z",
+                "Computer": "Computer4",
+                "AdditionalContext": {
+                    "InstanceName": "user4",
+                    "TimeZone": "Central Time",
+                    "Level": 3,
+                    "CounterName": "AppMetric2",
+                    "CounterValue": 43.5     
+                }
             }
-        },
-        {
-            "Time": "2023-03-12T15:04:48.794972Z",
-            "Computer": "Computer4",
-            "AdditionalContext": {
-                "InstanceName": "user4",
-                "TimeZone": "Central Time",
-                "Level": 3,
-                "CounterName": "AppMetric2",
-                "CounterValue": 43.5     
-            }
-        }
-    ]
-
+        ]
+    
 
 ### Step 3: Send the data to the Log Analytics workspace via the DCE.
 
