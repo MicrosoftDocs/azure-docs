@@ -27,7 +27,7 @@ The same Azure Communication Services Call Recording APIs are used to export rec
 BYOS uses [Azure Managed Identities](../../../../active-directory/managed-identities-azure-resources/overview.md) to access user-owned resources securely. Azure Managed Identities provides an identity for the application to use when it needs to access Azure resources, eliminating the need for developers to manage credentials.
 
 
-## Known Issues
+## Known issues
 
 - Azure Communication Services will also store your files in a built-in storage for 48 hours even if the exporting with BYOS is successful.
 - Randomly, recording files are duplicated during the exporting process when using BYOS. Make sure you delete the duplicated file to avoid extra storage costs in your storage account.

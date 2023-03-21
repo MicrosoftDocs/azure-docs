@@ -12,15 +12,15 @@ ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
 ms.custom: mode-api
 ---
-# Call Recording: Bring your own storage Quickstart
+# Call recording: Bring your own storage quickstart
 
 [!INCLUDE [Private Preview](../../../includes/private-preview-include-section.md)]
 
 This quickstart gets you started with BYOS (Bring your own storage) for Call Recording. To start using BYOS, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
 
-## Pre-requisite: Setting up Managed Identity and RBAC Role Assignments
+## Pre-requisite: Setting up Managed Identity and RBAC role assignments
 
-### 1. Enable System Assigned Managed Identity for Azure Communication Services
+### 1. Enable system assigned managed identity for Azure Communication Services
 
 ![Diagram showing a communication service resource with managed identity disabled](../media/byos-managed-identity-1.png)
 
@@ -32,7 +32,7 @@ This quickstart gets you started with BYOS (Bring your own storage) for Call Rec
 
 4. Now that identity has been successfully created, click on *Azure role assignments* to start adding role assignments.
 
-### 2. Add Role Assignment
+### 2. Add role assignment
 
 1. Click on *"Add role assignment"*
 
