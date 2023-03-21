@@ -65,8 +65,8 @@ In this tutorial, you'll learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- This tutorial requires version 2.10.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- This tutorial requires version 2.10.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create JSON key-values in App Configuration
 
@@ -74,7 +74,7 @@ JSON key-values can be created using Azure portal, Azure CLI, or by importing fr
 
 ### Create JSON key-values using Azure portal
 
-Browse to your App Configuration store, and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+Browse to your App Configuration store, and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-values:
 
 | Key | Value | Content Type |
 |---|---|---|
@@ -129,7 +129,7 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 ```
 
 > [!NOTE]
-> The `--depth` argument is used for flattening hierarchical data from a file into key-value pairs. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth isn't specified, JSON objects will be flattened to the deepest level by default.
+> The `--depth` argument is used for flattening hierarchical data from a file into key-values. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth isn't specified, JSON objects will be flattened to the deepest level by default.
 
 The JSON key-values you created should look like this in App Configuration:
 

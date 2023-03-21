@@ -24,9 +24,9 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** dependency, and then select Java version 8 or higher.
 
-## Add a key-value pair
+## Add a key-value
 
-Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pair to the App Configuration store:
+Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value to the App Configuration store:
 
 | Key | Value |
 |---|---|

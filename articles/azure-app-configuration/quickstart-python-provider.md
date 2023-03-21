@@ -25,7 +25,7 @@ The Python App Configuration provider is a library running on top of the [Azure 
 
 ## Add key-values
 
-Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs to the App Configuration store:
+Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-values to the App Configuration store:
 
 | Key            | Value             | Label       | Content type       |
 |----------------|-------------------|-------------|--------------------|

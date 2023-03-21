@@ -62,4 +62,8 @@ The easiest way to add an App Configuration store to your application is through
 > [Best practices](howto-best-practices.md)
 
 > [!div class="nextstepaction"]
+> [FAQ](faq.yml)
+> 
+> [!div class="nextstepaction"]
 > [Create an App Configuration store](quickstart-azure-app-configuration-create.md) 
+

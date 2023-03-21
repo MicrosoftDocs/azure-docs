@@ -89,7 +89,7 @@ Follow these steps to export your configuration to the target store using the Po
 1. Click on **Select Resource** and enter your **Subscription** and **Resource group**. The **Resource** is the name of the target configuration store you created previously.
 1. Select **Apply** to verify your target configuration store.
 1. Leave the from label, time, and Label fields as their default values and select **Apply**.
-1. To verify that your configurations have been successfully transferred from your source to your target store, navigate to your target configuration store in the portal. Select **Configuration Explorer** under **Operations** and verify that this contains the same key value pairs as those in your original store.
+1. To verify that your configurations have been successfully transferred from your source to your target store, navigate to your target configuration store in the portal. Select **Configuration Explorer** under **Operations** and verify that this contains the same key values as those in your original store.
     > [!NOTE]
     > This process only allows for configuration key-values to be exported by one label at a time. To export multiple, repeat steps 2-5 for each label.
 
