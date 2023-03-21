@@ -83,6 +83,29 @@ const language = spokenLanguages[0];
 teamsCaptionsApi.setSpokenLanguage(language);
 ```
 
+## Get supported caption languages
+
+If your organization has Teams premium license you can allow your users to leverage translated captions provided by Teams captions. The property returns an array of two-letter langauge codes in `ISO 639-1` standard. 
+
+Access the `supportedCaptionLanguages` property on the `Features.TeamsCaptions` API. 
+
+``` typescript
+const captionLanguages = teamsCaptionsApi.supportedCaptionLanguages;
+```
+
+## Update caption language
+If your organization has Teams premium license you can allow your users to leverage translated captions provided by Teams captions. Contoso can generate a list of supported caption languages by calling `teamsCaptions.supportedCaptionLanguages` that returns an array of two-letter langauge codes in `ISO 639-1` standard. 
+
+Pass a value in from the supported caption languages array to ensure that the requested language is supported. 
+
+``` typescript
+// ISO 639-1 formatted language code
+const language = 'en-us'; 
+
+// Altneratively, pass a value fromt he supported spoken languages array
+const language = captionLanguages[0]; teamsCaptionsApi.setCaptionLanguage(language);
+```
+
 ## Stop captions
 
 ``` typescript
