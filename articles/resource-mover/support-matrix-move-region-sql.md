@@ -5,11 +5,9 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 03/21/2023
 ms.author: ankitadutta
-ms.custom: UpdateFrequency2
-
-
+ms.custom: UpdateFrequency.5
 ---
 # Support for moving Azure SQL resources between Azure regions
 

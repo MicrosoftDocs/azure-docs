@@ -6,6 +6,7 @@ ms.author: ankitadutta
 ms.service: resource-mover
 ms.topic: whats-new 
 ms.date: 02/01/2023
+ms.custom: UpdateFrequency.5
 ---
 
 # What's new in Resource Mover
