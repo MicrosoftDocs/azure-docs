@@ -97,7 +97,7 @@ az cosmosdb show \
 Import the Az.CosmosDB module and run the following command to get the restore details. The `restoreSourceAccountName` and `restoreTimestamp` are within the `tags` field:
 
 ```powershell-interactive
-@parameters = {
+$parameters = @{
     ResourceGroupName = "<resource-group-name>"
     Name = "<account-name>"
 }

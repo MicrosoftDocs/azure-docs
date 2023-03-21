@@ -93,7 +93,7 @@ Use the following steps to update backup storage redundancy.
 1. Install the latest version of Azure PowerShell or a version higher than or equal to **1.4.0**.
 
     ```azurepowershell-interactive
-    @parameters {
+    $parameters = @{
         Name = "Az.CosmosDB"
         RequiredVersion = "1.4.0"
     }
@@ -103,12 +103,18 @@ Use the following steps to update backup storage redundancy.
 1. Use the [`Get-AzCosmosDBLocation`](/powershell/module/az.cosmosdb/get-azcosmosdblocation) cmdlet to get the backup redundancy options available in the regions where your account exists.
 
     ```azurepowershell-interactive
-    @parameters = {
+    $parameters = @{
         Location = "<azure-region>"
     }
-    $location = Get-AzCosmosDBLocation @parameters
-    
-    $location.Properties.BackupStorageRedundancies
+    (Get-AzCosmosDBLocation @parameters).Properties
+    ```
+
+    The output should include content similar to this example:
+
+    ```azurepowershell
+    SupportsAvailabilityZone IsResidencyRestricted BackupStorageRedundancies
+    ------------------------ --------------------- -------------------------
+                        True                 False {Geo, Zone, Local}
     ```
 
     > [!NOTE]
@@ -117,7 +123,7 @@ Use the following steps to update backup storage redundancy.
 1. Use the [`Update-AzCosmosDBAccount`](/powershell/module/az.cosmosdb/update-azcosmosdbaccount) cmdlet with the chosen backup redundancy option to update the backup redundancy on an existing account:
 
     ```azurepowershell-interactive
-    @parameters = {
+    $parameters = @{
         ResourceGroupName "<resource-group-name>"
         Name = "<account-name>"
         BackupStorageRedundancy = "Zone"
@@ -128,7 +134,7 @@ Use the following steps to update backup storage redundancy.
 1. Alternatively, use the [`New-AzCosmosDBAccount`](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new account with the chosen backup redundancy option:
 
     ```azurepowershell-interactive
-    @parameters = {
+    $parameters = @{
         ResourceGroupName = "<resource-group-name>"
         Name = "<account-name>"
         Location = "<azure-region>"

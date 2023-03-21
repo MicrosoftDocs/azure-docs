@@ -68,7 +68,7 @@ az cosmosdb update \
 Use the [`Update-AzCosmosDBAccount`](/powershell/module/az.cosmosdb/update-azcosmosdbaccount) cmdlet to update the periodic backup options for an existing account.
 
 ```azurepowershell-interactive
-@parameters = {
+$parameters = @{
     ResourceGroupName = "<resource-group-name>"
     Name = "<account-name>"
     BackupIntervalInMinutes = 480
@@ -192,7 +192,7 @@ az cosmosdb create \
 Use the [`New-AzCosmosDBAccount`](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new account with the specified periodic backup options.
 
 ```azurepowershell-interactive
-@parameters = {
+$parameters = @{
     ResourceGroupName = "<resource-group-name>"
     Name = "<account-name>"
     Location = "<azure-region>"
