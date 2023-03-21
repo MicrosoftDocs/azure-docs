@@ -58,7 +58,7 @@ In general, we advise a confidence threshold of `0.4` for the Image Analysis 3.2
 
 ### What can I do about embarrassing or erroneous captions?  
 
-On rare occasions, image captions can contain embarrassing errors, such as labelling a male-identifying person as a "woman" or labelling an adult woman as a "girl". We encourage users to consider using the latest Image Analysis 4.0 API (preview) which eliminates some errors by supporting gender-neutral captions.
+On rare occasions, image captions can contain embarrassing errors, such as labeling a male-identifying person as a "woman" or labeling an adult woman as a "girl". We encourage users to consider using the latest Image Analysis 4.0 API (preview) which eliminates some errors by supporting gender-neutral captions.
 
 Please report any embarrassing or offensive captions by going to the [Azure portal](https://ms.portal.azure.com/#home) and navigating to the **Feedback** button in the top right.
 
