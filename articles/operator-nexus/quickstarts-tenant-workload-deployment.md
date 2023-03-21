@@ -485,6 +485,14 @@ az hybridaks vnet create \
 
 This section describes how to create an AKS-Hybrid cluster
 
+You should have the following information already:
+
+- AKS-Hybrid vNET network ARM resource IDs
+- Azure Subscription ID
+- Custom location ARM resource ID
+- AAD admin group object IDs
+- Get the available zones to deploy the AKS-Hybird cluster via `az networkcloud cluster show -g <Nexus on-prem cluster RG> --name <Nexus on-prem cluster name> --query computeRackDefinitions[*].availabilityZone`
+
 ```azurecli
   az hybridaks create \
     -n <aks-hybrid cluster name> \
