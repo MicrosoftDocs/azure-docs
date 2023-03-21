@@ -78,48 +78,6 @@ The CloudFormation template creates a new role in AWS IAM, to allow permission f
 - As part of the deployment Defender for Cloud suggested the AWS Role ARNs to be created. You can modify that if needed.
 
 
-## Cloud Security Graph/Explorer insights
-
-When Defender CSPM is enabled, you can run queries in cloud security explorer to identify security posture and risk across your cloud environment. You can query by data resource and data types such as storage accounts. You can then further filter and drill down into sensitive data findings.
-
-Cloud Security Explorer provides these insights.
-
-**Insight** | **Description** | **Support**
---- | --- |---
-Exposed to the internet | Indicates that a resource is open to the internet. Supports port filtering. | Compute: Azure VM, AWS EC2<br/><br/>Storage: Azure storage account, AWS S3 bucket<br/><br/>	Database: Azure SQL Server, Azure Cosmos DB (running on VM)<br/><br/> Containers: Kubernetes pod
-Contains sensitive data | Indicates a resource that contains sensitive data, based on configured sensitivity settings. | Azure storage account<br/><br/> AWS S3 bucket<br/><br/> Azure SQL Server (running on VM)
-Has tags | Lists the resource tags for the resource | All Azure and all AWS resources
-Installed software | Lists software installed on a machine. | Only applicable for VMs that are connected to and protected by Defender for Cloud | 
-Allows public access | Indicate that public read access to the data store is allowed without authorization controls. | Azure storage account, AWS S3 bucket
-Doesn't have multi-factor authentication (MFA) enabled | Indicates that a user account with access to the resource does not have MFA enabled. | Azure Active Directory user account, IAM user.
-
-### Example
-
-Example: Query to get a list of AWS S3 buckets that have sensitive data and are exposed to the internet using these conditions to check if a bucket is considered public:
-
-- If RestrictPublicBuckets isn’t enabled at the account level.
-- If RestrictPublicBuckets isn’t enabled at the bucket level
-- Either:
-    - The IP range is wider \8.
-    - Buckets doesn't have a bucket policy.
-    - Buckets has a bucket policy without a condition.
-    - Bucket has a bucket policy without a condition based on IP address.
-
-## Attack paths
-
-Attack paths help you to address posture issues that pose immediate risks by analyzing potential attack paths that could be used to breach your environment. Recommendations show you how to mitigate the risks.
-
-Data-aware security posture provides some specific attack paths. You can drill down into each path for more details and recommendations.
-
-**Area** | **Path name** | **Details**
---- | --- | ---
-Azure data | Internet exposed Azure storage container with sensitive data is publicly accessible.
-Azure data | VM has high severity vulnerabilities and read permissions to a data store with sensitive data
-AWS data | Internet exposed EC2 instance has high severity vulnerabilities and read permission to an S3 bucket with sensitive data
-AWS data | Internet exposed Azure Storage container with sensitive data is publicly accessible
-
-You can review attack paths with the Sensitive Data Exposure category. Drill down into each attack path to get information about affected resources, and review remediation steps. Steps might include manual processes or acting on Defender for Cloud recommendations.
-
 
 
 ## Next steps
