@@ -408,7 +408,7 @@
       },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/d365community/forum/b822bb63-8b26-ec11-b6e6-000d3a4f0789",
-        "articles/active-directory/**/*.md": "https://docs.microsoft.com/azure/active-directory/fundamentals/support-help-options",
+        "articles/active-directory/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
         "articles/active-directory/develop/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
         "articles/active-directory-b2c/**/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
         "articles/active-directory-domain-services/**/*.md": "https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789",
