@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-environments.md)
+> * [v1](./v1/how-to-use-environments.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-manage-environments-v2.md)
 
 
