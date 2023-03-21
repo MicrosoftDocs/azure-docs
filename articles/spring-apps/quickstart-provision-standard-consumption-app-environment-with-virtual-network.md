@@ -186,4 +186,4 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps](./index.yml)
+- [Azure Spring Apps documentation](./index.yml)

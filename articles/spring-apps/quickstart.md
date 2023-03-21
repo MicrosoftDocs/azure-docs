@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Deploy your first application to Azure Spring Apps"
+title: Quickstart - Deploy your first application to Azure Spring Apps
 description: Describes how to deploy an application to Azure Spring Apps.
 author: karlerickson
 ms.author: karler
@@ -66,7 +66,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 1. Use the following command to set your default subscription.
 
    ```azurecli-interactive
-   az account set --subscription <subscription-id>
+   az account set --subscription <subscription-ID>
    ```
 
 1. Use the following command to create a resource group.
@@ -183,7 +183,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 1. Use the following command to set your default subscription.
 
    ```azurecli-interactive
-   az account set --subscription <subscription-id>
+   az account set --subscription <subscription-ID>
    ```
 
 1. Define variables for this quickstart with the names of your resources and desired settings.
@@ -426,7 +426,7 @@ To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java 
 
 ---
 
-Once deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
+Once deployment has completed, you can access the app at `https://<service-instance-name>-hellospring.azuremicroservices.io/`.
 
 ## Clean up resources
 

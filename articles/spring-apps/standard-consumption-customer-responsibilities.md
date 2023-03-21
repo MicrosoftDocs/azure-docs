@@ -73,4 +73,4 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 ## Next steps
 
-- [Azure Spring Apps](./index.yml)
+- [Azure Spring Apps documentation](./index.yml)

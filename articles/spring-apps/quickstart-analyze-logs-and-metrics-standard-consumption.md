@@ -4,7 +4,7 @@ description: Learn how to analyze logs and metrics in the Azure Spring Apps Stan
 author: KarlErickson
 ms.author: shiqiu
 ms.service: spring-apps
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 3/21/2023
 ms.custom: devx-track-java
 ---
@@ -136,4 +136,4 @@ Optionally, you can create filters to limit the data shown based on application 
 
 ## Next steps
 
-[Azure Spring Apps documentation](./index.yml)
+- [Azure Spring Apps documentation](./index.yml)
