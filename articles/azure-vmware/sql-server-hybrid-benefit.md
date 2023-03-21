@@ -3,7 +3,7 @@ title: Azure Hybrid benefit for Windows server, SQL server, or Linux subscriptio
 description: Learn about Azure Hybrid benefit for Windows server, SQL server, or Linux subscriptions.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/16/2023
+ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
 
@@ -20,7 +20,7 @@ Azure Hybrid benefit is a cost saving offering from Microsoft you can use to sav
 
 ## Microsoft SQL server
 
-Microsoft SQL Server is a core component of many business-critical applications currently running on VMware vSphere and is one of the most widely used database platforms in the market with customers running hundreds of SQL Server instances with VMware vSphere on-premises. 
+Microsoft SQL server is a core component of many business-critical applications currently running on VMware vSphere and is one of the most widely used database platforms in the market with customers running hundreds of SQL Server instances with VMware vSphere on-premises. 
 
 Azure VMware Solution is an ideal solution for customers looking to migrate and modernize their vSphere-based applications to the cloud, including their Microsoft SQL databases.
 
@@ -31,3 +31,5 @@ Now that you've covered Azure Hybrid benefit, you may want to learn about:
 - [Migrate Microsoft SQL Server Standalone to Azure VMware Solution](migrate-sql-server-standalone-cluster.md)
 - [Migrate SQL Server failover cluster to Azure VMware Solution](migrate-sql-server-failover-cluster.md)
 - [Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution](migrate-sql-server-always-on-cluster.md)
+- [Enable SQL Azure hybrid benefit for Azure VMware Solution](migrate-sql-server-standalone-cluster.md)
+- [Configure Windows Server Failover Cluster on Azure VMware Solution vSAN](configure-windows-server-failover-cluster.md)

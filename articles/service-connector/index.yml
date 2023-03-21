@@ -59,6 +59,8 @@ landingContent:
             
       - linkListType: how-to-guide
         links:
+          - text: Manage authentication
+            url: how-to-manage-authentication.md
           - text: Troubleshooting guide
             url: how-to-troubleshoot-front-end-error.md
           - text: Region support

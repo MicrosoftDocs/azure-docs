@@ -13,7 +13,7 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 07/13/2020
+ms.date: 03/13/2023
 ms.author: magoedte
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -82,7 +82,10 @@ This information can be seen in the Azure portal or you can use PowerShell.
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  If it does not, the extension deployment will return a failure.  Also make sure you are using the name of the *Node Configuration* and not the Configuration.
+> [!WARNING]
+> For the Node Configuration name, make sure the node configuration exists in Azure State Configuration. If it does not, the extension deployment will return a failure.
+
+Make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
 [to compile the Node Configuration (MOF file)](../../automation/automation-dsc-compile.md).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
