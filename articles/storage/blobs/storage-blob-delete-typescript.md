@@ -1,7 +1,7 @@
 ---
 title: Delete and restore a blob with TypeScript
 titleSuffix: Azure Storage
-description: Learn how to delete and restore a blob with TypeScript in your Azure Storage account using the JavaScript client library
+description: Learn how to delete and restore a blob with TypeScript in your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
