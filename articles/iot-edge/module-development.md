@@ -105,11 +105,12 @@ You should develop your modules with security in mind. To learn more about secur
 
 To help improve module security, IoT Edge disables some container features by default. You can override the defaults to provide privileged capabilities to your modules if necessary.
 
-### Elevated Docker permissions
+### Allow elevated Docker permissions
 
-In the config file on an IoT Edge device (based on this [template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml)), there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag, which allows deployments to grant privileged permissions to modules. The default value for this parameter is **false**, for increased security.
+In the config file on an IoT Edge device, there's a parameter called `allow_elevated_docker_permissions`. When set to **true**, this flag allows the `--privileged` flag and any additional capabilities that you define in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md). 
 
-You can define other capabilities in the `CapAdd` field of the Docker HostConfig in the [container create options](how-to-use-create-options.md). 
+> [!NOTE]
+> Currently, this flag is true by default, which allows deployments to grant privileged permissions to modules. We recommend that you set this flag to false to improve device security.
 
 ### Enable CAP_CHOWN and CAP_SETUID
 
