@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 03/21/2023
 ms.author: jasteppe
 ---
 
@@ -64,7 +64,7 @@ You can use these template types within CollectionContent depending on your use 
 
 and/or
 
-- [IotJsonPathContentTemplate](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContentTemplate currently only supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md) are not supported.
+- [IotJsonPathContentTemplate](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContentTemplate currently only supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions). The MedTech service [custom functions](how-to-use-custom-functions.md) aren't supported using IotJsonPathContentTemplate. 
 
 :::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
 
@@ -126,6 +126,7 @@ With the resulting normalized message looking like this after the MedTech servic
   }
 ]
 ```
+When the device message is processed by the MedTech service, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example all expressions are written in JSONPath, but it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
 
 > [!TIP]
 > See [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md) for assistance fixing common MedTech service deployment errors.
