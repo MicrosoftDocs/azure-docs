@@ -828,11 +828,11 @@ items:
           - name: Work with SAS tokens
             items:
             - name: User delegation SAS
-              href: storage-blob-create-user-delegation-sas-typescript.md
+              href: storage-blob-create-user-delegation-sas-javascript.md
             - name: Service SAS
-              href: sas-service-create-typescript.md  
+              href: sas-service-create-javascript.md  
             - name: Account SAS
-              href: storage-blob-account-delegation-sas-create-typescript.md      
+              href: storage-blob-account-delegation-sas-create-javascript.md
         - name: Container actions
           items:
           - name: Create a container
