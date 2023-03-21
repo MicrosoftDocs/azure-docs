@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/20/2023
+ms.date: 03/21/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -1053,7 +1053,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "10.57.51.32"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
     ```
 
 1. Update the device with the `DeviceVIP` property.
@@ -1075,7 +1075,7 @@ You can set either an Azure Consistent Services or a Network File System configu
     "acsVIP":  {
                    "type":  "ACS",
                    "name":  "Azure Consistent Services",
-                   "address":  "10.57.52.126",
+                   "address":  "10.57.53.225",
                    "network":  {
                                    "name":  "Cluster Network 3",
                                    "address":  "10.57.48.0",
@@ -1144,7 +1144,7 @@ You can set either an Azure Consistent Services or a Network File System configu
 1. Set the `DeviceVIP` property to enable DHCP.
 
     ```azurepowershell
-    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "10.57.53.215"; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "10.57.48.0"; IsDhcpEnabled = $true }
     ```
 
 1. Update the device with the `DeviceVIP` property.
@@ -1166,7 +1166,7 @@ You can set either an Azure Consistent Services or a Network File System configu
     "nfsVIP":  {
                 "type":  "NFS",
                 "name":  "Network File System",
-                "address":  "10.57.50.196",
+                "address":  "10.57.53.228",
                 "network":  {
                                 "name":  "Cluster Network 3",
                                 "address":  "10.57.48.0",
