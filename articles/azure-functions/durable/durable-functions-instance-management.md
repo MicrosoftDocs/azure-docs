@@ -1358,6 +1358,11 @@ module.exports = async function (context, myTimer) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](durable-functions-http-api.md).
+
 # [Python](#tab/python)
 
 ```python
