@@ -312,7 +312,7 @@ You can Use Form Recognizer to automate your document processing in applications
 |[**Composed custom models**](concept-composed-models.md)| A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types.| Useful when you've trained several models and want to group them to analyze similar form types like purchase orders.|&#9679; [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel)</br>
 
 > [!div class="nextstepaction"]
-> [Return to model types](#custom-models)## Contract model (preview)
+> [Return to model types](#custom-models)
 
 ## Contract model (preview)
 
