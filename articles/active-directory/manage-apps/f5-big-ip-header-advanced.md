@@ -19,7 +19,7 @@ Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to heade
 
 * Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
-  * See, [Zero Trust security](https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust)
+  * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
 * Manage identities and access from on control plane
   * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
