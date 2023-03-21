@@ -11,6 +11,7 @@ ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
+monikerRange: 'azureml-api-1'
 ---
 
 # Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning 
@@ -19,12 +20,12 @@ Learn how to configure a development environment in Azure Machine Learning that 
 
 Azure Databricks is ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform in the Azure cloud. It provides a collaborative Notebook-based environment with a CPU or GPU-based compute cluster.
 
-For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment.md).
+For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment-v1.md).
 
 
 ## Prerequisite
 
-Azure Machine Learning workspace. To create one, use the steps in the [Create workspace resources](quickstart-create-resources.md) article.
+Azure Machine Learning workspace. To create one, use the steps in the [Create workspace resources](../quickstart-create-resources.md) article.
 
 
 ## Azure Databricks with Azure Machine Learning and AutoML
@@ -34,8 +35,8 @@ Azure Databricks integrates with Azure Machine Learning and its AutoML capabilit
 You can use Azure Databricks:
 
 + To train a model using Spark MLlib and deploy the model to ACI/AKS.
-+ With [automated machine learning](concept-automated-ml.md) capabilities using an Azure Machine Learning SDK.
-+ As a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md).
++ With [automated machine learning](concept-automated-ml-v1.md) capabilities using an Azure Machine Learning SDK.
++ As a compute target from an [Azure Machine Learning pipeline](../concept-ml-pipelines.md).
 
 ## Set up a Databricks cluster
 
@@ -89,7 +90,7 @@ To use automated ML, skip to [Add the Azure Machine Learning SDK with AutoML](#a
 
    A successful install looks like the following: 
 
-  ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
+  ![Azure Machine Learning SDK for Databricks](../media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
 ## Add the Azure Machine Learning SDK with AutoML to Databricks
 If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the following command in the first cell of your notebook to install the Azure Machine Learning SDK.
@@ -111,10 +112,10 @@ Try it out:
 + While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
-![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)
-![Import Panel](./media/how-to-configure-environment/azure-db-import.png)
+![Select Import](../media/how-to-configure-environment/azure-db-screenshot.png)
+![Import Panel](../media/how-to-configure-environment/azure-db-import.png)
 
-+ Learn how to [create a pipeline with Databricks as the training compute](v1/how-to-create-machine-learning-pipelines.md).
++ Learn how to [create a pipeline with Databricks as the training compute](how-to-create-machine-learning-pipelines.md).
 
 ## Troubleshooting
 
@@ -166,5 +167,5 @@ Try it out:
 
 ## Next steps
 
-- [Train and deploy a model](tutorial-train-deploy-notebook.md) on Azure Machine Learning with the MNIST dataset.
+- [Train and deploy a model](../tutorial-train-deploy-notebook.md) on Azure Machine Learning with the MNIST dataset.
 - See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro).

@@ -530,6 +530,11 @@
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
+        # v1
+        - name: Set up dev environments
+          displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
+          href: ./v1/how-to-configure-environment-v1.md
+        # end v1
         - name: Install and set up the CLI (v2)
           displayName: azurecli, mlops
           href: how-to-configure-cli.md
@@ -748,9 +753,6 @@
               href: how-to-configure-auto-train.md
             - name: Use automated ML (interface)
               href: how-to-use-automated-ml-for-ml-models.md
-            - name: Use automated ML with Databricks
-              displayName: automl
-              href: how-to-configure-databricks-automl-environment.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -763,7 +765,6 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
-            - name: Time series forecasting
             # v1
             - name: Use automated ML (Python)
               displayName: SDK, automl
@@ -777,7 +778,19 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: ./v1/how-to-auto-train-nlp-models-v1.md
+            - name: Data splits & cross-validation (Python)
+              displayName: automl, feature engineering, feature importance
+              href: ./v1/how-to-configure-cross-validation-data-splits.md
+            - name: Featurization in automated ML (Python)
+              displayName: automl, feature engineering, feature importance, BERT
+              href: ./v1/how-to-configure-auto-features.md
+            - name: Generate AutoML training code
+              href: ./v1/how-to-generate-automl-training-code.md
+            - name: Use automated ML with Databricks
+              displayName: automl
+              href: ./v1/how-to-configure-databricks-automl-environment.md
             # end v1
+            - name: Time series forecasting
               items:
                 - name: Auto-train a forecasting model (Python)
                   displayName: forecasting, time series, auto ML, automl, SDK
@@ -797,6 +810,37 @@
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
+            # v1
+            - name: Local inference using ONNX
+              displayName: SDK, automl
+              href: ./v1/how-to-inference-onnx-automl-image-models-v1.md
+            - name: Troubleshoot automated ML
+              href: ./v1/how-to-troubleshoot-auto-ml.md
+            # end v1
+        # v1 - misc training
+        - name: Track experiments with MLflow
+          displayName: log, monitor, metrics, model registry, register
+          href: ./v1/how-to-use-mlflow.md
+        - name: Log & view metrics
+          href: ./v1/how-to-log-view-metrics.md
+        - name: Visualize runs with TensorBoard
+          displayName: log, monitor, metrics
+          href: ./v1/how-to-monitor-tensorboard.md
+        - name: Log metrics with designer
+          displayName: designer, logging
+          href: ./v1/how-to-track-designer-experiments.md
+        - name: Interpret ML models
+          displayName: SDK, interpret, explain, explainability, interpretability
+          href: ./v1/how-to-machine-learning-interpretability-aml.md
+        - name: Assess and mitigate model fairness
+          href: ./v1/how-to-machine-learning-fairness-aml.md
+        - name: Prepare data for computer vision with AutoML
+          displayName: nlp, auto ML, automl, SDK
+          href: ./v1/how-to-prepare-datasets-for-automl-images-v1.md
+        - name: Explain automated ML models
+          displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+          href: ./v1/how-to-machine-learning-interpretability-automl.md
+        # end v1  
     - name: Deploy models
       items:
         - name: Online endpoints (real-time)
@@ -881,6 +925,74 @@
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
+        # v1
+        - name: Where and how to deploy
+          displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
+          href: ./v1/how-to-deploy-and-where.md
+        - name: Hyperparameter tuning a model (v1)
+          displayName: azurecli, AzureML
+          href: ./v1/how-to-tune-hyperparameters-v1.md
+        - name: Azure Kubernetes Service
+          displayName: aks, aad, authentication, azure active directory
+          href: ./v1/how-to-deploy-azure-kubernetes-service.md
+        - name: Azure Container Instances
+          displayName: aci
+          href: ./v1/how-to-deploy-azure-container-instance.md
+        - name: Deploy MLflow models
+          displayName: log, monitor, deploy, metrics, databricks, aci, aks
+          href: ./v1/how-to-deploy-mlflow-models.md
+        - name: Update web service
+          displayName: update hot reload model mounting
+          href: ./v1/how-to-deploy-update-web-service.md
+        - name: Deployment targets
+          items:
+            - name: Deploy locally
+              href: ./v1/how-to-deploy-local.md
+            - name: Deploy locally on compute instance
+              href: ./v1/how-to-deploy-local-container-notebook-vm.md
+            - name: GPU inference
+              href: ./v1/how-to-deploy-inferencing-gpus.md
+            - name: Azure Cognitive Search
+              href: how-to-deploy-model-cognitive-search.md
+            - name: FPGA inference
+              href: ./v1/how-to-deploy-fpga-web-service.md
+        - name: Profile models
+          displayName: profile resource requirement
+          href: ./v1/how-to-deploy-profile-model.md
+        - name: Troubleshoot deployment
+          href: ./v1/how-to-troubleshoot-deployment.md
+        - name: Troubleshoot deployment (local)
+          href: ./v1/how-to-troubleshoot-deployment-local.md
+        - name: Authenticate web service
+          href: ./v1/how-to-authenticate-web-service.md
+        - name: Consume web service
+          displayName: create client consume request response synchronous
+          href: ./v1/how-to-consume-web-service.md
+        - name: Advanced entry script authoring
+          displayName: swagger inference schema binary cors
+          href: ./v1/how-to-deploy-advanced-entry-script.md
+        - name: Prebuilt Docker images
+          items:
+            - name: Python extensibility
+              href: ./v1/how-to-prebuilt-docker-images-inference-python-extensibility.md
+            - name: Dockerfile extensibility
+              href: ./v1/how-to-extend-prebuilt-docker-image-inference.md
+            - name: Troubleshoot prebuilt docker images
+              href: ./v1/how-to-troubleshoot-prebuilt-docker-image-inference.md
+        - name: Monitor web services
+          items:
+            - name: Collect & evaluate model data
+              displayName: track production
+              href: ./v1/how-to-enable-data-collection.md
+            - name: Monitor with Application Insights
+              href: ./v1/how-to-enable-app-insights.md
+        - name: Deploy designer models
+          displayName: designer, studio
+          href: ./v1/how-to-deploy-model-designer.md
+        - name: Package models
+          displayName: docker file download
+          href: ./v1/how-to-deploy-package-models.md
+        # end v1
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
@@ -966,6 +1078,21 @@
               href: how-to-use-pipeline-ui.md
             - name: How to use parallel job in pipeline
               href: how-to-use-parallel-job-in-pipeline.md
+            # v1
+            - name: Create ML pipelines (Python)
+              href: ./v1/how-to-create-machine-learning-pipelines.md
+            - name: Moving data into and between ML pipeline steps (Python)
+              href: ./v1/how-to-move-data-in-out-of-pipelines.md
+            - name: Use automated ML in ML pipelines (Python)
+              displayName: machine learning automl
+              href: ./v1/how-to-use-automlstep-in-pipelines.md
+            - name: Deploy ML pipelines (Python)
+              href: ./v1/how-to-deploy-pipelines.md
+            - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
+              href: ./v1/how-to-use-synapsesparkstep.md
+            - name: Trigger a pipeline
+              href: ./v1/how-to-trigger-published-pipeline.md
+            # end v1
             - name: Designer (drag-n-drop)
               items:
                 - name: Transform data
@@ -983,6 +1110,11 @@
                 - name: Execute Python code
                   displayName: feature extraction, feature engineering
                   href: how-to-designer-python.md
+        # v1
+        - name: Convert notebook code into Python scripts
+          displayName: mlops, mlopspython, production
+          href: ./v1/how-to-convert-ml-experiment-to-production.md
+        # end v1
         - name: Manage resource quotas
           displayName: limits
           href: how-to-manage-quotas.md
@@ -1035,6 +1167,23 @@
       href: how-to-troubleshoot-data-access.md
     - name: Troubleshoot validation for schema failed error
       href: how-to-troubleshoot-validation-for-schema-failed-error.md
+    # v1
+    - name: Pipeline issues
+      items:
+        - name: Troubleshoot pipelines
+          displayName: designer
+          href: ./v1/how-to-debug-pipelines.md
+        - name: Log pipeline data to Application Insights
+          href: ./v1/how-to-log-pipelines-application-insights.md
+        - name: Troubleshoot the ParallelRunStep
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: ./v1/how-to-debug-parallel-run-step.md
+    - name: Visual Studio Code
+      items:
+        - name: VS Code interactive debugging
+          displayName: vscode,remote,debug,pipelines,deployments,ssh
+          href: how-to-debug-visual-studio-code.md
+    # end v1
 - name: Reference
   items:
     - name: Python SDK v1
@@ -1157,6 +1306,29 @@
       displayName: acpt
     - name: Azure CLI
       href: /cli/azure/ml
+    # v1
+    - name: Machine learning CLI pipeline YAML reference
+      href: ./v1/reference-pipeline-yaml.md
+    - name: Hyperparameters for AutoML computer vision tasks (v1)
+      displayName: automl, yolo-5, image, image model
+      href: ./v1/reference-automl-images-hyperparameters-v1.md
+    - name: Image data schemas for AutoML (v1)
+      href: ./v1/reference-automl-images-schema-v1.md
+    - name: Migrate from ML Studio (classic)
+      items: 
+      - name: Migration overview
+        href: ./v1/migrate-overview.md
+      - name: Migrate datasets
+        href: ./v1/migrate-register-dataset.md
+      - name: Rebuild experiments
+        href: ./v1/migrate-rebuild-experiment.md
+      - name: Rebuild web services
+        href: ./v1/migrate-rebuild-web-service.md
+      - name: Migrate client applications
+        href: ./v1/migrate-rebuild-integrate-with-client-app.md
+      - name: Rebuild Execute R Script components
+        href: ./v1/migrate-execute-r-script.md
+    # end v1
 - name: Resources
   items:
     - name: Python SDK (v2) release notes
@@ -1190,3 +1362,7 @@
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
       href: designer-accessibility.md
+    # v1
+    - name: Python SDK (v1) release notes
+      href: ./v1/azure-machine-learning-release-notes.md
+    # end v1

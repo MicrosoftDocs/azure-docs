@@ -123,7 +123,7 @@ After you load and configure your data, set up your remote compute target and se
         
              Field | Description | Value for tutorial
             ----|---|---
-            Compute name |	A unique name that identifies your compute context. | bike-compute
+            Compute name |    A unique name that identifies your compute context. | bike-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
             Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
@@ -251,8 +251,6 @@ See this article for steps on how to create a Power BI supported schema to facil
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
-+ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > This bike share dataset has been modified for this tutorial. This dataset was made available as part of a [Kaggle competition](https://www.kaggle.com/c/bike-sharing-demand/data) and was originally available via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). It can also be found within the [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>
