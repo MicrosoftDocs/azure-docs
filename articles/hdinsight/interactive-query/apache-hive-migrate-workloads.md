@@ -62,7 +62,7 @@ Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is
 If a legacy script or application specifies MapReduce for execution, an exception occurs as follows:
 
 
-:::image type="content" source="./media/hive-workload-management/map-reducer-exception.png" alt-text="Screenshot showing map reducer exception output." lightbox="./media/hive-workload-management/map-reducer-exception.png":::
+:::image type="content" source="./media/apache-hive-migrate-workloads/map-reducer-exception.png" alt-text="Screenshot showing map reducer exception output." lightbox="./media/apache-hive-migrate-workloads/map-reducer-exception.png":::
 
 > [!NOTE]
 > Most user-defined functions (UDFs) require no change to execute on Tez instead of MapReduce.
@@ -75,7 +75,7 @@ Mature versions of ACID transaction processing and LLAP
 1. Advanced optimizations – Upgrade in CBO
 1. Automatic Query cache. The Property used to enable query caching is `hive.query.results.cache.enabled`. You need to set this property to true. Hive stores the query result cache in `/tmp/hive/__resultcache__/.` By default, Hive allocates 2 GB for the query result cache. You can change this setting by configuring the following parameter in bytes `hive.query.results.cache.max.size`.
 
-   For more information, [Benefits of migrating to Azure HDInsight 4.0.](https://learn.microsoft.com/azure/hdinsight/benefits-of-migrating-to-hdinsight-40)
+   For more information, [Benefits of migrating to Azure HDInsight 4.0.](../hdinsight/benefits-of-migrating-to-hdinsight-40.md)
 
 1. Materialized view rewrites. 
    
