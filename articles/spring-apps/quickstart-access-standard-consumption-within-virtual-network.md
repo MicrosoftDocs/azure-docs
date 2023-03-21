@@ -94,4 +94,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan](./quickstart-deploy-event-driven-app-standard-consumption.md)

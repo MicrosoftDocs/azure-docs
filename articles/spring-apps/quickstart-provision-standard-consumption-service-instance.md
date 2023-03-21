@@ -196,4 +196,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Create an Azure Spring Apps Standard consumption plan instance in an Azure Container Apps environment with a virtual network](./quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)

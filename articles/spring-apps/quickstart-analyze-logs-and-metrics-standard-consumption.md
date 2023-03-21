@@ -137,4 +137,5 @@ Optionally, you can create filters to limit the data shown based on application 
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [How to enable your own persistent storage in Azure Spring Apps with the Standard consumption plan](./how-to-custom-persistent-storage-with-standard-consumption.md)

@@ -74,4 +74,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Analyze logs and metrics in the Azure Spring Apps Standard consumption plan](./quickstart-analyze-logs-and-metrics-standard-consumption.md)

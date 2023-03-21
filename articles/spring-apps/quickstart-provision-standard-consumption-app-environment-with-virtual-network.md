@@ -186,4 +186,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Access applications using Azure Spring Apps Standard consumption plan in a virtual network](./quickstart-access-standard-consumption-within-virtual-network.md)

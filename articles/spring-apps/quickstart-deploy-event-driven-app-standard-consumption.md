@@ -252,6 +252,11 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
+
+For more information, see the following articles:
+
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 - [Spring on Azure](/azure/developer/java/spring/)
 - [Spring Cloud Azure](/azure/developer/java/spring-framework/)

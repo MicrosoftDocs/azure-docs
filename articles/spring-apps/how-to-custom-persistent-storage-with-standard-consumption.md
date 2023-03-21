@@ -138,4 +138,4 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+- [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](./standard-consumption-customer-responsibilities.md)

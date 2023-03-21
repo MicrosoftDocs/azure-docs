@@ -105,4 +105,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Azure Spring Apps documentation](./index.yml)
+> [!div class="nextstepaction"]
+> [Map a custom domain to Azure Spring Apps with the Standard consumption plan](./quickstart-standard-consumption-custom-domain.md)
