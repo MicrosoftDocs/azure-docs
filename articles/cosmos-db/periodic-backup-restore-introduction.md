@@ -41,13 +41,9 @@ For Azure Synapse Link enabled accounts, analytical store data isn't included in
 
 Two backups are provided free and extra backups are charged according to the region-based pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-For example, consider a scenario where Backup Retention is configured to **240 hrs** (or **10 days**) and Backup Interval is configured to **24 hours**. This configuration implies that there are **10** copies of the backup data. If you have **1 TB** of data in an Azure region, the cost for backup storage in a given month would be:
-
-$$
-0.12 * 1000 * 8
-$$
+For example, consider a scenario where Backup Retention is configured to **240 hrs** (or **10 days**) and Backup Interval is configured to **24 hours**. This configuration implies that there are **10** copies of the backup data. If you have **1 TB** of data in an Azure region, the cost for backup storage in a given month would be: `0.12 * 1000 * 8`
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn about [periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
+> [Periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
