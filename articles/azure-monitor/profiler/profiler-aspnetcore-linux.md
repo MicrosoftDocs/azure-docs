@@ -44,7 +44,9 @@ In this guide, you'll:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs` for the `WebAPI` class. [Add custom Profiler settings, if applicable](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/Configurations.md).
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`. [Add custom Profiler settings, if applicable](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/Configurations.md).
+
+   For `WebAPI`:
 
     ```csharp
     // Add services to the container.
@@ -52,7 +54,7 @@ In this guide, you'll:
     builder.Services.AddServiceProfiler();
     ```
 
-1. **Optional:** You can also enable Application Insights and Profiler by [creating and configuring a `Worker` class](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/examples/ServiceProfilerInWorkerNet6/Worker.cs). If you do use a `Worker` class, [add code like the following to your project's `Program.cs`](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/examples/ServiceProfilerInWorkerNet6/Program.cs):
+   For `Worker`:
 
     ```csharp
     IHost host = Host.CreateDefaultBuilder(args)
@@ -67,7 +69,6 @@ In this guide, you'll:
     
     await host.RunAsync();
     ```
-
 
 1. Save and commit your changes to the local repository:
 
