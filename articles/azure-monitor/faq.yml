@@ -320,7 +320,7 @@ sections:
       - question: |
           What are the firewall requirements for Log Analytics agents?
         answer: |
-          See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements) for information on firewall requirements.
+          See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements).
 
   - name: Azure Monitor Agent
     questions:
@@ -331,7 +331,7 @@ sections:
           
           Azure Monitor Agent hasn't yet reached full parity with the Microsoft Monitoring Agent, but we continue to add features and support. The Microsoft Monitoring Agent will be retired on August 31, 2024.
           
-          For more information, see the [Azure Monitor Agent overview](./agents/azure-monitor-agent-overview.md).
+          See [Azure Monitor Agent overview](./agents/azure-monitor-agent-overview.md).
 
 
       - question: |
@@ -485,7 +485,7 @@ sections:
           
           How many Application Insights resources should I deploy:
           
-          See [Design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md).
+          See [How many Application Insights resources should I deploy?](app/separate-resources.md).
           
       - question: |
           Can I use Application Insights with the following apps and services?
@@ -655,13 +655,13 @@ sections:
         answer: |
           Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
           
-          * See [this discussion](app/separate-resources.md).
+          * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
           * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
           
       - question: |
           How do I dynamically change the instrumentation key?
         answer: |
-          * See [this discussion](app/separate-resources.md).
+          * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
           * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
           
       - question: |
@@ -773,7 +773,7 @@ sections:
           - ApplicationIdProvider `https://dc.services.visualstudio.com:443`
           - TelemetryChannel `https://dc.services.visualstudio.com:443`
           
-          Review our full list of services and IP addresses at [this website](app/ip-addresses.md).
+          See [IP addresses used by Azure Monitor](app/ip-addresses.md) to review our full list of services and IP addresses.
           
           ### Firewall exception
           
@@ -836,7 +836,7 @@ sections:
       - question: |
           How long does it take for telemetry to be collected?
         answer: |
-          Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
+          Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
           
           <!--Link references-->
           
@@ -854,14 +854,14 @@ sections:
           
           Even when server-side monitoring is enabled on an application's web server, sometimes a 502 or 503 error isn't captured by Application Insights. Many modern web servers don't allow a client to communicate directly. Instead, they employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
-          In this scenario, a 502 or 503 response might be returned to a client because of an issue at the reverse proxy layer, so it isn't captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
+          In this scenario, a 502 or 503 response might be returned to a client because of an issue at the reverse proxy layer, so it isn't captured out-of-box by Application Insights. To help detect issues at this layer, you might need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502 or 503 responses. To learn more about common causes of 502 and 503 errors, see [Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service](../app-service/troubleshoot-http-502-http-503.md).
 
   - name: OpenTelemetry
     questions:
       - question: |
           What is OpenTelemetry?
         answer: |
-          It's a new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
+          It's a new open-source standard for observability. Learn more at [OpenTelemetry](https://opentelemetry.io/).
           
       - question: |
           Why is Microsoft Azure Monitor Application Insights investing in OpenTelemetry?
@@ -882,7 +882,7 @@ sections:
       - question: |
           How can I test out OpenTelemetry?
         answer: |
-          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md). Sign up to join our Azure Monitor Application Insights early adopter community at [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) to receive notifications about major releases.
+          Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md). Sign up to join our [OpenTelemetry Early Adopter Community on Azure](https://aka.ms/AzMonOtel) to receive notifications about major releases.
 
       - question: |
           What's the current release state of features within each OpenTelemetry offering?
@@ -1076,7 +1076,7 @@ sections:
       - question: |
           How do I resolve the "Missing Subscription registration" error?
         answer: |
-          If you receive the error "Missing Subscription registration for Microsoft.OperationsManagement," you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. For the steps, see [this website](../azure-resource-manager/templates/error-register-resource-provider.md).
+          If you receive the error "Missing Subscription registration for Microsoft.OperationsManagement," you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. For the steps, see [Resolve errors for resource provider registration](../azure-resource-manager/templates/error-register-resource-provider.md).
           
       - question: |
           Is there support for Kubernetes RBAC-enabled Azure Kubernetes Service clusters?
@@ -1120,7 +1120,7 @@ sections:
           LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you'll receive":"all of them in log analytics", "as one": "log entry"}
           ```
           
-          For a detailed look at the issue, see this [GitHub link](https://github.com/moby/moby/issues/22920).
+          For a detailed look at the issue, see this [GitHub page](https://github.com/moby/moby/issues/22920).
           
       - question: |
           How do I resolve Azure Active Directory errors when I enable live logs?
