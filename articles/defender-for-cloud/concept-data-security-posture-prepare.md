@@ -13,9 +13,9 @@ Review the requirements on this page before setting up [data-aware security post
 
 ## Enabling sensitive data discovery
 
-Data-aware security posture is available in the Defender CSPM and Defender for Storage plans.
+Sensitive data discovery is available in the Defender CSPM and Defender for Storage plans.
 
-- When you enable one of the plans, the Sensitive Data Discovery extension is turned on by default in the plan.
+- When you enable one of the plans, the Sensitive Data Discovery extension is turned on as part of the plan.
 - If you have existing plans running, the extension will be available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on manually.
 - The feature is turned on at the subscription level.
 
@@ -26,45 +26,29 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What data resources can I scan? | Azure storage accounts (v1/v2)<br/><br/> AWS S3 buckets<br/><br/> Behind a private network you can scan blob storage accounts (no specific configuration required).
+What data resources can I scan? | Azure storage accounts v2<br/><br/> AWS S3 buckets
+What permissions do I need for scanning? | Storage account: Subscription Owner<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported? | Supported file types (you can't select a subset):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central U; East Asia; East US; East US 2; France Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Center US; South India: Sweden Central; Switzerland North; UAE North; UK South; UK West: West Centra US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
-What AWS regions are supported? | US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); Asia Pacific (Tokyo); Asia Pacific (Singapore); Asia Pacific (Sydney).<br/><br/> Scanning is done locally in the region.
+What AWS regions are supported? | Africa (Cape Town); Asia Pacific (Hong Kong); Asia Pacific (Mumbai); Asia Pacific (Osaka-Local); Asia Pacific (Seoul); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); China (Beijing); China (Ningxia); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Milan); Europe (Paris); Europe (Stockholm); Middle East (Bahrain); South America (Sao Paulo); US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon).<br/><br/> Scanning is done locally in the region.
 Do I need to install an agent? | No, scanning is agentless.
 What's the cost? | The feature is included with each plan, and doesn’t include additional costs outside the respective plan costs.
 
+## Scanning
+
+- It takes up to 24 hours to see results for a first scan.
+- Refreshed results for a subscription that's already been scanned take up to 48 hours.
+- New Azure storage accounts in a scanned subscription aren't automatically scanned. Under **Manage sensitivity scans**, you'll need to disable the subscription, and then reenable it.
+- New AWS S3 buckets in a scanned subscription are automatically scanned.
+
+
 ## Configuring data sensitivity settings
 
-Data sensitivity settings allow you to define what you consider sensitive data in your organization. Defender for Cloud uses the same sensitive information types provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
-
-Sensitivity settings in Defender for Cloud are set at the Azure tenant level, and are applied to all subscriptions in the tenant when the sensitive data discovery extension is enabled.
-
-## Setting resource sensitivity
-
-You can modify Defender for Cloud's built-in sensitivity settings. Note that:
-
-To modify default sensitive information types you need one of these permissions:
-    - Global Administrator
-    - Compliance Administrator
-    - Compliance Data Administrator
-    - Security Administrator
-    - Security Operator
-    - These permissions:
-        - Microsoft.Storage/storageAccounts/{read/write}
-        - Microsoft.Authorization/roleAssignments/{read/write/delete}
-
-Data discovery runs once a week to refresh scanning for data resources. Changes in sensitivity settings take effect the next time that resources are scanned.
-
-### Microsoft Purview integration
-
-If you’re using Microsoft Purview, you can optionally add additional Purview information types, or sensitivity labels, to be used during scanning.
-
-If you're automatically assigning Microsoft Purview sensitivity labels to resources when specific conditions are met, you can turn on the the sensitivity label threshold setting in Defender for Cloud. This integrates Purview sensitivity labels into data-aware posture management, as long as you have the following:
-
-- Consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
-- One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.
-- The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).
-- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
+**Action** | **Requirements**
+--- | ---
+Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator<br/>These permissions: Microsoft.Storage/storageAccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}
+Add Purview information types | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
+Add Purview sensitivity labels | - Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/>- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
 
 Note that:
 

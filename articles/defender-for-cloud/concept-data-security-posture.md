@@ -52,11 +52,26 @@ Data sensitivity settings define what's considered sensitive data in your organi
 
 Defender for Cloud turns on some built-in sensitive information types by default (finance, PII, and credentials). You can modify settings and add other types as needed.
 
-:::image type="content" source=".media/data-sensitivity.png" alt-text="Steps to recover from identity compromise.":::
+:::image type="content" source=".media/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
 
 If you're using Microsoft Purview, you can add custom sensitive information types that you've defined in the Purview portal.
 
-In addition, if you're using Microsoft Purview automatic labelling rules to assign labels to files based on specific conditions, you can set sensitivity label thresholds in Defender for Cloud. Resources with labels above a selected threshold are considered sensitive.
+Changes in sensitivity settings take effect the next time that resources are scanned.
+
+## Sensitivity labels
+
+if you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a minimum sensitivity label threshold in Defender for Cloud. When setting a threshold, you select a minimum label in the labelling rank order. All resources that has this minimum label or higher are considered as containing sensitive data in the Defender CSPM cloud security graph. For example:
+
+You select Confidential as minimum. Highly Confidential is also consider as sensitive. General, Public, and Non-Business aren't.
+
+:::image type="content" source=".media/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
+
+During scanning, Defender for Cloud dynamically caculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
+
+- The aim of the threshold is to make it easier to explore sensitive data.
+- It doesn't indicate that the scanned resource has a file with a specific label applied on it.
+
+
 
 ## Next steps
 
