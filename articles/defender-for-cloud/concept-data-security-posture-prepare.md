@@ -11,31 +11,19 @@ ms.date: 03/09/2023
 
 Review the requirements on this page before setting up [data-aware security posture](concept-data-security-posture.md) in [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
-## Enabling data-aware security posture
+## Enabling sensitive data discovery
 
-Data-aware security posture is available in the Defender CSPM and Defender for Storage plans at the subscription level. It's not available at storage-level in the Defender for Storage plan.
+Data-aware security posture is available in the Defender CSPM and Defender for Storage plans.
 
-- When you enable a plan, data-aware security posture is turned on by default.
+- When you enable a plan, the Sensitive Data Discovery extension is turned on by default.
 - If you have existing plans running, data-aware security posture will be available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on.
 - You can turn the feature on and off manually for a plan.
 
 Note that:
 
-- In addition to turning on the feature in a plan, the feature needs to be enabled for a specific subscription.
 - Since the feature is at subscription level, turning it on and off will turn the feature on/off in both plans.
     - It's important to note that turning on the feature doesn’t turn on the plan itself.
     - Turning the feature on in one plan does not turn it on in the other plan. It’s enabled separately in each plan.
-
-## Which plan should I choose?
-
-**Feature** | **Defender for CSPM** | **Defender for Storage v2**
---- | --- | ---
-Define sensitivity settings in Defender for Cloud | Y | Y
-Integrate sensitive data types defined in Microsoft Purview | Y | Y
-Integrate Microsoft Purview sensitivity labels | Y | Y
-Automatically discover sensitive data | Y | Y
-Identify risk/improve data security posture using Cloud Security Explorer and Attack Path | Y | N
-Identify data threats and breaches with Defender for Cloud security alerts | N | Y
 
 ## What's supported
 
@@ -43,7 +31,6 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What Defender for Cloud plans support data-aware security? | Defender for Storage v2<br/><br/> Defender for CSPM
 What data resources can I scan? | Azure storage accounts (v1/v2)<br/><br/> AWS S3 buckets<br/><br/> Behind a private network you can scan blob storage accounts (no specific configuration required).
 What file types are supported? | Supported file types (you can't select a subset):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central U; East Asia; East US; East US 2; France Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Center US; South India: Sweden Central; Switzerland North; UAE North; UK South; UK West: West Centra US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
@@ -53,21 +40,26 @@ What's the cost? | The feature is included with each plan, and doesn’t include
 
 ## Data sensitivity settings
 
-Defender for Cloud provides sensitivity settings using sensitive information types that align to those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). 
+Data sensitivity settings allow you to define what you consider sensitive data in your organization. Defender for Cloud uses the same sensitive information types provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
 
 - Sensitivity settings in Defender for Cloud are set at the Azure tenant level.
 - Default sensitivity settings are applied to all subscriptions in the tenant when the [Defender for Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan, or the Defender for Storage v2 plan is enabled.  
 
 ### Modifying sensitivity types
 
-You can modify default sensitivity settings in a tenant by turning off default information types, or by creating custom types. Note that:
+You can modify Defender for Cloud's built-in sensitivity settings in a tenant. Note that:
 
-- To modify default sensitive information types you need to either be an Azure subscription owner, or to have these permissions:
+To modify default sensitive information types you need one of these permissions:
+    - Global Administrator
+    - Compliance Administrator
+    - Compliance Data Administrator
+    - Security Administrator
+    - Security Operator
+    - These permissions:
+        - Microsoft.Storage/storageAccounts/{read/write}
+        - Microsoft.Authorization/roleAssignments/{read/write/delete}
 
-    - Microsoft.Storage/storageAccounts/{read/write}
-    - Microsoft.Authorization/roleAssignments/{read/write/delete}
-
-- Detection for changes to sensitivity settings runs every seven days
+Data discovery runs once a week to refresh scanning for data resources. Changes in sensitivity settings take effect the next time that resources are scanned.
 
 ### Microsoft Purview integration
 
@@ -75,7 +67,7 @@ If you’re using Microsoft Purview, you can optionally add additional Purview i
 
 If you're automatically assigning Microsoft Purview sensitivity labels to resources when specific conditions are met, you can turn on the the sensitivity label threshold setting in Defender for Cloud. This integrates Purview sensitivity labels into data-aware posture management, as long as you have the following:
 
-- In the Microsoft Purview portal, you consented to use the labels in Defender for Cloud.
+- Consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
 - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.
 - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).
 - The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
