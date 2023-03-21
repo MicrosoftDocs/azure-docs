@@ -25,9 +25,7 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from your documents. You can also label and train custom models to learn specified data extraction from structured, semi-structured, and unstructured documents.
-
-Learn more about Form Recognizer models:
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents, Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract structured, semi-structured, and unstructured content from your documents.
 
 ### Document analysis models
 
@@ -161,7 +159,7 @@ The following video introduces Form Recognizer models and their associated outpu
 > [!NOTE]
 >The following document understanding models and development options are supported by the Form Recognizer service v3.0.
 
-You can Use Form Recognizer to automate your document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse the API references.
+You can Use Form Recognizer to automate your document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse development options.
 
 ### Read
 
@@ -196,17 +194,6 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
 
-## W-2
-
-:::image type="content" source="media/overview/analyze-w2.png" alt-text="Screenshot of W-2 model analysis using Form Recognizer Studio.":::
-
-| About | Description |Automation use cases | Development options |
-|----------|--------------|-------------------------|-----------|
-|[**W-2 Form**](concept-w2.md) | Extract key information from IRS US W2 tax forms (year 2018-2021).|&#9679; Automated tax document management.</br>&#9679; Mortgage loan application processing. |&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model) |
-
-> [!div class="nextstepaction"]
-> [Return to model types](#prebuilt-models)
-
 ## Invoice
 
 :::image type="content" source="media/overview/analyze-invoice.png" alt-text="Screenshot of Invoice model analysis using Form Recognizer Studio.":::
@@ -236,6 +223,17 @@ You can Use Form Recognizer to automate your document processing in applications
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
 |[**Identity document (ID) model**](concept-id-document.md) |Extract key information from passports and ID cards.</br></br>Prebuilt ID document API supports the **extraction of endorsements, restrictions, and vehicle classifications from US driver's licenses**. |&#9679; Know your customer (KYC) financial services guidelines compliance.</br>&#9679; Medical account management.</br>&#9679; Identity checkpoints and gateways.</br>&#9679; Hotel registration. |&#9679;  [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)</br>&#9679; [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)|
+
+> [!div class="nextstepaction"]
+> [Return to model types](#prebuilt-models)
+
+## W-2
+
+:::image type="content" source="media/overview/analyze-w2.png" alt-text="Screenshot of W-2 model analysis using Form Recognizer Studio.":::
+
+| About | Description |Automation use cases | Development options |
+|----------|--------------|-------------------------|-----------|
+|[**W-2 Form**](concept-w2.md) | Extract key information from IRS US W2 tax forms (year 2018-2021).|&#9679; Automated tax document management.</br>&#9679; Mortgage loan application processing. |&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -322,6 +320,9 @@ You can Use Form Recognizer to automate your document processing in applications
 |----------|--------------|
 |Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
 
+> [!div class="nextstepaction"]
+> [Return to model types](#gated-preview-models)
+
 ## Vaccination card model (preview)
 
 :::image type="content" source="media/overview/analyze-vaccination-card.png" alt-text="Screenshot of Vaccination card model analysis using Form Recognizer Studio.":::
@@ -329,6 +330,9 @@ You can Use Form Recognizer to automate your document processing in applications
 | About | Development options |
 |----------|--------------|
 |Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=vaccinationCard)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Return to model types](#gated-preview-models)
 
 ## US tax 1098 form (preview)
 
@@ -338,6 +342,9 @@ You can Use Form Recognizer to automate your document processing in applications
 |----------|--------------|
 |Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
 
+> [!div class="nextstepaction"]
+> [Return to model types](#gated-preview-models)
+
 ## US tax 1098-E form (preview)
 
 :::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the From Recognizer Studio.":::
@@ -346,6 +353,9 @@ You can Use Form Recognizer to automate your document processing in applications
 |----------|--------------|
 |Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
 
+> [!div class="nextstepaction"]
+> [Return to model types](#gated-preview-models)
+
 ## US tax 1098-T form (preview)
 
 :::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the From Recognizer Studio.":::
@@ -353,6 +363,9 @@ You can Use Form Recognizer to automate your document processing in applications
 | About | Development options |
 |----------|--------------|
 |Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Return to model types](#gated-preview-models)
 
 :::moniker-end
 
