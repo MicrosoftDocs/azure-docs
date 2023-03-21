@@ -166,33 +166,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ## Regions and availability
 
-The following regions are available for public preview.  Provisioning in regions outside of the list fail and display an error.
-- Australia East
-- Australia Southeast
-- Brazil South
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East Asia
-- East US
-- East US 2
-- France Central
-- Japan East
-- Korea Central
-- Korea South
-- North Central US
-- North Europe
-- Norway East
-- Southeast Asia
-- South Africa North
-- South Central US
-- Switzerland North
-- UK South
-- West Central US
-- West Europe
-- West US
-- West US 2
+The Private Application Gateway preview is available to all public cloud regions [where Application Gateway v2 sku is supported](./overview-v2.md#unsupported-regions).
 
 ## Configuration of network controls
 
