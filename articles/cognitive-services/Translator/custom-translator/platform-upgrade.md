@@ -1,12 +1,12 @@
 ---
-title: "Platform upgrade - Custom Translator"
+title: "Platform upgrade - Custom Translator v1.0"
 titleSuffix: Azure Cognitive Services
-description: Custom Translator upgrade.
+description: Custom Translator v1.0 upgrade
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 03/21/2023
+ms.date: 03/19/2023
 ms.author: lajanuar
 ms.topic: reference
 ---
@@ -20,23 +20,24 @@ Following measured and consistent high-quality advances with models trained on t
 
 ## Custom Translator v1.0 timeline
 
-* **April 10, 2023**: v1.0 model publishing ends. There will be no downtime during the v1.0 model migration. All model publishing and in-flight translation requests will continue without disruption until May 07, 2023.
+* **April 10, 2023**: v1.0 model publishing ends. There's no downtime during the v1.0 model migration. All model publishing and in-flight translation requests will continue without disruption until May 07, 2023.
 
-* **April 10, 2023 — May 07, 2023**: Customers voluntarily migrate to v2.0 models.
+* **April 10, 2023—May 07, 2023**: Customers voluntarily migrate to v2.0 models.
 
-* **May 08, 2023**: Remaining v1.0 published models will automatically migrated and published by the Custom Translator Team.
+* **May 08, 2023**: Remaining v1.0 published models automatically migrate and for publication by the Custom Translator Team.
 
 ## Upgrade to v2.0
 
-* **Check to see if you have published v1.0 models**. After you sign-in to the Custom Translator portal you should see a message indicating you have v1.0 models to upgrade. You can also see if a current workspace has v1.0 models by selecting **Workspace settings** and scrolling to the bottom of the page.
+* **Check to see if you have published v1.0 models**. After you sign in to the Custom Translator portal, you should see a message indicating that you have v1.0 models to upgrade. You can also see if a current workspace has v1.0 models by selecting **Workspace settings** and scrolling to the bottom of the page.
 
-* **Use the upgrade wizard**. Follow the steps listed in **Upgrade to the latest versio** wizard. Depending on your training data size, it may take a few hours to a full day to upgrade your models to the v2.0 platform.
+* **Use the upgrade wizard**. Follow the steps listed in **Upgrade to the latest version** wizard. Depending on your training data size, it may take a few hours to a full day to upgrade your models to the v2.0 platform.
 
 ## Unpublished and opt-out published models
 
 * For unpublished models, save the model data (training, testing, dictionary) and delete the project.
-* Form published models that you don't want to upgrade, save your model data, unpublish the model, and delete the project.
+* For published models that you don't want to upgrade, save your model data, unpublish the model, and delete the project.
 
 ## Next steps
 
-For additional support, visit the [Azure Cognitive Services support and help options](https://learn.microsoft.com/en-us/azure/cognitive-services/cognitive-services-support-options) page.
+For more support, visit the [Azure Cognitive Services support and help options](../../cognitive-services-support-options) page.
+
