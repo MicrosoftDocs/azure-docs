@@ -6,9 +6,9 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 03/21/2023
+ms.custom: ignite-2022
 ---
 
 # Periodic backup and restore in Azure Cosmos DB

@@ -6,9 +6,9 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 03/21/2023
+ms.custom: ignite-2022
 ---
 
 # Periodic backup storage redundancy in Azure Cosmos DB
@@ -39,4 +39,4 @@ You can configure storage redundancy for periodic backup mode at the time of acc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [modify the backup interval and retention period](periodic-backup-modify-interval-retention.md)
+> Learn how to [update the backup storage redundancy](periodic-backup-update-storage-redundancy.md)
