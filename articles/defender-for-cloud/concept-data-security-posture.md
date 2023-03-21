@@ -44,7 +44,7 @@ By applying sensitivity settings on storage resources, you can prioritize alerts
 
 ## Scanning with smart sampling
 
-Defender for Cloud uses smart sampling to scan a selected number of files in your cloud datastores. The sampling results provide an accurate assessment of where sensitive data is stored, while saving on scanning costs and time.
+Defender for Cloud uses smart sampling to scan a selected number of files in your cloud datastores. The sampling results discover evidence of sensitive data issues, while saving on scanning costs and time.
 
 ## Data sensitivity settings
 
