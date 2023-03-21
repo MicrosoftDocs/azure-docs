@@ -69,7 +69,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 1. On the Azure Spring Apps **Create** page, select **Review and Create** to finish creating the Azure Spring Apps instance.
 
 >[!NOTE]
-> Optionally, you can also create an Azure Container Apps environment with your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
+> Optionally, you can also create an Azure Container Apps environment with your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md).
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -81,7 +81,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
 
 You can create the Azure Container Apps environment in one of two ways:
 
-- Using your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-app-environment-with-virtual-network.md).
+- Using your own virtual network. For more information, see [Quickstart: Create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md).
 
 - Using a system assigned virtual network, as described in the following procedure.
 
