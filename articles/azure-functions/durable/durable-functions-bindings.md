@@ -510,7 +510,7 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 ```powershell
 param([string] $input, $TriggerMetadata)
 
-$InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $input
 ```
 
 # [Java](#tab/java)
