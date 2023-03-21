@@ -67,8 +67,8 @@ You can integrate monitoring data from sources outside Azure, including on-premi
 
 Azure Monitor collects these types of data:
 
-|Data Type|Description|
-|---------|---------|
+|Data Type|Description and subtypes|
+|---------|-----------|
 |Application|Data about the performance and functionality of your application code on any platform.|
 |Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
 |Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>| Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |
