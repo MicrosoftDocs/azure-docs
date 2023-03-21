@@ -79,64 +79,41 @@ Log entries are created only if there are requests made against the service endp
 
 ### Sample Kusto queries
 
-If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+After you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information on these queries, refer to the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
+The sample queries provided below can be entered in the **Log search** bar to help you monitor your migration. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
 
-> [!IMPORTANT]
-> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
-
-Use these queries to help you monitor your Azure Storage accounts:
-
-- To list the 10 most common errors over the last three days.
+- To list all the files which failed to copy from a specific job run within the last 30 days.
 
     ```kusto
-    StorageBlobLogs
-    | where TimeGenerated > ago(3d) and StatusText !contains "Success"
-    | summarize count() by StatusText
+    StorageMoverCopyLogsFailed 
+    | where TimeGenerated > ago(30d) and JobRunName == "[job run ID]"
+    ```
+
+- To list the 10 most common copy log error codes over the last seven days.
+
+    ```kusto
+    StorageMoverCopyLogsFailed
+    | where TimeGenerated > ago(7d)
+    | summarize count() by StatusCode
     | top 10 by count_ desc
     ```
 
-- To list the top 10 operations that caused the most errors over the last three days.
+- To list the 10 most recent job failure error codes over the last three days.
 
     ```kusto
-    StorageBlobLogs
-    | where TimeGenerated > ago(3d) and StatusText !contains "Success"
-    | summarize count() by OperationName
+    StorageMoverJobRunLogs
+    | where TimeGenerated > ago(3d) and StatusCode != "AZSM0000"
+    | summarize count() by StatusCode
     | top 10 by count_ desc
     ```
 
-- To list the top 10 operations with the longest end-to-end latency over the last three days.
+- To create a pie chart of failed copy operations grouped by job run over the last 30 days.
 
     ```kusto
-    StorageBlobLogs
-    | where TimeGenerated > ago(3d)
-    | top 10 by DurationMs desc
-    | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
-    ```
-
-- To list all operations that caused server-side throttling errors over the last three days.
-
-    ```kusto
-    StorageBlobLogs
-    | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
-    | project TimeGenerated, OperationName, StatusCode, StatusText
-    ```
-
-- To list all requests with anonymous access over the last three days.
-
-    ```kusto
-    StorageBlobLogs
-    | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
-    | project TimeGenerated, OperationName, AuthenticationType, Uri
-    ```
-
-- To create a pie chart of operations used over the last three days.
-
-    ```kusto
-    StorageBlobLogs
-    | where TimeGenerated > ago(3d)
-    | summarize count() by OperationName
+    StorageMoverCopyLogsFailed
+    | where TimeGenerated > ago(30d)
+    | summarize count() by JobRunName
     | sort by count_ desc
     | render piechart
     ```
