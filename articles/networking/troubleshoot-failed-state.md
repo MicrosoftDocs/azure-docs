@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshoot Azure Microsoft. Network failed Provisioning State'
+title: 'Troubleshoot Azure Microsoft.Network failed Provisioning State'
 description: Learn about the meaning of various provisioning states and how to troubleshoot Azure Microsoft.Network failed Provisioning State.
 services: networking
 author: stegag
