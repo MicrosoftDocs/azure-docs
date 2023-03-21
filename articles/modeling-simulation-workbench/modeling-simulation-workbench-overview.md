@@ -16,7 +16,7 @@ The Azure Modeling and Simulation Workbench is an intelligent, fully managed pro
 
 <!--- TODO -   
 [!div class="mx-imgBorder"]
-   > ![Screenshot of the Azure Modeling and Simulation Workbench concept image](./media/Modeling and Simulation Workbench-overview/Modeling and Simulation Workbenchconcept1.png)--->
+   > ![Screenshot of the Azure Modeling and Simulation Workbench concept image](./media/Modeling and Simulation Workbench-overview/modeling-simulation-workbench-concept.png)--->
 
 The automated provisioning of Modeling and Simulation Workbench can reduce set up time of the design environment from weeks to hours. After providing an initial set of configurations, all resources, identity management, access controls, VMs, configured network and partitioned storage can all be provisioned automatically. In addition, this elastic infrastructure is fully scalable to the workload demands. For control on costs, customers have push button control to scale workloads up or down dynamically, and changing the storage performance tier and size dynamically. Chambers can be stopped while not in use, to further control costs.
 

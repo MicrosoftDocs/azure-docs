@@ -179,7 +179,7 @@ Take note of the properties in the next steps:
 
 1. Under the **Modeling and Simulation Workbenches (preview)** page, select **Create**. The **Create an Azure Modeling and Simulation Workbench** page opens.
 
-   :::image type="content" source="./media/quickstart-create-portal/create01.png" alt-text="Screenshot of the Marketplace showing how to search Azure Modeling and Simulation Workbench":::
+   :::image type="content" source="./media/quickstart-create-portal/create001.png" alt-text="Screenshot of the Marketplace showing how to search Azure Modeling and Simulation Workbench":::
 
 1. In the **Basics** tab, under **Project details**, choose your subscription for **Subscription** and choose *QuickstartCreateModSimWorkbench-rg* for **Resource group**.
 
@@ -195,7 +195,7 @@ Take note of the properties in the next steps:
 
 1. Select **Next : Chamber >** button at the bottom of the page.
 
-    :::image type="content" source="./media/quickstart-create-portal/create02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values":::
+    :::image type="content" source="./media/quickstart-create-portal/create-02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values":::
 
 1. In the **Chamber** tab, under **Chamber**, choose the following values:
 
@@ -230,21 +230,21 @@ Take note of the properties in the next steps:
 
 1. Type *quickstart* in the global search and select **myFirstChamber**.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam01.png" alt-text="Screenshot of the global search to select myFirstChamber":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-01.png" alt-text="Screenshot of the global search to select myFirstChamber":::
 
 1. Select **Access control (IAM)** from the left side menu of **myFirstChamber**.
 
 1. Select **Add** > **Add role assignment**. If you don't have permissions to assign roles, the Add role assignment option is disabled.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam02.png" alt-text="Screenshot of the Role assignments page showing where you select the Add role assignment command":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-02.png" alt-text="Screenshot of the Role assignments page showing where you select the Add role assignment command":::
 
 1. The **Add role assignment** pane opens. In the **Role** list, search or scroll to find the role **Chamber Admin**. Choose **Chamber Admin** for the **Role** and select **Next**.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam03.png" alt-text="Screenshot of the Add role assignment page showing where you select the Role":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-03.png" alt-text="Screenshot of the Add role assignment page showing where you select the Role":::
 
 1. Leave the **Assign access to** default **User, group, or service principal**. Select **+ Select members**. In the **Select members** blade on the left side of the screen, search for your security principal by entering a string or scrolling through the list. Select your security principal. Select **Select** to save the selections.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal":::
 
 1. Select **Review + assign** to assign the selected role.
 
@@ -262,7 +262,7 @@ Follow these steps to get redirect URIs:
    - **Dashboard reply URL**: For example, https://<*dashboardFqdn*>/etx/oauth2/code
    - **Authentication reply URL**: For example, https://<*authenticationFqdn*>/otdsws/login?authhandler=AzureOIDC
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aadapp01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs":::
 
 Follow these steps to add redirect URIs:
 
@@ -280,7 +280,7 @@ Follow these steps to add redirect URIs:
 
 1. Paste the property of **Authentication reply URL** recorded in the previous step and select **Save**.
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aadapp02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you select the Redirect URIs":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you select the Redirect URIs":::
 
 ## Clean up resources
 

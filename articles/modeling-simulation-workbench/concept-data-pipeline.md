@@ -12,13 +12,13 @@ ms.date: 01/01/2023
 
 # Azure Modeling and Simulation Workbench data pipeline
 
-## Data Pipeline - an introduction
+## Data pipeline - an introduction
 
 For the Azure Modeling and Simulation Workbench user, getting data into and out of the chamber is done through the data pipeline. Since the chamber is secure and isolated from the public network, no direct method is provided to copy data into and out of the chamber.
 
 The data pipeline enables users to bring data into the [chamber](./concept-chamber.md), and remove data from the chamber. These users must have been provisioned to have access to the chamber, and be on the network configured for that chamber's [connector](./concept-connector.md) object.
 
-## Data Pipeline features
+## Data pipeline features
 
 Users with access to the chamber can bring data into the chamber via AzCopy and an expiring SAS URI token. This token can be acquired from the chamber component. The user can then utilize AzCopy to move data into the data pipeline endpoint. The chamber recognizes the data pipeline request and moves the file into the chamber, in addition, the data pipeline makes visible within the chamber a files object representing the data in file request for traceability.
 

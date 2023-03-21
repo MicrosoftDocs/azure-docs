@@ -46,7 +46,7 @@ As a Chamber User or a Chamber Admin, perform the following steps.
 1. In the storage overview section, note the options to: resize, change tier, and delete.
 
 <!--    [!div class="mx-imgBorder"]
-   ![Screenshot of the Azure portal chamber storage overview screen](./media/howtoguide-manage-storage/storageoverview.png)
+   ![Screenshot of the Azure portal chamber storage overview screen](./media/howtoguide-manage-storage/storage-overview.png)
 -->
 ### Resize your chamber storage
 

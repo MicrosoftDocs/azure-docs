@@ -61,7 +61,7 @@ As a Chamber Admin, perform the following steps to request a file to be download
 1. Type in a reason, and click **File Request**
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Azure portal manage screen showing how to request file download](./media/howtoguide-download-data/filerequestdownload.png)
+   > ![Screenshot of the Azure portal manage screen showing how to request file download](./media/howtoguide-download-data/file-request-download.png)
 
 ## Approve download
 
@@ -78,7 +78,7 @@ As a Workbench Owner, perform the following steps to manage a file request, you 
 1. In the **Action** drop-down, select **Approved**, and enter a description.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Azure portal manage screen showing how to select Approved Action](./media/howtoguide-download-data/filerequestapprove.png)
+   > ![Screenshot of the Azure portal manage screen showing how to select Approved Action](./media/howtoguide-download-data/file-request-approve.png)
 
 1. Click on **Manage** to complete the approval
 
