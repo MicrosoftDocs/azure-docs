@@ -4,7 +4,7 @@ description: Learn about API authorizations in Azure API Management, a feature t
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/16/2023
+ms.date: 03/20/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -39,9 +39,9 @@ Using authorizations in API Management, customers can enable different scenarios
 
 Authorizations consist of two parts, **management** and **runtime**.
 
-* The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations. For details, see the [process flow](#process-flow---management).
+* The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations. For details, see [Process flow - management](#process-flow---management).
 
-* The **runtime** part uses the [`get-authorization-context` policy](get-authorization-context-policy.md) to fetch and store the authorization's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see the [process flow](#process-flow---runtime).  
+* The **runtime** part uses the [`get-authorization-context` policy](get-authorization-context-policy.md) to fetch and store the authorization's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Process flow - runtime](#process-flow---runtime).  
    
     During the policy execution, access to the tokens is also validated using access policies.
 
@@ -110,21 +110,19 @@ Configuring an authorization in your API Management instance consists of three s
 During Step 1, you configure your authorization provider. You can choose between different [identity providers](authorizations-configure-common-providers.md) and grant types (authorization code or client credential). Each identity provider requires specific configurations. Important things to keep in mind:
 
 * An authorization provider configuration can only have one grant type.
-* One authorization provider configuration can have multiple authorization connections. 
+* One authorization provider configuration can have [multiple authorization connections](configure-authorization-connection.md). 
 
 > [!NOTE]
 > With the Generic OAuth 2.0 provider, other identity providers that support the standards of [OAuth 2.0 flow](https://oauth.net/2/) can be used.
 > 
 
-To use an authorization provider, at least one *authorization* is required. Each authorization is a separate connection to the authorization provider. The process of configuring an authorization differs based on the configured grant type. Each authorization provider configuration only supports one grant type. For example, if you want to configure Azure AD to use both grant types, two authorization provider configurations are needed.
+To use an authorization provider, at least one *authorization* is required. Each authorization is a separate connection to the authorization provider. The process of configuring an authorization differs based on the configured grant type. Each authorization provider configuration only supports one grant type. For example, if you want to configure Azure AD to use both grant types, two authorization provider configurations are needed. The following table summarizes the two grant types.
 
-#### Authorization code grant type
 
-Authorization code grant type is bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1) 
-
-#### Client credentials grant type
-
-Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)
+|Grant type  |Description  |
+|---------|---------|
+|Authorization code     | Bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1)         |
+|Client credentials     |  Isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid. [Learn more](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)   |
 
 ### Step 2 - Log in
 
@@ -137,8 +135,8 @@ You configure one or more *access policies* for each authorization. The access p
 
 |Identity  |Description  | Benefits | Considerations |
 |---------|---------|-----|----|
-|Managed identity     |  System-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) for the API Management instance that's being used.|System-assigned identity is simplest configuration to access [authorization context](get-authorization-context-policy.md) at runtime. No credentials are needed.|Identity is tied to specific Azure infrastructure. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.<br/><br/>With a user-assigned identity, getting authorization context requires an Azure AD token.       |
-|Service principal     |   Identity of an Azure AD application in the same Azure AD tenant as the API Management instance, with access to the instance. | Permits more tightly scoped access to authorization. Isn't tied to specific API Management instance. | Getting the [authorization context](get-authorization-context-policy.md) requires an Azure AD token.     |
+|Service principal     |   Identity whose tokens can be used to authenticate and grant access to specific Azure resources, when an organization is using Azure Active Directory (Azure AD). By using a service principal, organizations avoid creating fictitious users to manage authentication when they need to access a resource. A service principal is an Azure AD identity that represents a registered Azure AD application. | Permits more tightly scoped access to authorization. Isn't tied to specific API Management instance. Relies on Azure AD for permission enforcement. | Getting the [authorization context](get-authorization-context-policy.md) requires an Azure AD token.     |
+|Managed identity     |  Service principal of a special type that represents an Azure AD identity for an Azure service. Managed identities are tied to, and can only be used with, an Azure resource. Managed identities eliminate the need for you to manually create and manage service principals directly.<br/><br/>When a system-assigned managed identity is enabled, a service principal representing that managed identity is created in your tenant automatically and tied to your resource's lifecycle.|No credentials are needed.|Identity is tied to specific Azure infrastructure. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.    |
 
 ## Security considerations
 
