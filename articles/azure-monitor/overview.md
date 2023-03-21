@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: 
 author: rboucher
 ms.author: robb
-ms.date: 03/01/2023
+ms.date: 03/20/2023
 ms.reviewer: robb
 ---
 # Azure Monitor overview
@@ -16,10 +16,10 @@ Azure Monitor collects and aggregates the data from every layer and component of
 
 Azure Monitor also includes Azure Monitor SCOM Managed Instance, which allows you to move your on-premises System Center Operation Manager (Operations Manager) installation to the cloud in Azure.
 
-Use Azure Monitor to monitor these types of resources in Azure, other clouds, or on-premises: 
-  - Applications 
+Use Azure Monitor to monitor these types of resources in Azure, other clouds, or on-premises:
+  - Applications
   - Virtual machines
-  - Guest operating systems 
+  - Guest operating systems
   - Containers including Prometheus metrics
   - Databases
   - Security events in combination with Azure Sentinel
@@ -84,7 +84,6 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 
 Click on the picture to see a larger version of the data platform diagram in context.
 
-
 |Pillar of Observability/<br>Data Store|Description|
 |---------|---------|
 |[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus metrics](essentials/prometheus-metrics-overview.md).|
@@ -113,7 +112,8 @@ Click on the picture to see a larger version of the data collection diagram in c
 |Internal| Data is automatically sent to a destination without user configuration.  |
 |[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
 |[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
-|Event hubs| See Event hubs in the [Integrate](#integrate) section below. This is a common way to route data sources monitoring data to other non-Microsoft tools. |
+
+A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below. |
 
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
@@ -188,7 +188,7 @@ Alert rules use action groups, which can perform actions like sending email or S
 
 :::image type="content" source="media/overview/autoscale.png" border="false" alt-text="Conceptual diagram showing how autoscale grows" lightbox="media/overview/autoscale.png":::
 
-**[Azure Logic Apps](../logic-apps/logic-apps-overview.md)** is a service where you can create and run automated workflows with little to no code. While not a part of the Azure Monitor product, it's a core part of the story. You can use Logic Apps to [customize responses and perform other actions in response to to Azure Monitor alerts](alerts/alerts-logic-apps.ms).  You can also use Logic Apps to perform other [more complex actions](logs/logicapp-flow-connector.md) if the Azure Monitor infrastructure doesn't have a built-it method.
+**[Azure Logic Apps](../logic-apps/logic-apps-overview.md)** is a service where you can create and run automated workflows with little to no code. While not a part of the Azure Monitor product, it's a core part of the story. You can use Logic Apps to [customize responses and perform other actions in response to to Azure Monitor alerts](alerts/alerts-logic-apps.md).  You can also use Logic Apps to perform other [more complex actions](logs/logicapp-flow-connector.md) if the Azure Monitor infrastructure doesn't have a built-it method.
 
 ## Integrate
 
