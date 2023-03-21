@@ -26,8 +26,8 @@ To enable nested virtualization on the template VM, you first connect to the VM 
 
 ## Prerequisites
 
-- A lab plan and one or more labs. Learn how to [Set up a lab plan](tutorial-setup-lab-plan.md) and [Set up a lab](tutorial-setup-lab.md).
-- Permission to edit the lab. Learn how to [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
+- A lab plan and one or more labs. Learn how to [Set up a lab plan](quick-create-resources.md) and [Set up a lab](tutorial-setup-lab.md).
+- Permission to edit the lab. Learn how to [Add a user to the Lab Creator role](quick-create-resources.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
 
 ## Enable nested virtualization by using a script
 
@@ -233,5 +233,5 @@ Next steps are common to setting up any lab.
 
 - [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+- [Set a schedule](tutorial-setup-lab.md#add-a-lab-schedule)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

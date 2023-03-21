@@ -17,7 +17,7 @@ The WireX Systems data connector allows security professional to integrate with 
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (WireXNFPevents)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [WireX Systems](https://wirexsystems.com/contact-us/) |
 
 ## Query samples

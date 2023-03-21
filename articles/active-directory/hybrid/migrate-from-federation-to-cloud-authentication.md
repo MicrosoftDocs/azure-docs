@@ -283,7 +283,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
  > [!IMPORTANT] 
  > At this point, all your federated domains will change to managed authentication. Your selected User sign-in method is the new method of authentication.
 
-1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
 2. Verify these settings:
 
@@ -324,7 +324,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
-1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**. 
+1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**. 
 
 2. Verify these settings:
 
@@ -336,7 +336,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
 **In case of PTA only**, follow these steps to install more PTA agent servers.
 
-1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
 2. Select **Pass-through authentication**. Verify that the status is **Active**.
 
@@ -366,7 +366,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
     ```
     See [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0 &preserve-view=true)
 
-3. In the Azure AD portal, select **Azure Active Directory > Azure AD Connect**.
+3. In the Azure portal, select **Azure Active Directory > Azure AD Connect**.
 
 4. Verify that the domain has been converted to managed by running the following command:
     ```powershell

@@ -6,6 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.subservice: multi-tenant-organizations
 ms.topic: how-to
 ms.date: 03/08/2023
 ms.author: rolyon

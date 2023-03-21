@@ -25,8 +25,8 @@ The Operator Nexus Cluster (or Instance) platform components include the infrast
 ### Network Fabric Controller
 
 The Network Fabric Controller (NFC) is a resource that automates the life cycle management of all network devices deployed in an Operator Nexus instance.
-NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
-The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+NFC is hosted in a [Microsoft Azure Virtual Network](../virtual-network/virtual-networks-overview.md) in an Azure region.
+The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 An NFC can manage the Network Fabric of many (subject to limits) Operator Nexus instances.
 
 ### Network Fabric

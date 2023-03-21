@@ -29,7 +29,7 @@ The `2022-08-31` API has a few updates from the preview API versions:
 * Field deleted: entities removed from the result of the general document model.
 * Field rename: documentLanguage.languageCode to locale
 * Added support for HEIF format
-* Added paragraph detection, with role classification for layout and general document models    
+* Added paragraph detection, with role classification for layout and general document models.
 * Added support for parsed address fields.
 
 ## Migrating from v2.1
@@ -224,17 +224,7 @@ Analyze response has been refactored to the following top-level results to suppo
 },
 "confidence": 0.95 // Extraction confidence
 }, ...
-], // List of extracted entities
-"entities": [
-{
-"category": "DateTime", // Primary entity category
-"subCategory": "Date", // Secondary entity category
-"content": "11/15/2019", // Entity content
-"boundingRegions": [ ... ], // Entity bounding regions
-"spans": [ ... ], // Entity spans
-"confidence": 0.99 // Extraction confidence
-}, ...
-], // List of extracted styles
+], 
 "styles": [
 {
 "isHandwritten": true, // Is content in this style handwritten?

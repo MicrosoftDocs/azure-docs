@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Azure Communications Gateway?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
 - name: Deployment
   items:
   - name: Prepare to deploy
@@ -38,8 +40,6 @@ items:
     href: provision-user-roles.md
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
-  - name: Rotate deployment secrets
-    href: rotate-secrets.md
   - name: Get support or request changes
     href: request-changes.md
 - name: Reference

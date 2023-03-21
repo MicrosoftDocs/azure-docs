@@ -1,5 +1,5 @@
 ---
-title: How to use the MFA Server Migration Utility to migrate to Azure AD MFA - Azure Active Directory
+title: How to use the MFA Server Migration Utility to migrate to Azure AD MFA
 description: Step-by-step guidance to migrate MFA server settings to Azure AD using the MFA Server Migration Utility.
 
 services: multi-factor-authentication
@@ -174,7 +174,7 @@ You'll also need access to the following URLs:
 - `https://graph.microsoft.com/*` (or `https://graph.microsoft.us/*` for government cloud customers)
 - `https://login.microsoftonline.com/*` (or `https://login.microsoftonline.us/*` for government cloud customers)
 
-The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure AD portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
+The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/permissions.png" alt-text="Screenshot of permissions.":::
 

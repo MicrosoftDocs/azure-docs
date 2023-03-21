@@ -71,117 +71,119 @@ This section shows you how to create a .NET Core console application to send eve
 
 ### Write code to send events to the event hub
 
-Add the following code to the top of the **Program.cs** file.
-
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-Here are the important steps from the code:
+1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace `<EVENT_HUB_NAMESPACE>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters with the names of your Event Hubs namespace and the event hub. For example: `"spehubns0309.servicebus.windows.net"` and `"spehub"`.
 
-1. Creates an [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the namespace and the event hub name. 
-1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create an [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
-1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
-1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
-  
-Replace the existing code in the `Program.cs` file with the following sample code. Then, replace `<EVENT_HUB_NAMESPACE>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters with the names of your Event Hubs namespace and the event hub. For example: `"spehubns0309.servicebus.windows.net"` and `"spehub"`.
+    Here are the important steps from the code:
 
-```csharp
-using Azure.Identity;
-using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Producer;
-using System.Text;
+    1. Creates an [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the namespace and the event hub name. 
+    1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create an [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
+    1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
+    1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
 
-// number of events to be sent to the event hub
-int numOfEvents = 3;
 
-// The Event Hubs client types are safe to cache and use as a singleton for the lifetime
-// of the application, which is best practice when events are being published or read regularly.
-// TODO: Replace the <EVENT_HUB_NAMESPACE> and <HUB_NAME> placeholder values
-EventHubProducerClient producerClient = new EventHubProducerClient(
-    "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
-    "<HUB_NAME>",
-    new DefaultAzureCredential());
 
-// Create a batch of events 
-using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
-
-for (int i = 1; i <= numOfEvents; i++)
-{
-    if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+    ```csharp
+    using Azure.Identity;
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Producer;
+    using System.Text;
+    
+    // number of events to be sent to the event hub
+    int numOfEvents = 3;
+    
+    // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when events are being published or read regularly.
+    // TODO: Replace the <EVENT_HUB_NAMESPACE> and <HUB_NAME> placeholder values
+    EventHubProducerClient producerClient = new EventHubProducerClient(
+        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
+        "<HUB_NAME>",
+        new DefaultAzureCredential());
+    
+    // Create a batch of events 
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+    
+    for (int i = 1; i <= numOfEvents; i++)
     {
-        // if it is too large for the batch
-        throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+        if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+        {
+            // if it is too large for the batch
+            throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+        }
     }
-}
-
-try
-{
-    // Use the producer client to send the batch of events to the event hub
-    await producerClient.SendAsync(eventBatch);
-    Console.WriteLine($"A batch of {numOfEvents} events has been published.");
-}
-finally
-{
-    await producerClient.DisposeAsync();
-}
-```
+    
+    try
+    {
+        // Use the producer client to send the batch of events to the event hub
+        await producerClient.SendAsync(eventBatch);
+        Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+    }
+    finally
+    {
+        await producerClient.DisposeAsync();
+    }
+    ```
 
 ## [Connection String](#tab/connection-string)
 
-Here are the important steps from the code:
+1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters.
 
-1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
-1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
-1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
-1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
+    Here are the important steps from the code:
+
+    1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
+    1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
+    1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
+    1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
   
-In the following code sample, replace the `<CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters.
 
-```csharp
-using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Producer;
-using System.Text;
-
-// number of events to be sent to the event hub
-int numOfEvents = 3;
-
-// The Event Hubs client types are safe to cache and use as a singleton for the lifetime
-// of the application, which is best practice when events are being published or read regularly.
-// TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
-EventHubProducerClient producerClient = new EventHubProducerClient(
-    "<CONNECTION_STRING>",
-    "<HUB_NAME>");
-
-// Create a batch of events 
-using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
-
-for (int i = 1; i <= numOfEvents; i++)
-{
-    if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+    ```csharp
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Producer;
+    using System.Text;
+    
+    // number of events to be sent to the event hub
+    int numOfEvents = 3;
+    
+    // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when events are being published or read regularly.
+    // TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
+    EventHubProducerClient producerClient = new EventHubProducerClient(
+        "<CONNECTION_STRING>",
+        "<HUB_NAME>");
+    
+    // Create a batch of events 
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+    
+    for (int i = 1; i <= numOfEvents; i++)
     {
-        // if it is too large for the batch
-        throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+        if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+        {
+            // if it is too large for the batch
+            throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+        }
     }
-}
-
-try
-{
-    // Use the producer client to send the batch of events to the event hub
-    await producerClient.SendAsync(eventBatch);
-    Console.WriteLine($"A batch of {numOfEvents} events has been published.");
-}
-finally
-{
-    await producerClient.DisposeAsync();
-}
-```
+    
+    try
+    {
+        // Use the producer client to send the batch of events to the event hub
+        await producerClient.SendAsync(eventBatch);
+        Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+    }
+    finally
+    {
+        await producerClient.DisposeAsync();
+    }
+    ```
 ---
-5. Build the project, and ensure that there are no errors.
-6. Run the program and wait for the confirmation message. 
+
+2. Build the project, and ensure that there are no errors.
+3. Run the program and wait for the confirmation message. 
 
     ```csharp
     A batch of 3 events has been published.
     ```
-1. On the **Event Hubs Namespace** page in the Azure portal, you see three incoming messages in the **Messages** chart. Refresh the page to update the chart if needed. It may take a few seconds for it to show that the messages have been received. 
+4. On the **Event Hubs Namespace** page in the Azure portal, you see three incoming messages in the **Messages** chart. Refresh the page to update the chart if needed. It may take a few seconds for it to show that the messages have been received. 
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
@@ -254,132 +256,135 @@ Replace the contents of **Program.cs** with the following code:
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-Here are the important steps from the code:
+1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<STORAGE_ACCOUNT_NAME>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
 
-1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the Event Hubs namespace and the event hub name. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
-1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-1. Stops processing events after 30 seconds by invoking [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
-   
-In the following code sample, replace the `<STORAGE_ACCOUNT_NAME>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
+    Here are the important steps from the code:
+    
+    1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the Event Hubs namespace and the event hub name. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
+    1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+    1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+    1. Stops processing events after 30 seconds by invoking [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
+       
 
-```csharp
-using Azure.Identity;
-using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Consumer;
-using Azure.Messaging.EventHubs.Processor;
-using Azure.Storage.Blobs;
-using System.Text;
-
-// Create a blob container client that the event processor will use
-// TODO: Replace <STORAGE_ACCOUNT_NAME> and <BLOB_CONTATINAER_NAME> with actual names
-BlobContainerClient storageClient = new BlobContainerClient(
-    new Uri("https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<BLOB_CONTAINER_NAME>"),
-    new DefaultAzureCredential());
-
-// Create an event processor client to process events in the event hub
-// TODO: Replace the <EVENT_HUBS_NAMESPACE> and <HUB_NAME> placeholder values
-var processor = new EventProcessorClient(
-    storageClient,
-    EventHubConsumerClient.DefaultConsumerGroupName,
-    "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
-    "<HUB_NAME>",
-    new DefaultAzureCredential());
-
-// Register handlers for processing events and handling errors
-processor.ProcessEventAsync += ProcessEventHandler;
-processor.ProcessErrorAsync += ProcessErrorHandler;
-
-// Start the processing
-await processor.StartProcessingAsync();
-
-// Wait for 30 seconds for the events to be processed
-await Task.Delay(TimeSpan.FromSeconds(30));
-
-// Stop the processing
-await processor.StopProcessingAsync();
-
-Task ProcessEventHandler(ProcessEventArgs eventArgs)
-{
-    // Write the body of the event to the console window
-    Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-    return Task.CompletedTask;
-}
-
-Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
-{
-    // Write details about the error to the console window
-    Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
-    Console.WriteLine(eventArgs.Exception.Message);
-    return Task.CompletedTask;
-}
-```
+    ```csharp
+    using Azure.Identity;
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Consumer;
+    using Azure.Messaging.EventHubs.Processor;
+    using Azure.Storage.Blobs;
+    using System.Text;
+    
+    // Create a blob container client that the event processor will use
+    // TODO: Replace <STORAGE_ACCOUNT_NAME> and <BLOB_CONTATINAER_NAME> with actual names
+    BlobContainerClient storageClient = new BlobContainerClient(
+        new Uri("https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<BLOB_CONTAINER_NAME>"),
+        new DefaultAzureCredential());
+    
+    // Create an event processor client to process events in the event hub
+    // TODO: Replace the <EVENT_HUBS_NAMESPACE> and <HUB_NAME> placeholder values
+    var processor = new EventProcessorClient(
+        storageClient,
+        EventHubConsumerClient.DefaultConsumerGroupName,
+        "<EVENT_HUB_NAMESPACE>.servicebus.windows.net",
+        "<HUB_NAME>",
+        new DefaultAzureCredential());
+    
+    // Register handlers for processing events and handling errors
+    processor.ProcessEventAsync += ProcessEventHandler;
+    processor.ProcessErrorAsync += ProcessErrorHandler;
+    
+    // Start the processing
+    await processor.StartProcessingAsync();
+    
+    // Wait for 30 seconds for the events to be processed
+    await Task.Delay(TimeSpan.FromSeconds(30));
+    
+    // Stop the processing
+    await processor.StopProcessingAsync();
+    
+    Task ProcessEventHandler(ProcessEventArgs eventArgs)
+    {
+        // Write the body of the event to the console window
+        Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        return Task.CompletedTask;
+    }
+    
+    Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+    {
+        // Write details about the error to the console window
+        Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+        Console.WriteLine(eventArgs.Exception.Message);
+        return Task.CompletedTask;
+    }
+    ```
 
 ## [Connection String](#tab/connection-string)
 
-Here are the important steps from the code:
+1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<AZURE_STORAGE_CONNECTION_STRING>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
 
-1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the primary connection string to the namespace and the event hub. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
-1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-1. Stops processing events after 30 seconds by invoking [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
+    Here are the important steps from the code:
+    
+    1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the primary connection string to the namespace and the event hub. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
+    1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+    1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+    1. Stops processing events after 30 seconds by invoking [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
+       
+    
+    ```csharp
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Consumer;
+    using Azure.Messaging.EventHubs.Processor;
+    using Azure.Storage.Blobs;
+    using System.Text;
+    
+    // Create a blob container client that the event processor will use 
+    BlobContainerClient storageClient = new BlobContainerClient(
+        "<AZURE_STORAGE_CONNECTION_STRING>", "<BLOB_CONTAINER_NAME>");
+    
+    // Create an event processor client to process events in the event hub
+    var processor = new EventProcessorClient(
+        storageClient,
+        EventHubConsumerClient.DefaultConsumerGroupName,
+        "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
+        "<HUB_NAME>");
+    
+    // Register handlers for processing events and handling errors
+    processor.ProcessEventAsync += ProcessEventHandler;
+    processor.ProcessErrorAsync += ProcessErrorHandler;
+    
+    // Start the processing
+    await processor.StartProcessingAsync();
+    
+    // Wait for 30 seconds for the events to be processed
+    await Task.Delay(TimeSpan.FromSeconds(30));
+    
+    // Stop the processing
+    await processor.StopProcessingAsync();
+    
+    Task ProcessEventHandler(ProcessEventArgs eventArgs)
+    {
+        // Write the body of the event to the console window
+        Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        return Task.CompletedTask;
+    }
+    
+    Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+    {
+        // Write details about the error to the console window
+        Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+        Console.WriteLine(eventArgs.Exception.Message);
+        return Task.CompletedTask;
+    }
+    ```
    
-In the following code sample, replace the `<AZURE_STORAGE_CONNECTION_STRING>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
-
-```csharp
-using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Consumer;
-using Azure.Messaging.EventHubs.Processor;
-using Azure.Storage.Blobs;
-using System.Text;
-
-// Create a blob container client that the event processor will use 
-BlobContainerClient storageClient = new BlobContainerClient(
-    "<AZURE_STORAGE_CONNECTION_STRING>", "<BLOB_CONTAINER_NAME>");
-
-// Create an event processor client to process events in the event hub
-var processor = new EventProcessorClient(
-    storageClient,
-    EventHubConsumerClient.DefaultConsumerGroupName,
-    "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
-    "<HUB_NAME>");
-
-// Register handlers for processing events and handling errors
-processor.ProcessEventAsync += ProcessEventHandler;
-processor.ProcessErrorAsync += ProcessErrorHandler;
-
-// Start the processing
-await processor.StartProcessingAsync();
-
-// Wait for 30 seconds for the events to be processed
-await Task.Delay(TimeSpan.FromSeconds(30));
-
-// Stop the processing
-await processor.StopProcessingAsync();
-
-Task ProcessEventHandler(ProcessEventArgs eventArgs)
-{
-    // Write the body of the event to the console window
-    Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-    return Task.CompletedTask;
-}
-
-Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
-{
-    // Write details about the error to the console window
-    Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
-    Console.WriteLine(eventArgs.Exception.Message);
-    return Task.CompletedTask;
-}
-```
-
 ---
-1. Build the project, and ensure that there are no errors.
+
+2. Build the project, and ensure that there are no errors.
 
     > [!NOTE]
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
-6. Run the receiver application. 
-1. You should see a message that the events have been received. 
+3. Run the receiver application. 
+4. You should see a message that the events have been received. 
 
     ```bash
     Received event: Event 1
@@ -387,7 +392,7 @@ Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
     Received event: Event 3    
     ```
     These events are the three events you sent to the event hub earlier by running the sender program. 
-1. In the Azure portal, you can verify that there are three outgoing messages, which Event Hubs sent to the receiving application. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
+5. In the Azure portal, you can verify that there are three outgoing messages, which Event Hubs sent to the receiving application. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
 

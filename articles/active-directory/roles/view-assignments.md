@@ -1,6 +1,6 @@
 ---
 title: List Azure AD role assignments
-description: You can now see and manage members of an Azure Active Directory administrator role in the Azure Active Directory admin center.
+description: You can now see and manage members of an Azure Active Directory administrator role in the Azure portal.
 services: active-directory
 author: rolyon
 manager: amycolannino

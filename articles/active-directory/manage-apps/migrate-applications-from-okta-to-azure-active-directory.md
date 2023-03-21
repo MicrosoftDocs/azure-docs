@@ -107,7 +107,7 @@ To complete the migration, repeat the configuration for all applications in the 
 
     ![Screenshot of the New from Metadata File option under Single Sign On Settings.](media/migrate-applications-from-okta-to-azure-active-directory/salesforce-admin-console.png)
 
-7. Upload the XML file you downloaded from the Azure AD portal. Then select **Create**.
+7. Upload the XML file you downloaded from the Azure portal. Then select **Create**.
 8. Upload the certificate you downloaded from Azure. Select **Save**.
 
     ![Screenshot of the Identity Provider Certificate entry under SAML Single Sign On.](media/migrate-applications-from-okta-to-azure-active-directory/create-saml-provider.png)
@@ -122,7 +122,7 @@ To complete the migration, repeat the configuration for all applications in the 
 
     ![Screenshot of the Download Metadata option, also entries for Entity ID and Your Organization.](media/migrate-applications-from-okta-to-azure-active-directory/record-values-for-azure.png)
 
-11. To upload the file to the Azure AD portal, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
+11. To upload the file to the Azure portal, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
 12. Ensure the imported values match the recorded values. Select **Save**.
 
     ![Screenshot of entries for SAML-based sign-on, and Basic SAML Configuration.](media/migrate-applications-from-okta-to-azure-active-directory/upload-metadata-file.png)

@@ -17,7 +17,7 @@ ms.custom: mode-other
 
 # Quickstart: Create and assign a user account
 
-In this quickstart, you use the Azure Active Directory Admin Center to create a user account in your Azure Active Directory (Azure AD) tenant. After you create the account, you can assign it to the enterprise application that you added to your tenant.
+In this quickstart, you use the Azure portal to create a user account in your Azure Active Directory (Azure AD) tenant. After you create the account, you can assign it to the enterprise application that you added to your tenant.
 
 It is recommended that you use a non-production environment to test the steps in this quickstart.
 

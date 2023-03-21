@@ -99,8 +99,8 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
-  - name: High availability and disaster recovery
-    href: high-availability-disaster-recovery.md
+  - name: Reliability in Azure Batch
+    href: ../reliability/reliability-batch.md?toc=/azure/batch/toc.json&bc=/azure/batch/breadcrumb/toc.json
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
   - name: Feature retirements
@@ -363,8 +363,6 @@
     href: https://azure.github.io/BatchExplorer/
   - name: Batch feedback
     href: https://feedback.azure.com/d365community/forum/7462aa60-0c25-ec11-b6e6-000d3a4f07b8
-  - name: Batch Shipyard
-    href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: /archive/blogs/windowshpc/
   - name: HPC on Azure

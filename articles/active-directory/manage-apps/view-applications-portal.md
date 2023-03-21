@@ -17,7 +17,7 @@ ms.custom: mode-other
 
 # Quickstart: View enterprise applications
 
-In this quickstart, you learn how to use the Azure Active Directory Admin Center to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
+In this quickstart, you learn how to use the Azure portal to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
 
 It is recommended that you use a non-production environment to test the steps in this quickstart.
 

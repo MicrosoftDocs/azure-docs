@@ -1,5 +1,5 @@
 ---
-title: Archive for What's new in Azure Active Directory? | Microsoft Docs
+title: Archive for What's new in Azure Active Directory?
 description: The What's new release notes in the Overview section of this content set contain six months of activity. After six months, the items are removed from the main article and put into this archive article.
 services: active-directory
 author: owinfreyATL
@@ -89,7 +89,7 @@ A new policy API is available for the administrators to control tenant wide poli
 
 In some situations, you may want to restrict the ability for end users to self-service BitLocker keys. With this new functionality, you can now turn off self-service of BitLocker keys, so that only specific individuals with right privileges can recover a BitLocker key.
 
-For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/device-management-azure-portal.md#block-users-from-viewing-their-bitlocker-keys-preview)
+For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/device-management-azure-portal.md#configure-device-settings)
 
 
 ---
@@ -182,8 +182,8 @@ In Azure AD entitlement management, a new form of access package assignment poli
 
 Users can now configure multiple instances of the same application within an Azure AD tenant. It's now supported for both IdP, and Service Provider (SP), initiated single sign-on requests. Multiple application accounts can now have a separate service principal to handle instance-specific claims mapping and roles assignment. For more information, see:
 
-- [Configure SAML app multi-instancing for an application - Microsoft Entra | Microsoft Docs](../develop/reference-app-multi-instancing.md)
-- [Customize app SAML token claims - Microsoft Entra | Microsoft Docs](../develop/active-directory-saml-claims-customization.md)
+- [Configure SAML app multi-instancing for an application - Microsoft Entra](../develop/reference-app-multi-instancing.md)
+- [Customize app SAML token claims - Microsoft Entra](../develop/active-directory-saml-claims-customization.md)
 
 
 
@@ -198,7 +198,7 @@ Users can now configure multiple instances of the same application within an Azu
  
 
 Administrators up until recently has the capability to transform claims using many transformations, however using regular expression for claims transformation wasn't exposed to customers. With this public preview release, administrators can now configure and use regular expressions for claims transformation using portal UX. 
-For more information, see:[Customize app SAML token claims - Microsoft Entra | Microsoft Docs](../develop/active-directory-saml-claims-customization.md).
+For more information, see:[Customize app SAML token claims - Microsoft Entra](../develop/active-directory-saml-claims-customization.md).
  
 
 ---
@@ -296,7 +296,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Platform  
  
 
-Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure AD Admin Portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](../reports-monitoring/overview-service-health-notifications.md).
+Azure Service Health supports service outage notifications to Tenant Admins for Azure Active Directory issues. These outages will also appear on the Azure portal Overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information is available at: [What are Service Health notifications in Azure Active Directory?](../reports-monitoring/overview-service-health-notifications.md).
 
  
 
@@ -338,9 +338,9 @@ Previously to set up and administer your AAD-DS instance you needed top level pe
 
 Check out these resources to learn more:
 
-- [Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
-- [Least privileged roles by task - Azure Active Directory | Microsoft Docs](../roles/delegate-by-task.md#domain-services)
-- [Azure built-in roles - Azure RBAC | Microsoft Docs](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
+- [Tutorial - Create an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-create-instance.md#prerequisites)
+- [Least privileged roles by task](../roles/delegate-by-task.md#domain-services)
+- [Azure built-in roles - Azure RBAC](../../role-based-access-control/built-in-roles.md#domain-services-contributor)
 
  
 
@@ -404,7 +404,7 @@ An improved app discovery view for My Apps is in public preview. The preview sho
  
 
 
-### Public Preview - New Azure AD Portal All Devices list
+### Public Preview - New Azure portal All Devices list
 
 **Type:** Changed feature  
 **Service category:** Device Registration and Management  
@@ -412,7 +412,7 @@ An improved app discovery view for My Apps is in public preview. The preview sho
 
  
 
-We're enhancing the All Devices list in the Azure AD Portal to make it easier to filter and manage your devices. Improvements include:
+We're enhancing the All Devices list in the Azure portal to make it easier to filter and manage your devices. Improvements include:
 
 All Devices List:
 
@@ -439,7 +439,7 @@ For more information, see: [Manage devices in Azure AD using the Azure portal](.
 
 Previously the only way to have persistent NameID value was to ​configure user attribute with an empty value. Admins can now explicitly configure the NameID value to be persistent ​along with the corresponding format.
 
-For more information, see: [Customize app SAML token claims - Microsoft identity platform | Microsoft Docs](../develop/active-directory-saml-claims-customization.md#attributes).
+For more information, see: [Customize app SAML token claims - Microsoft identity platform](../develop/active-directory-saml-claims-customization.md#attributes).
  
 
 ---
@@ -455,7 +455,7 @@ For more information, see: [Customize app SAML token claims - Microsoft identity
 
 With this new parity update, customers can now integrate non-gallery applications such as Socure DevHub with Azure AD to have SSO via SAML.
 
-For more information, see [Claims mapping policy - Microsoft Entra | Microsoft Docs](../develop/reference-claims-mapping-policy-type.md#claim-schema-entry-elements).
+For more information, see [Claims mapping policy - Microsoft Entra](../develop/reference-claims-mapping-policy-type.md#claim-schema-entry-elements).
  
 
 ---
@@ -562,14 +562,14 @@ We highly recommend enabling this new protection when using Azure AD Multi-Facto
  
 
 
-### Public Preview - New Azure AD Portal All Users list and User Profile UI
+### Public Preview - New Azure portal All Users list and User Profile UI
 
 **Type:** Changed feature  
 **Service category:** User Management  
 **Product capability:** User Management  
  
 
-We're enhancing the All Users list and User Profile in the Azure AD Portal to make it easier to find and manage your users. Improvements include: 
+We're enhancing the All Users list and User Profile in the Azure portal to make it easier to find and manage your users. Improvements include: 
 
 
 All Users List:
@@ -623,7 +623,7 @@ For more information on how to use this feature, see: [Dynamic membership rule f
 **Product capability:** Platform  
 
  
-Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues soon. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information will be available when this capability is released. The expected release is for June 2022.
+Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues soon. These outages will also appear on the Azure portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information will be available when this capability is released. The expected release is for June 2022.
  
 ---
 
@@ -691,7 +691,7 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Identity Security & Protection  
  
 
-The sign-ins Microsoft Graph API now supports confirming safe and compromised on risky sign-ins. This public preview functionality is available at the beta endpoint. For more information, please check out the Microsoft Graph documentation: [signIn: confirmSafe - Microsoft Graph beta | Microsoft Docs](/graph/api/signin-confirmsafe?view=graph-rest-beta&preserve-view=true)
+The sign-ins Microsoft Graph API now supports confirming safe and compromised on risky sign-ins. This public preview functionality is available at the beta endpoint. For more information, please check out the Microsoft Graph documentation: [signIn: confirmSafe - Microsoft Graph beta](/graph/api/signin-confirmsafe?view=graph-rest-beta&preserve-view=true)
  
 
 ---
@@ -710,7 +710,7 @@ Microsoft cloud settings let you collaborate with organizations from different M
 -Microsoft Azure global cloud and Microsoft Azure Government
 -Microsoft Azure global cloud and Microsoft Azure China 21Vianet
 
-To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD | Microsoft Docs](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
  
 
 ---
@@ -724,7 +724,7 @@ To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-
 
  
 
-When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Azure AD | Microsoft Docs](../external-identities/direct-federation.md).
+When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Azure AD](../external-identities/direct-federation.md).
  
 
 ---
@@ -793,7 +793,7 @@ In Azure AD entitlement management, an administrator can now configure the incom
 **Product capability:** Identity Security & Protection  
  
 
-Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md).
  
 
 ---
@@ -866,7 +866,7 @@ We're announcing the public preview of following MS Graph APIs and PowerShell cm
 
 If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0&preserve-view=true) and [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0&preserve-view=true)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
 
-For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true).
+For more information, see [internalDomainFederation resource type - Microsoft Graph beta](/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -1046,10 +1046,10 @@ For listing your application in the Azure AD app gallery, please read the detail
  
 
 1. **transitiveRoleAssignments** - Last year the ability to assign Azure AD roles to groups was created. Originally it took four calls to fetch all direct, and transitive, role assignments of a user. This new API call allows it all to be done via one API call. For more information, see:
-[List transitiveRoleAssignment - Microsoft Graph beta | Microsoft Docs](/graph/api/rbacapplication-list-transitiveroleassignments).
+[List transitiveRoleAssignment - Microsoft Graph beta](/graph/api/rbacapplication-list-transitiveroleassignments).
 
 2. **unifiedRbacResourceAction** - Developers can use this API to list all role permissions and their descriptions in Azure AD. This API can be thought of as a dictionary that can help build custom roles without relying on UX. For more information, see:
-[List resourceActions - Microsoft Graph beta | Microsoft Docs](/graph/api/unifiedrbacresourcenamespace-list-resourceactions).
+[List resourceActions - Microsoft Graph beta](/graph/api/unifiedrbacresourcenamespace-list-resourceactions).
 
  
 
@@ -1233,7 +1233,7 @@ With Continuous access evaluation (CAE), critical security events and policies a
 **Service category:** User Management  
 **Product capability:** User Management  
  
-The Azure AD portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include:
+The Azure portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include:
 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer.
 - **Search now** allows substring search and combined search of names, emails, and object IDs.
@@ -3294,7 +3294,7 @@ For more information, read [Automate user provisioning to SaaS applications with
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
+10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
 ![Table showing role names in MS Graph API and the Azure portal, and the proposed final name across API, Azure portal, and Mac.](media/whats-new/roles-table-rbac.png)
 
@@ -3378,7 +3378,7 @@ To learn more, refer to [Customize and configure shared devices for frontline wo
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
 
-Customers can download the provisioning logs as a CSV or JSON file through the UI and via graph API. To learn more, refer to [Provisioning reports in the Azure Active Directory portal](../reports-monitoring/concept-provisioning-logs.md).
+Customers can download the provisioning logs as a CSV or JSON file through the UI and via graph API. To learn more, refer to [Provisioning reports in the Azure portal](../reports-monitoring/concept-provisioning-logs.md).
 
 ---
 
@@ -4079,7 +4079,7 @@ You can now allow application owners to monitor activity by the provisioning ser
 **Service category:** Azure roles  
 **Product capability:** Access Control
  
-Some Azure Active Directory (AD) built-in roles have names that differ from those that appear in Microsoft 365 admin center, the Azure AD portal, and Microsoft Graph. This inconsistency can cause problems in automated processes. With this update, we're renaming 10 role names to make them consistent. The following table has the new role names:
+Some Azure Active Directory (AD) built-in roles have names that differ from those that appear in Microsoft 365 admin center, the Azure portal, and Microsoft Graph. This inconsistency can cause problems in automated processes. With this update, we're renaming 10 role names to make them consistent. The following table has the new role names:
 
 ![Table showing role names in MS Graph API and the Azure portal, and the proposed new role name in M365 Admin Center, Azure portal, and API.](media/whats-new/azure-role.png)
 
@@ -4154,7 +4154,7 @@ Azure AD Connect Cloud Provisioning public preview refresh features two major en
  
 When IT admins or end users read BitLocker recovery key(s) they have access to, Azure Active Directory now generates an audit log that captures who accessed the recovery key. The same audit provides details of the device the BitLocker key was associated with.
 
-End users can [access their recovery keys via My Account](https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e#view-a-bitlocker-key). IT admins can access recovery keys via the [BitLocker recovery key API](/graph/api/resources/bitlockerrecoverykey) or via the Azure AD Portal. To learn more, see [View or copy BitLocker keys in the Azure AD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+End users can [access their recovery keys via My Account](https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e#view-a-bitlocker-key). IT admins can access recovery keys via the [BitLocker recovery key API](/graph/api/resources/bitlockerrecoverykey) or via the Azure portal. To learn more, see [View or copy BitLocker keys in the Azure portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
 
@@ -4209,7 +4209,7 @@ Administrators can now require that users requesting an access package answer ad
 **Product capability:** User Management
  
 
-The Azure AD portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include: 
+The Azure portal has been updated to make it easier to find users in the All users and Deleted users pages. Changes in the preview include: 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer.
 - Search now allows combined search of names, emails, and object IDs.
 - Enhanced filtering by user type (member, guest, and none), directory sync status, creation type, company name, and domain name.
@@ -4615,7 +4615,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** Azure AD roles  
 **Product capability:** Access Control
  
-You can now view role assignments across all scopes for a role in the "Roles and administrators" tab in the Azure AD portal. You can also download those role assignments for each role into a CSV file. For guidance on viewing and adding role assignments, see [View and assign administrator roles in Azure Active Directory](../roles/manage-roles-portal.md).
+You can now view role assignments across all scopes for a role in the "Roles and administrators" tab in the Azure portal. You can also download those role assignments for each role into a CSV file. For guidance on viewing and adding role assignments, see [View and assign administrator roles in Azure Active Directory](../roles/manage-roles-portal.md).
  
 ---
 
@@ -5319,7 +5319,7 @@ Users with this role can review network perimeter architecture recommendations f
 
 ---
 
-### Bulk activity and downloads in the Azure AD admin portal experience
+### Bulk activity and downloads in the Azure portal experience
 
 **Type:** New feature
 
@@ -5327,9 +5327,9 @@ Users with this role can review network perimeter architecture recommendations f
 
 **Product capability:** Directory
 
-Now you can perform bulk activities on users and groups in Azure AD by uploading a CSV file in the Azure AD admin portal experience. You can create users, delete users, and invite guest users. And you can add and remove members from a group.
+Now you can perform bulk activities on users and groups in Azure AD by uploading a CSV file in the Azure portal experience. You can create users, delete users, and invite guest users. And you can add and remove members from a group.
 
-You can also download lists of Azure AD resources from the Azure AD admin portal experience. You can download the list of users in the directory, the list of groups in the directory, and the members of a particular group.
+You can also download lists of Azure AD resources from the Azure portal experience. You can download the list of users in the directory, the list of groups in the directory, and the members of a particular group.
 
 For more information, check out the following:
 
@@ -6110,7 +6110,7 @@ To learn more about the new App registrations experience, see the [App registrat
 
 We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user MultiFactor Authentication (MFA) and then enabled for multifactor authentication (MFA) through a Conditional Access policy.
 
-To require users to re-register, you can select the **Required re-register multifactor authentication (MFA)** option from the user's authentication methods in the Azure AD portal. 
+To require users to re-register, you can select the **Required re-register multifactor authentication (MFA)** option from the user's authentication methods in the Azure portal. 
 
 ---
 
@@ -6214,7 +6214,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Consolidated Security menu item in the Azure AD portal
+### Consolidated Security menu item in the Azure portal
 
 **Type:** Changed feature
 **Service category:** Identity Protection
@@ -6289,13 +6289,13 @@ For more information about the My Profile (preview) experience, see [My Profile 
 
 ---
 
-### Bulk manage groups and members using CSV files in the Azure AD portal (Public Preview)
+### Bulk manage groups and members using CSV files in the Azure portal (Public Preview)
 
 **Type:** New feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-We're pleased to announce public preview availability of the bulk group management experiences in the Azure AD portal. You can now use a CSV file and the Azure AD portal to manage groups and member lists, including:
+We're pleased to announce public preview availability of the bulk group management experiences in the Azure portal. You can now use a CSV file and the Azure portal to manage groups and member lists, including:
 
 - Adding or removing members from a group.
 
@@ -6343,7 +6343,7 @@ Starting on September 24, 2019, we're going to start rolling out a new Azure Act
 
 The Global Reader role is the read-only counterpart to Global Administrator. Users in this role can read settings and administrative information across Microsoft 365 services, but can't take management actions. We've created the Global Reader role to help reduce the number of Global Administrators in your organization. Because Global Administrator accounts are powerful and vulnerable to attack, we recommend that you have fewer than five Global Administrators. We recommend using the Global Reader role for planning, audits, or investigations. We also recommend using the Global Reader role in combination with other limited administrator roles, like Exchange Administrator, to help get work done without requiring the Global Administrator role.
 
-The Global Reader role works with the new Microsoft 365 Admin Center, Exchange Admin Center, Teams Admin Center, Security Center, Compliance Center, Azure AD Admin Center, and the Device Management Admin Center.
+The Global Reader role works with the new Microsoft 365 Admin Center, Exchange Admin Center, Teams Admin Center, Security Center, Compliance Center, Azure portal, and the Device Management Admin Center.
 
 >[!NOTE]
 > At the start of public preview, the Global Reader role won't work with: SharePoint, Privileged Access Management, Customer Lockbox, sensitivity labels, Teams Lifecycle, Teams Reporting & Call Analytics, Teams IP Phone Device Management, and Teams App Catalog.
@@ -6417,13 +6417,13 @@ Starting July 1, 2019, Microsoft stopped offering multifactor authentication (MF
 
 ## August 2019
 
-### Enhanced search, filtering, and sorting for groups is available in the Azure AD portal (Public Preview)
+### Enhanced search, filtering, and sorting for groups is available in the Azure portal (Public Preview)
 
 **Type:** New feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-We're pleased to announce public preview availability of the enhanced groups-related experiences in the Azure AD portal. These enhancements help you better manage groups and member lists, by providing:
+We're pleased to announce public preview availability of the enhanced groups-related experiences in the Azure portal. These enhancements help you better manage groups and member lists, by providing:
 
 - Advanced search capabilities, such as substring search on groups lists.
 - Advanced filtering and sorting options on member and owner lists.
@@ -6458,7 +6458,7 @@ New provisioning logs are available to help you monitor and troubleshoot the use
 - What roles were imported from [AWS Single-Account Access](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-aws-single-account-access)
 - What employees weren't imported from [Workday](../saas-apps/workday-inbound-tutorial.md)
 
-For more information, see [Provisioning reports in the Azure Active Directory portal (preview)](../reports-monitoring/concept-provisioning-logs.md).
+For more information, see [Provisioning reports in the Azure portal (preview)](../reports-monitoring/concept-provisioning-logs.md).
 
 ---
 
@@ -6835,15 +6835,15 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### New check for duplicate group names in the Azure AD portal
+### New check for duplicate group names in the Azure portal
 
 **Type:** New feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-Now, when you create or update a group name from the Azure AD portal, we'll perform a check to see if you are duplicating an existing group name in your resource. If we determine that the name is already in use by another group, you'll be asked to modify your name.
+Now, when you create or update a group name from the Azure portal, we'll perform a check to see if you are duplicating an existing group name in your resource. If we determine that the name is already in use by another group, you'll be asked to modify your name.
 
-For more information, see [Manage groups in the Azure AD portal](./active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
+For more information, see [Manage groups in the Azure portal](./active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
 
 ---
 
@@ -6997,7 +6997,7 @@ You can now use the usage and insights report, located in the **Enterprise appli
 
 - Top sign-in errors for each app
 
-For more information about this feature, see [Usage and insights report in the Azure Active Directory portal](../reports-monitoring/concept-usage-insights-report.md)
+For more information about this feature, see [Usage and insights report in the Azure portal](../reports-monitoring/concept-usage-insights-report.md)
 
 ---
 
@@ -7083,13 +7083,13 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Improved groups creation and management experiences in the Azure AD portal
+### Improved groups creation and management experiences in the Azure portal
 
 **Type:** New feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-We've made improvements to the groups-related experiences in the Azure AD portal. These improvements allow administrators to better manage groups lists, members lists, and to provide additional creation options.
+We've made improvements to the groups-related experiences in the Azure portal. These improvements allow administrators to better manage groups lists, members lists, and to provide additional creation options.
 
 Improvements include:
 
@@ -7105,13 +7105,13 @@ For more information, see [Create a basic group and add members using Azure Acti
 
 ---
 
-### Configure a naming policy for Office 365 groups in Azure AD portal (General availability)
+### Configure a naming policy for Office 365 groups in Azure portal (General availability)
 
 **Type:** Changed feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-Administrators can now configure a naming policy for Office 365 groups, using the Azure AD portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
+Administrators can now configure a naming policy for Office 365 groups, using the Azure portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
 
 You can configure naming policy for Office 365 groups in two different ways:
 
@@ -7179,13 +7179,13 @@ Azure AD entitlement management, now in public preview, helps customers to deleg
 
 ---
 
-### Configure a naming policy for Office 365 groups in Azure AD portal (Public preview)
+### Configure a naming policy for Office 365 groups in Azure portal (Public preview)
 
 **Type:** New feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-Administrators can now configure a naming policy for Office 365 groups, using the Azure AD portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
+Administrators can now configure a naming policy for Office 365 groups, using the Azure portal. This change helps to enforce consistent naming conventions for Office 365 groups created or edited by users in your organization.
 
 You can configure naming policy for Office 365 groups in two different ways:
 
@@ -7352,13 +7352,13 @@ For more information about how to better secure your organization through automa
 
 ---
 
-### Restore and manage your deleted Office 365 groups in the Azure AD portal
+### Restore and manage your deleted Office 365 groups in the Azure portal
 
 **Type:** New feature
 **Service category:** Group Management
 **Product capability:** Collaboration
 
-You can now view and manage your deleted Office 365 groups from the Azure AD portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren't needed by your organization.
+You can now view and manage your deleted Office 365 groups from the Azure portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren't needed by your organization.
 
 For more information, see [Restore expired or deleted groups](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
 
@@ -7396,7 +7396,7 @@ We've created a new Azure AD **Audit logs** page to help improve both readabilit
 
 ![New Audit logs page, with sample info](media/whats-new/audit-logs-page.png)
 
-For more information about the new **Audit logs** page, see [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md).
+For more information about the new **Audit logs** page, see [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md).
 
 ---
 
@@ -7911,7 +7911,7 @@ For more information, see [Notification settings in Azure AD Domain Services](..
 
 ---
 
-### Azure AD portal supports using the ForceDelete domain API to delete custom domains
+### Azure portal supports using the ForceDelete domain API to delete custom domains
 
 **Type:** Changed feature
 **Service category:** Directory Management
@@ -8182,15 +8182,15 @@ For more information about PIM and Azure resources, see [Discover and manage Azu
 
 ---
 
-### Application access (preview) provides faster access to the Azure AD portal
+### Application access (preview) provides faster access to the Azure portal
 
 **Type:** New feature
 **Service category:** Privileged Identity Management
 **Product capability:** Privileged Identity Management
 
-Today, when activating a role using PIM, it can take over 10 minutes for the permissions to take effect. If you choose to use Application access, which is currently in public preview, administrators can access the Azure AD portal as soon as the activation request completes.
+Today, when activating a role using PIM, it can take over 10 minutes for the permissions to take effect. If you choose to use Application access, which is currently in public preview, administrators can access the Azure portal as soon as the activation request completes.
 
-Currently, Application access only supports the Azure AD portal experience and Azure resources. For more information about PIM and Application access, see [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+Currently, Application access only supports the Azure portal experience and Azure resources. For more information about PIM and Application access, see [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
 ---
 
@@ -8290,7 +8290,7 @@ This update lets you see which policies are evaluated when a user signs in along
 **Service category:** Reporting
 **Product capability:** Monitoring & Reporting
 
-With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins Microsoft Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
+With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins Microsoft Graph API or through the Sign-in activity logs in Azure portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
 
 ---
 
@@ -8522,7 +8522,7 @@ Specifically, Azure AD Password Protection helps you:
 
 - Protect your organization's accounts in both Azure AD and Windows Server Active Directory (AD).
 - Stops your users from using passwords on a list of more than 500 of the most commonly used passwords, and over 1 million character substitution variations of those passwords.
-- Administer Azure AD Password Protection from a single location in the Azure AD portal, for both Azure AD and on-premises Windows Server AD.
+- Administer Azure AD Password Protection from a single location in the Azure portal, for both Azure AD and on-premises Windows Server AD.
 
 For more information about Azure AD Password Protection, see [Eliminate bad passwords in your organization](../authentication/concept-password-ban-bad.md).
 
@@ -8954,7 +8954,7 @@ Some users did not receive notifications for enterprise applications configured 
 For more information, see:
 
 - [Manage Certificates for federated single sign-on in Azure Active Directory](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
-- [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md)
+- [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md)
 
 ---
 
@@ -9111,7 +9111,7 @@ For more information, see: [Customizing the list of Workday user attributes](../
 **Product capability:** Collaboration
 
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
-We've updated the Azure AD Admin center to support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
+We've updated the Azure portal to support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
 
 For more information, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
