@@ -79,12 +79,14 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 In a bash shell, run the following command. You will need to replace `gpt-35-turbo` with the deployment name you chose when you deployed the ChatGPT or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```bash
-curl https://$OPENAI_API_BASE/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview \
+curl $OPENAI_API_BASE/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview \
   -H "Content-Type: application/json" \
   -H "api-key: $OPENAI_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure Cognitive Services support this too?"}]}'
 
 ```
+
+The format of your first line of the command with an example endpoint would appear as follows `curl https://docs-test-001.openai.azure.com/openai/deployments/{YOUR-DEPLOYMENT_NAME_HERE}/chat/completions?api-version=2023-03-15-preview \` If you encounter an error double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
 
 If you want to run this command in a normal Windows command prompt you would need to alter the text to remove the `\` and line breaks.
 

@@ -199,6 +199,21 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ```
 
+#### Example response
+
+```console
+{"id":"chatcmpl-6v7mkQj980V1yBec6ETrKPRqFjNw9",
+"object":"chat.completion","created":1679072642,
+"model":"gpt-35-turbo",
+"usage":{"prompt_tokens":58,
+"completion_tokens":68,
+"total_tokens":126},
+"choices":[{"message":{"role":"assistant",
+"content":"Yes, other Azure Cognitive Services also support customer managed keys. Azure Cognitive Services offer multiple options for customers to manage keys, such as using Azure Key Vault, customer-managed keys in Azure Key Vault or customer-managed keys through Azure Storage service. This helps customers ensure that their data is secure and access to their services is controlled."},"finish_reason":"stop","index":0}]}
+```
+
+Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
+
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | ```messages``` | array | Required |  | The messages to generate chat completions for, in the chat format. |
