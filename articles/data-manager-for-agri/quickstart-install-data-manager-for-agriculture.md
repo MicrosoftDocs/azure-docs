@@ -18,7 +18,7 @@ Use this document to get started with the steps to install Data Manager for Agri
 
 ## 1: Register resource provider
 
-Follow steps 1-5 in Resource Provider [documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+Follow steps 1-5 in Resource Provider [documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 In step 5 in the above documentation, search for `Microsoft.AgFoodPlatform` and register the same.
 
@@ -48,7 +48,7 @@ After providing the details and accepting terms and conditions, click on "review
 
 You can access Data Manager for Agriculture resource through an app registered in Azure Active Directory. Use the Azure portal for App registration, this enables Microsoft identity platform to provide authentication and authorization services for your app accessing Data Manager for Agriculture.
 
-Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until step 8** to generate the following information:
+Follow the steps provided in <a href="/azure/active-directory/develop/quickstart-register-app#register-an-application" target="_blank">App Registration</a> **until step 8** to generate the following information:
 
 * **Application (client) ID**
 * **Directory (tenant) ID**
@@ -58,7 +58,7 @@ Write down these three values,  you would need them in the next step.
 
 The Application (client) ID created is like the User ID of the application, and now you need to create its corresponding Application password (client secret) for the application to identify itself.
 
-Follow the steps provided in <a href="https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
+Follow the steps provided in <a href="/azure/active-directory/develop/quickstart-register-app#add-a-client-secret" target="_blank">Add a client secret</a> to generate **Client Secret** and copy the client secret generated.
 
 ## 5: Role assignment
 

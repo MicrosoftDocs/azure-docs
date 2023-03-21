@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/02/2023
+ms.date: 03/15/2023
 ms.author: justinha
 
 ---
@@ -313,6 +313,19 @@ When the managed domain is enabled again, the managed domain's health automatica
 > If a managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
 
 [Check the Azure AD DS health](check-health.md) for alerts that indicate problems in the configuration of the managed domain. If you're able to resolve alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed. When ready, [open an Azure support request][azure-support] to re-enable the managed domain.
+
+## AADDS600: Unresolved health alerts for 30 days
+
+### Alert Message
+
+*Microsoft can’t manage the domain controllers for this managed domain due to unresolved health alerts \[IDs\]. This is blocking critical security updates as well as a planned migration to Windows Server 2019 for these domain controllers. Follow steps in the alert to resolve the issue. Failure to resolve this issue within 30 days will result in suspension of the managed domain.*
+
+### Resolution
+
+> [!WARNING]
+> If a managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
+
+[Check the Azure AD DS health](check-health.md) for alerts that indicate problems in the configuration of the managed domain. If you're able to resolve alerts that indicate a configuration issue, wait six hours and check back to see if the alert is removed. [Open an Azure support request][azure-support] if you need assistance.
 
 ## Next steps
 

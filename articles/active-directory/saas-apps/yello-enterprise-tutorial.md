@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Yello Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Yello Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and Yello Enterprise.
 services: active-directory
 author: jeevansd

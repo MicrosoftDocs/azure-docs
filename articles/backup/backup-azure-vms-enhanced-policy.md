@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 03/15/2023
 ms.reviewer: geg
 ms.service: backup
 author: jyothisuri
@@ -16,7 +16,7 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 
 >[!Important]
 >- [Default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) will not support protecting newer Azure offerings, such as [Trusted Launch VM](backup-support-matrix-iaas.md#tvm-backup), [Ultra SSD](backup-support-matrix-iaas.md#vm-storage-support), [Shared disk](backup-support-matrix-iaas.md#vm-storage-support), and Confidential Azure VMs.
->- Enhanced policy currently doesn't support protecting Ultra SSD.
+>- Enhanced policy currently doesn't support protecting Ultra SSD. You can use [selective disk backup (preview)](selective-disk-backup-restore.md) to exclude these disks, and then configure backup.
 >- Backups for VMs having [data access authentication enabled disks](../virtual-machines/windows/download-vhd.md?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
@@ -74,6 +74,10 @@ Follow these steps:
 >- For hourly backups, the last backup of the day is transferred to vault. If backup fails, the first backup of the next day is transferred to vault.
 >- Enhanced policy is only available to unprotected VMs that are new to Azure Backup. Note that Azure VMs that are protected with existing policy can't be moved to Enhanced policy.
 >- Back up an Azure VM with disks that has public network access disabled is not supported.
+
+## Enable selective disk backup and restore (preview)
+
+You can exclude non-critical disks from backup by using selective disk backup to save costs. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier. [Learn more](selective-disk-backup-restore.md).
 
 ## Next steps
 

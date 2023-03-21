@@ -1,6 +1,6 @@
 ---
-title: "Zero Networks Segment Audit (Function) (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Zero Networks Segment Audit (Function) (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Zero Networks Segment Audit (Function) (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Zero Networks Segment Audit (Function) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Zero Networks Segment Audit (Function) (using Azure Function) connector for Microsoft Sentinel
+# Zero Networks Segment Audit (Function) (using Azure Functions) connector for Microsoft Sentinel
 
 The [Zero Networks Segment](https://zeronetworks.com/product/) Audit data connector provides the capability to ingest Audit events into Microsoft Sentinel through the REST API. Refer to API guide for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [Zero Networks Segment](https://zeronetworks.com/product/) Audit data connec
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | APIToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional)<br/>uri<br/>tableName |
-| **Azure function app code** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/ZeroNetworks/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip |
+| **Azure functions app code** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/ZeroNetworks/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip |
 | **Log Analytics table(s)** | ZNSegmentAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Zero Networks](https://zeronetworks.com) |
@@ -35,7 +35,7 @@ ZNSegmentAudit_CL
 
 ## Prerequisites
 
-To integrate with Zero Networks Segment Audit (Function) (using Azure Function) make sure you have: 
+To integrate with Zero Networks Segment Audit (Function) (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials**: **Zero Networks Segment** **API Token** is required for REST API. See the API Guide.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Bizagi for Digital Process Automation | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Bizagi for Digital Process Automation'
 description: Learn how to configure single sign-on between Azure Active Directory and Bizagi for Digital Process Automation.
 services: active-directory
 author: jeevansd

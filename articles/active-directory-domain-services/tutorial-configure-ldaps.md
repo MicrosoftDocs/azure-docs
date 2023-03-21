@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/14/2023
+ms.date: 03/15/2023
 ms.author: justinha
 ms.reviewer: xyuan
 
@@ -237,13 +237,11 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
     | Setting                           | Value        |
     |-----------------------------------|--------------|
-    | Source                            | Service tag  |
-    | Source service tag                | AzureActiveDirectoryDomainServices  |
-    | Source IP addresses/CIDR ranges   | A valid IP address or range for your environment |
+    | Source                            | IP Addresses |
+    | Source IP addresses / CIDR ranges | A valid IP address or range for your environment |
     | Source port ranges                | *            |
     | Destination                       | Any          |
     | Destination port ranges           | 636          |
-    | Service                           | WinRM        |
     | Protocol                          | TCP          |
     | Action                            | Allow        |
     | Priority                          | 401          |
