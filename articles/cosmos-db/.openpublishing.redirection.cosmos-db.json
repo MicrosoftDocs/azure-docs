@@ -601,6 +601,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/update-backup-storage-redundancy.md",
+      "redirect_url": "/azure/cosmos-db/periodic-backup-update-storage-redundancy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
       "redirect_document_id": true
