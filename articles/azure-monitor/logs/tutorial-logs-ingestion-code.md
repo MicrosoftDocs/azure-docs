@@ -2,7 +2,7 @@
 title: 'Sample code to send data to Azure Monitor using Logs ingestion API'
 description: Sample code using REST API and client libraries for Logs ingestion API in Azure Monitor.
 ms.topic: tutorial
-ms.date: 02/01/2023
+ms.date: 03/21/2023
 ---
 
 # Sample code to send data to Azure Monitor using Logs ingestion API
@@ -29,14 +29,14 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     Add-Type -AssemblyName System.Web
     ```
 
-1. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
+1. Replace the parameters in the **Step 0** section with values from your application, DCE, and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
 
     ```powershell
     ### Step 0: Set variables required for the rest of the script.
     
     # information needed to authenticate to AAD and obtain a bearer token
     $tenantId = "00000000-0000-0000-00000000000000000" #Tenant ID the data collection endpoint resides in
-    $appId = " 100000000-0000-0000-00000000000000000" #Application ID created and granted permissions
+    $appId = " 000000000-0000-0000-00000000000000000" #Application ID created and granted permissions
     $appSecret = "0000000000000000000000000000000000000000" #Secret created for the application
     
     # information needed to send data to the DCR endpoint
@@ -98,7 +98,8 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     > [!NOTE]
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and execute it. Executing it uncommented as part of the script won't resolve the issue. The command must be executed separately.
 
-1. After you execute this script, you should see an `HTTP - 204` response. In a few minutes, the data arrives to your Log Analytics workspace.
+3. After you execute the script, you should see an `HTTP - 204` response, and the data should arrive in your Log Analytics workspace within a few minutes.
+
 
 ## [Python](#tab/python)
 
@@ -116,7 +117,7 @@ The following script uses the [Azure Monitor Ingestion client library for Python
     ```
 
 
-2. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
+2. Replace the parameters in the **Step 0** section with values from your application, DCE, and DCR.. You might also want to replace the sample data in the **Step 2** section with your own.
 
 
     ```python
@@ -174,16 +175,16 @@ The following script uses the [Azure Monitor Ingestion client library for Python
                 }
             }
         ]
+
+    ### Step 3: Send the data to the Log Analytics workspace via the DCE.
     
+    try:
+        client.upload(rule_id=dcr_immutableid, stream_name=stream_name, logs=body)
+    except HttpResponseError as e:
+        print(f"Upload failed: {e}")
+    ```
 
-### Step 3: Send the data to the Log Analytics workspace via the DCE.
-
-try:
-    client.upload(rule_id=dcr_immutableid, stream_name=stream_name, logs=body)
-except HttpResponseError as e:
-    print(f"Upload failed: {e}")
-
-
+3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
 
 ## [JavaScript](#tab/javascript)
 
@@ -195,7 +196,7 @@ except HttpResponseError as e:
     npm install --save @azure/identity
     ```
 
-3. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
+3. Replace the parameter values with the values for your application, DCE, and DCR.. You might also want to replace the sample data with your own.
 
     ```javascript
     const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
@@ -244,33 +245,33 @@ except HttpResponseError as e:
     });
     ```
 
-1. Use NuGet to install the Azure Monitor Ingestion client library and the Azure Identify library which is required for the authentication used in this sample..
+3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
+
+## [Java](#tab/java)
+
+
+
+## [.NET](#tab/net)
+
+The following script uses the [Azure Monitor Ingestion client library for .NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme).
+
+1. Install the Azure Monitor Ingestion client library and the Azure Identify library which is required for the authentication used in this sample.
  
     ```bash
     dotnet add package Azure.Identity
     dotnet add package Azure.Monitor.Ingestion
     ```
 
-## [Java](#tab/java)
 
+2. Replace the variables with values from your DCE, and DCR. You may also want to replace the sample data with your own.
 
+    
 
-## [.NET](#tab/net)The following script uses the [Azure Monitor Ingestion client library for .NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme).
-
-1. Use NuGet to install the Azure Monitor Ingestion client library for .NET.
-
-    ```dotnetcli
-    dotnet add package Azure.Monitor.Ingestion
-    ```
-
-
-2. Replace the parameters in the **Step 0** section with values from the resources that you created. You might also want to replace the sample data in the **Step 2** section with your own.
-
-    ```dotnetcli
-    // Initialize variables
+```csharp
+// Initialize variables
     var endpoint = new Uri("<data_collection_endpoint_uri>");
     var ruleId = "<data_collection_rule_id>";
-    var streamName = "<stream_name>";
+    var streamName = "Custom-MyTableRawData";
     
     // Create credential and client
     var credential = new DefaultAzureCredential();
@@ -311,7 +312,10 @@ except HttpResponseError as e:
     
     // Upload logs
     Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
-    ```
+```
+
+3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
+
 
 
 ---
