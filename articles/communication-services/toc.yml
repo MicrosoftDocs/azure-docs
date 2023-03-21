@@ -271,7 +271,7 @@ items:
       - name: Visualize logs
         href: concepts/analytics/insights.md
       - name: Query call logs
-        href: concepts/analytics/log-analytics.md
+        href: concepts/analytics/query-call-logs.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Chat
@@ -347,7 +347,7 @@ items:
       - name: Enable logging with Azure Monitor
         href: concepts/analytics/enable-logging.md
       - name: Query call logs
-        href: concepts/analytics/log-analytics.md
+        href: concepts/analytics/query-call-logs.md
       - name: Visualize logs
         href: concepts/analytics/insights.md
       - name: Export SDK telemetry to Application Insights
@@ -531,7 +531,7 @@ items:
     - name: Analytics
       items:
       - name: Call logs overview
-        href: concepts/analytics/call-logs-azure-monitor.md
+        href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: Known issues
@@ -585,7 +585,7 @@ items:
       - name: Analytics
         items:
         - name: Call logs overview
-          href: concepts/analytics/call-logs-azure-monitor.md
+          href: concepts/analytics/logs/voice-and-video-logs.md
         - name: Metrics overview
           href: concepts/metrics.md
     - name: Call Automation
