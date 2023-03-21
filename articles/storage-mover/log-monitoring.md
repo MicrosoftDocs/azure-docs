@@ -126,9 +126,9 @@ The following table lists some example scenarios to monitor and the proper metri
 
 | Scenario | Metric to use for alert |
 |-|-|
-| Blob Storage service is throttled. | Metric: Transactions<br>Dimension name: Response type |
-| Blob Storage requests are successful 99% of the time. | Metric: Availability<br>Dimension names: Geo type, API name, Authentication |
-| Blob Storage egress has exceeded 500 GiB in one day. | Metric: Egress<br>Dimension names: Geo type, API name, Authentication |
+| Storage Mover service is throttled. | Metric: Transactions<br>Dimension name: Response type |
+| Storage Mover requests are successful 99% of the time. | Metric: Availability<br>Dimension names: Geo type, API name, Authentication |
+| Storage Mover egress has exceeded 500 GiB in one day. | Metric: Egress<br>Dimension names: Geo type, API name, Authentication |
 
 ## Next steps
 
