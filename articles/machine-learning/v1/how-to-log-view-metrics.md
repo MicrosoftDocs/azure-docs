@@ -8,7 +8,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022
 ms.date: 10/26/2022
 ms.topic: how-to
 ---
@@ -34,7 +34,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 
 > [!TIP]
-> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
+> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
 
 ## Data types
 
@@ -143,7 +143,7 @@ You can also edit the run list table to select multiple runs and display either 
 
 ### View and download log files for a run 
 
-Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
+Log files are an essential resource for debugging the Azure Machine Learning workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
 1. Navigate to the **Experiments** tab.
 1. Select the runID for a specific run.

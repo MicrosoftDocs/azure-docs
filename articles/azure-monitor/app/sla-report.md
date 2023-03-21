@@ -70,4 +70,4 @@ The report can be shared with your teams and leadership or pinned to a dashboard
 
 - Learn some [Log Analytics query optimization tips](../logs/query-optimization.md).
 - Learn how to [create a chart in workbooks](../visualize/workbooks-chart-visualizations.md).
-- Learn how to monitor your website with [availability tests](monitor-web-app-availability.md).
+- Learn how to monitor your website with [availability tests](availability-overview.md).

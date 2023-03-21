@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) with Microsoft Azure Maps'
 description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Azure Notebooks(Python).
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -99,7 +99,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-The script below renders the turbine locations on the map by calling the Azure Maps [Get Map Image service](/rest/api/maps/render/getmapimage).
+The script below renders the turbine locations on the map by calling the [Get Map Image service](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service

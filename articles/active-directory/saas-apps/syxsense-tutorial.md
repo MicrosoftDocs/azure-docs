@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Syxsense | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Syxsense'
 description: Learn how to configure single sign-on between Azure Active Directory and Syxsense.
 services: active-directory
 author: jeevansd

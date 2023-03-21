@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2023
+ms.date: 02/27/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -114,7 +114,7 @@ EA admins and department administrators use departments to organize and report o
 
 A department administrator can add new accounts to their departments. They can also remove accounts from their departments, but not from the enrollment.
 
-Check out the [Manage departments in the Azure portal](https://www.youtube.com/watch?v=NUlRrJFF1_U) video.
+Check out the [Manage departments in the Azure portal](https://www.youtube.com/watch?v=vs3wIeRDK4Q) video.
 
 >[!VIDEO https://www.youtube.com/embed/vs3wIeRDK4Q]
 

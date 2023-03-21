@@ -2,16 +2,15 @@
 title: "PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate an on-premises MySQL database to Azure Database for MySQL by using Azure Database Migration Service through PowerShell script.
-services: dms
-author: "sumitgaurin"
-ms.author: "sgaur"
-manager: "arthiaga"
-ms.reviewer: "arthiaga"
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019, devx-track-azurepowershell"
-ms.topic: tutorial
+author: croblesm
+ms.author: roblescarlos
+ms.reviewer: arthiaga
 ms.date: 04/11/2021
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - devx-track-azurepowershell
 ---
 
 # Migrate MySQL to Azure Database for MySQL offline with PowerShell & Azure Database Migration Service

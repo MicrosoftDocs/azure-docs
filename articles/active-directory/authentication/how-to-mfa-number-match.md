@@ -1,10 +1,10 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 02/16/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -87,12 +87,12 @@ Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, orga
 >[!NOTE] 
 >NPS extensions versions earlier than 1.0.1.40 don't support OTP enforced by number matching. These versions will continue to present users with **Approve**/**Deny**.
 
-To create the registry key to override the **Approve**/**Deny** options in push notifications and require an OTP instead:
+To create the registry entry to override the **Approve**/**Deny** options in push notifications and require an OTP instead:
 
 1. On the NPS Server, open the Registry Editor.
 1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
-1. Set the following Key Value Pair:
-   Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP
+1. Create the following String/Value pair:
+   Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
    Value = TRUE
 1. Restart the NPS Service. 
 
@@ -105,6 +105,7 @@ In addition:
   >[!IMPORTANT] 
   >MSCHAPv2 doesn't support OTP. If the NPS Server isn't configured to use PAP, user authorization will fail with events in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
   >NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
+  >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to Approve/Deny push notifications.
 
 If your organization uses Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
 
@@ -114,9 +115,9 @@ In the upcoming Microsoft Authenticator release in January 2023 for iOS, there w
 
 ## Enable number matching in the portal
 
-To enable number matching in the Azure AD portal, complete the following steps:
+To enable number matching in the Azure portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
+1. In the Azure portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
 1. On the **Enable and Target** tab, click **Yes** and **All users** to enable the policy for everyone or add selected users and groups. Set the **Authentication mode** for these users/groups to **Any** or **Push**. 
 
    Only users who are enabled for Microsoft Authenticator here can be included in the policy to require number matching for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see the feature.
@@ -257,7 +258,7 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 ### Example of how to enable number matching for a single group
  
 In **featureSettings**, you'll need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
-Inside the **includeTarget**, you'll need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+Inside the **includeTarget**, you'll need to change the **id** from **all_users** to the ObjectID of the group from the Azure portal.
 To remove an excluded group from number matching, change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
 
 You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
@@ -330,12 +331,12 @@ Here are differences in sign-in scenarios that Microsoft Authenticator users wil
 - AD FS adapter will require number matching on [supported versions of Windows Server](#ad-fs-adapter). On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. 
 - NPS extension versions beginning 1.2.2131.2 will require users to do number matching. Because the NPS extension can’t show a number, the user will be asked to enter a One-Time Passcode (OTP). The user must have an OTP authentication method such as Microsoft Authenticator or software OATH tokens registered to see this behavior. If the user doesn’t have an OTP method registered, they’ll continue to get the **Approve**/**Deny** experience.  
  
-  To create a registry key that overrides this behavior and prompts users with **Approve**/**Deny**: 
+  To create a registry entry that overrides this behavior and prompts users with **Approve**/**Deny**: 
 
   1. On the NPS Server, open the Registry Editor.
   1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
-  1. Set the following Key Value Pair:
-     Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP
+  1. Create the following String/Value:
+     Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
      Value = FALSE
   1. Restart the NPS Service. 
 
@@ -375,6 +376,16 @@ If a user is running an older version of Microsoft Authenticator that doesn't su
 ### Why is my user prompted to tap on one of three numbers rather than enter the number in their Microsoft Authenticator app?
 
 Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator if they use Android versions prior to 6.2108.5654, or iOS versions prior to 6.5.82, so they can use number match.
+
+Minimum Microsoft Authenticator version supporting number matching:
+
+- Android: 6.2006.4198
+- iOS: 6.4.12
+
+Minimum Microsoft Authenticator version for number matching which prompts to enter a number:
+
+- Android 6.2111.7701
+- iOS 6.5.85
 
 ## Next steps
 

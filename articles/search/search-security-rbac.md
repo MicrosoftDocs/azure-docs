@@ -309,7 +309,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**.NET SDK**](#tab/test-csharp)
 
-See [Authorize access to a search app using Azure Active Directory](/search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
+See [Authorize access to a search app using Azure Active Directory](search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
 
 The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package. Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
 

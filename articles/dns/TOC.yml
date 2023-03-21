@@ -25,6 +25,8 @@
     - name: Create a public zone - ARM Template
       displayName: Resource Manager
       href: dns-get-started-template.md
+    - name: Create a public zone - Terraform
+      href: dns-get-started-terraform.md
   - name: Private DNS
     items:
     - name: Create a private zone - portal
@@ -109,8 +111,11 @@
     items:
     - name: Endpoints and rulesets
       href: private-resolver-endpoints-rulesets.md
+    - name: Private resolver architecture
+      href: private-resolver-architecture.md
     - name: Resiliency in Azure DNS Private Resolver
       href: private-resolver-reliability.md
+
 - name: How-to guides
   items:
   - name: Public DNS

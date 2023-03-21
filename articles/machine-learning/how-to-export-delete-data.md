@@ -58,9 +58,9 @@ Job history documents, which may contain personal user information, are stored i
 
 Azure Machine Learning studio provides a unified view of your machine learning resources - for example, notebooks, data assets, models, and jobs. Azure Machine Learning studio emphasizes preservation of a record of your data and experiments. You can delete computational resources such as pipelines and compute resources with the browser. For these resources, navigate to the resource in question and choose **Delete**.
 
-You can unregister data assets and archive jobs, but these operations don't delete the data. To entirely remove the data, data assets and job data require deletion at the storage level. Storage level deletion happens in the portal, as described earlier. Azure ML Studio can handle individual deletion. Job deletion deletes the data of that job.
+You can unregister data assets and archive jobs, but these operations don't delete the data. To entirely remove the data, data assets and job data require deletion at the storage level. Storage level deletion happens in the portal, as described earlier. Azure Machine Learning Studio can handle individual deletion. Job deletion deletes the data of that job.
 
-Azure ML Studio can handle training artifact downloads from experimental jobs. Choose the relevant **Job**. Choose **Output + logs**, and navigate to the specific artifacts you wish to download. Choose **...** and **Download**, or select **Download all**.
+Azure Machine Learning Studio can handle training artifact downloads from experimental jobs. Choose the relevant **Job**. Choose **Output + logs**, and navigate to the specific artifacts you wish to download. Choose **...** and **Download**, or select **Download all**.
 
 To download a registered model, navigate to the **Model** and choose **Download**.
 

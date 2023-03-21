@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use 3D Scenes Studio (preview) for Azure Digital Twins by following this demo, where you'll create a sample scene with elements and behaviors.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/07/2022
+ms.date: 03/10/2023
 ms.topic: quickstart
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -202,19 +202,47 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
 1. Skip the **Twins** tab, which isn't used in this quickstart. 
 
-1. Switch to the **Visual rules** tab. *Visual rules* are data-driven overlays on your elements that you can configure to indicate the health or status of the element. Here, you'll identify a problematic value range for a property on the element, and associate values in this range with the color red in the visual.
+1. Switch to the **Visual rules** tab. *Visual rules* are data-driven overlays on your elements that you can configure to indicate the health or status of the element. 
 
-    1. Select **Add Rule**.
+    1. First, you'll set some conditions to indicate the efficiency of the packing line.
 
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Visual rules options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png":::
+        1. Select **Add Rule**.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Visual rules options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png":::
+    
+        1. Enter a **Display name** of *Hourly pickups*. Leave the **Property expression** on **Single property** and open the property dropdown list. It contains names of all the properties on the primary twin for the *Arm1* element. Select *PrimaryTwin.FailedPickupsLastHr*. Then, select **Add condition**.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the New visual rule options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png":::
+    
+        1. Next, you'll define some boundaries to indicate when the hourly pickups are missing too many packages. For this scenario, let's say an arm needs attention if it misses more than three pickups in an hour. **Label** the condition *>3 missed pickups*, and define a value range between *4* and *Infinity* (the min range value is inclusive, and the max value is exclusive). Assign an **Element coloring** of red. Select **Save**.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the coloring condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png":::
+    
+        1. Select **Add condition** again, and create a condition labeled *1-3 missed pickups*. Define a value range between *1* and *4*, and assign an **Element coloring** of orange. Save the condition.
+    
+            Select **Add condition** one more time, and create a condition labeled *0 missed pickups*. Define a value range between *0* and *1*, and assign an **Element coloring** of green. Save the condition.
+       
+            After creating all three conditions, **Save** the new visual rule.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-4.png" alt-text="Screenshot of saving the finished conditions in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-4.png":::
 
-    1. Enter a **Display name** of *Failed pickups*. Leave the **Property expression** on **Single property** and open the property dropdown list. It contains names of all the properties on the primary twin for the *Arm1* element. Select *FailedPickupsLastHr*.Then, select **Add condition**.
+    1. Next, create one more visual rule to display alerts for missed packages. 
 
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the New visual rule options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png":::
-
-    1. In this sample scenario, let's flag that when an arm misses three or more pickups in an hour, it requires maintenance. Define a value range between *3* and *Infinity* (the min range value is inclusive, and the max value is exclusive), and assign an **Element coloring** of red. Select **Save**.
-
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the described condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png":::
+        1. From the **Visual rules** tab, select **Add Rule** again.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge.png" alt-text="Screenshot of adding a second rule in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge.png":::
+    
+        1. Enter a **Display name** of *PickupFailedAlert*. Change the **Property expression** to **Custom (advanced)**, enter a property of *PrimaryTwin.PickupFailedAlert*, and set the **Type** to *boolean*. This is a boolean property on the arm twin that is set to *True* when a package pickup fails. Select **Add condition**.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge-2.png" alt-text="Screenshot of adding a condition for the second visual rule in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge-2.png":::
+    
+        1. Enter a **Label** of *${PrimaryTwin.PickupFailedBoxID} failed*. Later, in the scene view, this will dynamically display the value of the arm twin's string property *PickupFailedBoxID*, which holds an ID representing the box that the arm most recently failed to pick up. Set the **Value** to *True* and choose a **Visual type** of *Badge*. Set the **Color** to red and choose an **Icon**. Select **Save**.
+    
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the badge condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge-3.png":::
+    
+        You should now see both of your rules listed in the **Visual rules** tab.
+        
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-complete.png" alt-text="Screenshot of the finished visual rules in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-complete.png":::
 
 1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add two visual widgets to display property information for the arm element.
 
@@ -228,20 +256,20 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
         1. In the **New widget** options, add a **Display name** of *Hydraulic Pressure*, a **Unit of measure** of *m/s*, and a single-property **Property expression** of *PrimaryTwin.HydraulicPressure*.
         
             Set three value ranges so that values *0-40* appear one color, *40-80* appear in a second color, and *80-Infinity* appear in a third color (remember that the min range value is inclusive, and the max value is exclusive).
-    
-        1. Select **Create widget**.
         
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-gauge.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for the gauge widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-gauge.png":::
+
+            Select **Create widget**.
         
     1. Next, create a widget with a link to a live camera stream of the arm.
 
         1. Select **Add widget**. From the **Widget library**, select the **Link** widget and then **Add widget**.
 
-        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *http://contoso.aws.armstreams.com/${PrimaryTwin.$dtId}*. (There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.)
+        1. In the **New widget** options, enter a **Label** of *Live arm camera*. For the **URL**, you can use the example URL *http://contoso.aws.armstreams.com/${PrimaryTwin.$dtId}*. There's no live camera hosted at the URL for this sample, but the link represents where the video feed might be hosted in a real scenario.
     
         1. Select **Create widget**.
     
-        :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-link.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for a link widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-link.png":::
+            :::image type="content" source="media/quickstart-3d-scenes-studio/new-widget-link.png" alt-text="Screenshot of the New widget options in 3D Scenes Studio for a link widget." lightbox="media/quickstart-3d-scenes-studio/new-widget-link.png":::
 
 1. The behavior options are now complete. Save the behavior by selecting **Create behavior**.
 
@@ -266,7 +294,7 @@ Sometimes, an environment might contain multiple similar elements, which should 
 1. Return to **Build** mode. Like you did in [Create a scene element](#create-a-scene-element), select a different arm in the visualization, and select **Create new element**. 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-arm-element-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio. A different arm is highlighted with an option to create a new element." lightbox="media/quickstart-3d-scenes-studio/new-arm-element-2.png":::
 
-1. Select a **Primary twin** for the new element, then switch to the **Behaviors** tab.
+1. Select a **Primary twin** of *Arm2* for the new element, then switch to the **Behaviors** tab.
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-element-details-2.png" alt-text="Screenshot of the New element options for Arm2 in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-element-details-2.png":::
 
 1. Select **Add behavior**. Choose the **Packing Line Efficiency** behavior that you created in this quickstart.

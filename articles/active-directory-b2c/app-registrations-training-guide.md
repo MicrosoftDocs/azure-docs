@@ -59,7 +59,7 @@ In the legacy experience, apps were always created as customer-facing applicatio
 > [!NOTE]
 > This option is required to be able to run Azure AD B2C user flows to authenticate users for this application. Learn [how to register an application for use with user flows.](tutorial-register-applications.md)
 
-You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](identity-provider-adfs.md).
+You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](saml-service-provider.md).
 
 ## Applications for DevOps scenarios
 

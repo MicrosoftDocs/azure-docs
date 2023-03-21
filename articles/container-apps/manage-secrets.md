@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: cshoe
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage secrets in Azure Container Apps

@@ -30,27 +30,27 @@ Learn more about [pricing tiers](../Concepts/azure-resources.md).
 <summary><b>Why is my URL(s)/file(s) not extracting question-answer pairs?</b></summary>
 
 **Answer**:
-It's possible that question answering can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your project/knowledge base through the [Language Studio portal](https://language.azure.com).
+It's possible that question answering can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your project through the [Language Studio portal](https://language.azure.com).
 
 </details>
 
 <details>
-<summary><b>How large a knowledge base can I create?</b></summary>
+<summary><b>How large a project can I create?</b></summary>
 
 **Answer**:
-The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.
+The size of the project depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.
 
 </details>
 
 <details>
-<summary><b>How do I share a knowledge base with others?</b></summary>
+<summary><b>How do I share a project with others?</b></summary>
 
 **Answer**:
-Sharing works at the level of the language resource, that is, all knowledge bases associated a language resource can be shared.
+Sharing works at the level of the language resource, that is, all projects associated a language resource can be shared.
 </details>
 
 <details>
-<summary><b>Can you share a knowledge base with a contributor that is not in the same Azure Active Directory tenant, to modify a knowledge base?</b></summary>
+<summary><b>Can you share a project with a contributor that is not in the same Azure Active Directory tenant, to modify a project?</b></summary>
 
 **Answer**:
 Sharing is based on Azure role-based access control (Azure Role-base access control). If you can share _any_ resource in Azure with another user, you can also share question answering.
@@ -58,15 +58,15 @@ Sharing is based on Azure role-based access control (Azure Role-base access cont
 </details>
 
 <details>
-<summary><b>Can you assign read/write rights to 5 different users so each of them can access only 1 question answering knowledge base?</b></summary>
+<summary><b>Can you assign read/write rights to 5 different users so each of them can access only 1 question answering project?</b></summary>
 
 **Answer**:
-You can share an entire language resource, not individual knowledge bases.
+You can share an entire language resource, not individual projects.
 
 </details>
 
 <details>
-<summary><b>The updates that I made to my knowledge base are not reflected in production. Why not?</b></summary>
+<summary><b>The updates that I made to my project are not reflected in production. Why not?</b></summary>
 
 **Answer**:
 Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be deployed. Be sure to select **Save** after making changes and then re-deploy your project for those changes to be reflected in production.
@@ -74,7 +74,7 @@ Every edit operation, whether in a table update, test, or setting, needs to be s
 </details>
 
 <details>
-<summary><b>Does the knowledge base support rich data or multimedia?</b></summary>
+<summary><b>Does the project support rich data or multimedia?</b></summary>
 
 **Answer**:
 
@@ -85,7 +85,7 @@ Every edit operation, whether in a table update, test, or setting, needs to be s
 
 #### Answer text in markdown
 
-Once QnA pairs are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
+Once QnA pairs are in the project, you can edit an answer's markdown text to include links to media available from public URLs.
 
 </details>
 
@@ -118,10 +118,10 @@ In case you deleted the `testkbv2` index in your Search service, you can restore
 </details>
 
 <details>
-<summary><b>Can I use the same Azure Cognitive Search resource for knowledge bases using multiple languages?</b></summary>
+<summary><b>Can I use the same Azure Cognitive Search resource for projects using multiple languages?</b></summary>
 
 **Answer**:
-To use multiple language and multiple knowledge bases, the user has to create a project for each language and the first project created for the language resource has to select the option **I want to select the language when I create a project in this resource**. This will create a separate Azure search service per language.
+To use multiple language and multiple projects, the user has to create a project for each language and the first project created for the language resource has to select the option **I want to select the language when I create a project in this resource**. This will create a separate Azure search service per language.
 
 </details>
 
@@ -144,26 +144,26 @@ Follow the instructions in [this](../tutorials/bot-service.md) documentation to 
 </details>
 
 <details>
-<summary><b>How do I use a different knowledge base with an existing Azure bot service?</b></summary>
+<summary><b>How do I use a different project with an existing Azure bot service?</b></summary>
 
 **Answer**:
-You need to have the following information about your knowledge base:
+You need to have the following information about your project:
 
-* Knowledge base ID.
-* Knowledge base's published endpoint custom subdomain name, known as `host`, found on **Settings** page after you publish.
-* Knowledge base's published endpoint key - found on **Settings** page after you publish.
+* Project ID.
+* Project's published endpoint custom subdomain name, known as `host`, found on **Settings** page after you publish.
+* Project's published endpoint key - found on **Settings** page after you publish.
 
 With this information, go to your bot's app service in the Azure portal. Under **Settings -> Configuration -> Application settings**, change those values.
 
-The knowledge base's endpoint key is labeled `QnAAuthkey` in the ABS service.
+The project's endpoint key is labeled `QnAAuthkey` in the ABS service.
 
 </details>
 
 <details>
-<summary><b>Can two or more client applications share a knowledge base?</b></summary>
+<summary><b>Can two or more client applications share a project?</b></summary>
 
 **Answer**:
-Yes, the knowledge base can be queried from any number of clients.
+Yes, the project can be queried from any number of clients.
 
 </details>
 
@@ -183,6 +183,6 @@ Follow these steps to embed the question answering service as a web-chat control
 
 **Answer**:
 
-When you create your language resource for question answering, you selected an Azure region. Your knowledge bases and log files are stored in this region.
+When you create your language resource for question answering, you selected an Azure region. Your projects and log files are stored in this region.
 
 </details>

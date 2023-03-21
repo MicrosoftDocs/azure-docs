@@ -51,7 +51,7 @@ The problem applies to these rule types:
 
 The metrics that Azure resources emit are regional. Whenever a resource moves to a new region, it starts emitting its metrics in that new region. As a result, any alert rules based on metrics need to be updated or recreated so they point to the current metric stream in the correct region.
 
-This explanation applies to both [metric alert rules](alerts-metric-overview.md) and [availability test alert rules](../app/monitor-web-app-availability.md).
+This explanation applies to both [metric alert rules](alerts-metric-overview.md) and [availability test alert rules](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
 If **all** the resources in the scope have moved, you don't need to recreate the rule. You can just update any field of the alert rule, such as the alert rule description, and save it.
 If **only some** of the resources in the scope have moved, you need to remove the moved resources from the existing rule and create a new rule that covers only the moved resources.

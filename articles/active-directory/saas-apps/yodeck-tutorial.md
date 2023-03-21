@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Yodeck | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Yodeck'
 description: Learn how to configure single sign-on between Azure Active Directory and Yodeck.
 services: active-directory
 author: jeevansd

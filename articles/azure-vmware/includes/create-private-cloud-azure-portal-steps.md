@@ -15,7 +15,10 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
 
 ### [Portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).  
+ 
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 1. Select **Create a resource**. 
 

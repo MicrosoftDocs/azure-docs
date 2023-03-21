@@ -213,18 +213,19 @@ Now that you have created a namespace, a folder, and a folder target, you should
 
 Using ABE to control the visibility of the files and folders in SMB Azure file shares isn't currently a supported scenario. ABE is a feature of DFS-N, so it's possible to configure identity-based authentication and enable the ABE feature. However, this only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This is because DFS-N works by referral, rather than as a proxy in front of the folder target.
 
-For example, if the user types in the path \\mydfsnserver\share, the SMB client gets the referral of \\mydfsnserver\share => \\server123\share and makes the mount against the latter.
+For example, if the user types in the path `\\mydfsnserver\share`, the SMB client gets the referral of `\\mydfsnserver\share => \\server123\share` and makes the mount against the latter.
 
 Because of this, ABE will only work in cases where the DFS-N server is hosting the list of usernames before the redirection:
 
-  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\contosouser1
-  \\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\users\contosouser1
+  `\\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\contosouser1`
+
+  `\\DFSServer\users\contosouser1 => \\SA.file.core.windows.net\users\contosouser1`
 
 (Where **contosouser1** is a subfolder of the **users** share)
 
 If each user is a subfolder *after* the redirection, ABE won't work:
 
-  \\DFSServer\SomePath\users --> \\SA.file.core.windows.net\users
+  `\\DFSServer\SomePath\users --> \\SA.file.core.windows.net\users`
 
 ## See also
 - Deploying an Azure file share: [Planning for an Azure Files deployment](storage-files-planning.md) and [How to create an file share](storage-how-to-create-file-share.md).
