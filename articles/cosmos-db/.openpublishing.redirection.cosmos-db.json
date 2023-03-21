@@ -596,6 +596,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/configure-periodic-backup-restore.md",
+      "redirect_url": "/azure/cosmos-db/periodic-backup-restore-introduction",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
       "redirect_document_id": true

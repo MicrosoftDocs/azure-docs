@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 03/01/2023
+  ms.date: 03/21/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -24,6 +24,10 @@ sections:
   - name: General
     questions:
       - question: |
+          Does Azure OpenAI support GPT-4?
+        answer: |
+          Azure OpenAI supports the latest GPT-4 models. These models are currently in preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+      - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
           Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
@@ -33,6 +37,14 @@ sections:
           Does Azure OpenAI support VNET's and Private Endpoints?
         answer: | 
           Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNET's and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
+      - question: |
+          Do the GPT-4 preview models currently support image input?
+        answer: | 
+          No, GPT-4 is designed by OpenAI to be multimodal, but currently only text input and output is supported.
+      - question: |
+          How do I apply for new use cases?
+        answer: |
+          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure Cognitive Services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
 
 
   - name: Getting access to Azure OpenAI Service
