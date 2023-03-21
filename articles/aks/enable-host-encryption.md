@@ -72,5 +72,5 @@ If you want to create new node pools without the host-based encryption feature, 
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[full-control-keys]: ../virtual-machines/disk-encryption#full-control-of-your-keys
-[akv-built-in-roles]: ../key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations
+[full-control-keys]: ../virtual-machines/disk-encryption.md#full-control-of-your-keys
+[akv-built-in-roles]: ../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations
