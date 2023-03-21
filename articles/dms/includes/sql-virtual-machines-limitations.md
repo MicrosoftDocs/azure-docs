@@ -1,9 +1,9 @@
 ---
-author: MashaMSFT
+author: croblesm
+ms.author: roblescarlos
+ms.date: 01/25/2023
 ms.service: dms
 ms.topic: include
-ms.date: 01/25/2023
-ms.author: mathoma
 ---
 
 - If migrating a single database, the database backups must be placed in a flat-file structure inside a database folder (including container root folder), and the folders can't be nested, as it's not supported.

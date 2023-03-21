@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: cesardl
 author: CESARDELATORRE
 ms.date: 03/15/2022
-ms.custom: automl, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, automl, event-tier1-build-2022, ignite-2022
 ---
 
 # Automated machine learning (AutoML)?

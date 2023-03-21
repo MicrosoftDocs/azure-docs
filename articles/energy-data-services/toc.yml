@@ -31,6 +31,8 @@
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
       href: tutorial-well-delivery-ddms.md
+    - name: Use Petrel DDMS APIs
+      href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
     - name: CSV parser ingestion
@@ -89,7 +91,7 @@
   - name: REST API
     items:
     - name: Data plane
-      href: https://microsoft.github.io/meds-samples/
+      href: https://microsoft.github.io/adme-samples/
 - name: Resources
   items:
   - name: FAQ
@@ -98,3 +100,5 @@
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/energy-data-services/

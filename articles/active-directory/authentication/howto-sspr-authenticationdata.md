@@ -1,5 +1,5 @@
 ---
-title: Pre-populate contact information for self-service password reset - Azure Active Directory
+title: Pre-populate contact information for self-service password reset
 description: Learn how to pre-populate contact information for users of Azure Active Directory self-service password reset (SSPR) so they can use the feature without completing a registration process.
 
 services: active-directory

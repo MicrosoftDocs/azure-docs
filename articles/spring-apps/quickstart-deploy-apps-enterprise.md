@@ -6,7 +6,7 @@ ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier

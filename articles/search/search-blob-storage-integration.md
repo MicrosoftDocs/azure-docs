@@ -132,7 +132,7 @@ The output of an indexer is a search index, used for interactive exploration usi
 + [Full query syntax](query-lucene-syntax.md)
 + [Filter expression syntax](query-odata-filter-orderby-syntax.md)
 
-A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first application in Azure Cognitive Search](tutorial-csharp-create-first-app.md).
+A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Add search to an ASP.NET Core (MVC) application](tutorial-csharp-create-mvc-app.md).
 
 ## Next steps
 

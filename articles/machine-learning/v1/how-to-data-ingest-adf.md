@@ -11,7 +11,7 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 08/17/2022
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---
 

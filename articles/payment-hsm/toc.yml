@@ -62,6 +62,9 @@
   items:
   - name: Azure Payment HSM service support guide
     href: support-guide.md
+  - name: Known issues
+    href: known-issues.md
+
 
 - name: Reference
   items:

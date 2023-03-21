@@ -5,10 +5,10 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/16/2017
 ms.author: cynthn
-
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure

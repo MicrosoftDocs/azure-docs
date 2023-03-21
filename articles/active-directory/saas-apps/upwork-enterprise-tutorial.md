@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Upwork Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Upwork Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and Upwork Enterprise.
 services: active-directory
 author: jeevansd

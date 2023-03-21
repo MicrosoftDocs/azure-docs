@@ -21,7 +21,7 @@ The following diagram shows typical architecture for Cloud Director services wit
 
 VMware Cloud Director supports multi-tenancy by using organizations. A single organization can have multiple organization virtual data centers (VDC). Each Organization’s VDC can have their own dedicated Tier-1 router (Edge Gateway) which is further connected with the provider’s managed shared Tier-0 router.
 
-[Learn more about CDs on Azure VMware Solutions refernce architecture](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/cloud-director-service-reference-architecture-for-azure-vmware-solution.pdf)
+[Learn more about CDs on Azure VMware Solutions reference architecture](https://cloudsolutions.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/cloud-director-service-reference-architecture-for-azure-vmware-solution.pdf)
 
 ## Connect tenants and their organization virtual datacenters to Azure vNet based resources
 

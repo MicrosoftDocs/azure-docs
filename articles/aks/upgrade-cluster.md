@@ -2,7 +2,7 @@
 title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.date: 12/17/2020
 ---
 
@@ -246,7 +246,7 @@ To confirm that the upgrade was successful, navigate to your AKS cluster in the 
 When you upgrade your cluster, the following Kubernetes events may occur on each node:
 
 - Surge – Create surge node.
-- Drain – Pods are being evicted from the node. Each pod has a 30-minute timeout to complete the eviction.
+- Drain – Pods are being evicted from the node. Each pod has a 30-second timeout to complete the eviction.
 - Update – Update of a node has succeeded or failed.
 - Delete – Deleted a surge node.
 

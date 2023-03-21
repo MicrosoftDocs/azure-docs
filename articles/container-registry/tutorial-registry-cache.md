@@ -9,12 +9,14 @@ ms.author: tejaswikolli
 
 Caching for Azure Container Registry (Preview) feature allows users to cache container images in a private container registry. Caching for ACR, is a preview feature available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
-This article is part one in a four-part tutorial series. The tutorial covers:
+This article is part one in a six-part tutorial series. The tutorial covers:
 
 > [!div class="checklist"]
 > * Caching for ACR (preview) 
 > * Enable Caching for ACR - Azure portal
 > * Enable Caching for ACR with authentication - Azure portal
+> * Enable Caching for ACR - Azure CLI
+> * Enable Caching for ACR with authentication - Azure CLI
 > * Troubleshooting guide for Caching for ACR
 
 ## Caching for ACR (Preview)
@@ -57,13 +59,13 @@ Implementing Caching for ACR provides the following benefits:
 
 - Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but not included in this release.
 
-- Caching will only occur after at least one pull request is complete on the available container image. For every new image available, a new pull request must be complete. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but not supported in this release. 
+- Caching will only occur after at least one image pull request is complete on the available container image. For every new image available, a new image pull request must be complete. Caching for ACR does not automatically pull new versions of images when a new version is available. It is on the roadmap but not supported in this release. 
 
 -  Caching for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
 
 - Caching for ACR only supports 50 cache rules.
 
-- Caching for ACR is only available by using the Azure portal. The Azure CLI is in target for the coming weeks.  
+- Caching for ACR is only available by using the Azure portal and Azure CLI.  
 
 ## Next steps
 

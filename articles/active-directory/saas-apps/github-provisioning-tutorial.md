@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for GitHub - Azure AD'
+title: 'Tutorial: User provisioning for GitHub'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user organization membership in GitHub Enterprise Cloud.
 services: active-directory
 author: twimmers

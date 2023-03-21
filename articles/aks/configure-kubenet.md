@@ -5,6 +5,7 @@ description: Learn how to configure kubenet (basic) network in Azure Kubernetes 
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/26/2022
 ---
