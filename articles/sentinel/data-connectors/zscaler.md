@@ -17,7 +17,7 @@ The Zscaler data connector allows you to easily connect your Zscaler Internet Ac
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (Zscaler)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Zscaler](https://help.zscaler.com/submit-ticket-links) |
 
 ## Query samples

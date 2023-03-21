@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Snowflake (using Azure Function) connector for Microsoft Sentinel
+# Snowflake (using Azure Functions) connector for Microsoft Sentinel
 
 The Snowflake data connector provides the capability to ingest Snowflake [login logs](https://docs.snowflake.com/en/sql-reference/account-usage/login_history.html) and [query logs](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html) into Microsoft Sentinel using the Snowflake Python Connector. Refer to [Snowflake  documentation](https://docs.snowflake.com/en/user-guide/python-connector.html) for more information.
 
@@ -16,7 +16,7 @@ The Snowflake data connector provides the capability to ingest Snowflake [login 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-SnowflakeDataConnector-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-SnowflakeDataConnector-functionapp |
 | **Log Analytics table(s)** | Snowflake_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,7 +34,7 @@ Snowflake_CL
 
 ## Prerequisites
 
-To integrate with Snowflake (using Azure Function) make sure you have: 
+To integrate with Snowflake (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Snowflake Credentials**: **Snowflake Account Identifier**, **Snowflake User** and **Snowflake Password** are required for connection. See the documentation to learn more about [Snowflake Account Identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#). Instructions on how to create user for this connector you can find below.

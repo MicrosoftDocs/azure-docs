@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect cloud provisioning agent: Manage registry options | Microsoft Docs'
+title: 'Azure AD Connect cloud provisioning agent: Manage registry options'
 description: This article describes how to manage registry options in the Azure AD Connect cloud provisioning agent.
 services: active-directory
 documentationcenter: ''

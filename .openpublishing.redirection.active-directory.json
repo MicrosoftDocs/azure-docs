@@ -96,6 +96,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/governance/manage-lifecycle-workflows.md",
+      "redirect_url": "/azure/active-directory/governance/understanding-lifecycle-workflows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/lifecycle-workflows-developer-reference.md",
       "redirect_url": "/graph/api/resources/identitygovernance-workflow",
       "redirect_document_id": false
@@ -158,6 +163,46 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
       "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identities-overview.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identities-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identities-faqs.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identities-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-user-assigned-managed-identity.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust-gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-block-using-azure-policy.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-block-using-azure-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-considerations.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-considerations",
       "redirect_document_id": false
     },
     {

@@ -12,7 +12,7 @@ ms.date: 09/01/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This article shows how to create and work with variables that you use to store values in your logic app. For example, variables can help you track the number of times that a loop runs. To iterate over an array or check an array for a specific item, you can use a variable to reference the index number for each array item.
+This article shows how to create and work with variables that you use to store values in your logic app workflow. For example, variables can help you track the number of times that a loop runs. To iterate over an array or check an array for a specific item, you can use a variable to reference the index number for each array item.
 
 You can create variables for data types such as integer, float, boolean, string, array, and object. After you create a variable, you can perform other tasks, for example:
 
@@ -21,7 +21,7 @@ You can create variables for data types such as integer, float, boolean, string,
 * Assign a different value to the variable.
 * Insert or *append* the variable's value as the last item in a string or array.
 
-Variables exist and are global only within the logic app instance that creates them. Also, they persist across any loop iterations inside a logic app instance. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
+Variables exist and are global only within the logic app workflow instance that creates them. Also, they persist across any loop iterations inside a logic app instance. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
 > [!IMPORTANT]
 > By default, cycles in a "For each" loop run in parallel. When you use variables in loops, 
@@ -32,29 +32,29 @@ Variables exist and are global only within the logic app instance that creates t
 
 * An Azure subscription. If you don't have subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app where you want to create the variable
+* The logic app workflow where you want to create the variable
 
-  If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  If you're new to logic apps, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app
+* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app workflow
 
-  Before you can add actions for creating and working with variables, your logic app must start with a trigger.
+  Before you can add actions for creating and working with variables, your workflow must start with a trigger.
 
 <a name="create-variable"></a>
 
 ## Initialize variable
 
-You can create a variable and declare its data type and initial value - all within one action in your logic app. You can only declare variables at the global level, not within scopes, conditions, and loops.
+You can create a variable and declare its data type and initial value - all within one action in your logic app workflow. You can only declare variables at the global level, not within scopes, conditions, and loops.
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a logic app with an existing trigger.
 
-1. In your logic app, under the step where you want to add a variable, follow one of these steps: 
+1. In your workflow, under the step where you want to add a variable, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
-     ![Screenshot that shows the "New Step" action selected on the "Logic app designer" page.](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Screenshot that shows the "New Step" action selected on the workflow designer.](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -177,7 +177,7 @@ Here are examples for some other variable types:
 
 ## Get the variable's value
 
-To retrieve or reference a variable's contents, you can also use the [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) in the Logic App Designer and the code view editor. When referencing a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
+To retrieve or reference a variable's contents, you can also use the [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) in the workflow designer and the code view editor. When referencing a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
 For example, this expression gets the items from the array variable [created previously in this article](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
 
@@ -191,7 +191,7 @@ For example, this expression gets the items from the array variable [created pre
 
 To increase or *increment* a variable by a constant value, add the **Increment variable** action to your logic app. This action works only with integer and float variables.
 
-1. In the Logic App Designer, under the step where you want to increase an existing variable, select **New step**. 
+1. In the workflow designer, under the step where you want to increase an existing variable, select **New step**. 
 
    For example, this logic app already has a trigger and an action that created a variable. So, add a new action under these steps:
 
@@ -236,7 +236,7 @@ If you switch from the designer to the code view editor, here is the way that th
 
 Variables are commonly used for counting the number of times that a loop runs. This example shows how you create and use variables for this task by creating a loop that counts the attachments in an email.
 
-1. In the Azure portal, create a blank logic app. Add a trigger that checks for new email and any attachments.
+1. In the Azure portal, create a blank logic app workflow. Add a trigger that checks for new email and any attachments.
 
    This example uses the Office 365 Outlook trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
 
@@ -287,9 +287,9 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 ### Test your logic app
 
-1. If your logic app isn't enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
+1. If your logic app resource isn't enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the Logic App Designer toolbar, select **Run**. This step manually starts your logic app.
+1. On the designer toolbar, select **Run**. This step manually starts your logic app.
 
 1. Send an email with one or more attachments to the email account you used in this example.
 
@@ -459,4 +459,5 @@ If you switch from the designer to the code view editor, here is the way that th
 
 ## Next steps
 
-* Learn about [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

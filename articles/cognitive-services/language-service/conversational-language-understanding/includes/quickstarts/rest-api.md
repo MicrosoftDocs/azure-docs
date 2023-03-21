@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 03/14/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -32,7 +32,7 @@ ms.custom: ignite-fall-2021
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-resource-keys-and-endpoint" target="_target">I ran into an issue</a>
 
-## Create a CLU project 
+## Import a new CLU sample project
 
 Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
@@ -41,36 +41,32 @@ For this quickstart, you can download [this sample project](https://go.microsoft
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=RESTAPI&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-a-conversational-language-understanding-project" target="_target">I ran into an issue</a>
 
-### Trigger import project job 
+### Trigger the import project job 
 
 [!INCLUDE [create and import project](../rest-api/import-project.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
 
-### Get import job Status
+### Get the import job status
 
 [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-import-job-status" target="_target">I ran into an issue</a>
 
-## Train your model
+## Start training your model
 
 Typically, after you create a project, you should [build schema](../../how-to/build-schema.md) and [tag utterances](../../how-to/tag-utterances.md). For this quickstart, we already imported a ready project with built schema and tagged utterances. 
-
-### Start training your model
-
-After your project has been imported, you can start training your model. 
 
 [!INCLUDE [train model](../rest-api/train-model.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
 
-### Get Training Status
+### Get the training job status
 
-Training could take sometime between 10 and 30 minutes. You can use the following request to keep polling the status of the training job until it is successfully completed.
+Training may take time to complete - sometimes between 10 and 30 minutes. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
  [!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
