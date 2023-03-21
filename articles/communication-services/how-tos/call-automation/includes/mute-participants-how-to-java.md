@@ -79,5 +79,54 @@ var callConnectionAsync = callAutomationClientAsync.getCallConnectionAsync(CALL_
 callConnectionAsync.muteParticipantsAsync(target).block();
 ```
 
-## Subscribing to events
+## Participant muted event
 
+``` json
+{
+  "id": "9dff6ffa-a496-4279-979d-f6455cb88b22",
+  "source": "calling/callConnections/401f3500-08a0-4e9e-b844-61a65c845a0b",
+  "type": "Microsoft.Communication.ParticipantsUpdated",
+  "data": {
+    "participants": [
+      {
+        "identifier": {
+          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-a8bd-1000-343a0d0045c3",
+          "kind": "communicationUser",
+          "communicationUser": {
+            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-a8bd-1000-343a0d0045c3"
+          }
+        },
+        "isMuted": true
+      },
+      {
+        "identifier": {
+          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_becb5f68-7d55-4b4c-9010-d925a7b100d6",
+          "kind": "communicationUser",
+          "communicationUser": {
+            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_becb5f68-7d55-4b4c-9010-d925a7b100d6"
+          }
+        },
+        "isMuted": false
+      },
+      {
+        "identifier": {
+          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-de0e-1000-343a0d0045d0",
+          "kind": "communicationUser",
+          "communicationUser": {
+            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-de0e-1000-343a0d0045d0"
+          }
+        },
+        "isMuted": false
+      }
+    ],
+    "sequenceNumber": 4,
+    "callConnectionId": "401f3500-08a0-4e9e-b844-61a65c845a0b",
+    "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvRkhjV1lURXFZMENUY0VKUlJ3VHc1UT9pPTQmZT02MzgxNDkzMTEwNDk0NTM2ODQ=",
+    "correlationId": "e47198fb-1798-4f3e-b245-4fd06569ad5c"
+  },
+  "time": "2023-03-21T17:22:35.4300007+00:00",
+  "specversion": "1.0",
+  "datacontenttype": "application/json",
+  "subject": "calling/callConnections/401f3500-08a0-4e9e-b844-61a65c845a0b"
+}
+```
