@@ -172,4 +172,4 @@ The following sample shows how to add an Azure policy for Azure Cosmos DB accoun
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [modify the backup interval and retention period](periodic-backup-modify-interval-retention.md)
+> [Modify the backup interval and retention period](periodic-backup-modify-interval-retention.md)

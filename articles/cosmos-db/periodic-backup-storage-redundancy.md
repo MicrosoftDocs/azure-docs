@@ -39,4 +39,4 @@ You can configure storage redundancy for periodic backup mode at the time of acc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [update the backup storage redundancy](periodic-backup-update-storage-redundancy.md)
+> [Update the redundancy of backup storage](periodic-backup-update-storage-redundancy.md)
