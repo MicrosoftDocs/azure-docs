@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03-21-2023
+ms.date: 03/21/2023
 
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts

@@ -5,7 +5,7 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03-21-2023
+ms.date: 03/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

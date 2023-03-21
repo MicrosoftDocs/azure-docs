@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03-21-2023
+ms.date: 03/21/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: typescript
