@@ -26,7 +26,9 @@ recommendations: false
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to learn data extraction from structured, semi-structured, and unstructured documents.
 
-## Document Analysis models
+Select one of the tiles below to learn more about Form Recognizer models.
+
+### Document analysis models
 
 :::row:::
    :::column:::
@@ -43,7 +45,7 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
    :::column-end:::
 :::row-end:::
 
-## Prebuilt models
+### Prebuilt models
 
 :::row:::
    :::column span="":::
@@ -72,7 +74,7 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
    :::column-end:::
 :::row-end:::
 
-## Custom models
+### Custom models
 
 :::row:::
     :::column:::
@@ -86,8 +88,8 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
     [**Custom template**](#custom-template)
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural":::</br>
-    [**Custom neural**](#custom-template)
+      :::image type="content" source="media/overview/icon-custom-neural.png" alt-text="Screenshot of custom neural model icon.":::</br>
+    [**Custom neural**](#custom-neural)
    :::column-end:::
       :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-composed.png" link="#custom-composed":::</br>
