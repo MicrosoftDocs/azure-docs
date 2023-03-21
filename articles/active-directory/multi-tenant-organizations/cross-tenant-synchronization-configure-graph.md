@@ -75,8 +75,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs:
 
-    - Source tenant ID: {source-tenant-id}
-    - Target tenant ID: {target-tenant-id}
+    - Source tenant ID: {sourceTenantId}
+    - Target tenant ID: {targetTenantId}
 
 ## Step 2: Enable user synchronization in the target tenant
 
@@ -91,7 +91,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "{source-tenant-id}"
+      "tenantId": "{sourceTenantId}"
     }
     ```
     
@@ -103,7 +103,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     {
       "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
-      "tenantId": "{source-tenant-id}",
+      "tenantId": "{sourceTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -129,7 +129,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{source-tenant-id}/identitySynchronization
+    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}/identitySynchronization
     Content-type: application/json
     
     {
@@ -156,7 +156,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{source-tenant-id}
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}
     Content-Type: application/json
     
     {
@@ -187,7 +187,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "{target-tenant-id}"
+      "tenantId": "{targetTenantId}"
     }
     ```
     
@@ -199,7 +199,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     {
       "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
-      "tenantId": "{target-tenant-id}",
+      "tenantId": "{targetTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -225,7 +225,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{target-tenant-id}
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{targetTenantId}
     Content-Type: application/json
     
     {
@@ -290,7 +290,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
             "appId": "{appId}",
             "appDisplayName": "Fabrikam",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "appOwnerTenantId": "{target-tenant-id}",
+            "appOwnerTenantId": "{targetTenantId}",
             "appRoleAssignmentRequired": true,
             "displayName": "Fabrikam",
             "errorUrl": null,
@@ -342,7 +342,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "credentials": [
             {
                 "key": "CompanyId",
-                "value": "{target-tenant-id}"
+                "value": "{targetTenantId}"
             },
             {
                 "key": "AuthenticationType",
@@ -439,7 +439,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
         "value": [ 
             { 
                 "key": "CompanyId", 
-                "value": "{target-tenant-id}" 
+                "value": "{targetTenantId}" 
             },
             {
                 "key": "AuthenticationType",
@@ -645,7 +645,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
             {
                 "id": "{id}",
                 "activityDateTime": "2022-12-11T00:40:37Z",
-                "tenantId": "{target-tenant-id}",
+                "tenantId": "{targetTenantId}",
                 "jobId": "{jobId}",
                 "cycleId": "{cycleId}",
                 "changeId": "{changeId}",
