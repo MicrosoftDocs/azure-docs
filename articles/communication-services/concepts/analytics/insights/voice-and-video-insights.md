@@ -19,19 +19,16 @@ Within your Communications Resource, we have provided an **Insights Preview** fe
 
 :::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Communication Services Insights":::
 
+## Prerequisites
+
+- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You need to enable `Operational Authentication Logs`, `Call Summary Logs`, `Call Diagnostic Logs`.
+- To use Workbooks, you need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+
 ## Accessing Azure Insights for Communication Services
 
-1. From the **Azure Portal** homepage, select your **Communication Service** resource:
-
-    :::image type="content" source="..\media\workbooks\azure-portal-home-browser.png" alt-text="Azure Portal Home":::
-
-2. Once you are inside your resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
+Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
 
     :::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Insights navigation":::
-
-3. This should display the **Insights** dashboard for your Communication Service resource:
-
-    :::image type="content" source="..\media\workbooks\acs-insights-tab.png" alt-text="Communication Services Insights tab":::
 
 ## Authentication insights
 

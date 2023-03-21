@@ -19,14 +19,16 @@ The SMS Insights dashboard in your communication resource shows data visualizati
 
 :::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview-full.png" alt-text="Screenshot of SMS insights overview page":::
 
-The SMS Insights Dashboard can be found as part of the Insights blade on the left hand navigation of your Azure Communication Services resource.
-
-:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot for insights navigation location":::
-
 ## Prerequisites
 
 - In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You need to enable `SMS Operational Logs`
 - To use Workbooks, you need to send your logs to a [Log Analytics workspace](../../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+
+## Accessing Azure Insights for Communication Services
+
+Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
+
+    :::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Insights navigation":::
 
 ## Dashboard structure
 
