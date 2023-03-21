@@ -38,7 +38,7 @@ ms.date: 02/16/2023
     ```
     The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see [Register preview feature](../../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
-[!INCLUDE [share-storage-configuration](includes/share-storage-configuration.md)]
+[!INCLUDE [share-storage-configuration](share-storage-configuration.md)]
 
 * Source and target storage accounts **created after** the registration step is completed. **Both storage accounts must be in the same Azure region as each other**. Both storage accounts need to be ADLS Gen2 or Blob Storage accounts. Your storage accounts can be in a different Azure region from your Microsoft Purview account.
 * Latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer. Storage REST API version must be February 2020 or later.
