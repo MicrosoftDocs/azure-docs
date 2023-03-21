@@ -76,7 +76,7 @@ If you’re using Microsoft Purview, you can optionally add additional Purview i
 If you're automatically assigning Microsoft Purview sensitivity labels to resources when specific conditions are met, you can turn on the the sensitivity label threshold setting in Defender for Cloud. This integrates Purview sensitivity labels into data-aware posture management, as long as you have the following:
 
 - In the Microsoft Purview portal, you consented to use the labels in Defender for Cloud.
-- One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.
+- One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.
 - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).
 - The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
 

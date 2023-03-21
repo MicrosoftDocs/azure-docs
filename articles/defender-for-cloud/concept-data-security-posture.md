@@ -22,7 +22,7 @@ Data-aware security in Microsoft Defender for Cloud aims to proactively protect 
 
 Defender Cloud Security Posture Management (CSPM) provides visibility and contextual insights into your organizational security posture. The addition of data-aware security posture to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks.
 
-- With data awareness now built into [cloud security graph](concept-attack-path#what-is-cloud-security-graph.md) you can leverage cloud security explorer queries to find misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. 
+- With data awareness now built into [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) you can leverage cloud security explorer queries to find misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. 
 - You can discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores.
 
 ## Data security in Defender for Storage
