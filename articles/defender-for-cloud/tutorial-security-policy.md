@@ -32,7 +32,7 @@ To view your security policies in Defender for Cloud:
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page." lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > The settings of each recommendation that apply to the scope are compared and the cumulative outcome of actions taken by the recommendation appears. For example, if in one assignment, a recommendation is Disabled, but in another it's set to Audit, then the cumulative effect applies Audit. The more active effect always takes precedence.
@@ -83,7 +83,7 @@ To enable a disabled recommendation and ensure it's assessed for your resources:
 
 1. Select **Save**.
 
-:::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Screenshot showing enable security recommendation on manage effect and parameters screen.":::
+    :::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Screenshot showing enable security recommendation on manage effect and parameters screen.":::
 
    > [!NOTE]
    > Setting will take effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
@@ -117,7 +117,7 @@ The **additional parameters** column indicates whether a recommendation has asso
 
 1. Select **Save**.
 
-:::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Screenshot showing where to configure additional parameters on the manage effect and parameters screen.":::
+    :::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Screenshot showing where to configure additional parameters on the manage effect and parameters screen.":::
 
 Use the "reset to default" button to revert changes per the recommendation and restore the default value.
 

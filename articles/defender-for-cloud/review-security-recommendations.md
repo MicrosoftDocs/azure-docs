@@ -67,7 +67,7 @@ To change the owner of resources and set the ETA for remediation of recommendati
 
 The due date for the recommendation doesn't change, but the security team can see that you plan to update the resources by the specified ETA date.
 
-## Review recommendation data in Azure Resource Graph Explorer (ARG)
+## Review recommendation data in Azure Resource Graph (ARG)
 
 You can review recommendations in ARG both on the Recommendations page or on an individual recommendation.
 
