@@ -84,15 +84,17 @@ To delete a replica in the portal, follow the steps below.
 
 --- -->
 
-## Use replicas with AAD
+## Use replicas
 
 Each replica you create has its dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
 When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
 
-Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature.
+Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for AAD authentication or a list of connection strings for access key-based authentication.
 
-### [.NET](#tab/dotnet)
+### With AAD
+
+#### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -117,7 +119,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
-### [Java Spring](#tab/spring)
+#### [Java Spring](#tab/spring)
 
 Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
 
@@ -133,11 +135,9 @@ spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endp
 
 ---
 
-## Use replicas with Access Keys
+### With Access Keys
 
-If you are using access keys to connect to your App Configuration store, you can use the failover feature by providing a list of replica connection strings in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
-
-### [.NET](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -160,13 +160,13 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
-### [Java Spring](#tab/spring)
+#### [Java Spring](#tab/spring)
 
 Edit the connection string configuration in `bootstrap.properties`, to use connection strings which allows a list of connection strings.
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]="<first-replica-connection-string>"
-spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="<second-replica-connection-string>"
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]="${FIRST_REPLICA_CONNECTION_STRING}"
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_REPLICA_CONNECTION_STRING}"
 ```
 
 > [!NOTE]
