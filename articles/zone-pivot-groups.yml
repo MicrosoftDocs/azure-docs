@@ -1449,6 +1449,15 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-chat
+  title: API Options
+  prompt: Chat API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-chat-ml
+    title: ChatML
+# Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
   prompt: Choose your preferred resource creation method
@@ -1880,9 +1889,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: powershell-hrd
-    title: PowerShell
+    title: Azure AD PowerShell
   - id: graph-hrd
-    title: Graph
+    title: Microsoft Graph
 ## template with all
 - id: enterprise-apps-all
   title: Manage Enterprise apps
@@ -2094,6 +2103,14 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+- id: deploy-python-web-app-postgressql
+  title: Workflows
+  prompt: Choose your path
+  pivots:
+  - id: deploy-portal
+    title: Azure portal
+  - id: deploy-azd
+    title: Azure Developer CLI
 # Owner: daknappe (Azure Virtual Desktop)
 - id: azure-virtual-desktop-host-pool-types
   title: Azure Virtual Desktop host pool management type
