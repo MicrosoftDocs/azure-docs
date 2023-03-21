@@ -12,9 +12,11 @@ ms.date: 02/28/2023
 ---
 # AIOps and machine learning in Azure Monitor 
 
-[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning. Azure Monitor offers a number of features with built-in machine learning capabilities that provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations without further investment.    
+[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning. Azure Monitor offers features with built-in machine learning capabilities that provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
-You can also run data science processes on top of data in Azure Monitor Logs to introduce other machine learning algorithms and customize Azure Monitor's analysis and response capabilities to address your business goals.    
+These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations immediately, without machine learning knowledge and further investment.    
+
+You can also create machine learning pipelines to act on data in Azure Monitor Logs, and introduce other machine learning algorithms, and add analysis and response capabilities to address your business goals.    
 
 This article describes Azure Monitor's built-in AIOps capabilities and provides some examples of how you can create and apply customized machine learning models on top of data in Azure Monitor Logs. 
 
@@ -36,7 +38,7 @@ There are two ways to use machine learning in Azure Monitor Logs:
 - Run the built-in machine learning capabilities of the Kusto Query Language to detect and analyze anomalies directly inside a Log Analytics workspace.
 - Train and run your own machine learning models on data in a Log Analytics workspace by integrating an external tool or service.   
 
-This table compares the the two methods of working with machine learning in Azure Monitor Logs and provides links to tutorials that demonstrate how you can implement each method:
+This table compares the two methods of working with machine learning in Azure Monitor Logs and provides links to tutorials that demonstrate how you can implement each method:
 
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
@@ -94,10 +96,10 @@ Azure Monitor offers a set of different tools to explore data and prepare it for
 ||KQL operators and functions||Custom models||
 |-|-|-|-|-|
 ||Inside Azure Monitor Logs|Run full ML pipeline “On top AzMon”|Run full ML pipeline outside AzMon|Hybrid mode: Data Exploration “On top AzMon”, Train outside, score “On top AzMon”|
-|Machine learning libraries ||All ML libraries<br>Examples:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure ML SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
+|Machine learning libraries ||All ML libraries<br>Examples:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure Machine Learning SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
 |||
 |Log export needed?|No|No|Yes|Training – Yes, Scoring - No |
-|Other Azure services|Optional|Optional (Azure Synapse, Azure ML can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
+|Other Azure services|Optional|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
 |Pros|Optimal performance, cost savings, no custom code needed|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
 |Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
 |When to use|For small-medium volumes of data (up to several GB/few millions of records), when built-in functions suit your needs|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
