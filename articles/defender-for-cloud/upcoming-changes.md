@@ -19,12 +19,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely) | March 2023 |
-| [Three alerts in the Defender for Resource Manager plan will be deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-will-be-deprecated) | March 2023 |
+| [Three alerts in the Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 | [Deprecation of App Service language monitoring policies](#deprecation-of-app-service-language-monitoring-policies) | April 2023 |
 | [Deprecation of legacy compliance standards across cloud environments](#deprecation-of-legacy-compliance-standards-across-cloud-environments) | April 2023 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | April 2023 |
 
 ### Changes in the recommendation "Machines should be configured securely"
 
