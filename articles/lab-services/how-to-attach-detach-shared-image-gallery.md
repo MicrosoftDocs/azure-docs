@@ -32,7 +32,9 @@ Saving images to a compute gallery and replicating those images incurs additiona
     | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Azure compute gallery | If you attach an existing compute gallery. |
     | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Resource group | If you create a new compute gallery. |
 
-    Learn how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps#step-5-assign-role).
+- If your Azure account is a guest user in Azure Active Directory, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to attach an existing compute gallery.
+
+Learn how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps#step-5-assign-role).
 
 ## Scenarios
 
@@ -83,10 +85,12 @@ The Azure Lab Services service principal needs to have the Owner Azure RBAC role
 
 To attach a compute gallery to a lab plan, assign the Owner role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`.
 
+If your Azure account is a guest user, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to perform the role assignment. Learn about [role assignments for guest users](/azure/role-based-access-control/role-assignments-external-users#guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles).
+
 > [!NOTE]
 > When you add a role assignment in the Azure portal, the user interface shows the *object ID* of the service principal, which is different from the *application ID*. The object ID for a service principal can be different in each Azure subscription. You can find the service principal object ID in Azure Active Directory, based on its application ID. Learn more about [Service principal objects](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
-Follow these steps to grant permissions to the Azure Lab Service service principal by using the Azure CLI:
+Follow these steps to grant permissions to the Azure Lab Services service principal by using the Azure CLI:
 
 1. Open [Azure Cloud Shell](https://shell.azure.com). Alternately, select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com).
 
