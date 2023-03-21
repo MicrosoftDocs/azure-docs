@@ -1,15 +1,15 @@
 ---
 title: Troubleshooting the configured permissions limits
 description: Learn why some apps may exceed the limits on configured permissions and how to address this issue.
-author: Jackson-Woods
-ms.author: jawoods
+author: henrymbuguakiarie
+ms.author: henrymbugua
 manager: CelesteDG
 ms.date: 12/08/2022
 ms.topic: reference
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: phsignor
+ms.reviewer: phsignor, jawoods
 ---
 
 # Troubleshooting the configured permissions limits

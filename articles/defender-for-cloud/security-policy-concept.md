@@ -3,7 +3,7 @@ title: Understanding security policies, initiatives, and recommendations in Micr
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 11/02/2022
+ms.date: 01/24/2023
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -20,7 +20,7 @@ There are different types of policies in Azure Policy. Defender for Cloud mainly
 
 ## What is a security initiative?
 
-A security initiative is a collection of Azure Policy definitions, or rules, that are grouped together towards a specific goal or purpose. Security initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
+A security initiative is a collection of Azure Policy definitions, or rules, are grouped together towards a specific goal or purpose. Security initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
 
 A security initiative defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators.
 
@@ -40,7 +40,7 @@ Defender for Cloud offers the following options for working with security initia
 
 Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
 
-Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it is presented as a recommendation in Defender for Cloud.
+Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it's presented as a recommendation in Defender for Cloud.
 
 Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
 

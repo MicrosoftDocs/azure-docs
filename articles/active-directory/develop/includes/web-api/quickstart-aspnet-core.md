@@ -2,14 +2,15 @@
 title: "Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform"
 description: In this quickstart, you download and modify a code sample that demonstrates how to protect an ASP.NET Core web API by using the Microsoft identity platform for authorization.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
 ms.date: 12/09/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-core", mode-api, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web API that uses the Microsoft identity platform to authorize API requests from clients.
 ---

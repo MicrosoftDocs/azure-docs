@@ -3,6 +3,7 @@ title: Overview - Microsoft Defender for IoT for organizations
 description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
 ms.date: 12/25/2022
+ms.custom: enterprise-iot
 ---
 
 # Welcome to Microsoft Defender for IoT for organizations
@@ -94,8 +95,6 @@ For more information, see the [Microsoft Defender for IoT for device builders do
 ## Supported service regions
 
 Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *East US* regional datacenter.
-
-If you're using Defender for IoT OT monitoring software earlier than [22.1](release-notes.md#versions-222x) and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 ## Next steps
 

@@ -3,9 +3,9 @@ title: Perform actions using Backup center
 description: This article explains how to perform actions using Backup center
 ms.topic: how-to
 ms.date: 12/08/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Perform actions using Backup center
 

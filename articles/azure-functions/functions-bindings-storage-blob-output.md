@@ -427,11 +427,13 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The usage of the Blob output binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+The binding types supported by Blob output depend on the extension package version and the C# modality used in your function app. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
 
-[!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)]
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
 
+If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
 
+[!INCLUDE [functions-bindings-blob-storage-attribute](../../includes/functions-bindings-blob-storage-attribute.md)]
 ::: zone-end  
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"

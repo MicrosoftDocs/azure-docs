@@ -3,7 +3,7 @@ title: Mount a virtual file system on a pool
 description: Learn how to mount a virtual file system on a Batch pool.
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ms.date: 11/11/2021
 ---
 
@@ -173,7 +173,7 @@ net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<
     The specified network password is not correct.
     ```
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Windows Server Message Block (SMB)](../storage/files/storage-troubleshoot-windows-file-connection-problems.md).
+1. Troubleshoot the problem using the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares).
 
 # [Linux](#tab/linux)
 
@@ -183,7 +183,7 @@ net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<
 
 1. Review the error messages. For example, `mount error(13): Permission denied`.
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Linux (SMB)](../storage/files/storage-troubleshoot-linux-file-connection-problems.md).
+1. Troubleshoot the problem using [Troubleshoot Azure Files connectivity and access issues (SMB)](../storage/files/files-troubleshoot-smb-connectivity.md).
 
 ---
 
@@ -223,7 +223,7 @@ If you can't use RDP or SSH to check the log files on the node, check the Batch 
     The specified network password is not correct.
     ```
 
-1. Troubleshoot the problem using [Troubleshoot Azure Files problems in Windows (SMB)](../storage/files/storage-troubleshoot-windows-file-connection-problems.md) or [Troubleshoot Azure Files problems in Linux (SMB)](../storage/files/storage-troubleshoot-linux-file-connection-problems.md).
+1. Troubleshoot the problem using the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares).
 
 If you're still unable to find the cause of the failure, you can [mount the file share manually with PowerShell](#manually-mount-file-share-with-powershell) instead.
 

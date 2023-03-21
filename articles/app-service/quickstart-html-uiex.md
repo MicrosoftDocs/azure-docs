@@ -162,4 +162,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Map custom domain
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

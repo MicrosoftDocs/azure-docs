@@ -1,18 +1,17 @@
 ---
-title: Introduction to IP flow verify in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher IP flow verify capability
+title: Introduction to IP flow verify
+titleSuffix: Azure Network Watcher
+description: This page provides an overview of Azure Network Watcher IP flow verify capability.
 services: network-watcher
-documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: conceptual
+ms.workload: infrastructure-services
 ms.date: 10/04/2022
-ms.author: shijaiswal
+ms.author: halkazwini
 ---
 
-# Introduction to IP flow verify in Azure Network Watcher
+# Introduction to Azure Network Watcher IP flow verify 
 
 IP flow verify checks if a packet is allowed or denied to or from a virtual machine. The information consists of direction, protocol, local IP, remote IP, local port, and a remote port. If the packet is denied by a security group, the name of the rule that denied the packet is returned. While any source or destination IP can be chosen, IP flow verify helps administrators quickly diagnose connectivity issues from or to the internet and from or to the on-premises environment.
 

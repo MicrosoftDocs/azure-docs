@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 5/19/2021
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management 
@@ -33,7 +33,7 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 **Prerequisite role**: Global Administrator
 
-1. Sign in to the Azure portal as a user who is a Global Admin. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the Azure portal as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Select **Azure Active Directory** then click **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
@@ -110,7 +110,7 @@ For more information on the columns that are stored for audit events in Azure Mo
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 
-You can access logs through PowerShell after you've configured Azure AD to send logs to Azure Monitor. Then, send queries from scripts or the PowerShell command line, without needing to be a Global Admin in the tenant. 
+You can access logs through PowerShell after you've configured Azure AD to send logs to Azure Monitor. Then, send queries from scripts or the PowerShell command line, without needing to be a Global Administrator in the tenant. 
 
 ### Ensure the user or service principal has the correct role assignment
 

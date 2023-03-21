@@ -106,6 +106,7 @@ Confidential VMs *don't support*:
 - Ultra disks
 - Accelerated Networking
 - Live migration
+- Screenshots under boot diagnostics
 
 
 ## Next steps

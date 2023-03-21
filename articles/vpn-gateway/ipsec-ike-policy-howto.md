@@ -2,12 +2,10 @@
 title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using the Azure portal.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/30/2023
 ms.author: cherylmc
 
 ---
@@ -138,7 +136,7 @@ The steps to create a VNet-to-VNet connection with an IPsec/IKE policy are simil
 
 ### Step 1 - Create the virtual network, VPN gateway, and local network gateway for TestVNet2
 
-Use the steps in the [Create a VNet-to-VNet connection](/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2 and create a VNet-to-VNet connection to TestVNet1.
+Use the steps in the [Create a VNet-to-VNet connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2 and create a VNet-to-VNet connection to TestVNet1.
 
 Example values:
 
@@ -214,6 +212,10 @@ Example values:
 1. To remove a custom policy from a connection, go to the connection resource.
 1. On the **Configuration** page, change the IPse /IKE policy from **Custom** to **Default**. This will remove all custom policy previously specified on the connection, and restore the Default IPsec/IKE settings on this connection.
 1. Select **Save** to remove the custom policy and restore the default IPsec/IKE settings on the connection.
+
+## IPsec/IKE policy FAQ
+
+To view frequently asked questions, go to the IPsec/IKE policy section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#ipsecike).
 
 ## Next steps
 

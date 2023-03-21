@@ -4,6 +4,8 @@ description: Learn how to create and configure Recovery Services vaults, and how
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.custom: references_regions, engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and configure a Recovery Services vault

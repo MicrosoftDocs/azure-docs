@@ -1,16 +1,14 @@
 ---
-title: Manage packet captures in Virtual machine scale sets - Azure PowerShell
+title: Manage packet captures in virtual machine scale sets - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: This page explains how to manage the packet capture feature of Network Watcher in virtual machine scale set using PowerShell
+description: Learn how to manage packet captures in virtual machine scale sets with the packet capture feature of Network Watcher using PowerShell.
 services: network-watcher
-documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 06/07/2022
-ms.author: shijaiswal 
+ms.author: halkazwini 
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 

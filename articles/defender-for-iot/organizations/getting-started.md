@@ -1,7 +1,7 @@
 ---
 title: Get started with OT network security monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
-ms.topic: quickstart
+ms.topic: get-started
 ms.date: 12/25/2022
 ---
 
@@ -37,7 +37,7 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
 **To add your plan**:
 
-1. In the Azure portal, go to **Defender for IoT** and select **Plans and pricing** > **Add plan**.
+1. In the Azure portal, go to [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) and select **Plans and pricing** > **Add plan**.
 
 1. In the **Plan settings** pane, define the following settings:
 

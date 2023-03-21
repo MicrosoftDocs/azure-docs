@@ -9,7 +9,7 @@ ms.topic: reference
 
 This article lists the sensor health messages displayed in the **Sites and sensors** page in the Azure portal.
 
-For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).
+For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health).
 
 ## Critical messages
 

@@ -131,10 +131,17 @@ This section walks through updating that pull secret with additional values from
 Run the following command to update your pull secret.
 
 > [!NOTE]
-> Running this command will cause your cluster nodes to restart one by one as they're updated.
+> In ARO 4.9 or older, running this command will cause your cluster nodes to restart one by one as they're updated.
+> In ARO 4.10 version or later a restart will not be triggered.
 
 ```console
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=./pull-secret.json
+```
+
+### Verify that pull secret is in place
+
+```
+oc exec -n openshift-apiserver $(oc get pod -n openshift-apiserver -o jsonpath="{.items[0].metadata.name}") -- cat /var/lib/kubelet/config.json
 ```
 
 After the secret is set, you're ready to enable Red Hat Certified Operators.

@@ -1,5 +1,5 @@
 ---
-title: Change Data Capture
+title: Change data capture
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about change data capture in Azure Data Factory and Azure Synapse Analytics.
 author: kromerm
@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/23/2023
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -23,6 +23,10 @@ To learn more, see [Azure Data Factory overview](introduction.md) or [Azure Syna
 ## Overview
 
 When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. ADF provides multiple different ways for you to easily get delta data only from the last run.
+
+### Change Data Capture factory resource
+
+The easiest and quickest way to get started in data factory with CDC is through the factory level Change Data Capture resource. From the main pipeline designer, click on New under Factory Resources to create a new Change Data Capture. The CDC factory resource will provide a configuration walk-through experience where you will point to your sources and destinations, apply optional transformations, and then click start to begin your data capture. With the CDC resource, you will not need to design pipelines or data flow activities and the only billing will be 4 cores of General Purpose data flows while your data in being processed. You set a latency which ADF will use to wake-up and look for changed data. That is the only time you will be billed. The top-level CDC resource is also the ADF method of running your processes continuously. Pipelines in ADF are batch only. But the CDC resource can run continuously.
 
 ### Native change data capture in mapping data flow
 
@@ -59,13 +63,13 @@ You can always build your own delta data extraction pipeline for all ADF support
 
 ## Best Practices
 
-**Change data capture from databases:**
+**Change data capture from databases**
 
 -   Native change data capture is always recommended as the simplest way for you to get change data. It also brings much less burden on your source database when ADF extracts the change data for further processing. 
 -   If your database stores are not part of the ADF connector list with native change data capture support, we recommend you to check the auto incremental extraction option where you only need to input incremental column to capture the changes. ADF will take care of the rest including creating a dynamic query for delta loading and managing the checkpoint for each activity run. 
 -   Customer managed delta data extraction in pipeline covers all the ADF supported databases and give you the flexibility to control everything by yourself. 
 
-**Change files capture from file based storages:**
+**Change files capture from file based storages**
 
 -   When you want to load data from Azure Blob Storage, Azure Data Lake Storage Gen2 or Azure Data Lake Storage Gen1, mapping data flow provides you the opportunity to get new or updated files only by simple one click. It is the simplest and recommended way for you to achieve delta load from these file based storages in mapping data flow. 
 -   You can get more [best practices](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/best-practices-of-how-to-use-adf-copy-activity-to-copy-new-files/ba-p/1532484). 
@@ -96,3 +100,5 @@ The followings are the templates to use the change data capture in Azure Data Fa
 ## Next steps
 
 - [Learn how to use the checkpoint key in the data flow activity](control-flow-execute-data-flow-activity.md).
+- [Learn about the ADF Change Data Capture resource](concepts-change-data-capture-resource.md).
+- [Walk through building a top-level CDC artifact](how-to-change-data-capture-resource.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - Bicep'
-description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using Bicep.
+title: 'Quickstart: Create an Azure Database for PostgreSQL Flexible Server - Bicep'
+description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using Bicep.
 author: mumian
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -25,7 +25,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the Bicep
 
-An Azure Database for PostgresSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
+An Azure Database for PostgreSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
 
 Create a _main.bicep_ file and copy the following Bicep into it.
 
@@ -58,7 +58,7 @@ resource serverName_resource 'Microsoft.DBforPostgreSQL/flexibleServers@2021-06-
     administratorLogin: administratorLogin
     administratorLoginPassword: administratorLoginPassword
     network: {
-      delegatedSubnetResourceId: (empty(virtualNetworkExternalId) ? json('null') : json('${virtualNetworkExternalId}/subnets/${subnetName}'))
+      delegatedSubnetResourceId: (empty(virtualNetworkExternalId) ? json('null') : json('\'${virtualNetworkExternalId}/subnets/${subnetName}\''))
       privateDnsZoneArmResourceId: (empty(virtualNetworkExternalId) ? json('null') : privateDnsZoneArmResourceId)
     }
     highAvailability: {

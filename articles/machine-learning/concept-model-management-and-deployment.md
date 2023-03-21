@@ -8,9 +8,9 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022, ignite-2022
-ms.date: 05/11/2022
+ms.date: 01/04/2023
 ---
 
 # MLOps: Model management, deployment, and monitoring with Azure Machine Learning
@@ -21,7 +21,7 @@ ms.date: 05/11/2022
 > * [v1](./v1/concept-model-management-and-deployment.md)
 > * [v2 (current version)](concept-model-management-and-deployment.md)
 
-In this article, learn about how do Machine Learning Operations (MLOps) in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
+In this article, learn how to apply Machine Learning Operations (MLOps) practices in Azure Machine Learning for the purpose of managing the lifecycle of your models. Applying MLOps practices can improve the quality and consistency of your machine learning solutions. 
 
 ## What is MLOps?
 
@@ -178,6 +178,7 @@ For more information on using Azure Pipelines with Machine Learning, see:
 
 Learn more by reading and exploring the following resources:
 
++ [Set up MLOps with Azure DevOps](how-to-setup-mlops-azureml.md)
 + [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
 + [How to deploy a model to an online endpoint](how-to-deploy-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)

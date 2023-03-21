@@ -1,5 +1,5 @@
 ---
-title: Change resource roles for an access package in entitlement management - Azure AD
+title: Change resource roles for an access package in entitlement management
 description: Learn how to change the resource roles for an existing access package in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/14/2020
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management

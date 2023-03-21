@@ -26,6 +26,8 @@ Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/o
 
 This article demonstrates how to create the application step by step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
 Before you begin, have the following tools and services:
@@ -34,9 +36,7 @@ Before you begin, have the following tools and services:
 
 + [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com)
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-You can use a free service for this quickstart. 
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
 ## Set up your project
 

@@ -2,7 +2,7 @@
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 01/10/2023
 ms.reviewer: saars
 ---
 
@@ -19,7 +19,7 @@ Alternatively, you can subscribe to this page as an RSS feed by adding https://g
 
 ## Outgoing ports
 
-You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Status Monitor to send data to the portal.
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Application Insights Agent to send data to the portal.
 
 | Purpose | URL | Type | IP | Ports |
 | --- | --- | --- | --- | --- |
@@ -35,11 +35,11 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 > [!NOTE]
 > As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Application Insights connection-string based regional telemetry endpoints only support TLS 1.2. Global telemetry endpoints continue to support TLS 1.0 and TLS 1.1.
 >
-> If you're using an older version of TLS, Application Insights will not ingest any telemetry. For applications based on .NET Framework see [Transport Layer Security (TLS) best practices with the .NET Framework](https://learn.microsoft.com/dotnet/framework/network-programming/tls) to support the newer TLS version.
+> If you're using an older version of TLS, Application Insights will not ingest any telemetry. For applications based on .NET Framework see [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) to support the newer TLS version.
 
-## Status Monitor
+## Application Insights Agent
 
-Status Monitor configuration is needed only when you're making changes.
+Application Insights Agent configuration is needed only when you're making changes.
 
 | Purpose | URL | Ports |
 | --- | --- | --- |
@@ -54,7 +54,7 @@ Status Monitor configuration is needed only when you're making changes.
 
 ## Availability tests
 
-This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
+This is the list of addresses from which [availability web tests](./availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
 
 > [!NOTE]
 > For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).

@@ -7,8 +7,9 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 01/25/2023
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI
@@ -149,6 +150,13 @@ Results should look similar to the following output:
   "tags": null,
   "type": "Microsoft.Search/searchServices"
 }
+```
+
+[**az search service delete**](/cli/azure/search/service#az-search-service-delete-required-parameters) removes the service and its data.
+
+```azurecli-interactive
+az search service delete --name <service-name> \
+                         --resource-group  <search-service-resource-group-name> \
 ```
 
 ### Create a service with IP rules

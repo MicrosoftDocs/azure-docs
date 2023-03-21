@@ -220,13 +220,12 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
     ```cmd/sh
     npm install node-gyp -g
-    npm install ffi -g
+    npm install ffi-napi -g
     ```
-
     > [!NOTE]
-    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands.
+    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands. 
     >
-
+    
 5. Install all required packages running the following command at your command prompt in the **registerdevice** folder:
 
     ```cmd/sh

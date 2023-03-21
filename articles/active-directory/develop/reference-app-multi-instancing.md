@@ -11,6 +11,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/06/2023
 ms.author: davidmu
+ms.reviewer: rahulnagraj, alamaral, jeedes
 ---
 
 # Configure SAML app multi-instancing for an application in Azure Active Directory

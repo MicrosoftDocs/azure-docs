@@ -39,10 +39,10 @@ landingContent:
       links:
         - text: Connect a Microchip ATSAME54-XPro to IoT Hub
           url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+        - text: Connect an STMicroelectronics U585I-IOT02A to IoT Hub
+          url: quickstart-devkit-stm-b-u585i-iot-hub.md
         - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Hub
           url: quickstart-devkit-stm-b-l4s5i-iot-hub.md
-        - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
-          url: quickstart-devkit-stm-b-l475e-iot-hub.md
         - text: Connect an NXP MIMXRT1060-EVK to IoT Hub
           url: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
   - title: Build device solutions
@@ -63,7 +63,5 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect an ESPRESSIF ESP-32 to Azure IoT Central
-          url: quickstart-devkit-espressif-esp32-freertos.md
-        - text: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Central
-          url: quickstart-devkit-stm-b-l475e-freertos.md
+        - text: Connect an ESPRESSIF ESP-32 to Azure IoT Hub
+          url: quickstart-devkit-espressif-esp32-freertos-iot-hub.md

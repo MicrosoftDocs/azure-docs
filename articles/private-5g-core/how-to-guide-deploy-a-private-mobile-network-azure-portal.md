@@ -1,7 +1,7 @@
 ---
 title: Deploy a private mobile network - Azure portal
-titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
+titleSuffix: Azure Private 5G Core
+description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core using the Azure portal 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -10,15 +10,15 @@ ms.date: 01/03/2022
 ms.custom: template-how-to
 ---
 
-# Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal
+# Deploy a private mobile network through Azure Private 5G Core - Azure portal
 
 Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. In this how-to guide, you'll use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
 
 ## Prerequisites
 
-- Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Complete all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Commission the AKS cluster](commission-cluster.md).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
-- Collect all of the information listed in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md). You may also need to take the following steps based on the decisions you made when collecting this information.
+- Collect all of the information listed in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). You may also need to take the following steps based on the decisions you made when collecting this information.
 
   - If you decided you wanted to provision SIMs using a JSON file, ensure you've prepared this file and made it available on the machine you'll use to access the Azure portal. For more information on the file format, see [JSON file format for provisioning SIMs](collect-required-information-for-private-mobile-network.md#json-file-format-for-provisioning-sims).
   - If you decided you want to use the default service and SIM policy, identify the name of the data network to which you want to assign the policy.
@@ -63,21 +63,22 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     If the validation fails, you'll see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once the configuration has been validated, select **Create** to create the Mobile Network resource and any SIM resources.
+1. Once the configuration has been validated, select **Create** to create the Mobile Network, slice, and any SIM resources.
 1. The Azure portal will now deploy the resources into your chosen resource group. You'll see the following confirmation screen when your deployment is complete.
 
     :::image type="content" source="media/pmn-deployment-complete.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful creation of a private mobile network.":::
 
-    Select **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** resource. It may also contain the following, depending on the choices you made during the procedure. 
+1. Select **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** and **Slice** resources. It may also contain the following, depending on the choices you made during the procedure.
 
     - A **SIM group** resource (if you provisioned SIMs).
-    - **Service**, **SIM Policy**, **Data Network**, and **Slice** resources (if you decided to use the default service and SIM policy).
+    - **Service**, **SIM Policy**, and **Data Network** resources (if you decided to use the default service and SIM policy).
 
     :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network, SIM, SIM group, Service, SIM policy, Data Network, and Slice resources.":::
 
 ## Next steps
 
-You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can start adding sites to your private mobile network.  
+You can begin designing policy control to determine how your private mobile network will handle traffic, create more network slices, or start adding sites to your private mobile network.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
+- [Create and manage network slices](create-manage-network-slices.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)

@@ -472,6 +472,8 @@
       href: template-functions-date.md
     - name: Deployment functions
       href: template-functions-deployment.md
+    - name: Lambda functions
+      href: template-functions-lambda.md
     - name: Logical functions
       href: template-functions-logical.md
     - name: Numeric functions

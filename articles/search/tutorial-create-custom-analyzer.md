@@ -39,8 +39,7 @@ Source code for this tutorial is in the [custom-analyzers](https://github.com/Az
 
 To complete this tutorial, you'll need an Azure Cognitive Search service, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough.
 
-For the next step, you'll need to know the name of your search service and its API Key. If you're unsure how to find those items, check out this [quickstart](search-create-service-portal.md#get-a-key-and-url-endpoint).
-
+For the next step, you'll need to know the name of your search service and its API Key. If you're unsure how to find those items, check out this [REST quickstart](search-get-started-rest.md).
 
 ## 2 - Set up Postman
 

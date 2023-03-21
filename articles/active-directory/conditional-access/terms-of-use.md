@@ -38,7 +38,7 @@ Azure AD terms of use policies have the following capabilities:
 - Require employees or guests to accept your terms of use policy before getting access.
 - Require employees or guests to accept your terms of use policy on every device before getting access.
 - Require employees or guests to accept your terms of use policy on a recurring schedule.
-- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multi-Factor Authentication (MFA).
+- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multifactor Authentication (MFA).
 - Require employees to accept your terms of use policy before registering security information in Azure AD self-service password reset (SSPR).
 - Present a general terms of use policy for all users in your organization.
 - Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
@@ -373,6 +373,9 @@ You can configure a Conditional Access policy for the Microsoft Intune Enrollmen
 
 > [!NOTE]
 > The Intune Enrollment app is not supported for [Per-device terms of use](#per-device-terms-of-use).
+
+> [!NOTE]
+> For iOS/iPadOS Automated device enrollment, adding a custom URL to the Azure AD Terms of Use policy doesn't allow for users to open the policy from the URL in Setup Assistant to read it. The policy can be read by the user after Setup Assistant is completed from the Company Portal website, or in the Company Portal app. 
 
 ## Frequently asked questions
 

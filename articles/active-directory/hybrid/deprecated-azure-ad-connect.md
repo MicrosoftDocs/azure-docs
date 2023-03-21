@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 # Using a deprecated version of Azure AD Connect
 
 You may have received a notification email that says that your [Azure AD Connect version is deprecated](whatis-azure-ad-connect-v2.md) and no longer supported.  Or, you may have read a portal recommendation about upgrading your Azure AD Connect version. What is next?
+
+[!INCLUDE [Choose cloud sync](../../../includes/choose-cloud-sync.md)]
 
 Using a deprecated and unsupported version of Azure AD Connect isn't recommended and not supported. Deprecated and unsupported versions of Azure AD Connect may **unexpectedly stop working**.  In these instances, you may need to install the latest version of Azure AD Connect as your only remedy to restore your sync process. 
 

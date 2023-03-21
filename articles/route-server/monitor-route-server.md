@@ -1,12 +1,14 @@
 ---
-title: 'Monitoring Azure Route Server'
-description: Learn Azure Route Server monitoring using Azure Monitor.
+title: Monitor Azure Route Server
+description: Learn how to monitor Azure Route Server metrics using Azure Monitor.
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
 ms.date: 05/16/2022
+ms.custom: template-how-to
 ---
+
 # Monitor Azure Route Server
 
 This article helps you understand Azure Route Server monitoring and metrics using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting and diagnostic logs across all of Azure.

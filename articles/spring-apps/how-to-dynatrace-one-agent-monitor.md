@@ -79,21 +79,19 @@ az spring app deploy \
         DT_CONNECTION_POINT=<your-communication-endpoint>
 ```
 
-#### Option 2: Portal
+#### Option 2: Azure portal
 
 To add the key/value pairs using the Azure portal, use the following steps:
 
-1. Navigate to the list of your existing applications.
+1. In your Azure Spring Apps instance, select **Apps** in the navigation pane.
 
-   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps section." lightbox="media/dynatrace-oneagent/existing-applications.png":::
+   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/dynatrace-oneagent/existing-applications.png":::
 
-1. Select an application to navigate to the **Overview** page of the application.
+1. Select the application from the list, and then select **Configuration** in the navigation pane.
 
-   :::image type="content" source="media/dynatrace-oneagent/overview-application.png" alt-text="Screenshot of the application's Overview section." lightbox="media/dynatrace-oneagent/overview-application.png":::
+1. Use the **Environmental variables** tab to add or update the variables used by your application.
 
-1. Select **Configurations** to add, update, or delete values in the **Environment variables** section for the application.
-
-   :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="Screenshot of the 'Environment variables' tab of the application's Configuration section." lightbox="media/dynatrace-oneagent/configuration-application.png":::
+   :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/dynatrace-oneagent/configuration-application.png":::
 
 ## Automate provisioning
 

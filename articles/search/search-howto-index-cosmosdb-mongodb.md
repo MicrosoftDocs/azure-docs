@@ -16,7 +16,7 @@ ms.date: 01/18/2023
 > [!IMPORTANT] 
 > MongoDB API support is currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) and makes it searchable in Azure Cognitive Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb/introduction.md) and makes it searchable in Azure Cognitive Search.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -41,6 +41,9 @@ These are the limitations of this feature:
 + Custom queries aren't supported for specifying the data set.
 
 + The column name `_ts` is a reserved word. If you need this field, consider alternative solutions for populating an index. 
+
++ The MongoDB attribute `$ref` is a reserved word. If you need this in your MongoDB collection, consider alternative solutions for populating an index. 
+
 
 As an alternative to this connector, if your scenario has any of those requirements, you could use the [Push API/SDK](search-what-is-data-import.md) or consider [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) with an [Azure Cognitive Search index](../data-factory/connector-azure-search.md) as the sink.
 
@@ -106,7 +109,7 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 
 ## Add search fields to an index
 
-In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-db-items) in your data source.
+In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/resource-model.md#azure-cosmos-db-items) in your data source.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
 

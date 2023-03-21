@@ -4,6 +4,7 @@ description: Set up Azure Container Apps to authenticate Azure Container Registr
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: v-bcatherine

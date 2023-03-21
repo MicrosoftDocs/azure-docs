@@ -1,7 +1,7 @@
 ---
 title: Device Update for Azure IoT Hub log collection | Microsoft Docs
 description: Device Update for IoT Hub enables remote collection of diagnostic logs from connected IoT devices.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 10/26/2022
 ms.topic: how-to

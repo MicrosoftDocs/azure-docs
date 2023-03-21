@@ -3,7 +3,7 @@ title: include file
 description: include file for confidential client scenario landing pages (daemon, web app, web API)
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,7 +12,8 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/14/2020
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ---
 
 ## Add a client secret or certificate

@@ -1,10 +1,10 @@
 ---
-title: Understand how Device Update for IoT Hub uses IoT Plug and Play | Microsoft Docs
+title: Understand how Device Update for IoT Hub uses IoT Plug and Play
 description: Device Update for IoT Hub uses to discover and manage devices that are over-the-air update capable.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 1/26/2022
-ms.topic: conceptual
+ms.date: 2/2/2023
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
@@ -43,7 +43,7 @@ The Device Update agent uses agent metadata fields to send information to Device
 |resultDetails|string|device to cloud|Customer-defined free form string to provide additional result details. Returned to the twin without parsing||
 |stepResults|map|device to cloud|The result reported by the agent containing result code, extended result code, and result details for step updates. | "step_1": { "resultCode": 0,"extendedResultCode": 0, "resultDetails": ""}|
 |state|integer|device to cloud| An integer that indicates the current state of the Device Update agent. | See [State](#state) section for details. |
-|workflow|complex|device to cloud| A set of values that indicate which deployment the agent is currently working on, ID of current deployment, and acknowledgment of any retry request sent from service to agent.|"workflow": {"action": 3,"ID": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01","retryTimestamp": "2022-01-26T11:33:29.9680598Z"}|
+|workflow|complex|device to cloud| A set of values that indicate which deployment the agent is currently working on, ID of current deployment, and acknowledgment of any retry request sent from service to agent. Note that the workflow ID reports a "nodeployment" value once the deployment is cancelled. |"workflow": {"action": 3,"ID": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01","retryTimestamp": "2022-01-26T11:33:29.9680598Z"}|
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value is a string capturing the Update ID JSON or null for a device that has never taken an update through Device Update.|installedUpdateID{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 
 #### Device properties

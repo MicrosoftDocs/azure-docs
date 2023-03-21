@@ -5,6 +5,7 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 09/26/2022
 ---

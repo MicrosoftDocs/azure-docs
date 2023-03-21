@@ -2,7 +2,7 @@
 title:  Azure Video Indexer accounts  
 description: This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
 ms.topic: conceptual
-ms.date: 12/21/2022
+ms.date: 01/25/2023
 ms.author: juliako
 ---
 

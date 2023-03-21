@@ -3,10 +3,9 @@ title: Switch to Azure Monitor based alerts for Azure Backup
 description: This article describes the new and improved alerting capabilities via Azure Monitor and the process to configure Azure Monitor.
 ms.topic: how-to
 ms.date: 09/14/2022
-author: v-amallick
 ms.service: backup
-manager: jsuri
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Switch to Azure Monitor based alerts for Azure Backup
@@ -169,7 +168,7 @@ The following example of the vault settings property shows that the classic aler
 
 #### Using Azure PowerShell
 
-To modify the alert settings of the vault, use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault?view=azps-8.2.0&preserve-view=true) command.
+To modify the alert settings of the vault, use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) command.
 
 The following example helps you to enable built-in Azure Monitor alerts for job failures and disables classic alerts:
 
@@ -196,7 +195,7 @@ az backup vault backup-properties set \
 You can use the following standard programmatic interfaces supported by Azure Monitor to manage action groups and alert processing rules.
 
 - [Azure Monitor REST API reference](/rest/api/monitor/)
-- [Azure Monitor PowerShell reference](/powershell/module/az.monitor/?view=azps-8.0.0&preserve-view=true)
+- [Azure Monitor PowerShell reference](/powershell/module/az.monitor/)
 - [Azure Monitor CLI reference](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
 
 #### Using Azure Resource Manager (ARM)/ Bicep/ REST API
@@ -209,14 +208,14 @@ As described in earlier sections, you need an action group (notification channel
 
 To configure the notification, run the following cmdlet:
 
-1. Create an action group associated with an email ID using the [New-AzActionGroupReceiver](/powershell/module/az.monitor/new-azactiongroupreceiver?view=azps-8.2.0&preserve-view=true) cmdlet and the [Set-AzActionGroup](/powershell/module/az.monitor/set-azactiongroup?view=azps-8.2.0&preserve-view=true) cmdlet.
+1. Create an action group associated with an email ID using the [New-AzActionGroupReceiver](/powershell/module/az.monitor/new-azactiongroupreceiver) cmdlet and the [Set-AzActionGroup](/powershell/module/az.monitor/set-azactiongroup) cmdlet.
 
    ```powershell
    $email1 = New-AzActionGroupReceiver -Name 'user1' -EmailReceiver -EmailAddress 'user1@contoso.com'
    Set-AzActionGroup -Name "testActionGroup" -ResourceGroupName "testRG" -ShortName "testAG" -Receiver $email1
    ```
 
-1. Create an alert processing rule that's linked to the above action group using the [Set-AzAlertProcessingRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule?view=azps-8.2.0&preserve-view=true) cmdlet.
+1. Create an alert processing rule that's linked to the above action group using the [Set-AzAlertProcessingRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) cmdlet.
 
    ```powershell
    Set-AzAlertProcessingRule -ResourceGroupName "testRG" -Name "AddActionGroupToSubscription" -Scope "/subscriptions/xxxx-xxx-xxxx" -FilterTargetResourceType "Equals:Microsoft.RecoveryServices/vaults" -Description "Add ActionGroup1 to alerts on all RS vaults in subscription" -Enabled "True" -AlertProcessingRuleType "AddActionGroups" -ActionGroupId "/subscriptions/xxxx-xxx-xxxx/resourcegroups/testRG/providers/microsoft.insights/actiongroups/testActionGroup"

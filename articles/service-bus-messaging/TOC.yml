@@ -215,6 +215,8 @@
       href: migrate-jms-activemq-to-servicebus.md
     - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
       href: deprecate-service-bus-management.md
+    - name: Migrate to Passwordless Connections
+      href: service-bus-migrate-azure-credentials.md
   - name: Monitor
     items:
     - name: End-to-end tracing and diagnostics

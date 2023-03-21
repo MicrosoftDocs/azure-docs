@@ -12,13 +12,13 @@ ms.date: 09/01/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-To run specific actions in your logic app only after passing a specified condition, 
+To run specific actions in your logic app workflow only after passing a specified condition, 
 add a *condition action*. This control structure compares the data in your 
 workflow against specific values or fields. You can then specify different actions 
 that run based on whether or not the data meets the condition. 
 You can nest conditions inside each other.
 
-For example, suppose you have a logic app that sends too 
+For example, suppose you have a logic app workflow that sends too 
 many emails when new items appear on a website's RSS feed. 
 You can add a condition action to send email only 
 when the new item includes a specific string. 
@@ -32,18 +32,15 @@ when the new item includes a specific string.
 * An Azure subscription. If you don't have a subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
-* To follow the example in this article, 
-[create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com account or a work or school account.
+* To follow the example in this article, [create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
 
 ## Add condition
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Add a condition at the location that you want. 
+1. Add a condition at the location that you want.
 
    To add a condition between steps, move the pointer over the arrow where 
    you want to add the condition. Choose the **plus sign** (**+**) that appears, 
@@ -124,12 +121,6 @@ Here's the high-level code definition behind a condition action:
   }
 },
 ```
-
-## Get support
-
-* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
-* To submit or vote on features and suggestions, visit the 
-[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

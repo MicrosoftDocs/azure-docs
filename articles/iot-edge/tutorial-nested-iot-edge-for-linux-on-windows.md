@@ -7,7 +7,6 @@ ms.author: fcabrera
 ms.date: 11/15/2022
 ms.topic: tutorial
 ms.service: iot-edge
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows

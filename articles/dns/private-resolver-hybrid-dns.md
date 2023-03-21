@@ -59,7 +59,7 @@ In this article, the private zone **azure.contoso.com** and the resource record 
 
 ## Create an Azure DNS Private Resolver
 
-The following quickstarts are available to help you create a private resolver. These quickstarts walk you through creating a resource group, a virtual network, and Azure DNS Private Resolver.  The steps to configure an inbound endpoint, outbound endpoint, and DNS forwarding ruleset are provied: 
+The following quickstarts are available to help you create a private resolver. These quickstarts walk you through creating a resource group, a virtual network, and Azure DNS Private Resolver.  The steps to configure an inbound endpoint, outbound endpoint, and DNS forwarding ruleset are provided: 
 - [Create a private resolver - portal](dns-private-resolver-get-started-portal.md)
 - [Create a private resolver - PowerShell](dns-private-resolver-get-started-powershell.md) 
 

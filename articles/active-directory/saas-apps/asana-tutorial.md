@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Asana | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Asana'
 description: Learn how to configure single sign-on between Azure Active Directory and Asana.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 01/27/2023
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Asana
+# Tutorial: Azure AD SSO integration with Asana
 
 In this tutorial, you'll learn how to integrate Asana with Azure Active Directory (Azure AD). When you integrate Asana with Azure AD, you can:
 
@@ -46,7 +46,7 @@ To configure the integration of Asana into Azure AD, you need to add Asana from 
 1. In the **Add from the gallery** section, type **Asana** in the search box.
 1. Select **Asana** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Asana
 
@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Asana, perform the following steps:
     1. **[Create Asana test user](#create-asana-test-user)** - to have a counterpart of B.Simon in Asana that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -69,28 +69,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Asana Domain and URLs single sign-on information](common/sp-identifier.png)
-
-    a. In the **Sign on URL** text box, type the URL:
+    a. In the **Identifier (Entity ID)** text box, type the URL:
     `https://app.asana.com/`
 
-    b. In the **Identifier (Entity ID)** text box, type the URL:
-    `https://app.asana.com/`
+    > [!Note]
+    > If you require a different value to the Identifier (Entity ID) please [get in touch with us](https://form-beta.asana.com/?k=BT9rHN4rEoRKARjEYg6neA&d=15793206719).
     
-    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL:
+    b. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL:
     `https://app.asana.com/-/saml/consume`
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+    c. In the **Sign on URL** text box, type the URL:
+    `https://app.asana.com/`
 
-    ![The Certificate download link](common/certificatebase64.png)
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-6. On the **Set up Asana** section, copy the appropriate URL(s) as per your requirement.
+    ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
-    ![Copy configuration URLs](common/copy-configuration-urls.png)
+1. On the **Set up Asana** section, copy the appropriate URL(s) as per your requirement.
+
+    ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
 ### Create an Azure AD test user
 
@@ -118,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure Asana SSO
 
-1. In a different browser window, sign-on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking the workspace name on the top right corner of the screen. Then, click on **\<your workspace name\> Settings**.
+1. In a different browser window, sign on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking the workspace name on the top right corner of the screen. Then, click on **\<your workspace name\> Settings**.
 
     ![Asana sso settings](./media/asana-tutorial/settings.png)
 

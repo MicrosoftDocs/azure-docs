@@ -1,10 +1,10 @@
 ---
 title: 'Monitoring Azure DDoS Protection'
-description: Important reference material needed when you monitor DDoS Protection 
+description: Important reference material needed when you monitor DDoS Protection.
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 12/19/2022
 ms.custom: template-concept
 ---

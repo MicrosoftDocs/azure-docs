@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design access control requirements Azure | Microsoft Docs
+title: Hybrid identity design access control requirements Azure
 description: Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment.
 documentationcenter: ''
 services: active-directory
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1

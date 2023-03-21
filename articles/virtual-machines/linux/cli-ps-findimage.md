@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to find image URNs and purchase plan
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 12/9/2022
+ms.date: 02/09/2023
 author: ebolton-cyber
 ms.author: mattmcinnes
 ms.collection: linux
@@ -44,24 +44,22 @@ az vm image list --output table
 The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *UbuntuLTS*.
 
 ```output
-Offer                         Publisher               Sku                                 Urn                                     UrnAlias                 Version
-----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
-CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest
-                                     CentOS                   latest
-debian-10                     Debian                  10                                  Debian:debian-10:10:latest
-                                     Debian                   latest
-flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
-opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
-RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                     RHEL                     latest
-sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                     SLES                     latest
-UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
-WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                     Win2022Datacenter        latest
-WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest  Win2022AzureEditionCore  latest
-WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                     Win2019Datacenter        latest
-WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                     Win2016Datacenter        latest
-WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                  Win2012R2Datacenter      latest
-WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                     Win2012Datacenter        latest
-WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
+Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
+--------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
+x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                     CentOS                   latest
+x64             debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                      Debian                   latest
+x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
+x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
+x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
+x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
+x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                     Win2022Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest  Win2022AzureEditionCore  latest
+x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                     Win2019Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                     Win2016Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                  Win2012R2Datacenter      latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                     Win2012Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
 ```
 
 ## Find specific images
@@ -85,29 +83,33 @@ Another way to find an image in a location is to run the [az vm image list-publi
     az vm image list-publishers --location westus --output table
     ```
 
-1. For a given publisher, list their offers. In this example, we add *Canonical* as the publisher.
+1. For a given publisher, list their offers. In this example, we add *RedHat* as the publisher.
     
     ```azurecli
-    az vm image list-offers --location westus --publisher Canonical --output table
+    az vm image list-offers --location westus --publisher RedHat --output table
     ```
 
-1. For a given offer, list their SKUs. In this example, we add *UbuntuServer* as the offer.
+1. For a given offer, list their SKUs. In this example, we add *RHEL* as the offer.
     ```azurecli
-    az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
+    az vm image list-skus --location westus --publisher RedHat --offer RHEL --output table
     ```
 
-1. For a given publisher, offer, and SKU, show all of the versions of the image. In this example, we add *18.04-LTS* as the SKU.
+> [!NOTE]
+> Canonical has changed the **Offer** names they use for the most recent versions. Before Ubuntu 20.04, the **Offer** name is UbuntuServer. For Ubuntu 20.04 the **Offer** name is `0001-com-ubuntu-server-focal` and for Ubuntu 22.04 it's `0001-com-ubuntu-server-jammy`.
+
+
+1. For a given publisher, offer, and SKU, show all of the versions of the image. In this example, we add *9_1* as the SKU.
 
     ```azurecli
     az vm image list \
         --location westus \
-        --publisher Canonical \
-        --offer UbuntuServer \
-        --sku 18.04-LTS \
+        --publisher RedHat \
+        --offer RHEL \
+        --sku 9_1 \
         --all --output table
     ```
 
-Pass this value of the URN column with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. You can also replace the version number in the URN with "latest", to use the latest version of the image. 
+Pass this value of the URN column with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. You can also replace the version number in the URN with "latest", to use the latest version of the image.
 
 If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 

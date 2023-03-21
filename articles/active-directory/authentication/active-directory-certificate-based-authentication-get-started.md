@@ -1,5 +1,5 @@
 ---
-title: Certificate-based authentication with federation - Azure Active Directory
+title: Certificate-based authentication with federation
 description: Learn how to configure certificate-based authentication with federation in your environment
 
 services: active-directory
@@ -121,7 +121,7 @@ The EAS profile must contain the following information:
 
 - The EAS endpoint (for example, outlook.office365.com)
 
-An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Microsoft Endpoint Manager or by manually placing the certificate in the EAS profile on the device.
+An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Microsoft Intune or by manually placing the certificate in the EAS profile on the device.
 
 ### Testing EAS client applications on Android
 

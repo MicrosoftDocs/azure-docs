@@ -37,8 +37,17 @@
     # What keywords users are searching in TOC: https://review.docs.microsoft.com/en-us/help/contribute/kusto/samples/discoverability-toc-filter?branch=main 
     # href:tutorial-create-user-flows.md
   - name: 4 - Manage your tenant
-    href: tenant-management.md
-    displayName: break glass account, emergence account
+    items:
+    - name: Add administrator (work account)
+      href: tenant-management-manage-administrator.md
+    - name: Manage emergency access
+      href: tenant-management-emergency-access-account.md
+      displayName: break glass account, emergence account
+    - name: Check tenant creation permission 
+      href: tenant-management-check-tenant-creation-permission.md
+    - name: Find tenant name and ID  
+      href: tenant-management-read-tenant-name.md
+      displayName: tenant name, tenant ID, tenant details    
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
@@ -353,7 +362,7 @@
         href: identity-provider-microsoft-account.md
       - name: Mobile ID
         href: identity-provider-mobile-id.md
-      - name: PingOne (PingIdentity)
+      - name: PingOne (Ping Identity)
         href: identity-provider-ping-one.md
         displayName: Ping identity
       - name: QQ
@@ -462,8 +471,32 @@
     - name: Integrate with our technology partners
       items:
       - name: Azure AD B2C partner gallery
-        href: partner-gallery.md     
+        href: partner-gallery.md 
         displayName: marketplace, integration, extensibility, extend, customization, customisation
+    - name: Custom policies guide series
+      items:
+      - name: 1 - Overview 
+        href: custom-policies-series-overview.md
+      - name: 2 - Create Hello World custom policies
+        href: custom-policies-series-hello-world.md
+      - name: 3 - Collect user input using custom policy
+        href: custom-policies-series-collect-user-input.md
+      - name: 4 - Validate user input custom policy
+        href: custom-policies-series-validate-user-input.md 
+      - name: 5 - Create branching in user journeys
+        href: custom-policies-series-branch-user-journey.md
+      - name: 6 - Validate custom policy files
+        href: custom-policies-series-install-xml-extensions.md
+      - name: 7 - Make HTTP call from custom policy
+        href: custom-policies-series-call-rest-api.md
+        displayName: call rest api, http call, http request
+      - name: 8 - Create and read user record custom policy
+        href: custom-policies-series-store-user.md
+        displayName: CRUD, store user, create user account, read user, update user
+      - name: 9 - Sign up and sign in (local account)
+        href: custom-policies-series-sign-up-or-sign-in.md
+      - name: 10 - Sign up and sign in (social account)
+        href: custom-policies-series-sign-up-or-sign-in-federation.md
     # Secure
   - name: Secure
     items:
@@ -541,6 +574,8 @@
           href: partner-datawiza.md
         - name: F5
           href: partner-f5.md
+        - name: Grit 
+          href: partner-grit-app-proxy.md
         - name: Ping Identity
           href: partner-ping-identity.md
         - name: Strata
@@ -572,6 +607,8 @@
         items:
         - name: Grit IEF editor 
           href: partner-grit-editor.md
+        - name: Grit biometric authentication
+          href: partner-grit-authentication.md
   # Automate
   - name: Automate 
     items:

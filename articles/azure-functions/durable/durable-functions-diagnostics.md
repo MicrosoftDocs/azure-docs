@@ -178,7 +178,7 @@ For more information about what log events are available, see the [Durable Task 
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -186,6 +186,25 @@ public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context,
     ILogger log)
 {
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context,
+    FunctionContext executionContext)
+{
+    ILogger log = executionContext.GetLogger("FunctionChain");
     log.LogInformation("Calling F1.");
     await context.CallActivityAsync("F1");
     log.LogInformation("Calling F2.");
@@ -271,7 +290,7 @@ Done!
 
 If you want to only write logs on non-replay executions, you can write a conditional expression to log only if the "is replaying" flag is `false`. Consider the example above, but this time with replay checks.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -310,6 +329,28 @@ public static async Task Run(
 
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In Durable Functions for .NET-isolated, you can create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    ILogger log = context.CreateReplaySafeLogger("FunctionChain");
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+> [!NOTE]
+> The ability to wrap an existing `ILogger` into a replay-safe logger has been removed in Durable Functions for .NET isolated worker.
 
 # [JavaScript](#tab/javascript)
 
@@ -383,7 +424,7 @@ Done!
 
 Custom orchestration status lets you set a custom status value for your orchestrator function. This custom status is then visible to external clients via the [HTTP status query API](durable-functions-http-api.md#get-instance-status) or via language-specific API calls. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can invoke the "set custom status" API to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. Sample code for setting a custom status value in an orchestrator function is provided below:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -401,6 +442,22 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 
 > [!NOTE]
 > The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("SetStatusTest")]
+public static async Task SetStatusTest([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    context.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
 
 # [JavaScript](#tab/javascript)
 

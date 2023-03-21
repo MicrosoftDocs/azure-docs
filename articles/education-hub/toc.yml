@@ -12,6 +12,8 @@
     href: get-started-education-hub.md
   - name: Set up a lab
     href: set-up-lab.md
+  - name: Allocate Credit to an Educator
+    href: it-admin-allocate-credit.md
 - name: How-to guides
   items:
   - name: Manage your Academic Grant
@@ -52,8 +54,12 @@
   items:
   - name: How-to guides
     items:
+    - name: How to use a script to automate lab functionality
+      href: full-api-script.md
     - name: How to create a lab
       href: create-lab-education-hub.md
+    - name: How to add students to a lab
+      href: add-student-api.md
     - name: How to delete a lab
       href: delete-lab-education-hub-apis.md
   - name: Tutorials

@@ -5,6 +5,7 @@ author: v-pgaddala
 manager: rochakm
 ms.topic: how-to
 ms.date: 12/07/2022
+ms.service: site-recovery
 ---
 
 

@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 02/08/2022
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -995,6 +995,9 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 > [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
+> [App Template: ASP.NET Core app with SQL database and App Insights deployed using CI/CD GitHub Actions](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice)
+
+> [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
 ### [.NET Framework 4.8](#tab/netframework48)
@@ -1003,9 +1006,12 @@ Advance to the next article to learn how to create a .NET Framework app and conn
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET app with SQL database](app-service-web-tutorial-dotnet-sqldatabase.md)
-
+> 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Framework app](configure-language-dotnet-framework.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 ---
 

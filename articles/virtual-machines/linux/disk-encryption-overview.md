@@ -74,8 +74,10 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Oracle | Oracle Linux 8.6 Gen 2 | 8.6 | Oracle:Oracle-Linux:ol86-lvm-gen2:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.5 | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.7 | 8.7 | RedHat:RHEL:8_7:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.7 Gen 2 | 8.7 | RedHat:RHEL:87-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.6 | 8.6 | RedHat:RHEL:8_6:latest | OS and data disk (see note below) |
-| RedHat | RHEL 8.6 Gen 2 | 8.5 | RedHat:RHEL:86-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.6 Gen 2 | 8.6 | RedHat:RHEL:86-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.5 | 8.5 | RedHat:RHEL:8_5:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.5 Gen 2 | 8.5 | RedHat:RHEL:85-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.4 | 8.4 | RedHat:RHEL:8.4:latest | OS and data disk (see note below) |

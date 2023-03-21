@@ -6,7 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 01/04/2023
 ms.author: stevelas
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions
 ---
 
 # Push and pull supply chain artifacts using Azure Registry (Preview)
@@ -400,8 +400,8 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 [oras-cli]:                 https://oras.land/cli_reference/
 
 <!-- LINKS - internal -->
-[acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
-[az-acr-create]:            /azure/container-registry/container-registry-get-started-azure-cli
+[acr-authentication]:       ./container-registry-authentication.md?tabs=azure-cli
+[az-acr-create]:            ./container-registry-get-started-azure-cli.md
 [az-acr-build]:             /cli/azure/acr#az_acr_build
 [az-acr-manifest-metadata]: /cli/azure/acr/manifest/metadata
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

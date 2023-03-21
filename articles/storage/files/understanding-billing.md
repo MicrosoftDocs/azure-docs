@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 01/24/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -73,6 +73,7 @@ Azure Files supports reservations (also referred to as *reserved instances*), wh
 - **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the premium, hot, and cool tiers.
 - **Location**: The Azure region for the Reservation. Reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the Reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
+- **Billing frequency**: Indicates how often the account is billed for the Reservation. Options include *Monthly* or *Upfront*.
 
 Once you purchase a Reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you'll pay list price for the balance not covered by the Reservation. Transaction, bandwidth, data transfer, and metadata storage charges aren't included in the Reservation.
 
@@ -112,7 +113,7 @@ The following table illustrates a few examples of these formulae for the provisi
 | 51,200 | 54,200 | Up to 100,000 | 164,880,000 | 5,220 |
 | 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [performance troubleshooting guide](files-troubleshoot-performance.md) for some common performance issues and workarounds.
 
 ### Bursting
 If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above the share's baseline IOPS limit to give the share the performance it needs to meet the demand. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis, and the burst limit isn't a guarantee.

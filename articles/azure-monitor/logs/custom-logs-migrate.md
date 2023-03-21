@@ -39,7 +39,7 @@ If the table that you're targeting with DCR-based log collection fits the criter
 1. Issue the following API call against your table. This call is idempotent, so there will be no effect if the table has already been migrated. 
 
     ```rest
-    POST /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.operationalinsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-03-01-privatepreview
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
     ```
 
 1. Discontinue use of the Data Collector API and start using the new Logs ingestion API.

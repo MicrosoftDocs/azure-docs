@@ -13,10 +13,7 @@ adobe-target: true
 
 # Configure a load test in YAML
 
-Learn how to configure your load test in Azure Load Testing Preview by using [YAML](https://yaml.org/). You use the test configuration YAML file to create and run load tests from your continuous integration and continuous delivery (CI/CD) workflow.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Learn how to configure your load test in Azure Load Testing by using [YAML](https://yaml.org/). You use the test configuration YAML file to create and run load tests from your continuous integration and continuous delivery (CI/CD) workflow.
 
 ## Load test definition
 
@@ -25,12 +22,12 @@ A test configuration uses the following keys:
 | Key | Type | Default value | Description | 
 | ----- | ----- | ----- | ---- |
 | `version` | string |  | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
-| `testId` | string |  | *Required*. Id of the test to run. For a new test, enter an Id with characters [a-z0-9_-]. For an existing test, you can get the test Id from the test details page in Azure portal. This field was called `testName` earlier, which has been deprecated. You can still run existing tests with `testName`field. |
+| `testId` | string |  | *Required*. Id of the test to run. testId must be between 2 to 50 characters. For a new test, enter an Id with characters [a-z0-9_-]. For an existing test, you can get the test Id from the test details page in Azure portal. This field was called `testName` earlier, which has been deprecated. You can still run existing tests with `testName`field. |
 | `displayName` | string |  | Display name of the test. This will be shown in the list of tests in Azure portal. If not provided, testId is used as the display name. |
 | `testPlan` | string |  | *Required*. Relative path to the Apache JMeter test script to run. |
 | `engineInstances` | integer |  | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
 | `configurationFiles` | array |  | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files will be uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
-| `description` | string |  | Short description of the test. |
+| `description` | string |  | Short description of the test. description must have a maximum length of 100 characters |
 | `subnetId` | string |  | Resource ID of the subnet for testing privately hosted endpoints (VNET injection). This subnet will host the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `failureCriteria` | object |  | Criteria that indicate when a test should fail. The structure of a fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`. For more information on the supported values, see [Define load test fail criteria](./how-to-define-test-criteria.md#load-test-fail-criteria). |
 | `properties` | object |  | List of properties to configure the load test. |

@@ -6,6 +6,67 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.26.0: March 2023 release
+
+### Breaking changes
+
+* Bitcode has been disabled in all iOS targets in the following packages: Cocoapod with xcframework, Nuget (for Xamarin and MAUI) and Unity. The change is due to Apple's deprication of bitcode support from Xcode 14 and onwards. This change also means if you are using Xcode 13 version or you have explicitly enabled the bitcode on your application using the Speech SDK, you may encounter an error saying "framework does not contain bitcode and you must rebuild it". To resolve this issue, make sure your targets have bitcode disabled.
+* Minimum iOS deployment target has been upgraded to 11.0 in this release, which means armv7 HW is no longer supported.
+
+#### New features
+
+* Embedded (on-device) Speech Recognition now supports both 8 and 16 kHz sampling rate input audio (16-bit per sample, mono PCM).
+* Speech Synthesis now reports connection, network and service latencies in the result to help end-to-end latency optimization.
+* New tiebreaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more character bytes that are matched, will win over pattern matches with lower character byte count. Example: Pattern "Click {something} in the top right" will win over "Click {something}"
+
+#### Bug fixes
+
+* Speech Synthesis: fix a bug where the emoji is not correct in word boundary events.
+* [Intent Recognition with with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md):
+  * Intents from the CLU Orchestrator Workflow now appear correctly.
+  * The JSON result is now available via the property ID `LanguageUnderstandingServiceResponse_JsonResult`.
+* Speech recognition with keyword activation: Fix for missing ~150ms audio after a keyword recognition.
+* Fix for Speech SDK NuGet iOS MAUI Release build, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1835))
+
+#### Samples
+
+* Fix for Swift iOS sample, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1759))
+
+
+### Speech SDK 1.25.0: January 2023 release
+
+#### Breaking changes
+
+- Language Identification (preview) APIs have been simplified. If you update to Speech SDK 1.25 and see a build break, please visit the [Language Identification (preview)](/azure/cognitive-services/speech-service/language-identification) page to learn about the new property `SpeechServiceConnection_LanguageIdMode`. This single property replaces the two previous ones `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
+
+#### New features
+
+- **C#/C++/Java**: Embedded Speech SDK is now released under gated public preview. See [Embedded Speech (preview)](/azure/cognitive-services/speech-service/embedded-speech) documentation. You can now do on-device speech-to-text and text-to-speech when cloud connectivity is intermittent or unavailable. Supported on Android, Linux, MacOS and Windows platforms
+- **C# MAUI**: Support added for iOS and Mac Catalyst targets in Speech SDK NuGet ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
+- **Unity**: Android x86_64 architecture added to Unity package ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1715))
+- **Go**:
+  - ALAW/MULAW direct streaming support added for speech recognition ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-go/issues/81))
+  - Added support for PhraseListGrammar. Thank you GitHub user [czkoko](https://github.com/czkoko) for the community contribution!
+- **C#/C++**: Intent Recognizer now supports Conversational Language Understanding models in C++ and C# with orchestration on the Microsoft service
+
+#### Bug fixes
+
+- Fix an occasional hang in **KeywordRecognizer** when trying to stop it
+- **Python**:
+  - Fix for getting Pronunciation Assessment results when `PronunciationAssessmentGranularity.FullText` is set ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1763))
+  - Fix for gender property for Male voices not being retrieved, when getting speech synthesis voices
+- **JavaScript**
+  - Fix for parsing some WAV files that were recorded on iOS devices ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1774))
+  - JS SDK now builds without using npm-force-resolutions ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/549))
+  - Conversation Translator now correctly sets service endpoint when using a speechConfig instance created using SpeechConfig.fromEndpoint()
+
+#### Samples
+
+- Added samples showing how to use Embedded Speech
+- Added Speech-to-text sample for MAUI
+
+  See [Speech SDK samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+
 ### Speech SDK 1.24.2: November 2022 release
 
 #### New features
@@ -15,13 +76,6 @@ ms.author: eur
 
 - **All programing languages**
     - Fixed an issue with encryption of embedded speech recognition models.
-- **JavaScript SDK**
-    - not included in this release
-
-- **Java**
-    - none
-- **Python**
-    - none
 
 ### Speech SDK 1.24.1: November 2022 release
 

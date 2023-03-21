@@ -1,6 +1,5 @@
 - name: Azure Web PubSub service documentation
   href: index.yml
-
 - name: Overview
   expanded: true
   items:
@@ -23,6 +22,8 @@
     - name: Connect to the instance
       expanded: true
       items:
+        - name: PubSub with client SDK
+          href: quickstart-use-client-sdk.md
         - name: PubSub from the browser
           href: quickstart-live-demo.md
         - name: PubSub from the Azure CLI
@@ -116,7 +117,6 @@
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
-
 - name: Concepts
   expanded: true
   items:
@@ -138,7 +138,10 @@
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md
-
+    - name: Security
+      items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
 - name: Reference
   items:
     - name: WebSocket subprotocols
@@ -158,6 +161,8 @@
       href: reference-cloud-events-amqp.md
     - name: Functions trigger and bindings
       href: reference-functions-bindings.md
+    - name: Azure policy definitions
+      href: policy-definitions.md
     - name: Data plane REST API and SDKs
       items:
         - name: REST API

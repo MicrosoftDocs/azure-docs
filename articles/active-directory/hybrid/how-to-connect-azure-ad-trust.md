@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Manage AD FS trust with Azure AD using Azure AD Connect | Microsoft Docs
+title: Azure AD Connect - Manage AD FS trust with Azure AD using Azure AD Connect
 description: Operational details of Azure AD trust handling by Azure AD connect.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 01/26/2023
 ms.author: billmath
 author: billmath
 ms.custom: 

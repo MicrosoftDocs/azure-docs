@@ -3,7 +3,7 @@ title: How to use the BypassDirSyncOverrides feature of an Azure AD tenant
 description: Describes how to use bypassdirsyncoverrides tenant feature to restore synchronization of Mobile and OtherMobile attributes from on-premises Active Directory.
 services: active-directory
 author: billmath
-ms.date: 08/11/2022
+ms.date: 01/26/2023
 ms.author: billmath
 ms.topic: how-to
 ms.service: active-directory

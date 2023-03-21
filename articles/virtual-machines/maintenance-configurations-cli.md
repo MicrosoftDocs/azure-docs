@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 11/20/2020
 ms.author: cynthn
 #pmcontact: shants
@@ -82,7 +83,7 @@ az maintenance configuration create \
 
 ### Guest VMs
 
-This example creates a maintenance configuration named *myConfig* scoped to guest machines (VMs and Arc enabled servers) with a scheduled window of 2 hours every 20 days.
+This example creates a maintenance configuration named *myConfig* scoped to guest machines (VMs and Arc enabled servers) with a scheduled window of 2 hours every 20 days. To learn more about this maintenance configurations on guest VMs see [Guest](maintenance-configurations.md#guest).
 
 ```azurecli-interactive
 az maintenance configuration create \

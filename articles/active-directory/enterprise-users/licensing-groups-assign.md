@@ -1,5 +1,5 @@
 ---
-title: Assign licenses to a group - Azure Active Directory | Microsoft Docs
+title: Assign licenses to a group
 description: How to assign licenses to users by means of Azure Active Directory group licensing
 services: active-directory
 keywords: Azure AD licensing
@@ -31,9 +31,9 @@ In this example, the Azure AD organization contains a security group called **HR
 
 ## Step 1: Assign the required licenses
 
-1. Sign in to the [**Azure AD admin center**](https://aad.portal.azure.com) with a license administrator account. To manage licenses, the account must be a license administrator, user administrator, or global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
 
-1. Select **Licenses** to open a page where you can see and manage all licensable products in the organization.
+1. Browse to **Azure Active Directory** > **Licenses** to open a page where you can see and manage all licensable products in the organization.
 
 1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 

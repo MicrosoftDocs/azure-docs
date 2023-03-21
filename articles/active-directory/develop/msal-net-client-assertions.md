@@ -2,7 +2,7 @@
 title: Client assertions (MSAL.NET)
 description: Learn about signed client assertions support for confidential client applications in the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/18/2021
-ms.author: jmprieur
-ms.reviewer: saeeda
+ms.author: dmwendia
+ms.reviewer: saeeda, jmprieur
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how to use client assertions to prove the identity of my confidential client application
 ---

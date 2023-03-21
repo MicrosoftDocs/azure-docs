@@ -3,11 +3,11 @@ title: Node.js application using Socket.io - Azure
 description: Use this tutorial to learn how to host a socket.IO-based chat application on Azure. Socket.IO provides real time communication for a Node.js server and clients.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Build a Node.js chat application with Socket.IO on an Azure Cloud Service (classic)

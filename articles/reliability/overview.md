@@ -2,12 +2,13 @@
 title: Azure reliability documentation
 description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 author: anaharris-ms
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/20/2022
 ms.author: anaharris
 ms.service: reliability
 ms.subservice: availability-zones
 ms.custom: subject-reliability
+
 ---
 
 # Azure reliability documentation

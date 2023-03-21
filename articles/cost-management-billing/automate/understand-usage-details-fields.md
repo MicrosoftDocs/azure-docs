@@ -104,21 +104,6 @@ The cost details file itself doesn’t uniquely identify individual records with
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 
-### List of terms from older APIs
-
-The following table maps terms used in older APIs to the new terms. Refer to the preceding table for descriptions.
-
-| Old term | New term |
-| --- | --- |
-| ConsumedQuantity | Quantity |
-| IncludedQuantity | N/A |
-| InstanceId | ResourceId |
-| Rate | EffectivePrice |
-| Unit | UnitOfMeasure |
-| UsageDate | Date |
-| UsageEnd | Date |
-| UsageStart | Date |
-
 ## Next steps
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).

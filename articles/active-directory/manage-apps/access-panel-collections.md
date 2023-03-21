@@ -2,15 +2,16 @@
 title: Create collections for My Apps portals
 description: Use My Apps collections to Customize My Apps pages for a simpler My Apps experience for your users. Organize applications into groups with separate tabs.
 services: active-directory
-author: lnalepa
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: lenalepa
+ms.author: jomondi
 ms.collection: M365-identity-device-management
+ms.reviewer: lenalepa
 
 #customer intent: As an admin, I want to enable and create collections for My Apps portal in Azure AD so that I can create a simpler My Apps experience for users.
 ---

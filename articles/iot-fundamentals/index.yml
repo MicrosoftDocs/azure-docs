@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: Install VS Code tools for Azure IoT
       itemType: download
-      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     # Card
     - title: Start building with Azure CLI for Azure IoT
       itemType: reference

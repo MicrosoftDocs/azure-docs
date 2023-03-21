@@ -1,15 +1,13 @@
 ---
-title: Enable Azure Network Watcher | Microsoft Docs
+title: Enable Azure Network Watcher
 description: Learn how to enable Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: harsha-cs
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.topic: how-to
+ms.workload: infrastructure-services
 ms.date: 05/30/2022
-ms.author: harshacs
+ms.author: halkazwini
 ms.custom: references_regions, devx-track-azurepowershell, engagement-fy23
 ---
 # Enable Azure Network Watcher

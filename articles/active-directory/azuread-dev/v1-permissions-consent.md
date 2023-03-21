@@ -1,5 +1,5 @@
 ---
-title: Permissions in Azure Active Directory | Microsoft docs
+title: Permissions in Azure Active Directory
 description: Learn about permissions in Azure Active Directory and how to use them.
 services: active-directory
 documentationcenter: ''

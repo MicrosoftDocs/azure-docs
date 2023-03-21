@@ -3,7 +3,7 @@ title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 10/31/2022
+ms.date: 01/24/2023
 ---
 
 # Manage security policies
@@ -14,7 +14,7 @@ To understand the relationships between initiatives, policies, and recommendatio
 
 ## Who can edit security policies?
 
-Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defender for Cloud roles:
+Defender for Cloud uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Defender for Cloud, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Defenders for Cloud roles:
 
 - **Security reader**: Has rights to view Defender for Cloud items such as recommendations, alerts, policy, and health. Can't make changes.
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.

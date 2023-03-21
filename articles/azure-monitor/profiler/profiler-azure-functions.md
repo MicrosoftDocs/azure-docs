@@ -23,7 +23,7 @@ In this article, you'll use the Azure portal to:
      
   :::image type="content" source="./media/profiler-azure-functions/choose-plan.png" alt-text="Screenshot of where to select App Service plan from drop-down in Functions app creation.":::
 
-- Linked to [an Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
+- Linked to [an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.
 
 ## App settings for enabling Profiler
 

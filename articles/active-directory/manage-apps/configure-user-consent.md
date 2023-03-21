@@ -2,15 +2,15 @@
 title: Configure how users consent to applications
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
-author: yuhko-msft
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/12/2022
-ms.author: yuhko
-ms.reviewer: phsignor
+ms.author: jomondi
+ms.reviewer: phsignor, yuhko
 ms.custom: contperf-fy21q2, contperf-fy22q2
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
 

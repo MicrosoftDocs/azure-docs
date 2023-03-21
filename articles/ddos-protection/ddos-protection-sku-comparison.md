@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 01/17/2023
+ms.date: 03/20/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -34,6 +34,8 @@ The following table shows features and corresponding SKUs.
 
 | Feature | DDoS IP Protection | DDoS Network Protection |
 |---|---|---|
+| Protects Public IP Standard SKU | Yes | Yes |
+| Protects Public IP Basic SKU | No | Yes |
 | Active traffic monitoring & always on detection |  Yes| Yes |
 | L3/L4 Automatic attack mitigation  | Yes | Yes |
 | Automatic attack mitigation | Yes | Yes |

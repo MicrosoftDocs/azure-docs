@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,7 +35,7 @@ Hybrid Azure AD joined devices require network line of sight to your on-premises
 |   | Windows 8.1, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2 - Require MSI |
 | **Device sign in options** | Organizational accounts using: |
 |   | Password |
-|   | Windows Hello for Business for Win10 and above |
+|   | Windows Hello for Business for Windows 10 or newer |
 | **Device management** | [Group Policy](/mem/configmgr/comanage/faq#my-environment-has-too-many-group-policy-objects-and-legacy-authenticated-apps--do-i-have-to-use-hybrid-azure-ad-) |
 |   | [Configuration Manager standalone or co-management with Microsoft Intune](/mem/configmgr/comanage/overview) |
 | **Key capabilities** | SSO to both cloud and on-premises resources |
@@ -48,7 +48,7 @@ Hybrid Azure AD joined devices require network line of sight to your on-premises
 
 Use Azure AD hybrid joined devices if:
 
-- You support down-level devices running 8.1.
+- You support down-level devices running Windows 8.1, Windows Server 2008/R2, 2012/R2, 2016.
 - You want to continue to use [Group Policy](/mem/configmgr/comanage/faq#my-environment-has-too-many-group-policy-objects-and-legacy-authenticated-apps--do-i-have-to-use-hybrid-azure-ad-) to manage device configuration.
 - You want to continue to use existing imaging solutions to deploy and configure devices.
 - You have Win32 apps deployed to these devices that rely on Active Directory machine authentication.

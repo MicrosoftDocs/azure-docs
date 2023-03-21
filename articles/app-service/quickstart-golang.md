@@ -128,4 +128,4 @@ az group delete --resource-group <resource-group-name>
 > [Tutorial: Deploy from Azure Container Registry](./tutorial-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map a custom domain name](./app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

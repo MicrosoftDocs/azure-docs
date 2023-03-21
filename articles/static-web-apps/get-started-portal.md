@@ -36,7 +36,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 ## Create a repository
 
-This article uses a GitHub repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
+This article uses a Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
 
 1. Sign in to Azure DevOps.
 2. Select **New repository**.
@@ -141,6 +141,9 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 | Project | Select your project. |
 | Repository| Select **my-first-web-static-app**. |
 | Branch | Select **main**. |
+
+> [!NOTE]
+> Make sure the branch you are using is not protected, and that you have sufficient permissions to issue a `push` command. To verify, browse to your DevOps repository and go to **Repos** -> **Branches** and select **More options**. Next, select your branch, and then **Branch policies** to ensure required policies aren't enabled.
 
 ::: zone-end
 

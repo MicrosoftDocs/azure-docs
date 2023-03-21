@@ -64,11 +64,15 @@ items:
     href: built-in-roles.md
   - name: Managed HSM Soft-delete 
     href: soft-delete-overview.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
 
 - name: Reference
   items:
   - name: Secure key release policy grammar 
     href: policy-grammar.md
+  - name: TLS offload library
+    href: tls-offload-library.md
   - name: Key management in Azure
     href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell

@@ -1,11 +1,11 @@
 ---
 title: Microsoft Defender for IoT integration with ServiceNow (legacy)
 description: In this tutorial, learn how to integrate the legacy ServiceNow integration with Microsoft Defender for IoT.
-ms.topic: tutorial
+ms.topic: reference
 ms.date: 08/11/2022
 ---
 
-# Tutorial: Integrate ServiceNow with Microsoft Defender for IoT (legacy)
+# Integrate ServiceNow with Microsoft Defender for IoT (legacy)
 
 > [!NOTE]
 > A new [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) integration is now available from the ServiceNow store. The new integration streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model.

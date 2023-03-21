@@ -2,7 +2,7 @@
 title: Install OT network monitoring software on OT sensors - Microsoft Defender for IoT
 description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article when reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 12/13/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Install OT monitoring software on OT sensors
@@ -29,9 +29,10 @@ For more information, see:
 
 Download the OT sensor software from Defender for IoT in the Azure portal.
 
-On the Defender for IoT > **Getting started** page, select the **Sensor** or **Updates** tab and locate the software you need.
+Select **Getting started** > **Sensor** and select the software version you want to download.
 
-If you're updating from a previous version, check the options carefully to ensure that you have the correct update path for your situation.
+> [!IMPORTANT]
+> If you're updating software from a previous version, use the options from the **Sites and sensors** > **Sensor update** menu. For more information, see [Update Defender for IoT OT monitoring software](../update-ot-software.md).
 
 ## Install Defender or IoT software on OT sensors
 

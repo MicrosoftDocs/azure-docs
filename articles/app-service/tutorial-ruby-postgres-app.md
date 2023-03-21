@@ -472,10 +472,10 @@ In this tutorial, you learned how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your app.
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

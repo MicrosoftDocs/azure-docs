@@ -25,6 +25,7 @@ Workbooks can extract data from these data sources:
  - [Azure resource health](#azure-resource-health)
  - [Azure RBAC](#azure-rbac)
  - [Change Analysis (preview)](#change-analysis-preview)
+ - [Prometheus (preview)](#prometheus-preview)
 
 ## Logs
 
@@ -172,6 +173,16 @@ To make a query control that uses [Application Change Analysis](../app/change-an
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot that shows a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+
+## Prometheus (preview)
+
+With [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you can collect Prometheus metrics for your Kubernetes clusters. To query Prometheus metrics, select **Prometheus** from the data source dropdown, followed by where the metrics are stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) and the [Prometheus query type](https://prometheus.io/docs/prometheus/latest/querying/api/) for the PromQL query.
+![Screenshot that shows sample PromQL query.](./media/workbooks-data-sources/prometheus-query.png)
+
+> [!NOTE]
+> Querying from an Azure Monitor workspace is a data plane action and requires an explicit role assignment of Monitoring Data Reader, which is not assigned by default
+> Learn more about [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) 
 
 ## Next steps
 

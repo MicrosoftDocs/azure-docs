@@ -14,9 +14,6 @@ ms.custom: template-how-to
 
 In this article, you learn how to manage access (authorization) to an Azure load testing resource. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 To assign Azure roles, you must have:

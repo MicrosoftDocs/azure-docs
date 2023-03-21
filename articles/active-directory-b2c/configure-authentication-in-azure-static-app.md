@@ -120,7 +120,7 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
    }
    ```
 
-1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`).
+1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`).
 1. Replace `<POLICY_NAME>` with the user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).
 
 ## Step 4: Check the Azure Static Web APP

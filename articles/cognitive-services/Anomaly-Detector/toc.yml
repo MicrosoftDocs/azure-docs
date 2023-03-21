@@ -9,6 +9,8 @@
       href: https://aka.ms/adpricing
     - name: What's new
       href: whats-new.md
+    - name: Service limits
+      href: service-limits.md
     - name: FAQ
       href: faq.yml
 - name: Quickstarts
@@ -27,8 +29,6 @@
   items:
     - name: Univariate Anomaly Detection
       items:
-      - name: REST API with Postman
-        href: how-to/postman.md
       - name: Identify anomalies in your data 
         href: how-to/identify-anomalies.md
       - name: Deploy Anomaly Detector (univariate)
@@ -50,6 +50,8 @@
                 maintainContext: true
     - name: Multivariate Anomaly Detection
       items:
+        - name: REST API with Postman
+          href: how-to/postman.md
         - name: Create an Anomaly Detector Resource
           href: how-to/create-resource.md
         - name: Prepare and upload your data
@@ -129,7 +131,7 @@
     - name: Reference solution architecture (univariate)
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
     - name: Azure updates
-      href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+      href: https://azure.microsoft.com/updates/?product=cognitive-services
     - name: Error codes (multivariate)
       href: concepts/troubleshoot.md
     - name: Technical articles
