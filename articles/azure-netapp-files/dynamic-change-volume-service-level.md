@@ -32,6 +32,8 @@ The capacity pool that you want to move the volume to must already exist. The ca
 * If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*). You can always change to higher service level without wait time.
 
 * You cannot change the service level for volumes in a cross-region replication relationship. 
+
+* If you use the cool access feature, see [Manage Azure NetApp Files Standard service level with cool access]( manage-cool-access.md#considerations) for more considerations.
  
 ## Move a volume to another capacity pool
 
