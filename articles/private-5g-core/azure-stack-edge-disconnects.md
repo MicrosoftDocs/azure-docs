@@ -12,13 +12,16 @@ ms.custom: template-concept
 
 # Azure Stack Edge disconnects
 
-There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azure Stack Edge (ASE)* disconnects. These disconnects can either be unplanned short-term [Temporary disconnects](#temporary-disconnects) or periods of [Disconnected mode for up to two days](#disconnected-mode-for-azure-private-5g-core).
+There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azure Stack Edge (ASE)* disconnects. These disconnects can either be unplanned short-term [Temporary disconnects](#temporary-disconnects) or periods of [Disconnected mode for up to five days](#disconnected-mode-for-azure-private-5g-core).
 
 ## Temporary disconnects
 
 ASE can tolerate small periods of unplanned connectivity issues. The following sections detail the behavior expected during these times and behavior after ASE connectivity resumes.
 
 Throughout any temporary disconnects, the **Azure Stack Edge overview** will display a banner stating `The device heartbeat is missing. Some operations will not be available in this state. Critical alert(s) present. Click here to view details.`
+
+> [!CAUTION]
+> Limited Azure AP5GC support will be available if you encounter issues while disconnected. If you encounter issues during a disconnect, we recommend you reconnect if possible to enable full support. If it is not possible to reconnect, support will be provided on a best-effort basis.
 
 ### Configuration and provisioning actions during temporary disconnects
 
@@ -41,7 +44,7 @@ Once ASE connectivity resumes, several features will resume:
 
 ## Disconnected mode for Azure Private 5G Core
 
-*Disconnected mode* allows for ASE disconnects of up to two days. During disconnected mode, AP5GC core functionality persists through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation. During disconnects, the ASE management GUI will display several banners alerting that it's currently disconnected and the impact on functions.
+*Disconnected mode* allows for ASE disconnects of up to five days. During disconnected mode, AP5GC core functionality persists through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation. During disconnects, the ASE management GUI will display several banners alerting that it's currently disconnected and the impact on functions.
 
 ### Functions not supported while in disconnected mode
 
