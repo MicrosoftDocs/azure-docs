@@ -14,7 +14,7 @@ Each Log Analytics workspace in Azure Monitor can have a different [pricing tier
 ## Permissions required
 To change the pricing tier for a workspace, you must be assigned to one of the following roles: 
 
-- Log Analytics Contributor role
+- Log Analytics Contributor role.
 - A custom role with `Microsoft.OperationalInsights/workspaces/*/write` permissions.
 
 ## Changing pricing tier
@@ -24,13 +24,13 @@ Use the following steps to change the pricing tier of your workspace using the A
 
 1. From the **Log Analytics workspaces** menu, select your workspace, and open **Usage and estimated costs**. This displays a list of each of the pricing tiers available for this workspace.
 
-2. Review the estimated costs for each pricing tier. This estimate assumes that the last 31 days of your usage is typical. In the example below, based on the data patterns from the previous 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day commitment tier (#2).  
+2. Review the estimated costs for each pricing tier. This estimate assumes that the last 31 days of your usage is typical. Choose the tier with the lowest estimated cost.  
 
 :::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
     
 3. Click **Select** if you decide to change the pricing tier after reviewing the estimated costs.
 
-4. Review the commitment message in the popup that "Commitment Tier pricing has a 31-day commitment period, during which the workspace cannot be moved to a lower Commitment Tier or any Consumption Tier" and click **Change pricing tier** to confirm. 
+4. Review the commitment message in the popup that "Commitment Tier pricing has a 31-day commitment period, during which the workspace cannot be moved to a lower Commitment Tier or any Consumption Tier" and select **Change pricing tier** to confirm. 
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 To set the pricing tier using an [Azure Resource Manager](./resource-manager-workspace.md), use the `sku` object to set the pricing tier and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. For details on this template format, see [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces)
