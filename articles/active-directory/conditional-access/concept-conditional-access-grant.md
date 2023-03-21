@@ -1,5 +1,5 @@
 ---
-title: Grant controls in Conditional Access policy - Azure Active Directory
+title: Grant controls in Conditional Access policy
 description: Grant controls in an Azure Active Directory Conditional Access policy.
 
 services: active-directory

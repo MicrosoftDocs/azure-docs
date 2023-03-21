@@ -1,5 +1,5 @@
 ---
-title: Assign eligibility for a group (preview) in Privileged Identity Management - Azure Active Directory
+title: Assign eligibility for a group (preview) in Privileged Identity Management
 description: Learn how to assign eligibility for a group (preview) in Privileged Identity Management.
 services: active-directory
 documentationcenter: ''

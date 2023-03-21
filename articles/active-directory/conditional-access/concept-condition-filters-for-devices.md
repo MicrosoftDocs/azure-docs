@@ -1,5 +1,5 @@
 ---
-title: Filter for devices as a condition in Conditional Access policy - Azure Active Directory
+title: Filter for devices as a condition in Conditional Access policy
 description: Use filter for devices in Conditional Access to enhance security posture
 ms.service: active-directory
 ms.subservice: conditional-access

@@ -1,5 +1,5 @@
 ---
-title: Admin consent for LinkedIn account connections - Azure AD
+title: Admin consent for LinkedIn account connections
 description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Azure Active Directory
 services: active-directory
 author: barclayn

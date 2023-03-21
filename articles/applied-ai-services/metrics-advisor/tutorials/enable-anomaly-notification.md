@@ -55,7 +55,7 @@ Required. Give each H2 a heading that sets expectations for the content that fol
 Follow the H2 headings with a sentence about how the section contributes to the whole.
 -->
 
-## Send notifications with Logic Apps, Teams, and SMTP
+## Send notifications with Azure Logic Apps, Teams, and SMTP
 
 #### [Logic Apps](#tab/logic)
 
@@ -73,18 +73,18 @@ Select the **Hooks** tab in your Metrics Advisor workspace, and select the **Cre
 There's one extra parameter of **Endpoint** that needs to be filled out, this could be done after completing Step 3 below. 
 
 
-**Step 2.** Create a Logic Apps resource
+**Step 2.** Create a Consumption logic app resource
 
-In the [Azure portal](https://portal.azure.com), create an empty Logic App by following the instructions in [Create your logic app](../../../logic-apps/quickstart-create-first-logic-app-workflow.md). When you see the **Logic Apps Designer**, return to this tutorial.
+In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource with a blank workflow by following the instructions in [Create an example Consumption logic app workflow](../../../logic-apps/quickstart-create-example-consumption-workflow.md). When you see the workflow designer opens, return to this tutorial.
 
 
 **Step 3.** Add a trigger of **When an HTTP request is received**
 
-- Azure Logic Apps uses various actions to trigger workflows that are defined. For this use case, it uses the trigger of **When an HTTP request is received**. 
+- Azure Logic Apps uses various actions to trigger workflows that are defined. For this use case, it uses the trigger named **When an HTTP request is received**. 
 
 - In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
 
-    ![Screenshot that shows the When an HTTP request dialog box and the Use sample payload to generate schema option selected. ](../media/tutorial/logic-apps-generate-schema.png)
+    ![Screenshot that shows the When an HTTP request dialog box and the Use sample payload to generate schema option selected.](../media/tutorial/logic-apps-generate-schema.png)
 
     Copy the following sample JSON into the textbox and select **Done**.
 

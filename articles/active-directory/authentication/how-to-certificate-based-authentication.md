@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure AD certificate-based authentication - Azure Active Directory
+title: How to configure Azure AD certificate-based authentication
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
 ms.service: active-directory

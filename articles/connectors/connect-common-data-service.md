@@ -49,9 +49,9 @@ For technical information based on the connector's Swagger description, such as 
 
 * Basic knowledge about how to create either Consumption or Standard logic app workflows and the logic app from where you want to access the rows in your Dataverse database. To start your logic app with a Common Data Service trigger, you need a blank workflow. For more information, review the following resources:
 
-  * [Create your first Consumption logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
-  * [Create a Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Add a Dataverse trigger
 

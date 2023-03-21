@@ -21,7 +21,10 @@ For example, your workflow can run actions that get, insert, and delete data or 
 If you're new to Azure Logic Apps, review the following get started documentation:
 
 * [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
+
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Supported SQL editions
 

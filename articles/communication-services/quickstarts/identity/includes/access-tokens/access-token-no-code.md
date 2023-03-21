@@ -18,7 +18,7 @@ ms.author: sanchezjuan
 
 - An active Azure Communication Services resource, or [create a Communication Services resource](../../../create-communication-resource.md).
 
-- An active Logic Apps resource (logic app), or [create a blank logic app but with the trigger that you want to use](../../../../../logic-apps/quickstart-create-first-logic-app-workflow.md). Currently, the Azure Communication Services Identity connector provides only actions, so your logic app requires a trigger, at minimum.
+- An active Azure Logic Apps resource (logic app), or [create a Consumption logic app workflow with the trigger that you want to use](../../../../../logic-apps/quickstart-create-example-consumption-workflow.md). Currently, the Azure Communication Services Identity connector provides only actions, so your logic app requires a trigger, at minimum.
 
 ## Create user
 
@@ -88,4 +88,4 @@ After you have a Communication Services identity, you can use the Issue a user a
 
 ## Test your logic app
 
-To manually start your workflow, on the designer toolbar, select **Run**. The workflow should create a user, issue an access token for that user, then remove it and delete the user. For more information, review [how to run your workflow](../../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow). You can check the outputs of these actions after the workflow runs successfully.
+To manually start your workflow, on the designer toolbar, select **Run**. The workflow should create a user, issue an access token for that user, then remove it and delete the user. For more information, review [how to run your workflow](../../../../../logic-apps/quickstart-create-example-consumption-workflow.md#run-workflow). You can check the outputs of these actions after the workflow runs successfully.

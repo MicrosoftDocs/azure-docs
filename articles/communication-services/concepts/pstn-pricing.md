@@ -131,6 +131,168 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
+## France telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0160/min       |USD 0.0100/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Spain telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 5.00/mo        |
+|Toll-Free     |USD 20.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0165/min       |USD 0.0072/min        |
+|Toll-free |Starting at USD 0165/min   | USD 0.2200/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Switzerland telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0234/min       |USD 0.0100/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Belgium telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 0.70/mo        |
+|Toll-Free     |USD 25.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.1300/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.1300/min   |Starting at USD 0.0505/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Luxembourg telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 3.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.2300/min       |USD 0.0100/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Austria telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 25.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.1550/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.1550/min   |Starting at USD 0.0897/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Portugal telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+|Toll-Free     |USD 18.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0130/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.0130/min   | USD 0.0601/min |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Slovakia telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0270/min       |USD 0.0100/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Norway telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 5.00/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0200/min       |USD 0.0300/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Netherlands telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1.50/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.3500/min       |USD 0.0100/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Germany telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 0.80/mo        |
+
+### Usage charges
+|Number type   |To make calls*   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.0150/min       |USD 0.0100/min        |
+
+\* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
 ***
 
 Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
