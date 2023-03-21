@@ -2,15 +2,12 @@
 title: Set up Service Fabric backend in Azure API Management | Microsoft Docs
 description: How to create a Service Fabric service backend in Azure API Management using the Azure portal
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
 
 ms.service: api-management
 ms.topic: article
 ms.date: 01/29/2021
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Set up a Service Fabric backend in API Management using the Azure portal

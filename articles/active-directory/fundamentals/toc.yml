@@ -171,6 +171,8 @@ items:
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
       - name: SAML authentication
         href: auth-saml.md
       - name: Open ID Connect authentication

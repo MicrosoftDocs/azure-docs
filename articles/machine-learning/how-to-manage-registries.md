@@ -26,6 +26,8 @@ Azure Machine Learning registries (preview) enable you to create and use those a
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
 
 [!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]
@@ -38,7 +40,7 @@ You need to decide the following information carefully before proceeding to crea
 
 Consider the following factors before picking a name.
 * Registries are meant to facilitate sharing of ML assets across teams within your organization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or organization. 
-* Registry unique with your organization (Azure Active Directory tenant). It's recommended to prefix your team or organization name and avoid generic names. 
+* Registry name is unique with your organization (Azure Active Directory tenant). It's recommended to prefix your team or organization name and avoid generic names. 
 * Registry names can't be changed once created because they're used in IDs of models, environments and components that are referenced in code. 
   * Length can be 2-32 characters. 
   * Alphanumerics, underscore, hyphen are allowed. No other special characters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  

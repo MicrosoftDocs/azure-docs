@@ -12,16 +12,16 @@ services: azure-maps
 
 # JavaScript/TypeScript REST SDK Developers Guide (preview)
 
-The Azure Maps JavaScript/TypeScript REST SDK (JavaScript SDK) supports searching using the [Azure Maps search Rest API][search], like searching for an address, fuzzy searching for a point of interest (POI), and searching by coordinates. This article will help you get started building location-aware applications that incorporate the power of Azure Maps.
+The Azure Maps JavaScript/TypeScript REST SDK (JavaScript SDK) supports searching using the Azure Maps [Search service], like searching for an address, fuzzy searching for a point of interest (POI), and searching by coordinates. This article will help you get started building location-aware applications that incorporate the power of Azure Maps.
 
 > [!NOTE]
-> Azure Maps JavaScript SDK supports the LTS version of Node.js. For more information, see [Node.js Release Working Group][Node.js Release].
+> Azure Maps JavaScript SDK supports the LTS version of Node.js. For more information, see [Node.js Release Working Group].
 
 ## Prerequisites
 
-- [Azure Maps account][Azure Maps account].
-- [Subscription key][Subscription key] or other form of [authentication][authentication].
-- [Node.js][Node.js].
+- [Azure Maps account].
+- [Subscription key] or other form of [authentication].
+- [Node.js].
 
 > [!TIP]
 > You can create an Azure Maps account programmatically, Here's an example using the Azure CLI:
@@ -60,7 +60,7 @@ mapsDemo
 
 ### Azure Maps services
 
-| Service Name  | npm packages            |  Samples     |
+| Service name  | npm packages            |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [@azure-rest/maps-search][search package] | [search samples][search sample] |
 | [Route][js route readme] | [@azure-rest/maps-route][js route package] | [route samples][js route sample] |
@@ -76,13 +76,13 @@ You'll need a `credential` object for authentication when creating the `MapsSear
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential][defaultazurecredential] provider, you'll need to install the `@azure/identity` package:
+You can authenticate with Azure AD using the [Azure Identity library]. To use the [DefaultAzureCredential] provider, you'll need to install the `@azure/identity` package:
 
 ```powershell
 npm install @azure/identity
 ```
 
-You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
@@ -93,7 +93,7 @@ Set the values of the Application (client) ID, Directory (tenant) ID, and client
 | AZURE_TENANT_ID       | Directory (tenant) ID in your registered application            |
 | MAPS_CLIENT_ID        | The client ID in your Azure Map account                         |
 
-You can use a `.env` file for these variables. You'll need to install the [dotenv][dotenv] package:
+You can use a `.env` file for these variables. You'll need to install the [dotenv] package:
 
 ```powershell
 npm install dotenv
@@ -125,9 +125,9 @@ You can authenticate with your Azure Maps subscription key. Your subscription ke
 
 :::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
 
-You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Core Authentication Package][core auth package]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code.
+You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Core Authentication Package]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code.
 
-You can accomplish this by using a `.env` file to store the subscription key variable. You'll need to install the [dotenv][dotenv] package to retrieve the value:
+You can accomplish this by using a `.env` file to store the subscription key variable. You'll need to install the [dotenv] package to retrieve the value:
 
 ```powershell
 npm install dotenv
@@ -202,7 +202,7 @@ main().catch((err) => {
 
 ```
 
-The code snippet above shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Azure AD credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult][FuzzySearchResult] object and writes them to the console. For more details, see the [FuzzySearchRequest][FuzzySearchRequest] documentation.
+The code snippet above shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Azure AD credential](#using-an-azure-ad-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult] object and writes them to the console. For more details, see the [FuzzySearchRequest] documentation.
  
 Run `search.js` with Node.js:
 
@@ -212,7 +212,7 @@ node search.js
 
 ## Search an Address
 
-The [searchAddress][searchAddress] query can be used to get the coordinates of an address. Modify the `search.js` from the sample as follows:
+The [searchAddress] query can be used to get the coordinates of an address. Modify the `search.js` from the sample as follows:
 
 ```JavaScript
 const MapsSearch = require("@azure-rest/maps-search").default;
@@ -379,7 +379,7 @@ main().catch(console.error);
 
 [JS-SDK]: /javascript/api/@azure-rest/maps-search
 
-[defaultazurecredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
 
 [searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
 
@@ -388,17 +388,17 @@ main().catch(console.error);
 [FuzzySearchResult]: /javascript/api/@azure-rest/maps-search/searchfuzzysearch200response
 
 
-[search]: /rest/api/maps/search
-[Node.js Release]: https://github.com/nodejs/release#release-schedule
+[Search service]: /rest/api/maps/search
+[Node.js Release Working Group]: https://github.com/nodejs/release#release-schedule
 [Node.js]: https://nodejs.org/en/download/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
-[Identity library]: /javascript/api/overview/azure/identity-readme
-[core auth package]: /javascript/api/@azure/core-auth/
+[Azure Identity library]: /javascript/api/overview/azure/identity-readme
+[Azure Core Authentication Package]: /javascript/api/@azure/core-auth/
 
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [dotenv]: https://github.com/motdotla/dotenv#readme
 
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search

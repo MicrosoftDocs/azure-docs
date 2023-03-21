@@ -37,4 +37,4 @@ Requirements are summarized in the following table.
 
 ## Next steps
 
-Try [Azure SQL resources](tutorial-move-region-sql.md) to another region with Resource Mover.
+Try [moving Azure SQL resources](tutorial-move-region-sql.md) to another region with Resource Mover.

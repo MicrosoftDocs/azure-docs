@@ -114,7 +114,7 @@ If you have a working Stream Analytics project on the local machine, follow thes
 
     ![Screenshot that shows how to set the metric threshold in a parameter file.](./media/cicd-autoscale/set-metric-threshold.png)
 
-    To learn more about defining autoscale rules, see [Understand autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings).
+    To learn more about defining autoscale rules, see [Understand autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).
 
 5. Deploy to Azure.
 

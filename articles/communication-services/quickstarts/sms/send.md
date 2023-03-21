@@ -63,7 +63,7 @@ If you have a new toll-free number and want to send [high volume of SMS messages
 In this quickstart, you learned how to send SMS messages by using Communication Services.
 
 > [!div class="nextstepaction"]
-> [Receive SMS and Delivery Report Events](./handle-sms-events.md)
+> [Receive and reply to SMS](./receive-sms.md)
 
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony/plan-solution.md)

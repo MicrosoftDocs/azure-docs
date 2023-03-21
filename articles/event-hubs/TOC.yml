@@ -135,24 +135,24 @@
           href: event-hubs-geo-dr.md
     - name: Security
       items:
-        - name: Authorization
+        - name: Authentication and authorization
           items:
-            - name: Authorize access to Azure Event Hubs
-              href: authorize-access-event-hubs.md
-            - name: Authorize access with Azure Active Directory
-              href: authorize-access-azure-active-directory.md
-            - name: Authorize access with a shared access signature
-              href: authorize-access-shared-access-signature.md
-        - name: Authentication
-          items:
-            - name: Authenticate with Azure Active Directory
-              items:
-                - name: Authenticate with a managed identity
-                  href: authenticate-managed-identity.md
-                - name: Authenticate from an application
-                  href: authenticate-application.md
+          - name: Authenticate and authorize access to Event Hubs resources
+            href: authorize-access-event-hubs.md
+          - name: Use Shared Access Signature (SAS)
+            items: 
             - name: Authenticate with a shared access signature
               href: authenticate-shared-access-signature.md
+            - name: Authorize access with a shared access signature
+              href: authorize-access-shared-access-signature.md
+          - name: Use Azure Active Directory
+            items:
+            - name: Authenticate with a managed identity
+              href: authenticate-managed-identity.md
+            - name: Authenticate from an application
+              href: authenticate-application.md
+            - name: Authorize access with Azure Active Directory
+              href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md
         - name: Security controls by Azure Policy

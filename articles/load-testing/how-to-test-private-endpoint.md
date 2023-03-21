@@ -36,9 +36,6 @@ When you start the load test, Azure Load Testing service injects the following A
 
 These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
-> [!NOTE]
-> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, North Europe, South Central US, UK South, and West US 2.
-
 ## Prerequisites
 
 - An existing virtual network and a subnet to use with Azure Load Testing.

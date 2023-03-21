@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure BrowserStack Single Sign-on for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BrowserStack Single Sign-on for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BrowserStack Single Sign-on.
 services: active-directory
 documentationcenter: ''
