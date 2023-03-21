@@ -41,36 +41,36 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 **PowerShell 7.1**
 
 To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
-Ensure to add the PowerShell file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
+Ensure to add the *PowerShell* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **Python 2.x, Python 3.x upto 3.8**
 
-To run Python 2.x and Python 3.x runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](automation-hrw-run-runbooks.md).
-Ensure to add the Python file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
+To run Python 2.x and Python 3.x runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html).
+Ensure to add the *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **PowerShell 7.2**
 
-To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *pwsh.exe* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
+To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
 
-After PowerShell 7.2 installation is complete, create an environment variable with Variable name as powershell_7_2_path and Variable value as location of the executable *pwsh.exe*. Restart the Hybrid Runbook Worker after environment variable is created successfully. 
+After PowerShell 7.2 installation is complete, create an environment variable with Variable name as powershell_7_2_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully. 
 
 **Python 3.10**
 
-To run Python 3.10 runbooks on a Windows Hybrid Worker, install *python.exe* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html)
+To run Python 3.10 runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html)
 
-After Python 3.10 installation is complete, create an environment variable with Variable name as python_3_10_path and Variable value as location of the executable *python.exe*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+After Python 3.10 installation is complete, create an environment variable with Variable name as python_3_10_path and Variable value as location of the executable *Python*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 #### [Agent-based Hybrid Workers](#tab/win-agt-hrw)
 
 **PowerShell 7.1**
 
 To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
-Ensure to add the PowerShell file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
+Ensure to add the *PowerShell* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **Python 2.x, Python 3.x upto 3.8**
 
 To run Python 2.x and Python 3.x runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html).
-Ensure to add the Python file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
+Ensure to add the *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 ---
 
@@ -87,22 +87,20 @@ Ensure to add the Python file to the PATH environment variable and restart the H
 
 **Python 2.x, Python 3.x upto 3.8**
 
-To run Python 2.x and Python 3.x runbooks on a Linux Hybrid Worker, install *python.exe* on the Hybrid Worker. For more information, see [Installing Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
-Ensure to add the *python.exe* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
+To run Python 2.x and Python 3.x runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. For more information, see [Installing Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
+Ensure to add the *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **PowerShell 7.2**
 
-To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *pwsh.exe* file on the Hybrid Worker. For more information, see [Installing PowerShell on Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3).
+To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. For more information, see [Installing PowerShell on Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3).
 
-After PowerShell 7.2 installation is complete, create an environment variable with **Variable name** as *powershell_7_2_path* and **Variable value** as location of the executable *pwsh.exe*.
-
-Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+After PowerShell 7.2 installation is complete, create an environment variable with **Variable name** as *powershell_7_2_path* and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
 **Python 3.10**
 
-To run Python 3.10 runbooks on a Linux Hybrid Worker, install *python.exe* on the Hybrid Worker. For more information, see [Installing Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
+To run Python 3.10 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. For more information, see [Installing Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
 
-After Python 3.10 installation is complete, create an environment variable with **Variable name** as *python_3_10_path* and **Variable value** as location of the executable *python.exe* file. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+After Python 3.10 installation is complete, create an environment variable with **Variable name** as *python_3_10_path* and **Variable value** as location of the executable *Python* file. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 
 #### [Agent-based Hybrid Workers](#tab/Lin-agt-hrw)
