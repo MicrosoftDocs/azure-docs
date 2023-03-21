@@ -31,7 +31,7 @@ Defender CSPM provides visibility and contextual insights into your organization
 
 With Defender for CSPM, you can:
 
-- Leverage cloud security explorer query templates, or build your own queries, to find misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can query data resources, networks, access controls and data flow security attributes, to determine where data is stored, how it's exposed, and how it flows across the enterprise. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
+- Leverage cloud security explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can query data resources, networks, access controls and data flow security attributes, to determine where data is stored, how it's exposed, and how it flows across the enterprise. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
 - Discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores. Review [attack paths](attack-path-reference.md#attack-paths).
 
 ## Data security in Defender for Storage
@@ -48,9 +48,9 @@ Defender for Cloud uses smart sampling to scan a selected number of files in you
 
 ## Data sensitivity settings
 
-Data sensitivity settings define what's considered sensitive data in your organization. Defender for Cloud uses the same sensitive information types as those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
+Data sensitivity settings define what's considered sensitive data in your organization. Defender for Cloud provides built-in sensitivity information types that are the same as those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
 
-Defender for Cloud turns on some built-in sensitive information types by default (finance, PII, and credentials). You can modify settings and add other types as needed.
+Defender for Cloud turns some of these sensitive information types on by default (finance, PII, and credentials). You can modify the default settings, and add additional sensitive information types as needed.
 
 :::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
 
@@ -58,15 +58,13 @@ If you're using Microsoft Purview, you can add custom sensitive information type
 
 Changes in sensitivity settings take effect the next time that resources are scanned.
 
-## Sensitivity labels
+### Sensitivity labels
 
-if you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a minimum sensitivity label threshold in Defender for Cloud. When setting a threshold, you select a minimum label in the labelling rank order. All resources that has this minimum label or higher are considered as containing sensitive data in the Defender CSPM cloud security graph. For example:
+if you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a minimum sensitivity label threshold in Defender for Cloud. When setting a threshold, you select a minimum label in the labelling rank order. All resources that have this minimum label or higher are presumed to contain sensitive data in the Defender CSPM cloud security graph. F**or example:
 
-You select Confidential as minimum. Highly Confidential is also consider as sensitive. General, Public, and Non-Business aren't.
+When you select **Confidential** as minimum. **Highly Confidential** is also considered as sensitive. **General**, **Public**, and **Non-Business** aren't.
 
 :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
-
-:::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
 
 During scanning, Defender for Cloud dynamically caculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
 
