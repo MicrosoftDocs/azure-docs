@@ -6,6 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
+ms.custom: references_regions
 ms.date: 02/16/2023
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
