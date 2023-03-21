@@ -1,11 +1,11 @@
 ---
-title: Metrics server VPA throttling in Azure Kubernetes Service (AKS)
+title: Configure Metrics Server VPA in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your Metrics Server pods on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/17/2023
+ms.date: 03/21/2023
 ---
 
-# Metrics server VPA throttling in Azure Kubernetes Service (AKS)
+# Configure Metrics Server VPA in Azure Kubernetes Service (AKS)
 
 [Metrics Server][metrics-server-overview] is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines. With Azure Kubernetes Service (AKS), vertical pod autoscaling is enabled for the Metrics Server. The Metrics Server is commonly used by other Kubernetes add ons, such as the [Horizontal Pod Autoscaler][horizontal-pod-autoscaler].
 
@@ -15,7 +15,7 @@ Vertical Pod Autoscaler (VPA) enables you to adjust the resource limit when the 
 
 AKS cluster is running Kubernetes version 1.24 and higher.
 
-## Metrics server crashloopbackoff or throttling
+## Metrics server throttling
 
 If the Metrics Server throttling rate is high, and the memory usage of its two pods is unbalanced, this indicates the Metrics Server requires more resources than the default values specified.
 
