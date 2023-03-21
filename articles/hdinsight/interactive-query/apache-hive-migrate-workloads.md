@@ -22,14 +22,14 @@ The new and old HDInsight clusters must have access to the same Storage Accounts
 
 Migration of Hive tables to a new Storage Account needs to be done as a separate step. See [Hive Migration across Storage Accounts](./hive-migration-across-storage-accounts.md).
 
-Changes in Hive 3 and what's new:
+## Changes in Hive 3 and what's new:
 
-Hive client changes:
+### Hive client changes
 Hive 3 supports only the thin client, Beeline for running queries and Hive administrative commands from the command line. Beeline uses a JDBC connection to HiveServer to execute all commands. Parsing, compiling, and executing operations occur in HiveServer.
 
-You enter supported Hive CLI commands by invoking Beeline using the hive keyword as a hive user or invoke a beeline using `beeline -u <JDBC URL>`. You can get the JDBC URL from Ambari hive page.
+You enter supported Hive CLI commands by invoking Beeline using the hive keyword as a hive user or invoke a beeline using `beeline -u <JDBC URL>`. You can get the JDBC URL from Ambari Hive page.
 
-Image
+:::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URl output." border="true":::
 
 Using Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, including the following:
 
@@ -38,7 +38,7 @@ Using Beeline (instead of the thick client Hive CLI, which is no longer supporte
 
 You can also execute the hive script which is under the directory “/usr/bin” which will also invoke a beeline connection using JDBC URL.
 
-Image
+:::image type="content" source="./media/apache-hive-migrate-workloads/beeline-connection-using-jdbc-url.png" alt-text="Screenshot showing beeline connection output." border="true":::
 
 A thin client architecture facilitates securing data in
 
@@ -47,9 +47,9 @@ A thin client architecture facilitates securing data in
 
 HiveServer enforces whitelist and blacklist settings that you can change using `SET` commands. Using the blacklist, you can restrict memory configuration to prevent HiveServer instability. You can configure multiple HiveServer instances with different whitelists and blacklists to establish different levels of stability.
 
-## Hive Metastore changes
+### Hive Metastore changes
 
-Hive now supports only a remote metastore instead of an embedded metastore (within HS2 JVM). The Hive metastore resides on a node in a cluster managed by Ambari as part of the HDI stack. A standalone server outside the cluster is not supported. You no longer set key=value commands on the command line to configure Hive Metastore. Based on the value configured in "hive.metastore.uris=' ' " HMS service will be used and connection will be established.
+Hive now supports only a remote metastore instead of an embedded metastore (within HS2 JVM). The Hive metastore resides on a node in a cluster managed by Ambari as part of the HDInsighgt stack. A standalone server outside the cluster is not supported. You no longer set key=value commands on the command line to configure Hive Metastore. Based on the value configured in "hive.metastore.uris=' ' " HMS service will be used and connection will be established.
 
 Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is deprecated starting Hive 2.0 Refer [HIVE-12300](https://issues.apache.org/jira/browse/HIVE-12300). With expressions of directed acyclic graphs (DAGs) and data transfer primitives, execution of Hive queries under Tez improves performance. SQL queries you submit to Hive are executed as follows
 
@@ -61,7 +61,8 @@ Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is
 
 If a legacy script or application specifies MapReduce for execution, an exception occurs as follows:
 
-Image
+
+:::image type="content" source="./media/hive-workload-management/map-reducer-exception.png" alt-text="Screenshot showing map reducer exception output." lightbox="./media/hive-workload-management/map-reducer-exception.png":::
 
 > [!NOTE]
 > Most user-defined functions (UDFs) require no change to execute on Tez instead of MapReduce.
@@ -109,9 +110,9 @@ Storage formats are a factor in upgrade changes to table types. Hive 2.x and 3.x
 
 ## HDInsight 4.x upgrade changes to table types
 
-The following table compares Hive table types and ACID operations before an upgrade from HDI 3.x and after an upgrade to HDI 4.x. The ownership of the Hive table file is a factor in determining table types and ACID operations after the upgrade
+The following table compares Hive table types and ACID operations before an upgrade from HDInsighgt 3.x and after an upgrade to HDInsighgt 4.x. The ownership of the Hive table file is a factor in determining table types and ACID operations after the upgrade
 
-HDInsight 3.x and HDI-4.x Table Type Comparison
+HDInsight 3.x and HDInsighgt-4.x Table Type Comparison
 
 |Add|tabe|here|
 |--|--|--
@@ -122,7 +123,7 @@ HDInsight 3.x and HDI-4.x Table Type Comparison
 
 Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by default  in Hive 3. Hive impersonation runs Hive as end user, or not.
 
-### Other HDI 4.x upgrade changes
+### Other HDInsighgt 4.x upgrade changes
 
 1. Managed, ACID tables that are not owned by the hive user remain managed tables after the upgrade, but hive becomes the owner.
 2. After the upgrade, the format of a Hive table is the same as before the upgrade. For example, native or non-native tables remain native or non-native, respectively.
@@ -135,7 +136,7 @@ After the upgrade, the location of managed tables or partitions do not change un
 1. The old table or partition is in a different file system than the new warehouse directory.
 1. The old table or partition directory is in a different encryption zone than the new warehouse directory.
 
-Otherwise, the location of managed tables or partitions does change. The upgrade process moves managed files to `/hive/warehouse/managed`. By default, Hive places any new external tables you create in HDI 4.x in `/hive/warehouse/external`
+Otherwise, the location of managed tables or partitions does change. The upgrade process moves managed files to `/hive/warehouse/managed`. By default, Hive places any new external tables you create in HDInsighgt 4.x in `/hive/warehouse/external`
 
 The `/apps/hive directory`, which is the former location of the Hive 2.x warehouse, might or might not exist in HDInsight 4.x
 
@@ -143,14 +144,14 @@ Following Scenario's are present for location changes
 
 **Scenario 1**
 
-If the table is a managed table in HDI-3.xand if it is present in the location `/apps/hive/warehouse` and converted as external table in HDI-4.x then the location will be same `/apps/hive/warehouse` in HDI 4.x as well. It will not change any location. After this if you are performing alter table command to convert it as managed (acid) table at that time also it will be in the same location `/apps/hive/warehouse`.
+If the table is a managed table in HDInsighgt-3.xand if it is present in the location `/apps/hive/warehouse` and converted as external table in HDInsighgt-4.x then the location will be same `/apps/hive/warehouse` in HDInsighgt 4.x as well. It will not change any location. After this if you are performing alter table command to convert it as managed (acid) table at that time also it will be in the same location `/apps/hive/warehouse`.
 
 **Scenario 2**
 
-If the table is a managed table in HDI-3.x and if it is present in the location `/apps/hive/warehouse` and converted to managed (ACID) table in HDI 4.x then the location will be `/hive/warehouse/managed`.
+If the table is a managed table in HDInsighgt-3.x and if it is present in the location `/apps/hive/warehouse` and converted to managed (ACID) table in HDInsighgt 4.x then the location will be `/hive/warehouse/managed`.
 
 **Scenario 3**
-If you are creating an external table in HDI-4.x without specifying any location then it will present in the location `/hive/warehouse/external`.
+If you are creating an external table in HDInsighgt-4.x without specifying any location then it will present in the location `/hive/warehouse/external`.
 
 
 ## Table conversion
@@ -159,8 +160,8 @@ After upgrading, to convert a non-transactional table to an ACID v2 transactiona
 ```
 transaction'='true' and 'EXTERNAL'='false
 ```
-1. The managed table, non-acid, ORC format and owned by non-hive user in HDI-3.x will be converted to external, non-acid table in HDI-4.x.
-1. If the user wishes to change the external table (non-acid) to ACID then they should change the external table to managed and ACID as well. Because in HDI-4.x all the managed tables are strictly ACID by default. You cannot convert the external tables(non-acid) to ACID table.
+1. The managed table, non-acid, ORC format and owned by non-hive user in HDInsighgt-3.x will be converted to external, non-acid table in HDInsighgt-4.x.
+1. If the user wishes to change the external table (non-acid) to ACID then they should change the external table to managed and ACID as well. Because in HDInsighgt-4.x all the managed tables are strictly ACID by default. You cannot convert the external tables(non-acid) to ACID table.
 
 > [!NOTE]
 > The table must be a ORC table.
@@ -220,7 +221,7 @@ Hive has changed table creation in the following ways
     If you have an ETL pipeline that creates tables in Hive, the tables will be created as ACID. Hive now tightly controls access and performs compaction periodically on the tables
 
     **Before Upgrade**
-    In HDI 3.x, by default CREATE TABLE created a non-ACID table.
+    In HDInsighgt 3.x, by default CREATE TABLE created a non-ACID table.
 
     **After Upgrade** By default CREATE TABLE creates a full, ACID transactional table in ORC format.
 
@@ -238,7 +239,6 @@ Hive has changed table creation in the following ways
 
 1. CASTING TIMESTAMPS:
     Results of applications that cast numerics to timestamps differ from Hive 2 to Hive 3. Apache Hive changed the behavior of CAST to comply with the SQL Standard, which does not associate a time zone with the TIMESTAMP type.
-
     **Before Upgrade**
     Casting a numeric type value into a timestamp could be used to produce a result that reflected the time zone of the cluster. For example, 1597217764557 is 2020-08-12 00:36:04 PDT. Running the following query casts the numeric to a timestamp in PDT:
     `SELECT CAST(1597217764557 AS TIMESTAMP);`
@@ -255,7 +255,7 @@ Hive has changed table creation in the following ways
     A default configuration change can cause applications that change column types to fail.
    
      **Before Upgrade**
-    In HDI 3.x hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
+    In HDInsighgt 3.x hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
 
     **After Upgrade**
     The hive.metastore.disallow.incompatible.col.type.changes is true by default. Hive prevents changes to incompatible column types. Compatible column type changes, such as INT, STRING, BIGINT, are not blocked.
