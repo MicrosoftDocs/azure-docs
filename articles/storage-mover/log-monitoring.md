@@ -163,4 +163,4 @@ Get started with any of these guides.
 | [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md) | A tour of Log Analytics. |
 | [Azure Monitor Metrics overview](../azure-monitor/essentials/data-platform-metrics.md) | The basics of metrics and metric dimensions  |
 | [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md)| The basics of logs and how to collect and analyze them |
-| [Troubleshoot Storage Mover issues](www.microsoft.com)| Common performance issues and guidance about how to troubleshoot them. |
+| [Troubleshoot Storage Mover issues](log-monitoring.md)| Common performance issues and guidance about how to troubleshoot them. |
