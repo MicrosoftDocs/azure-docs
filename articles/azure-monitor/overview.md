@@ -51,7 +51,7 @@ The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
 - The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes.
 - The functions and components that consume data include analysis, visualizations, insights, and responses.
-- Services that integrate with Azure Monitor provide additional functionality are marked with an asterisk * in the diagram.
+- Services that integrate with Azure Monitor and provide additional functionality are marked with an asterisk * in the diagram.
 
 ## Data sources
 
@@ -106,22 +106,20 @@ Click on the picture to see a larger version of the data collection diagram in c
 
 |Collection method|Description  |
 |---------|---------|
-|[Application SDK](app/app-insights-overview.md)| You can add the Application Insights SDK to your application code to receive, store, and explore your monitoring data. The SDK pre-processes telemetry and metrics before sending the data to Azure where it's ingested and processed further before being stored in Azure Monitor Logs.|
+|[Application SDK](app/app-insights-overview.md)| You can add the Application Insights SDK to your application code to receive, store, and explore your monitoring data. The SDK preprocesses telemetry and metrics before sending the data to Azure where it's ingested and processed further before being stored in Azure Monitor Logs.|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from applications, the guest operating system of Azure, and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
 |Internal| Data is automatically sent to a destination without user configuration.  |
 |[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
 |[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
 
-A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below. |
+A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
 
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
 ## Consumption
 
-The following sections outline methods and services that consume montoring data from the data platform.
-
-:::image type="content" source="media/overview/consume.png" alt-text="Diagram that shows the Consumption section of the Azure Monitor system.  That is, Insights, Visualize, Analyze, Respond." border="false" lightbox="media/overview/consumption-large-in-overview-context.png":::
+The following sections outline methods and services that consume montoring data from the Azure Monitor data platform.
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
@@ -144,7 +142,7 @@ The following table describes some of the larger insights:
 |[Application Insights](app/app-insights-overview.md)|Application Insights takes advantage of the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. Application Insights monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. You can use it to diagnose errors without waiting for a user to report them. Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes.|
 |[Container Insights](containers/container-insights-overview.md)|Container Insights gives you performance visibility into container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service. Container Insights collects container logs and metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.|
 |[VM Insights](vm/vminsights-overview.md)|VM Insights monitors your Azure VMs. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.|
-|[Network Insights](../network-watcher/network-insights-overview.md)|Network Insights provides a comprehensive and visual representation through topologies, of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics as well as additional diagnostic features. |
+|[Network Insights](../network-watcher/network-insights-overview.md)|Network Insights provides a comprehensive and visual representation through topologies, of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics as well as other diagnostic features. |
 
 For more information, see the [list of insights and curated visualizations in the Azure Monitor Insights overview](insights/insights-overview.md). 
 
@@ -152,7 +150,7 @@ For more information, see the [list of insights and curated visualizations in th
 
 :::image type="content" source="media/overview/visualize.png" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-large-in-overview-context.png":::
 
-Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and uses other Azure services for publishing it to different audiences. PowerBI and Grafana are not officially part of the Azure Monitor product, but they are a core integration and part of the Azure Monitor story.
+Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and uses other Azure services for publishing it to different audiences. Power BI and Grafana are not officially part of the Azure Monitor product, but they're a core integration and part of the Azure Monitor story.
 
 |Visualization|Description  |
 |---------|---------|
@@ -171,7 +169,7 @@ The Azure portal contains built in tools that allow you to analyze monitoring da
 |---------|---------|
 |[Metrics explorer](essentials/metrics-getting-started.md)|Use the Azure Monitor metrics explorer user interface in the Azure portal to investigate the health and utilization of your resources. Metrics explorer helps you plot charts, visually correlate trends, and investigate spikes and dips in metric values. Metrics explorer contains features for applying dimensions and filtering, and for customizing charts. These features help you analyze exactly the data you need in a visually intuitive way.|
 |[Log Analytics](logs/log-analytics-overview.md)|The Log Analytics user interface in the Azure portal helps you query the log data collected by Azure Monitor so that you can quickly retrieve, consolidate, and analyze collected data. After creating test queries, you can then directly analyze the data with Azure Monitor tools, or you can save the queries for use with visualizations or alert rules. Log Analytics workspaces are based on Azure Data Explorer, using a powerful analysis engine and the rich Kusto query language (KQL).Azure Monitor Logs uses a version of the Kusto Query Language suitable for simple log queries, and advanced functionality such as aggregations, joins, and smart analytics. You can [get started with KQL](logs/get-started-queries.md) quickly and easily. NOTE: The term "Log Analytics" is sometimes used to mean both the Azure Monitor Logs data platform store and the UI that accesses that store. Previous to 2019, the term "Log Analytics" did refer to both. It's still common to find content using that framing in various blogs and documentation on the internet. |
-|[Change Analysis](change/change-analysis.md)| Change Analysis is a subscription-level Azure resource provider that checks resource changes in the subscription and provides data for diagnostic tools to help users understand what changes might have caused issues. The Change Analysis user interface in the Azure portal gives you insight into the cause of live site issues, outages, or component failures. Change Analysis uses the [Azure Resource Graph](../governance/resource-graph/overview.md) to detect various types of changes, from the infrastructure layer through application deployment. .|
+|[Change Analysis](change/change-analysis.md)| Change Analysis is a subscription-level Azure resource provider that checks resource changes in the subscription and provides data for diagnostic tools to help users understand what changes might have caused issues. The Change Analysis user interface in the Azure portal gives you insight into the cause of live site issues, outages, or component failures. Change Analysis uses the [Azure Resource Graph](../governance/resource-graph/overview.md) to detect various types of changes, from the infrastructure layer through application deployment.|
 
 ### Respond
 
