@@ -1,6 +1,6 @@
 ---
-title: Query metrics in an Azure Monitor workspace using PromQL
-description: Describes how to Query metrics in an Azure Monitor workspace using PromQL.
+title: Query Prometheus metrics using the API and PromQL
+description: Describes how to use the API to Query metrics in an Azure Monitor workspace using PromQL.
 ms.topic: how-to
 author: EdB-MSFT
 ms.author: edbaynash
@@ -8,11 +8,11 @@ ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Query Prometheus metrics from an Azure Monitor Workspace using PromQL.
+# Query Prometheus metrics using the API and PromQL.
 
 Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes Clusters and stores them in an Azure Monitor workspace.  PromQL - Prometheus query language, is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
 
-This article describes how to query an Azure Monitor workspace using PromQL via  REST API.
+This article describes how to query an Azure Monitor workspace using PromQL via the REST API.
 For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
 ## Prerequisites 
@@ -46,24 +46,25 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. Select Access control (IAM). 
 
-1. Select **Add**, then **Add role assignment** from the Access Control (IAM) page.
-  :::image type="content" source="./media/query-azure-monitor-workspaces/access-control.png" lightbox="./media/query-azure-monitor-workspaces/access-control.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
+1. Select **Add**, then **Add role assignment** from the Access Control (IAM) page.  
+
+   :::image type="content" source="./media/prometheus-api-promql/access-control.png" lightbox="./media/prometheus-api-promql/access-control.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
 
 1. On the **Add role Assignment page**, search for *Monitoring*.
 
 1. Select **Monitoring Data Reader**, then select the Members tab.
 
-    :::image type="content" source="./media/query-azure-monitor-workspaces/add-role-assignment.png" lightbox="./media/query-azure-monitor-workspaces/add-role-assignment.png" alt-text="A screenshot showing the Add role assignment page":::
+    :::image type="content" source="./media/prometheus-api-promql/add-role-assignment.png" lightbox="./media/prometheus-api-promql/add-role-assignment.png" alt-text="A screenshot showing the Add role assignment page":::
 
 1. Select **Select members**.
 
-1. Search for the app that you registered in the Register an app with Azure Active Directory section and select it.
+1. Search for the app that you registered and select it.
 
 1. Choose **Select**.
 
 1. Select **Review + assign**. 
 
-    :::image type="content" source="./media/query-azure-monitor-workspaces/select-members.png" lightbox="./media/query-azure-monitor-workspaces/select-members.png.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
+    :::image type="content" source="./media/prometheus-api-promql/select-members.png" lightbox="./media/prometheus-api-promql/select-members.png" alt-text="A screenshot showing the Add role assignment, select members page.":::
 
 You've created your App registration and have assigned it access to query data from your Azure Monitor workspace.  You can now generate a token and use it in a query.
 
@@ -98,8 +99,9 @@ Save the access token from the response for use in the following HTTP requests.
 
 ## Query Endpoint
 
-Find your workspace's query endpoint on the overview page.
-:::image type="content" source="./media/query-azure-monitor-workspaces/find-query-endpoint.png" lightbox="./media/query-azure-monitor-workspaces/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoint on the Azure Monitor workspace overview page.":::
+Find your workspace's query endpoint on the Azure Monitor workspace overview page.  
+
+:::image type="content" source="./media/prometheus-api-promql/find-query-endpoint.png" lightbox="./media/prometheus-api-promql/find-query-endpoint.png" alt-text="A screenshot sowing the query endpoint on the Azure Monitor workspace overview page.":::
 
 ## Supported APIs
 The following queries are supported:
