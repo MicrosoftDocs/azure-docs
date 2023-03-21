@@ -13,7 +13,7 @@ ms.author: cwatson
 Microsoft essential solutions are domain solutions published by Microsoft for Microsoft Sentinel. These solutions have out-of-the-box content which can operate across multiple products for specific categories like networking. Some of these essential solutions use the normalization technique Advanced Security Information Model (ASIM) to normalize the data at query time or ingestion time.
 
 > [!IMPORTANT]
-> Microsoft essential solutions and the network session essentials solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft essential solutions and the Network Session Essentials solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Why use ASIM-based Microsoft essential solutions?
@@ -72,5 +72,5 @@ These essential solutions like other Microsoft Sentinel domain solutions don't h
 
 ## Next steps
 
-- [Find ASIM-based domain essential solutions like the Network Session Essential Solution](sentinel-solutions-catalog.md)
+- [Find ASIM-based domain essential solutions like the Network Session Essentials](sentinel-solutions-catalog.md)
 - [Using the Advanced Security Information Model (ASIM)](/azure/sentinel/normalization-about-parsers)
