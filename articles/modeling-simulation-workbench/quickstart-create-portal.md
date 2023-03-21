@@ -111,7 +111,7 @@ Take note of the properties in the next steps:
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-   :::image type="content" source="./media/quickstart-create-portal/vault-iam01.png" alt-text="Add role assignment page in Azure portal.":::
+   :::image type="content" source="./media/quickstart-create-portal/vault-iam-01.png" alt-text="Add role assignment page in Azure portal.":::
 
 1. Assign the following roles.
 
@@ -179,7 +179,7 @@ Take note of the properties in the next steps:
 
 1. Under the **Modeling and Simulation Workbenches (preview)** page, select **Create**. The **Create an Azure Modeling and Simulation Workbench** page opens.
 
-   :::image type="content" source="./media/quickstart-create-portal/create001.png" alt-text="Screenshot of the Marketplace showing how to search Azure Modeling and Simulation Workbench":::
+   :::image type="content" source="./media/quickstart-create-portal/create-01.png" alt-text="Screenshot of the Marketplace showing how to search Azure Modeling and Simulation Workbench":::
 
 1. In the **Basics** tab, under **Project details**, choose your subscription for **Subscription** and choose *QuickstartCreateModSimWorkbench-rg* for **Resource group**.
 
