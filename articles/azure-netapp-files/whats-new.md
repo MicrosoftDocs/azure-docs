@@ -21,7 +21,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## March 2023
 
-* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available. 
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
 
 * [Disable showmount](disable-showmount.md) (Preview)
 
