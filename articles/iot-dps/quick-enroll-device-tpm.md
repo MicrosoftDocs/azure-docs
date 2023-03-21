@@ -399,19 +399,19 @@ To verify that the individual enrollment has been created:
 
 :::zone pivot="programming-language-csharp"
 
-:::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-csharp.png" alt-text="Verify enrollment for C# individual device in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-csharp.png" alt-text="Verify enrollment for C# individual device in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-:::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-nodejs.png" alt-text="Verify enrollment for Node.js individual device in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-nodejs.png" alt-text="Verify enrollment for Node.js individual device in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-:::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-java.png" alt-text="Verify enrollment for Java individual device in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-java.png" alt-text="Verify enrollment for Java individual device in the portal.":::
 
 :::zone-end
 

@@ -398,19 +398,19 @@ To verify that the enrollment group has been created:
 
 :::zone pivot="programming-language-csharp"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-nodejs.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-nodejs.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
+   :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Screenshot that shows the newly created enrollment group in the portal.":::
 
 :::zone-end
 
