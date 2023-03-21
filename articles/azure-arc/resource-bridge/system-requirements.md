@@ -74,7 +74,7 @@ The reserved appliance VM IP has the following requirements:
 - The appliance VM needs to be able to resolve the management machine and vice versa.
 - Internet access.
 - Connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy and firewall.
-- - Static IP assigned, used for the `k8snodeippoolend` in configuration command. (If using DHCP, then the address must be reserved.)
+- Static IP assigned, used for the `k8snodeippoolend` in configuration command. (If using DHCP, then the address must be reserved.)
 - Ability to reach a DNS server that can resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses, container registry names, and other [required URLs](network-requirements.md#outbound-connectivity).
 
 ## Control plane IP requirements
