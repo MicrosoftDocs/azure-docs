@@ -407,7 +407,7 @@
             - name: Free tier
               displayName: free tier
               href: ../free-tier.md
-            - name: Pre-migration guide
+            - name: Premigration guide
               href: pre-migration-steps.md
             - name: MongoDB native tools (offline)
               href: tutorial-mongotools-cosmos-db.md
