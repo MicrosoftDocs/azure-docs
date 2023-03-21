@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 03/20/2023
 ms.author: danlep
 ---
 
@@ -58,7 +58,7 @@ class Authorization
 | Property Name | Description |
 | -- | -- |
 | AccessToken | Bearer access token to authorize a backend HTTP request. |
-| Claims | Claims returned from the authorization server’s token response API (see [RFC6749#section-5.1](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)). |
+| Claims | Claims returned from the authorization server's token response API (see [RFC6749#section-5.1](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)). |
 
 ## Usage
 
@@ -68,7 +68,7 @@ class Authorization
 
 ### Usage notes
 
-* Configure `identity-type=jwt`  when the [access policy](authorizations-overview.md#access-policies) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
+* Configure `identity-type=jwt`  when the [access policy](authorizations-overview.md#step-3---access-policy) for the authorization is assigned to a service principal. Only `/.default` app-only scopes are supported for the JWT.
 
 ## Examples
 

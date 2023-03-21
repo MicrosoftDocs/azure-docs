@@ -20,7 +20,7 @@ You add identity provider settings when configuring an authorization in your API
 
 * [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
 
-### Prerequisites
+## Prerequisites
 
 To configure any of the supported providers in API Management, first configure an OAuth 2.0 app in the identity provider that will be used to authorize API access. For configuration details, see the provider's developer documentation.
 
