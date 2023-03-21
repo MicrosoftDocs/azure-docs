@@ -365,7 +365,7 @@ Create a storage account in a new resource group:
 
 Create a container and upload the _app.zip_ file:
 
-1. Under the storage account's **Data storage** select **Containers**.
+1. Go to **Data storage** and select **Containers**.
 
    :::image type="content" source="./media/publish-service-catalog-app/create-new-container.png" alt-text="Screenshot of the storage account's screen to create a new container.":::
 
@@ -386,9 +386,9 @@ Create a container and upload the _app.zip_ file:
 1. After the file is uploaded, select _app.zip_ in the container.
 1. Copy the _app.zip_ file's URL from the **Overview** > **URL**.
 
-   :::image type="content" source="./media/publish-service-catalog-app/copy-file-url.png" alt-text="Screenshot of the of the zip file's URL with copy button highlighted.":::
+   :::image type="content" source="./media/publish-service-catalog-app/copy-file-url.png" alt-text="Screenshot of the zip file's URL with copy button highlighted.":::
 
-Make a note of the _app.zip_ file's URL because you'll need it to create the managed application definition.
+Make a note of the _app.zip_ file's URL because you need it to create the managed application definition.
 
 ---
 
@@ -525,14 +525,15 @@ To deploy a managed application definition from the Azure portal, use the follow
 
 1. Select **Create** from the **Service Catalog Managed Application Definition** page.
 
-   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition.png" alt-text="Screenshot of the Service Catalog Managed Application Definition page with the create button hightlighted.":::
+   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition.png" alt-text="Screenshot of the Service Catalog Managed Application Definition page with the create button highlighted.":::
 
-1. On the **Basics** tab enter the following information and select **Next: Package**:
+1. On the **Basics** tab, enter the following information and select **Next: Package**:
 
    :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-basics.png" alt-text="Screenshot of the Basics tab on the form to create a service catalog definition. ":::
 
-   - Select your subscription name.
-   - Create a new resource group named _appDefinitionGroup_.
+   - **Project details**:
+     - Select your subscription name.
+     - Create a new resource group named _appDefinitionGroup_.
    - **Instance details**:
       - **Name**: Enter a name like _instance-name_. The name isn't used in the definition but the form requires an entry.
       - **Region**: _West US3_
@@ -541,11 +542,11 @@ To deploy a managed application definition from the Azure portal, use the follow
       - **Display name**: _Sample managed application_
       - **Description**: _Sample managed application that deploys web resources_
 
-1. On the **Package** tab enter the **Package file uri** for your _app.zip_ file.
+1. On the **Package** tab, enter the **Package file uri** for your _app.zip_ file.
 1. Skip the **Management settings** tab.
-1. On the **Authentication and lock level** tab enter the following information and then select **Review + create**.
+1. On the **Authentication and lock level** tab, enter the following information and then select **Review + create**.
 
-   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-authentication.png" alt-text="Screenshot of the authenticaion and lock level for the managed application definition.":::
+   :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-authentication.png" alt-text="Screenshot of the authentication and lock level for the managed application definition.":::
 
    - **Lock level**: Select _Read Only_.
    - Select **Add members**.
@@ -554,7 +555,7 @@ To deploy a managed application definition from the Azure portal, use the follow
 
      The **Lock level** on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `Read Only` is the only supported lock level. `Read Only` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 
-1. After the portal shows **Validation passed** select **Create**.
+1. After **Validation passed** is displayed, select **Create**.
 
    :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-validation.png" alt-text="Screenshot of portal that shows validation passed for the managed application definition.":::
 
@@ -568,7 +569,7 @@ You have access to the managed application definition, but you want to make sure
 
 ## Next steps
 
-You've published the managed application definition. Now, learn how to deploy an instance of that definition.
+You've published the managed application definition. The next step is to learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy a service catalog managed application](deploy-service-catalog-quickstart.md)
