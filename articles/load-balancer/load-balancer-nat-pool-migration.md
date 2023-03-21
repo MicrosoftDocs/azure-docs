@@ -43,12 +43,12 @@ The migration process will create a new Backend Pool for each Inbound NAT Pool e
 > [!NOTE]
 > The examples below all use IPv4; to use IPv6, substitute "ipv6" for "ipv4".  Also note that Floating IP for IPv6 does not work for Internal Load Balancers.
 
-### Install the 'AzureNATPoolsMigration' module
+### Install the 'AzureLoadBalancerNATPoolMigration' module
 
-Install the module from the [PowerShell Gallery](https://powershellgallery.com)
+Install the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLoadBalancerNATPoolMigration)
 
 ```azurepowershell
-Install-Module -Name AzureNATPoolMigration -Scope CurrentUser -Repository PSGallery -Force
+Install-Module -Name AzureLoadBalancerNATPoolMigration -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 ### Use the module to upgrade NAT Pools to NAT Rules
