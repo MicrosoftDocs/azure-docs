@@ -317,7 +317,7 @@ For other policies, you can create an exemption directly in the policy itself, b
 If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
 
 > [!NOTE]
-    > For Defender for Servers you'll get regulatory compliance only for plan 2.
+> For Defender for Servers you'll get regulatory compliance only for plan 2.
 
 ## Next steps
 
