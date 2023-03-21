@@ -19,7 +19,7 @@ If you try to remove a user-assigned or system-assigned managed identity that yo
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-You also won't be able to change (rotate) the encryption key. The resolution steps depend on the type of identity that you used for encryption.
+You're unable to change (rotate) the encryption key. The resolution steps depend on the type of identity that you used for encryption.
 
 ### Removing a user-assigned identity
 
@@ -50,13 +50,13 @@ If the problem persists, contact Azure Support.
 
 ## Identity expiry error
 
-The identity attached to a registry is set for auto-renewal to avoid expiry. If you disassociate an identity from a registry, an error message will occur explaining you cannot remove the identity in use for CMK. Attempting to remove the identity will also jeopardize the auto-renewal of identity. The artifact pull/push operations work until the identity expires (Usually three months). After the identity expiration, you will see the HTTP 403 with an error message "The identity associated with the registry is inactive. This could be due to attempted removal of the identity. Please reassign the identity manually". 
+The identity attached to a registry is set for autorenewal to avoid expiry. If you disassociate an identity from a registry, an error message occurs explaining to you can't remove the identity in use for CMK. Attempting to remove the identity jeopardizes the autorenewal of identity. The artifact pull/push operations work until the identity expires (Usually three months). After the identity expiration, you'll see the HTTP 403 with an error message "The identity associated with the registry is inactive. This could be due to attempted removal of the identity. Reassign the identity manually". 
 
 You have to reassign the identity back to registry explicitly.
 
 ## Accidental deletion of a key vault or key
 
-Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
+Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key makes the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
 
 ## Next steps
 
