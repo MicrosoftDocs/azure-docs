@@ -54,7 +54,7 @@ az containerapp env show \
     --query 'properties.staticIp'
 ```
 
-Use the following command to get the A record:
+Use the following command to create the A record:
 
 ```azurecli
 az network private-dns record-set a add-record \
