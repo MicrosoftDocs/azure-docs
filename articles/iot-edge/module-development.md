@@ -52,15 +52,15 @@ An IoT Edge module can send messages to the cloud via the IoT Edge hub that acts
 
 To send device-to-cloud telemetry messages using routes:
 
-1. Use ModuleClient of the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks). Each module has *input* and *output* endpoints. 
-1. Use the `ModuleClient.sendMessageAsync` method to send messages on the output endpoint of your module. 
-1. Configure a route in edgeHub to send this output endpoint to IoT Hub.
+* Use ModuleClient of the [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks). Each module has *input* and *output* endpoints. 
+* Use the `ModuleClient.sendMessageAsync` method (or equivalent in your preferred language) to send messages on the output endpoint of your module. 
+* Configure a route in edgeHub to send this output endpoint to IoT Hub.
 
 To process messages using routes:
 
-1. Set up a route to send messages coming from another endpoint (module or device) to the input endpoint of your module.
-1. Listen for messages on the input endpoint of your module. Each time a new message comes back, a callback function is triggered by the Azure IoT SDK. 
-1. Process your message with this callback function and (optionally) send new messages in your module endpoint queue.
+* Set up a route to send messages coming from another endpoint (module or device) to the input endpoint of your module.
+* Listen for messages on the input endpoint of your module. Each time a new message comes back, a callback function is triggered by the Azure IoT SDK. 
+* Process your message with this callback function and (optionally) send new messages in your module endpoint queue.
 
 #### Twins
 
