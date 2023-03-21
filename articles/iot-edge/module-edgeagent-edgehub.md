@@ -31,11 +31,11 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | imagePullPolicy | When to pull the image in either *OnCreate* or *Never* (*Never* can be used if the image is already on the device) | Yes |
-| restartPolicy | When the module should be restarted. Possible values are: <br><br> *Never*: don't restart module if not running <br>*Always*: always restart module if not running<br>*On-Unhealthy*: restart module if unhealthy. Unhealthy is what Docker reports based on a health check, for example "Unhealthy - the container is not working correctly". <br>*On-Failed*: restart if Failed. | Yes |
+| restartPolicy | When the module should be restarted. Possible values are: *Never*: don't restart module if not running, *Always*: always restart module if not running, *On-Unhealthy*: restart module if unhealthy. Unhealthy is what Docker reports based on a health check, for example "Unhealthy - the container is not working correctly", *On-Failed*: restart if Failed. | Yes |
 | runtime.type | Has to be *docker*. | Yes |
 | runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest. | Yes |
 | runtime.settings.loggingOptions | A stringified JSON containing the logging options for the IoT Edge agent container. [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/) | No |
-| runtime.settings.registryCredentials.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name.<br><br>Registry credentials are necessary for any private module images. | No |
+| runtime.settings.registryCredentials.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name. Registry credentials are necessary for any private module images. | No |
 | runtime.settings.registryCredentials.{registryId}.password | The password for the container registry. | No |
 | runtime.settings.registryCredentials.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | No | 
 | schemaVersion | Either *1.0* or *1.1*. Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes | 
@@ -106,7 +106,7 @@ The following table does not include the information that is copied from the des
 | modules.{moduleId}.lastExitTimeUtc | Time when the module was last exited. |
 | modules.{moduleId}.lastRestartTimeUtc | Time when the module was last restarted. |
 | modules.{moduleId}.restartCount | Number of times this module was restarted as part of the restart policy. |
-| version | Version of the image. <br>Example: "version": { "version": "1.2.7", "build": "50979330", "commit": "d3ec971caa0af0fc39d2c1f91aef21e95bd0c03c" }. | 
+| version | Version of the image. Example: "version": { "version": "1.2.7", "build": "50979330", "commit": "d3ec971caa0af0fc39d2c1f91aef21e95bd0c03c" }. | 
 
 ## EdgeHub desired properties
 
@@ -125,12 +125,12 @@ The module twin for the IoT Edge hub is called `$edgeHub` and coordinates the co
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge hub. |
 | lastDesiredStatus.code | The status code referring to last desired properties seen by the IoT Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed |
 | lastDesiredStatus.description | Text description of the status. |
-| clients | All clients connected to edgeHub with the status and last connected time. <br>Example: "clients": { "device2/SimulatedTemperatureSensor": { "status": "Connected", "lastConnectedTimeUtc": "2022-11-17T21:49:16.4781564Z" } }. |
+| clients | All clients connected to edgeHub with the status and last connected time. Example: "clients": { "device2/SimulatedTemperatureSensor": { "status": "Connected", "lastConnectedTimeUtc": "2022-11-17T21:49:16.4781564Z" } }. |
 | clients.{device or moduleId}.status | The connectivity status of this device or module. Possible values {*connected* \| *disconnected*}. Only module identities can be in disconnected state. Downstream devices connecting to IoT Edge hub appear only when connected. |
 | clients.{device or moduleId}.lastConnectTime | Last time the device or module connected. |
 | clients.{device or moduleId}.lastDisconnectTime | Last time the device or module disconnected. |
 | schemaVersion | Schema version of reported properties. |
-| version | Version of the image. <br>Example: "version": { "version": "1.2.7", "build": "50979330", "commit": "d3ec971caa0af0fc39d2c1f91aef21e95bd0c03c" }. | 
+| version | Version of the image. Example: "version": { "version": "1.2.7", "build": "50979330", "commit": "d3ec971caa0af0fc39d2c1f91aef21e95bd0c03c" }. | 
 
 ## Next steps
 
