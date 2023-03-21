@@ -75,7 +75,6 @@ The CloudFormation template creates a new role in AWS IAM, to allow permission f
 - To connect AWS accounts, you need Administrator permissions on the account.
 - The role allows these permissions: S3 read only; KMS decrypt.
 - Defender for Cloud can discover data encrypted by KMB, but it can’t discover data that’s encrypted with a customer key.
-- As part of the deployment Defender for Cloud suggested the AWS Role ARNs to be created. You can modify that if needed.
 
 
 
