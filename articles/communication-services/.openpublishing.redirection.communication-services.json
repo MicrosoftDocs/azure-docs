@@ -160,7 +160,7 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "articles/communication-services/concepts/analytics/insights.md",
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/insights.md",
         "redirect_url": "/azure/communication-services/concepts/analytics/log-analytics",
         "redirect_document_id": false
       }
