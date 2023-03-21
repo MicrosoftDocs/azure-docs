@@ -25,7 +25,7 @@ In MSAL for Python, most errors are conveyed as a return value from the API call
 * A successful response contains the `"access_token"` key. The format of the response is defined by the OAuth2 protocol. For more information, see [5.1 Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1)
 * An error response contains `"error"` and usually `"error_description"`. The format of the response is defined by the OAuth2 protocol. For more information, see [5.2 Error Response](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-When an error is returned, the `"error_description"` key contains a human-readable message; which in turn typically contains a Microsoft identity platform error code. If the `"error code"`, for example, is `"interaction_required"`, you may prompt the user to provide additional information to complete the authentication process. If the `"error code"` is `"invalid_grant"`, you may prompt the user to reenter their credentials. The following snippet is an example of error handling in MSAL for Python.
+When an error is returned, the `"error"` key contains a machine-readable code. If the `"error"` is, for example, an `"interaction_required"`, you may prompt the user to provide additional information to complete the authentication process. If the `"error"` is `"invalid_grant"`, you may prompt the user to reenter their credentials. The following snippet is an example of error handling in MSAL for Python.
 
 ```python
 
