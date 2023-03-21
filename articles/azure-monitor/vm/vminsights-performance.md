@@ -102,8 +102,8 @@ The following capacity utilization charts are provided:
 * **Available Memory**: Defaults show the average, top 5th, and 10th percentile.
 * **Logical Disk Space Used %**: Defaults show the average and 95th percentile.
 * **Logical Disk IOPS**: Defaults show the average and 95th percentile.
-* **Logical Disk MB/s**: Defaults show the average and 95th percentile..
-* **Max Logical Disk Used %**: Defaults show the average and 95th percentile
+* **Logical Disk MB/s**: Defaults show the average and 95th percentile.
+* **Max Logical Disk Used %**: Defaults show the average and 95th percentile.
 * **Bytes Sent Rate**: Defaults show the average bytes sent.
 * **Bytes Receive Rate**: Defaults show the average bytes received.
 
