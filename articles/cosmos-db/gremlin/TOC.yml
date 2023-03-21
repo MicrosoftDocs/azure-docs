@@ -157,10 +157,14 @@
               href: ../audit-restore-continuous.md
         - name: Periodic backup
           items:
-            - name: Configure periodic backup
+            - name: Periodic backup - Introduction
               href: ../periodic-backup-restore-introduction.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+            - name: Periodic backup - Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Periodic backup - Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Periodic backup - Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
     - name: Global distribution
       items:
         - name: Global distribution overview
