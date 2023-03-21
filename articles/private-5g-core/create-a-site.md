@@ -82,7 +82,7 @@ If you decided not to configure diagnostics packet collection or use a user assi
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
   
     - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
-    - under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
+    - Under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -104,6 +104,8 @@ If you decided not to configure diagnostics packet collection or use a user assi
     - One or more **Attached Data Network** resources providing configuration for the packet core instance's connection to the data networks.
   
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
+
+1. If you want to assign additional packet cores to the site, for each new packet core resource see LINK
 
 ## Next steps
 
