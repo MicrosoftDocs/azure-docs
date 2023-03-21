@@ -26,7 +26,7 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Add key-values
 
-Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs to your App Configuration store:
+Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
 
 | Key                                | Value                               |
 |------------------------------------|-------------------------------------|

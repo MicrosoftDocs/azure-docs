@@ -36,7 +36,7 @@ Select **Feature Manager** > **+Add** to add a feature flag called `Beta` to you
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-Leave `label` undefined for now.
+Leave `label` with the default value for now.
 
 ## Create a .NET console app
 

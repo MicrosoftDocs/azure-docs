@@ -24,15 +24,13 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Add a key-value
 
-Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pair to your App Configuration store.
+Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value to your App Configuration store.
 
-| Key | Value |
-|---|---|
+| Key                      | Value                             |
+| ------------------------ | --------------------------------- |
 | TestApp:Settings:Message | Data from Azure App Configuration |
 
-Leave **Label** and **Content Type** empty for now.
-
-8. Select **Apply**.
+Leave **Label** and **Content Type** empty and select **Apply**.
 
 ## Create a Functions app
 

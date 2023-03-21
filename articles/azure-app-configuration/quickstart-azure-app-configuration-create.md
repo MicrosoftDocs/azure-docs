@@ -73,11 +73,11 @@ az appconfig create --location centralus --name <name> --resource-group AppConfi
 
 ---
 
-## Create a key-value pair
+## Create a key-value
 
 ### [Portal](#tab/azure-portal)
 
- 1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add a key-value pair to a store. For example:
+ 1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add a key-value to a store. For example:
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
@@ -85,11 +85,11 @@ az appconfig create --location centralus --name <name> --resource-group AppConfi
   
 1. Select **Apply**.
 
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-key-value.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a key-value pair.":::
+    :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-key-value.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a key-value.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add a key-value pair to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder `<name>` with the name of the App Configuration store:
+Add a key-value to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder `<name>` with the name of the App Configuration store:
 
 
 ```azurecli
@@ -111,7 +111,7 @@ az appconfig kv set --name <name> --key TestApp:Settings:BackgroundColor --value
 
 1. Select **Apply**.    
 
-:::image type="content" source="media/azure-app-configuration-create/azure-portal-create-feature-flag.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a feature flag.":::
+    :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-feature-flag.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a feature flag.":::
 
 ### [Azure CLI](#tab/azure-cli)
 

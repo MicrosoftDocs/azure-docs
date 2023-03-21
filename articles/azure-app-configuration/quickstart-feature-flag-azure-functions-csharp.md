@@ -30,7 +30,7 @@ Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-Leave `label` and `Description` undefined and select **Apply** to save the new feature flag.
+Leave `label` and `Description` with the default value and select **Apply** to save the new feature flag.
 
 ## Create a Functions app
 

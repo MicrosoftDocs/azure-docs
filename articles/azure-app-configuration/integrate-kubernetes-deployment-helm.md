@@ -38,7 +38,7 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 
 ## Add key-values
 
-Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values pairs to your App Configuration store:
+Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values to your App Configuration store:
 
 | Key | Value |
 |---|---|
