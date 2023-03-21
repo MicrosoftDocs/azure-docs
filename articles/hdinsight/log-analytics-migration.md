@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 11/17/2022
+ms.date: 03/21/2023
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -30,8 +30,6 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 - Faster log delivery
 - Resource-based table grouping and default queries
 
-
-
 > [!NOTE]  
 > New Azure Montitor integration is in Public Preview across all regions where HDInsight is available.
 
@@ -47,8 +45,6 @@ This document outlines the changes to the Azure Monitor integration and provides
 **Logs cluster portal integration**: The **Logs** pane is new to the HDInsight Cluster portal. Anyone with access to the cluster can go to this pane to query any table that the cluster resource sends records to. Users don't need access to the Log Analytics workspace anymore to see the records for a specific cluster resource.
 
 **Insights cluster portal integration**: The **Insights** pane is also new to the HDInsight Cluster portal. After enabling the new Azure Monitor integration, you can select the **Insights** pane and an out-of-box logs and metrics dashboard specific to the cluster's type will automatically populate for you. These dashboards have been revamped from our previous Azure solutions. They give you deep insights into your cluster's performance and health.
-
-**At-scale insights**: You can use the new **At-Scale Insights** workbook in the **Azure Monitor** portal to monitor your clusters' health and performance across different subscriptions.
 
 ## Customer scenarios
 
