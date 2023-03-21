@@ -209,7 +209,7 @@ The parameters to create the managed resources:
    - **Resource group**: Select the resource group. For this example, create a resource group named _applicationGroup_.
    - **Region**: Select the location where you want to deploy the resource.
    - **Application Name**: Enter a name for your managed application. For this example, use _demoManagedApplication_.
-   - **Application resources Resource group name**: The name of the managed resource group that contains the resources that are deployed for the managed application. The default name is in the format `mrg-{definitionName}-{dateTime}` but you can change the name.
+   - **Managed Resource Group**: The name of the managed resource group that contains the resources that are deployed for the managed application. The default name is in the format `mrg-{definitionName}-{dateTime}` but you can change the name.
 
 1. Provide values for the **Web App settings** tab and select **Next: Storage settings**.
 
