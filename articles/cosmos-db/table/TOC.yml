@@ -166,7 +166,7 @@
             - name: Configure periodic backup
               href: ../periodic-backup-restore-introduction.md
             - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+              href: ../periodic-backup-update-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
