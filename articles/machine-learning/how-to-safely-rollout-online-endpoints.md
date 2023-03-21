@@ -357,7 +357,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Select __Next__, until you get to the "Deployment" page. Here, perform the following tasks:
 
     * Name the deployment "blue".
-    * Check the box for __Enable Application Insights diagnostics and data collection__ to allow you view graphs of your endpoint's activities in the studio later.
+    * Check the box for __Enable Application Insights diagnostics and data collection__ to allow you to view graphs of your endpoint's activities in the studio later.
 
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
@@ -569,15 +569,15 @@ Though `green` has 0% of traffic allocated, you can still invoke the endpoint an
 Once you've tested your `green` deployment, you can 'mirror' (or copy) a percentage of the live traffic to it. Mirroring traffic (also called shadowing) doesn't change the results returned to clients. Requests still flow 100% to the `blue` deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, you can use mirroring to check if latency is within acceptable bounds or to check that there are no HTTP errors. Testing the new deployment with traffic mirroring/shadowing is also known as [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/). The deployment receiving the mirrored traffic (in this case, the `green` deployment) can also be called the shadow deployment.
 
 Mirroring has the following limitations:
-* Mirrored traffic is supported for the CLI (v2) (version 2.4.0 or above) and Python SDK (v2) (version 1.0.0 or above). If you update the endpoint using an older version of CLI/SDK or Studio UI, the setting for mirrored traffic will be removed.
+* Mirrored traffic is supported for the CLI (v2) (version 2.4.0 or above) and Python SDK (v2) (version 1.0.0 or above). If you update the endpoint using an older version of CLI/SDK or Studio UI, you'll lose the setting for mirrored traffic.
 * Mirrored traffic isn't currently supported for Kubernetes online endpoints.
 * You can mirror traffic to only one deployment.
-* The maximum mirrored traffic you can configure is 50%. This limit is to reduce the effect on your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope)..
+* The maximum mirrored traffic you can configure is 50%. This limit is to reduce the effect on your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS)—your endpoint bandwidth is throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
 
 Also note the following behavior:
 * A deployment can only be set to live or mirrored traffic, not both.
 * You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
-* You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to the endpoint without specifying the deployment.
+* You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic is not mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to the endpoint without specifying the deployment.
 
 > [!TIP]
 > You can use `--deployment-name` option [for CLI v2](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke-optional-parameters), or `deployment_name` option [for SDK v2](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-invoke) to specify the deployment to be routed to.
@@ -664,7 +664,7 @@ Once you've tested your `green` deployment, allocate a small percentage of traff
 > [!TIP]
 > The total traffic percentage must sum to either 0% (to disable traffic) or 100% (to enable traffic).
 
-Now, your `green` deployment will receive 10% of all live traffic. Clients will receive predictions from both the `blue` and `green` deployments.
+Now, your `green` deployment receives 10% of all live traffic. Clients will receive predictions from both the `blue` and `green` deployments.
 
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
 
