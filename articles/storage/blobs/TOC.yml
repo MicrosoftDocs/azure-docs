@@ -810,7 +810,7 @@ items:
       - name: TypeScript
         items: 
         - name: Get started
-          href: storage-blob-javascript-get-started.md
+          href: storage-blob-typescript-get-started.md
         - name: Authorize access from your application
           items:
           - name: Azure Active Directory
@@ -828,11 +828,11 @@ items:
           - name: Work with SAS tokens
             items:
             - name: User delegation SAS
-              href: storage-blob-create-user-delegation-sas-javascript.md
+              href: storage-blob-create-user-delegation-sas-typescript.md
             - name: Service SAS
-              href: sas-service-create-javascript.md  
+              href: sas-service-create-typescript.md  
             - name: Account SAS
-              href: storage-blob-account-delegation-sas-create-javascript.md      
+              href: storage-blob-account-delegation-sas-create-typescript.md      
         - name: Container actions
           items:
           - name: Create a container
