@@ -667,6 +667,35 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 ```
 ---
 
+::: zone-end  \
+::: zone pivot="programming-language-powershell" 
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**run.ps1**
+```powershell
+param([string] $input, $TriggerMetadata)
+
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $input
+```
+
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 
