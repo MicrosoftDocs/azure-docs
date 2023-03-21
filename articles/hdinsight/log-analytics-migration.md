@@ -121,16 +121,6 @@ Insights are cluster-specific visualization dashboards made using [Azure Workboo
 
 You can create your own Azure workbooks with custom graphs and visualizations. In your cluster's portal page, scroll down to the **Monitoring** section and select the **Workbooks** pane in the menu on the left. You can either start using a blank template or use one of the templates under the **HDInsight Clusters** section. There's a template for each cluster type. Templates are useful if you want to save specific customizations that the default HDInsight Insights don't provide. Feel free to send in requests for new features in the HDInsight Insights if you feel they're lacking something.
 
-#### At-scale workbooks for new Azure Monitor integrations
-
-Use our new at-scale workbook to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have the monitoring pipeline enabled. The workbook also gives you a straightforward way to check the health of multiple clusters at once. To view this workbook:
-
-1. Go to the **Azure Monitor** page in from the Azure portal home page
-2. Once on the **Azure Monitor** page, select **Insights Hub** under the **Insights** section.
-3. Select **HDInsight Clusters** under the **Analytics** section.
-
-   :::image type="content" source="./media/log-analytics-migration/at-scale-workbook.png" lightbox="./media/log-analytics-migration/at-scale-workbook.png" alt-text="Screenshot that shows the at-scale workbook." border="false":::
-
 #### Alerts
 
 You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](../azure-monitor/alerts/alerts-log.md).
@@ -159,20 +149,7 @@ Refer to the [mapping table](#appendix-table-mapping) between the old table/sche
 
 #### Out-of-box dashboards 
 
-We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that you'll find in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
-
-### Use an HDInsight at-scale monitoring dashboard
-
-If you're using the out-of-box monitoring dashboard for HDInsight clusters like HDInsight Spark Monitoring and HDInsight Interactive Monitoring, we're working to provide you the same capabilities on the Azure Monitor portal.
-
-You'll see that there's an HDInsight clusters option in Azure Monitor.
-
-   :::image type="content" source="./media/log-analytics-migration/hdinsight-azure-monitor.png" lightbox="./media/log-analytics-migration/hdinsight-azure-monitor.png" alt-text="Screenshot that shows the HDInsight option in Azure Monitor." border="false":::
-
-The Azure Monitor portal's Insights Hub provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
-
-> [!NOTE]
-> For more information, see the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
+We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. 
 
 ## Enable both integrations to accelerate the migration
 
