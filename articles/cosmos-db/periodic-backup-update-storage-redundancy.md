@@ -129,7 +129,7 @@ Use the following steps to update backup storage redundancy.
 
     ```azurepowershell-interactive
     @parameters = {
-        ResourceGroupName "<resource-group-name>"
+        ResourceGroupName = "<resource-group-name>"
         Name = "<account-name>"
         Location = "<azure-region>"
         BackupPolicyType = "Periodic"

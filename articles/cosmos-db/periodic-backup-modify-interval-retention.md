@@ -163,8 +163,6 @@ resource account 'Microsoft.DocumentDB/databaseAccounts@2022-05-15' = {
 
 ---
 
----
-
 ## Configure backup options for a new account
 
 Use these steps to change the default backup options for a new Azure Cosmos DB account.
@@ -290,8 +288,6 @@ resource account 'Microsoft.DocumentDB/databaseAccounts@2022-05-15' = {
   }
 }
 ```
-
----
 
 ---
 
