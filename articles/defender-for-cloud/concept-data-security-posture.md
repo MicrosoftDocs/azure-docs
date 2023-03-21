@@ -23,7 +23,7 @@ Data-aware security in Microsoft Defender for Cloud helps you to reduce data ris
 Data-aware security posture automatically and continuously discovers managed and shadow data resources across clouds, including different types of objects stores and databases.
 
 - You can discover sensitive data using the sensitive data discovery extension that's included in the Defender Cloud Security Posture Management (CSPM) and Defender for Storage plans.
-- Discovery of hosted databases and data flows is available in Cloud Security Explorer and Attack Paths. This functionality is available in the Defender for CSPM plan, even if the extension isn't turned on.
+- Discovery of hosted databases and data flows is available in Cloud Security Explorer and Attack Paths. This functionality is available in the Defender for CSPM plan, and isn't dependent on the extension.
 
 ## Data security in Defender CSPM
 
