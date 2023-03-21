@@ -145,10 +145,11 @@ Deploying the application can take a few minutes.
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for `StandardGen2` Azure Spring Apps by using the following command.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption plan by using the following command.
 
   ```azurecli
-  az extension add --upgrade --name spring
+  az extension remove --name spring && \
+  az extension add --name spring
   ```
 
 - Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`
@@ -223,7 +224,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --output tsv)
    ```
 
-1. Use the following command to create an Azure Spring Apps service instance. The `StandardGen2` Azure Spring Apps instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
+1. Use the following command to create an Azure Spring Apps service instance. The Azure Spring Apps Standard consumption plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
 
    ```azurecli-interactive
    az spring create \

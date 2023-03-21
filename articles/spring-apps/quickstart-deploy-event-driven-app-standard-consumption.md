@@ -155,13 +155,11 @@ Use the following steps to create the environment:
 
 An Azure Spring Apps Standard consumption plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
-1. Install the Azure CLI extension designed for `StandardGen2` Azure Spring Apps by using the following command:
+1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption by using the following command:
 
    ```azurecli
    az extension remove --name spring && \
-   az extension add \
-       --source https://ascprivatecli.blob.core.windows.net/cli-extension/spring-1.8.0-py3-none-any.whl \
-       --yes
+   az extension add --name spring
    ```
 
 1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
