@@ -18,9 +18,6 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Working with tables in Azure Machine Learning
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you use:"]
-> * [v2 (current version)](how-to-mltable.md)
-
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -262,7 +259,7 @@ pip install mltable
 > [!NOTE]
 > - MLTable is a separate library from `azure-ai-ml`.
 > - If you use a Compute Instance/Spark/DSVM, we recommend that you keep the package up-to-date with `pip install -U mltable`
-> - MLTable can be used totally ‘disconnected’ to Azure Machine Learning (and the cloud). You can use MLTable anywhere you can get a Python session – for example: locally, Cloud VM, Databricks, Synapse, On-prem server, etc.
+> - MLTable can be used totally 'disconnected' to Azure Machine Learning (and the cloud). You can use MLTable anywhere you can get a Python session – for example: locally, Cloud VM, Databricks, Synapse, On-prem server, etc.
 
 ## The `MLTable` file
 

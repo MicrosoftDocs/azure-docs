@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-ti
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](v1/how-to-manage-workspace.md)
+> * [v1](v1/how-to-manage-workspace.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current)](how-to-manage-workspace.md)
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).  
@@ -125,9 +125,9 @@ If you have problems in accessing your subscription, see [Set up authentication 
  
 ---
 
-### Networking	
+### Networking    
 
-> [!IMPORTANT]	
+> [!IMPORTANT]    
 > For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-network-security-overview.md).
 
 
@@ -141,13 +141,13 @@ This class requires an existing virtual network.
 
 # [Portal](#tab/azure-portal)
 
-1. The default network configuration is to use a __Public endpoint__, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you've created, you can instead select __Private endpoint__ as the __Connectivity method__, and then use __+ Add__ to configure the endpoint.	
+1. The default network configuration is to use a __Public endpoint__, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you've created, you can instead select __Private endpoint__ as the __Connectivity method__, and then use __+ Add__ to configure the endpoint.    
 
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::	
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::    
 
-1. On the __Create private endpoint__ form, set the location, name, and virtual network to use. If you'd like to use the endpoint with a Private DNS Zone, select __Integrate with private DNS zone__ and select the zone using the __Private DNS Zone__ field. Select __OK__ to create the endpoint. 	
+1. On the __Create private endpoint__ form, set the location, name, and virtual network to use. If you'd like to use the endpoint with a Private DNS Zone, select __Integrate with private DNS zone__ and select the zone using the __Private DNS Zone__ field. Select __OK__ to create the endpoint.     
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::	
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::    
 
 1. When you're finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
 
@@ -159,8 +159,8 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 
 To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
-> [!IMPORTANT]	
-> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	
+> [!IMPORTANT]    
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.    
 
 #### Use your own data encryption key
 
@@ -169,8 +169,8 @@ You can provide your own key for data encryption. Doing so creates the Azure Cos
 
 Use the following steps to provide your own key:
 
-> [!IMPORTANT]	
-> Before following these steps, you must first perform the following actions:	
+> [!IMPORTANT]    
+> Before following these steps, you must first perform the following actions:    
 >
 > Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
 > * Register the Azure Cosmos DB provider
