@@ -180,7 +180,7 @@ items:
     href: concept-business-card.md
   - name: Custom models
     items:
-    - name: Custom model
+    - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom template model

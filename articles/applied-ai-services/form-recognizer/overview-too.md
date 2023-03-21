@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 03/20/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -24,24 +24,22 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) for developers to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to automate data extraction from structured, semi-structured, and unstructured documents.
-
-Select one of the tiles below to learn more about Form Recognizer models and development options:
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract text, tables, structure, and key-value pairs from documents. You can also label and train custom models to learn data extraction from structured, semi-structured, and unstructured documents.
 
 ## Document Analysis models
 
 :::row:::
    :::column:::
-      :::image type="content" source="media/overview/icon-read.png" alt-text="Screenshot of read model icon." link="#read":::</br>
-   [**Read**](#read)
+      :::image type="icon" source="media/overview/icon-read.png" link="#read":::</br>
+   [**Read**](#read) | Extract printed and handwritten text.
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-general-document.png" alt-text="Screenshot of general document model icon." link="#general-document":::</br>
-    [**general document**](#general-document)
+      :::image type="icon" source="media/overview/icon-layout.png" link="#layout":::</br>
+    [**Layout**](#layout) | Extract text and document structure.
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-layout.png" alt-text="Screenshot of layout model icon." link="#layout":::</br>
-    [**layout**](#layout)
+      :::image type="icon" source="media/overview/icon-general-document.png" link="#general-document":::</br>
+    [**General document**](#general-document) | Extract text, structure, and key-value pairs.
    :::column-end:::
 :::row-end:::
 
@@ -49,26 +47,26 @@ Select one of the tiles below to learn more about Form Recognizer models and dev
 
 :::row:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-invoice.png" alt-text="Screenshot of invoice model icon." link="#invoice":::</br>
-    [**Invoice**](#invoice)
+      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
+    [**Invoice**](#invoice) | Extract customer and and vendor details.
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-receipt.png" alt-text="Screenshot of receipt model icon." link="#receipt":::</br>
-    [**Receipt**](#receipt)
+      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
+    [**Receipt**](#receipt) | Extract sales transaction details.
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-id-document.png" alt-text="Screenshot of identity document model icon." link="#identity-id":::</br>
-    [**Identity**](#identity-id)
+      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
+    [**Identity**](#identity-id) | Extract identification and verification details.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-w2.png" alt-text="Screenshot of w2 model icon." link="#w-2":::</br>
-    [**W2**](#w-2)
+      :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
+    [**W2**](#w-2) | Extract taxable compensation details
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-business-card.png" alt-text="Screenshot of business card model icon." link="#business-card":::</br>
-    [**Business card**](#business-card)
+      :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
+    [**Business card**](#business-card) | Extract business contact information.
    :::column-end:::
 :::column span="":::
    :::column-end:::
@@ -77,21 +75,70 @@ Select one of the tiles below to learn more about Form Recognizer models and dev
 ## Custom models
 
 :::row:::
-   :::column:::
-      :::image type="content" source="media/overview/icon-custom.png" alt-text="Screenshot of custom model icon" link="#custom-models":::</br>
-    [**Overview**](#custom-model-overview)
-   :::column-end:::
+    :::column:::
+        **Extraction models**
+    :::column-end:::
+:::row-end:::
+
+:::row:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-custom-template.png" alt-text="Screenshot of custom template model icon.":::</br>
+      :::image type="icon" source="media/overview/icon-custom-template.png" link="#custom-template":::</br>
     [**Custom template**](#custom-template)
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="media/overview/icon-custom-neural.png" alt-text="Screenshot of custom neural model icon.":::</br>
+      :::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural":::</br>
     [**Custom neural**](#custom-template)
    :::column-end:::
       :::column span="":::
-      :::image type="content" source="media/overview/icon-custom-composed.png" alt-text="Screenshot of custom com posed model icon.":::</br>
-    [**Custom composed**](#composed-custom)
+      :::image type="icon" source="media/overview/icon-custom-composed.png" link="#custom-composed":::</br>
+    [**Custom composed**](#custom-composed)
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Classification model**
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classifier":::</br>
+    [**Custom classifier**](#custom-classifier)
+   :::column-end:::
+:::row-end:::
+
+## Gated preview models
+
+> [!IMPORTANT]
+>
+> * Form Recognizer Studio preview features are currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+> * Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
+
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model-preview":::</br>
+    [**Contract**](#contract-model-preview) | Extract agreement and party details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-vaccination-card.png" link="#vaccination-card-model-preview":::</br>
+    [**Vaccination card**](#vaccination-card-model-preview) | Extract COVID-19 immunization details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form-preview:::</br>
+    [**US Tax 1098 form**](#us-tax-1098-form-preview) | Extract mortgage interest details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form-preview":::</br>
+    [**US Tax 1098-E form**](#us-tax-1098-e-form-preview) | Extract student loan interest details
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form-preview":::</br>
+    [**US Tax 1098-T form**](#us-tax-1098-t-form-preview) | Extract qualified tuition details.
+   :::column-end:::
+:::column span="":::
    :::column-end:::
 :::row-end:::
 
@@ -136,7 +183,7 @@ You can Use Form Recognizer to automate your document processing in applications
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**General document model**](concept-general-document.md)|Extract **text,layout, and key-value pairs** from documents.|&#9679; Key-value pair extraction.</br>&#9679; Form processing.</br>&#9679; Survey data collection and analysis.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/document)</br>&#9679; [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model) |
+|[**General document model**](concept-general-document.md)|Extract **text,layout, and key-value pairs** from documents.|&#9679; Key-value pair extraction.</br>&#9679; Form processing.</br>&#9679; Survey data collection and analysis.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/document)</br>&#9679; [**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#general-document-model) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
@@ -147,7 +194,7 @@ You can Use Form Recognizer to automate your document processing in applications
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**W-2 Form**](concept-w2.md) | Extract key information from IRS US W2 tax forms (year 2018-2021).|&#9679; Automated tax document management.</br>&#9679; Mortgage loan application processing. |<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)<li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model) |
+|[**W-2 Form**](concept-w2.md) | Extract key information from IRS US W2 tax forms (year 2018-2021).|&#9679; Automated tax document management.</br>&#9679; Mortgage loan application processing. |&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -158,7 +205,7 @@ You can Use Form Recognizer to automate your document processing in applications
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Invoice model**](concept-invoice.md) | Extract key information from invoices. |&#9679; Accounts payable processing.</br>&#9679; Automated tax recording and reporting. |&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)|
+|[**Invoice model**](concept-invoice.md) | Extract key information from invoices. |&#9679; Accounts payable processing.</br>&#9679; Automated tax recording and reporting. |&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)|
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -200,12 +247,12 @@ You can Use Form Recognizer to automate your document processing in applications
 
 :::image type="content" source="media/overview/custom-train.png" alt-text="Screenshot of Custom model training using Form Recognizer Studio.":::
 
-| About | Description |Automation use cases | Development options |
-|----------|--------------|-------------------------|-----------|
-|[**Custom model**](concept-custom.md) | Extracts information from forms and documents into structured data based on a model created from a set of representative training document sets.|| &#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)|
+| About | Description |Development options |
+|----------|--------------|-----------|
+|[**Custom model**](concept-custom.md) | Extracts information from forms and documents into structured data based on a model created from a set of representative training document sets.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)|
 
 > [!div class="nextstepaction"]
-> [Return to model types](#custom-model-overview)
+> [Return to custom model types](#custom-models)
 
 ### Custom template
 
@@ -217,10 +264,10 @@ You can Use Form Recognizer to automate your document processing in applications
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Custom Template model**](concept-custom-template.md) (custom form) | is used to analyze structured and semi-structured documents.</br>&#9679; |Extract key-value pairs, selection marks, tables, signature fields, and selected regions, from target document that share a common visual layout, such as a form.| &#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+|[**Custom Template model**](concept-custom-template.md) | The custom template model extracts labeled values and fields from structured and semi-structured documents like forms and .</br> | Extract key data from highly structured documents with defined visual templates or common visual layouts, forms.| &#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [Return to model types](#custom-template)
+> [Return to model types](#custom-models)
 
 ## Custom neural
 
@@ -232,23 +279,74 @@ You can Use Form Recognizer to automate your document processing in applications
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Custom Neural model**](concept-custom-neural.md) (custom document)| is used to analyze unstructured documents.|&#9679; Extract field data and checkboxes from structured and unstructured documents such as contracts and agreements.|[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+ |[**Custom Neural model**](concept-custom-neural.md)| The custom neural model is used to extract labeled data from structured (surveys, questionnaires), semi-structured (invoices, purchase orders), and unstructured documents (contracts, letters).|Extract text data, checkboxes, and tabular fields from structured and unstructured documents.|[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [Return to model types](#custom-neural)
+> [Return to model types](#custom-models)
 
-## Composed custom
+## Custom composed
 
 :::image type="content" source="media/overview/composed-custom-models.png" alt-text="Screenshot of Composed Custom model list in Form Recognizer Studio.":::
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Composed custom models**](concept-composed-models.md)| A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types.| Useful when you've trained several models and want to group them to analyze similar form types like purchase orders.|&#9679; [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel)</br>&#9679; [C# SDK](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.startcreatecomposedmodel)</br>&#9679; [Java SDK](/java/api/com.azure.ai.formrecognizer.training.formtrainingclient.begincreatecomposedmodel)</br>&#9679; [JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-begincomposemodel&preserve-view=true)</br>&#9679; [Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model&preserve-view=true)
+|[**Composed custom models**](concept-composed-models.md)| A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types.| Useful when you've trained several models and want to group them to analyze similar form types like purchase orders.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel)</br>&#9679; [**C# SDK**](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.startcreatecomposedmodel)</br>&#9679; [**Java SDK**](/java/api/com.azure.ai.formrecognizer.training.formtrainingclient.begincreatecomposedmodel)</br>&#9679; [**JavaScript SDK**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-begincomposemodel&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
-::: moniker-end
-::: moniker range="form-recog-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
-::: moniker-end
+> [!div class="nextstepaction"]
+> [Return to model types](#custom-models)
+
+## Custom classifier
+
+:::image type="content" source="media/overview/custom-classifier-labeling.png" alt-text="{alt-text}":::
+
+| About | Description |Automation use cases | Development options |
+|----------|--------------|-------------------------|-----------|
+|[**Composed custom models**](concept-composed-models.md)| A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types.| Useful when you've trained several models and want to group them to analyze similar form types like purchase orders.|&#9679; [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel)</br>
+
+> [!div class="nextstepaction"]
+> [Return to model types](#custom-models)## Contract model (preview)
+
+## Contract model (preview)
+
+:::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of Read model analysis using Form Recognizer Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+## Vaccination card model (preview)
+
+:::image type="content" source="media/overview/analyze-vaccination-card.png" alt-text="Screenshot of Read model analysis using Form Recognizer Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=vaccinationCard)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+## US tax 1098 form (preview)
+
+:::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the From Recognizer Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+## US tax 1098-E form (preview)
+
+:::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the From Recognizer Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+## US tax 1098-T form (preview)
+
+:::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the From Recognizer Studio.":::
+
+| About | Development options |
+|----------|--------------|
+|Extract contract agreement and party details.|&#9679; [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+
+:::moniker-end
 
 ::: moniker range="form-recog-2.1.0"
 
@@ -259,6 +357,12 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 |**Document analysis model**| &#9679; [**Layout analysis model**](concept-layout.md?view=form-recog-2.1.0&preserve-view=true) </br>  |
 | **Prebuilt models** | &#9679; [**Invoice model**](concept-invoice.md?view=form-recog-2.1.0&preserve-view=true)</br>&#9679; [**Receipt model**](concept-receipt.md?view=form-recog-2.1.0&preserve-view=true) </br>&#9679; [**Identity document (ID) model**](concept-id-document.md?view=form-recog-2.1.0&preserve-view=true) </br>&#9679; [**Business card model**](concept-business-card.md?view=form-recog-2.1.0&preserve-view=true) </br>
 | **Custom models** | &#9679; [**Custom model**](concept-custom.md) </br>&#9679; [**Composed model**](concept-model-overview.md?view=form-recog-2.1.0&preserve-view=true)|
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
 
 ## Form Recognizer models and development options
 
