@@ -16,3 +16,116 @@ ms.date:     03/21/2023
 # MSIXMGR Tool Parameters
 
 
+This article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
+
+## Prerequisites:
+
+- [Requirements](/azure/virtual-desktop/app-attach-msixmgr%23requirements:~:text=Windows%2010%2020H2.-,Requirements,-Before%20you%20can%20)  
+- [MSIX App Attach](/azure/virtual-desktop/app-attach-azure-portal)  
+- [Using the MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
+
+## Syntax
+
+
+  
+**-AddPackage or -p**
+
+|Description|Example|
+| -------- | -------- |
+|Adds package at specified file path.  
+-AddPackage [path to the MSIX package] [optional arguments]|`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix`|
+
+|Optional parameters|Description|Example|
+| -------- | -------- | -------- |
+|-QuietUX|Installs MSIX package silently, without any user interaction|`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix -QuietUX`  |
+
+
+  
+**-RemovePackage or -x**
+
+|Description|Example|
+| -------- | -------- |
+|Removes package with specified package full name  
+-RemovePackage [Package Name] [optional arguments]|`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe`|
+
+|Optional parameters|Description|Example|
+| -------- | -------- | -------- |
+|-QuietUX|Uninstalls MSIX package silently, without any user interaction|`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe msix `-QuietUX  |
+
+
+  
+**- FindPackage**
+
+|Description|Example|
+| -------- | -------- |
+|Finds package with specific package full name|`msixmgr.exe -FindPackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe`|
+
+ 
+
+**-applyacls**
+
+|Description|Example|
+| -------- | -------- |
+|Applies ACLs to a package folder (an unpacked package)|`msixmgr.exe -applyacls`|
+
+|Optional parameters|Description|Example|
+| -------- | -------- | -------- |
+|-packagePath|Specifies path to folder to apply ACLs to  |`msixmgr.exe -applyacls -packagePath C:\name_version_arch_pub` |
+
+ 
+
+**-MountImage**
+
+|Description|Example|
+| -------- | -------- |
+|Mounts VHD, VHDX, or CIM image|`msixmgr.exe -MountImage`|
+
+|Optional parameters|Description|Example|
+| -------- | -------- | -------- |
+|-imagePath|Specifies path to image file to mount or unmount|`msixmgr.exe -MountImage -imagePath "C:\Users\User\abc\xyz.cim"`|
+|-filetype |Specifies type of file to mount or unmount. The following file types are currently supported: {VHD, VHDX, CIM}|`msixmgr.exe -MountImage -imagePath "C:\Users\User\abc\xyz.cim" -filetype "cim" `|
+|-readOnly|Boolean (true of false) indicating whether a VHD(X) should be mounted as read only. If not specified, the image is mounted as read-only by default  |`msixmgr.exe -MountImage -imagePath "C:\Users\User\abc\xyz.cim" -filetype "cim" -readOnly false`|
+
+
+
+**-UnmountImage**
+
+|Description|Example|
+| -------- | -------- |
+|Unmounts VHD, VHDX, or CIM image|`msixmgr.exe -UnmountImage`|
+
+|Optional parameters|Description|Example|
+| -------- | -------- | -------- |
+|-imagePath|Specifies path to image file to mount or unmount  |`msixmgr.exe -UnmountImage -imagePath C:\Users\User\abc\xyz.cim`|
+|-filetype  |Specifies type of file to mount or unmount. The following file types are currently supported: {VHD, VHDX, CIM}  |`msixmgr.exe -UnmountImage -imagePath C:\Users\User\abc\xyz.cim -filetype “cim”` ` `|
+|-volumeid|Specifies GUID (specified without curly braces) associated with image to unmount. This is an optional parameter only for CIM files|`msixmgr.exe -UnmountImage -volumeid 0ea000fe-0021-465a-887b-6dc94f15e86e -filetype “cim”`|
+
+ 
+
+**-Unpack**
+
+|Description|Example|
+| -------- | -------- |
+|Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be 4 times the size of MSIX package|CIM example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.cim" -applyacls -create -vhdSize 200 -filetype "cim" -rootDirectory apps`   VHDX example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`  |
+
+|Optional parameters|Description|Example|
+| -------- | -------- | -------- |
+|-packagePath|Specifies path to package to unpack OR path to a directory containing multiple packages to unpack|`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix"`|
+|-destination|Specifies directory to place the resulting package folder(s) in|`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx"`|
+|-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls`|
+|-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`|
+|-validateSignature|Validates a package's signature file before unpacking package. This will require that the package's certificate is installed on the machine.   
+Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`|
+
+
+
+**-?**
+
+|Description|Example|
+| -------- | -------- |
+|Display Help at the command prompt|`msixmgr.exe -?`|
+
+
+- [Next steps](/azure/virtual-desktop/app-attach-msixmgr%23next-steps:~:text=To%20learn%20how%20to%20set%20up%20app%20attach%2C%20check%20out%20these%20articles%3A)
+
+
