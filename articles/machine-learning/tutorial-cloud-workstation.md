@@ -24,9 +24,7 @@ Learn how to develop a training script with a notebook on an Azure Machine Learn
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/machine-learning).
-- An Azure Machine Learning workspace. See [Create resources to get started](quickstart-create-resources.md) for information on how to create one.
-
+To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
 
 ## Start with Notebooks
 
@@ -35,6 +33,9 @@ The Notebooks section in your workspace is a good place to start learning about 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace if it isn't already open.
 1. On the left navigation, select **Notebooks**.
+1. If you don't have a compute instance, you'll see **Create compute** in the middle of the screen. Select **Create compute** and fill out the form.  You can use all the defaults. (If you already have a compute instance, you'll instead see **Terminal** in that spot.  You'll use **Terminal** later in this tutorial.)
+
+    :::image type="content" source="media/tutorial-cloud-workstation/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
 
 ## Set up a new environment for prototyping (optional)
 
@@ -66,7 +67,9 @@ In order for your script to run, you need to be working in an environment config
 
         :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-    1. Start your compute instance it if it's not already running.
+    1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+
+        :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
     1. Once the compute is running, you see a welcome message in the terminal, and you can start typing commands. 
     1. View your current conda environments. The active environment is marked with a *.
@@ -113,6 +116,10 @@ You now have a new kernel.  Next you'll open a notebook and use this kernel.
     :::image type="content" source="media/tutorial-cloud-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
 
 1. Name your new notebook **develop-tutorial.ipynb** (or enter your preferred name).
+
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
 1. You'll see the notebook connect to the default kernel in the top right. If you created the new **Tutorial Workstation Env** kernel, switch to it now.
 
@@ -259,9 +266,12 @@ You now have a Python script to use for training your preferred model.
 
 ## Run the Python script
 
-For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. Later tutorials show you how to run a training script in a more scalable way on more powerful compute resources.  
+For now, you're running this code on your compute instance, which is your Azure Machine Learning development environment. [Tutorial: Train a model](tutorial-train-model.md) shows you how to run a training script in a more scalable way on more powerful compute resources.  
 
-1. On the left, select **Open terminal** to open a terminal window, just as you did earlier in this tutorial.
+1. On the left, select **Open terminal** to open a terminal window.
+
+    :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows how to open a terminal window.":::
+
 1. View your current conda environments. The active environment is marked with a *.
 
     ```bash
@@ -305,6 +315,8 @@ If you're not going to use it now, stop the compute instance:
 ## Next steps
 
 Learn more about:
+
+* [From artifacts to models in MLflow](concept-mlflow-models.md)
 * [Using Git with Azure Machine Learning](concept-train-model-git-integration.md)
 * [Running Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
 * [Working with a compute instance terminal in your workspace](how-to-access-terminal.md)
