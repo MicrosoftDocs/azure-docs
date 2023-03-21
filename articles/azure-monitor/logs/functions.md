@@ -12,6 +12,9 @@ ms.date: 06/22/2022
 # Functions in Azure Monitor log queries
 A function is a log query in Azure Monitor that can be used in other log queries as though it's a command. You can use functions to provide solutions to different customers and also reuse query logic in your own environment. This article describes how to use functions and how to create your own.
 
+> [!NOTE]
+> Functions are only available from Log Analytics workspaces. If you’re using an existing classic Application Insights resource, you must [migrate it to a workspace-based resource](../app/convert-classic-resource) to work with functions. Choosing to migrate will give you access to the same logs but you need to [validate that a query’s fields align with the new schema fields](../app/convert-classic-resource#table-schemas). After migration, you can use a Log Analytics workspace to query the AzureActivity table, which isn't available for classic resources.
+
 ## Types of functions
 There are two types of functions in Azure Monitor:
 
