@@ -127,7 +127,7 @@ Select one of the tiles below to learn more about Form Recognizer models.
     [**Vaccination card**](#vaccination-card-model-preview) | Extract COVID-19 immunization details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form-preview:::</br>
+      :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form-preview":::</br>
     [**US Tax 1098 form**](#us-tax-1098-form-preview) | Extract mortgage interest details.
    :::column-end:::
 :::row-end:::
@@ -310,7 +310,7 @@ You can Use Form Recognizer to automate your document processing in applications
 
 ## Contract model (preview)
 
-:::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of Read model analysis using Form Recognizer Studio.":::
+:::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of Contract model extraction using Form Recognizer Studio.":::
 
 | About | Development options |
 |----------|--------------|
@@ -318,7 +318,7 @@ You can Use Form Recognizer to automate your document processing in applications
 
 ## Vaccination card model (preview)
 
-:::image type="content" source="media/overview/analyze-vaccination-card.png" alt-text="Screenshot of Read model analysis using Form Recognizer Studio.":::
+:::image type="content" source="media/overview/analyze-vaccination-card.png" alt-text="Screenshot of Vaccination card model analysis using Form Recognizer Studio.":::
 
 | About | Development options |
 |----------|--------------|
