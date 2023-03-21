@@ -36,7 +36,7 @@ In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, i
 
 ## Example log queries
 
-### DDOoS Protection Notifications
+### DDoS Protection Notifications
 
 Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
 
@@ -88,7 +88,7 @@ Attack mitigation flow logs allow you to review the dropped traffic, forwarded t
 | **DestPort** | Port number ranging from 0 to 65535. |
 | **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
 
-### DDOoS Mitigation FlowLogs
+### DDoS Mitigation FlowLogs
 
 Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
