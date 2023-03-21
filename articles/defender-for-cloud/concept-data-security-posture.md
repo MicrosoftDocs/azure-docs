@@ -66,6 +66,8 @@ You select Confidential as minimum. Highly Confidential is also consider as sens
 
 :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
 
+:::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
+
 During scanning, Defender for Cloud dynamically caculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
 
 - The aim of the threshold is to make it easier to explore sensitive data.
