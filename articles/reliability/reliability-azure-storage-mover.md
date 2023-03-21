@@ -6,7 +6,7 @@ ms.author: johnmic
 ms.topic: conceptual
 ms.custom: subject-reliability, references_regions
 ms.service: storage-mover
-ms.date: 03/15/2023
+ms.date: 03/21/2023
 ---
 
 <!--
@@ -110,5 +110,9 @@ You're now ready to start migration jobs using the newly deployed Storage Mover 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview)
+Read more about any of the following features or options.
+
+| Guide | Description |
+|---|---|
+| [Azure resiliency and reliability](/azure/architecture/framework/resiliency/overview) | A detailed overview of resiliency and reliability in Azure.
+| [storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance) | Concepts and processes involved with a storage account failover and recovery. |
