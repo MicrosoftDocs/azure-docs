@@ -79,9 +79,7 @@ Update-AzCosmosDBAccount @parameters
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager-template)
 
-Use the following Azure Resource Manager template\[s\] to update the periodic backup options for an existing account.
-
-#### [JSON template](#tab/azure-resource-manager-template/json)
+Use the following Azure Resource Manager JSON template to update the periodic backup options for an existing account.
 
 ```json
 {
@@ -131,7 +129,7 @@ Use the following Azure Resource Manager template\[s\] to update the periodic ba
 }
 ```
 
-#### [Bicep template](#tab/azure-resource-manager-template/bicep)
+Alternatively, you can use the Bicep variant of the same template.
 
 ```bicep
 @description('Name of the existing Azure Cosmos DB account.')
@@ -207,9 +205,7 @@ New-AzCosmosDBAccount @parameters
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager-template)
 
-Use the following Azure Resource Manager template\[s\] to create a new account with the specified periodic backup options.
-
-#### [JSON template](#tab/azure-resource-manager-template/json)
+Use the following Azure Resource Manager JSON template to update the periodic backup options for an existing account.
 
 ```json
 {
@@ -259,7 +255,7 @@ Use the following Azure Resource Manager template\[s\] to create a new account w
 }
 ```
 
-#### [Bicep template](#tab/azure-resource-manager-template/bicep)
+Alternatively, you can use the Bicep variant of the same template.
 
 ```bicep
 @description('New Azure Cosmos DB account name. Max length is 44 characters.')
