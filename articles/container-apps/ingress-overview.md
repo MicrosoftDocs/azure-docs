@@ -15,17 +15,15 @@ Azure Container Apps allows you to expose your container app to the public web, 
 
 Ingress supports:
 
-- [Public and private ingress](#ingress-type)
-- [HTTP and TCP ingress types](#ingress-type)
-- [Fully qualified domain names (FQDNs)](#fully-qualified-domain-name)
-- [HTTP Headers](#http-headers)
-- [Traffic splitting between revisions](#traffic-splitting-scenarios)
+- [Public and private ingress](#public-and-private-ingress)
+- [HTTP and TCP ingress types](#protocol-types)
+- [Domain names](#domain-names)
 - [IP restrictions](#ip-restrictions)
-- [Ingress authentication](#ingress-authentication)
+- [Authentication](#authentication)
+- [Traffic splitting between revisions](#traffic-splitting)
 
 > [!NOTE]
 > Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
-
 
 For configuration details, see [Configure ingress](ingress.md).
 
@@ -77,7 +75,7 @@ With TCP ingress enabled, your container app:
 - Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 - Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to "external".
 
-## DNS
+## Domain names
 
 Each app in a Container Apps environment is automatically assigned a fully qualified domain name (FQDN) that is based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 
@@ -114,7 +112,7 @@ Container Apps supports IP restrictions for ingress. You can create rules to eit
 
 For more information, see [Configure IP restrictions](ip-restrictions.md).
 
-## Ingress authentication
+## Authentication
 
 Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
 
