@@ -24,7 +24,6 @@ In this tutorial, we use a model trained to predict the likelihood of defaulting
 The steps you'll take are:
 
 > [!div class="checklist"]
-
 > * Register your model
 > * Create an endpoint and a first deployment
 > * Deploy a trial run
@@ -185,7 +184,7 @@ First, we'll define the endpoint, using the `ManagedOnlineEndpoint` class.
 
 > [!TIP]
 > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
-
+>
 > * Optionally, you can add a description and tags to your endpoint.
 
 

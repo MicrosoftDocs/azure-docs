@@ -25,7 +25,7 @@ The core of a machine learning pipeline is to split a complete machine learning 
 
 In this tutorial, you use Azure Machine Learning to create a production ready machine learning project, using Azure Machine Learning Python SDK v2.
 
-This means you will be able to leverage the AzureML Python SDK to:
+This means you will be able to leverage the Azure Machine Learning Python SDK to:
 
 > [!div class="checklist"]
 > - Get a handle to your Azure Machine Learning workspace
