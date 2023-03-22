@@ -34,7 +34,7 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
 ## Backup storage redundancy
 
-By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../availability-zones/cross-region-replication-azure.md). You can update this default value using Azure PowerShell or CLI and define an Azure policy to enforce a specific storage redundancy option. To learn more, see [update backup storage redundancy](update-backup-storage-redundancy.md) article.
+By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../availability-zones/cross-region-replication-azure.md). You can update this default value using Azure PowerShell or CLI and define an Azure policy to enforce a specific storage redundancy option. To learn more, see [update backup storage redundancy](periodic-backup-update-storage-redundancy.md) article.
 
 Change the default geo-redundant backup storage to ensure that your backup data stays within the same region where your Azure Cosmos DB account is provisioned. You can configure the geo-redundant backup to use either locally redundant or zone-redundant storage. Storage redundancy mechanisms store multiple copies of your backups so that it's protected from planned and unplanned events. These events can include transient hardware failure, network or power outages, or massive natural disasters.
 
