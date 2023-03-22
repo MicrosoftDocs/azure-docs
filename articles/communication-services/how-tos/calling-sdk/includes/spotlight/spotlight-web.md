@@ -48,7 +48,7 @@ spotLightFeature.startParticipantSpotLight([acsUser, teamsUser]);
 ```
 
 ### stop spotlight for some remote participants
-Only MicrosoftTeamsUserIdentifier users who have an organizer or presenter role can remove the spotlight state of other participants
+Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer or presenter role can remove the spotlight state of other participants
 ```js
 const spotLightFeature = call.feature(Features.Spotlight);
 
