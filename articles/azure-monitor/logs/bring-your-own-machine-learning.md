@@ -31,7 +31,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 
 ## Use machine learning to analyze and act on data in Azure Monitor Logs
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the the high-performance, Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. 
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the the high-performance Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. 
 
 Use [the Kusto Query Languages's built-in time series analysis and machine learning functions, operators, and plug-ins](/azure/data-explorer/kusto/query/machine-learning-clustering) to gain insights about service health, usage, capacity and other trends and to generate forecasts and detect anomalies. 
 
@@ -45,7 +45,7 @@ This table compares the two methods of working with machine learning in Azure Mo
 |**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |- Dependent on the machine learning service you use. <br>- Introduces latency when querying or exporting data. |
 |**Data volume**|Limited to several GBs of data, or a few million records.|Supports larger volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs). |
-|**Cost**|None|- Cost of the machine learning service you use.<br>- The cost of exporting data and ingest data into Azure Monitor Logs, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
+|**Cost**|No additional cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
 ## Create your own machine learning pipeline
