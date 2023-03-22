@@ -14,6 +14,7 @@ ms.subservice: sms
 ms.custom: mode-other
 ---
 # Quickstart: Apply for Toll-Free Verification
+Get started with reliable SMS service using toll-free numbers by submitting a toll-free verification. Toll-free verification maximizes deliverability of messages with low to no traffic filtering.
 
 ## Prerequisites
 
