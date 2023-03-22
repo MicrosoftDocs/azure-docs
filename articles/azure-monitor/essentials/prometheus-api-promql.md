@@ -123,7 +123,7 @@ POST https://k8s-02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/qu
 
 ```
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query?query=container_memory_working_set_bytes' 
+GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query?query=container_memory_working_set_bytes' 
 --header 'Authorization:  Bearer <access token>'
 ```
 ### Range queries
@@ -131,12 +131,12 @@ For more information, see [Range queries](https://prometheus.io/docs/prometheus/
 Path: `/api/v1/query_range`  
 Examples:
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range?query=container_memory_working_set_bytes&start=2023-03-01T00:00:00.000Z&end=2023-03-20T00:00:00.000Z&step=6h'
+GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query_range?query=container_memory_working_set_bytes&start=2023-03-01T00:00:00.000Z&end=2023-03-20T00:00:00.000Z&step=6h'
 --header 'Authorization: Bearer <access token>
 ```
 
 ``` 
-POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/query_range' 
+POST 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/query_range' 
 --header 'Authorization:  Bearer <access token>'
 --header 'Content-Type: application/x-www-form-urlencoded' 
 --data-urlencode 'query=up' 
@@ -150,14 +150,14 @@ For more information, see [Series](https://prometheus.io/docs/prometheus/latest/
 Path: `/api/v1/series`  
 Examples:
 ```
-POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series' 
+POST 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/series' 
 --header 'Authorization: Bearer <access token>
 --header 'Content-Type: application/x-www-form-urlencoded' 
---data-urlencode 'match%5B%5D=kube_pod_info{pod="bestapp-123abc456d-4nmfm"}'
+--data-urlencode 'match[]=kube_pod_info{pod="bestapp-123abc456d-4nmfm"}'
 
 ```
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/series?match[]=container_network_receive_bytes_total{namespace="default-1669648428598"}'
+GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/series?match[]=container_network_receive_bytes_total{namespace="default-1669648428598"}'
 ```
 
 ### Labels
@@ -166,11 +166,11 @@ For more information, see [Labels](https://prometheus.io/docs/prometheus/latest/
 Path: `/api/v1/labels`  
 Examples:
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels'
+GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/labels'
 
 ```
 ```
-POST 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/labels'
+POST 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/labels'
 ```
 
 ### Label values
@@ -183,7 +183,7 @@ Path: `/api/v1/label/__name__/values.`
 
 Example:
 ```
-GET 'https://k8s02-workspace-xy98.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values'
+GET 'https://k8s02-workspace-abcd.eastus.prometheus.monitor.azure.com/api/v1/label/__name__/values'
 ```
 
 For the full specification of OSS prom APIs, see [Prometheus HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/#http-api )
