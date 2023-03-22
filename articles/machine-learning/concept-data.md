@@ -17,7 +17,7 @@ ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 # Data concepts in Azure Machine Learning
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you use:"]
-> * [v1](./v1/concept-data.md)
+> * [v1](./v1/concept-data.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](concept-data.md)
 
 With Azure Machine Learning, you can bring data from a local machine or an existing cloud-based storage. In this article, you'll learn the main Azure Machine Learning data concepts.
