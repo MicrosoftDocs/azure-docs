@@ -126,7 +126,7 @@ With the resulting normalized message looking like this after the MedTech servic
   }
 ]
 ```
-When the device message is processed by the MedTech service, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath, but it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
+When the device message is processed by the MedTech service, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath, however, it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
 
 > [!TIP]
 > See [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md) for assistance fixing common MedTech service deployment errors.
@@ -140,12 +140,12 @@ In this article, you've been provided an overview of the MedTech service device 
 To learn how to use CalculatedContent mapping templates with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md).
+> [How to use CalculatedContent with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md).
 
 To learn how to use IotContentPathTemplates mapping templates with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotContentPathTemplates templates with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md).
+> [How to use IotContentPathTemplate with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md).
 
 To learn how to use custom functions with the MedTech service device mapping, see
 
