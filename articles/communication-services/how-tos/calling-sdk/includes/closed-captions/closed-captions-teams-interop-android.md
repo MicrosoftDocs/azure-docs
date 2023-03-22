@@ -14,16 +14,24 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - An app with voice and video calling, refer to our [Voice](../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
-- [Access tokesn](../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
-- [Access tokesn](../../quickstarts/identity/access-tokens.md) for External identity users.
-- For Translated captions you will need to have a [Teams premium](https://www.microsoft.com/en-us/microsoft-teams/premium#tabx93f55452286a4264a2778ef8902fb81a) license. 
+- [Access tokens](../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
+- [Access tokens](../../quickstarts/identity/access-tokens.md) for External identity users.
+- For Translated captions you will need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license. 
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in the quickstart below.
+>Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
 
-## Join a Teams meeting
+## Models
+| Name | Description |
+|------|-------------|
+| TeamsCaptionsCallFeature | API for TeamsCall captions |
+| StartCaptionOptions | Closed caption options like spoken language |
+| TeamsCaptionsListener | Listener for addOnCaptionsReceivedListener |
+| TeamsCaptionsInfo | Data object received for each TeamsCaptionsListener event |
 
-## Get captions feature for External Identity users
+## Get closed captions feature 
+
+### External Identity users
 
 If you're building an application that allows ACS users to join a Teams meeting 
 
@@ -31,13 +39,17 @@ If you're building an application that allows ACS users to join a Teams meeting
 TeamsCaptionsCallFeature captionsCallFeature = call.feature(Features.TEAMS_CAPTIONS);
 ```
 
-## Get captions feature for Microsoft 365 users 
+### Microsoft 365 users 
+
+If you're building an application for Microsoft 365 Users using ACS SDK. 
 
 ``` java
 TeamsCaptionsCallFeature captionsCallFeature = teamsCall.feature(Features.TEAMS_CAPTIONS); 
 ```
 
-## Add a listener to check if captions is active
+## Subscribe to listeners
+
+### Add a listener to receive captions active/inactive status
 
 ``` java
 public void addOnIsCaptionsActiveChangedListener() {
@@ -49,7 +61,7 @@ public void addOnIsCaptionsActiveChangedListener() {
 }
 ```
 
-## Add listener for captions received
+### Add listener for captions data received
 
 ``` java 
 TeamsCaptionsListener captionsListener = (TeamsCaptionsInfo captionsInfo) -> {
@@ -75,44 +87,6 @@ public void startCaptions() {
 }
 ```
 
-## Get supported spoken languages 
-
-Get a list of supported spoken languages that your users can select from when enabling closed captions. 
-
-``` java
-captionsCallFeature.getSupportedSpokenLanguages();
-```
-
-## Set spoken language 
-When the user selects the spoken language, your app can set the spoken language that it expects captions to be generated from. 
-
-``` java 
-public void setSpokenLanguage() {
-    captionsCallFeature.setSpokenLanguage(language).whenComplete((result, error) -> {
-        if (error != null) {
-        }
-    });
-}
-```
-
-## Get supported caption language 
-
-If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check will be done against their own user account if they meeting organizer doesn't have a Teams premium license.
-
-``` java
-captionsCallFeature.getSupportedCaptionLanguages();
-```
-## Set caption languge 
-
-``` java
-public void setCaptionLanguage() {
-    captionsCallFeature.setCaptionLanguage(language).whenComplete((result, error) -> {
-        if (error != null) {
-        }
-    });
-}
-```
-
 ## Stop captions
 
 ``` java
@@ -131,3 +105,51 @@ public void removeOnCaptionsReceivedListener() {
     captionsCallFeature.removeOnCaptionsReceivedListener(captionsListener);
 }
 ```
+
+## Spoken language support
+
+### Get a list of supported spoken languages 
+
+Get a list of supported spoken languages that your users can select from when enabling closed captions. 
+
+``` java
+// bcp 47 formatted language code
+captionsCallFeature.getSupportedSpokenLanguages();
+```
+
+### Set spoken language 
+
+When the user selects the spoken language, your app can set the spoken language that it expects captions to be generated from. 
+
+``` java 
+public void setSpokenLanguage() {
+    captionsCallFeature.setSpokenLanguage("en-us").whenComplete((result, error) -> {
+        if (error != null) {
+        }
+    });
+}
+```
+
+## Caption language support 
+
+### Get supported caption language 
+
+If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check will be done against their own user account if they meeting organizer doesn't have a Teams premium license.
+
+``` java
+// ISO 639-1 formatted language code
+captionsCallFeature.getSupportedCaptionLanguages();
+```
+### Set caption language 
+
+``` java
+public void setCaptionLanguage() {
+    captionsCallFeature.setCaptionLanguage("en").whenComplete((result, error) -> {
+        if (error != null) {
+        }
+    });
+}
+```
+
+
+
