@@ -137,7 +137,7 @@ There are a two scenarios where you may find it helpful to reset your ExpressRou
    ```
    The peering should be in a disabled state you set. 
 
-7. Run the following commands to change the peering state to re-enable.
+7. Run the following commands to change the peering state back to enabled.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Enabled"
