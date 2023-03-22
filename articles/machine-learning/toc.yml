@@ -889,16 +889,36 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items:
-            - name: Batch scoring with batch endpoints
+            - name: How to work with Batch endpoints
               href: how-to-use-batch-endpoint.md
             - name: Create jobs and input data for batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
-            - name: Author scoring scripts for batch scoring
-              href: how-to-batch-scoring-script.md
-            - name: Customize outputs in batch jobs
-              href: how-to-deploy-model-custom-output.md
-            - name: Troubleshoot batch endpoints
-              href: how-to-troubleshoot-batch-endpoints.md
+            - name: Deploy models
+              items:
+                - name: Batch scoring with batch endpoints
+                  href: how-to-use-batch-model-deployments.md
+                - name: Author scoring scripts for batch scoring
+                  href: how-to-batch-scoring-script.md
+                - name: Customize outputs in batch jobs
+                  href: how-to-deploy-model-custom-output.md
+                - name: Use MLflow models in batch deployments
+                  href: how-to-mlflow-batch.md
+                - name: Image processing with batch deployments
+                  href: how-to-image-processing-batch.md
+                - name: Text processing with batch deployments
+                  href: how-to-nlp-processing-batch.md
+            - name: Deploy components
+              items:
+                - name: Deploy pipelines with batch endpoints
+                  href: how-to-use-batch-pipeline-deployments.md
+                - name: Create batch endpoints from jobs
+                  href: how-to-use-batch-pipeline-from-job.md
+                - name: Operationalize a training pipeline on batch endpoints
+                  href: how-to-use-batch-training-pipeline.md
+                - name: Operationalize a scoring pipeline on batch endpoints
+                  href: how-to-use-batch-scoring-pipeline.md
+                - name: Deploy pipelines on Spark compute (Preview)
+                  href: how-to-use-batch-scoring-spark.md
             - name: Security
               items:
                 - name: Authorization on batch endpoints
@@ -909,14 +929,6 @@
               items:
                 - name: Use low priority VMs in batch deployments
                   href: how-to-use-low-priority-batch.md
-            - name: Scenarios
-              items:
-                - name: Use MLflow models in batch deployments
-                  href: how-to-mlflow-batch.md
-                - name: Image processing with batch deployments
-                  href: how-to-image-processing-batch.md
-                - name: Text processing with batch deployments
-                  href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
                 - name: Run batch endpoints from Azure Data Factory
@@ -925,6 +937,8 @@
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
+            - name: Troubleshoot batch endpoints
+              href: how-to-troubleshoot-batch-endpoints.md
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
