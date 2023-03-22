@@ -12,6 +12,7 @@ ms.date: 09/28/2022
 ms.author: jomondi
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # User and admin consent in Azure Active Directory

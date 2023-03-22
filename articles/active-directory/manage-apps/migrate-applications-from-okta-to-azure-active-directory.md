@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Migrate your applications from Okta to Azure Active Directory 

@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 07/20/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Manage access to an application

@@ -12,6 +12,7 @@ ms.workload: identity
 ms.date: 05/31/2022
 ms.author: jomondi
 ms.reviewer: celested
+ms.custom: enterprise-apps
 ---
 
 # Application management videos

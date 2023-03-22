@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 07/21/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 
 
 #customer intent: As an admin, I want to review and take action on admin consent requests.

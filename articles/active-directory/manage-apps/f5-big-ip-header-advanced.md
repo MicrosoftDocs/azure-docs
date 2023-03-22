@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 11/10/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO

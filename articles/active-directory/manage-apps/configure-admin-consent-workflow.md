@@ -12,7 +12,7 @@ ms.date: 09/02/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, enterprise-apps
 #customer intent: As an admin, I want to configure the admin consent workflow.
 ---
 

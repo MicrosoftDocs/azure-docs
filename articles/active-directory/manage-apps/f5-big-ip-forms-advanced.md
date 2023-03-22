@@ -9,6 +9,7 @@ ms.workload: identity
 ms.date: 10/20/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Configure F5 BIG-IP Access Policy Manager for form-based SSO

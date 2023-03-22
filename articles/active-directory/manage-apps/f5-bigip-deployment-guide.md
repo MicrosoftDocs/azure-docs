@@ -12,6 +12,7 @@ ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
 ms.reviewer: miccohen
+ms.custom: not-enterprise-apps
 ---
 
 # Deploy F5 BIG-IP Virtual Edition VM in Azure

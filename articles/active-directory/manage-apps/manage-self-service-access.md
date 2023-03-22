@@ -12,6 +12,7 @@ ms.date: 11/24/2022
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
 ---

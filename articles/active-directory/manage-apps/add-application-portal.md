@@ -11,7 +11,8 @@ ms.workload: identity
 ms.date: 03/24/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: mode-other
+ms.custom: mode-other, enterprise-apps
+
 #Customer intent: As an administrator of an Azure AD tenant, I want to add an enterprise application.
 ---
 

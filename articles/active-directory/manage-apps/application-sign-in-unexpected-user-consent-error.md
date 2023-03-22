@@ -12,6 +12,7 @@ ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Unexpected error when performing consent to an application

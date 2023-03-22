@@ -12,6 +12,7 @@ ms.date: 03/15/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Migrate application authentication to Azure Active Directory

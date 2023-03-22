@@ -12,6 +12,7 @@ ms.date: 03/16/2023
 ms.author: jomondi
 ms.reviewer: ludwignick
 zone_pivot_groups: home-realm-discovery
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy
 ---

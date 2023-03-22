@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 07/26/2022
 ms.author: jomondi
 ms.reviewer: karavar
-ms.custom: mode-other
+ms.custom: mode-other, enterprise-apps
 zone_pivot_groups: enterprise-apps-cli
 
 

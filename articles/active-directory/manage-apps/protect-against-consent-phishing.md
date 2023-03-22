@@ -9,7 +9,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/17/2022
-ms.custom: template-concept
+ms.custom: template-concept, enterprise-apps-article
 ms.author: jomondi
 ms.reviewer: tilarso
 

@@ -14,6 +14,7 @@ ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
 ---

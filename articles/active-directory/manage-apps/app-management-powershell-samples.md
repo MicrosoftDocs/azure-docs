@@ -11,6 +11,7 @@ ms.topic: sample
 ms.date: 02/18/2021
 ms.author: jomondi
 ms.reviewer: sureshja
+ms.custom: enterprise-apps
 ---
 
 # Azure Active Directory PowerShell examples for Application Management
