@@ -34,7 +34,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 1. Select your subscription and workspace.
 
 * Navigate to the Azure ML Studio and enable the feature by clicking open the preview panel.
-[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/preview-panel.png)](media/how-to-train-with-ui/preview-panel.png)
+[![Azure Machine Learning studio preview panel](media/how-to-train-with-ui/preview-panel.png)](media/how-to-train-with-ui/preview-panel.png)
 
  
 * You may enter the job creation UI from the homepage. Click **Create new** and select **Job**. 
@@ -42,13 +42,13 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walkthrough the wizard for running a custom script (command job). 
 
-[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
+[![Azure Machine Learning studio choose training method](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
 
 ## Configure basic settings
 
 The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we have chosen for you or make changes to your desired preference. 
 
-[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
+[![Azure Machine Learning studio job submission wizard basic settings](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
 
 These are the fields available:
 
@@ -147,7 +147,7 @@ If you don't want to use the Azure Machine Learning curated environments or spec
 ## Review and Create 
 
 Once you've configured your job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
- [![Review](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
+ [![AzureML Studio job submission review](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
 
 To launch the job, choose **Submit training job**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
