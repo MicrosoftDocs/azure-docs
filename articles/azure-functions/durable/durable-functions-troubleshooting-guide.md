@@ -27,7 +27,9 @@ If neither the Diagnose and Solve problems tool nor the diagnostics documentatio
 
 ## Orchestration is stuck in the `Pending` state
 
-This section aplies to the scenario when orchestration couldn't be started successfully. 
+When you start an orchestration, a "start" message gets written to an internal queue managed by the Durable extension, and the status of the orchestration gets set to "Pending". After the orchestration message gets picked up and successfully processed by an available app instance, the status will transition to "Running" (or to some other non-"Pending" state).
+
+Use the following steps to troubleshoot if you observe that one of your orchestration instances remain stuck indefinitely in the "Pending" state. 
 
 1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
@@ -38,11 +40,17 @@ This section aplies to the scenario when orchestration couldn't be started succe
 
 ## Orchestration starts after a long delay
 
+Normally orchestrations start within a few seconds after they are scheduled. However, there are certain cases where orchestrations may take much longer to start. Use the following steps to troubleshoot when orchestrations take more than a few seconds to start executing.
+
 1. Refer to the [Azure Storage start delay documentation](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to learn whether the orchestration start delay might be caused by known limitations.
 
 2. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in [Trace Errors/Warnings section](#trace-errorswarnings).
 
 ## Orchestration does not complete / is stuck in the `Running` state
+
+If an orchestration remains in the "Running" state for a long period of time, it usually means that it's waiting for a long-running task that it scheduled to complete. For example, it could be waiting for a durable timer task, an activity task, or an external event task to be completed. However, if you observe that scheduled tasks have completed successfully but the orchestration still isn't making progress, then there might be a problem that's preventing the orchestration from beginning its next task. We often refer to orchestrations in this state as "stuck orchestrations".
+
+Use the following steps to troubleshoot stuck orchestrations:
 
 1. Try restarting the function app. This can help if the orchestration gets stuck due to a transient bug or deadlock in the app or extension code.
 
@@ -54,13 +62,19 @@ This section aplies to the scenario when orchestration couldn't be started succe
 
 ## Orchestration runs slowly
 
-1. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is enabled.  
+Heavy data processing, internal errors, and insufficient compute resources can cause orchestrations to execute slower than normal. Use the following steps to troubleshoot orchestrations that are taking longer than expected to execute:
+
+1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
+
+2. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is enabled.  
    Excessive history load can result in extremely slow orchestrator processing.
 
-2. Check for performance and scalability bottlenecks. 
+3. Check for performance and scalability bottlenecks. 
    Performance issues can include many aspects. For example, high CPU usage, or large memory consumption could result in a delay. Please read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed information.
 
 ## Sample Queries
+
+This section shows how you can troubleshoot issues by writing custom [KQL queries](../../data-explorer/kusto/query.md) in the Azure Application Insights instance configured for your Function app.
 
 ### Azure Storage Messaging
 When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
