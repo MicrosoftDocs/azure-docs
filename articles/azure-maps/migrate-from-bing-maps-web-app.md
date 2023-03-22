@@ -1520,7 +1520,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 
 ### Add drawing tools
 
-Both Bing and Azure Maps provide a module that add the ability for the user to draw and edit shapes on the map using the mouse or other input device. They both support drawing pushpins, lines, and polygons. Azure Maps also provides options for drawing circles and rectangles.
+Both Bing and Azure Maps provide a module that adds the ability for the user to draw and edit shapes on the map using the mouse or other input device. They both support drawing pushpins, lines, and polygons. Azure Maps also provides options for drawing circles and rectangles.
 
 **Before: Bing Maps**
 
