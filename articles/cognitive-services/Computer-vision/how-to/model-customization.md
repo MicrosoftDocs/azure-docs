@@ -151,13 +151,13 @@ The `datasets/<dataset-name>` API lets you create a new dataset object that refe
 1. Replace `<endpoint>` with your Computer Vision endpoint.
 1. Replace `<dataset-name>` with a name for your dataset.
 1. Replace `<subscription-key>` with your Computer Vision key.
-1. In the request body, set `"annotationKind"` to either `"MultiClassClassification"` or `"ObjectDetection"`, depending on your project.
+1. In the request body, set `"annotationKind"` to either `"imageClassification"` or `"imageObjectDetection"`, depending on your project.
 1. In the request body, set the `"annotationFileUris"` array to an array of string(s) that show the URI location(s) of your COCO file(s) in blob storage.
 
 ```bash
 curl.exe -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-'annotationKind':'MultiClassClassification',
+'annotationKind':'imageClassification',
 'annotationFileUris':['<URI>']
 }"
 ```
