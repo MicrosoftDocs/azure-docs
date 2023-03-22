@@ -83,7 +83,7 @@ The following table compares custom template and custom neural features:
 
 ### Custom classification model
 
- Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. Document classification supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+ Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
 
 ## Custom model tools
 
