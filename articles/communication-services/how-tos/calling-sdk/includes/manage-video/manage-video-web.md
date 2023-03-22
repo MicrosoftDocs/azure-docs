@@ -312,7 +312,7 @@ CSS for styling the loading spinner over the remote video stream.
 
 ### Remote video quality
 
-Starting from 1.12(beta) version, SDK provides a new feature called OptimalVideoCount (OVC in short). Goal of this feature is to inform application at run-time, how many videos from different particiapnts, it should render at a given moment in a group call (2+ participants), feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint - value of that property describes how many videos from different participants application should render at a given moment. Application should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period, around 10s, between changes that to avoid to frequent changes.
+Starting from 1.12(beta) version, SDK provides a new feature called OptimalVideoCount (OVC in short). Goal of this feature is to inform application at run-time, how many videos from different particiapnts, it should render at a given moment in a group call (2+ participants), feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint - value of that property describes how many videos from different participants application should render at a given moment. Application should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period, around 10s, between updates that to avoid to frequent changes.
 
 **Usage**
 The `optimalVideoCount` feature is a call feature
