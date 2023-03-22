@@ -23,9 +23,9 @@ Developers can rest easy knowing that they have access to one unified support te
 
 ## Low total cost of ownership (TCO)
 
-Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional high availability (HA), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, we pass the **50% savings** on to you.
+Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional high availability (HA), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, we pass the **50% savings** on to you. The image below is an example of the pricing for a cluster with HA enabled and disabled.
 
-:::image type="content" source="media/introduction/cluster_tiers.png" alt-text="Screenshot of several cluster tier options":::
+:::image type="content" source="media/introduction/cluster-tiers.png" alt-text="Screenshot of several cluster tier options.":::
 
 *East US region
 
@@ -33,7 +33,7 @@ Azure Cosmos DB for MongoDB vCore is organized into easy to understand cluster t
 
 ## Flexibility for developers
 
-Cosmos DB for MongoDB vCore is built with flexibility for developers in mind. The service offers high capacity vertical and horizonal scaling with no shard key required until the database surpasses TBs. The service also supports automatically sharding existing databases with no downtime. Developers can easily scale their clusters up or down, vertically and horizontally, all with no downtime, to meet their needs.
+Cosmos DB for MongoDB vCore is built with flexibility for developers in mind. The service offers high capacity vertical and horizontal scaling with no shard key required until the database surpasses TBs. The service also supports automatically sharding existing databases with no downtime. Developers can easily scale their clusters up or down, vertically and horizontally, all with no downtime, to meet their needs.
 
 ## Next steps
 
