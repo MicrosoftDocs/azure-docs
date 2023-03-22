@@ -109,7 +109,7 @@ ml_client = MLClient(
 ```
 
 > [!NOTE]
-> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during compute creation).
+> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next cell).
 
 
 ## Upload data to cloud storage
@@ -128,7 +128,7 @@ Data asset creation also creates a *reference* to the data source location, alon
 
 The next notebook cell creates the data asset. The code sample uploads the raw data file to the designated cloud storage resource.  
 
-Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  In this code, we're using time to generate a unique version, which will mostly work.  But if you happen to run this same cell on a different day at the exact same time, you'll get an error.  If this occurs, chances are good that it will be successful if you re-run the cell.
+Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  In this code, we're using time to generate a unique version each time the cell is run.
 
 You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. In this tutorial, we want to refer to specific version numbers, so we create a version number instead.
 
@@ -142,7 +142,8 @@ import time
 # local filesystem
 
 my_path = "./data/default_of_credit_card_clients.csv"
-v1 = str(time.strftime("%H.%M.%S", time.gmtime()))
+# set the version number of the data asset to the current UTC time
+v1 = time.strftime("%Y.%m.%d.%H%M%S", time.gmtime())
 
 my_data = Data(
     name="credit-card",
