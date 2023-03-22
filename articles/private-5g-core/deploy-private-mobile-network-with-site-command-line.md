@@ -34,17 +34,17 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 - [az mobile-network create](/cli/azure/mobile-network#az-mobile-network-create)
 - [az mobile-network site](/cli/azure/mobile-network/site)
-- [az mobile-network pccp create](/cli/azure/mobile-network/pccp?view=azure-cli-latest#az-mobile-network-pccp-create)
-- [az mobile-network pcdp create](/cli/azure/mobile-network/pcdp?view=azure-cli-latest#az-mobile-network-pcdp-create)
-- [az mobile-network data-network create](/cli/azure/mobile-network/data-network?view=azure-cli-latest#az-mobile-network-data-network-create)
-- [az mobile-network sim group create](/cli/azure/mobile-network/sim/group?view=azure-cli-latest#az-mobile-network-sim-group-create)
-- [az mobile-network  slice create](/cli/azure/mobile-network/slice?view=azure-cli-latest#az-mobile-network-slice-create)
-- [az mobile-network service create](/cli/azure/mobile-network/service?view=azure-cli-latest#az-mobile-network-service-create)
-- [az mobile-network sim policy create](/cli/azure/mobile-network/sim/policy?view=azure-cli-latest#az-mobile-network-sim-policy-create)
+- [az mobile-network pccp create](/cli/azure/mobile-network/pccp#az-mobile-network-pccp-create)
+- [az mobile-network pcdp create](/cli/azure/mobile-network/pcdp#az-mobile-network-pcdp-create)
+- [az mobile-network data-network create](/cli/azure/mobile-network/data-network#az-mobile-network-data-network-create)
+- [az mobile-network sim group create](/cli/azure/mobile-network/sim/group#az-mobile-network-sim-group-create)
+- [az mobile-network  slice create](/cli/azure/mobile-network/slice#az-mobile-network-slice-create)
+- [az mobile-network service create](/cli/azure/mobile-network/service#az-mobile-network-service-create)
+- [az mobile-network sim policy create](/cli/azure/mobile-network/sim/policy#az-mobile-network-sim-policy-create)
 - [az mobile network sim create](/cli/azure/mobile-network/sim#az-mobile-network-sim-create)
-- [az mobile-network attached-data-network create](/cli/azure/mobile-network/attached-data-network?view=azure-cli-latest#az-mobile-network-attached-data-network-create)
+- [az mobile-network attached-data-network create](/cli/azure/mobile-network/attached-data-network#az-mobile-network-attached-data-network-create)
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ## Deploy a private mobile network, site and SIM
 
