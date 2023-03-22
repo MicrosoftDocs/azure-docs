@@ -23,7 +23,7 @@ Azure Firewall supports Standard SKU public IP addresses. Basic SKU public IP ad
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Three Standard SKU public IP addresses that aren't associated with any resources. For more information on creating a Standard SKU public IP address, see [Quickstart: Create a public IP address by using the Azure portal](./create-public-ip-portal.md).
-    - For the purposes of the examples in this article, create 3 new public IP addresses: **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
+    - For the purposes of the examples in this article, create three new public IP addresses: **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
 
 ## Create an Azure firewall with an existing public IP
 
@@ -95,11 +95,11 @@ In this section, you add a public IP configuration to Azure Firewall. For more i
 
 ## Advanced configuration
 
-This is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy by using the Azure portal](../../firewall/tutorial-firewall-deploy-portal-policy.md). You can associate an Azure firewall with a network address translation (NAT) gateway to extend the extensibility of source network address translation (SNAT). A NAT gateway avoids configurations to permit traffic from a large number of public IPs associated with the firewall. With this configuration, all inbound traffic uses the public IP address or addresses of the NAT gateway. Traffic egresses through the Azure firewall public IP address or addresses.  For more information, see [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md).
+This example is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy by using the Azure portal](../../firewall/tutorial-firewall-deploy-portal-policy.md). You can associate an Azure firewall with a network address translation (NAT) gateway to extend the extensibility of source network address translation (SNAT). A NAT gateway can be used to provide outbound connectivity associated with the firewall. With this configuration, all inbound traffic uses the public IP address or addresses of the NAT gateway. Traffic egresses through the Azure firewall public IP address or addresses.  For more information, see [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md).
 
 > [!NOTE]
-> Azure firewall uses standard SKU load balancer. Protocols other than Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) in network filter rules are unsupported for SNAT to the public IP of the firewall. 
-> You can integrate an Azure firewall with a standard SKU load balancer to protect backend pool resources. If you associate the firewall with a public load balancer, configure ingress traffic to be directed to the firewall public IP address. Configure egress via a user-defined route to the firewall public IP address. For more information and setup instructions, see [Integrate Azure Firewall with Azure Standard Load Balancer](../../firewall/integrate-lb.md). 
+> Azure firewall uses the Standard SKU load balancer. Protocols other than Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) in network filter rules are unsupported for SNAT to the public IP of the firewall. 
+> You can integrate an Azure firewall with the Standard SKU load balancer to protect backend pool resources. If you associate the firewall with a public load balancer, configure ingress traffic to be directed to the firewall public IP address. Configure egress via a user-defined route to the firewall public IP address. For more information and setup instructions, see [Integrate Azure Firewall with Azure Standard Load Balancer](../../firewall/integrate-lb.md). 
 
 ## Next steps
 
