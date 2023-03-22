@@ -31,7 +31,7 @@ Learn more:
 
 ## Scenario description
 
-For this scenario, there's a legacy application using HTTP authorization headers to control access to protected content. Ideally, application access is managed by Azure AD, however legacy lacks a modern authentication protocol. Modernization takes effort and time, while introducing downtime costs and risks. Instead, deploy a BIG-IP between the public internet and the internal application to gate inbound access to the application.
+For this scenario, there's a legacy application using HTTP authorization headers to control access to protected content. Ideally, Azure AD manages application access, however legacy lacks a modern authentication protocol. Modernization takes effort and time, while introducing downtime costs and risks. Instead, deploy a BIG-IP between the public internet and the internal application to gate inbound access to the application.
 
 A BIG-IP in front of the application enables overlay of the service with Azure AD preauthentication and header-based SSO. The configuration improves the application security posture.
 
@@ -40,11 +40,11 @@ A BIG-IP in front of the application enables overlay of the service with Azure A
 The secure hybrid access solution for this scenario is made up of:
 
 * **Application** - BIG-IP published service to be protected by Azure AD SHA
-* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SSO to the BIG-IP. 
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SSO to the BIG-IP
   * With SSO, Azure AD provides the BIG-IP required session attributes, including user identifiers
 * **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before header-based SSO to the back-end application
 
-The folllowing diagram illustrates the user flow with Azure AD, BIG-IP, APM and an application.
+The following diagram illustrates the user flow with Azure AD, BIG-IP, APM and an application.
 
    ![Diagram of the user flow with Azure AD, BIG-IP, APM and an application](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
@@ -78,14 +78,14 @@ For the scenario you need:
 
 ## BIG-IP configuration method
 
-The following instructions are an advanced configuration method, a flexible way to implement SHA. Manually create BIG-IP configuration objects. Use this mehtod for scenarios not included in the Guided Configuration templates. 
+The following instructions are an advanced configuration method, a flexible way to implement SHA. Manually create BIG-IP configuration objects. Use this method for scenarios not included in the Guided Configuration templates. 
 
    >[!NOTE]
    > Replace example strings or values with those from your environment.
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
-To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Azure AD. The trust establishes the integration for BIG-IP to hand off pre-authentication and Conditional Access to Azure AD, before granting access to the published service.
+To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Azure AD. The trust establishes the integration for BIG-IP to hand off preauthentication and Conditional Access to Azure AD, before granting access to the published service.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
@@ -113,7 +113,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
    >[!NOTE]
    >In this configuration, the SAML flow operates in IdP mode: Azure AD issues the user a SAML assertion before being redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports IdP and SP modes.
 
-9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, pre-pended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign-out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
+9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
 
    ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
 
@@ -161,7 +161,7 @@ By default, Azure AD issues tokens to users granted access to an application.
 4. Select **Select**.
 5. Select **Assign**.
 
-This completes the Azure AD SAML federation trust. Next, set up BIG-IP APM to publish the web application, configured with properties to complete SAML preauthentication trust.
+Azure AD SAML federation trust is complete. Next, set up BIG-IP APM to publish the web application, configured with properties to complete SAML preauthentication trust.
 
 ## Advanced configuration
 
@@ -235,8 +235,8 @@ Create an APM SSO object.
 11. For **Header Name**, enter **upn**.
 12. For **Header Value**, enter **%{session.saml.last.identity}**.
 13. For **Header Name**, enter **employeeid**.
-14. Fpr **Header Value**, enter **%{session.saml.last.attr.name.employeeid}**.
-15. Fpr **Header Name**, enter **group\_authz**.
+14. For **Header Value**, enter **%{session.saml.last.attr.name.employeeid}**.
+15. For **Header Name**, enter **group\_authz**.
 16. For **Header Value**, enter **%{session.saml.last.attr.name.`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`}**.
 
    >[!Note]
@@ -287,7 +287,7 @@ The following instructions are optional. With a LogonID_Mapping configuration, t
 
    ![Screenshot of the plus symbol on the SAML Auth Successful branch.](./media/f5-big-ip-header-advanced/create-saml-auth-branch.png)
 
-2. In the pop-up select **Assignment** > **Variable Assign** > **Add Item**.
+2. In the pop-up, select **Assignment** > **Variable Assign** > **Add Item**.
 
    ![Screenshot of the Variable Assign option, on the Assignment tab.](./media/f5-big-ip-header-advanced/assign-variable.png)
 
@@ -347,7 +347,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
    ![Screenshot of the Source Address Translation option.](./media/f5-big-ip-header-advanced/change-source-address.png)
 
-9. For **Access Policy**, select the **Access Profile** created earlier. This binds the Azure AD SAML preauthentication profile and headers SSO policy to the virtual server.
+9. For **Access Policy**, select the **Access Profile** created earlier. This action binds the Azure AD SAML preauthentication profile and headers SSO policy to the virtual server.
 10. For **Per-Request Policy**, select **SSO_Headers**.
 
    ![Screenshot of entries for Access Profile and Pre-Request Policy.](./media/f5-big-ip-header-advanced/set-access-profile.png)
@@ -359,13 +359,13 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 ## Session management
 
-Use the BIG-IPs session management setting to define the conditions for user session termination or continuation. Create policy with **Access Policy** > **Access Profiles**. Sselect an application from the list.
+Use the BIG-IPs session management setting to define the conditions for user session termination or continuation. Create policy with **Access Policy** > **Access Profiles**. Select an application from the list.
 
-Regarding SLO functionality, a SLO URI in Azure AD ensures an IdP initiated sign-out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Azure AD SAML sign-out endpoint, for SP initiated sign-outs. Therefore, enable the APM to know when a user signs out.
+Regarding SLO functionality, a SLO URI in Azure AD ensures an IdP initiated sign out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Azure AD SAML sign-out endpoint, for SP initiated sign out. Therefore, enable the APM to know when a user signs out.
 
-If there's no BIG-IP web portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. The application session can be reinstated through SSO. Therefore, SP-initiated sign-out needs careful consideration. 
+If there's no BIG-IP web portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. The application session can be reinstated through SSO. Therefore, SP-initiated sign out needs careful consideration. 
 
-To ensure sessions terminate securely, add an SLO function to your application **Sign out** button. Enable it to redirect the client to the Azure AD SAML sign-out endpoint. For the SAML sign-out endpoint for your tenant, go to **App Registrations** > **Endpoints**.
+To ensure sessions terminate securely, add an SLO function to your application **Sign out** button. Enable it to redirect the client to the Azure AD SAML sign-out endpoint. For the SAML sign out endpoint for your tenant, go to **App Registrations** > **Endpoints**.
 
 If you can't change the app, enable the BIG-IP to listen for the app sign-out call and trigger SLO. To learn more:
 
@@ -382,7 +382,7 @@ If you can't change the app, enable the BIG-IP to listen for the app sign-out ca
 
 1. As a user, select the application external URL, or in the MyApps portal select the application icon. 
 2. Authenticate to Azure AD.
-3. You are redirected to the BIG-IP virtual server for the app and signed in with SSO.
+3. You're redirected to the BIG-IP virtual server for the app and signed in with SSO.
 4. The injected header output appears by the header-based application.
 
    ![Screenshot of Server Variables, such as UPN, Employee ID, and Group Authorization.](./media/f5-big-ip-header-advanced/mytravel-example.png)
