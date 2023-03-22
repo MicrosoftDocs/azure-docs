@@ -96,9 +96,4 @@ The following machine learning resources can be deleted using the Python SDK:
 
 ## Next steps
 
-:::moniker range="azureml-api-2"
 Learn more about [Managing a workspace](how-to-manage-workspace.md).
-:::moniker-end
-:::moniker range="azureml-api-1"
-Learn more about [Managing a workspace](./v1/how-to-manage-workspace.md).
-:::moniker-end
