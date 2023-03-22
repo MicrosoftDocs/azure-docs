@@ -103,8 +103,8 @@ When a user signs in, the authentication process checks which authentication met
 1. [Telephony](concept-authentication-phone-options.md)<sup>2</sup>
 
 <sup>1</sup> Includes hardware or software TOTP from Microsoft Authenticator, Authenticator Lite, or third-party applications.
-<sup>2</sup> Includes SMS and voice calls.
 
+<sup>2</sup> Includes SMS and voice calls.
 
 ### How does system-preferred MFA affect AD FS or NPS extension?
 
@@ -113,6 +113,7 @@ System-preferred MFA doesn't affect users who sign in by using Active Directory 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
 The system-preferred MFA also applies for users who are enabled for MFA in the legacy MFA policy.
+
 :::image type="content" border="true" source="./media/how-to-mfa-number-match/legacy-settings.png" alt-text="Screenshot of legacy MFA settings.":::
 
 ## Next steps
