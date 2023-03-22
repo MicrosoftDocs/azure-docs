@@ -25,12 +25,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-1. An [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
-
-1. A [subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+* An [Azure Maps account]
+* A [subscription key]
 
 > [!NOTE]
-> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Create a new web page using the map control API
 
@@ -319,3 +318,7 @@ The next tutorial demonstrates the process of creating a simple store locator us
 
 > [!div class="nextstepaction"]
 > [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[manage authentication in Azure Maps]: how-to-manage-authentication.md
