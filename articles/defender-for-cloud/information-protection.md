@@ -13,7 +13,7 @@ ms.date: 06/29/2022
 
 Microsoft Defender for Cloud customers using Microsoft Purview Data Catalog can benefit from another important layer of metadata in alerts and recommendations: information about any potentially sensitive data involved. This knowledge helps solve the triage challenge and ensures security professionals can focus their attention on threats to sensitive data.
 
-This page explains the integration of Microsoft Purview Data Catalog within Defender for Cloud.
+This page explains the integration of Microsoft Purview Data Catalog in Defender for Cloud.
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Integrate Microsoft Purview with Microsoft Defender for Cloud](episode-two.md)
@@ -49,7 +49,7 @@ To provide information about discovered sensitive data and help ensure you have 
 Purview Catalog scans produce insights into the nature of the sensitive information so you can take action to protect that information:
 
 - If a resource is scanned by multiple Microsoft Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
-- Classifications and labels are shown for resources that were scanned within the last 3 months.
+- Classifications and labels are shown for resources that were scanned within the last three months.
 - Purview Catalog adds data sensitivity context **only** for resources **not** covered by the [sensitive data discovery (preview)](concept-data-security-posture.md) feature in Defender for Cloud.
 
 ### Alerts and recommendations pages
