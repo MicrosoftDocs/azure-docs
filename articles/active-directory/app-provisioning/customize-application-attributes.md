@@ -124,7 +124,7 @@ Applications and systems that support customization of the attribute list includ
 > [!NOTE]
 > When a directory extension attribute in Azure AD does not show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
 
-When you are editing the list of supported attributes, the following properties are provided:
+When you're editing the list of supported attributes, the following properties are provided:
 
 - **Name** - The system name of the attribute, as defined in the target object's schema.
 - **Type** - The type of data the attribute stores, as defined in the target object's schema, which can be one of the following types:
