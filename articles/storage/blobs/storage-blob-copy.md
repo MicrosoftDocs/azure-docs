@@ -58,13 +58,21 @@ To copy a blob, call one of the following methods:
 
 The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
 
+### Copy a blob within the same storage account
+
 The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing an existing blob and copies it to a new blob in a different container within the same storage account. This example also acquires a lease on the source blob before copying. Acquiring a lease ensures that no other client can modify the blob until the copy is complete and the lease is released.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyBlob":::
 
+### Copy a blob from another storage account
+
+If the source is a blob in another storage account, access to the source blob must be authorized via a shared access signature. The following example shows how to copy a blob from another storage account.
+
+### Check the status of a copy operation
+
 To check the status of a copy operation, you can call [UpdateStatusAsync](/dotnet/api/azure.storage.blobs.models.copyfromurioperation.updatestatusasync#azure-storage-blobs-models-copyfromurioperation-updatestatusasync(system-threading-cancellationtoken)) and parse the response to get the value for the `x-ms-copy-status` header. 
 
-The following code example shows how to check the status of a given copy operation:
+The following code example shows how to check the status of a copy operation:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CheckStatusCopyBlob":::
 
