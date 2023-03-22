@@ -40,7 +40,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
       ```
 
-    * Load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM package and host it with your app. This package also includes TypeScript definitions.
+    * Load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) npm package and host it with your app. This package also includes TypeScript definitions.
 
       > **npm install azure-maps-control**
 
