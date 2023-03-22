@@ -166,7 +166,7 @@
     items:
     - name: About data-aware security posture
       href: concept-data-security-posture.md
-    - name: Prepare for data-aware security posture
+    - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
   - name: Security recommendations
     items:
@@ -241,7 +241,7 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
-  - name: Data-Aware Security Posture
+  - name: Data-aware security posture
     items:
     - name: Enable data-aware security posture
       href: data-security-posture-enable.md

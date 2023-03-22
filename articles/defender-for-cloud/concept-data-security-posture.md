@@ -60,13 +60,13 @@ Changes in sensitivity settings take effect the next time that resources are sca
 
 ### Sensitivity labels
 
-if you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a minimum sensitivity label threshold in Defender for Cloud. When setting a threshold, you select a minimum label in the labelling rank order. All resources that have this minimum label or higher are presumed to contain sensitive data in the Defender CSPM cloud security graph. F**or example:
+if you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a minimum sensitivity label threshold in Defender for Cloud. When setting a threshold, you select a minimum label in the labelling rank order. All resources that have this minimum label or higher are presumed to contain sensitive data in the Defender CSPM cloud security graph. For example:
 
 When you select **Confidential** as minimum. **Highly Confidential** is also considered as sensitive. **General**, **Public**, and **Non-Business** aren't.
 
 :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
 
-During scanning, Defender for Cloud dynamically caculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
+During scanning, Defender for Cloud dynamically caךculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
 
 - The aim of the threshold is to make it easier to explore sensitive data.
 - It doesn't indicate that the scanned resource has a file with a specific label applied on it.
