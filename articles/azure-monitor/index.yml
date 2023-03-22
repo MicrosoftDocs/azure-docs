@@ -93,11 +93,11 @@ landingContent:
           - text: Manage tables in a Log Analytics workspace
             url: logs/manage-logs-tables.md
           - text: Monitor workspaces with Log Analytics Workspace Insights
-            url: /logs/log-analytics-workspace-insights-overview.md
+            url: logs/log-analytics-workspace-insights-overview.md
           - text: Analyze data in Log Analytics
-            url: /logs/log-analytics-tutorial.md
+            url: logs/log-analytics-tutorial.md
           - text: Get started with KQL log queries
-            url: /logs/log-analytics-tutorial.md               
+            url: logs/log-analytics-tutorial.md               
 
    # Card 
   - title: Get started with Application Insights
