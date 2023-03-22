@@ -13,9 +13,6 @@ ms.custom: template-concept, engagement-fy23
 ---
 
 # Packet capture overview
- 
-> [!Note]
-> Packet capture is now available for **virtual machine scale sets** too. To check it out, visit [Manage packet captures in virtual machine scale sets with Azure Network Watcher using the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md).
 
 Azure Network Watcher packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine (VM) or a scale set. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
