@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 02/14/2023
+ms.date: 03/07/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -15,30 +15,38 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
-| Release | Latest version | Minimum supported version | Download |
-|---------|----------------|---------------------------|--|
-| Public  | 1.2.3918       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4062       | 1.2.1672                  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 
-## Updates for version 1.2.4062 (Insider)
+## Updates for version 1.2.4065
 
-*Date published: February 14,2023*
+*Date published: March 7, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
 
 - General improvements to Narrator experience.
-- Fixed a bug where duplicate error messages appeared while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
-- Fixed a bug where scale resolution options weren't displaying in display settings for session desktops.
+- Fixed a bug that caused the client to stop responding when disconnecting from the session early.
+- Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
+- Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Updates to MMR for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
+   - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
 
 ## Updates for version 1.2.3918
 
 *Date published: February 7, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWHz3), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWzLu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWPlp)
+
+In this release, we've made the following changes:
 
 - Fixed a bug where refreshes increased memory usage.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
@@ -54,8 +62,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 ## Updates for version 1.2.3770
 
 *Date published: December 14, 2022*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5ckjx), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cpnh), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5cpni)
 
 In this release, we've made the following changes:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sapient | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sapient'
 description: Learn how to configure single sign-on between Azure Active Directory and Sapient.
 services: active-directory
 author: jeevansd

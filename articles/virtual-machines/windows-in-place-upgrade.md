@@ -4,9 +4,9 @@ description: This article describes how to do an in-place upgrade for VMs runnin
 services: virtual-machines
 author: cynthn
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.date: 01/19/2023
 ms.author: cynthn
-
 ---
 
 # In-place upgrade for VMs running Windows Server in Azure
@@ -224,11 +224,11 @@ Create an Azure VM that runs a supported version of the operating system, and th
 ## Recover from failure
 If the in-place upgrade process failed to complete successfully you can return to the previous version of the VM if snapshots of the operating system disk and data disk(s) were created. To revert the VM to the previous state using snapshots complete the following steps: 
 
-1. Create a new Managed Disk from the OS disk snapshot and each data disk snapshot following the steps in [Create a disk from a snapshot](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) making sure to create the disks in the same Availability Zone as the VM if the VM is in a zone.
+1. Create a new Managed Disk from the OS disk snapshot and each data disk snapshot following the steps in [Create a disk from a snapshot](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) making sure to create the disks in the same Availability Zone as the VM if the VM is in a zone.
 
 1. Stop the VM.
 
-1. [Swap the OS disk](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) of the VM. 
+1. [Swap the OS disk](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) of the VM. 
 
 1. [Detach any data disks](./windows/detach-disk.md) from the VM.
 

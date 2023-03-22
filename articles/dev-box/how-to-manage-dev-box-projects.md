@@ -21,7 +21,7 @@ Each project is associated with a single dev center. When you associate a projec
 
 Microsoft Dev Box makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. The tasks in this quickstart can be performed by project admins. 
 
-To learn how to add a user to the Project Admin role, see [Provide access to a dev box project](#provide-access-to-a-dev-box-project).
+To learn how to add a user to the Project Admin role, refer to [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 
@@ -96,27 +96,21 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
 1. Select **Access Control (IAM)** from the left menu.
 
-   :::image type="content" source="./media/how-to-manage-dev-box-projects/access-control-tab.png" alt-text="Screenshot showing the Project Access control page with the Access Control link highlighted.":::
-
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source="./media/how-to-manage-dev-box-projects/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **DevCenter Dev Box User**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
 
-1. On the Add role assignment page, search for *devcenter dev box user*, select the **DevCenter Dev Box User** built-in role, and then select **Next**.
-
-   :::image type="content" source="./media/how-to-manage-dev-box-projects/dev-box-user-role.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
-
-1. On the Members page, select **+ Select Members**.
-
-   :::image type="content" source="./media/how-to-manage-dev-box-projects/dev-box-user-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
-
-1. On the **Select members** pane, select the Active Directory Users or Groups you want to add, and then select **Select**.
-
-   :::image type="content" source="./media/how-to-manage-dev-box-projects/select-members-search.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
-
-1. On the Add role assignment page, select **Review + assign**.
+    :::image type="content" source="media/how-to-manage-dev-box-projects/add-role-assignment-user.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 
 The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+
+To assign administrative access to a project, select the DevCenter Project Admin role. For more details on how to add a user to the Project Admin role, refer to [Provide access to projects for project admins](how-to-project-admin.md).
 
 ## Next steps
 

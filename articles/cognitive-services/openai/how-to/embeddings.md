@@ -1,5 +1,5 @@
 ---
-title: 'How to generate embeddings with Azure OpenAI'
+title: 'How to generate embeddings with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
 services: cognitive-services

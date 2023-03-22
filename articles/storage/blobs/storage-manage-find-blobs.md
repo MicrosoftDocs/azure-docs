@@ -8,7 +8,7 @@ ms.date: 11/01/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Manage and find Azure Blob data with blob index tags
@@ -73,13 +73,15 @@ The following limits apply to blob index tags:
 
 - Each blob can have up to 10 blob index tags
 
-- Tag keys must be between one and 128 characters
+- Tag keys must be between one and 128 characters.
 
-- Tag values must be between zero and 256 characters
+- Tag values must be between zero and 256 characters.
 
-- Tag keys and values are case-sensitive
+- Tag keys and values are case-sensitive.
 
-- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings
+- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings.
+
+- If versioning is enabled, index tags are applied to a specific version of blob. If you set index tags on the current version, and a new version is created, then the tag won't be associated with the new version. The tag will be associated only with the previous version.
 
 - Tag keys and values must adhere to the following naming rules:
 

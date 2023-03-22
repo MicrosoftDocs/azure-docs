@@ -21,6 +21,11 @@ ms.date: 02/07/2023
 
 Use Azure Machine Learning endpoints to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 In this article, you learn about:
 > [!div class="checklist"]
 > * Endpoints
@@ -74,7 +79,7 @@ Learn how to deploy online endpoints from the [CLI/SDK](how-to-deploy-online-end
 
 ### Test and deploy locally for faster debugging
 
-Deploy locally to test your endpoints without deploying to the cloud. Azure Machine Learning creates a local Docker image that mimics the Azure ML image. Azure Machine Learning will build and run deployments for you locally, and cache the image for rapid iterations.
+Deploy locally to test your endpoints without deploying to the cloud. Azure Machine Learning creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally, and cache the image for rapid iterations.
 
 ### Native blue/green deployment 
 
@@ -103,7 +108,7 @@ However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-onlin
 
 ### Security
 
-- Authentication: Key and Azure ML Tokens
+- Authentication: Key and Azure Machine Learning Tokens
 - Managed identity: User assigned and system assigned
 - SSL by default for endpoint invocation
 
@@ -210,7 +215,7 @@ You can [override compute resource settings](batch-inference/how-to-use-batch-en
 You can use the following options for input data when invoking a batch endpoint:
 
 - Cloud data: Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Data in Azure Machine Learning](concept-data.md).
-- Data stored locally: The data will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
+- Data stored locally: The data will be automatically uploaded to the Azure Machine Learning registered datastore and passed to the batch endpoint.
 
 > [!NOTE]
 > - If you're using existing V1 FileDatasets for batch endpoints, we recommend migrating them to V2 data assets. You can then refer to the V2 data assets directly when invoking batch endpoints. Currently, only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Datasets.

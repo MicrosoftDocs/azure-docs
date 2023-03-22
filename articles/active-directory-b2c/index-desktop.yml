@@ -5,13 +5,13 @@ summary: >
   Learn how to sign in users and access web APIs in your desktop application using our how-to guides.
 
 metadata:
-   author: kengaderdus
-   manager: CelesteDG
-   ms.author: kengaderdus
-   ms.date: 08/31/2022
-   ms.service: active-directory
-   ms.subservice: B2C
-   ms.topic: landing-page
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
 
 landingContent:
 

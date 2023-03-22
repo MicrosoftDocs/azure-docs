@@ -217,5 +217,5 @@ Now you've done every step of the image classification process using the REST AP
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](../../overview.md)
-* [API reference documentation (training)](/dotnet/api/overview/azure/cognitiveservices/client/customvision)
+* [API reference documentation (training)](/dotnet/api/overview/azure/custom-vision)
 * [API reference documentation (prediction)](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)

@@ -6,8 +6,8 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 08/18/2022
+ms.custom: seo-lt-2019
+ms.date: 02/28/2023
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR
@@ -64,6 +64,9 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 - For **Data Store**, select **Azure Blob Storage**.  
 - For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime** (not your self-hosted IR), so we can ignore it and use your Azure-SSIS IR instead to fetch access credentials for your Azure Blob Storage.
 - For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, **Managed Identity**, or **User-Assigned Managed Identity**.  
+
+>[!TIP]
+>If your data factory instance is Git-enabled, a linked service without key authentication will not be immediately published, which means you cannot save the integration runtime that depends on the linked service in your feature-branch. Authenticating with account key or SAS URI will immediately publish the linked service.
 
 >[!TIP]
 >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
@@ -180,6 +183,7 @@ If you need to access data stores that have been configured to use only the stro
 - Changing variable values in both on-premises and cloud staging tasks is currently unsupported.
 - Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.
 - *ParameterMapping* in OLEDB Source is currently unsupported. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview blob container. Using Azure Storage Explorer, you can connect to our public preview blob container by entering the above SAS URI.
+- To enable/disable SSIS package executions on self-hosted integration runtime nodes, please refer to this document [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory#set-up-an-existing-self-hosted-ir-via-local-powershell) to manage self-hosted IR via powershell. ExecuteSsisPackage property is true by default if self-hosted IR upgrades to the version equal to or higher than 5.28.0. If self-hosted IR is newly installed with a version equal to or higher than 5.28.0, then ExecuteSsisPackage property is by default false.
 
 ## Next steps
 

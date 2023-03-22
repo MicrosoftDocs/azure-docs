@@ -2,8 +2,8 @@
 title: 'Quickstart: Interactive map search with Azure Maps'
 titeSuffix: Microsoft Azure Maps
 description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications'
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
@@ -47,7 +47,7 @@ Create a new Azure Maps account with the following steps:
 
 <a id="getkey"></a>
 
-## Get the primary key for your account
+## Get the subscription key for your account
 
 Once your Azure Maps account is successfully created, retrieve the primary key that enables you to query the Maps APIs.
 

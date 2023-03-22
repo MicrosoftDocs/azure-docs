@@ -6,7 +6,7 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.custom: mvc, seodec18
 ---
 
 # Map an existing custom DNS name to Azure App Service
@@ -157,7 +157,7 @@ Browse to the DNS names that you configured earlier.
 If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most-likely causes are:
 
 - The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
-- You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#remap-records-for-ip-ssl) in your DNS entries to the new IP address.
+- You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#2-remap-records-for-ip-based-ssl) in your DNS entries to the new IP address.
 
 If you receive a `Page not secure` warning or error, it's because your domain doesn't have a certificate binding yet. [Add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
 
@@ -172,4 +172,3 @@ If you receive a `Page not secure` warning or error, it's because your domain do
 
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
-

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Configure filtering | Microsoft Docs'
+title: 'Azure AD Connect sync: Configure filtering'
 description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''

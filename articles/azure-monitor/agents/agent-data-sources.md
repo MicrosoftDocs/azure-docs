@@ -36,7 +36,7 @@ The following table lists the agent data sources that are currently available wi
 
 ## Configure data sources
 
-To configure data sources for Log Analytics agents, go to the **Log Analytics workspaces** menu in the Azure portal and select a workspace. Select **Agents configuration**. Select the tab for the data source you want to configure. Use the links in the preceding table to access documentation for each data source and information on their configuration.
+To configure data sources for Log Analytics agents, go to the **Log Analytics workspaces** menu in the Azure portal and select a workspace. Select **Legacy agents management**. Select the tab for the data source you want to configure. Use the links in the preceding table to access documentation for each data source and information on their configuration.
 
 Any configuration is delivered to all agents connected to that workspace. You can't exclude any connected agents from this configuration.
 
@@ -58,6 +58,6 @@ All log data collected by Azure Monitor is stored in the workspace as records. R
 
 ## Next steps
 
-* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
+* Learn about [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) that add functionality to Azure Monitor and also collect data into the workspace.
 * Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.
 * Configure [alerts](../alerts/alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.

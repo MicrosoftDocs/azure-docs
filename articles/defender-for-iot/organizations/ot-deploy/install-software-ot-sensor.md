@@ -2,7 +2,7 @@
 title: Install OT network monitoring software on OT sensors - Microsoft Defender for IoT
 description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article when reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 12/13/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Install OT monitoring software on OT sensors

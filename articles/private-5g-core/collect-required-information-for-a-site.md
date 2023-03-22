@@ -20,6 +20,7 @@ You can use this information to create a site in an existing private mobile netw
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
+- Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). We recommend that the mobile network site resource you create in this procedure belongs to the same resource group.
 
 ## Collect mobile network site resource values
 
@@ -31,9 +32,10 @@ Collect all the values in the following table for the mobile network site resour
    |The Azure resource group in which to create the mobile network site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
    |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
+   |The packet core in which to create the mobile network site resource.                         |**Instance details: Packet core name**|
    |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
-   |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
-   |The billing plan for the site that you are creating. The available plans have the following throughput, activated SIMs and radio access network (RAN) allowances:</br></br>G0 - 100 Mbps per site, 20 devices per network and 2 RAN connections. </br> G1 - 1 Gbps per site, 100 devices per network and 5 RAN connections. </br> G2 - 2 Gbps per site, 200 devices per network and 10 RAN connections. </br> G3 - 3 Gbps per site, 300 devices per network and unlimited RAN connections. </br> G4 - 4 Gbps per site, 400 devices per network and unlimited RAN connections. </br> G5 - 5 Gbps per site, 500 devices per network and unlimited RAN connections. </br> G10 - 10 Gbps per site, 1000 devices per network and unlimited RAN connections.|**Instance details: Site plan**|
+   |The mobile network resource representing the private mobile network to which you’re adding the site. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
+   |The billing plan for the site that you are creating. The available plans have the following throughput, activated SIMs and radio access network (RAN) allowances:</br></br>G0 - 100 Mbps per site, 20 activated SIMs per network and 2 RAN connections. </br> G1 - 1 Gbps per site, 100 activated SIMs per network and 5 RAN connections. </br> G2 - 2 Gbps per site, 200 activated SIMs per network and 10 RAN connections. </br> G5 - 5 Gbps per site, 500 activated SIMs per network and unlimited RAN connections. </br> G10 - 10 Gbps per site, 1000 activated SIMs per network and unlimited RAN connections.|**Instance details: Service plan**|
 
 ## Collect packet core configuration values
 
