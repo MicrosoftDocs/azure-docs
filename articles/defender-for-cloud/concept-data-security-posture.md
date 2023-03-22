@@ -27,12 +27,20 @@ Data-aware security posture automatically and continuously discovers managed and
 
 ## Data security in Defender CSPM
 
-Defender CSPM provides visibility and contextual insights into your organizational security posture. The addition of data-aware security posture to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks.
+Defender CSPM provides visibility and contextual insights into your organizational security posture. The addition of data-aware security posture to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks, distinguishing them from less risky issues.
 
-With Defender for CSPM, you can:
+### Attack paths
 
-- Leverage cloud security explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can query data resources, networks, access controls and data flow security attributes, to determine where data is stored, how it's exposed, and how it flows across the enterprise. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
-- Discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores. Review [attack paths](attack-path-reference.md#attack-paths).
+Attack path analysis helps you to address security issues that pose immediate threats, and have the greatest potential for exploit in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate the risks.
+
+You can discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores. Review [attack paths](attack-path-reference.md#attack-paths).
+
+### Cloud Security Explorer
+
+Cloud Security Explorer helps you identify security risks in your cloud environment by running graph-based queries on Cloud Security Graph (Defender for Cloud's context engine). You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.
+
+You can leverage Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
+
 
 ## Data security in Defender for Storage
 

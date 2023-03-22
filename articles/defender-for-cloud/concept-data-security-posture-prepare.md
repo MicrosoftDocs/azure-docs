@@ -7,7 +7,7 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/09/2023
 ---
-# Prepare for data-aware security posture deployment
+# Support and prerequisites for data-aware security posture 
 
 Review the requirements on this page before setting up [data-aware security posture](concept-data-security-posture.md) in [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
