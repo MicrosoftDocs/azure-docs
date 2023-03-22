@@ -199,8 +199,10 @@
           href: aks-diagnostics.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
-        - name: Use Vertical Pod Autoscaler (preview)
+        - name: Use Vertical Pod Autoscaler
           href: vertical-pod-autoscaler.md
+        - name: Metrics Server VPA Throttling
+          href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -349,7 +351,7 @@
           items:
             - name: Create an OIDC Issuer for your cluster
               href: use-oidc-issuer.md
-            - name: Workload identity (preview)
+            - name: Workload identity
               items:
                 - name: Overview
                   href: workload-identity-overview.md
@@ -357,7 +359,7 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Modernize your app with workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity (preview)
+            - name: Use Azure AD pod identity
               href: use-azure-ad-pod-identity.md
             - name: Use Pod Sandboxing
               href: use-pod-sandboxing.md
