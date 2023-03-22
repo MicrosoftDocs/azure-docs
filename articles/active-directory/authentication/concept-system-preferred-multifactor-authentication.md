@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 03/22/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -99,6 +99,7 @@ When a user signs in, the authentication process checks which authentication met
 1. [Temporary Access Pass](howto-authentication-temporary-access-pass.md)
 1. [Certificate-based authentication](concept-certificate-based-authentication.md)
 1. [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
+1. [Microsoft Authenticator push notifications](concept-authentication-authenticator-app.md)
 1. [Time-based one-time password (TOTP)](concept-authentication-oath-tokens.md)<sup>1</sup>
 1. [Telephony](concept-authentication-phone-options.md)<sup>2</sup>
 

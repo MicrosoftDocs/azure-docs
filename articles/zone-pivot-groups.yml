@@ -1579,7 +1579,7 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-# Owner: philmea
+# Owner: Brendanc
 - id: facility-ontology-schema
   title: Creator Facility Ontology
   prompt: Choose a Facility Ontology Version
@@ -1588,6 +1588,15 @@ groups:
     title: Facility Ontology 1.0
   - id: facility-ontology-v2
     title: Facility Ontology 2.0
+# Owner: Brendanc
+- id: drawing-package-version
+  title: Creator drawing package
+  prompt: Choose a drawing package Version
+  pivots:
+  - id: drawing-package-v1
+    title: drawing package 1.0
+  - id: drawing-package-v2
+    title: drawing package 2.0
 # Owner: veyalla
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
   title: Azure Monitor for IoT Edge FAQ
