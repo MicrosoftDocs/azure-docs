@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 03/22/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -24,6 +24,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Cross-region replication enhancement: re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) (Preview)
 
     Azure NetApp Files now allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. If the destination volume remained operational and no snapshots were deleted, the replication re-establish operation will use the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. In that case, no baseline replication will be required. 
+
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
 
 * [Disable showmount](disable-showmount.md) (Preview)
 
