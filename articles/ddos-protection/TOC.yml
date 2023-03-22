@@ -68,6 +68,8 @@
       items: 
         - name: View alerts in Microsoft Defender for Cloud
           href: ddos-view-alerts-defender-for-cloud.md
+        - name: View diagnostic logs in Log Analytics workspace
+          href: ddos-view-diagnostic-logs.md
     - name: Test with simulation partners
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
