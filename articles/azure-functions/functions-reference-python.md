@@ -872,7 +872,7 @@ The [`Context`](/python/api/azure-functions/azure.functions.context) class has t
 | `function_directory` | The directory in which the function is running. |
 | `function_name` | The name of the function. |
 | `invocation_id` | The ID of the current function invocation. |
-| `thread_local_storage` | Thread local storage. Contains a local `invocation_id` for [logging from created threads](#logging-from-created-threads). |
+| `thread_local_storage` | The thread local storage of the function. Contains a local `invocation_id` for [logging from created threads](#logging-from-created-threads). |
 | `trace_context` | The context for distributed tracing. For more information, see  [`Trace Context`](https://www.w3.org/TR/trace-context/). |
 | `retry_context` | The context for retries to the function. For more information, see [`retry-policies`](./functions-bindings-errors.md#retry-policies). |
 
