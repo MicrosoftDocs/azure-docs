@@ -38,6 +38,8 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walkthrough the wizard for running a custom script (command job). 
 
+[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
+
 ## Configure basic settings
 
 The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we have chosen for you or make changes to your desired preference. 
@@ -46,9 +48,9 @@ These are the fields available:
 
 |Field| Description|
 |------| ------|
-|Job name| The job name field is used to uniquely identify your job. It's also used as the display name for your job. Setting this field is optional; Azure will generates a display name for you if one is not specified.|
+|Job name| The job name field is used to uniquely identify your job. It's also used as the display name for your job.|
 |Experiment name| This helps organize the job in Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. By default, Azure will put the job in the **Default** experiment.|
-|Description| Add some text describing your job, if desired. This is optional |
+|Description| Add some text describing your job, if desired.|
 |Timeout| Specify number of hours the entire training job is allowed to run. Once this limit is reached the system will cancel the job including any child jobs.|
 |Tags| Add tags to your job to help with organization.|
 
@@ -81,13 +83,13 @@ If the code isn't in the root directory, you should use the relative path. For e
 ```
 Here, the source code is in the `src` subdirectory. The command would be `python ./src/main.py` (plus other command-line arguments).
 
-[![Refer code in the command](media/how-to-train-with-ui/code-command.png)](media/how-to-train-with-ui/code-command.png)
+[![Refer code in the command](media/how-to-train-with-ui/trainingscript-code.png)](media/how-to-train-with-ui/trainingscript-code.png)
 
 ### Inputs
 
 When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
 
-[![Refer input name in the command](media/how-to-train-with-ui/input-command-name.png)](media/how-to-train-with-ui/input-command-name.png)
+[![Refer input name in the command](media/how-to-train-with-ui/trainingscript-inputs.png)](media/how-to-train-with-ui/trainingscript-inputs.png)
 
 ## Select compute resources
 
@@ -103,13 +105,9 @@ Next step is to select the compute target on which you'd like your job to run. T
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
 1. For a compute cluster or a Kubernetes cluster, you may also specify how many nodes you want for the job in **Instance count**. The default number of instances is 1. 
 1. When you're satisfied with your choices, choose **Next**. 
- [![Select a compute cluster](media/how-to-train-with-ui/compute-cluster.png)](media/how-to-train-with-ui/compute-cluster.png)
+ [![Select a compute cluster](media/how-to-train-with-ui/compute.png)](media/how-to-train-with-ui/compute.png)
 
-If you're using Azure Machine Learning for the first time, you'll see an empty list and a link to create a new compute. 
-
- [![Create a new compute instance](media/how-to-train-with-ui/create-new-compute.png)](media/how-to-train-with-ui/create-new-compute.png)
-
-For more information on creating the various types, see:
+If you're using Azure Machine Learning for the first time, you'll see an empty list and a link to create a new compute. For more information on creating the various types, see:
 
 | Compute Type | How to | 
 | --- | --- | 
@@ -129,7 +127,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the job preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
 
- [![Curated environments](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
+ [![Curated environments](media/how-to-train-with-ui/curated-environment.png)](media/how-to-train-with-ui/curated-environment.png)
 
 ### Custom environments
 
@@ -137,14 +135,13 @@ Custom environments are environments you've specified yourself. You can specify 
 
 ### Container registry image
 
-If you don't want to use the Azure Machine Learning curated environments or specify your own custom environment, you can use a docker image from a public container registry such as [Docker Hub](https://hub.docker.com/). If the image is in a private container, toggle **This is a private container registry**. For private registries, you will need to enter a valid username and password so Azure can get the image. 
-[![Container registry image](media/how-to-train-with-ui/container-registry-image.png)](media/how-to-train-with-ui/container-registry-image.png)
+If you don't want to use the Azure Machine Learning curated environments or specify your own custom environment, you can use a docker image from a public container registry such as [Docker Hub](https://hub.docker.com/).
 
 
 ## Review and Create 
 
 Once you've configured your job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
-
+ [![Review](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
 
 To launch the job, choose **Create**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
