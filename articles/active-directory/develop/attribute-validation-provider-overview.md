@@ -2,7 +2,7 @@
 title: Attribute validation provider
 titleSuffix: Microsoft identity platform
 description: Conceptual article describing the Pre/Post attribute collection as part of the custom authentication extension framework.
-author: mistermik,JasSuri,yoelhor
+author: yoelhor
 ms.author: mferrari,jassuri,yoelhor
 ms.service: active-directory
 ms.topic: conceptual
