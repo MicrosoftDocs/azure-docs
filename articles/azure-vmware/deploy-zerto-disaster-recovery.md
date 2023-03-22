@@ -29,6 +29,9 @@ To learn more about Zerto platform architecture, see the [Zerto Platform Archite
 
 You can use Zerto with Azure VMware Solution for the following three scenarios. 
 
+> [!NOTE]
+> For Azure NetApp Files (ANFs), [Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/introduction) supports Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance. To leverage ANF datastores, select them as a Recovery Datastore in the Zerto VPG wizard when creating or editing a VPG.
+
 ### Scenario 1: On-premises VMware vSphere to Azure VMware Solution disaster recovery
 
 In this scenario, the primary site is an on-premises vSphere-based environment. The disaster recovery site is an Azure VMware Solution private cloud. 
