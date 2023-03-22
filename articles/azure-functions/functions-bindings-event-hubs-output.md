@@ -195,12 +195,14 @@ The following example shows an event hub trigger binding and a Python function t
 ```python
 import logging
 import azure.functions as func
+
 app = func.FunctionApp()
+
 @app.function_name(name="eventhub_output")
 @app.route(route="eventhub_output")
 @app.event_hub_output(arg_name="event",
-                      event_hub_name="samples-workitems",
-                      connection="CONNECTION_SETTING")
+                      event_hub_name="<EVENT_HUB_NAME>",
+                      connection="<CONNECTION_SETTING>")
 def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
     body = req.get_body()
     if body is not None:

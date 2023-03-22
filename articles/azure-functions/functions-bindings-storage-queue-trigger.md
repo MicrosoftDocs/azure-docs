@@ -224,6 +224,11 @@ The following example demonstrates how to read a queue message passed to a funct
 # [v2](#tab/python-v2)
 
 ```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
 @app.function_name(name="QueueFunc")
 @app.queue_trigger(arg_name="msg", queue_name="inputqueue",
                    connection="storageAccountConnectionString")  # Queue trigger
