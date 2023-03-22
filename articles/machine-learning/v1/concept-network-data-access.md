@@ -17,7 +17,7 @@ ms.date: 11/16/2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-network-data-access.md)
-> * [v2 (current version)](../how-to-administrate-data-authentication.md)
+> * [v2 (current version)](../how-to-administrate-data-authentication.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
