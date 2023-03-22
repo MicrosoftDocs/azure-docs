@@ -29,7 +29,7 @@ By default, every Azure subscription has the Microsoft cloud security benchmark 
 
 **Available regulatory standards**:
 
-- PCI-DSS v3.2.1
+- PCI-DSS v3.2.1 **(deprecated)**
 - PCI DSS v4
 - SOC TSP
 - SOC 2 Type 2
