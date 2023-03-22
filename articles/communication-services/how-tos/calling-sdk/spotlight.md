@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 03/01/2023
 ms.custom: template-how-to
 
-#Customer intent: As a developer, I want to learn how to send and receive Spotlight state using SDK.
 ---
 
 # Spotlight states
