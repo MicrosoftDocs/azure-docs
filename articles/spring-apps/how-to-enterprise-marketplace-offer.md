@@ -26,13 +26,13 @@ Because the Enterprise tier provides feature parity with the Standard tier, it p
 
 The Enterprise tier provides the following managed VMware Tanzu components that empower enterprises to ship faster:
 
-- Build Service
-- Application Configuration Service
-- Service Registry
-- Spring Cloud Gateway
-- API Portal
-- App Live View
-- App Accelerator
+- Tanzu Build Service
+- Application Configuration Service for Tanzu
+- Tanzu Service Registry
+- Spring Cloud Gateway for Tanzu
+- API portal for VMWare Tanzu
+- Application Live View for VMware Tanzu
+- Application Accelerator for VMWare Tanzu
 
 As the most advanced tier in Azure Spring Apps, a Microsoft provided first party Azure service, the Enterprise tier pricing is composed of two parts:
 

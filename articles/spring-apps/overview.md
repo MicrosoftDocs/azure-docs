@@ -71,7 +71,7 @@ The following quickstarts apply to Basic/Standard tier only. For Enterprise tier
 * [Set up the configuration server](quickstart-setup-config-server.md)
 * [Build and deploy apps](quickstart-deploy-apps.md)
 
-## Enterprise Tier overview
+## Enterprise tier overview
 
 Based on our learnings from customer engagements, we built Azure Spring Apps Enterprise tier with commercially supported Spring runtime components to help enterprise customers to ship faster and unlock Spring’s full potential, including feature parity and region parity with Standard tier.
 
