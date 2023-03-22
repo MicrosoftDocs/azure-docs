@@ -23,7 +23,7 @@ The following table shows which languages supported by Functions can run on Linu
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
  
 <sup>1</sup> In the portal, you can't currently create function apps that run on .NET 7.0. For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).  
-<sup>2</sup> In-portal editing requires your function to be defined in a function.json file. Because the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#programming-model) uses Python code decorators instead of function.json to define functions, only the Python v1 programming model is supported for in-portal development.   
+<sup>2</sup> In-portal editing requires your function to be defined in a function.json file. Because the [Python v2 programming model](../articles/azure-functions/functions-reference-python.md?pivots=python-mode-decorators#programming-model) uses Python code decorators instead of function.json to define functions, only the Python v1 programming model is supported for in-portal development.   
 
 For more information on operating system and language support, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime).
 
