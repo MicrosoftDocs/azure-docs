@@ -18,6 +18,7 @@ To help you protect against data breaches, you can enable [data-aware security p
 - Before you enable data-aware security posture, [review support and prerequisites](concept-data-security-posture-prepare.md).
 - When you enable Defender CSPM or Defender for Storage, the **Sensitive data discovery** extension is automatically enabled for the plans. You can disable this setting if you don't want to use data-aware security posture, but we recommend that use the feature to get the most value from Defender for Cloud.
 - Sensitive data is identified based on the data sensitivity settings. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
+- It takes up to 24 hours to see the results of a first scan.
 
 ## Enable in Defender CSPM (Azure)
 
@@ -61,17 +62,6 @@ region for API calls.
 
 Automatic discovery of S3 buckets in the AWS account starts automatically. The Defender for Cloud scanner runs in your AWS account and connects to the your S3 buckets.
 
-## Enable resource scanning on your subscriptions
-
-The security explorer and attack paths show you sensitive resources that are found with resource scanning.
-
-To enable resource scanning on your subscriptions:
-
-1. Go to **Directories + subscriptions**.
-1. Select the **Default subscription** filter and select the subscriptions that you want to scan.
-
-After 24 hours you can find the results of resources with sensitive data in the Security Explorer and attack paths
-
 ## Next steps
 
-- [Review the security risks in your data](data-security-review-risks.md)
+[Review the security risks in your data](data-security-review-risks.md)

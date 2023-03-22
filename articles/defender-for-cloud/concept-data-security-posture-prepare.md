@@ -46,7 +46,7 @@ What's the cost? | The feature is included with each plan, and doesn’t include
 
 **Action** | **Requirements**
 --- | ---
-Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator<br/>These permissions: Microsoft.Storage/storageAccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}
+Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator
 Add Purview information types | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
 Add Purview sensitivity labels | - Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/>- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
 

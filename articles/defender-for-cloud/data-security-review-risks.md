@@ -35,26 +35,13 @@ Learn more about [attack paths](concept-attack-path.md).
 ## Discover sensitive resources using Cloud Security Explorer 
 
 1. In Defender for Cloud, open **Cloud Security Explorer**.
-1. Select a query template, or build your own query by selecting resource types, 
-
-As an example, to get list of storage accounts/storage account containers which contain sensitive data and are also exposed to the internet, use this query:
-
-Specifically for AWS S3 buckets, A bucket will be considered public if the following conditions are met: 
-
-- If `RestrictPublicBuckets` is not enabled at the account level.
-- If `RestrictPublicBuckets` is not enabled at the bucket level.
-- Either:
-    - The IP range is wider `\8`.
-    - Buckets doesn't have a bucket policy.
-    - Buckets has a bucket policy without a condition.
-    - Bucket has a bucket policy without a condition based on IP address.
+1. Select a query template, or build your own query.
 
 Learn more about [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
 
 ## Get security alerts about sensitive data
 
 Prioritize the alerts and recommendations related to resources with sensitivity labels and sensitive info types. Focus on protecting sensitive resources. The sensitive info types and sensitivity labels found are used in other areas of Microsoft Defender for Cloud. View the resource-level labels and info types in the Security alerts and Recommendations to help you prioritize and focus on protecting your critical resources.
-
 
 ## Next steps
 TODO: Add your next step link(s)
