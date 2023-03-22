@@ -44,10 +44,10 @@ The secure hybrid access (SHA) solution has the following components:
 * **Oracle EBS application** - BIG-IP published service to be protected by Azure AD SHA
 * **Azure AD**  - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP
   * With SSO, Azure AD provides BIG-IP session attributes
-* **Oracle Internet Directory (OID)** - hosts the user database. 
-  * BIG-IP verifies authorization attributes with LDAP.
+* **Oracle Internet Directory (OID)** - hosts the user database
+  * BIG-IP verifies authorization attributes with LDAP
 * **Oracle E-Business Suite AccessGate** - before issuing EBS access cookies, it validates authorization attributes with the OID service
-* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application. 
+* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application 
   * Before header-based SSO to the Oracle application, authentication is delegated to the SAML IdP
 
 SHA supports SP- and IdP-initiated flows. The following diagram illustrates the SP-initiated flow.
