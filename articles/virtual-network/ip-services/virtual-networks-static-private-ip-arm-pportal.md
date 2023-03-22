@@ -41,7 +41,7 @@ Use the following steps to create a VM, and its virtual network and subnet:
    - **Public inbound ports**: Select **Allow selected ports**.
    - **Select inbound ports**: Select **RDP (3389)**.
 
-    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot that shows the Basic tab of the Create a virtual machine window.":::
+    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot that shows the Basic tab of the Create a virtual machine window." lightbox="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png":::
 
     > [!WARNING]
     > In this example, you open port 3389 to enable remote access to the Windows Server VM from the internet. However, opening port 3389 to the internet is not recommended to manage production workloads. For information about secure access to Azure VMs, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
