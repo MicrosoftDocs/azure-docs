@@ -337,6 +337,91 @@ You must use the following version:
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
+### List all role definitions
+
+To list role definitions in a tenant, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
+
+- The following example lists all role definitions in a tenant:
+
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "value": [
+            {
+                "properties": {
+                    "roleName": "Billing Reader Plus",
+                    "type": "CustomRole",
+                    "description": "Read billing data and download invoices",
+                    "assignableScopes": [
+                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.Authorization/*/read",
+                                "Microsoft.Billing/*/read",
+                                "Microsoft.Commerce/*/read",
+                                "Microsoft.Consumption/*/read",
+                                "Microsoft.Management/managementGroups/read",
+                                "Microsoft.CostManagement/*/read",
+                                "Microsoft.Billing/invoices/download/action",
+                                "Microsoft.CostManagement/exports/*"
+                            ],
+                            "notActions": [
+                                "Microsoft.CostManagement/exports/delete"
+                            ],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2021-05-22T21:57:23.5764138Z",
+                    "updatedOn": "2021-05-22T21:57:23.5764138Z",
+                    "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+                    "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+                },
+                "id": "/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+            },
+            {
+                "properties": {
+                    "roleName": "AcrPush",
+                    "type": "BuiltInRole",
+                    "description": "acr push",
+                    "assignableScopes": [
+                        "/"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.ContainerRegistry/registries/pull/read",
+                                "Microsoft.ContainerRegistry/registries/push/write"
+                            ],
+                            "notActions": [],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2018-10-29T17:52:32.5201177Z",
+                    "updatedOn": "2021-11-11T20:13:07.4993029Z",
+                    "createdBy": null,
+                    "updatedBy": null
+                },
+                "id": "/providers/Microsoft.Authorization/roleDefinitions/8311e382-0749-4cb8-b61a-304f252e45ec",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "8311e382-0749-4cb8-b61a-304f252e45ec"
+            }
+        ]
+    }
+    ```
+
 ### List role definitions
 
 To list role definitions, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API. To refine your results, you specify a scope and an optional filter.
