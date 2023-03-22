@@ -407,6 +407,9 @@ items:
       - name: Query Prometheus metrics in workbooks
         displayName: Prometheus
         href: essentials/prometheus-workbooks.md
+      - name: Query Prometheus using the API and PromQL
+        displayName: Prometheus
+        href: essentials/prometheus-api-promql.md
       - name: Remote-write
         items:
         - name: Overview
