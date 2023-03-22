@@ -29,13 +29,14 @@ Before you get started, make sure you have the following requirements in place:
 + [Node.js 18.x](https://nodejs.org/en/download/releases/) or [Node.js 16.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ [Node.js 18.x](https://nodejs.org/en/download/releases/). Use the `node --version` command to check your version.  
++ [Node.js 18.x](https://nodejs.org/en/download/releases/) or above. Use the `node --version` command to check your version.  
+
 + [TypeScript 4.x](https://www.typescriptlang.org/). Use the `tsc -v` command to check your version.
 ::: zone-end
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
++ The [Azure Functions extension v1.10.4](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) or above for Visual Studio Code.
 
 ::: zone pivot="nodejs-model-v3" 
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).

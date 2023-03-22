@@ -44,7 +44,7 @@ Before you begin, you must have the following:
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ [Node.js](https://nodejs.org/) version 18. 
++ [Node.js](https://nodejs.org/) version 18 or above. 
 ::: zone-end
 
 ### Prerequisite check
@@ -161,9 +161,10 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 4. Add Azure Storage connection information in *local.settings.json*. 
     ```json
     {
-        "Values": {
+        "Values": {       
+            "AzureWebJobsStorage": "<Azure Storage connection information>",
             "FUNCTIONS_WORKER_RUNTIME": "node",
-            "AzureWebJobsStorage": "<Azure Storage connection information>"
+            "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
         }
     }
     ```
@@ -205,6 +206,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
+::: zone pivot="nodejs-model-v4" 
 ## Update app settings
 
 To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
