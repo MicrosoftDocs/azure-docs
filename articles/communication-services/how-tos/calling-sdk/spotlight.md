@@ -17,7 +17,7 @@ ms.custom: template-how-to
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-During an active call, you may want to send or receive states from other users. Let's learn how. 
+In this article, you will learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone.
 
 ## Prerequisites
 
