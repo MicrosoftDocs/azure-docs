@@ -145,8 +145,6 @@ You can generate a SAS token with at least `read` permission on your Azure Blob 
 
 #### Option 2: Managed Identity or public accessible
 
-`https://{your_blob}.blob.core.windows.net/`
-
 You can also use [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) to grant access.
 
 Below is a series of steps for allowing the system-assigned Managed Identity of your Computer Vision resource to access your blob storage. In the Azure portal:
@@ -170,24 +168,25 @@ dataset_name = '{specify_your_dataset_name}'
 auth_kind = AuthenticationKind.SAS # or AuthenticationKind.MI
 
 dataset_client = DatasetClient(resource_type, resource_name, multi_service_endpoint, resource_key)
+annotation_file_uris = ['{specify_your_annotation_uri}'] # example: https://example_data.blob.core.windows.net/datasets/cat_dog/train_coco.json
 # register dataset
 if auth_kind == AuthenticationKind.SAS:
    # option 1: sas
    sas_auth = Authentication(AuthenticationKind.SAS, '{your_sas_token}') # note the token/query string is needed, not the full url
    dataset = Dataset(name=dataset_name,
                      annotation_kind=AnnotationKind.MULTICLASS_CLASSIFICATION,  # checkout AnnotationKind for all annotation kinds
-                     annotation_file_uris=['https://{your_blob}.blob.core.windows.net/datasets/cat_dog/train_coco.json'],
+                     annotation_file_uris=annotation_file_uris,
                      authentication=sas_auth)
 else:
    # option 2: managed identity or public accessible. make sure your storage is accessible via the managed identiy, if it is not public accessible
    dataset = Dataset(name=dataset_name,
                      annotation_kind=AnnotationKind.MULTICLASS_CLASSIFICATION,  # checkout AnnotationKind for all annotation kinds
-                     annotation_file_uris=['https://{your_blob}.blob.core.windows.net/datasets/cat_dog/train_coco.json'])
+                     annotation_file_uris=annotation_file_uris)
 
 reg_dataset = dataset_client.register_dataset(dataset)
 logging.info(f'Register dataset: {reg_dataset.__dict__}')
 
-# specify your evaluation dataset here
+# specify your evaluation dataset here, you can follow the same registeration process as the training dataset
 eval_dataset = None
 if eval_dataset:
    reg_eval_dataset = dataset_client.register_dataset(eval_dataset)
@@ -209,7 +208,6 @@ eval_params = EvaluationParameters(test_dataset_name=eval_dataset.name) if eval_
 model = Model(model_name, train_params, eval_params)
 model = training_client.train_model(model)
 logging.info(f'Start training: {model.__dict__}')
-
 ```
 
 ## Check the training status
@@ -231,7 +229,7 @@ Use the following code to get a prediction with a new sample image.
 from cognitive_service_vision_model_customization_python_samples import PredictionClient
 prediction_client = PredictionClient(resource_type, resource_name, multi_service_endpoint, resource_key)
 
-with open('./media/microsoft_logo.png', 'rb') as f:
+with open('path_to_your_test_image.png', 'rb') as f:
     img = f.read()
 
 prediction = prediction_client.predict(model_name, img, content_type='image/png')
