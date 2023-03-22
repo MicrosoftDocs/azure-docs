@@ -159,13 +159,14 @@ def fuzzy_search():
         query="Starbucks",
         coordinates=(47.61010, -122.34255)
     )
-    # Print the search results 
-    print("Starbucks search result nearby Seattle:") 
-    for result_item in result.results:
-        print(f"* {result_item.address.street_number }   {result_item.address.street_name }")
-        print(f"  {result_item.address.municipality } {result_item.address.country_code } {result_item.address.postal_code }")
-        print(f"  Coordinate: {result_item.position.lat}, {result_item.position.lon}"
-  ) 
+    
+    # Print the search results
+    if len(result.results) > 0:
+        print("Starbucks search result nearby Seattle:")
+        for result_item in result.results:
+            print(f"* {result_item.address.street_number }   {result_item.address.street_name }")
+            print(f"  {result_item.address.municipality } {result_item.address.country_code } {result_item.address.postal_code }")
+            print(f"  Coordinate: {result_item.position.lat}, {result_item.position.lon}") 
 
 if __name__ == '__main__': 
     fuzzy_search() 
@@ -233,7 +234,12 @@ def search_address():
     result = maps_search_client.search_address( 
         query="1301 Alaskan Way, Seattle, WA 98101, US" 
     )
-    print(f"Coordinate: {result.results[0].position.lat}, {result.results[0].position.lon}")
+    
+    # Print reuslts if any
+    if len(result.results) > 0:
+        print(f"Coordinate: {result.results[0].position.lat}, {result.results[0].position.lon}")
+    else:
+        print("No address found")
 
 if __name__ == '__main__':
     search_address()
