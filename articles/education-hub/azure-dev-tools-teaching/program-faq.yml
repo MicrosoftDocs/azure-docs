@@ -59,7 +59,7 @@ sections:
              :::column-end:::
           :::row-end:::
        
-       - question: |
+      - question: |
           Can I deploy Windows 10 and Windows 11 VMs with my Azure for Students subscription?
         answer: |
           Yes, as a benefit of your Azure for Students subscription, you may use Windows 10 and 11 virtual machines without the need for a Windows 11 Enterprise license.
