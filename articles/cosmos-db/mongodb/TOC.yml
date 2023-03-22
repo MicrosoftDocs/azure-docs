@@ -203,7 +203,7 @@
             - name: Configure periodic backup
               href: ../periodic-backup-restore-introduction.md
             - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
+              href: ../periodic-backup-update-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -403,7 +403,7 @@
             - name: Free tier
               displayName: free tier
               href: ../free-tier.md
-            - name: Pre-migration guide
+            - name: Premigration guide
               href: pre-migration-steps.md
             - name: MongoDB native tools (offline)
               href: tutorial-mongotools-cosmos-db.md
