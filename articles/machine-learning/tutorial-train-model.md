@@ -41,7 +41,7 @@ The steps are:
 
 1. On the top bar above your opened notebook, create a compute instance if you don't already have one.
 
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-compute.png" alt-text="Screenshot shows how to create a compute instance." lightbox="media/tutorial-azure-ml-in-a-day/create-compute.png":::
 
 ## Set your kernel
 
