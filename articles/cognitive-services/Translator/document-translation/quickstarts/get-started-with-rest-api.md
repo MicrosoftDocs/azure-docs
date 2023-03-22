@@ -35,7 +35,7 @@ To get started, you need:
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
-  * **Target container**. This container is where your translated files will be stored (required).
+  * **Target container**. This container is where your translated files are stored (required).
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
@@ -63,7 +63,7 @@ To get started, you need:
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Prerequisites)
 
-### Retrieve your key and custom domain endpoint
+### Retrieve your key and document translation endpoint
 
 *Requests to the Translator service require a read-only key and custom endpoint to authenticate access. The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories and is available in the Azure portal.
 
@@ -73,7 +73,7 @@ To get started, you need:
 
 1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
 
-1. You **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service.
+1. You paste your **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service.
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
