@@ -16,7 +16,7 @@ items:
   - name: Quickstarts
     expanded: true
     items:
-    - name: Storage events
+    - name: Subscribe to Storage events
       items:
       - name: Portal
         href: blob-event-quickstart-portal.md
@@ -30,7 +30,7 @@ items:
       - name: ARM template
         displayName: Resource Manager
         href: blob-event-quickstart-template.md
-    - name: Custom events
+    - name: Publish and subscribe using custom topics
       items:
       - name: Portal
         href: custom-event-quickstart-portal.md
@@ -38,17 +38,17 @@ items:
         href: custom-event-quickstart.md
       - name: PowerShell
         href: custom-event-quickstart-powershell.md
-    - name: Azure Functions as event handler
-      href: custom-event-to-function.md
-    - name: Queue storage as event handler
-      href: custom-event-to-queue-storage.md
-    - name: Event Hubs as event handler
-      href: custom-event-to-eventhub.md
-    - name: Container Registry events
+      - name: Custom events to an Azure function 
+        href: custom-event-to-function.md
+      - name: Custom events to an Azure Queue storage
+        href: custom-event-to-queue-storage.md
+      - name: Custom events to an Azure event hub
+        href: custom-event-to-eventhub.md
+    - name: Subscribe to Container Registry events
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
-    - name: Handle Azure Communication Services events
+    - name: Subscribe to Azure Communication Services events
       href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
-    - name: Azure Cache for Redis events
+    - name: Subscribe to Azure Cache for Redis events
       href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=/azure/event-grid/toc.json
   - name: Tutorials
     items:
@@ -272,6 +272,8 @@ items:
         href: create-view-manage-system-topics-arm.md
     - name: Create and manage custom topics
       items:
+      - name: Use CloudEvents schema
+        href: cloudevents-schema.md
       - name: Create a custom topic or a domain
         href: create-custom-topic.md
       - name: Configure a custom topic or a domain
@@ -316,8 +318,6 @@ items:
       href: subscribe-through-portal.md
     - name: Map custom fields to schema
       href: input-mappings.md
-    - name: Use CloudEvents schema
-      href: cloudevents-schema.md
     - name: Manage topics with Event Domains
       href: how-to-event-domains.md
     - name: Build your own client-side disaster recovery
