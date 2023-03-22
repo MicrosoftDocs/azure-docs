@@ -31,6 +31,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Get started with Global Secure Access
+            url: how-to-get-started-with-global-secure-access.md
           - text: Install Global Secure Access connector
             url: quickstart-install-connector.md
 
