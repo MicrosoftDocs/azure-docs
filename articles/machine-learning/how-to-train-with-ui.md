@@ -36,15 +36,62 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 * You may enter the job creation UI from the homepage. Click **Create new** and select **Job**. 
 [![Azure Machine Learning studio homepage](media/how-to-train-with-ui/home-entry.png)](media/how-to-train-with-ui/home-entry.png)
 
-* Or, you may enter the job creation from the left pane. Click **+New** and select **Job**. 
-[![Azure Machine Learning studio left navigation](media/how-to-train-with-ui/left-nav-entry.png)](media/how-to-train-with-ui/left-nav-entry.png)
+In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walkthrough the wizard for running a custom script (command job). 
+
+## Configure basic settings
+
+The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we have chosen for you or make changes to your desired preference. 
+
+These are the fields available:
+
+|Field| Description|
+|------| ------|
+|Job name| The job name field is used to uniquely identify your job. It's also used as the display name for your job. Setting this field is optional; Azure will generates a display name for you if one is not specified.|
+|Experiment name| This helps organize the job in Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. By default, Azure will put the job in the **Default** experiment.|
+|Description| Add some text describing your job, if desired. This is optional |
+|Timeout| Specify number of hours the entire training job is allowed to run. Once this limit is reached the system will cancel the job including any child jobs.|
+|Tags| Add tags to your job to help with organization.|
+
+## Training script
+
+Next step is to upload your source code, configure any inputs or outputs required to execute the training job, and specify the command to execute your training script.  
+
+This can be a code file or a folder from your local machine or workspace's default blob storage. Azure will show the files to be uploaded after you make the selection. 
+
+|Field| Description|
+|------| ------|
+|Code| This can be a file or a folder from your local machine or workspace's default blob storage as your training script. Studio will show the files to be uploaded after you make the selection.|
+|Inputs| Specify as many inputs as needed of the following types data, integer, number, boolean, string). |
+|Command| The command to execute. Command-line arguments can be explicitly written into the command or inferred from other sections, specifically **inputs** using curly braces notation, as discussed in the next section.|
 
 
-These options will all take you to the job creation panel, which has a wizard for configuring and creating a training job. 
+### Code
+The command is run from the root directory of the uploaded code folder. After you select your code file or folder, you can see the files to be uploaded. Copy the relative path to the code containing your entry point and paste it into the box labeled **Enter the command to start the job**. 
+
+If the code is in the root directory, you can directly refer to it in the command. For instance, `python main.py`.
+
+If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/word-language-model) is:
+
+```tree
+.
+├── job.yml
+├── data
+└── src
+    └── main.py
+```
+Here, the source code is in the `src` subdirectory. The command would be `python ./src/main.py` (plus other command-line arguments).
+
+[![Refer code in the command](media/how-to-train-with-ui/code-command.png)](media/how-to-train-with-ui/code-command.png)
+
+### Inputs
+
+When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
+
+[![Refer input name in the command](media/how-to-train-with-ui/input-command-name.png)](media/how-to-train-with-ui/input-command-name.png)
 
 ## Select compute resources
 
-The first step in the job creation UI is to select the compute target on which you'd like your job to run. The job creation UI supports several compute types:
+Next step is to select the compute target on which you'd like your job to run. The job creation UI supports several compute types:
 
 | Compute Type | Introduction | 
 | --- | --- | 
@@ -93,54 +140,11 @@ Custom environments are environments you've specified yourself. You can specify 
 If you don't want to use the Azure Machine Learning curated environments or specify your own custom environment, you can use a docker image from a public container registry such as [Docker Hub](https://hub.docker.com/). If the image is in a private container, toggle **This is a private container registry**. For private registries, you will need to enter a valid username and password so Azure can get the image. 
 [![Container registry image](media/how-to-train-with-ui/container-registry-image.png)](media/how-to-train-with-ui/container-registry-image.png)
 
-## Configure your job
-
-After specifying the environment, you can configure your job with more settings. 
-
-|Field| Description|
-|------| ------|
-|Job name| The job name field is used to uniquely identify your job. It's also used as the display name for your job. Setting this field is optional; Azure will generate a GUID name for the job if you don't enter anything. Note: the job name must be unique.|
-|Experiment name| This helps organize the job in Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. By default, Azure will put the job in the **Default** experiment.|
-|Code| You can upload a code file or a folder from your machine, or upload a code file from the workspace's default blob storage. Azure will show the files to be uploaded after you make the selection. |
-|Command| The command to execute. Command-line arguments can be explicitly written into the command or inferred from other sections, specifically **inputs** using curly braces notation, as discussed in the next section.|
-|Inputs| Specify the input binding. We support three types of inputs: 1) Azure Machine Learning registered dataset; 2) workspace default blob storage; 3) upload local file. You can add multiple inputs. |
-|Environment variables| Setting environment variables allows you to provide dynamic configuration of the job. You can add the variable and value here.|
-|Tags| Add tags to your job to help with organization.|
-
-### Specify code and inputs in the command box
-
-#### Code
-
-The command is run from the root directory of the uploaded code folder. After you select your code file or folder, you can see the files to be uploaded. Copy the relative path to the code containing your entry point and paste it into the box labeled **Enter the command to start the job**. 
-
-If the code is in the root directory, you can directly refer to it in the command. For instance, `python main.py`.
-
-If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/word-language-model) is:
-
-```tree
-.
-├── job.yml
-├── data
-└── src
-    └── main.py
-```
-Here, the source code is in the `src` subdirectory. The command would be `python ./src/main.py` (plus other command-line arguments).
-
-[![Refer code in the command](media/how-to-train-with-ui/code-command.png)](media/how-to-train-with-ui/code-command.png)
-
-#### Inputs
-
-When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
-
-[![Refer input name in the command](media/how-to-train-with-ui/input-command-name.png)](media/how-to-train-with-ui/input-command-name.png)
 
 ## Review and Create 
 
 Once you've configured your job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
 
-You may choose **view the YAML spec** to review and download the yaml file generated by this job configuration. This job yaml file can be used to submit the job from the CLI (v2). (See [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md).)
-[![view yaml spec](media/how-to-train-with-ui/view-yaml.png)](media/how-to-train-with-ui/view-yaml.png)
-[![Yaml spec](media/how-to-train-with-ui/yaml-spec.png)](media/how-to-train-with-ui/yaml-spec.png)
 
 To launch the job, choose **Create**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
