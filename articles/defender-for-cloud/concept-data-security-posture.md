@@ -48,7 +48,8 @@ Defender for Storage monitors Azure storage accounts with advanced threat detect
 
 When early suspicious signs are detected, Defender for Storage generates security alerts, allowing security teams to quickly respond and mitigate.
 
-By applying sensitivity settings on storage resources, you can prioritize alerts that focus on sensitive data.
+By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data.
+
 
 ## Scanning with smart sampling
 

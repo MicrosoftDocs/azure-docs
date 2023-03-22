@@ -39,9 +39,9 @@ Learn more about [attack paths](concept-attack-path.md).
 
 Learn more about [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
 
-## Get security alerts about sensitive data
+## Discover security alerts about sensitive data
 
-Prioritize the alerts and recommendations related to resources with sensitivity labels and sensitive info types. Focus on protecting sensitive resources. The sensitive info types and sensitivity labels found are used in other areas of Microsoft Defender for Cloud. View the resource-level labels and info types in the Security alerts and Recommendations to help you prioritize and focus on protecting your critical resources.
+When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize the alerts and recommendations related to resources with sensitivity labels and sensitive info types. 
 
 ## Next steps
 TODO: Add your next step link(s)
