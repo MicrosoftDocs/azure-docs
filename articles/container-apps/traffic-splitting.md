@@ -23,7 +23,7 @@ To run the following examples, you need a container app with multiple revisions.
 
 ## Configure traffic splitting
 
-::: zone-pivot=azure-cli
+::: zone pivot="azure-cli"
 
 Configure traffic splitting between revisions using the `az containerapp ingress traffic set` command.  You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
 
@@ -50,7 +50,7 @@ az containerapp ingress traffic set \
 
 ::: zone-end
 
-::: zone-pivot=azure-portal
+::: zone pivot="azure-portal"
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com). 
 1. Select **Revision management** from the left-hand menu.
@@ -66,7 +66,7 @@ az containerapp ingress traffic set \
 
 ::: zone-end
 
-::: zone-pivot=azure-resource-manager
+::: zone pivot="azure-resource-manager"
 
 Enable traffic splitting by setting the `ingress` settings in your container ARM template.
 

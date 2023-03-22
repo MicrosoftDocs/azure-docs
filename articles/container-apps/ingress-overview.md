@@ -11,22 +11,19 @@ ms.author: cshoe
 
 # Ingress in Azure Container Apps
 
-
 Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
 
 Ingress supports:
 
-- [Public and private ingress](#ingress-type)
-- [HTTPS and TCP ingress types](#ingress-type)
-- [Fully qualified domain names (FQDNs)](#fully-qualified-domain-name)
-- [HTTP Headers](#http-headers)
-- [Traffic splitting between revisions](#traffic-splitting-scenarios)
+- [Public and private ingress](#public-and-private-ingress)
+- [HTTP and TCP ingress types](#protocol-types)
+- [Domain names](#domain-names)
 - [IP restrictions](#ip-restrictions)
-- [Ingress authentication](#ingress-authentication)
+- [Authentication](#authentication)
+- [Traffic splitting between revisions](#traffic-splitting)
 
 > [!NOTE]
-> Add diagram here,  Talked with Anthony about this.  He thought that we should consult Sanchit.  I think that we should have a diagram that shows the ingress options and how they work together.
-
+> Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
 
 For configuration details, see [Configure ingress](ingress.md).
 
@@ -58,21 +55,13 @@ With HTTP ingress enabled, your container app has:
 
 #### HTTP headers
 
-The HTTP headers are used to pass protocol and metadata related information between the client and your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service.  
+HTTP ingress adds headers to pass metadata about the client request to your container app. For example, the `X-Forwarded-Proto` header is used to identify the protocol that the client used to connect with the Container Apps service. The following table lists the HTTP headers that are relevant to ingress in Container Apps:
 
-The header is added to an HTTP request or response using a *name: value* format.  The following table lists the HTTP headers that are relevant to ingress in Container Apps:
-
-> [!NOTE]
-> Are there more to document here? Do we have response headers we need to document?
-
-| Header | Description | Values | Required |
-|---|---|---|---|
-| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` | Yes |
-| `X-Forwarded-For` | The IP address of the client that sent the request. |  | Yes |
-| 'X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  | Yes |
-
-> [!NOTE] 
-> We need to show example of configuring HTTP headers in code, but we don't want to get technical in this document.
+| Header | Description | Values |
+|---|---|---|
+| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` |
+| `X-Forwarded-For` | The IP address of the client that sent the request. |  |
+| `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
 
 ### <a name="tcp"></a>TCP (preview) 
 
@@ -83,25 +72,22 @@ Container Apps supports TCP-based protocols other than HTTP or HTTPS. For exampl
 
 With TCP ingress enabled, your container app:
 
-- Has a fully qualified domain name (FQDN) and public-facing port numbers.
 - Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
+- Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to "external".
 
-## DNS
+## Domain names
 
-Container Apps automatically provides a built-in DNS domain for each environment by default. Each app in the environment is assigned a fully qualified domain name (FQDN) that is based on the DNS domain.  For more information, see [DNS](./networking.md#dns).
+Each app in a Container Apps environment is automatically assigned a fully qualified domain name (FQDN) that is based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 
-You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom DNS](./custom-domains-certificates.md).  
+You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 
-For VNET-scope ingress, you can configure:
+Within a Container Apps environment, apps can communicate with each other using their app names.
 
-- a custom DNS domain in your Container Apps environment
-- a noncustom domain with Azure Private
+VNET-scope ingress requires additional DNS configuration. For more information, see [DNS configuration for VNET-scope ingress](./networking.md#dns).
 
-### Automatic fully qualified domain names
+### Default fully qualified domain names (FQDN)
 
-When you enable ingress, Container Apps automatically assigns a fully qualified domain name (FQDN) to your container app. The FQDN is based on the DNS domain for your Container Apps environment.  For more information, see [DNS](./networking.md#dns).
-
-The domain name takes the following forms:
+The automatically assigned domain name takes the following forms:
 
 |Ingress visibility setting | Fully qualified domain name |
 |---|---|
@@ -112,33 +98,23 @@ For HTTP ingress, traffic is routed to individual applications based on the FQDN
 
 For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the container app's `name` property) and its `exposedPort` number.
 
->[!NOTE]
-> I need clarification on the following:
+You can get access to the environment's unique identifier by querying the environment settings. For more information, see [Connect applications](connect-apps.md#get-fully-qualified-domain-name).
 
-For applications with external ingress visibility, the following conditions apply:
+### App names
 
-- An internal Container Apps environment has a single private IP address for applications. For container apps in internal environments, you must configure [DNS](./networking.md#dns) for VNET-scope ingress.
-- An external Container Apps environment or Container Apps environment that isn't in a VNET has a single public IP address for applications.
-
-You can get access to the environment's unique identifier by querying the environment settings.
-
-[!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
+In addition to the default FQDN and the custom domain name, one container app can access another app in the same environment by using its name.  The name of the container app is defined by the `name` property in the Container Apps resource.
 
 ## IP restrictions
 
-Container Apps supports IP restrictions for ingress. You can create rules to either configure IP addresses that are allowed or denied access to your container app. 
-
-- When you create *allow* rules, only the specified IP addresses have access to your app.
-- When you create *deny* rules, only the specified IP addresses are denied access to your app.  
-- Container Apps doesn't support both *allow* and *deny* rules for the same container app.
+Container Apps supports IP restrictions for ingress. You can create rules to either configure IP addresses that are allowed or denied access to your container app.
 
 For more information, see [Configure IP restrictions](ip-restrictions.md).
 
-## Ingress authentication
+## Authentication
 
 Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
 
-You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificates.md).
+You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md).
 
 ## Traffic splitting
 
