@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagem
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes the pricing plans and license requirements for the Enterprise Tier in Azure Spring Apps.
+This article describes the pricing and license requirements for the VMWare Taznu components as offered in the Enterprise tier in Azure Spring Apps.
 
 ## Enterprise tier and VMware Tanzu components
 
@@ -34,10 +34,10 @@ The Enterprise tier provides the following managed VMware Tanzu components that 
 - App Live View
 - App Accelerator
 
-As the most advanced tier in Azure Spring Apps, a Microsoft provided first party Azure service, the Enterprise tier pricing is composed of two parts that both calculate vCPU and memory storage in their pricing.
+As the most advanced tier in Azure Spring Apps, a Microsoft provided first party Azure service, the Enterprise tier pricing is composed of two parts:
 
 - Infrastructure pricing to Microsoft, based on vCPU and memory usage of apps and managed Tanzu components.
-- Tanzu licensing pricing to VMware, based on vCPU usage of apps.
+- Tanzu component licensing pricing to VMware, based on vCPU usage of apps.
 
 For more information about pricing, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
@@ -55,7 +55,9 @@ On the [Azure Marketplace Offer](https://aka.ms/ascmpoffer) page, you can review
 
 You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Enterprise tier service instance. You can also select **Subscribe** on the VMware marketplace offer to create the service instance, as Azure Marketplace redirects you to Azure Spring Apps creation page.
 
-## Prerequisites
+## Requirements
+
+The following items must be understood and fulfilled for a successful implementation of your plan and licensing agreements.
 
 - Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
