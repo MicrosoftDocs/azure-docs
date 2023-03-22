@@ -185,6 +185,7 @@ The creation wizard generated the connectivity variables for you already as [app
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the SECRET_KEY app setting in the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png":::
     :::column-end:::
+:::row-end:::
 :::row:::
     :::column span="2":::
         **Step 5.** Select **Save**.
