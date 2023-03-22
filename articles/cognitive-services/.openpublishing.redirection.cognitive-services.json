@@ -7,12 +7,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-classification/how-to/use-autotagging.md",
-            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/use-autolabelling",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/use-autolabeling",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/use-autotagging.md",
-            "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/use-autolabelling",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/use-autolabeling",
             "redirect_document_id": true
         },
         {
