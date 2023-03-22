@@ -31,7 +31,7 @@ Version 4 of the Node.js programming model requires the following minimum versio
 
 ## Include the npm package
 
-For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model for Azure Functions. Previously, that code shipped directly in Azure and the npm package only had the TypeScript types. Moving forward both JavaScript and TypeScript users need to include this package in their app. v3 apps _can_ include the npm package, but it isn't required.
+For the first time, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package contains the primary source code that backs the Node.js programming model. In previous versions, that code shipped directly in Azure and the npm package only had the TypeScript types. Moving forward, you need to include this package for both TypeScript and JavaScript apps. You _can_ include the package for existing v3 apps, but it isn't required.
 
 > [!TIP]
 > Make sure the `@azure/functions` package is listed in the `dependencies` section (not `devDependencies`) of your `package.json` file. You can install v4 with the command 
@@ -184,7 +184,7 @@ context.res = {
 context.done(null, {
     body: `Hello, ${name}!`
 });
-// Option 3:
+// Option 3, but you can't use this option with any async code:
 context.res.send(`Hello, ${name}!`);
 // Option 4, if "name" in "function.json" is "res":
 context.bindings.res = {
