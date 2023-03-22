@@ -91,7 +91,7 @@ ml_client = MLClient(
 ```
 
 > [!NOTE]
-> Creating `MLClient` will not connect to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call (in this notebook, that will happen during compute creation).
+> Creating `MLClient` will not connect to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call (this will happen in the next code cell).
 
 
 ## Register the model
