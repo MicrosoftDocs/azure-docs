@@ -32,7 +32,7 @@ The API is protected through Azure Active Directory and uses OAuth2 bearer token
 
 ### User bearer tokens
 
-The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../../active-directory/roles/permissions-reference.md#global-reader) will be able to perform read-only API calls.
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../../active-directory/roles/permissions-reference.md#global-reader) can perform read-only API calls.
 
 ### Application bearer tokens
 
@@ -84,7 +84,7 @@ Content-type: application/json
 }
 ```
 
-Repeatedly calling this API will result in the exact same return message.
+Repeatedly calling this API results in the exact same return message.
 
 ## Authorities
 
@@ -189,7 +189,7 @@ We support two different didModels. One is `ion` and the other supported method 
 | `recoveryKeys` | string array | URL to the recovery key  |
 | `encryptionKeys` | string array | URL to the encryption key |
 | `linkedDomainUrls` | string array | Domains linked to this DID |
-| `didDocumentStatus` | string | status of the DID, `published` when it's written to ION otherwise it will be `submitted`|
+| `didDocumentStatus` | string | status of the DID, `published` when it's written to ION otherwise it is `submitted`|
 
 #### Web
 
@@ -305,7 +305,7 @@ Content-type: application/json
 
 ### Create authority
 
-This call creates a new **private key**, recovery key and update key, stores these in the specified Azure Key Vault and sets the permissions to this Key Vault for the verifiable credential service and a create new **DID** with corresponding DID Document and commits that to the ION network.
+This call creates a new **private key**, recovery key and update key, stores these keys in the specified Azure Key Vault and sets the permissions to this Key Vault for the verifiable credential service and a create new **DID** with corresponding DID Document and commits that to the ION network.
 
 #### HTTP request
 
@@ -496,7 +496,7 @@ Content-type: application/json
 Accepted
 ```
 
-The didDocumentStatus will switch to `submitted` it will take a while before the change is committed to the ION network.
+The didDocumentStatus switches to `submitted` it will take a while before the change is committed to the ION network.
 
 If you try to submit a change before the operation is completed, you'll get the following error message:
 
@@ -603,7 +603,7 @@ Content-type: application/json
 }
 ```
 
-Save this result with the file name did-configuration.json and upload this file to the correct folder and website. If you specify a domain not linked to this DID/DID Document, you'll receive an error:
+Save this result with the file name did-configuration.json and upload this file to the correct folder and website. If you specify a domain not linked to this DID/DID Document, you receive an error:
 
 ```
 HTTP/1.1 400 Bad Request
@@ -852,7 +852,7 @@ The response contains the following properties
 |`vc`| vcType array | types for this contract |
 |`customStatusEndpoint`| [customStatusEndpoint] (#customstatusendpoint-type) (optional) | status endpoint to include in the verifiable credential for this contract |
 
-If the property `customStatusEndpoint` property isn't specified then the `anonymous` status endpoint is used.
+If the property `customStatusEndpoint` property isn't specified, then the `anonymous` status endpoint is used.
 
 #### attestations type
 
@@ -1099,7 +1099,7 @@ example message:
 ### Create contract
 
 When creating a contract the name has to be unique in the tenant. In case you have created multiple authorities, the contract name has to be unique across all authorities.
-The name of the contract will be part of the contract URL which is used in the issuance requests.
+The name of the contract will be part of the contract URL, which is used in the issuance requests.
 
 #### HTTP request
 
