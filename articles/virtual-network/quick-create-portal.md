@@ -41,7 +41,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
    - **Virtual network name**: Enter *VNet*.
    - **Region**: Keep the default or select a different region for the network and all its resources.
 
-   :::image type="content" source="media/quick-create-portal/example-basics-tab-ga.png" alt-text="Screenshot of the Create virtual network screen in the Azure portal.":::
+   :::image type="content" source="media/quick-create-portal/example-basics-tab.png" alt-text="Screenshot of the Create virtual network screen in the Azure portal.":::
 
 1. Select **Next: IP Addresses** at the bottom of the page.
 
@@ -54,7 +54,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
    - **Subnet name**: *default*
    - **Subnet address range**: *10.0.0.0/24*.
 
-   :::image type="content" source="media/quick-create-portal/example-ip-addresses-with-subnet-ga.png" alt-text="Screenshot of the IP addresses tab and Add subnet screen on the Create virtual network page.":::
+   :::image type="content" source="media/quick-create-portal/example-ip-addresses-with-subnet.png" alt-text="Screenshot of the IP addresses tab and Add subnet screen on the Create virtual network page.":::
 
 1. Select **Next: Security** at the bottom of the page.
 
@@ -68,7 +68,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
    - **AzureBastionSubnet address space**: *10.0.1.0/26*. Azure automatically creates the AzureBastionSubnet subnet.
    - **Public IP address**: Select **Create new**, then enter *VNet-bastion-publicIp* under **Name** and select **OK**.
 
-   :::image type="content" source="media/quick-create-portal/example-security-tab-ga.png" alt-text="Screenshot of the Security tab on the Create virtual network screen.":::
+   :::image type="content" source="media/quick-create-portal/example-security-tab.png" alt-text="Screenshot of the Security tab on the Create virtual network screen.":::
 
 1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**. 
 
