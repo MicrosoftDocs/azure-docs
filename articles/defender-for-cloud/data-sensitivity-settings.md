@@ -12,9 +12,9 @@ This article describes how to customize data sensitivity settings in Microsoft D
 
 [Data sensitivity settings](concept-data-security-posture.md#data-sensitivity-settings) are used to identify what's considered sensitive data in your organization. When scanning resource sensitivity in Defender for Cloud, scan results are based on:
 
-- The sensitivity information types you select Defender for Cloud. Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#built-in-sensitive-information-types) provided by Microsoft Purview.
-- Customized sensitive information types you've defined in Microsoft Purview and imported into Defender for Cloud (optional).
-- Defender for Cloud sensitivity thresholds based on Microsoft Purview [sensitivity labels](/microsoft-365/compliance/sensitivity-labels#what-a-sensitivity-label-is) that you've synced to Defender for Cloud (optional).
+- The sensitivity information types and labels you select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#built-in-sensitive-information-types) provided by Microsoft Purview. A selection of these are enabled by default, and you can modify as needed.
+- You can optionally allow the import of customized sensitive information types and [sensitivity labels](/microsoft-365/compliance/sensitivity-labels#what-a-sensitivity-label-is) that you've defined in Microsoft Purview.
+- If you import labels, you can set sensitivity thresholds that determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
 
 Customizing sensitivity settings helps you to:
 
@@ -30,7 +30,7 @@ Note that changes in sensitivity settings take effect the next time that resourc
 
 ## Import custom sensitive info types/labels from Microsoft Purview
 
-You can import your custom sensitivity types and labels from Microsoft Purview. This helps you to ensure that the sensitive data categories in Defender for Cloud are consistent with the sensitivity settings in Microsoft Purview.
+You can import your custom sensitivity types and labels from Microsoft Purview.
 
 Import as follows:
 
@@ -39,7 +39,7 @@ Import as follows:
 
 ## Customize sensitive data categories/types
 
-To customize the data sensitivity discovery for your organization, you'll need to select the sensitive data types that you want to mark as sensitive.
+To customize sensitive data type settings that appear in Defender for Cloud
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
@@ -54,9 +54,9 @@ To customize the data sensitivity discovery for your organization, you'll need t
 
 ## Set the threshold for sensitive data labels
 
-If you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a threshold to determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud.
+If you're using Microsoft Purview labels, you can set a threshold to determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud.
 
-When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization. Any resources with this this minimum label or higher are presumed to contain sensitive data. For example, if you select **Confidential** as minimum, then **Highly Confidential** is also considered sensitive. **General**, **Public**, and **Non-Business** aren't.
+When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization. Any resources with this minimum label or higher are presumed to contain sensitive data. For example, if you select **Confidential** as minimum, then **Highly Confidential** is also considered sensitive. **General**, **Public**, and **Non-Business** aren't.
 
 To set the threshold for sensitive data labels:
 

@@ -59,9 +59,9 @@ Defender for Cloud uses smart sampling to scan a selected number of files in you
 
 Data sensitivity settings define what's considered sensitive data in your organization. Data sensitivity values in Defender for Cloud are based on:
 
-- **Predefined sensitive information types**: Defender for Cloud provides sensitive information types by syncing to the predefined types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can modify these defaults.
-- **Custom information types**: You can add custom sensitive information types that you've defined in the Purview portal.
-- **Sensitive data thresholds**: If you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
+- **Predefined sensitive information types**: Defender for Cloud uses the built-in sensitive information types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can modify these defaults.
+- **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in the Purview portal.
+- **Sensitive data thresholds**: In Defender for Cloud you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
 
 When scanning resources for data sensitivity, scan results are based these settings.
 
