@@ -52,7 +52,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | Setting | Value |
     | --- | --- |
     | **Node count** | Single node |
-    | **Cluster tier** | M40 Tier, 4 vCores, 16-GiB RAM |
+    | **Cluster tier** | M30 Tier, 2 vCores, 8-GiB RAM |
     | **Storage per node** | 128 GiB |
 
 1. Leave the **High availability** option unselected. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.

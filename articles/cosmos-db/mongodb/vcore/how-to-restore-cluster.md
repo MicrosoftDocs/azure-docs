@@ -31,7 +31,7 @@ Azure Cosmos DB for MongoDB vCore provides automatic backups that enable point-i
 
 ## Backups
 
-Backups are **performed automatically** in the background. Backups are also retained for 35 days. All backups are encrypted using AES 256-bit encryption.
+Backups are **performed automatically** in the background. Backups are retained for 35 days for active clusters and 7 days for deleted clusters. All backups are encrypted using AES 256-bit encryption.
 
 > [!NOTE]
 > Backup files can't be exported. They may only be used for restore operations in Azure Cosmos DB for MongoDB vCore.
