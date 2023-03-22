@@ -49,7 +49,7 @@ pip install cognitive-service-vision-model-customization-python-samples
 
 ## Authentication
 
-Enter your Computer Vision endpoint URL and key, as well as the name of the resource, in the code below.
+Enter your Computer Vision endpoint URL, key, and the name of the resource, into the code below.
 
 ```python
 # Resource and key
@@ -243,7 +243,7 @@ logging.info(f'Prediction: {prediction}')
 
 ## Create a new custom model
 
-Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile for image classification or the **Extract common objects in images** tile for object detection. This guide will demonstrate a custom image classification model. 
+Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) and selecting the **Image analysis** tab. Then select either the **Extract common tags from images** tile for image classification or the **Extract common objects in images** tile for object detection. This guide demonstrates a custom image classification model. 
 
 > [!IMPORTANT]
 > To train a custom model in Vision Studio, your Azure subscription needs to be approved for access. Please request access using [this form](https://aka.ms/visionaipublicpreview).
@@ -272,7 +272,7 @@ Then, select the container from the Azure Blob Storage account where you stored 
 
 You need a COCO file to convey the labeling information. An easy way to generate a COCO file is to create an Azure Machine Learning project, which comes with a data-labeling workflow.
 
-In the dataset details page, select **Add a new Data Labeling project**. Name it and select **Create a new workspace**. That will open a new Azure portal tab where you can create the Azure Machine Learning project.
+In the dataset details page, select **Add a new Data Labeling project**. Name it and select **Create a new workspace**. That opens a new Azure portal tab where you can create the Azure Machine Learning project.
 
 ![Choose Azure Machine Learning]( ../media/customization/dataset-details.png)
 
@@ -295,7 +295,7 @@ Once you've added all the class labels, save them, select **start** on the proje
 
 Choose **Start labeling** and follow the prompts to label all of your images. When you're finished, return to the Vision Studio tab in your browser.
 
-Now select **Add COCO file**, then select **Import COCO file from an Azure ML Data Labeling project**.  This will import the labeled data from Azure Machine Learning.
+Now select **Add COCO file**, then select **Import COCO file from an Azure ML Data Labeling project**. This imports the labeled data from Azure Machine Learning.
 
 The COCO file you just created is now stored in the Azure Storage container that you linked to this project. You can now import it into the model customization workflow. Select it from the drop-down list. Once the COCO file is imported into the dataset, the dataset can be used for training a model.
 
@@ -322,7 +322,7 @@ Then select a time budget and train the model. For small examples, you can use a
 
 ![Review training details]( ../media/customization/train-model.png)
 
-It may take some time for the training to complete. Image Analysis 4.0 models can be very accurate with only a small set of training data, but they take longer to train than previous models.
+It may take some time for the training to complete. Image Analysis 4.0 models can be accurate with only a small set of training data, but they take longer to train than previous models.
 
 ## Evaluate the trained model
 
@@ -331,7 +331,7 @@ After training has completed, you can view the model's performance evaluation. T
 - Image classification: Average Precision, Accuracy Top 1, Accuracy Top 5
 - Object detection: Mean Average Precision @ 30, Mean Average Precision @ 50, Mean Average Precision @ 75
 
-If an evaluation set is not provided when training the model, the reported performance is estimated based on part of the training set. We strongly recommend you use an evaluation dataset (using the same process as above) to have a reliable estimation of your model performance.
+If an evaluation set isn't provided when training the model, the reported performance is estimated based on part of the training set. We strongly recommend you use an evaluation dataset (using the same process as above) to have a reliable estimation of your model performance.
 
 ![Screenshot of evaluation]( ../media/customization/training-result.png)
 
@@ -341,7 +341,7 @@ Once you've built a custom model, you can go back to the **Extract common tags f
 
 ![Screenshot of selecing test model in Vision Studio.]( ../media/customization/quick-test.png)
 
-The prediction results will appear in the right column.
+The prediction results appear in the right column.
 
 #### [REST API](#tab/rest)
 
