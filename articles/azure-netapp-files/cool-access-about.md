@@ -194,15 +194,15 @@ Your storage cost for the *first month* would be:
 | Cost | Description | Calculation |
 |---|---|---|
 | Storage cost for Day 1~7 (7 days) | 4 TiB of active data (standard tier) | `4 TiB x 1024 x 7 days x 730/30 hrs. x $0.000202/GiB/hr. = $140.93` |
-| Storage cost for Day 8~30 (23 days) | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 23 days x 730/30 hrs. x $0.000202/GiB/hr. = $115.77` <br><br> `3 TiB x 1024 x 23 days x 730/30 hrs. x $0.000082 /GiB/hr. = $140.98` |
+| Storage cost for Day 8~30 (23 days) | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 23 days x 730/30 hrs. x $0.000202/GiB/hr. = $115.77` <br><br> `3 TiB x 1024 x 23 days x 730/30 hrs. x $0.000082/GiB/hr. = $140.98` |
 | Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000/GiB = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **First month total** || **`$471.41`** |
 
-Your monthly storage cost for the second and subsequent months would be: 
+Your monthly storage cost for the *second and subsequent months* would be: 
 
 | Cost | Description | Calculation |
 |---|---|---|
-| Storage cost for 30 days | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` <br><br> `3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082 /GiB/hr. = $183.89` |
+| Storage cost for 30 days | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` <br><br> `3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082/GiB/hr. = $183.89` |
 | Network transfer cost | 20% of data read/write from cool tier | `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **Second and subsequent monthly total** || **`$347.18`** |
 
@@ -214,7 +214,7 @@ Your first six-month savings:
 																				
 Your first twelve-month savings: 
 * Cost without cool access: `4 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 11 months = $7,247.95`
-* Cost with cool access: `First month + Second month + … + twelveth month = $471.41 + (11 x $347.18)= $4,290.36`
+* Cost with cool access: `First month + Second month + … + twelfth month = $471.41 + (11 x $347.18)= $4,290.36`
 * Savings using cool access: **`40.81%`**
 
 #### Example 2: Coolness period is set to 35 days
@@ -227,7 +227,7 @@ Your storage cost for the *second month* would be:
 | Cost | Description | Calculation |
 |---|---|---|
 | Storage cost for Day 1~5 (5 days) | 4 TiB of active data (standard tier) | `4 TiB x 1024 x 5 days x 730/30 hrs. x $0.000202/GiB/hr. = $100.67` |
-| Storage cost for Day 6~30 (25 days) | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 25 days x 730/30 hrs. x $0.000202/GiB/hr. = $125.83` <br><br> `3 TiB x 1024 x 25 days x 730/30 hrs. x $0.000082 /GiB/hr. = $153.24` |
+| Storage cost for Day 6~30 (25 days) | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 25 days x 730/30 hrs. x $0.000202/GiB/hr. = $125.83` <br><br> `3 TiB x 1024 x 25 days x 730/30 hrs. x $0.000082/GiB/hr. = $153.24` |
 | Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000	/GiB	 = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **Second month total** || **`$453.47`** |
 
@@ -235,9 +235,9 @@ Your monthly storage cost for *third and subsequent months* would be:
 
 | Cost | Description | Calculation |
 |---|---|---|
-| Storage cost for 30 days | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` <br><br> `3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082 /GiB/hr. = $183.89` |
+| Storage cost for 30 days | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` <br><br> `3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082/GiB/hr. = $183.89` |
 | Network transfer cost | 20% of data read/write from cool tier | `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
-| **Second and subsequent monthly total** || **`$347.18`** |
+| **Third and subsequent monthly total** || **`$347.18`** |
 
 Your first six-month savings:  
 * Cost without cool access: `4 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 6 months = $3,623.98`
@@ -259,16 +259,16 @@ Your storage cost for the *third month* would be:
 
 | Cost | Description | Calculation |
 |---|---|---|
-| Storage cost for Day 1~3 (3 days) | 4 TiB of active data (standard tier) | `4 TiB x 1024 x 3 days x 730 / 30 hrs. x $0.000202/GiB/hr. = $60.40` |
-| Storage cost for Day 4~30 (27 days) | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 27 days x 730 / 30 hrs. x $0.000202/GiB/hr. = $135.90` <br><br> `3 TiB x 1024 x 27 days x 730 / 30 hrs. x $0.000082	/GiB/hr. = $165.50` |
-| Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000 /GiB = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000 /GiB = $12.29` |
+| Storage cost for Day 1~3 (3 days) | 4 TiB of active data (standard tier) | `4 TiB x 1024 x 3 days x 730/30 hrs. x $0.000202/GiB/hr. = $60.40` |
+| Storage cost for Day 4~30 (27 days) | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 27 days x 730/30 hrs. x $0.000202/GiB/hr. = $135.90` <br><br> `3 TiB x 1024 x 27 days x 730/30 hrs. x $0.000082/GiB/hr. = $165.50` |
+| Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000/GiB = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **Third month total** || **`$435.53`** |
 
 Your monthly storage cost for the *fourth and subsequent months* would be:
 
 | Cost | Description | Calculation |
 |---|---|---|
-| Storage cost for 30 days | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 30 days x 730 / 30 hrs. x $0.000202/GiB/hr. = $151.00` <br><br> `3 TiB x 1024 x 30 days x 730 / 30 hrs. x $0.000082	/GiB/hr. = $183.89` |
+| Storage cost for 30 days | 1 TiB of active data (standard tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` <br><br> `3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082	/GiB/hr. = $183.89` |
 | Network transfer cost | 20% of data read/write from cool tier | `3 TiB x 1024 x 20% x $0.020000 /GiB = $12.29` |
 | **Fourth and subsequent monthly total** || **`$347.18`** |
 
