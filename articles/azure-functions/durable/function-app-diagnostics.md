@@ -28,7 +28,7 @@ On the left side of the window, there's a list of detectors designed to check fo
 
 The *Functions App Down or Report Errors* detector pulls results from different detectors checking key areas of your application that may be the cause of your application being down or reporting errors. The screenshot below shows the checks performed (not all 15 are captured in the screenshot) and the two issues requiring attention. 
 
-::image type="content" source="media/durable-functions-best-practice/functions-app-down-report-errors.png" alt-text="Screenshot of Durable Functions App Down or Report Errors detector.":::
+:::image type="content" source="media/durable-functions-best-practice/functions-app-down-report-errors.png" alt-text="Screenshot of Durable Functions App Down or Report Errors detector.":::
 
 
 Maximizing *High CPU Analysis* shows that one app is causing high CPU usage. 
