@@ -39,7 +39,7 @@ When troubleshooting happens for voice or video calls, you may be asked to provi
 [!INCLUDE [Troubloshooting over the iOS UI library](./includes/troubleshooting/ios.md)]
 ::: zone-end
 
-User may find Call ID via the action bar on the bottom of the call screen. See more [Troubleshooting guide](../../concepts/ui-library/ui-library-use-cases.md?branch=pr-en-us-217148&pivots=platform-mobile#troubleshooting-guide)
+User may find Call ID via the action bar on the bottom of the call screen. See more [Troubleshooting guide](../../concepts/ui-library/ui-library-use-cases.md?&pivots=platform-mobile#troubleshooting-guide)
 
 ## Next steps
 
