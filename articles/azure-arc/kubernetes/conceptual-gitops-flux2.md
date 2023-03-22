@@ -115,7 +115,9 @@ Because Azure Resource Manager manages your configurations, you can automate cre
 
 To see all the parameters supported by Flux in Azure, see the [`az k8s-configuration` documentation](/cli/azure/k8s-configuration). This implementation doesn't currently support every parameter that Flux supports (see the [official Flux documentation](https://fluxcd.io/docs/)). Let us know if a parameter you need is missing from the Azure implementation.
 
-You can also see the full list of parameters that `az k8s-configuration flux` command supports by using the `-h` parameter in Azure CLI (for example, `az k8s-configuration flux -h` or `az k8s-configuration flux create -h`). The following information describes some of the parameters and arguments available for the `az k8s-configuration flux create` command.
+You can also see the full list of parameters for the `az k8s-configuration flux` by using the `-h` parameter in Azure CLI (for example, `az k8s-configuration flux -h` or `az k8s-configuration flux create -h`).
+
+The following information describes some of the parameters and arguments available for the `az k8s-configuration flux create` command.
 
 ### Configuration general arguments
 
@@ -286,7 +288,7 @@ For on-premises repositories, Flux uses `libgit2`.
 
 ### Kustomization
 
-By using `az k8s-configuration flux kustomization create`, you can create one or more kustomizations during the configuration.
+By using [`az k8s-configuration flux kustomization create`](/cli/azure/k8s-configuration/flux/kustomization#az-k8s-configuration-flux-kustomization-create), you can create one or more kustomizations during the configuration.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -301,77 +303,7 @@ By using `az k8s-configuration flux kustomization create`, you can create one or
 | `validation` | String | Values: `none`, `client`, `server`. Default: `none`.  See [Flux documentation](https://fluxcd.io/docs/) for details.|
 | `force` | Boolean | Default: `false`. Set `force=true` to instruct the kustomize controller to re-create resources when patching fails because of an immutable field change. |
 
-You can also use `az k8s-configuration flux kustomization` to create, update, list, show, and delete kustomizations in a Flux configuration:
-
-```console
-az k8s-configuration flux kustomization -h
-
-Group
-    az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
-    v2 Kubernetes configurations.
-
-Commands:
-    create : Create a Kustomization associated with a Flux v2 Kubernetes configuration.
-    delete : Delete a Kustomization associated with a Flux v2 Kubernetes configuration.
-    list   : List Kustomizations associated with a Flux v2 Kubernetes configuration.
-    show   : Show a Kustomization associated with a Flux v2 Kubernetes configuration.
-    update : Update a Kustomization associated with a Flux v2 Kubernetes configuration.
-```
-
-Here are the kustomization creation options:
-
-```azurecli
-az k8s-configuration flux kustomization create -h
-
-This command is from the following extension: k8s-configuration
-
-Command
-    az k8s-configuration flux kustomization create : Create a Kustomization associated with a
-    Kubernetes Flux v2 Configuration.
-
-Arguments
-    --cluster-name -c          [Required] : Name of the Kubernetes cluster.
-    --cluster-type -t          [Required] : Specify Arc connected clusters or AKS managed clusters.
-                                            Allowed values: connectedClusters, managedClusters.
-    --kustomization-name -k    [Required] : Specify the name of the kustomization to target.
-    --name -n                  [Required] : Name of the flux configuration.
-    --resource-group -g        [Required] : Name of resource group. You can configure the default
-                                            group using `az configure --defaults group=<name>`.
-    --dependencies --depends --depends-on : Comma-separated list of kustomization dependencies.
-    --force                               : Re-create resources that cannot be updated on the
-                                            cluster (i.e. jobs).  Allowed values: false, true.
-    --interval --sync-interval            : Time between reconciliations of the kustomization on the
-                                            cluster.
-    --no-wait                             : Do not wait for the long-running operation to finish.
-    --path                                : Specify the path in the source that the kustomization
-                                            should apply.
-    --prune                               : Garbage collect resources deployed by the kustomization
-                                            on the cluster.  Allowed values: false, true.
-    --retry-interval                      : Time between reconciliations of the kustomization on the
-                                            cluster on failures, defaults to --sync-interval.
-    --timeout                             : Maximum time to reconcile the kustomization before
-                                            timing out.
-
-Global Arguments
-    --debug                               : Increase logging verbosity to show all debug logs.
-    --help -h                             : Show this help message and exit.
-    --only-show-errors                    : Only show errors, suppressing warnings.
-    --output -o                           : Output format.  Allowed values: json, jsonc, none,
-                                            table, tsv, yaml, yamlc.  Default: json.
-    --query                               : JMESPath query string. See http://jmespath.org/ for more
-                                            information and examples.
-    --subscription                        : Name or ID of subscription. You can configure the
-                                            default subscription using `az account set -s
-                                            NAME_OR_ID`.
-    --verbose                             : Increase logging verbosity. Use --debug for full debug
-                                            logs.
-
-Examples
-    Create a Kustomization associated with a Kubernetes v2 Flux Configuration
-        az k8s-configuration flux kustomization create --resource-group my-resource-group \
-        --cluster-name mycluster --cluster-type connectedClusters --name myconfig \
-        --kustomization-name my-kustomization-2 --path ./my/path --prune --force
-```
+You can also use [`az k8s-configuration flux kustomization`](/cli/azure/k8s-configuration/flux/kustomization) to update, list, show, and delete kustomizations in a Flux configuration.
 
 ## Multi-tenancy
 
