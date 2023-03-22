@@ -15,7 +15,7 @@ This article describes strategies that developers can use to reconnect devices t
 ## What causes disconnections
 The most common reasons that devices disconnect from IoT Hub are the following:
 
-- Expired SAS token or x.509 certificate. The device's SAS token or x.509 authentication certificate has expired. 
+- Expired SAS token or X.509 certificate. The device's SAS token or X.509 authentication certificate expired. 
 - Network interruption. The device's connection to the network is interrupted.
 - Service disruption. The Azure IoT Hub service experiences errors or is unavailable. 
 - Service reconfiguration. After you reconfigure IoT Hub service settings, it can force devices to disconnect. 
@@ -52,7 +52,10 @@ When disconnected from Hub:
 1. Utilize exponential backoff with jitter delay
 1. Reconnect to Hub
 
-[Diagram of retry workflow for IoT Hub.](https://www.plantuml.com/plantuml/svg/TP1DQeOm48RtSugvm7U18gADBeHI1Rr0I4PDrKIIaIAbTs_Gq7RHPfFXUNyOfWWiFH_R2hFHXBJjVAAceBpPsJWB41PZT-dbXj7AX1-0yJrBjKpU7LOBjpgVPVrG3dMUOzbrBuqeXwPz_TjOrQBfengzhPTs8lW4kAk5ivOKVvSbN9cW_b5ebUSFX5I0ZqV-AmLfJCgT0hY-2wHO8a_NpcuSyTtmZ6-6cJmKP7KyqnS0)
+The following diagram summarizes the reconnection flow:
+
+:::image type="content" source="media/concepts-reconnect-devices/connect-retry-iot-hub.png" alt-text="Diagram of device reconnect flow for IoT Hub." border="false":::
+
 
 ## Hub + DPS reconnection flow
 
@@ -71,8 +74,9 @@ When Hub connection failure:
 1. If its a non-retriable error (401, Unauthorized or 403, Forbidden or 404, Not Found)
     * Reprovision to DPS
 
-[Diagram of retry workflow for IoT Hub with DPS.](https://www.plantuml.com/plantuml/svg/VPDHJy8m58NVxw-upoOa-afm0GT64WEBy6PyA5k1ojOkRQSXXlzkIowksifRUywNdhExTcmiqxPhQjYBYYDlMdl4YfjIYzOA9G7CGSYMQTQWGot7Bq14V63bOQTL9wjSrKgFHglrP3tBCfmKnVCydwpdoqKQdCxo-SgvZbrg9dSSJW2lDsyu66GuBLO0vno_z5cKMcZr8Omhz9CKMuzCr9tcVKGAydtKTjiVun1Axo4dzXjldP4XcguikJ6H-xS204QQ1wCQW97qcqi1GzpGwbFOFRuBQxc6qsLmJzqc65okfEIbZSSs5QPCUNG4XSNU2xTQi4tDhurxeUHLBXWw5VGIBRrCzSYvxCYCEiH4eW00fkJBx_Lsqkk7CKJjW2EEyEusJTD58Iwxzo1WS4JunQ7-xp_rpu1Q11VGx-YzdDFQ_kQEkQowflu6B)
+The following diagram summarizes the reconnection flow:
 
+:::image type="content" source="media/concepts-reconnect-devices/connect-retry-iot-hub-with-DPS.png" alt-text="Diagram of device reconnect flow for IoT Hub with DPS." border="false":::
 
 ## Next steps
 Learn how to use DPS to deploy devices at scale. 
