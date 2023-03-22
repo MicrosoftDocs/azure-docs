@@ -26,7 +26,7 @@ In this step, you'll create an additional packet core instance for a site in you
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network containing the site that you want to add a packet core instance to.
-1. Select the **Sites** blade on the on the resource menu.
+1. Select the **Sites** blade on the resource menu.
 1. Select the **Site** resource that you want to add a packet core instance to.
 1. Select **Add packet core**.
 1. Specify a **Packet core name** and select **Next : Packet core >**.
