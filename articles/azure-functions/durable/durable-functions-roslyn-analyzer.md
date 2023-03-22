@@ -18,7 +18,7 @@ For more detailed information on the analyzer (improvements, releases, bug fixes
 
 ### Visual Studio
 
-For the best experience, you'll want to enable full solution analysis in your Visual Studio settings. This can be done in Tools -> Options -> Text Editor -> C# -> Advanced -> "Entire solution":
+For the best experience, you'll want to enable full solution analysis in your Visual Studio settings. This can be done by going to **Tools** -> **Options** -> **Text Editor** -> **C#** -> **Advanced** -> **"Entire solution"**:
 
 :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-1.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio.":::
 
@@ -30,6 +30,6 @@ To disable the analyzer, refer to these [instructions](/visualstudio/code-qualit
 
 ### Visual Studio Code
 
-Open Settings by clicking the wheel icon on the lower left corner. Search for “rosyln” and “Enable Rosyln Analyzers” should show up as one of the results. Check the enable support box.
+Open **Settings** by clicking the wheel icon on the lower left corner, then search for “rosyln”. “Enable Rosyln Analyzers” should show up as one of the results. Check the enable support box.
 
 :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-vscode.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio Code.":::
