@@ -47,7 +47,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 |**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |- Dependent on the machine learning service you use. <br>- Introduces latency when querying or exporting data. |
 |**Cost**|No extra cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
-|**Limitations**|Can analyze several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs). |
+|**Limitations**|Analyze several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs). |
 | |Linear regression model with a set number of configurable parameters.|Completely customizable machine learning model.  |
 | |Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks.| Query API log query limits depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
@@ -63,20 +63,15 @@ Setting up a machine learning pipeline typically involves all or some of these t
 
 ||Integrated notebook|External machine learning pipeline|Hybrid pipeline: Integrated notebook, external model training|
 |-|-|-|-|
-|Log export needed?|No|Yes|Training – Yes, Scoring - No |
-|Other Azure services|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
-|Pros|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
-|Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
-|When to use|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
+|**Data exported?**|No|Yes|- Training: Yes<br>- Scoring: No |
+|**Uses other Azure services**|Use a notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |- Training: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>- Scoring: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
+|**Advantages**|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
+|**Limitations**|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
+| |For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
 
 
 ### Limitations of KQL machine learning capabilities
 
-- Limited set of algorithms, function customization, and tweak settings. 
-- 
-
-
-You can write your own machine learning by: 
 - Implementing custom machine learning models 
 - Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
 
@@ -85,7 +80,6 @@ You can write your own machine learning by:
 - To analyze log data for various insights such as monitoring service health, usage, or other trends, and anomalies detection using time series on selected parameters. 
 - To gain greater flexibility and deeper insights than out-of-the-box insights tools without running custom algorithms or exporting data. 
 - If you don't need to be an expert in data science or programming languages. 
-
 
 ### Custom ML Models 
 
