@@ -203,11 +203,11 @@ Use one of the following three methods:
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 
 > [!IMPORTANT]
-> Once this change is applied, the client won't be able to connect to storage accounts using on-premises AD DS integration without configuring Kerberos realm mappings. If you want the client(s) to be able to connect to storage accounts using both authentication methods, follow the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds).
+> Once this change is applied, the client(s) won't be able to connect to storage accounts that are configured for on-premises AD DS integration without configuring Kerberos realm mappings. If you want the client(s) to be able to connect to storage accounts configured for AD DS as well as storage accounts configured for Azure AD Kerberos, follow the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds).
 
 ### Configure coexistence with storage accounts using on-premises AD DS
 
-If you want to enable client machines to connect to storage accounts using Azure AD Kerberos and AD DS, follow these steps. If you're only using Azure AD Kerberos, skip this section.
+If you want to enable client machines to connect to storage accounts that are configured for AD DS as well as storage accounts configured for Azure AD Kerberos, follow these steps. If you're only using Azure AD Kerberos, skip this section.
 
 Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings:
 
@@ -215,6 +215,8 @@ Add an entry for each storage account that uses on-premises AD DS integration. U
 - Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
 - Configure the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v <DomainName> /d <StorageAccountEndPoint>`
   - For example, `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v contoso.local /d <your-storage-account-name>.file.core.windows.net`
+
+Changes are not instant, and require a policy refresh or a reboot to take effect.
 
 ## Disable Azure AD authentication on your storage account
 
