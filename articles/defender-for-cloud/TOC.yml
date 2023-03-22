@@ -515,8 +515,8 @@
       href: defender-for-storage-data-sensitivity.md
     - name: Working with Defender for Storage
       items:
-    - name: Enable Defender for Storage
-      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
+      - name: Enable Defender for Storage
+        href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
       - name: Configure Malware Scanning
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a PoC
