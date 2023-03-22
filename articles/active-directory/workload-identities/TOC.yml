@@ -21,7 +21,7 @@
         href: ../conditional-access/workload-identity.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: Conditional access evaluation for workload identities
         href: ../conditional-access/concept-continuous-access-evaluation-workload.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
-      - name: Checking app health with Azure AD recommendations
+      - name: App health recommendations
         href: ../reports-monitoring/howto-use-recommendations.md
 - name: How-to guides
   items:
