@@ -76,6 +76,9 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | SQL on EC2 instance has a user account with commonly used username and known vulnerabilities |SQL on EC2 instance [EC2Name] has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)   |
 |Internet exposed database server allows basic (user/password) authentication method | Database can be accessed through the internet and allows user/password authentication, which exposes the DB to brute force attacks. |
 |Internet exposed EC2 instance has high severity vulnerabilities and a hosted database installed | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
+|Private AWS S3 bucket replicates data to internet exposed and publicly accessible AWS S3 bucket (preview) | An internal AWS S3 bucket replicates its data to another S3 bucket which is reachable from the internet and allows public access. This poses a data risk.
+|RDS snapshot is publicly available to all AWS accounts. | A snapshot of an RDS instance or cluster is publicly accessible by all AWS accounts.
+
 
 ### Azure containers
 
