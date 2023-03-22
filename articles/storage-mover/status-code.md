@@ -13,24 +13,27 @@ ms.custom: template-how-to
 !########################################################
 STATUS: IN REVIEW
 
-CONTENT: final
+CONTENT: final       
 
-REVIEW Stephen/Fabian: not reviewed
+REVIEW Stephen/Fabian: completed
 REVIEW Engineering: not reviewed
-EDIT PASS: not started
+EDIT PASS: completed
+
+Initial doc score: 79
+Current doc score: 100 (552, 0)
 
 !########################################################
 -->
 
 # Troubleshooting Job Run Error Codes
 
-An Azure Storage Mover agent uses string status codes for statuses that are conveyed to the end user. All XDM status codes have the prefix *AZSM* followed by 4 decimal digits. The first decimal digit indicates the high-level scope of the status. Each status code should belong to one of the following scopes:
+An Azure Storage Mover agent uses string status codes for statuses that are conveyed to the end user. All status codes have the prefix *AZSM* followed by four decimal digits. The first decimal digit indicates the high-level scope of the status. Each status code should belong to one of the following scopes:
 
-- Status that applies to the entire agent.<br />These use the scope digit '0' and hence have the prefix "AZSM0".
-- Status that applies to a specific job that is being run by the agent.<br />These use the scope digit '1' and hence have the prefix "AZSM1".
-- Status that applies to a specific file/dir being transferred by a job that is being run by the agent.<br />These use the scope digit '2' and hence have the prefix "AZSM2".
+- Status that applies to the entire agent.<br />These codes use the scope digit '0', and therefore and have the prefix "AZSM0".
+- Status that applies to a specific job run by the agent.<br />These codes use the scope digit '1' and therefore have the prefix "AZSM1".
+- Status that applies to a specific file or directory transferred by a job run by the agent.<br />These codes use the scope digit '2' and therefore have the prefix "AZSM2".
 
-Each of these scopes can then further divide the statuses into categories and sub-categories and typically reserve 20 status codes for each sub-category to accommodate future expansion.
+Each of these scopes further divides statuses into categories and subcategories. Each subcategory typically reserves 20 status codes to accommodate future expansion.
 
 > [!TIP]
 > *AZSM0000* is the special scope-agnostic status code indicating successful operation. This should be used to signify successful operation at any scope/level.
@@ -47,7 +50,7 @@ Each of these scopes can then further divide the statuses into categories and su
 | <a name="AZSM1021"></a>AZSM1021 |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
 | <a name="AZSM1022"></a>AZSM1022 |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
 | <a name="AZSM1023"></a>AZSM1023 |Lease expired for this agent on the target container  | Retry or create a support ticket. |
-| <a name="AZSM1024"></a>AZSM1024 |Authorization failure on claiming the target container | The agent does not have the permission to access the target container. The role assignment is performed automatically while running jobs from the portal. If you are using the APIs/Powershell cmdlets/SDKs, then manually create a 'Storage Blob Data Contributor' role assignment for the agent to access the target storage account blob container. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
+| <a name="AZSM1024"></a>AZSM1024 |Authorization failure on claiming the target container | The agent doesn't have the permission to access the target container. The role assignment is performed automatically while running jobs from the portal. If you're using the APIs/Powershell cmdlets/SDKs, then manually create a 'Storage Blob Data Contributor' role assignment for the agent to access the target storage account blob container. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
 | <a name="AZSM1025"></a>AZSM1025 |Authentication failure on claiming the target container  | Retry or create a support ticket. |
 | <a name="AZSM1026"></a>AZSM1026 |Blob type in the target container not supported by the agent | This blob type is unsupported by the current Storage Mover agent. |
 | <a name="AZSM1040"></a>AZSM1040 |Miscellaneous error while accessing target  | Retry or create a support ticket. |
