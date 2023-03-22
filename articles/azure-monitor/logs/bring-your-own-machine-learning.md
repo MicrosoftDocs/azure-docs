@@ -39,7 +39,7 @@ Use [the Kusto Query Languages's built-in time series analysis and machine learn
 
 To gain greater flexibility and expand your ability to analyze and act on data, you can also implement your own machine learning pipeline on data in Azure Monitor Logs.   
 
-This table compares the advantages and limitations of using KQL's built-in machine learning capabilities  and creating your own machine learning pipeline, and links to tutorials that demonstrate how you can implement each:
+This table compares the advantages and limitations of using KQL's built-in machine learning capabilities and creating your own machine learning pipeline, and links to tutorials that demonstrate how you can implement each:
 
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
@@ -54,12 +54,16 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 ## Create your own machine learning pipeline
 
+If the richness of native KQL functions doesn't meet your business needs, you can implement custom machine learning models. For example, if you need to perform hunting for security attacks when data requires more sophisticated models than linear or other regressions supported by KQL, or if you need to correlate data in Azure Monitor Logs with data from other sources. 
+
 Setting up a machine learning pipeline typically involves all or some of these tasks:
  
 - Data exploration, including advanced analytics and visualization 
 - Model training 
 - Model deployment and scoring 
 - Getting insights from scored data 
+
+This table compares the advantages and limitations of the three using machine learning pipeline implementation approaches:
 
 ||Integrated notebook|External machine learning pipeline|Hybrid pipeline: Integrated notebook, external model training|
 |-|-|-|-|
@@ -80,10 +84,6 @@ Setting up a machine learning pipeline typically involves all or some of these t
 - To analyze log data for various insights such as monitoring service health, usage, or other trends, and anomalies detection using time series on selected parameters. 
 - To gain greater flexibility and deeper insights than out-of-the-box insights tools without running custom algorithms or exporting data. 
 - If you don't need to be an expert in data science or programming languages. 
-
-### Custom ML Models 
-
-If the richness of KQL native functions doesn't meet your business needs, you can implement custom ML models. For example, if you need to perform hunting for security attacks when data requires more sophisticated models than linear or other regressions supported by KQL, or if you need to correlate AzMon logs with data from other sources. 
 
 ### Data Exploration 
 
