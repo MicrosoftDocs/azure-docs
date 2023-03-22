@@ -9,8 +9,9 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 03/10/2023
 ms.author: danlep
-ms.custom: 
+ms.custom:
 ---
+
 # Workspaces in Azure API Management
 
 In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
@@ -137,6 +138,8 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 * Using the authorizations feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
+   
+All resources in an API Management service need to have unique names, even if they are located in different workspaces.
 
 ## Next steps
 
