@@ -16,7 +16,7 @@ Review the requirements on this page before setting up [data-aware security post
 Sensitive data discovery is available in the Defender CSPM and Defender for Storage plans.
 
 - When you enable one of the plans, the Sensitive Data Discovery extension is turned on as part of the plan.
-- If you have existing plans running, the extension will be available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on manually.
+- If you have existing plans running, the extension is available, but turned off by default. After the feature is released, existing plan status will show as “Partial” rather than “Full” until the feature is turned on manually.
 - The feature is turned on at the subscription level.
 
 
@@ -28,17 +28,17 @@ The table summarizes support for data-aware posture management.
 --- | ---
 What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Gen2<br/><br/> AWS S3 buckets
 What permissions do I need for scanning? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
-What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
-What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
+What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
+What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
 What AWS regions are supported? | Asia Pacific (Tokyo); Asia Pacific (Singapore); Asia Pacific (Sydney); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon).<br/><br/> Scanning is done locally in the region.
 Do I need to install an agent? | No, scanning is agentless.
-What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include additional costs outside the respective plan costs.
+What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include other costs outside the respective plan costs.
 
 ## Scanning
 
 - It takes up to 24 hours to see results for a first scan.
 - Refreshed results for a subscription that's already been scanned take up to 48 hours.
-- New Azure storage accounts and wew AWS S3 buckets in a scanned subscription are automatically scanned in the next incremental scan (up to one week).
+- New Azure storage accounts and new AWS S3 buckets in a scanned subscription are automatically scanned in the next incremental scan (up to one week).
 
 
 ## Configuring data sensitivity settings
@@ -47,7 +47,7 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 --- | ---
 Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator
 Add custom information types from Microsoft Purview | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
-Add sensitivity labels from Microsoft Purview | - Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/>- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect. Scope should include Items and Schematized data assets and auto-labeling rules. [Learn more](/microsoft-365/compliance/create-sensitivity-labels) about sensitivity labels in Microsoft Purview.
+Add sensitivity labels from Microsoft Purview | - Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/>- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect. Scope should include Items and Schematized data assets and autolabeling rules. [Learn more](/microsoft-365/compliance/create-sensitivity-labels) about sensitivity labels in Microsoft Purview.
 
 Note that:
 
@@ -60,7 +60,7 @@ Note that:
 
 Defender for Cloud starts discovering and scanning data immediately after enabling a plan, or after turning on the feature in plans that are already running.
 
-- After onboarding the feature, results appear in the Defender for Cloud portal within 24 hours. 
+- After you onboard the feature, results appear in the Defender for Cloud portal within 24 hours. 
 - After files are updated in the scanned resources, data is refreshed within 8 days.
 
 ## Scanning AWS storage
@@ -73,7 +73,7 @@ The CloudFormation template creates a new role in AWS IAM, to allow permission f
 
 - To connect AWS accounts, you need Administrator permissions on the account.
 - The role allows these permissions: S3 read only; KMS decrypt.
-- Defender for Cloud can discover data encrypted by KMB, but it can’t discover data that’s encrypted with a customer key.
+- Defender for Cloud can discover data encrypted by KMB, but it can’t discover data that’s encrypted with a Customer Key.
 
 
 
