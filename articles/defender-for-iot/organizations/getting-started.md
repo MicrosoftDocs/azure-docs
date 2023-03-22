@@ -47,6 +47,8 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
         > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
 
    - **Price plan**: For the sake of this quickstart, select **Trial - 30 days - 1000 assets limit**.
+   
+        Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes. Any usage beyond 30 days incurs a charge based on the monthly plan for 1,000 devices. For more information, see [the Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
     For example:
 

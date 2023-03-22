@@ -368,7 +368,7 @@ Most of the columns have the same name with different capitalization. KQL is cas
 
 #### AppAvailabilityResults
 
-Legacy table: availability
+Legacy table: availabilityResults
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
