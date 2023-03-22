@@ -37,7 +37,8 @@ The following metrics are collected by default from each default target. All oth
    - `container_fs_reads_total`
    - `container_fs_writes_total`
    - `container_fs_reads_bytes_total`
-   - `container_fs_writes_bytes_total|container_cpu_usage_seconds_total`
+   - `container_fs_writes_bytes_total`
+   - `container_cpu_usage_seconds_total`
 
    **kubelet (job=kubelet)**<br>
    - `kubelet_node_name`
