@@ -49,7 +49,7 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Flexible single-field indexes**: Unlike single field indexes in MongoDB Atlas, [single field indexes in Cosmos DB for MongoDB](indexing.md) cover multi-field filter queries. There is no need to create compound indexes for each multi-field filter query. This increases developer productivity.
 
-- **Real time analytics (HTAP) at any scale**: Run analytical workloads against your transactional MongoDB data in real time with no effect on your database. This analysis is fast and inexpensive, due to the cloud native analytical columnar store being utilized, with no ETL pipelines. Easily create Power BI dashboards, integrate with Azure Machine Learning and Azure Cognitive Services, and bring all of your data from your MongoDB workloads into a single data warehousing solution. Learn more about the [Azure Synapse Link](../synapse-link.md).
+- **Real time analytics (HTAP) at any scale**: Run analytics workloads against your transactional MongoDB data in real time with no effect on your database. This analysis is fast and inexpensive, due to the cloud native analytical columnar store being utilized, with no ETL pipelines. Easily create Power BI dashboards, integrate with Azure Machine Learning and Azure Cognitive Services, and bring all of your data from your MongoDB workloads into a single data warehousing solution. Learn more about the [Azure Synapse Link](../synapse-link.md).
 
 - **In-depth monitoring capabilities**: Cosmos DB for MongoDB integrates natively with [Azure Monitor](../../azure-monitor/overview.md) to provide in-depth monitoring capabilities.
 
