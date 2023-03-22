@@ -7,6 +7,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+zone_pivot_groups: spring-apps-tier-selection
 ---
 
 # Quickstart: Deploy your first application to Azure Spring Apps
@@ -19,6 +20,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
+::: zone pivot="sc-consumption-plan"
 This article explains how to deploy a small application to run on Azure Spring Apps.
 
 The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
@@ -34,110 +36,6 @@ This quickstart explains how to:
 
 At the end of this quickstart, you have a working Spring app running on Azure Spring Apps.
 
-## [Azure CLI](#tab/Azure-CLI)
-
-## Prerequisites
-
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Apache Maven](https://maven.apache.org/download.cgi)
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
-
-## Provision an instance of Azure Spring Apps
-
-Use the following steps to create an Azure Spring Apps service instance.
-
-1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../cloud-shell/overview.md).
-
-   ```azurecli-interactive
-   az account show
-   ```
-
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to select an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
-
-   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
-
-1. After you sign in successfully, use the following command to display a list of your subscriptions.
-
-   ```azurecli-interactive
-   az account list --output table
-   ```
-
-1. Use the following command to set your default subscription.
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-ID>
-   ```
-
-1. Use the following command to create a resource group.
-
-   ```azurecli-interactive
-   az group create \
-       --resource-group <name-of-resource-group> \
-       --location eastus
-   ```
-
-1. Use the following command to create an Azure Spring Apps service instance.
-
-   ```azurecli-interactive
-   az spring create \
-       --resource-group <name-of-resource-group> \
-       --name <Azure-Spring-Apps-instance-name>
-   ```
-
-1. Select **Y** to install the Azure Spring Apps extension and run it.
-
-## Create an app in your Azure Spring Apps instance
-
-An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one business app. Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
-
-:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
-
-Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
-
-```azurecli-interactive
-az spring app create \
-    --resource-group <name-of-resource-group> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name hellospring \
-    --assign-endpoint true
-```
-
-## Clone and build the Spring Boot sample project
-
-Use the following steps to clone the Spring Boot sample project.
-
-1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
-
-   ```azurecli-interactive
-   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
-   ```
-
-1. Use the following command to move to the project folder.
-
-   ```azurecli-interactive
-   cd gs-spring-boot/complete
-   ```
-
-1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
-
-   ```azurecli-interactive
-   mvn clean package -DskipTests
-   ```
-
-## Deploy the local app to Azure Spring Apps
-
-Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
-
-```azurecli-interactive
-az spring app deploy \
-    --resource-group <name-of-resource-group> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name hellospring \
-    --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
-```
-
-Deploying the application can take a few minutes.
 
 ## [Standard consumption plan with Azure CLI](#tab/Consumption-Plan)
 
@@ -297,6 +195,129 @@ az spring app deploy \
 
 Deploying the application can take a few minutes.
 
+::: zone-end
+
+::: zone pivot="sc-basic-standard-enterprise"
+This article explains how to deploy a small application to run on Azure Spring Apps.
+
+The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
+
+This quickstart explains how to:
+
+> [!div class="checklist"]
+
+> - Generate a basic Spring project.
+> - Provision a service instance.
+> - Build and deploy an app with a public endpoint.
+> - Clean up the resources.
+
+At the end of this quickstart, you have a working Spring app running on Azure Spring Apps.
+
+## [Azure CLI](#tab/Azure-CLI)
+
+## Prerequisites
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
+## Provision an instance of Azure Spring Apps
+
+Use the following steps to create an Azure Spring Apps service instance.
+
+1. Select **Open Cloudshell** and sign in to your Azure account in [Azure Cloud Shell](../cloud-shell/overview.md).
+
+   ```azurecli-interactive
+   az account show
+   ```
+
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to select an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+
+   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
+
+1. After you sign in successfully, use the following command to display a list of your subscriptions.
+
+   ```azurecli-interactive
+   az account list --output table
+   ```
+
+1. Use the following command to set your default subscription.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-ID>
+   ```
+
+1. Use the following command to create a resource group.
+
+   ```azurecli-interactive
+   az group create \
+       --resource-group <name-of-resource-group> \
+       --location eastus
+   ```
+
+1. Use the following command to create an Azure Spring Apps service instance.
+
+   ```azurecli-interactive
+   az spring create \
+       --resource-group <name-of-resource-group> \
+       --name <Azure-Spring-Apps-instance-name>
+   ```
+
+1. Select **Y** to install the Azure Spring Apps extension and run it.
+
+## Create an app in your Azure Spring Apps instance
+
+An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one business app. Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
+
+:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
+
+Use the following command to specify the app name on Azure Spring Apps as *hellospring*.
+
+```azurecli-interactive
+az spring app create \
+    --resource-group <name-of-resource-group> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name hellospring \
+    --assign-endpoint true
+```
+
+## Clone and build the Spring Boot sample project
+
+Use the following steps to clone the Spring Boot sample project.
+
+1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
+
+   ```azurecli-interactive
+   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
+   ```
+
+1. Use the following command to move to the project folder.
+
+   ```azurecli-interactive
+   cd gs-spring-boot/complete
+   ```
+
+1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
+
+   ```azurecli-interactive
+   mvn clean package -DskipTests
+   ```
+
+## Deploy the local app to Azure Spring Apps
+
+Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
+
+```azurecli-interactive
+az spring app deploy \
+    --resource-group <name-of-resource-group> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name hellospring \
+    --artifact-path target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+```
+
+Deploying the application can take a few minutes.
+
 ## [IntelliJ](#tab/IntelliJ)
 
 ## Prerequisites
@@ -426,6 +447,7 @@ Use the following steps to build and deploy your app.
 To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
+::: zone-end
 
 Once deployment has completed, you can access the app at `https://<service-instance-name>-hellospring.azuremicroservices.io/`.
 
