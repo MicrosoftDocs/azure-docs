@@ -101,8 +101,6 @@
     - name: Defender for Containers support matrices
       displayName: Containers, features availability, environment information
       href: support-matrix-defender-for-containers.md
-    - name: Data-aware security posture support matrices
-      href: support-matrix-data-security-posture.md
   - name: Protect multicloud resources
     items:
     - name: The Defender for Cloud multicloud solution

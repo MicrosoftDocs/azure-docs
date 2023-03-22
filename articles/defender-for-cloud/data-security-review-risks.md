@@ -41,7 +41,7 @@ Learn more about [Cloud Security Explorer](how-to-manage-cloud-security-explorer
 
 ## Discover security alerts about sensitive data
 
-When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize the alerts and recommendations that are related to resources with sensitivity labels and sensitive information types. 
+When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize the alerts and recommendations that are related to resources with sensitivity labels and sensitive information types.
 
 ## Next steps
 
