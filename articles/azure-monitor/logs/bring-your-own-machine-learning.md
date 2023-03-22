@@ -29,14 +29,13 @@ This article describes Azure Monitor's built-in AIOps capabilities and provides 
 |Metric alerts|[Dynamic thresholds for metric alerting](../alerts/alerts-dynamic-thresholds.md)| Learns metrics patterns, automatically sets alert thresholds based on historical data, and identifies anomalies that might indicate service issues.|
 |Virtual machine scale sets|[Predictive autoscale](../autoscale/autoscale-predictive.md)|Forecasts the overall CPU requirements of a virtual machine scale set, based on historical CPU usage patterns, and automatically scales out to meet these needs.|
 
-## Use machine learning in Azure Monitor Logs
+## Use machine learning to analyze and act on data in Azure Monitor Logs
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) is based on Azure Data Explorer, a high-performance, big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time.  
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the the high-performance, Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. 
 
-There are two ways to use machine learning in Azure Monitor Logs:
+Use [the Kusto Query Languages's built-in time series analysis and machine learning functions, operators, and plug-ins](/azure/data-explorer/kusto/query/machine-learning-clustering) to gain insights about service health, usage, capacity and other trends and to generate forecasts and detect anomalies. 
 
-- Run the built-in machine learning capabilities of the Kusto Query Language to detect and analyze anomalies directly inside a Log Analytics workspace.
-- Train and run your own machine learning models on data in a Log Analytics workspace by integrating an external tool or service.   
+Train and run your own machine learning models on data in a Log Analytics workspace by integrating an external tool or service.   
 
 This table compares the two methods of working with machine learning in Azure Monitor Logs and provides links to tutorials that demonstrate how you can implement each method:
 
@@ -49,7 +48,14 @@ This table compares the two methods of working with machine learning in Azure Mo
 |**Cost**|None|- Cost of the machine learning service you use.<br>- The cost of exporting data and ingest data into Azure Monitor Logs, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
-## Create your own machine learning pipeline to act on data in Azure Monitor Logs
+## Create your own machine learning pipeline
+
+Setting up a machine learning pipeline typically includes all or some of these tasks:
+ 
+- Data exploration, including advanced analytics and visualization 
+- Model training 
+- Model deployment and scoring 
+- Getting insights from scored data 
 
 Use [KQL's time series analysis and machine learning functions, operators, and plug-ins](../logs/kql-machine-learning-azure-monitor.md) to gain insights about service health, usage, capacity and other trends and to generate forecasts and detect anomalies. 
 
@@ -76,18 +82,9 @@ You can write your own machine learning by:
 - If you don't need to be an expert in data science or programming languages. 
 
 
-
 ### Custom ML Models 
 
 If the richness of KQL native functions doesn't meet your business needs, you can implement custom ML models. For example, if you need to perform hunting for security attacks when data requires more sophisticated models than linear or other regressions supported by KQL, or if you need to correlate AzMon logs with data from other sources. 
-
-### Tasks to Perform 
-
-You may need to perform the following tasks (all or a subset): 
-- Data Exploration / Advanced Analytics / Visualization 
-- Modeling/ML Training 
-- Model Deployment and Scoring 
-- Getting Insights from Scored Data 
 
 ### Data Exploration 
 
