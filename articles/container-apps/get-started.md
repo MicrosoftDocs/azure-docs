@@ -35,17 +35,21 @@ Create and deploy your first container app with the `containerapp up` command. T
 - Create the Log Analytics workspace
 - Create and deploy the container app using a public container image
 
+Note that if any of these resources already exist, the command will use them instead of creating new ones.
+
+```azurecli
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp up \
   --name my-container-app \
-  --resource-group 'my-container-apps' \
-  --location 'centralus' \
+  --resource-group my-container-apps \
+  --location centralus \
   --environment 'my-container-apps' \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
-  --ingress 'external' \
+  --ingress external \
   --query properties.configuration.ingress.fqdn
 ```
 
@@ -54,12 +58,12 @@ az containerapp up \
 ```powershell
 az containerapp up `
   --name my-container-app `
-  --resource-group 'my-container-apps' `
-  --location 'centralus'`
-  --environment  'my-container-apps' `
+  --resource-group my-container-apps `
+  --location centralus `
+  --environment  my-container-apps `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
-  --ingress 'external' `
+  --ingress external `
   --query properties.configuration.ingress.fqdn
 ```
 

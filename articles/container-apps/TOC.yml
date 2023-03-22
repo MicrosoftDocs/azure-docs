@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items: 
-  - name: With a sample container image
+  - name: Deploy from an existing container image
     expanded: true
     items:
     - name: Azure portal
@@ -139,14 +139,14 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Deploy from an existing container image - CLI
+    - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
-    - name: Build a multiple service app 
+    - name: Build a multiple app scenario
       expanded: true
       items:
         - name: 1. Deploy a backend microservice app
           href: tutorial-code-to-cloud.md
-        - name: 1. Deploy a frontend microservice app
+        - name: 2. Deploy a frontend microservice app
           href: communicate-between-microservices.md
     - name: Deploy microservices with Dapr
       expanded: true
