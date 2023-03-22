@@ -12,13 +12,15 @@ ms.date: 02/28/2023
 ---
 # AIOps and machine learning in Azure Monitor 
 
-[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning. Azure Monitor offers features with built-in machine learning capabilities that provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
+[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
+
+Azure Monitor offers built-in machine learning capabilities that provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
 These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations immediately, without machine learning knowledge and further investment.    
 
-You can also create machine learning pipelines to act on data in Azure Monitor Logs, and introduce other machine learning algorithms, and add analysis and response capabilities to address your business goals.    
+You can also create machine learning pipelines to act on data in Azure Monitor Logs to train your own machine learning models and add analysis and response capabilities that address your IT and business goals.    
 
-This article describes Azure Monitor's built-in AIOps capabilities and provides some examples of how you can create and apply customized machine learning models on top of data in Azure Monitor Logs. 
+This article describes Azure Monitor's built-in AIOps capabilities and explains how you can create and run customized machine learning models on data in Azure Monitor Logs. 
 
 ## Built-in Azure Monitor AIOps capabilities 
 
