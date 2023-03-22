@@ -27,7 +27,7 @@ The basic deployment steps are as follows:
 1. An operator defines a deployment manifest that describes a set of modules and the target devices.
 2. As a result, the IoT Hub service communicates with all targeted devices to configure them with the declared modules.
 3. The IoT Hub service retrieves status from the IoT Edge devices and makes them available to the operator. For example, an operator can see when an Edge device isn't configured successfully or if a module fails during runtime.
-4. At any time, when newly targeted IoT Edge devices come online, they're configured for the deployment.
+4. At any time, when newly targeted IoT Edge devices come online and connect with IoT Hub, they're configured for the deployment.
 
 This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).
 
