@@ -139,3 +139,5 @@ You can modify the coolness period setting for a volume based on the client read
 
     :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
 
+## Next steps
+* [Standard storage with cool access in Azure NetApp Files](cool-access-about.md)
