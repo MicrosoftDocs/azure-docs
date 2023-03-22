@@ -8,26 +8,26 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/21/2023
+ms.date: 03/22/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on
 
-Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to header-based applications using F5 BIG-IP advanced configuration. BIG-IP published applications and Azure AD configuration benefits:
+Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to header-based applications, using F5 BIG-IP advanced configuration. BIG-IP published applications and Azure AD configuration benefits:
 
 * Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
   * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
-* Manage identities and access from on control plane
+* Managed identities and access from on control plane
   * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md)
-* [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
 
@@ -115,13 +115,13 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, pre-pended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign-out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
 
-    ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
+   ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
 
-    >[!Note]
-    >From Traffic Management operating system (TMOS) v16 onward, the SAML SLO endpoint changed to `/saml/sp/profile/redirect/slo`.
+   >[!Note]
+   >From Traffic Management operating system (TMOS) v16 onward, the SAML SLO endpoint changed to `/saml/sp/profile/redirect/slo`.
 
 10. Select **Save**.
-11. Exiting SAML configuration.
+11. Exit SAML configuration.
 12. Skip the SSO test prompt.
 13. To edit the **User Attributes & Claims > + Add new claim**, select the **pen** icon.
 14. For **Name** select **Employeeid**.
@@ -141,8 +141,8 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
    ![Screenshot of User Attributes and Claims information such as surname, email address, identity, etc.](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
-> [!NOTE]
-> Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Azure AD. Define directory memberships and user objects in Azure AD before claims can be issued. See, [Configure group claims for applications by using Azure AD](../hybrid/how-to-connect-fed-group-claims.md)
+   > [!NOTE]
+   > Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Azure AD. Define directory memberships and user objects in Azure AD before claims can be issued. See, [Configure group claims for applications by using Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
 22. In the **SAML Signing Certificate** section, select **Download**. 
 23. The **Federation Metadata XML** file is saved on your computer.
@@ -217,35 +217,35 @@ Create an APM SSO object.
 
    ![Screenshot of Name and Accepted Language input.](./media/f5-big-ip-header-advanced/header-configuration.png)
 
-3. For the new per-request policy, select **Edit**.
+5. For the new per-request policy, select **Edit**.
 
-    ![Screenshot of the Edit option in the Per Request Policy column.](./media/f5-big-ip-header-advanced/header-configuration-edit.png)
+   ![Screenshot of the Edit option in the Per Request Policy column.](./media/f5-big-ip-header-advanced/header-configuration-edit.png)
 
-4. The visual policy editor starts.
-5. Under **fallback**, select the **+** symbol.
+6. The visual policy editor starts.
+7. Under **fallback**, select the **+** symbol.
 
-    ![Screenshot of the plus option under fallback.](./media/f5-big-ip-header-advanced/visual-policy-editor.png)
+   ![Screenshot of the plus option under fallback.](./media/f5-big-ip-header-advanced/visual-policy-editor.png)
 
-5. On the **General Purpose** tab, select **HTTP Headers** > **Add Item**.
+8. On the **General Purpose** tab, select **HTTP Headers** > **Add Item**.
 
-    ![Screenshot of the the HTTP Headers option.](./media/f5-big-ip-header-advanced/add-item.png)
+   ![Screenshot of the the HTTP Headers option.](./media/f5-big-ip-header-advanced/add-item.png)
 
-6. Select **Add new entry**. 
-7. Create three HTTP and Header modify entries.
-8. For **Header Name**, enter **upn**.
-9. For **Header Value**, enter **%{session.saml.last.identity}**.
-10. For **Header Name**, enter **employeeid**.
-11. Fpr **Header Value**, enter **%{session.saml.last.attr.name.employeeid}**
-12. Fpr **Header Name**, enter **group\_authz**.
-13. For **Header Value**, enter **%{session.saml.last.attr.name.`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`}**
+9. Select **Add new entry**.
+10. Create three HTTP and Header modify entries.
+11. For **Header Name**, enter **upn**.
+12. For **Header Value**, enter **%{session.saml.last.identity}**.
+13. For **Header Name**, enter **employeeid**.
+14. Fpr **Header Value**, enter **%{session.saml.last.attr.name.employeeid}**.
+15. Fpr **Header Name**, enter **group\_authz**.
+16. For **Header Value**, enter **%{session.saml.last.attr.name.`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`}**.
 
    >[!Note]
    >APM session variables in curly brackets are case sensitive. We recommend you define attributes in lowercase.
 
    ![Screenshot of header input, under HTTP Header Modify, on the Properties tab.](./media/f5-big-ip-header-advanced/http-header-modify.png)
 
-14. Select **Save**
-15. Close the visual policy editor.
+17. Select **Save**.
+18. Close the visual policy editor.
 
    ![Screenshot of the visual policy editor.](./media/f5-big-ip-header-advanced/per-request-policy-done.png)
 
@@ -263,7 +263,7 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 
 6. For the per-session profile you created, select **Edit**.
 
-    ![Screenshot of the Edit option in the Per-Session Policy column.](./media/f5-big-ip-header-advanced/edit-per-session-profile.png)
+   ![Screenshot of the Edit option in the Per-Session Policy column.](./media/f5-big-ip-header-advanced/edit-per-session-profile.png)
 
 7. The visual policy editor starts.
 8. Under fallback, select the **+** symbol.
@@ -285,7 +285,7 @@ The following instructions are optional. With a LogonID_Mapping configuration, t
 
 1. For the SAML Auth **Successful** branch, select the **+** symbol.
 
-    ![Screenshot of the plus symbol on the SAML Auth Successful branch.](./media/f5-big-ip-header-advanced/create-saml-auth-branch.png)
+   ![Screenshot of the plus symbol on the SAML Auth Successful branch.](./media/f5-big-ip-header-advanced/create-saml-auth-branch.png)
 
 2. In the pop-up select **Assignment** > **Variable Assign** > **Add Item**.
 
@@ -296,121 +296,145 @@ The following instructions are optional. With a LogonID_Mapping configuration, t
 
    ![Screenshot of the Add new entry and change options](./media/f5-big-ip-header-advanced/assign-variable-change.png)
 
-4. For **Custom Variable**, set **session.saml.last.identity**.
-5. For **Session Variable**, set **session.logon.last.username**.
-6. Select **Finished**.
-7. Select**Save**.
-8. On the Access Policy **Successful** branch, select the **Deny** terminal.
-9. Select **Allow**.
-10. Select **Save**.
-11. Select **Apply Access Policy**.
-12. Close the visual policy editor.
+5. For **Custom Variable**, set **session.saml.last.identity**.
+6. For **Session Variable**, set **session.logon.last.username**.
+7. Select **Finished**.
+8. Select**Save**.
+9. On the Access Policy **Successful** branch, select the **Deny** terminal.
+10. Select **Allow**.
+11. Select **Save**.
+12. Select **Apply Access Policy**.
+13. Close the visual policy editor.
 
 ### Back-end pool configuration
 
-For the BIG-IP to know where to forward client traffic, you need to create an APM node object representing the backend server hosting your application, and place that node in an APM pool.
+To enable BIG-IP to forward client traffic correctly, create an APM node object representing the back-end server hosting your application. Place the node in an APM pool.
 
-1. Select **Local Traffic > Pools > Pool List > Create** and provide a name for a server pool object. For example, MyApps_VMs
+1. Select **Local Traffic > Pools > Pool List > Create**. 
+2. For a server pool object, enter a **Name**. For example, MyApps_VMs.
 
-      ![Screenshot shows how apply access policy](./media/f5-big-ip-header-advanced/apply-access-policy.png)
+   ![Screenshot of the Apply Access Policy.](./media/f5-big-ip-header-advanced/apply-access-policy.png)
 
-2. Add a pool member object with the following:
+3. Add a pool member object.
+4. For **Node Name**, enter a name for the server hosting the back-end web application.
+5. For **Address**, enter the IP address of the server hosting the application.
+6. For **Service Port** enter the HTTP/S port the application is listening on.
+7. Select **Add**.
 
-    | Property | Description |
-    |:--------|:----------|
-    | Node Name | Optional display name for the server hosting the backend web application |
-    | Address | IP address of the server hosting the application|
-    | Service Port | The HTTP/S port the application is listening on |
+   ![Screenshot of input for Node Name, Address, Service Port, and the Add option.](./media/f5-big-ip-header-advanced/add-object.png)
 
-    ![Screenshot shows how to add pool member object](./media/f5-big-ip-header-advanced/add-object.png)
-
->[!NOTE]
->Health monitors require additional
-[configuration](https://support.f5.com/csp/article/K13397) not covered in this tutorial.
+   >[!NOTE]
+   >To learn more go to my.f5.com for [K13397: Overview of HTTP health monitor request formatting for the BIG-IP DNS system](https://support.f5.com/csp/article/K13397).
 
 ## Virtual server configuration
 
-A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Any received traffic is processed and evaluated against the APM access profile associated with the virtual server, before being directed according to the policy results and settings.
+A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Received traffic is processed and evaluated with the APM access profile associated with the virtual server. Traffic is directed according to policy.
 
-1. Select **Local Traffic** > **Virtual Servers** > **Virtual Server List** > **Create**
+1. Select **Local Traffic** > **Virtual Servers** > **Virtual Server List** > **Create**.
+2. Enter a virtual server **Name**. 
+3. For **Destination Address/Mask**, select **Host**
+4. Enter an unused IP IPv4 or IPv6 to be assigned to the BIG-IP to receive client traffic.
+5. For **Service Port**, select **Port**, **443**, and **HTTPS**.
 
-2. Provide the virtual server with a **Name,** an unused IP IPv4/IPv6 that can be assigned to the BIG-IP to receive client traffic, and set the **Service Port** to 443
+   ![Screenshot of entries for Name, Destination Address Mask, and Service Port.](./media/f5-big-ip-header-advanced/new-virtual-server.png)
 
-   ![Screenshot shows how to add new virtual server](./media/f5-big-ip-header-advanced/new-virtual-server.png)
+6. For **HTTP Profile (Client)**, select **http**.
+7. For **SSL Profile (Client)**, select the client SSL profile you created, or leave the default for testing.
 
-3. **HTTP Profile**: Set to http
+   ![Screenshot of entries for HTTP Profile Client and SSL Profile Client.](./media/f5-big-ip-header-advanced/ssl-profile.png)
 
-4. **SSL Profile (Client)**: Enables Transport Layer Security    (TLS), enabling services to be published over HTTPS. Select the client SSL profile you created as part of the pre-requisites or leave the default if testing
+8. For **Source Address Translation**, select **Auto Map**.
 
-   ![Screenshot shows the ssl profile client](./media/f5-big-ip-header-advanced/ssl-profile.png)
+   ![Screenshot of the Source Address Translation option.](./media/f5-big-ip-header-advanced/change-source-address.png)
 
-5. Change the **Source Address Translation** option to **Auto Map**
+9. For **Access Policy**, select the **Access Profile** created earlier. This binds the Azure AD SAML preauthentication profile and headers SSO policy to the virtual server.
+10. For **Per-Request Policy**, select **SSO_Headers**.
 
-   ![Screenshot shows the auto map option](./media/f5-big-ip-header-advanced/change-source-address.png)
+   ![Screenshot of entries for Access Profile and Pre-Request Policy.](./media/f5-big-ip-header-advanced/set-access-profile.png)
 
-6. Under **Access Policy**, set the **Access Profile** created earlier. This binds the Azure AD SAML pre-authentication profile and headers SSO policy to the virtual server.
+11. For **Default Pool**, select the back-end pool objects you created.
+12. Select **Finished**.
 
-   ![Screenshot shows how to set the access profile](./media/f5-big-ip-header-advanced/set-access-profile.png)
-
-7. Finally, set the **Default Pool** to use the backend pool objects created in the previous section, then select **Finished**.
-
-   ![Screenshot shows how to set default pool](./media/f5-big-ip-header-advanced/default-pool.png)
+   ![Screenshot of the Default Pool option under Resources.](./media/f5-big-ip-header-advanced/default-pool.png)
 
 ## Session management
 
-A BIG-IPs session management setting is used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. You can create your own policy by heading to **Access Policy** > **Access Profiles** and selecting your application from the list.
+Use the BIG-IPs session management setting to define the conditions for user session termination or continuation. Create policy with **Access Policy** > **Access Profiles**. Sselect an application from the list.
 
-Regarding SLO functionality, having defined a SLO URI in Azure AD will ensure an IdP initiated sign out from the MyApps portal also terminates the session between the client and the BIG-IP APM. Having imported the application's federation metadata.xml then provides the APM with the Azure AD SAML log-out endpoint for SP initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when a user signs-out.
+Regarding SLO functionality, a SLO URI in Azure AD ensures an IdP initiated sign-out from the MyApps portal terminates the session between the client and the BIG-IP APM. The imported application federation metadata.xml provides the APM with the Azure AD SAML sign-out endpoint, for SP initiated sign-outs. Therefore, enable the APM to know when a user signs out.
 
-Consider a scenario where a BIG-IP web portal isn't used, the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this, so the application session could easily be reinstated through SSO. For this reason SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required.
+If there's no BIG-IP web portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. The application session can be reinstated through SSO. Therefore, SP-initiated sign-out needs careful consideration. 
 
-One way of achieving this would be to add an SLO function to your
-applications sign out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. The SAML sign-out endpoint for your tenant can be found in **App Registrations** > **Endpoints**.
+To ensure sessions terminate securely, add an SLO function to your application **Sign out** button. Enable it to redirect the client to the Azure AD SAML sign-out endpoint. For the SAML sign-out endpoint for your tenant, go to **App Registrations** > **Endpoints**.
 
-If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in [article K42052145](https://support.f5.com/csp/article/K42052145) and
-[article K12056](https://support.f5.com/csp/article/K12056).
+If you can't change the app, enable the BIG-IP to listen for the app sign-out call and trigger SLO. To learn more:
 
-## Summary
+* Go to support.f5.com for [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
+* Go to my.f5.com for [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 
-This last step provides break down of all applied settings before they are committed. Select **Deploy** to commit all settings and verify that the application has appeared in your tenant.
+## Deploy
 
-Your application is now published and accessible via SHA, either directly via its URL or through Microsoft's application portals.
+1. Select **Deploy** to commit settings. 
+2. Verify the application appears in your tenant. 
+3. The application is published and accessible via SHA, with its URL or Microsoft portals.
 
+## Test
 
-## Next steps
+1. As a user, select the application external URL, or in the MyApps portal select the application icon. 
+2. Authenticate to Azure AD.
+3. You are redirected to the BIG-IP virtual server for the app and signed in with SSO.
+4. The injected header output appears by the header-based application.
 
-As a user, launch a browser and connect to the application's external URL or select the application's icon in the Microsoft MyApps portal. After authenticating to Azure AD, you'll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
-The output of the injected headers displayed by our headers-based application is shown.
+   ![Screenshot of Server Variables, such as UPN, Employee ID, and Group Authorization.](./media/f5-big-ip-header-advanced/mytravel-example.png)
 
-![Screenshot shows the output](./media/f5-big-ip-header-advanced/mytravel-example.png)
-
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, in that way forcing a strict path through the BIG-IP.
+For increased security, block direct access to the application, enforcing a path through the BIG-IP.
 
 ## Troubleshooting
 
-Failure to access the SHA protected application could be down to any number of potential factors, including a
-misconfiguration.
+Use the following guidance for troubleshooting.
 
-- BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level by heading to **Access Policy** > **Overview** > **Event Logs** > **Settings**. Select the row for your published application then **Edit** > **Access System Logs**. Select **Debug**
-from the SSO list then **OK**. You can now reproduce your issue before looking at the logs but remember to switch this back when finished.
+### Log verbosity
 
-- If you see a BIG-IP branded error after being redirected following Azure AD pre-authentication, it's likely the issue relates to SSO from Azure AD to the BIG-IP. Navigate to **Access** > **Overview** > **Access reports** and run the report for the last hour to see logs provide any
-clues. The **View session variables** link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
+BIG-IP logs have information to help isolate authentication and SSO issues. Increase the log verbosity level:
 
-- If you don't see a BIG-IP error page, then the issue is probably more related to SSO from the BIG-IP to the backend application. In which case you should head to **Access Policy** > **Overview** > **Active Sessions** and select the link for your active session. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers.
+1. Go to **Access Policy** > **Overview** > **Event Logs**.
+2. Select **Settings**. 
+3. Select the row of your published application.
+4. Select **Edit** > **Access System Logs**. 
+5. From the SSO list, select **Debug**.
+6. Select **OK**. 
+7. Reproduce the issue.
+8. Review the logs.
+9. When finished, revert the settings.
 
-See [BIG-IP APM variable assign
-examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107)
-and [F5 BIG-IP session variables
-reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+### BIG-IP error message
 
-## Additional resources
+If a BIG-IP error appears after redirection, the issue likely relates to SSO from Azure AD to the BIG-IP. 
 
-For more information refer to these articles:
+1. Navigate to **Access Policy** > **Overview**.
+2. Select **Access reports**.
+3. Run the report for the last hour.
+4. Review the logs for clues. 
+5. For your session, select the **View session variables** link. 
+6. Verify the APM receives the expected claims from Azure AD.
 
-- [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
+### No BIG-IP error message
 
-- [What is Conditional Access?](../conditional-access/overview.md)
+If no BIG-IP error message appears, then the issue is probably more related to SSO from the BIG-IP to the backend application. 
 
-- [Microsoft Zero Trust framework to enable remote
-  work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
+1. Navigate to **Access Policy** > **Overview**.
+2. Select **Active Sessions**.
+3. Select the link for your active session. 
+4. Select the **View Variables** link to determine any SSO issues. 
+5. Confirm the BIG-IP APM fails or succeeds to obtain the correct user and domain identifiers.
+
+Learn more:
+
+* Go to devcentral.f5.com for [APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107)
+* Go to techdocs.f5.com for [BIG-IP Access Policy Manager: Visual Policy Editor, Session Variables](https://techdocs.f5.com/bigip-16-1-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html#GUID-4C5F6ACA-C645-4BD5-B7A4-B41760C264C0)
+
+## Resources
+
+* [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless)
+* [What is Conditional Access?](../conditional-access/overview.md)
+* [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
