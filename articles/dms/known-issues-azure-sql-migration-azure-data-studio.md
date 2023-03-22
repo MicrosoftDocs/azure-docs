@@ -30,7 +30,7 @@ Known issues and troubleshooting steps associated with the Azure SQL Migration e
 
 - **Message**: `Migration for Database 'DatabaseName' failed with error cannot find server certificate with thumbprint.`
 
-- **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) hasn't been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data.
+- **Cause**: Before migrating data, you need to migrate the certificate of the source SQL Server instance from a database that is protected by Transparent Data Encryption (TDE) to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
 - **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).  
 
@@ -101,7 +101,7 @@ RECONFIGURE;
 
 - **Message**: `Failed to test connections using provided Integration Runtime. Error details: 'Remote name could not be resolved.'`
 
-- **Cause**: The Self-Hosted Integration Runtime can't connect to the service back end. This issue is caused by network settings in the firewall.
+- **Cause**: Your network settings in the firewall are causing the Self-Hosted Integration Runtime to be unable to connect to the service back end.
 
 - **Recommendation**: There's a Domain Name System (DNS) issue. Contact your network team to fix the issue. For more information, see [Troubleshoot Self-Hosted Integration Runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md).
 
@@ -263,26 +263,26 @@ WHERE STEP in (3,4,6);
 
 - **Cause**: The Azure SQL target is unable to connect to blob storage.
 
-- **Recommendation**: Confirm that target network settings allow access to blob storage.  For example, if you are migrating to a SQL Server on Azure VM target, ensure that outbound connections on the Virtual Machine are not being blocked.
+- **Recommendation**: Confirm that target network settings allow access to blob storage.  For example, if you're migrating to a SQL Server on Azure VM target, ensure that outbound connections on the Virtual Machine aren't being blocked.
 
 
-- **Message**: Failed to create restore job. Unable to read blobs in storage container, exception: The remote name could not be resolved.
+- **Message**: Failed to create restore job. Unable to read blobs in storage container, exception: The remote name couldn't be resolved.
 
 - **Cause**: The Azure SQL target is unable to connect to blob storage.
 
-- **Recommendation**: Confirm that target network settings allow access to blob storage.  For example, if migrating to SQL VM, ensure that outbound connections on VM are not being blocked.
+- **Recommendation**: Confirm that target network settings allow access to blob storage.  For example, if migrating to SQL VM, ensure that outbound connections on VM aren't being blocked.
 
 
 - **Message**: `Migration for Database <Database Name> failed with error 'Migration cannot be completed because provided backup file name <Backup File Name> should be the last restore backup file <Last Restore Backup File Name>'`.
 
-- **Cause**: The most recent backup was not specified in the backup settings.
+- **Cause**: The most recent backup wasn't specified in the backup settings.
 
 - **Recommendation**: Specify the most recent backup file name in backup settings and retry the operation.
 
 
 - **Message**: `Operation failed: errorCode: Ext_RestoreSettingsError, message: RestoreId: 1111111-aaaa-bbbb-cccc-dddddddd, OperationId: 2222222-aaaa-bbbb-cccc-dddddddd, Detail: Unable to read blobs in storage container, exception: Unable to connect to the remote server;Unable to connect to the remote server;A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 11.111.11.111:443.`
 
-- **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It is also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in you DNS server, your SQL Server on Azure VM target will have no chance to resolve the remote storage blob endpoint.
+- **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
 
