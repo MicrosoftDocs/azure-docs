@@ -59,6 +59,8 @@
           href: tutorial-import-notebooks.md
     - name: Deploy app on AKS cluster using Bicep
       href: tutorial-deploy-app-bicep-aks.md
+    - name: KQL transformations for workspace data
+      href: ../tutorial-log-transformation.md
 - name: Samples
   items:
     - name: .NET
