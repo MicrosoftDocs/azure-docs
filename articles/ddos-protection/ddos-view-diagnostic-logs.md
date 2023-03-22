@@ -1,6 +1,6 @@
 ---
-title: 'View Azure DDoS Protection diagnostic logs'
-description: Learn how to view DDoS protection diagnostic logs.
+title: 'View Azure DDoS Protection logs in Log Analytics workspace'
+description: Learn how to view DDoS protection diagnostic logs in Log Analytics workspace.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
@@ -10,7 +10,7 @@ ms.date: 03/22/2023
 ms.author: abell
 ---
 
-# View Azure DDoS Protection logs in log analytics workspace
+# View Azure DDoS Protection logs in Log Analytics workspace
 
 In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
 ## Prerequisites
@@ -24,7 +24,7 @@ In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, i
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
-1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
+1. Under the **Log Analytics workspaces** blade, select your workspace.
 1. On the left-side tab, select **Logs**. Here you'll see the query explorer. Exit out the *Queries* pane to utilize the *Logs* page. 
 
     :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-select-logs-in-workspace.png" alt-text="Screenshot of viewing a log analytics workspace.":::
