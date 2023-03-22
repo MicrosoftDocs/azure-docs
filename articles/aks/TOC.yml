@@ -221,6 +221,8 @@
           href: free-standard-pricing-tiers.md
         - name: Use Draft (preview)
           href: draft.md
+        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+          href: draft-devx-extension-aks.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
         - name: Upgrade the node image
