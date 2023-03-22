@@ -29,10 +29,12 @@ The start of a machine learning project typically involves exploratory data anal
 
 ## Prerequisites
 
+1. To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    * Or,  open  **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
 
-[!INCLUDE [notebook prerequisites](includes/tutorial-notebook-prereq.md)] **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
-
-[!INCLUDE [notebook set kernel](includes/tutorial-notebook-set-kernel.md)] 
+[!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/explore-data.ipynb -->
 

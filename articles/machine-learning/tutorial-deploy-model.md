@@ -37,13 +37,16 @@ The steps you'll take are:
 
 ## Prerequisites
 
-[!INCLUDE [notebook prerequisites](includes/tutorial-notebook-prereq.md)] **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
+1. To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
+1. Open or create a notebook in your workspace:
+    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+    * Or,  open  **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
     
 1. If you already completed the earlier training tutorial, [Train a model](tutorial-train-model.md), you can skip to the next prerequisite.
 
 1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
-[!INCLUDE [notebook set kernel](includes/tutorial-notebook-set-kernel.md)] 
+[!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
