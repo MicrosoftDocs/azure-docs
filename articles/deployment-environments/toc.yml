@@ -37,7 +37,7 @@ items:
       href: how-to-configure-managed-identity.md
     - name: Configure dev center environment types
       href: how-to-configure-devcenter-environment-types.md
-    - name: Configure project environment types
+    - name: Add and delete project environment types
       href: how-to-configure-project-environment-types.md
     - name: Provide access to Dev Managers
       href: how-to-configure-project-admin.md

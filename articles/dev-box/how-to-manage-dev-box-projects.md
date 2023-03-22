@@ -1,5 +1,5 @@
 ---
-title: How to manage a dev box project
+title: Manage a dev box project
 titleSuffix: Microsoft Dev Box
 description: This article describes how to create, and delete Microsoft Dev Box Preview dev box projects.
 services: dev-box

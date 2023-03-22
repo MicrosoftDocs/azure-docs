@@ -12,7 +12,7 @@ ms.custom: devdivchpfy22, ignite-2022
 
 ---
 
-# Add and configure a catalog item
+# Add and configure a catalog item 
 
 In Azure Deployment Environments Preview, you can use a [catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) templates called [*catalog items*](concept-environments-key-concepts.md#catalog-items).
 

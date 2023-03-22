@@ -1,5 +1,5 @@
 ---
-title: Manage network connections
+title: Manage a network connection
 titleSuffix: Microsoft Dev Box
 description: This article describes how to create, delete, attach, and remove Microsoft Dev Box Preview network connections.
 services: dev-box

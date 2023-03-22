@@ -1,5 +1,5 @@
 ---
-title: How to manage a dev box auto-stop schedule
+title: Manage a dev box auto-stop schedule
 titleSuffix: Microsoft Dev Box
 description: This article describes how to automatically shutdown a pool of dev boxes by using a dev box auto-stop schedule.
 services: dev-box

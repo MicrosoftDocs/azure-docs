@@ -1,5 +1,5 @@
 ---
-title: Provide access to dev managers
+title: Provide access for dev managers to projects
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure access for dev managers by using the DevCenter Project Admin built-in role.
 ms.service: deployment-environments
@@ -10,7 +10,7 @@ ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
-# Provide access to dev managers 
+# Provide access for dev managers to Deployment Environments projects
 
 In Azure Deployment Environments, you can create multiple projects associated with the dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure [project environment types](concept-environments-key-concepts.md#project-environment-types) to enable developers to create various types of [environments](concept-environments-key-concepts.md#environments) and apply settings to each environment type. 
 
