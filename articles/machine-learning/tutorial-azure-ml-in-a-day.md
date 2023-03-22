@@ -38,28 +38,12 @@ The steps you'll take are:
 
 ## Prerequisites
 
-1.  To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.  
+1. To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
 1. Open or create a notebook in your workspace:
     * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
-    *  Or,  open **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
+    * Or, open **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
 
-1. On the top bar above your opened notebook, create a compute instance if you don't already have one.
-
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-compute.png" alt-text="Screenshot shows how to create a compute instance.":::
-
-## Set your kernel
-
-1. If the compute instance is stopped, select **Start compute** and wait until it is running.
-
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
-
-1. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
-
-    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="media/tutorial-azure-ml-in-a-day/set-kernel.png":::
-
-> [!Important]
-> The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
->
+[!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/quickstart.ipynb -->
 
