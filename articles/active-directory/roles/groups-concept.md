@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2023
 ms.author: rolyon
 ms.reviewer: vincesm

@@ -2,6 +2,8 @@
 title: Data collection transformations
 description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 06/29/2022
 ms.reviwer: nikeist
 
