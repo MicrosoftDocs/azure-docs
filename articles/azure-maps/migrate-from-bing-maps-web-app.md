@@ -126,7 +126,7 @@ The following is a collection of code samples for each platform that cover commo
 
 ### Load a map
 
-Loading a map in both SDK’s follows the same set of steps;
+Loading a map in both SDKs follows the same set of steps;
 
 * Add a reference to the Map SDK.
 * Add a `div` tag to the body of the page that will act as a placeholder for the map.
