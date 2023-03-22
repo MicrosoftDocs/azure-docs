@@ -7,7 +7,6 @@ ms.service: data-manager-for-agri
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/22/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
-ms.custom: references_regions
 ---
 
 # Create a private endpoint for Azure Data Manager for Agriculture
