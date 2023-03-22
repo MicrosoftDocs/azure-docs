@@ -550,7 +550,7 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
-:::moniker range="azuremel-api-2"
+:::moniker range="azureml-api-2"
 Now that you've created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
 :::moniker-end
 :::moniker range="azureml-api-1"

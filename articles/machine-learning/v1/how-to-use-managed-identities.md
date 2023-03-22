@@ -169,7 +169,7 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
+Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md).
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
