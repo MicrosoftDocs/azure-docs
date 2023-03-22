@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/31/2023
+ms.date: 3/17/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -29,11 +29,7 @@ If you experience problems while using the Azure IoT Edge service, there are sev
 
 Azure IoT Edge modules are implemented as containers, so IoT Edge needs a container engine to launch them. Microsoft provides a container engine, moby-engine, to fulfill this requirement. This container engine is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They're also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft can't ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
 
-<br>
-<center>
-
-![The Moby engine as container runtime](./media/support/only-moby-for-production.png)
-</center>
+:::image type="content" source="./media/support/only-moby-for-production.png" alt-text="Screenshot of the Moby engine as a container runtime.":::
 
 ## Operating systems
 
@@ -49,9 +45,6 @@ Azure IoT Edge runs on most operating systems that can run containers; however, 
 ### Tier 1
 
 The systems listed in the following tables are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
-
-Azure IoT Edge version 1.2 and later only supports modules built as Linux containers. [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
-
 
 #### Linux containers
 
@@ -73,12 +66,9 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
 
->[!NOTE]
->Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1.
-
 #### Windows containers
 
-IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers aren't supported.
+We no longer support Windows containers. [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
 
 ### Tier 2
 
@@ -110,15 +100,11 @@ The following table lists the currently supported releases. IoT Edge release ass
 | Release notes and assets | Type | Release Date | End of Support Date |
 | ------------------------ | ---- | ------------ | ------------------- |
 | [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 |
-| [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Long-term support (LTS) | February 2021 | December 13, 2022 |
 
 For more information on IoT Edge version history, see, [Version history](version-history.md#version-history).
 
-IoT Edge 1.1 is the first long-term support (LTS) release channel. This version introduced no new features, but will receive security updates and fixes to regressions. IoT Edge 1.1 LTS uses .NET Core 3.1, and will be supported until December 13, 2022 to match the [.NET Core and .NET 5 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
-
 > [!IMPORTANT]
 > * Every Microsoft product has a lifecycle. The lifecycle begins when a product is released and ends when it's no longer supported. Knowing key dates in this lifecycle helps you make informed decisions about when to upgrade or make other changes to your software. IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/policies/modern).
-> * With the release of a long-term support channel, we recommend that all current customers running 1.0.x upgrade their devices to 1.1.x to receive ongoing support.
 
 IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](/dotnet/api/overview/azure/iot/client). The following list shows the version of the client SDK that each release is tested against:
 
@@ -139,11 +125,7 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 
 Azure IoT Edge can be run in virtual machines, such as an [Azure Virtual Machine](../virtual-machines/index.yml). Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This requirement is the same as when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
 
-<center>
-
-![Azure IoT Edge in a VM](./media/support/edge-on-vm-linux.png)
-
-</center>
+:::image type="content" source="./media/support/edge-on-vm-linux.png" alt-text="Screenshot of an Azure I o T Edge in a virtual machine.":::
 
 ## Minimum system requirements
 

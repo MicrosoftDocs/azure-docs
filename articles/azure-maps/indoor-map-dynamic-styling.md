@@ -138,7 +138,7 @@ Learn more by reading:
 <!--[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 [A Creator resource]: how-to-manage-creator.md
-[Sample Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples-->
+[Sample Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0-->
 [How to use the Indoor Map module]: how-to-use-indoor-module.md
 [Postman]: https://www.postman.com/
 [How to create a feature stateset]: how-to-creator-feature-stateset.md

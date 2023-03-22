@@ -7,13 +7,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 03/21/2023
 
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: librown
+ms.reviewer: librown; tilarso
 
 ms.collection: M365-identity-device-management
 ---
@@ -78,7 +78,19 @@ To enable the authentication method for passwordless phone sign-in, complete the
 
 ## User registration 
 
-Users register themselves for the passwordless authentication method of Azure AD. For users who already registered the Microsoft Authenticator app for [multi-factor authentication](./concept-mfa-howitworks.md), skip to the next section, [enable phone sign-in](#enable-phone-sign-in). To register the Microsoft Authenticator app, follow these steps:
+Users register themselves for the passwordless authentication method of Azure AD. For users who already registered the Microsoft Authenticator app for [multi-factor authentication](./concept-mfa-howitworks.md), skip to the next section, [enable phone sign-in](#enable-phone-sign-in). 
+
+### Direct phone Sign-in registration 
+Users can register for passwordless phone sign-in directly within the Microsoft Authenticator app  without the need to first registering Microsoft Authenticator with their account, all while never accruing a password. Here's how:
+1. Acquire a [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) from your Admin or Organization. 
+2. Download and install the Microsoft Authenticator app on your mobile device. 
+3. Open Microsoft Authenticator and click **Add account** and then choose **Work or school account.**
+4. Choose **Sign in." 
+5. Follow the instructions to sign-in with your account using the Temporary Access Pass provided by your Admin or Organization. 
+6. Once signed-in, continue following the additional steps to set up phone sign-in. 
+
+### Guided registration with My Sign-ins 
+To register the Microsoft Authenticator app, follow these steps:
 
 1. Browse to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
 1. Sign in, then select **Add method** > **Authenticator app** > **Add** to add Microsoft Authenticator.
