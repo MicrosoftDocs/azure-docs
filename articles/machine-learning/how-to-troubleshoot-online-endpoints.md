@@ -273,6 +273,8 @@ When you are creating a managed online endpoint, role assignment is required for
 
 Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
 
+For Kubernetes online endpoints, there is the endpoint quota boundary at the cluster level as well, you can check the [Kubernetes quota](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints) section for more details. 
+
 #### Region-wide VM capacity
 
 Due to a lack of Azure Machine Learning capacity in the region, the service has failed to provision the specified VM size. Retry later or try deploying to a different region.
