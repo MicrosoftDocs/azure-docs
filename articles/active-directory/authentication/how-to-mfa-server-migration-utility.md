@@ -1,5 +1,5 @@
 ---
-title: How to use the MFA Server Migration Utility to migrate to Azure AD MFA - Azure Active Directory
+title: How to use the MFA Server Migration Utility to migrate to Azure AD MFA
 description: Step-by-step guidance to migrate MFA server settings to Azure AD using the MFA Server Migration Utility.
 
 services: multi-factor-authentication

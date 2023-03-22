@@ -1,5 +1,5 @@
 ---
-title: Group membership for Azure AD dynamic groups with memberOf - Azure AD
+title: Group membership for Azure AD dynamic groups with memberOf
 description: How to create a dynamic membership group that can contain members of other groups in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
