@@ -12,16 +12,13 @@ services: azure-maps
 
 # Using the Azure Maps Drawing Error Visualizer with Creator
 
-
 The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/v2/conversion) returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites
 
-Before you can download the Drawing Error Visualizer, you'll need to:
-
-1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator resource](how-to-manage-creator.md)
+* An [Azure Maps account]
+* A [subscription key]
+* A [Creator resource]
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
@@ -89,3 +86,7 @@ Learn more by reading:
 
 > [!div class="nextstepaction"]
 > [Creator for indoor maps](creator-indoor-maps.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Creator resource]: how-to-manage-creator.md
