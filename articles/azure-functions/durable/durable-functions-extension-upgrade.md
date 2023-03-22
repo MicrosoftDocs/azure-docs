@@ -9,7 +9,14 @@ ms.author: azfuncdf
 
 # Upgrade Durable Functions extension version
 
-Many issues users experience with Durable Functions can be resolved simply by upgrading to the latest version of the extension, which often contains important bug fixes and performance improvements. You can do the following to get the latest version of the Durable Functions extension. 
+
+Many issues users experience with Durable Functions can be resolved simply by upgrading to the latest version of the extension, which often contains important bug fixes and performance improvements. You can follow the instructions in this article to get the latest version of the Durable Functions extension. 
+
+Changes to the extension can be found in the [Release page](https://github.com/Azure/azure-functions-durable-extension/releases) of the `Azure/azure-functions-durable-extension` repo. You can also configure to receive notifications whenever there's a new extension release by going to the **Releases page**, clicking on **Watch**, then on **Custom**, and finally selecting the **Releases** filter:
+
+:::image type="content" source="media/durable-functions-best-practice/watch-releases-1.png" alt-text="Screenshot of step 1 to set up release notifications.":::
+
+:::image type="content" source="media/durable-functions-best-practice/watch-releases-2.png" alt-text="Screenshot of step 2 to set up release notifications.":::
 
 ## Reference the latest NuGet packages (.NET apps only)
 .NET apps can get the latest version of the Durable Functions extension by referencing the latest NuGet package: 
@@ -17,7 +24,7 @@ Many issues users experience with Durable Functions can be resolved simply by up
 * [.NET in-process worker](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
 * [.NET isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask)
 
-If you're using the Netherite or MSSQL [storage providers](durable-functions-storage-providers.md) (instead of Azure Storage), you need to reference the following:
+If you're using the Netherite or MSSQL [storage providers](durable-functions-storage-providers.md) (instead of Azure Storage), you need to reference one of the following:
 
 * [Netherite, in-process worker](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions)
 * [Netherite, isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite)
@@ -42,7 +49,7 @@ Because applications normally use more than one extension, it's recommended that
 func extensions install
 ```
 
-If you want to upgrade only the Durable Functions extension, you can do the following: 
+However, if you **only** wish to install the latest Durable Functions extension release, you would run the following command: 
 
 ```console
 func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
@@ -54,10 +61,6 @@ For example:
 func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
 ```
 
-Changes to the Durable Functions extension can be found in the repo's [release notes](https://github.com/Azure/azure-functions-durable-extension/releases). You can also receive notifications whenever there's a new extension release by going to the Releases page -> Watch -> check “Releases”:
 
-:::image type="content" source="media/durable-functions-best-practice/watch-releases-1.png" alt-text="Screenshot of step 1 to set up release notifications.":::
-
-:::image type="content" source="media/durable-functions-best-practice/watch-releases-2.png" alt-text="Screenshot of step 2 to set up release notifications.":::
 
 
