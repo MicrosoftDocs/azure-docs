@@ -26,7 +26,7 @@ Depending on the version of Visual Studio, you may also see "Enable full solutio
 
 :::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-2.png" alt-text="Screenshot of configuring Roslyn Analyzer in another version of Visual Studio.":::
 
-To disable the analyzer, refer to these [instructions](/visualstudio/code-quality/in-source-suppression-overview.md). 
+To disable the analyzer, refer to these [instructions](/visualstudio/code-quality/in-source-suppression-overview). 
 
 ### Visual Studio Code
 
