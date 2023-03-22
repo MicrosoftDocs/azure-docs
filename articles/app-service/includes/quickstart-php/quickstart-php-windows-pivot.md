@@ -1,3 +1,5 @@
+[!INCLUDE [php-eol-notice](../php-windows-eol-notice.md)]
+
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Windows.
 
 You create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
