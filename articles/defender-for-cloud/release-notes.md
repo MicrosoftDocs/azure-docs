@@ -21,6 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in March include:
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
+- [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
@@ -54,6 +55,11 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 - Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
 
 [Learn more](concept-data-security-posture.md) about data-aware security posture.
+
+### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
+
+Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.
+Learn how to [create custom recommendations and standards](creating-custom-recommendations.md)
 
 ### Some regulatory compliance standards are now available in government clouds
 

@@ -6,11 +6,13 @@ ms.author: alizabernstein
 author: alizabernstein
 ms.date: 03/22/2022
 ---
-# Creat customer recommendations in Microsoft Defender for Cloud
+# Create custom recommendations and security standards in Microsoft Defender for Cloud
 
 Recommendations give you suggestions on how to better secure your resources. 
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available regulatory standards and also can create their own custom standards and recommendations to meet specific internal requirements.   
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. 
+
+Security teams can use the readily available recommendations and regulatory standards and also can create their own custom recommendations and standards to meet specific internal requirements in their organization.   
 
 Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.  
 
@@ -31,59 +33,58 @@ There are three types of resources to create and manage custom recommendations:
 | Required Roles & Permissions | Subscription Owner / Contributor |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
-## Create a n customer standard
-1. Navigate to Microsoft Defender for Cloud > environment settings. 
+## Create a custom recommendation 
 
-1. Select the relevant account / project 
+1. In Microsoft Defender for Cloud, select Environment Settings. 
 
-1. Select ‘Standards’ 
+1. Select the relevant account / project. 
 
-1. Select ‘Add’ -> ‘Standard’ 
+1. Select Standards.
 
-    :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="Manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
+1. Select Create and then select Recommendation.
 
-1. Once completed, a notification appears informing you whether the issue is resolved.
+    :::image type="content" source="./media/create-custom-recommendations/select-create-recommendation.png" alt-text="Screenshot showing where to select Create and then Recommendation." lightbox="./media/create-custom-recommendations/select-create-recommendation.png":::
 
-## Fix button
+1. Fill in the recommendation details (e.g., name, severity) and select the standard/s you’d like to add this recommendation to. 
 
-To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option.
+    :::image type="content" source="./media/create-custom-recommendations/fill-info-recommendation.png" alt-text="Screenshot showing where to fill in description details of recommendation." lightbox="./media/create-custom-recommendations/fill-info-recommendation.png":::
 
-**Fix** helps you quickly remediate a recommendation on multiple resources.
+1. Write a KQL query that will define the recommendation logic. You can write the query in the “recommendation query” text box or use the query editor and then copy and paste the query from the editor. 
+    
+    :::image type="content" source="./media/create-custom-recommendations/open-query-editor.png" alt-text="Screenshot showing where to open the query editor." lightbox="./media/create-custom-recommendations/open-query-editor.png":::
 
-To implement a **Fix**:
+   > [!TIP]
+   > If you’d like to create a new query, click the ‘open   query editor’ button. The editor will contain data on all the native APIs we support, to assist in constructing the queries. The data will appear in the same structure as contracted in the API.  
 
-1. From the list of recommendations that have the **Fix** action icon :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
+1. Click Next and review the recommendations details. 
+    
+    :::image type="content" source="./media/create-custom-recommendations/review-recommendation.png" alt-text="Screenshot showing where to review the recommendation details." lightbox="./media/create-custom-recommendations/review-recommendation.png":::
 
-    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
+1. Select Save. 
+ 
+## Create a custom standard
 
-1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Fix**.
+1. In Microsoft Defender for Cloud, select Environment Settings. 
 
-    > [!NOTE]
-    > Some of the listed resources might be disabled, because you don't have the appropriate permissions to modify them.
+1. Select the relevant account / project. 
 
-1. In the confirmation box, read the remediation details and implications.
+1. Select Standards 
 
-    ![Quick fix.](./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png)
+1. Select Add and then select Standard.
 
-    > [!NOTE]
-    > The implications are listed in the grey box in the **Fixing resources** window that opens after clicking **Fix**. They list what changes happen when proceeding with the **Fix**.
-:::image type="content" source="media/implement-security-recommendations/fixing-resources-window.png" alt-text="Screenshot showing fixing resources window." lightbox="media/implement-security-recommendations/fixing-resources-window.png":::
+    :::image type="content" source="./media/create-custom-recommendations/select-add-standard.png" alt-text="Screenshot showing where to select Add and then Standard." lightbox="./media/create-custom-recommendations/select-add-standard.png":::
 
-1. Insert the relevant parameters if necessary, and approve the remediation.
+1. Fill in a name and description and select the recommendation you want to be included in this standard.
+    :::image type="content" source="./media/create-custom-recommendations/fill-name-description.png" alt-text="Screenshot showing where to fill in your custom recommendation's name and description." lightbox="./media/create-custom-recommendations/fill-name-description.png":::
 
-    > [!NOTE]
-    > It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the remediation actions, check the [activity log](#activity-log).
+1. Select Save; the new standard will now be assigned to the account/project you’ve created it in. You can assign the same standard to other accounts / projects that you have Contributor and up access to. 
 
-1. Once completed, a notification appears informing you if the remediation succeeded.
-
-<a name="activity-log"></a>
-
-## Fix actions logged to the activity log
-
-The remediation operation uses a template deployment or REST API `PATCH` request to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-monitor/essentials/activity-log.md).
 
 ## Next steps
 
-In this document, you were shown how to remediate recommendations in Defender for Cloud. To learn how  recommendations are defined and selected for your environment, see the following page:
+Read these docs to learn and understand more on Kusto queries:   
 
+- [KQL Quick Reference](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference) 
+- [Kusto Query Language (KQL) overview](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Must Learn KQL Part 1: Tools and Resources](https://azurecloudai.blog/2021/11/17/must-learn-kql-part-1-tools-and-resources/) 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
