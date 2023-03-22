@@ -148,12 +148,9 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=mlflow)]
 
-    ```
-
 1. Train a model.
 
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=gbt)]
-    ```
 
 ## Iterate 
 
