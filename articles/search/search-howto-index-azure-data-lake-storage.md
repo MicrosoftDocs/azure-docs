@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 03/22/2023
 ---
 
 # Index data from Azure Data Lake Storage Gen2
