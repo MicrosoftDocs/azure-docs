@@ -39,5 +39,5 @@ Following measured and consistent high-quality advances with models trained on t
 
 ## Next steps
 
-For more support, visit the [Azure Cognitive Services support and help options](../../cognitive-services-support-options) page.
+For more support, visit the [Azure Cognitive Services support and help options](../../cognitive-services-support-options.md) page.
 
