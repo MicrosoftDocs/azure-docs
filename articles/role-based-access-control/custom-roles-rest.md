@@ -38,20 +38,7 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
 To list all custom role definitions in a tenant, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
 
-1. Start with the following request:
-
-    ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?$filter={filter}&api-version=2022-04-01
-    ```
-
-1. Replace *{filter}* with the role type.
-
-    > [!div class="mx-tableFixed"]
-    > | Filter | Description |
-    > | --- | --- |
-    > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
-
-    The following example lists all custom role definitions in a tenant:
+- The following example lists all custom role definitions in a tenant:
 
     **Request**
     
