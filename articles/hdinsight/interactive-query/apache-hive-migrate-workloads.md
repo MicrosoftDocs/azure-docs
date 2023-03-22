@@ -34,7 +34,7 @@ You enter supported Hive CLI commands by invoking Beeline using the hive keyword
 Using Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, includes:
 
 1. Instead of maintaining the entire Hive code base, you can maintain only the JDBC client.
-1. Startup overhead is lower using Beeline because the entire Hive code base is not involved  .
+1. Startup overhead is lower using Beeline because the entire Hive code base isn't involved  .
 
 You can also execute the hive script, which is under the directory “/usr/bin”, which invokes a beeline connection using JDBC URL.
 
@@ -49,7 +49,7 @@ HiveServer enforces whitelist and blacklist settings that you can change using `
 
 ### Hive Metastore changes
 
-Hive now supports only a remote metastore instead of an embedded metastore (within HS2 JVM). The Hive metastore resides on a node in a cluster managed by Ambari as part of the HDInsighgt stack. A standalone server outside the cluster is not supported. You no longer set key=value commands on the command line to configure Hive Metastore. Based on the value configured in "hive.metastore.uris=' ' " HMS service used and connection established.
+Hive now supports only a remote metastore instead of an embedded metastore (within HS2 JVM). The Hive metastore resides on a node in a cluster managed by Ambari as part of the HDInsight stack. A standalone server outside the cluster isn't supported. You no longer set key=value commands on the command line to configure Hive Metastore. Based on the value configured in "hive.metastore.uris=' ' " HMS service used and connection established.
 
 Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is deprecated starting Hive 2.0 Refer [HIVE-12300](https://issues.apache.org/jira/browse/HIVE-12300). With expressions of directed acyclic graphs (DAGs) and data transfer primitives, execution of Hive queries under Tez improves performance. SQL queries you submit to Hive are executed as follows
 
@@ -110,9 +110,9 @@ Storage formats are a factor in upgrade changes to table types. Hive 2.x and 3.x
 
 ## HDInsight 4.x upgrade changes to table types
 
-The following table compares Hive table types and ACID operations before an upgrade from HDInsighgt 3.x and after an upgrade to HDInsighgt 4.x. The ownership of the Hive table file is a factor in determining table types and ACID operations after the upgrade
+The following table compares Hive table types and ACID operations before an upgrade from HDInsight 3.x and after an upgrade to HDInsight 4.x. The ownership of the Hive table file is a factor in determining table types and ACID operations after the upgrade
 
-HDInsight 3.x and HDInsighgt-4.x Table Type Comparison
+HDInsight 3.x and HDInsight-4.x Table Type Comparison
 
 |Add|tabe|here|
 |--|--|--
@@ -123,7 +123,7 @@ HDInsight 3.x and HDInsighgt-4.x Table Type Comparison
 
 Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by default  in Hive 3. Hive impersonation runs Hive as end user, or not.
 
-### Other HDInsighgt 4.x upgrade changes
+### Other HDInsight 4.x upgrade changes
 
 1. Managed, ACID tables that are not owned by the hive user remain managed tables after the upgrade, but hive becomes the owner.
 2. After the upgrade, the format of a Hive table is the same as before the upgrade. For example, native or non-native tables remain native or non-native, respectively.
@@ -132,11 +132,11 @@ Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by
 
 After the upgrade, the location of managed tables or partitions do not change under any one of the following conditions:
 
-1. The old table or partition directory was not in its default location /apps/hive/warehouse before the upgrade.
+1. The old table or partition directory wasn't in its default location /apps/hive/warehouse before the upgrade.
 1. The old table or partition is in a different file system than the new warehouse directory.
 1. The old table or partition directory is in a different encryption zone than the new warehouse directory.
 
-Otherwise, the location of managed tables or partitions does change. The upgrade process moves managed files to `/hive/warehouse/managed`. By default, Hive places any new external tables you create in HDInsighgt 4.x in `/hive/warehouse/external`
+Otherwise, the location of managed tables or partitions does change. The upgrade process moves managed files to `/hive/warehouse/managed`. By default, Hive places any new external tables you create in HDInsight 4.x in `/hive/warehouse/external`
 
 The `/apps/hive directory`, which is the former location of the Hive 2.x warehouse, might or might not exist in HDInsight 4.x
 
@@ -144,14 +144,14 @@ Following Scenario's are present for location changes
 
 **Scenario 1**
 
-If the table is a managed table in HDInsighgt-3.xand if it is present in the location `/apps/hive/warehouse` and converted as external table in HDInsighgt-4.x then the location is the same `/apps/hive/warehouse` in HDInsighgt 4.x as well. It does'nt change any location. After this, if you are performing alter table command to convert it as managed (acid) table at that time present in the same location `/apps/hive/warehouse`.
+If the table is a managed table in HDInsight-3.xand if it is present in the location `/apps/hive/warehouse` and converted as external table in HDInsight-4.x then the location is the same `/apps/hive/warehouse` in HDInsight 4.x as well. It does'nt change any location. After this, if you are performing alter table command to convert it as managed (acid) table at that time present in the same location `/apps/hive/warehouse`.
 
 **Scenario 2**
 
-If the table is a managed table in HDInsighgt-3.x and if it is present in the location `/apps/hive/warehouse` and converted to managed (ACID) table in HDInsighgt 4.x, then the location is `/hive/warehouse/managed`.
+If the table is a managed table in HDInsight-3.x and if it is present in the location `/apps/hive/warehouse` and converted to managed (ACID) table in HDInsight 4.x, then the location is `/hive/warehouse/managed`.
 
 **Scenario 3**
-If you are creating an external table in HDInsighgt-4.x without specifying any location then it presents in the location `/hive/warehouse/external`.
+If you are creating an external table in HDInsight-4.x without specifying any location then it presents in the location `/hive/warehouse/external`.
 
 
 ## Table conversion
@@ -160,8 +160,8 @@ After upgrading, to convert a non-transactional table to an ACID v2 transactiona
 ```
 transaction'='true' and 'EXTERNAL'='false
 ```
-1. The managed table, non-acid, ORC format and owned by non-hive user in HDInsighgt-3.x will be converted to external, non-acid table in HDInsighgt-4.x.
-1. If the user wishes to change the external table (non-acid) to ACID, then they should change the external table to managed and ACID as well. Because in HDInsighgt-4.x all the managed tables are strictly ACID by default. You cannot convert the external tables(non-acid) to ACID table.
+1. The managed table, non-acid, ORC format and owned by non-hive user in HDInsight-3.x will be converted to external, non-acid table in HDInsight-4.x.
+1. If the user wishes to change the external table (non-acid) to ACID, then they should change the external table to managed and ACID as well. Because in HDInsight-4.x all the managed tables are strictly ACID by default. You cannot convert the external tables(non-acid) to ACID table.
 
 > [!NOTE]
 > The table must be a ORC table.
@@ -197,7 +197,7 @@ This error is occurring because the table rt is external table and you cannot co
 ```
 >>>> alter table rt set TBLPROPERTIES ('EXTERNAL'='false');
 ERROR:
-Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Table work.rt failed strict managed table checks due to the following reason: Table is marked as a managed table but is not transactional. (state=08S01,code=1)
+Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Table work.rt failed strict managed table checks due to the following reason: Table is marked as a managed table but isn't transactional. (state=08S01,code=1)
 ```
 
 Here we are trying to change the external table first to managed table. In HDP-3.x, it should be Strictly managed table ( which means it should be ACID).
@@ -221,7 +221,7 @@ Hive has changed table creation in the following ways
     If you have an ETL pipeline that creates tables in Hive, the tables creates as ACID. Hive now tightly controls access and performs compaction periodically on the tables
 
     **Before Upgrade**
-    In HDInsighgt 3.x, by default CREATE TABLE created a non-ACID table.
+    In HDInsight 3.x, by default CREATE TABLE created a non-ACID table.
 
     **After Upgrade** By default CREATE TABLE creates a full, ACID transactional table in ORC format.
 
@@ -257,7 +257,7 @@ Hive has changed table creation in the following ways
     A default configuration change can cause applications that change column types to fail.
    
      **Before Upgrade**
-    In HDInsighgt 3.x hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
+    In HDInsight 3.x hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
 
     **After Upgrade**
     The hive.metastore.disallow.incompatible.col.type.changes is true by default. Hive prevents changes to incompatible column types. Compatible column type changes, such as INT, STRING, BIGINT, are not blocked.
@@ -284,10 +284,10 @@ Hive has changed table creation in the following ways
 ## Limitations with respect to CBO
 
 1. We see that the select output gives trailing zero's in few columns. For example, if we have a table column with datatype as decimal(38,4) and if we insert data as 38 then it adds the trailing zero's and provide result as 38.0000
-As per https://issues.apache.org/jira/browse/HIVE-12063 and https://issues.apache.org/jira/browse/HIVE-24389, the idea is retain the scale and precision instead of running a wrapper in decimal columns. This is the default behavior from Hive 2.
+As per https://issues.apache.org/jira/browse/HIVE-12063 and https://issues.apache.org/jira/browse/HIVE-24389, the idea is retained the scale and precision instead of running a wrapper in decimal columns. This is the default behavior from Hive 2.
 To fix this issue, you can follow the below option.
 
-    1. Modify the datatype at source level to adjust the precicion as col1(decimal(38,0)). This provides the result as 38 without trailing zero's. But if you insert the data as 35.0005 then it is .0005 and provides only the value as 38
+    1. Modify the datatype at source level to adjust the precision as col1(decimal(38,0)). This provides the result as 38 without trailing zero's. But if you insert the data as 35.0005 then it is .0005 and provides only the value as 38
     1.Remove the trailing zeros for the columns with issue and then cast to string,
         1. Use  select TRIM(cast(<column_name> AS STRING))+0 FROM <table_name>;
         1. Use regex.
@@ -297,7 +297,7 @@ To fix this issue, you can follow the below option.
     If we run a query, then it will throw an "Unsupported SubQuery Expression"
     select * from
     (SELECT col_1 from table1 where col_2 >= unix_timestamp('2020-03-07','yyyy-MM-dd')) ;
-    The root case of this issue is that the current hive codebase is throwing an exception which parsing the UNIX_TIMESTAMP because there is no precision mapping in HiveTypeSystemImpl.java code for the precision of UNIX_TIMESTAMP which Calcite recognizes as BIGINT.
+    The root case of this issue is that the current hive codebase is throwing an exception which parsing the UNIX_TIMESTAMP because there's no precision mapping in HiveTypeSystemImpl.java code for the precision of UNIX_TIMESTAMP which Calcite recognizes as BIGINT.
     But the below query works fine
     `select * from (SELECT col_1 from table1 where col_2 >= 1);`
     
@@ -316,14 +316,14 @@ Make sure to follow these steps after completing the migration.
 1. Re-generate stats on recreated tables as migration would’ve caused incorrect stats.
 
 **Cluster Health**
-1. If multiple clusters share the same storage and HMS Db, then we should enable auto-compaction/compaction threads only in one cluster and disable everywhere else.
+1. If multiple clusters share the same storage and HMS DB, then we should enable auto-compaction/compaction threads only in one cluster and disable everywhere else.
 1. Follow metastore tuning TSG (shared earlier) to reduce their CPU usage.
 
 **Query Tuning**
-1. Keep default configs of Hive to run the queries as they are tuned for TPC-DS workloads. Need query level tuning only if it fails or running slow. 
+1. Keep default configs of Hive to run the queries as they're tuned for TPC-DS workloads. Need query level tuning only if it fails or running slow. 
 1. Ensure stats are up to date to avoid bad plan or wrong results.
 1. Avoid mixing external and managed ACID tables in join type of queries. In such case, try to convert external to managed non-ACID table through re-creation.
-1. In Hive-3, lot of work happened on vectorization, CBO, timestamp with zone etc, which may have product bugs. So, if any query give wrong results, try disabling vectorization, CBO, map-join etc to see if that helps.
+1. In Hive-3, lot of work happened on vectorization, CBO, timestamp with zone etc., which may have product bugs. So, if any query gives wrong results, try disabling vectorization, CBO, map-join etc., to see if that helps.
 
 Other steps to be followed to fix the incorrect results and poor performance after the migration:
 
@@ -340,7 +340,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive queries are taking long time to execute.
 
     **Cause**
-    If the query has a join condition then hive creates a plan whether to use map join or merge join based on the table size and join condition. If one of the table contains a small size then it loads that table in the memory and performs the join operation. This way the query execution is be faster when compared to the merge join.
+    If the query has a join condition then hive creates a plan whether to use map join or merge join based on the table size and join condition. If one of the table contains a small size then it loads that table in the memory and performs the join operation. This way the query execution is faster when compared to the merge join.
 
     **Resolution**
     Make sure to set the property "hive.auto.convert.join=true" which is the default value. Setting it to false uses the merge join and may result in poor performance.
@@ -361,10 +361,10 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive query gives the incorrect result if the query has a join condition and the tables involved has null or empty values.
 
     **Cause**
-    Sometimes we may get a issue related to null values if the tables involved in the query has lot of null values. Hive performs the query optimization wrongly with the null values involved which results in incorrect results.
+    Sometimes we may get an issue related to null values if the tables involved in the query have lot of null values. Hive performs the query optimization wrongly with the null values involved which results in incorrect results.
 
     **Resolution**
-    We recommend try setting the property `set hive.cbo.returnpath.hiveop=true` at the session level incase if you get any incorrect results. This config introduces not null filtering on join keys. If the tables had a lot of null values, for optimizing the join operation between multiple tables, we can enable this config so that it considers only the not null values.
+    We recommend try setting the property `set hive.cbo.returnpath.hiveop=true` at the session level if you get any incorrect results. This config introduces not null filtering on join keys. If the tables had many null values, for optimizing the join operation between multiple tables, we can enable this config so that it considers only the not null values.
 
 1. **Issue**
     Hive query gives the incorrect result if the query has a multiple join conditions.
@@ -373,13 +373,13 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Sometime Tez produce bad runtime plans whenever there are same joins multiple time with map-joins.
 
     **Resolution**
-    There is a chance of getting incorrect results when we set `hive.merge.nway.joins` to false. Try setting it to true only for the query which got affected. This helps query with multiple joins on the same condition, merge joins together into a single join operator. This is useful in the case of large shuffle joins to avoid a reshuffle phase.
+    There's a chance of getting incorrect results when we set `hive.merge.nway.joins` to false. Try setting it to true only for the query which got affected. This helps query with multiple joins on the same condition, merge joins together into a single join operator. This is useful if large shuffle joins to avoid a reshuffle phase.
 
 1. **Issue**'
-    There is an increase in time of the query execution day by day when compared to the earlier runs.
+    There's an increase in time of the query execution day by day when compared to the earlier runs.
 
     **Cause**
-    This issue might occur if there is an increase in more numbers of small files. So hive takes time in reading all the files to process the data which results in increase in execution time.
+    This issue might occur if there's an increase in more numbers of small files. So hive takes time in reading all the files to process the data which results in increase in execution time.
 
     **Resolution**
     Make sure to run the compaction frequently for the tables which are managed. This avoids the small files and improve the performance.
@@ -391,12 +391,12 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive query gives incorrect result when customer is using a join condition on managed acid orc table and managed non-acid orc table.
 
     **Cause**
-    From HIVE 3 onards, it is strictly requested to keep all the managed tables as an acid table. And if we want to keep it as an acid table then the table format must be orc and this is the main criteria. But if we disable the strict managed table property “hive.strict.managed.tables” to false then we can create a managed non-acid table. Some case customer creates a external orc table or after the migration the table convertes to an external table and they disable the strict managed table property and convert it to managed table. At this point the table convertes to non-acid managed orc format.
+    From HIVE 3 onwards, it's strictly requested to keep all the managed tables as an acid table. And if we want to keep it as an acid table then the table format must be orc and this is the main criteria. But if we disable the strict managed table property “hive.strict.managed.tables” to false then we can create a managed non-acid table. Some case customer creates an external ORC table or after the migration the table converted to an external table and they disable the strict managed table property and convert it to managed table. At this point the table converted to non-acid managed orc format.
 
     **Resolution**
     Hive optimization goes wrong if you join table with non-acid managed ORC table with acid managed orc table.
 
-    If you are converting an external table to managed table,
+    If you're converting an external table to managed table,
     1. Don’t set the property “hive.strict.managed.tables” to false. If you set then you can create a non-acid managed table but it is not requested in HIVE-3
     1. Convert the external table to managed table using the below alter command instead of `alter table <table_name> set TBLPROPERTIES ('EXTERNAL'='false');`    
     ```
@@ -405,10 +405,10 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 ## Hive Backend DB schema compare Script
 
 You can run the following script once after completing the migration.
- There is a chance of missing few columns in the backend DB which causes the query failures as mentioned in the below TSG:
+ There's a chance of missing few columns in the backend DB which causes the query failures as mentioned in the below TSG:
 https://supportability.visualstudio.com/AzureHDinsight/_wiki/wikis/AzureHDinsight/785541/Hive-Query-Fails-with-Invalid-column-name-'BIT_VECTOR'-error
  
-If the schema upgrade was not happened properly then there is chance that we may hit the above issue. The below script fetches the column name and datatype from customer backend DB and provide the output if there is any missing column or incorrect datatype.
+If the schema upgrade was not happened properly then there's chance that we may hit the above issue. The below script fetches the column name and datatype from customer backend DB and provides the output if there's any missing column or incorrect datatype.
 
 The following path contains the schemacompare_final.py and test.csv file. The script is present in "schemacompare_final.py" file and the file "test.csv" contains all the column name and the datatype for all the tables which should be present in the hive backend DB.
 
@@ -422,7 +422,7 @@ Download these two files from the link. And copy these files to one of the head 
 1. Create a directory called "schemacompare" under "/tmp" directory.
 1. Put the "schemacompare_final.py" and "test.csv" into the folder "/tmp/schemacompare". Do "ls -ltrh /tmp/schemacompare/" and verify whether the files are present.
 1. To execute the python script use the command "python     schemacompare_final.py". This starts executing the script and it takes less than 5mins to complete.
-The above script automatically connects to your backend DB and fetches the details from each and every table which hive uses and update the details in the new csv file called "return.csv". Once after updating the details in the "return.csv" it compares the data with the file "test.csv" and prints the column name or datatype if there is anything missing under the tablename.
+The above script automatically connects to your backend DB and fetches the details from each and every table which hive uses and update the details in the new csv file called "return.csv". Once after updating the details in the "return.csv" it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
     Once after executing the script you can see the below lines which indicates that the details are fetched for the tables and the script is in progressing:
     ```
@@ -437,7 +437,7 @@ The above script automatically connects to your backend DB and fetches the detai
     ```
 
     And you can see the difference details under "DIFFERENCE DETAILS:" line.
-    If there is any difference it prints out as below:
+    If there's any difference it prints out as below:
 
     ```PART_COL_STATS;
     ('difference', ['BIT_VECTOR', 'varbinary'])
