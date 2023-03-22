@@ -208,7 +208,7 @@ This is a list of common deployment errors that are reported as part of the depl
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCanceled](#error-operationcanceled)
 
-If you are creating or updating a Kubernetes online deployment, you can see [Common errors specific to Kubernetes deployments](#).
+If you are creating or updating a Kubernetes online deployment, you can see [Common errors specific to Kubernetes deployments](#common-errors-specific-to-kubernetes-deployments).
 
 
 ### ERROR: ImageBuildFailure
@@ -309,6 +309,8 @@ Use the **Endpoints** in the studio:
 1. Select the **Deployment logs** tab in the endpoint's details page.
 1. Use the dropdown to select the deployment whose log you want to see.
 
+----
+
 #### Kubernetes quota
 
 This issue happens when the requested CPU or memory couldn't be satisfied due to all nodes are unschedulable for this deployment, such as nodes are cordoned or nodes are unavailable.
@@ -317,7 +319,7 @@ The error message will typically indicate which resource you need more of. For i
 
 You can also try adjusting your request in the cluster, you can directly [adjust the resource request of the instance type](how-to-manage-kubernetes-instance-types.md).
 
----
+
 
 ### ERROR: BadArgument
 
