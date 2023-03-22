@@ -7,13 +7,14 @@ ms.service: data-manager-for-agri
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/22/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: references_regions
 ---
 
 # Create a private endpoint for Azure Data Manager for Agriculture
 
 [Azure Private Link](../private-link/private-link-overview.md) provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 
-By using Azure Private Link, you can connect to an Azure Data Manager for Agriculture service from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses. Private link for Data Manager for Agriculture is available in limited regions: East US2, East US, and West Europe.
+By using Azure Private Link, you can connect to an Azure Data Manager for Agriculture service from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses.
 
 This article describes how to create a private endpoint and approval process for Azure Data Manager for Agriculture Preview.
 
@@ -27,22 +28,22 @@ Private Endpoints can be created using the Azure portal, PowerShell, or the Azur
 ### Approval process for a private endpoint
 Once the network admin creates the private endpoint, the Data Manager for Agriculture admin can manage the private endpoint connection to Data Manager for Agriculture resource.
 
-* Navigate to the Data Manager for Agriculture resource in Azure portal. Select the Networking tab in the left pane, this will show a list of all Private Endpoint Connections and Corresponding Private Endpoint created
-  >:::image type="content" source="./media/pec-farmbeats.png" alt-text="Screenshot showing list of private endpoint connections in Azure portal.":::
+1. Navigate to the Data Manager for Agriculture resource in Azure portal. Select the Networking tab in the left pane, this will show a list of all Private Endpoint Connections and Corresponding Private Endpoint created
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-farmbeats.png" alt-text="Screenshot showing list of private endpoint connections in Azure portal.":::
 
-* Select an individual private endpoint connection from the list.
-  >:::image type="content" source="./media/pec-select.png" alt-text="Screenshot showing how to select a private endpoint.":::
+2. Select an individual private endpoint connection from the list.
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-select.png" alt-text="Screenshot showing how to select a private endpoint.":::
 
-* The Data Manager for Agriculture administrator can choose to approve or reject a private endpoint connection and can optionally add a short text response also. 
-  >:::image type="content" source="./media/pec-approve.png" alt-text="Screenshot showing how to approve a private endpoint connection.":::
+3. The Data Manager for Agriculture administrator can choose to approve or reject a private endpoint connection and can optionally add a short text response also. 
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-approve.png" alt-text="Screenshot showing how to approve a private endpoint connection.":::
 
-* After approval or rejection, the list will reflect the appropriate state along with the response text. 
-  >:::image type="content" source="./media/pec-list-after.png" alt-text="Screenshot showing private endpoint connection status.":::
+4. After approval or rejection, the list will reflect the appropriate state along with the response text. 
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-list-after.png" alt-text="Screenshot showing private endpoint connection status.":::
 
-* Finally click on the private endpoint name to see the network interface details and IP address of your private endpoint.
-  >:::image type="content" source="./media/pec-click.png" alt-text="Screenshot showing where to click to get network interface details.":::
-  >:::image type="content" source="./media/pec-list-after.png" alt-text="Screenshot showing private endpoint connection status.":::
-  >:::image type="content" source="./media/pec-ip-display.png" alt-text="Screenshot showing private endpoint IP address.":::
+5. Finally click on the private endpoint name to see the network interface details and IP address of your private endpoint.
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-click.png" alt-text="Screenshot showing where to click to get network interface details.":::
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-list-after.png" alt-text="Screenshot showing private endpoint connection status.":::
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-ip-display-new.png" alt-text="Screenshot showing private endpoint IP address.":::
 
 ## Disable public access to your Data Manager for Agriculture resource
 If you want to disable all public access to your Data Manager for Agriculture resource and allow connections only from your virtual network then you need to ensure that your private endpoint connections are enabled and configured. To disable public access to your Data Manager for Agriculture resource:
