@@ -102,7 +102,7 @@ If the richness of KQL native functions doesn't meet your business needs, you ca
 Azure Monitor offers a set of different tools to explore data and prepare it for analytics and/or machine learning. One of the quickest ways to get started with data exploration is using Log Analytics Tool or using notebooks running
 
 
-||Run full ML pipeline “On top AzMon”|Run full ML pipeline outside AzMon|Hybrid mode: Data Exploration “On top AzMon”, Train outside, score “On top AzMon”|
+||ML pipeline “on top of AzMon”|ML pipeline outside AzMon|Hybrid mode: Data Exploration “On top AzMon”, Train outside, score “On top AzMon”|
 |-|-|-|-|
 |Log export needed?|No|Yes|Training – Yes, Scoring - No |
 |Other Azure services|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
