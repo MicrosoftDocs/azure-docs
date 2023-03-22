@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 There may be situations where a user needs to investigate & resolve issues with an on-premises BMM. Operator Nexus provides the `az networkcloud baremetalmachine run-read-command` so users can run a curated list of read only commands to get information from a BMM.
 
-The command execution will produce an output file containing the results that can be found in the Cluster Manager's Storage account.
+The command execution produces an output file containing the results that can be found in the Cluster Manager's Storage account.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ The command execution will produce an output file containing the results that ca
 
 ## Executing a run-read command
 
-The run-read command will execute a read-only command on the specified BMM.
+The run-read command executes a read-only command on the specified BMM.
 
 The current list of supported commands are:
 
@@ -82,7 +82,7 @@ Each `--commands` option specifies `command` and `arguments`. For a command with
 
 `--debug` is required to get the operation status that can be queried to get the URL for the output file.
 
-### This example will execute the `hostname` command and a `ping` command.
+### This example executes the `hostname` command and a `ping` command.
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "bareMetalMachineName" \
@@ -98,7 +98,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 
 ## Checking command status and viewing output
 
-The debug output of the command execution will contain the 'Azure-AsyncOperation' response header. Note the URL provided.
+The debug output of the command execution contains the 'Azure-AsyncOperation' response header. Note the URL provided.
 
 ```azurecli
 cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': 'https://management.azure.com/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/0797fdd7-28eb-48ec-8c70-39a3f893421d*A0123456789F331FE47B40E2BFBCE2E133FD3ED2562348BFFD8388A4AAA1271?api-version=2022-09-30-preview'

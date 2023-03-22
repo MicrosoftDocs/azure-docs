@@ -25,6 +25,6 @@ This guide walks you through accessing the output file that is created in the Cl
 
 1. You can manage & download the output file from the **Overview** pop-out.
 
-For information on running the `run-read-command` see:
+For information on running the `run-read-command`, see:
 
 - [Troubleshoot Baremetal Machine issues using the run-read command](howto-baremetal-run-read.md)
