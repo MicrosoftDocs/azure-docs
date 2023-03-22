@@ -14,8 +14,8 @@ ms.author: kpunjabi
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - An app with voice and video calling, refer to our [Voice](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
-- [Access tokens](../../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
-- [Access tokens](../../../quickstarts/identity/access-tokens.md) for External identity users.
+- [Access tokens](../../../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
+- [Access tokens](../../../../quickstarts/identity/access-tokens.md) for External identity users.
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license. 
 
 >[!NOTE]
