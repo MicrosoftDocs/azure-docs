@@ -310,6 +310,29 @@ CSS for styling the loading spinner over the remote video stream.
 }
 ```
 
+### Remote video quality
+
+Starting from 1.12(beta) version, SDK provides a new feature called OptimalVideoCount (OVC in short). Goal of this feature is to inform application at run-time, how many videos from different particiapnts, it should render at a given moment in a group call (2+ participants), feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint - value of that property describes how many videos from different participants application should render at a given moment. Application should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period, around 10s, between changes that to avoid to frequent changes.
+
+**Usage**
+The `optimalVideoCount` feature is a call feature
+```typescript
+interface OptimalVideoCountCallFeature extends CallFeature {
+    off(event: 'optimalVideoCountChanged', listener: PropertyChangedEvent): void;
+    on(event: 'optimalVideoCountChanged', listener: PropertyChangedEvent): void;
+    readonly optimalVideoCount: number;
+}
+
+const optimalVideoCountFeature = call.feature(Features.OptimalVideoCount);
+optimalVideoCountFeature.on('optimalVideoCountChanged', () => {
+    const localOptimalVideoCountVariable = optimalVideoCountFeature.optimalVideoCount;
+})
+```
+
+Examples usage: Application should subscribe to changes of OVC and handle it in group calls by either creating new rendererer ( [createView](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js#@azure-communication-calling-videostreamrenderer-createview) or dispose views ([dispose](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrendererview?view=azure-communication-services-js#@azure-communication-calling-videostreamrendererview-dispose)
+and update layout accordingly either by removing participants from the main call screen area (often called stage or roster ) or replacing their video elements with an avatar and a name of the user.
+
+
 ### Remote video stream properties
 
 Remote video streams have the following properties:
