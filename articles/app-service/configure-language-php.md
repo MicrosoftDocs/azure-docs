@@ -15,7 +15,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 ## Show PHP version
 ::: zone pivot="platform-windows"  
 
-[!INCLUDE [php-eol-notice](./includes/php-windows-eol-notice.mdphp-windows-eol-notice.md)]
+[!INCLUDE [php-eol-notice](./includes/php-windows-eol-notice.md)]
 
 This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service.
 
