@@ -15,7 +15,7 @@ A function is a log query in Azure Monitor that can be used in other log queries
 > [!NOTE]
 > Functions are only available in Log Analytics workspaces. If you’re using an existing classic Application Insights resource, you must [migrate it to a workspace-based resource](../app/convert-classic-resource) to work with functions. 
 >
-> Choosing to migrate gives you access to logs with the same general structure as classic resources although the [table and column names are different](../app/convert-classic-resource.md#workspace-based-resource-changes). Migrating also allows you to send activity logs to a Log Analytics workspace in a table called AzureActivity. The AzureActivity table isn't available in classic resources.
+> Choosing to migrate gives you access to logs with the same general structure as classic resources, but the [table and column names are different](../app/convert-classic-resource.md#table-schemas). Migrating also allows you to send activity logs to a Log Analytics workspace in a table called AzureActivity. The AzureActivity table isn't available in classic resources.
 
 ## Types of functions
 There are two types of functions in Azure Monitor:
