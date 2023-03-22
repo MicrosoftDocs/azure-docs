@@ -7,7 +7,7 @@ ms.author: benmansheim
 ms.topic: how-to
 ---
 
-# Enable Microsoft Defender for Storage
+# Enable Microsoft Defender for Storage (classic)
 
 > [!NOTE]
 > Upgrade to the new [Microsoft Defender for Storage plan](defender-for-storage-introduction.md) and use advanced security capabilities, including Malware Scanning and sensitive data threat detection. Benefit from a more predictable and granular pricing structure that charges per storage account, with additional costs for high-volume transactions. This new pricing plan also encompasses all new security features and detections.
@@ -21,7 +21,7 @@ Analyzed telemetry of Azure Blob Storage includes operation types such as Get Bl
 
 Defender for Storage classic doesn’t access the Storage account data and has no impact on its performance.
 
-Learn more about the [benefits, features, and limitations of Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md). You can also learn more about Defender for Storage in the [Defender for Storage episode](../../defender-for-cloud/episode-thirteen.md) of the Defender for Cloud in the Field video series.
+Learn more about the [benefits, features, and limitations of Defender for Storage](defender-for-storage-introduction.md). You can also learn more about Defender for Storage in the [Defender for Storage episode](episode-thirteen.md) of the Defender for Cloud in the Field video series.
 
 ## Availability
 
@@ -30,7 +30,7 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) and in the [Defender plans page](#azure-portal) in the Azure portal |
 |Protected storage types:|[Blob Storage](../blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
-|Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="media/icons/no-icon.png"::: Connected AWS accounts|
 
 ## Set up Microsoft Defender for Storage (classic)
 
@@ -40,12 +40,12 @@ For the Defender for Storage per-transaction pricing, we recommend that you enab
 
 You can configure Microsoft Defender for Storage on your subscriptions in several ways:
 
-- [Bicep template](#bicep-template-1)
-- [ARM template](#arm-template-1)
-- [Terraform template](#terraform-template-1)
+- [Bicep template](#bicep-template)
+- [ARM template](#arm-template)
+- [Terraform template](#terraform-template)
 - [PowerShell](#powershell)
 - [Azure CLI](#azure-cli)
-- [REST API](#rest-api-1)
+- [REST API](#rest-api)
 
 #### Bicep template
 
@@ -133,7 +133,7 @@ To enable Microsoft Defender for Storage at the subscription level with per-tran
 
 To disable the plan, set the `-PricingTier` property value to `Free`.
 
-Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
+Learn more about the [using PowerShell with Microsoft Defender for Cloud](powershell-onboarding.md).
 
 #### Azure CLI
 
@@ -187,10 +187,10 @@ Learn more about the [updating Defender plans with the REST API](/rest/api/defen
 
 You can configure Microsoft Defender for Storage with per-transaction pricing on your accounts in several ways:
 
-- [Azure portal](#azure-portal-1)
-- [ARM template](#arm-template-2)
-- [PowerShell](#powershell-1)
-- [Azure CLI](#azure-cli-1)
+- [Azure portal](#azure-portal)
+- [ARM template](#arm-template-1)
+- [PowerShell](#powershell)
+- [Azure CLI](#azure-cli)
 
 #### Azure portal
 
@@ -201,11 +201,11 @@ To enable Microsoft Defender for Storage for a specific account with per-transac
 1. In the **Security + networking** section of the Storage account menu, select **Microsoft Defender for Cloud**.
 1. Select **Enable Defender on this storage account only**.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-enable-defender-for-account.png" alt-text="Screenshot showing how to enable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/azure-defender-storage-configure/storage-enable-defender-for-account.png":::
+:::image type="content" source="media/defender-for-storage-classic-enable/storage-enable-defender-for-account.png" alt-text="Screenshot showing how to enable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/defender-for-storage-classic-enable/storage-enable-defender-for-account.png":::
 
 Microsoft Defender for Storage is now enabled for this storage account. If you want to disable Defender for Storage on the account, select **Disable**.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-disable-defender-for-account.png" alt-text="Screenshot showing how to disable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/azure-defender-storage-configure/storage-disable-defender-for-account.png":::
+:::image type="content" source="media/defender-for-storage-classic-enable/storage-disable-defender-for-account.png" alt-text="Screenshot showing how to disable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/defender-for-storage-classic-enable/storage-disable-defender-for-account.png":::
 
 #### ARM template
 
@@ -238,7 +238,7 @@ If you want to disable per-transaction pricing for a specific storage account, u
 Disable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
 ```
 
-Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
+Learn more about the [using PowerShell with Microsoft Defender for Cloud](powershell-onboarding.md).
 
 #### Azure CLI
 
@@ -410,15 +410,15 @@ The Microsoft Defender for Storage account will inherit the tag of the Databrick
 
 ### Can I switch from an existing per-transaction pricing to per-storage account pricing?
 
-Yes, you can migrate to per-storage account pricing in the Azure portal or using any of the other supported enablement methods. To migrate to per-storage account pricing, [enable per-storage account pricing at the subscription level](#set-up-microsoft-defender-for-storage).
+Yes, you can migrate to per-storage account pricing in the Azure portal or using any of the other supported enablement methods. To migrate to per-storage account pricing, [enable per-storage account pricing at the subscription level](#set-up-microsoft-defender-for-storage-classic).
 
 ### Can I return to per-transaction pricing after switching to per-storage account pricing?
 
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage) to migrate back from per-storage account pricing using all enablement methods except for the Azure portal.
+Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage-classic) to migrate back from per-storage account pricing using all enablement methods except for the Azure portal.
 
 ### Will you continue supporting per-transaction pricing?
 
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage) from all the enablement methods, except for the Azure portal.
+Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage-classic) from all the enablement methods, except for the Azure portal.
 
 ### Can I exclude specific storage accounts from protections in per-storage account pricing?
 
@@ -438,5 +438,5 @@ To estimate the cost according to each pricing for your environment, we created 
 
 ## Next steps
 
-- Check out the [alerts for Azure Storage](../../defender-for-cloud/alerts-reference.md#alerts-azurestorage)
-- Learn about the [features and benefits of Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md)
+- Check out the [alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
+- Learn about the [features and benefits of Defender for Storage](defender-for-storage-introduction.md)

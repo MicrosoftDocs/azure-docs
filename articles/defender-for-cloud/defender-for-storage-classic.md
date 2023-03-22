@@ -87,9 +87,11 @@ Alerts include details of the incident that triggered them, and recommendations 
 
 ## FAQ - Microsoft Defender for Storage (classic)
 
+- [Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?](#are-there-differences-in-features-between-the-new-defender-for-storage-plan-and-the-legacy-defender-for-storage-classic-plan)
 - [How do I estimate charges at the account level?](#how-do-i-estimate-charges-at-the-account-level)
-- [Can I exclude a specific Azure Storage account from a protected subscription?](#can-i-exclude-a-specific-azure-storage-account-from-a-protected-subscription)
-- [How do I configure automatic responses for security alerts?](#how-do-i-configure-automatic-responses-for-security-alerts)
+- [Can i exclude a specific Azure storage account from a protected subscription?](#can-i-exclude-a-specific-azure-storage-account-from-a-protected-subscription)
+- [Can I switch between the legacy Defender for Storage Classic plan and the new Defender for Storage plan?](#can-i-switch-between-the-legacy-defender-for-storage-classic-plan-and-the-new-defender-for-storage-plan)
+- [Can I exclude specific storage accounts from protected subscriptions in Defender for Storage (classic)?](#can-i-exclude-specific-storage-accounts-from-protected-subscriptions-in-defender-for-storage-classic)
 
 ### Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?
 
@@ -101,7 +103,7 @@ To get an estimate of Defender for Storage classic costs, use the [Price Estimat
 
 ### Can I exclude a specific Azure Storage account from a protected subscription? 
 
-Yes, you can [exclude specific storage accounts](defender-for-storage-exclude.md) from protected subscriptions in Defender for Storage (classic).
+Yes, you can [exclude specific storage accounts](defender-for-storage-classic-enable.md#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan) from protected subscriptions in Defender for Storage (classic).
 
 ### Can I switch from Defender for Storage Classic's per-transaction pricing to the new Defender for Storage plan?
 
