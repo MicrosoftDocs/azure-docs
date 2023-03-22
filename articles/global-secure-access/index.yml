@@ -50,43 +50,43 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Define quick access ranges
-            url: how-to-get-started-with-network-access.md
+            url: how-to-define-quick-access-ranges.md
           - text: Deploy on premises connectors
-            url: how-to-get-started-with-network-access.md
+            url: how-to-deploy-on-premises-connectors.md
           - text: Configure traffic forwarding
-            url: how-to-get-started-with-network-access.md
+            url: how-to-configure-traffic-forwarding.md
           - text: Configure devices
-            url: how-to-get-started-with-network-access.md
+            url: how-to-configure-devices.md
           - text: Configure branch Office locations
-            url: how-to-get-started-with-network-access.md
+            url: how-to-configure-branch-office-locations.md
 
   - title: Create
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Create applications
-            url: how-to-get-started-with-network-access.md
+            url: how-to-create-applications.md
           - text: Create conditional access policies
-            url: how-to-get-started-with-network-access.md
+            url: how-to-create-conditional-access-policies.md
 
   - title: Secure
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Session management policies
-            url: how-to-get-started-with-network-access.md
+            url: how-to-session-management-policies.md
           - text: Create web gateway policies
-            url: how-to-get-started-with-network-access.md
+            url: how-to-create-web-gateway-policies.md
 
   - title: Monitor
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: App segment discovery
-            url: how-to-get-started-with-network-access.md
+            url: how-to-app-segment-discovery.md
           - text: Enriched Office 365 logs
-            url: how-to-get-started-with-network-access.md
+            url: how-to-enriched-logs.md
           - text: Network logging
-            url: how-to-get-started-with-network-access.md
+            url: how-to-network-logging.md
           - text: Admin audit logging
-            url: how-to-get-started-with-network-access.md
+            url: how-to-admin-audit-logging.md
