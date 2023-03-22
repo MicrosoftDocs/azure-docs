@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/21/2023
+ms.date: 03/22/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -84,7 +84,7 @@ The Azure AD provisioning service can be deployed in both "green field" scenario
 - **Matching attributes should be unique:** Customers often use attributes such as userPrincipalName, mail, or object ID as the matching attribute.
 - **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they're evaluated (defined as matching precedence in the UI). If for example, you define three attributes as matching attributes, and a user is uniquely matched after evaluating the first two attributes, the service won't evaluate the third attribute. The service will evaluate matching attributes in the order specified and stop evaluating when a match is found.  
 - **The value in the source and the target don't have to match exactly:** The value in the target can be a function of the value in the source. So, one could have an emailAddress attribute in the source and the userPrincipalName in the target, and match by a function of the emailAddress attribute that replaces some characters with some constant value.  
-- **Matching based on a combination of attributes isn't supported:** Most applications don't support querying based on two properties. Therefore, it's not possible to match based on a combination of attributes. It is possible to evaluate single properties on after another.
+- **Matching based on a combination of attributes isn't supported:** Most applications don't support querying based on two properties. Therefore, it's not possible to match based on a combination of attributes. It's possible to evaluate single properties on after another.
 - **All users must have a value for at least one matching attribute:** If you define one matching attribute, all users must have a value for that attribute in the source system. If for example, you define userPrincipalName as the matching attribute, all users must have a userPrincipalName. If you define multiple matching attributes (for example, both extensionAttribute1 and mail), not all users have to have the same matching attribute. One user could have a extensionAttribute1 but not mail while another user could have mail but no extensionAttribute1. 
 - **The target application must support filtering on the matching attribute:** Application developers allow filtering for a subset of attributes on their user or group API. For applications in the gallery, we ensure that the default attribute mapping is for an attribute that the target application's API does support filtering on. When changing the default matching attribute for the target application, check the third party API documentation to ensure that the attribute can be filtered on.  
 
@@ -99,7 +99,7 @@ Group provisioning can be optionally enabled or disabled by selecting the group 
 The attributes provisioned as part of Group objects can be customized in the same manner as User objects, described previously. 
 
 > [!TIP]
-> Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](../manage-apps/assign-user-or-group-access-portal.md) to an application. It is possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects isn't required to use groups in assignments.
+> Provisioning of group objects (properties and members) is a distinct concept from [assigning groups](../manage-apps/assign-user-or-group-access-portal.md) to an application. It's possible to assign a group to an application, but only provision the user objects contained in the group. Provisioning of full group objects isn't required to use groups in assignments.
 
 ## Editing the list of supported attributes
 
@@ -115,16 +115,16 @@ Applications and systems that support customization of the attribute list includ
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
 - Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). Learn more about [creating extensions](./user-provisioning-sync-attributes-for-mapping.md) and [known limitations](./known-issues.md). 
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
-- For Azure Active Directory writeback to Workday or SuccessFactors, it is supported to update relevant metadata for supported attributes (XPATH and JSONPath), but it isn't supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
+- For Azure Active Directory writeback to Workday or SuccessFactors, it's supported to update relevant metadata for supported attributes (XPATH and JSONPath), but isn't supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
 
 
 > [!NOTE]
 > Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
 
 > [!NOTE]
-> When a directory extension attribute in Azure AD does not show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
+> When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
 
-When you are editing the list of supported attributes, the following properties are provided:
+When you're editing the list of supported attributes, the following properties are provided:
 
 - **Name** - The system name of the attribute, as defined in the target object's schema.
 - **Type** - The type of data the attribute stores, as defined in the target object's schema, which can be one of the following types:
@@ -151,9 +151,9 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
 
 For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
-These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
+These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce aren't integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 
-Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example below as it isn't sent in requests from the Azure AD SCIM client. This issue will be fixed in the future and the header will be sent in the request.  
+Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example because it isn't sent in requests from the Azure AD SCIM client. This issue will be fixed in the future and the header will be sent in the request.  
  
 **Example representation of a user with an extension attribute:**
 
@@ -199,7 +199,7 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
+- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
@@ -207,7 +207,7 @@ Use the steps below to provision roles for a user to your application. Note that
 
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
-    - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
+    - Ensure that multiple roles aren't assigned to a user. We can't guarantee which role will be provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
@@ -259,7 +259,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
     - All roles will be provisioned as primary = false.
-    - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
+    - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups." 
     
   - **Example output** 
@@ -334,10 +334,10 @@ Selecting this option will effectively force a resynchronization of all users wh
 - Microsoft Azure AD provides an efficient implementation of a synchronization process. In an initialized environment, only objects requiring updates are processed during a synchronization cycle.
 - Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated.
 - A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
-- Adding a photo attribute to be provisioned to an app isn't supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
-- The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It isn't recommended to remove the IsSoftDeleted attribute from your attribute mappings.
-- The Azure AD provisioning service does not support provisioning null values.
-- They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 
+- Adding a photo attribute to be provisioned to an app isn't supported today as you can't specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
+- The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It's not recommended to remove the IsSoftDeleted attribute from your attribute mappings.
+- The Azure AD provisioning service doesn't support provisioning null values.
+- They primary key, typically "ID", shouldn't be included as a target attribute in your attribute mappings. 
 - The role attribute typically needs to be mapped using an expression, rather than a direct mapping. See section above for more details on role mapping. 
 - While you can disable groups from your mappings, disabling users isn't supported. 
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 01/05/2023
 ms.author: rambala
 ---
-# Configure Virtual WAN for Azure NetApp Files (preview)
+# Configure Virtual WAN for Azure NetApp Files
 
 You can configure Azure NetApp Files volumes with Standard network features in one or more Virtual WAN spoke virtual networks (VNets). Virtual WAN spoke VNets allow access to the file storage service globally across your Virtual WAN environment.
 
