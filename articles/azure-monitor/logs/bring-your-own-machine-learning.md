@@ -46,20 +46,29 @@ This table compares the advantages and limitations of using KQL's built-in machi
 |**Scenario**|- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :x: |- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :white_check_mark:|
 |**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |- Dependent on the machine learning service you use. <br>- Introduces latency when querying or exporting data. |
-|**Cost**|No extra cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
+|**Cost**|No extra cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
 |**Limitations**|Limited to several GBs of data, or a few million records.|Supports larger volumes, depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs). |
 | |Linear regression model with a set number of configurable parameters.|Customizable.  |
-| |Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks.| Query API log query limits depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
+| |Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks.| Query API log query limits depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
 ## Create your own machine learning pipeline
 
-Setting up a machine learning pipeline typically includes all or some of these tasks:
+Setting up a machine learning pipeline typically involves all or some of these tasks:
  
 - Data exploration, including advanced analytics and visualization 
 - Model training 
 - Model deployment and scoring 
 - Getting insights from scored data 
+
+|Step|Implementation|
+|-|-|
+|Data exploration|| 
+|Model training ||
+|Model deployment and scoring|| 
+|Getting insights from scored data|| 
+
+
 
 Using the native machine learning capabilities of KQL to process and analyze log data in Azure Monitor Logs gives you the benefits of:
  
@@ -92,16 +101,16 @@ If the richness of KQL native functions doesn't meet your business needs, you ca
 
 Azure Monitor offers a set of different tools to explore data and prepare it for analytics and/or machine learning. One of the quickest ways to get started with data exploration is using Log Analytics Tool or using notebooks running
 
-||KQL operators and functions||Custom models||
-|-|-|-|-|-|
-||Inside Azure Monitor Logs|Run full ML pipeline “On top AzMon”|Run full ML pipeline outside AzMon|Hybrid mode: Data Exploration “On top AzMon”, Train outside, score “On top AzMon”|
-|Machine learning libraries ||All ML libraries<br>Examples:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure Machine Learning SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
-|||
-|Log export needed?|No|No|Yes|Training – Yes, Scoring - No |
-|Other Azure services|Optional|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
-|Pros|Optimal performance, cost savings, no custom code needed|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
-|Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
-|When to use|For small-medium volumes of data (up to several GB/few millions of records), when built-in functions suit your needs|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
+
+||Run full ML pipeline “On top AzMon”|Run full ML pipeline outside AzMon|Hybrid mode: Data Exploration “On top AzMon”, Train outside, score “On top AzMon”|
+|-|-|-|-|
+|Log export needed?|No|Yes|Training – Yes, Scoring - No |
+|Other Azure services|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
+|Pros|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
+|Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
+|When to use|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
+
+Machine learning libraries example:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure Machine Learning SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
 ## Next steps
 
 - [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
