@@ -49,7 +49,10 @@ In order for your script to run, you need to be working in an environment config
     Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
 
     1. Download this conda environment file, [*workstation_env.yml*](https://azuremlexampledata.blob.core.windows.net/datasets/workstation_env.yml) to your computer.
-    1. Select **+** and select **Upload files** to upload it to your workspace.
+    1. Select **Add files**, then select **Upload files** to upload it to your workspace.
+
+        :::image type="content" source="media/tutorial-cloud-workstation/upload-files.png" alt-text="Screenshot shows how to upload files to your workspace.":::
+
     1. Select **Browse and select file(s)**.
     1. Select **workstation_env.yml** file you downloaded.
     1. Select **Upload**.
@@ -111,7 +114,7 @@ You now have a new kernel.  Next you'll open a notebook and use this kernel.
 
 ## Create a notebook
 
-1. Select **+ Files**, and choose **Create new file**.
+1. Select **Add files**, and choose **Create new file**.
 
     :::image type="content" source="media/tutorial-cloud-workstation/create-new-file.png" alt-text="Screenshot: Create new file.":::
 
@@ -131,95 +134,32 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 
 1. Start with code that imports the packages and libraries you'll use in the training script.
 
-    ```python
-    import os
-    import argparse
-    import pandas as pd
-    import mlflow
-    import mlflow.sklearn
-    from sklearn.ensemble import GradientBoostingClassifier
-    from sklearn.metrics import classification_report
-    from sklearn.model_selection import train_test_split
-    ```
+    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=import)]
 
 1. Next, load and process the data for this experiment. In this tutorial, you read the data from a file on the internet.
 
-    ```python
-    # load the data
-    credit_df = pd.read_csv('https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv', header=1, index_col=0)
-    
-    train_df, test_df = train_test_split(
-        credit_df,
-        test_size=0.25,
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=load)]
 
 1. Get the data ready for training:
-
-    ```python
-    # Extracting the label column
-    y_train = train_df.pop("default payment next month")
-    
-    # convert the dataframe values to array
-    X_train = train_df.values
-    
-    # Extracting the label column
-    y_test = test_df.pop("default payment next month")
-    
-    # convert the dataframe values to array
-    X_test = test_df.values
-    ```
+1. 
+    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=extract)]
 
 1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context for when you're ready to move from the development phase to the training phase of your workflows within Azure Machine Learning.
 
-    ```python
-    # set name for logging
-    mlflow.set_experiment("Develop on cloud tutorial")
-    # enable autologging with MLflow
-    mlflow.sklearn.autolog()
+    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=mlflow)]
 
     ```
 
 1. Train a model.
 
-    ```python
-    # Train with Gradient Boosting Classifier
-    print(f"Training with data of shape {X_train.shape}")
-    
-    mlflow.start_run()
-    clf = GradientBoostingClassifier(
-        n_estimators=100, learning_rate=0.1
-    )
-    clf.fit(X_train, y_train)
-    
-    y_pred = clf.predict(X_test)
-    
-    print(classification_report(y_test, y_pred))
-    # Stop logging for this model
-    mlflow.end_run()
+    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=gbt)]
     ```
 
 ## Iterate 
 
 Now that you have model results, you may want to change something and try again.  For example, try a different classifier technique:
 
-```python
-# Train  with AdaBoost Classifier
-from sklearn.ensemble import AdaBoostClassifier
-
-print(f"Training with data of shape {X_train.shape}")
-
-mlflow.start_run()
-ada = AdaBoostClassifier()
-
-ada.fit(X_train, y_train)
-
-y_pred = ada.predict(X_test)
-
-print(classification_report(y_test, y_pred))
-# Stop logging for this model
-mlflow.end_run()
-```
+    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=ada)]
 
 ## Examine results
 
