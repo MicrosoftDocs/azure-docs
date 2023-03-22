@@ -96,7 +96,7 @@ Assuming you have an application using Azure App Configuration, you can update i
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
-**Connect with AD**
+**Connect with AAD**
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
@@ -114,7 +114,6 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 **Connect with Connection String**
-
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
