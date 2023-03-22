@@ -81,7 +81,7 @@ To assign session hosts VMs permissions for the storage account and file share:
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 
-7. Assign the synced AD DS group the Storage File Data SMB Share Reader role on the storage account .
+7. Assign the synced AD DS group the Storage File Data SMB Share Reader role on the storage account.
 
 8. Mount the file share to any session host by following the instructions in [Part two: assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
