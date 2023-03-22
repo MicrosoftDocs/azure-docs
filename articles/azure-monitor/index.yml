@@ -33,22 +33,6 @@ landingContent:
           - text: What is Azure Monitor Logs?
             url: ./logs/data-platform-logs.md
 
-# Card 
-  - title: Get started with Azure Monitor
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Plan your implementation
-            url: best-practices-plan.md
-          - text: Configure data collection
-            url: best-practices-data-collection.md
-          - text: Understand analysis and visualization tools
-            url: best-practices-analysis.md
-          - text: Configure alerts and automated actions
-            url: best-practices-alerts.md
-          - text: Optimize costs
-            url: best-practices-cost.md
-
   # Card 
   - title: Common scenarios
     linkLists:
@@ -65,6 +49,38 @@ landingContent:
           - text: Migrate from Splunk to Azure Monitor Logs
             url: ./logs/migrate-splunk-to-azure-monitor-logs.md
 
+  # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Azure Monitor learning path 
+            url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
+          - text: Configure Azure Monitor
+            url: /training/modules/configure-azure-monitor/
+          - text: Analyze logs in Azure Monitor with KQL
+            url: /training/modules/analyze-logs-with-kql/
+          - text: Monitor performance of virtual machines using Azure Monitor VM Insights
+            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
+          - text: Visualize data combined from multiple data sources using Azure Workbooks
+            url: /training/modules/visualize-data-workbooks/
+
+# Card 
+  - title: Get started with Azure Monitor
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Plan your implementation
+            url: best-practices-plan.md
+          - text: Configure data collection
+            url: best-practices-data-collection.md
+          - text: Understand analysis and visualization tools
+            url: best-practices-analysis.md
+          - text: Configure alerts and automated actions
+            url: best-practices-alerts.md
+          - text: Optimize costs
+            url: best-practices-cost.md
+
  # Card
   - title: Get started with Log Analytics
     linkLists: 
@@ -72,7 +88,7 @@ landingContent:
         links:
           - text: Log Analytics workspace
             url: logs/log-analytics-workspace-overview.md
-          - text: Design a Log Anlytics workspace architecture
+          - text: Design a Log Analytics workspace architecture
             url: logs/workspace-design.md
           - text: Create a Log Analytics workspace
             url: logs/quick-create-workspace.md
@@ -102,6 +118,8 @@ landingContent:
     linkLists: 
       - linkListType: deploy
         links:
+          - text: Azure Monitor Insights
+            url: /insights/insights-overview
           - text: Workbooks 
             url: /visualize/workbooks-overview.md
           - text: Dashboards
@@ -120,22 +138,6 @@ landingContent:
             url: /alerts/alerts-overview.md
           - text: Autoscale
             url: /autoscale/autoscale-overview.md
-
-  # Card
-  - title: Training
-    linkLists: 
-      - linkListType: learn
-        links:
-          - text: Azure Monitor learning path 
-            url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
-          - text: Configure Azure Monitor
-            url: /training/modules/configure-azure-monitor/
-          - text: Analyze logs in Azure Monitor with KQL
-            url: /training/modules/analyze-logs-with-kql/
-          - text: Monitor performance of virtual machines using Azure Monitor VM Insights
-            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
-          - text: Visualize data combined from multiple data sources using Azure Workbooks
-            url: /training/modules/visualize-data-workbooks/
 
   # Card
   - title: Reference
