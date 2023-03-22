@@ -129,7 +129,7 @@ There are a two scenarios where you may find it helpful to reset your ExpressRou
    AllowClassicOperations           : False
    GatewayManagerEtag               :
    ```
-6. Run the following commands to change the peering state to disable.
+6. Run the following commands to change the peering state to disabled.
 
    ```azurepowershell-interactive
    $ckt.Peerings[0].State = "Disabled"
