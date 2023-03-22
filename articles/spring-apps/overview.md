@@ -41,7 +41,7 @@ Azure Spring Apps supports both Java [Spring Boot](https://spring.io/projects/sp
 
 As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
-:::image type="content" source="media/overview/overview.png" alt-text="Diagram showing an overview of how Azure Spring Apps interacts with other services and tools." lightbox="media/overview/overview.png":::
+:::image type="content" source="media/overview/overview.png" alt-text="Diagram showing an overview of how Azure Spring Apps interacts with other services and tools." lightbox="media/overview/overview.png" border="false":::
 
 * Azure Spring Apps is a fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
@@ -77,7 +77,7 @@ The Standard consumption plan provides a flexible billing model where you pay on
 
 Standard consumption simplifies the virtual network experience for running polyglot apps. All your apps will share the same virtual network when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard consumption, in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
-:::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing PetClinic apps in Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png":::
+:::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
 ## Enterprise plan
 

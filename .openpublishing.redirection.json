@@ -22445,6 +22445,11 @@
             "source_path": "articles/private-multi-access-edge-compute-mec/metaswitch-fusion-core-overview.md",
             "redirect_URL": "/azure/private-5g-core",
             "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/private-5g-core/modify-site-plan.md",
+            "redirect_URL": "/azure/private-5g-core/modify-service-plan",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/communications-gateway/rotate-secrets.md",
@@ -22454,6 +22459,11 @@
         {
             "source_path": "articles/batch/high-availability-disaster-recovery.md",
             "redirect_URL": "/azure/reliability/reliability-batch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/bring-your-own-storage.md",
+            "redirect_url": "/azure/communication-services/concepts/call-automation/call-recording/bring-your-own-storage",
             "redirect_document_id": false
         }
        

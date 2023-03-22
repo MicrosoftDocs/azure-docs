@@ -509,7 +509,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
     powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
     ```
 
-    ### [Linux/MacOS](#tab/linuxmac)
+    ### [macOS/Linux](#tab/mac-linux)
 
     ```azdeveloper
     curl -fsSL https://aka.ms/install-azd.sh | bash 
