@@ -100,7 +100,7 @@ The free certificate comes with the following limitations:
 
    ![Screenshot of "Private Key Certificates" pane with newly created certificate listed.](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
+1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Buy and import App Service certificate
 
@@ -203,7 +203,7 @@ The following domain verification methods are supported:
 
    ![Screenshot of "Private Key Certificates" pane with purchased certificate listed.](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
+1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Import a certificate from Key Vault
 
@@ -244,7 +244,7 @@ By default, the App Service resource provider doesn't have access to your key va
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 24 hours.
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
+1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Upload a private certificate
 
@@ -313,7 +313,7 @@ You're now ready upload the certificate to App Service.
 
    ![Screenshot of "Private Key Certificates" pane with uploaded certificate listed.](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
+1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Upload a public certificate
 
