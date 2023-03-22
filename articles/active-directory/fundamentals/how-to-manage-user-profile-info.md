@@ -80,7 +80,7 @@ Go to **Azure AD** > **User settings**.
 
 ### Learn about the 'Stay signed in?' prompt
 
-The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent authentication cooke, or [refresh token](../develop/developer-glossary.md#refresh-token). The cookie must be stored in session for KMSI to work. KMSI will not work with locally stored cookies. If KMSI is not enabled, a non-persistent cookie is used and lasts for 24 hours or until the browser is closed.
+The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent authentication cookie, or [refresh token](../develop/developer-glossary.md#refresh-token). The cookie must be stored in session for KMSI to work. KMSI will not work with locally stored cookies. If KMSI is not enabled, a non-persistent cookie is used and lasts for 24 hours or until the browser is closed.
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 
