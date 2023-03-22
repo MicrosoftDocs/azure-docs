@@ -19,6 +19,8 @@ Scenarios for creating a token include:
 * Provide an external organization with permissions to a specific repository 
 * Limit repository access to different user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
 
+This feature is available in all the service tiers. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md)
+
 ## Limitations
 
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
@@ -39,7 +41,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
   |`metadata/read`    | Read metadata from the repository   | List tags or manifests |
   |`metadata/write`     |  Write metadata to the repository  | Enable or disable read, write, or delete operations |
 
-* A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. Every token is associated with a single scope map. 
+* A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. Every token is associated with a single scope map.
 
    With a scope map:
 
@@ -48,7 +50,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
 
   Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.The individual *actions* corresponds to the limit of [Repositories per scope map.](container-registry-skus.md)
 
-The following image shows the relationship between tokens and scope maps. 
+The following image shows the relationship between tokens and scope maps.
 
 ![Registry tokens and scope maps](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
 
@@ -162,7 +164,7 @@ After the token is validated and created, token details appear in the **Tokens**
 
 ### Add token password
 
-To use a token created in the portal, you must generate a password. You can generate one or two passwords, and set an expiration date for each one. New passwords created for tokens are available immediately. Regenerating new passwords for tokens will take 60 seconds to replicate and be available. 
+To use a token created in the portal, you must generate a password. You can generate one or two passwords, and set an expiration date for each one. New passwords created for tokens are available immediately. Regenerating new passwords for tokens will take 60 seconds to replicate and be available.
 
 1. In the portal, navigate to your container registry.
 1. Under **Repository permissions**, select **Tokens**, and select a token.
@@ -398,7 +400,7 @@ In the portal, on the **Tokens** screen, select the token, and under **Scope map
 
 ## Disable or delete token
 
-You might need to temporarily disable use of the token credentials for a user or service. 
+You might need to temporarily disable use of the token credentials for a user or service.
 
 Using the Azure CLI, run the [az acr token update][az-acr-token-update] command to set the `status` to `disabled`:
 
@@ -409,7 +411,7 @@ az acr token update --name MyToken --registry myregistry \
 
 In the portal, select the token in the **Tokens** screen, and select **Disabled** under **Status**.
 
-To delete a token to permanently invalidate access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command. 
+To delete a token to permanently invalidate access by anyone using its credentials, run the [az acr token delete][az-acr-token-delete] command.
 
 ```azurecli
 az acr token delete --name MyToken --registry myregistry
