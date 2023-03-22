@@ -67,23 +67,17 @@ This table compares the advantages and limitations of the three using machine le
 
 ||Integrated notebook|External machine learning pipeline|Hybrid pipeline<br>(Integrated notebook, external model training)|
 |-|-|-|-|
-|**Data exported?**|No|Yes|- Training: Yes<br>- Scoring: No |
-|**Uses other Azure services**|Optional: You can integrate a notebook with Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |Training: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>Scoring: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
-|**Advantages**|Minimal latency and cost savings.|No query limits.|Scoring: Minimal latency and cost savings. |
-|**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which are possible to overcome by splitting query execution into chunks.|Cost of export and storage, increased latency due to export.|Training: Cost of export and training. |
-| |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|Scoring: Large volumes of data.<br> Training: Supports several GBs of data, or a few million records. |
+|**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
+|**Uses other Azure services**|Optional: You can integrate a notebook with Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>**Scoring**: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
+|**Advantages**|Minimal latency and cost savings.|No query limits.|**Scoring**: Minimal latency and cost savings. |
+|**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which are possible to overcome by splitting query execution into chunks.|Cost of export and storage, increased latency due to export.|**Training**: Cost of export and training. |
+| |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Supports several GBs of data, or a few million records. |
 
 
 ### Limitations of KQL machine learning capabilities
 
 - Implementing custom machine learning models 
 - Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
-
-
-### When to Use
-- To analyze log data for various insights such as monitoring service health, usage, or other trends, and anomalies detection using time series on selected parameters. 
-- To gain greater flexibility and deeper insights than out-of-the-box insights tools without running custom algorithms or exporting data. 
-- If you don't need to be an expert in data science or programming languages. 
 
 ### Data Exploration 
 
