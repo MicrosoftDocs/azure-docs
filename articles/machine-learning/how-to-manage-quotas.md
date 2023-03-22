@@ -125,6 +125,23 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases).
 
+### Azure Machine Learning kubernetes online endpoints
+
+Azure Machine Learning kubernetes online endpoints have limits described in the following table. 
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
+| Number of endpoints per cluster | 20 |
+| Number of deployments per cluster | 200 |
+| Number of deployments per endpoint | 20 |
+| Number of instances per deployment | 20 <sup>2</sup> |
+| Max request time-out at endpoint level  | 300 seconds |
+
+
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
