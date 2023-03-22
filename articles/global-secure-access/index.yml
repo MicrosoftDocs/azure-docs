@@ -10,7 +10,7 @@ metadata:
    ms.subservice: app-proxy
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 01/31/2023
+   ms.date: 03/22/2023
    author: kenwith
    ms.author: kenwith
    manager: amycolannino
@@ -22,6 +22,10 @@ landingContent:
         links:
           - text: What is Global Secure Access?
             url: overview-what-is-global-secure-access.md
+          - text: What is Microsoft Entra Private Access?
+            url: overview-what-is-private-access.md
+          - text: What is Microsoft Entra Internet Access?
+            url: overview-what-is-internet-access.md
 
   - title: Get started
     linkLists:

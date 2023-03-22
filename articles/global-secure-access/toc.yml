@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Global Secure Access?
     href: overview-what-is-global-secure-access.md
+  - name: What is Microsoft Entra Private Access?
+    href: overview-what-is-private-access.md
+  - name: What is Microsoft Entra Internet Access?
+    href: overview-what-is-internet-access.md
 - name: Quickstarts
   expanded: false
   items:
