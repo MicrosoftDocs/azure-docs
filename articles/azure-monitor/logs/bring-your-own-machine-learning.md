@@ -61,20 +61,14 @@ Setting up a machine learning pipeline typically involves all or some of these t
 - Model deployment and scoring 
 - Getting insights from scored data 
 
-|Step|Implementation|
-|-|-|
-|Data exploration|| 
-|Model training ||
-|Model deployment and scoring|| 
-|Getting insights from scored data|| 
+||Integrated notebook|External machine learning pipeline|Hybrid pipeline: Integrated notebook, external model training|
+|-|-|-|-|
+|Log export needed?|No|Yes|Training – Yes, Scoring - No |
+|Other Azure services|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
+|Pros|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
+|Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
+|When to use|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
 
-
-
-Using the native machine learning capabilities of KQL to process and analyze log data in Azure Monitor Logs gives you the benefits of:
- 
-- The power of the Azure Data Explorer platform, running at high scales in a distributed manner, for optimal performance. 
-- Multiple configurable parameters for flexibility and tweaking. 
-- Savings on the costs and overhead of using tools and services outside of Azure Monitor. In other words, you don't need to copy data into memory objects or export data outside of Azure Monitor.
 
 ### Limitations of KQL machine learning capabilities
 
@@ -102,13 +96,6 @@ If the richness of KQL native functions doesn't meet your business needs, you ca
 Azure Monitor offers a set of different tools to explore data and prepare it for analytics and/or machine learning. One of the quickest ways to get started with data exploration is using Log Analytics Tool or using notebooks running
 
 
-||Integrated notebook|External machine learning pipeline|Hybrid pipeline: Integrated notebook, external model training|
-|-|-|-|-|
-|Log export needed?|No|Yes|Training – Yes, Scoring - No |
-|Other Azure services|Optional (Azure Synapse, Azure Machine Learning can be used)|usually ADLS, Azure Synapse used |Training – usually ADLS, Azure Synapse used<br>Scoring – optional (ADLS, Azure Synapse can be used)|
-|Pros|Minimum latency, cost savings|No query limits|Minimum latency for scoring<br>Cost savings for scoring |
-|Cons|Query API log query limits, which are possible to overcome by splitting query execution into chunks|Cost of export & storage, increased latency due to export|Cost of export & training (for training) |
-|When to use|For small-medium volumes of data (up to several GB / few millions of records)|Large volumes of data (for both training and scoring)|Large volumes of data for training small-medium volumes of data for scoring  |
 
 Machine learning libraries example:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure Machine Learning SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
 ## Next steps
