@@ -19,7 +19,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## March 2023
 
 Updates in March include:
-
+- [Data-aware security posture is now in preview](data-aware-security-posture-(preview))
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
@@ -58,7 +58,7 @@ The recommendation is based on the existing policy [`Azure SQL Database should h
 
 This recommendation disables local authentication methods and allows only Azure Active Directory Authentication which improves security by ensuring that Azure SQL Databases can exclusively be accessed by Azure Active Directory identities. 
 
-Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server?tabs=azure-cli&view=azuresql).
+Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server?tabs=azure-cli).
 
 ### New alert in Defender for Key Vault
 
