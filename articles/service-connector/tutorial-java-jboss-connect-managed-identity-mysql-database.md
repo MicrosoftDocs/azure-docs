@@ -163,7 +163,7 @@ Following these steps to prepare data in database and deploy the application.
 
     ```azurecli
     DATABASE_FQDN=${MYSQL_HOST}.mysql.database.azure.com
-    CURRENT_USER=${echo ${CONFIGURATIONS} | jq '.[]| select(.name=="AZURE_MYSQL_CONNECTIONSTRING")|.value| split("&user=")[1]'}
+    CURRENT_USER=$(echo ${CONFIGURATIONS} | jq '.[]| select(.name=="AZURE_MYSQL_CONNECTIONSTRING")|.value| split("&user=")[1]')
     RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
     mysql -h "${DATABASE_FQDN}" --user "${CURRENT_USER}" --enable-cleartext-plugin --password="$RDBMS_ACCESS_TOKEN" < init-db.sql
     ```
