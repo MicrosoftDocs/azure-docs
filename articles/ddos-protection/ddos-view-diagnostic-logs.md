@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/21/2023
+ms.date: 03/22/2023
 ms.author: abell
 ---
 
@@ -113,9 +113,4 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
 
 ## Next steps
 
-In this guide, you learned how to view log data in log analytics workspace.
-
-To learn how to engage with Azure DDoS Rapid Response, continue to the next guide.
-
-> [!div class="nextstepaction"]
-> [View and configure DDoS protection alerts](ddos-rapid-response.md)
+*[Engage DDoS Rapid Response](ddos-rapid-response.md)
