@@ -26,7 +26,9 @@ In this mode, the scale set makes no guarantees about the order of VMs being bro
 ### Rolling
 
 > [!IMPORTANT]
-> Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+>
+> To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in CloudShell or search for "MaxSurgeRollingUpgrade" in the list of preview features available in the Azure Portal.
 
 In this mode, the scale set rolls out the update in batches with an optional pause time in between. Additionally, when selecting a **Rolling**, users can select to enable **MaxSurge**. When MaxSurge is enabled, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances are added to the scale set and the old model instances are removed. This occurs in multiple batches (batch size determined by customer) until all instances are brought up to date. 
 
