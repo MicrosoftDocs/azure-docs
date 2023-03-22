@@ -13,8 +13,8 @@ This article describes how to customize data sensitivity settings in Microsoft D
 [Data sensitivity settings](concept-data-security-posture.md#data-sensitivity-settings) are used to identify what's considered sensitive data in your organization. When scanning resource sensitivity in Defender for Cloud, scan results are based on:
 
 - The sensitivity information types you select Defender for Cloud. Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#built-in-sensitive-information-types) provided by Microsoft Purview.
-- Customized sensitive information types you've defined in Microsoft Purview and synced to Defender for Cloud
-- Defender for Cloud sensitivity thresholds based on Microsoft Purview [sensitivity labels](/microsoft-365/compliance/sensitivity-labels#what-a-sensitivity-label-is) that you've synced to Defender for Cloud
+- Customized sensitive information types you've defined in Microsoft Purview and imported into Defender for Cloud (optional).
+- Defender for Cloud sensitivity thresholds based on Microsoft Purview [sensitivity labels](/microsoft-365/compliance/sensitivity-labels#what-a-sensitivity-label-is) that you've synced to Defender for Cloud (optional).
 
 Customizing sensitivity settings helps you to:
 
