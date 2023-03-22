@@ -37,7 +37,7 @@ spotLightFeature.stopSpotlight();
 ```
 
 ### start spotlight some remote participants
-Only MicrosoftTeamsUserIdentifier users who have an organizer or presenter role can set the spotlight state of other participants
+Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer or presenter role can set the spotlight state of other participants
 ```js
 const spotLightFeature = call.feature(Features.Spotlight);
 
