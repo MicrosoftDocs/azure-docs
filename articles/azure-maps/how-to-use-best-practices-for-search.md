@@ -13,7 +13,7 @@ services: azure-maps
 
 # Best practices for Azure Maps Search service
 
-Azure Maps [Search service] includes API that offer various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
+Azure Maps [Search service] includes API that offers various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
 
 This article explains how to apply sound practices when you call data from Azure Maps Search service. You'll learn how to:
 > [!div class="checklist"]
