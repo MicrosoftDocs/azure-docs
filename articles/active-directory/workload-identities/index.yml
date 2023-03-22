@@ -59,7 +59,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: application authentication methods API
+          - text: Application authentication methods API
             url: /graph/api/resources/applicationauthenticationmethodpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   # Card
   - title: Secure risky workload identities
