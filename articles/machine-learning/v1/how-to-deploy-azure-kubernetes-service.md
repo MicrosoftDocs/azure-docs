@@ -116,7 +116,7 @@ The following diagram shows the connectivity requirements for AKS inferencing. B
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../../aks/limit-egress-traffic.md).
 
-For accessing Azure Machine Learning services behind a firewall, see [How to access azureml behind firewall](/azure/machine-learning/how-to-access-azureml-behind-firewall).
+For accessing Azure Machine Learning services behind a firewall, see [How to access azureml behind firewall](../how-to-access-azureml-behind-firewall.md).
 
 ### Overall DNS resolution requirements
 

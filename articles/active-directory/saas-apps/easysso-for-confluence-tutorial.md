@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Confluence | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Confluence'
 description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for Confluence.
 services: active-directory
 author: jeevansd

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ProcessUnity | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ProcessUnity'
 description: Learn how to configure single sign-on between Azure Active Directory and ProcessUnity.
 services: active-directory
 author: jeevansd

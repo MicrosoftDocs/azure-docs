@@ -81,12 +81,12 @@ The valid type expressions include:
 
     Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that would not be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
 
-    Properties are required unless they have an optionality marker `?` between the property name and the colon. For example, the `sku` property in the following example is optional:
+    Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
 
     ```bicep
     type storageAccountConfigType = {
       name: string
-      sku?: string
+      sku: string?
     }
     ```
 
@@ -97,7 +97,7 @@ The valid type expressions include:
     ```bicep
     type myObjectType = {
       stringProp: string
-      recursiveProp?: myObjectType
+      recursiveProp: myObjectType?
     }
     ```
 

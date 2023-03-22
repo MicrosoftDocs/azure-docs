@@ -51,9 +51,9 @@ You need:
 
 ### Review Azure container registry
 
-[Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts.
-The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](/azure/container-registry/container-registry-helm-repos), etc., security and monitoring.
-For more details, also see [Azure Container Registry](/azure/container-registry/).
+[Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
+The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli), [Push/Pull a Helm chart](../container-registry/container-registry-helm-repos.md), etc., security and monitoring.
+For more details, also see [Azure Container Registry](../container-registry/index.yml).
 
 ## Install CLI extensions
 

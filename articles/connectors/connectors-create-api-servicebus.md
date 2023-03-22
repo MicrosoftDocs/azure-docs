@@ -314,7 +314,7 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
    >
    > This Service Bus trigger follows the *push trigger* pattern, which means that the trigger waits and listens 
    > for events or data that meet the specified condition before running a workflow. The trigger doesn't check 
-   > for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
+   > for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
 
 1. Add any actions that your workflow needs.
 
@@ -535,7 +535,7 @@ The Service Bus built-in connector is available only for Standard logic app work
 | When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
 | When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
 
-These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
+These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](introduction.md#triggers).
 
 | Action | Description |
 |--------|-------------|
@@ -576,5 +576,6 @@ As long as this error happens only occasionally, the error is expected. When the
 
 ## Next steps
 
-* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors in Azure Logic Apps](built-in.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

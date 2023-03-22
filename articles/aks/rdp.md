@@ -396,7 +396,7 @@ When you're finished, exit the Bastion session and remove the Bastion resource.
 If you need more troubleshooting data, you can [view the Kubernetes primary node logs][view-primary-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [rdp-mac]: https://aka.ms/rdmac
 

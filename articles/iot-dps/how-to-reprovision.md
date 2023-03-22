@@ -1,12 +1,13 @@
 ---
-title: Reprovision devices in Azure IoT Hub Device Provisioning Service
+title: Reprovision devices with DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Learn how to reprovision devices with your Device Provisioning Service (DPS) instance, and why you might need to do this.
 author: kgremban
+
 ms.author: kgremban
 ms.date: 01/25/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # How to reprovision devices

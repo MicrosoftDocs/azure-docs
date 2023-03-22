@@ -21,6 +21,7 @@ Workspace-based resources:
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
 
+
 > [!IMPORTANT]
 > * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
 > * When you [migrate to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
@@ -367,7 +368,7 @@ Most of the columns have the same name with different capitalization. KQL is cas
 
 #### AppAvailabilityResults
 
-Legacy table: availability
+Legacy table: availabilityResults
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
@@ -782,7 +783,7 @@ Legacy table: traces
 |message|string|Message|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
