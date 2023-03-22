@@ -37,11 +37,12 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - [New-AzMobileNetworkPacketCoreControlPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcorecontrolplane)
 - [New-AzMobileNetworkPacketCoreDataPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcoredataplane)
 - [New-AzMobileNetworkDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkdatanetwork)
-- [New-AzMobileNetworkAttachedDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkattacheddatanetwork)
 - [New-AzMobileNetworkSimGroup](/powershell/module/az.mobilenetwork/new-azmobilenetworksimgroup)
 - [New-AzMobileNetworkSlice](/powershell/module/az.mobilenetwork/new-azmobilenetworkslice)
 - [New-AzMobileNetworkServiceResourceIdObject](/powershell/module/az.mobilenetwork/new-azmobilenetworkserviceresourceidobject)
+- [New-AzMobileNetworkSim](/powershell/module/az.mobilenetwork/new-azmobilenetworksim)
 - [New-AzMobileNetworkSimStaticIPPropertiesObject](/powershell/module/az.mobilenetwork/new-azmobilenetworksimstaticippropertiesobject)
+- [New-AzMobileNetworkAttachedDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkattacheddatanetwork)
 
 ## Sign in to Azure
 
