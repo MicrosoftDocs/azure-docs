@@ -1,111 +1,91 @@
 ---
-title: Test Azure virtual machine network latency in an Azure virtual network
-description: Learn how to test network latency between Azure virtual machines on a virtual network
+title: Test network latency between Azure VMs
+description: Learn how to test network latency between Azure virtual machines on a virtual network.
 services: virtual-network
 author: asudbring
 manager: Marina Lipshteyn
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/21/2023
 ms.author: allensu
 ---
 
-# Test VM network latency
+# Test network latency between Azure VMs
 
-To achieve the most accurate results, measure your Azure virtual machine (VM) network latency with a tool that's designed for the task. Publicly available tools such as SockPerf (for Linux) and latte.exe (for Windows) can isolate and measure network latency while excluding other types of latency, such as application latency. These tools focus on the kind of network traffic that affects application performance (namely, Transmission Control Protocol [TCP] and User Datagram Protocol [UDP] traffic). 
+This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly-available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
-Other common connectivity tools, such as Ping, might measure latency, but their results might not represent the network traffic that's used in real workloads. That's because most of these tools employ the Internet Control Message Protocol (ICMP), which can be treated differently from application traffic and whose results might not apply to workloads that use TCP and UDP. 
+For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol [TCP] and User Datagram Protocol [UDP] traffic. Most applications use these protocols, and they have the greatest effect on application performance.
 
-For accurate network latency testing of the protocols used by most applications, SockPerf (for Linux) and latte.exe (for Windows) produce the most relevant results. This article covers both of these tools.
+Many other common network latency test tools, such as Ping, don't measure the type of network traffic that's used in real workloads. Most of these tools use Internet Control Message Protocol (ICMP), which most applications don't use and which can be treated differently from application traffic. These test results might not apply to workloads that use TCP and UDP.
 
-## Overview
+Tools like Latte or SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP or other packet types that aren't used by applications and don't affect application performance.
 
-By using two VMs, one as sender and one as receiver, you create a two-way communications channel. With this approach, you can send and receive packets in both directions and measure the round-trip time (RTT).
+## Network latency testing process and best practices
 
-You can use this approach to measure network latency between two VMs or even between two physical computers. Latency measurements can be useful for the following scenarios:
+Latte or SockPerf use the following approach to measure network latency between two physical or virtual computers:
 
-- Establish a benchmark for network latency between the deployed VMs.
-- Compare the effects of changes in network latency after related changes are made to:
-  - Operating system (OS) or network stack software, including configuration changes.
-  - A VM deployment method, such as deploying to an availability zone or proximity placement group (PPG).
-  - VM properties, such as Accelerated Networking or size changes.
-  - A virtual network, such as routing or filtering changes.
+1. Create a two-way communications channel between the computers by alternately designating one as sender and one as receiver.
+1. Send and receive packets in both directions and measure the round-trip time (RTT).
 
-### Tools for testing
-To measure latency, you have two different tool options:
+### Optimal VM configuration
 
-* For Windows-based systems: [latte.exe (Windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
-* For Linux-based systems: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
+To optimize network latency, observe the following recommendations when you create your VMs:
 
-By using these tools, you help ensure that only TCP or UDP payload delivery times are measured and not ICMP (Ping) or other packet types that aren't used by applications and don't affect their performance.
-
-### Tips for creating an optimal VM configuration
-
-When you create your VM configuration, keep in mind the following recommendations:
 - Use the latest version of Windows or Linux.
-- Enable Accelerated Networking for best results.
-- Deploy VMs with an [Azure proximity placement group](../virtual-machines/co-location.md).
-- Larger VMs generally perform better than smaller VMs.
+- Enable Accelerated Networking for increased performance.
+- Deploy VMs within an [Azure proximity placement group](../virtual-machines/co-location.md).
+- Create larger VMs for better performance.
 
-### Tips for analysis
+### Recommended testing process
 
-As you're analyzing test results, keep in mind the following recommendations:
+Use the following process to test and analyze network latency results:
 
-- Establish a baseline early, as soon as deployment, configuration, and optimizations are complete.
-- Always compare new results to a baseline or, otherwise, from one test to another with controlled changes.
-- Repeat tests whenever changes are observed or planned.
+1. Use network latency measurements to establish a benchmark for network latency between deployed VMs. Take a network latency baseline measurement as soon as you complete VM deployment, configuration, and optimizations.
 
+1. Test the effect on network latency of any changes to:
+   - Operating system (OS) or network stack software, including configuration changes.
+   - VM deployment method, such as deploying to an availability zone or proximity placement group (PPG).
+   - VM properties, such as Accelerated Networking or size changes.
+   - The virtual network, such as routing or filtering changes.
 
-## Test VMs that are running Windows
+1. Always compare new test results to the baseline or to the last test result after controlled changes.
 
-### Get latte.exe onto the VMs
+1. Repeat tests whenever you observe or deploy changes.
 
-Download the [latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe).
+- 
+## Test VMs with Latte or SockPerf
 
-Consider putting latte.exe in separate folder, such as *c:\tools*.
+1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe) into a separate folder on your computer, such as *c:\\tools*.
 
-### Allow latte.exe through Windows Defender Firewall
+1. On the *receiver* VM, create a Windows Defender Firewall `allow` rule to allow the Latte traffic to arrive through Windows Defender Firewall. It's easiest to allow the *latte.exe* program by name rather than to allow specific inbound TCP ports. In the command, replace the `<path>` placeholder with the path you downloaded *latte.exe* to, such as *c:\\tools\\*.
 
-On the *receiver*, create an Allow rule on Windows Defender Firewall to allow the latte.exe traffic to arrive. It's easiest to allow the entire latte.exe program by name rather than to allow specific TCP ports inbound.
+   ```cmd
+   netsh advfirewall firewall add rule program=<path>latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
+   ```
 
-Allow latte.exe through Windows Defender Firewall by running the following command:
+1. Start *latte.exe* from the Windows command line, not from PowerShell. Replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
-```cmd
-netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
+   ```cmd
+   latte -a <receiver IP address>:<port> -i <iterations>
+   ```
+
+   - Around 65,000 iterations is long enough to return representative results.
+   - Any available port number is fine.
+
+   For a VM with an IP address of `10.0.0.4`, the command might look like:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
+
+1. On the *sender* VM, start *latte.exe* from the command line. The command is the same as on the receiver, except with `-c` added to indicate that this is the *client*, or sender.
+
+   ```cmd
+   latte -c -a <receiver IP address>:<port> -i <iterations>
 ```
 
-For example, if you copied latte.exe to the *c:\tools* folder, this would be the command:
+   Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values, for example:
+   
+   `latte -c -a 10.0.0.4:5005 -i 65100`
 
-`netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
-
-### Run latency tests
-
-* On the *receiver*, start latte.exe (run it from the CMD window, not from PowerShell):
-
-    ```cmd
-    latte -a <Receiver IP address>:<port> -i <iterations>
-    ```
-
-    Around 65,000 iterations is long enough to return representative results.
-
-    Any available port number is fine.
-
-    If the VM has an IP address of 10.0.0.4, the command would look like this:
-
-    `latte -a 10.0.0.4:5005 -i 65100`
-
-* On the *sender*, start latte.exe (run it from the CMD window, not from PowerShell):
-
-    ```cmd
-    latte -c -a <Receiver IP address>:<port> -i <iterations>
-    ```
-
-    The resulting command is the same as on the receiver, except with the addition of&nbsp;*-c* to indicate that this is the *client*, or *sender*:
-
-    `latte -c -a 10.0.0.4:5005 -i 65100`
-
-Wait for the results. Depending on how far apart the VMs are, the test could take a few minutes to finish. Consider starting with fewer iterations to test for success before running longer tests.
+1. Wait for the results. Depending on how far apart the VMs are, the test could take a few minutes to finish. Consider starting with fewer iterations to test for success before running longer tests.
 
 ## Test VMs that are running Linux
 
