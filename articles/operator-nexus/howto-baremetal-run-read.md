@@ -22,7 +22,6 @@ The command execution produces an output file containing the results that can be
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Resource group name that you created for `Cluster` resource
 
-
 ## Executing a run-read command
 
 The run-read command executes a read-only command on the specified BMM.
