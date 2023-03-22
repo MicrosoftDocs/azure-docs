@@ -75,7 +75,10 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. Select **Next: Networking**.
 
-1. In the **Networking** section, select **Allow public access from Azure services**. Additionally, add a firewall rule to give your client device or applications access to the cluster. In many corporate environments, developer machine IPs are hidden due to a VPN. In these cases, it's recommended to start with allowing access to all IPs for connection testing initially before refining the allow-list.
+1. In the **Networking** section, select **Allow public access from Azure services**. Additionally, add a firewall rule to give your client device or applications access to the cluster. 
+
+> [!NOTE]
+> In many corporate environments, developer machine IPs are hidden due to a VPN. In these cases, it's recommended to start with allowing access to all IPs for connection testing initially before refining the allow-list.
 
     :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
 
