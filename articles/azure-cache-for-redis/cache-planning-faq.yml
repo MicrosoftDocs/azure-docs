@@ -17,10 +17,10 @@ sections:
       - question: |
           Azure Cache for Redis performance
         answer: |
-          The following table shows the maximum bandwidth values that were observed while testing various sizes of Standard and Premium caches. We used `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For TLS throughput, redis-benchmark is used with *stunnel* to connect to the Azure Cache for Redis endpoint.
+          The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For TLS throughput, redis-benchmark is used with *stunnel* to connect to the Azure Cache for Redis endpoint.
           
-          >[!NOTE] 
-          >These values aren't guaranteed and there's no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
+          >[!IMPORTANT] 
+          >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](cache-best-practices-performance.md) to determine the right cache size for your application.
           >These numbers might change as we post newer results periodically.
           >
           
