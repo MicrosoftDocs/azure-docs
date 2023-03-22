@@ -34,14 +34,19 @@ There are three kinds of actions – Allow, Always Allow, and Deny. If you creat
 Security admin rules don't depend on network security groups in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish network security groups, your organization is protected by default!
 
 > [!IMPORTANT]
-> Regarding application of security admin rules, the eventual consistency model is used. This means that the security admin rules will be applied to the resources in the virtual network after a short delay. This is due to the time required for updates to be passed across distributed virtual networks and their resources like virtual machines. And recently added resources, such as virtual machines added to a virtual network, won't be protected immediately by the security admin rules. They will be protected after a short delay.
+> Regarding application of security admin rules, the eventual consistency model is used. This means that the security admin rules will be applied to the resources in the virtual network after a short delay. Resources that are added to a virtual network that already has security admin rules applied on it will eventually receive those same security admin rules with a delay as well.
+
+When security admin rules are deployed, the eventual consistency model is used. This means that security admin rules will be eventually applied to the resources contained in a virtual network after a short delay. 
 
 ### Management at scale
+
 Azure Virtual Network Manager provides a way to manage your security policies at scale with security admin rules. When you apply a security admin configuration to a [network group](./concept-network-groups.md), a network group can contain dozens or hundreds of VNets, and all of the resources in the network groups’ scope have those security admin rules applied to them.
 
 New resources are protected along with existing resources. For example, if you add new VMs to a virtual network in the scope of a security admin rule, the VMs are automatically secured as well. Shortly after you deploy these VMs, security admin rules will be applied and protect them.
 
 When new security risks are identified, you can deploy them at scale by creating a security admin rule to protect against the new risk and applying it to your network groups. Once this new rule is deployed, all resources in the scope of the network groups will be protected now and in the future.
+
+
 ### Protect high-risk ports
 
 Based on the industry study and suggestions from Microsoft, we recommend customers restrict the traffic from outside using security admin rules for this list of high-risk ports. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. You can create exceptions where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
