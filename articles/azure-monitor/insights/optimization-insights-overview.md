@@ -46,7 +46,7 @@ Optimization Insights analyzes the profiling data collected by the Application I
 
 ## Cost
 
-While Optimization Insights incurs no extra costs, you may encounter [indirect costs associated with Application Insights](https://learn.microsoft.com/azure/azure-monitor/faq#is-it-free-). 
+While Optimization Insights incurs no extra costs, you may encounter [indirect costs associated with Application Insights](/azure/azure-monitor/faq#is-it-free-). 
 
 ## Supported regions
 
