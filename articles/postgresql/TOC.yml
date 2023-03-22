@@ -540,6 +540,10 @@
         - name: Logical replication and logical decoding
           href: flexible-server/concepts-logical.md
           displayName: logical decoding, logical replication
+    - name: App Development
+      items: 
+        - name: Connection resilience
+          href: flexible-server/concepts-connectivity.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
