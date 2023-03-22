@@ -22,7 +22,7 @@ In this article, you'll learn how to configure the admin consent workflow to ena
 
 The admin consent workflow gives admins a secure way to grant access to applications that require admin approval. When a user tries to access an application but is unable to provide consent, they can send a request for admin approval. The request is sent via email to admins who have been designated as reviewers. A reviewer takes action on the request, and the user is notified of the action.
 
-To approve requests, a reviewer must have the [permissions required](../manage-apps/grant-admin-consent?pivots=portal#prerequisites) to grant admin consent for the application requested. Simply designating them as a reviewer doesn't elevate their privileges.
+To approve requests, a reviewer must have the [permissions required](grant-admin-consent.md#prerequisites) to grant admin consent for the application requested. Simply designating them as a reviewer doesn't elevate their privileges.
 
 ## Prerequisites
 
