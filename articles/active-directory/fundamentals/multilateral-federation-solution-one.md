@@ -26,9 +26,9 @@ If on-premises Active Directory is also being used, then [AD is configured](../h
 
 * **CAS bridge** - Enables you to provide protocol translation to support on-premises CAS apps to authenticate with Azure AD. The CAS bridge enables you to configure Azure AD conditional access policies, app assignment, and governance for all CAS apps, as a whole.
 
-Implementing Azure AD with Cirrus bridge enables you to more capabilities available in Azure AD:
+Implementing Azure AD with Cirrus bridge enables you to take advantage of more capabilities available in Azure AD:
 
-* **External attribute store support** (token augmentation) - Provides you with the ability to create *On Token Issuance Start* events so that you can go to an external attribute store (like an external LDAP Directory) to get custom claims. You can then augment the token with those claims for specific apps.
+* **External attribute store support** - [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md) enables you to use an external attribute store (like an external LDAP Directory) to add additional claims into tokens on a per app basis. It uses a custom extension that calls an external REST API to fetch claims from external systems.
 
 * **Custom security attributes** - Provides you with the ability to add custom attributes to objects in the directory and control who can read them. Custom security attributes enable you to store more of your attributes directly in Azure AD.
 
