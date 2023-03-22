@@ -46,6 +46,13 @@ The [Image Retrieval APIs](./how-to/image-retrieval.md), part of the Image Analy
 
 As part of the Image Analysis 4.0 API, the [Background removal API](./concept-background-removal.md) lets you remove the background of an image. This operation can either output an image of the detected foreground object with a transparent background, or a grayscale alpha matte image showing the opacity of the detected foreground object.
 
+### Computer Vision 3.0 & 3.1 previews deprecation
+
+The preview versions of the Computer Vision 3.0 and 3.1 APIs are scheduled to be retired on September 30, 2023. Customers won't be able to make any calls to these APIs past this date. Customers are encouraged to migrate their workloads to the generally available (GA) 3.2 API instead. Mind the following changes when migrating from the preview versions to the 3.2 API:
+- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+- The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
+- Computer Vision 3.2 API uses a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
+
 ## October 2022
 
 ### Computer Vision Image Analysis 4.0 (public preview)
