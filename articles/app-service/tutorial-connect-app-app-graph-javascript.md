@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 Complete the previous tutorial, [Access Microsoft Graph from a secured JavaScript app as the user](tutorial-auth-aad.md), before starting this tutorial but don't remove the resources at the end of the tutorial. This tutorial assumes you have the two App services and their corresponding authentication apps. 
 
-The previous tutorial used the Azure Cloud Shell as the shell for the Azure CLI. This tutorial continues that usage. In order to add the code to the backend app service to exchange the token, this tutorial uses a version of the _code_ editor. Other editors are available such as nano, vim, and emacs.
+The previous tutorial used the Azure Cloud Shell as the shell for the Azure CLI. This tutorial continues that usage.
 
 ## Architecture
 
@@ -41,8 +41,12 @@ The tutorial shows how to pass the user credential provided by the frontend app 
 1. Sign in user to a frontend App service configured to use Active Directory as the identity provider. 
 1. The frontend App service passes user's token to backend App service. 
 1. The backend App is secured to allow the frontend to make an API request. The user's access token has an audience for the backend API and scope of `user_impersonation`.
+1. The backend app registration already has the Microsoft Graph with the scope `User.Read`. This is added by default to all app registrations.
 
 This tutorial extends the architecture:
+
+* Grant admin consent to bypass the user consent screen for the back-end app.
+* Change the application code to convert the access token sent from the front-end app to an access token with the required permission for Microsoft Graph.
 
 1. Provide code to have backend app **exchange token** for new token with scope of downstream Azure service such as Microsoft Graph. 
 1. Provide code to have backend app **use new token** to access downstream service as the current authenticate user. 
@@ -70,8 +74,6 @@ In this tutorial, in order to read user profile from Microsoft Graph, the back-e
 1. Verify the **Status** column says **Granted for Default Directory**. With this setting, the back-end app is no longer required to show a consent screen to the signed-in user and can directly request an access token. The signed-in user has access to the `User.Read` scope setting because that is the default scope with which the app registration is created. 
 
     :::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/azure-portal-authentication-app-api-permission-admin-consent-granted.png" alt-text="Screenshot of Azure portal authentication app with admin consent granted in status column.":::
-
-
 
 ## 2. Install npm packages
 
@@ -134,7 +136,7 @@ The source code to complete this step is provided for you. Use the following ste
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
 
-## 4. Exchange backend API token for the Microsoft Graph token
+## 4. Review backend code to exchange backend API token for the Microsoft Graph token
 
 In order to change the backend API audience token for a Microsoft Graph token, the backend app needs to find the Tenant ID and use that as part of the MSAL.js configuration object. Because the backend app with configured with Microsoft as the identity provider, the Tenant ID and several other required values are already in the App service app settings.
 
@@ -142,117 +144,125 @@ The following code is already provided for you in the sample app. You need to un
 
 ### Get the Tenant ID
 
-Get the current tenant ID from the `WEBSITE_AUTH_OPENID_ISSUER` environment variable. The ID just needs to be parsed out of the variable with a regular expression.
+1. Open the `./backend/src/with-graph/auth.js` file.
 
-```javascript
-export function getTenantId() {
+2. Review the `getTenantId()` function.
 
-    const openIdIssuer = process.env.WEBSITE_AUTH_OPENID_ISSUER;
-    const backendAppTenantId = openIdIssuer.replace(/https:\/\/sts\.windows\.net\/(.{1,36})\/v2\.0/gm, '$1');
+    ```javascript
+    export function getTenantId() {
+    
+        const openIdIssuer = process.env.WEBSITE_AUTH_OPENID_ISSUER;
+        const backendAppTenantId = openIdIssuer.replace(/https:\/\/sts\.windows\.net\/(.{1,36})\/v2\.0/gm, '$1');
+    
+        return backendAppTenantId;
+    }
+    ```
 
-    return backendAppTenantId;
-}
-```
+3. This function gets the current tenant ID from the `WEBSITE_AUTH_OPENID_ISSUER` environment variable. The ID is parsed out of the variable with a regular expression.
 
 ### Configure MSAL.js
 
-Build the MSAL.js configuration object.
+1. Still in the `./backend/src/with-graph/auth.js` file, review the `getGraphToken()` function.
+1. Build the MSAL.js configuration object, use the MSAL configuration to create the clientCredentialAuthority. Configure the on-behalf-off request. Then use the acquireTokenOnBehalfOf to exchange the backend API access token for a Graph access token. 
 
-```javascript
-// ./backend/src/auth.js
-// Exchange current bearerToken for Graph API token
-// Env vars were set by App Service
-export async function getGraphToken(backEndAccessToken) {
-
-    const config = {
-        // MSAL configuration
-        auth: {
-            // the backend's authentication CLIENT ID 
-            clientId: process.env.WEBSITE_AUTH_CLIENT_ID,
-            // the backend's authentication CLIENT SECRET 
-            clientSecret: process.env.MICROSOFT_PROVIDER_AUTHENTICATION_SECRET,
-            // OAuth 2.0 authorization endpoint (v2)
-            // should be: https://login.microsoftonline.com/BACKEND-TENANT-ID
-            authority: `https://login.microsoftonline.com/${getTenantId()}`
-        },
-        // used for debugging
-        system: {
-            loggerOptions: {
-                loggerCallback(loglevel, message, containsPii) {
-                    console.log(message);
-                },
-                piiLoggingEnabled: true,
-                logLevel: MSAL.LogLevel.Verbose,
+    ```javascript
+    // ./backend/src/auth.js
+    // Exchange current bearerToken for Graph API token
+    // Env vars were set by App Service
+    export async function getGraphToken(backEndAccessToken) {
+    
+        const config = {
+            // MSAL configuration
+            auth: {
+                // the backend's authentication CLIENT ID 
+                clientId: process.env.WEBSITE_AUTH_CLIENT_ID,
+                // the backend's authentication CLIENT SECRET 
+                clientSecret: process.env.MICROSOFT_PROVIDER_AUTHENTICATION_SECRET,
+                // OAuth 2.0 authorization endpoint (v2)
+                // should be: https://login.microsoftonline.com/BACKEND-TENANT-ID
+                authority: `https://login.microsoftonline.com/${getTenantId()}`
+            },
+            // used for debugging
+            system: {
+                loggerOptions: {
+                    loggerCallback(loglevel, message, containsPii) {
+                        console.log(message);
+                    },
+                    piiLoggingEnabled: true,
+                    logLevel: MSAL.LogLevel.Verbose,
+                }
             }
+        };
+    
+        const clientCredentialAuthority = new MSAL.ConfidentialClientApplication(config);
+    
+        const oboRequest = {
+            oboAssertion: backEndAccessToken,
+            // this scope must already exist on the backend authentication app registration 
+            // and visible in resources.azure.com backend app auth config
+            scopes: ["https://graph.microsoft.com/.default"]
         }
-    };
-
-    const clientCredentialAuthority = new MSAL.ConfidentialClientApplication(config);
-
-    const oboRequest = {
-        oboAssertion: backEndAccessToken,
-        // this scope must already exist on the backend authentication app registration 
-        // and visible in resources.azure.com backend app auth config
-        scopes: ["https://graph.microsoft.com/.default"]
+    
+        // This example has App service validate token in runtime
+        // from headers that can't be set externally
+    
+        // If you aren't using App service's authentication, 
+        // you must validate your access token yourself
+        // before calling this code
+        try {
+            const { accessToken } = await clientCredentialAuthority.acquireTokenOnBehalfOf(oboRequest);
+            return accessToken;
+        } catch (error) {
+            console.log(`getGraphToken:error.type = ${error.type}  ${error.message}`);
+        }
     }
+    ```
 
-    // This example has App service validate token in runtime
-    // from headers that can't be set externally
+## 5. Review backend code to access Microsoft Graph with the new token
 
-    // If you aren't using App service's authentication, 
-    // you must validate your access token yourself
-    // before calling this code
-    try {
-        const { accessToken } = await clientCredentialAuthority.acquireTokenOnBehalfOf(oboRequest);
-        return accessToken;
-    } catch (error) {
-        console.log(`getGraphToken:error.type = ${error.type}  ${error.message}`);
-    }
-}
-```
+To access Microsoft Graph as a user signed in to the frontend application, the changes include:
 
-## 5. Get the user's profile from Microsoft Graph
-
-Before the token exchange, remember that the steps included:
-* Configuration of the Active Directory app registration with an API permission to Microsoft Graph with the scope `User.Read`.
+* Configuration of the Active Directory app registration with an API permission to the downstream service, Microsoft Graph, with the necessary scope of `User.Read`.
 * Grant admin consent to bypass the user consent screen for the back-end app.
-* Change the application code to convert the access token sent from the front-end app to an access token with the required permission for Microsoft Graph.
+* Change the application code to convert the access token sent from the front-end app to an access token with the required permission for the downstream service, Microsoft Graph.
 
 Now that the code has the correct token for Microsoft Graph, use it to create a client to Microsoft Graph then get the user's profile. 
 
-The following code is already provided for you in the sample app. You need to understand why it's there and how it works so that you can apply this work to other apps you build that need this same functionality.
+1. Open the `./backend/src/graph.js`
 
-```javascript
-// ./backend/src/graph.js
-import graph from "@microsoft/microsoft-graph-client";
-import { getGraphToken } from "./auth.js";
+2. In the `getGraphProfile()` function, get the token, then the authenticated client from the token then get the profile. 
 
-// Create client from token with Graph API scope
-export function getAuthenticatedClient(accessToken) {
-    const client = graph.Client.init({
-        authProvider: (done) => {
-            done(null, accessToken);
-        }
-    });
-
-    return client;
-}
-export async function getGraphProfile(accessToken) {
-    // exchange current backend token for token with 
-    // graph api scope
-    const graphToken = await getGraphToken(accessToken);
-
-    // use graph token to get Graph client
-    const graphClient = getAuthenticatedClient(graphToken);
-
-    // get profile of user
-    const profile = await graphClient
-        .api('/me')
-        .get();
-
-    return profile;
-}
-```
+    ```javascript
+    // 
+    import graph from "@microsoft/microsoft-graph-client";
+    import { getGraphToken } from "./auth.js";
+    
+    // Create client from token with Graph API scope
+    export function getAuthenticatedClient(accessToken) {
+        const client = graph.Client.init({
+            authProvider: (done) => {
+                done(null, accessToken);
+            }
+        });
+    
+        return client;
+    }
+    export async function getGraphProfile(accessToken) {
+        // exchange current backend token for token with 
+        // graph api scope
+        const graphToken = await getGraphToken(accessToken);
+    
+        // use graph token to get Graph client
+        const graphClient = getAuthenticatedClient(graphToken);
+    
+        // get profile of user
+        const profile = await graphClient
+            .api('/me')
+            .get();
+    
+        return profile;
+    }
+    ```
 
 ## 6. Test your changes
 
@@ -271,7 +281,7 @@ export async function getGraphProfile(accessToken) {
 
 #### I got an error `80049217`, what does it mean?
 
-This error, `CompactToken parsing failed with error code: 80049217`, means the backend App service isn't authorized to return the Microsoft Graph token.
+This error, `CompactToken parsing failed with error code: 80049217`, means the backend App service isn't authorized to return the Microsoft Graph token. This error is caused because the app registration is missing the `User.Read` permission.
 
 #### I got an error `AADSTS65001`, what does it mean?
 
