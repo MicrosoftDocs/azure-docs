@@ -25,12 +25,12 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Add a feature flag
 
-Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+1. Select **Operations** > **Feature Manager** > **Create** to add a feature flag called `Beta`.
 
-> [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-Leave `label` and `Description` with the default value and select **Apply** to save the new feature flag.
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+    
+1. Leave **Label** and **Description** with their default values, then select **Apply**. For more information about labels, go to [Keys and values](concept-key-value.md#label-keys).
 
 ## Create a Functions app
 

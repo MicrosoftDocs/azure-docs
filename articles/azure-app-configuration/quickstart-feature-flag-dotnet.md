@@ -31,12 +31,12 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Add a feature flag
 
-Select **Feature Manager** > **+Add** to add a feature flag called `Beta` to your App Configuration store.
+1. Select **Operations** > **Feature Manager** > **Create** to add a feature flag called `Beta` to your App Configuration store.
 
-> [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-Leave `label` with the default value for now.
+1. Leave **Label** and **Description** with their default values, then select **Apply**. For more information about labels, go to [Keys and values](concept-key-value.md#label-keys).
 
 ## Create a .NET console app
 

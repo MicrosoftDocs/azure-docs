@@ -29,13 +29,13 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
 
 ## Add a key-value
 
-Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
+1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
 
-| Key                        | Value                               |
-|----------------------------|-------------------------------------|
-| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
-
-Leave **Label** and **Content Type** empty. For more information about labels and content types, go to [Keys and values](concept-key-value.md#label-keys).
+    | Key                        | Value                               |
+    |----------------------------|-------------------------------------|
+    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
+    
+1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 
 ## Create a .NET Framework console app
 

@@ -74,19 +74,19 @@ JSON key-values can be created using Azure portal, Azure CLI, or by importing fr
 
 ### Create JSON key-values using Azure portal
 
-Browse to your App Configuration store, and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-values:
+1. Browse to your App Configuration store, and select **Operations** > **Configuration Explorer** > **Create** > **Key-value** to add the following key-values:
 
-| Key | Value | Content Type |
-|---|---|---|
-| Settings:BackgroundColor | "Green" | application/json |
-| Settings:FontSize | 24 | application/json |
-| Settings:UseDefaultRouting | false | application/json |
-| Settings:BlockedUsers | null | application/json |
-| Settings:ReleaseDate | "2020-08-04T12:34:56.789Z" | application/json |
-| Settings:RolloutPercentage | [25,50,75,100] | application/json |
-| Settings:Logging | {"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}} | application/json |
+    | Key                        | Value                                                     | Label  | Content Type     |
+    |----------------------------|-----------------------------------------------------------|--------|------------------|
+    | *Settings:BackgroundColor*   | *"Green"*                                               | Leave empty | *application/json* |
+    | *Settings:FontSize*          | *24*                                                    | Leave empty | *application/json* |
+    | *Settings:UseDefaultRouting* | *false*                                                 | Leave empty | *application/json* |
+    | *Settings:BlockedUsers*      | *null*                                                  | Leave empty | *application/json* |
+    | *Settings:ReleaseDate*       | *"2020-08-04T12:34:56.789Z"*                            | Leave empty | *application/json* |
+    | *Settings:RolloutPercentage* | *[25,50,75,100]*                                        | Leave empty | *application/json* |
+    | *Settings:Logging*           | *{"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}}* | Leave empty | *application/json* |
 
-Leave **Label** empty and select **Apply**.
+1. Select **Apply**.
 
 ### Create JSON key-values using Azure CLI
 

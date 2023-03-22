@@ -23,24 +23,23 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ### [Portal](#tab/azure-portal)
 
-1. In the upper-left corner of the home page, select **Create a resource**.
-1. In the search box, enter *App Configuration* and select **App Configuration** from the search results.
+1. On the Azure portal's homepage, enter *App Configuration* in the search box at the top and select **App Configuration** from the search results.
 
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-find-app-configuration.png" alt-text="Screenshot of the Azure portal that shows the App Configuration service in the search bar.":::
 
-1. Select **Create app configuration**.
+1. Select **Create** or **Create app configuration**.
 
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-select-create-app-configuration.png" alt-text="Screenshot of the Azure portal that shows the button to launch the creation of an App Configuration store.":::
 
 1. In the **Basics** tab, enter the following settings:
 
-    | Setting                          | Suggested value            | Description                                                                                                                                                                                                                                                                                                                                                   |
-    |----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Subscription**                 | Your subscription          | Select the Azure subscription that you want to use to test App Configuration. If your account has only one subscription, it's automatically selected and the **Subscription** list isn't displayed.                                                                                                                                                           |
-    | **Resource group**               | *AppConfigTestResources*   | Select or create a resource group for your App Configuration store resource. This group is useful for organizing multiple resources that you might want to delete at the same time by deleting the resource group. For more information, see [Manage Azure resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md). |
-    | **Location**                     | *Central US*               | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, create the resource in the same region as other components of your application.                                                                                                                                                |
-    | **Resource name**                | Globally unique name       | Enter a unique resource name to use for the App Configuration store resource. The name must be a string between 5 and 50 characters and contain only numbers, letters, and the `-` character. The name can't start or end with the `-` character.                                                                                                             |
-    | **Pricing tier**                 | *Free*                     | Select the desired pricing tier. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration).                                                                                                                                                                                               |
+| Setting                          | Suggested value            | Description                                                                                                                                                                                                                                                                                                                                                   |
+|----------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Subscription**                 | Your subscription          | Select the Azure subscription that you want to use to create an App Configuration store. If your account has only one subscription, it's automatically selected and the **Subscription** list isn't displayed.                                                                                                                                                           |
+| **Resource group**               | *AppConfigTestResources*   | Select or create a resource group for your App Configuration store resource. This group is useful for organizing multiple resources that you might want to delete at the same time by deleting the resource group. For more information, see [Manage Azure resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md). |
+| **Location**                     | *Central US*               | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, create the resource in the same region as other components of your application.                                                                                                                                                |
+| **Resource name**                | Globally unique name       | Enter a unique resource name to use for the App Configuration store resource. The name must be a string between 5 and 50 characters and contain only numbers, letters, and the `-` character. The name can't start or end with the `-` character.                                                                                                             |
+| **Pricing tier**                 | *Free*                     | Selecting **Free**. If you select the standard tier, you can also get access to geo-replication and soft-delete features. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration).                                                                                                                                                                                               |
     
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-basic-tab.png" alt-text="Screenshot of the Azure portal that shows the basic tab of the creation for with the free tier selected.":::
 
@@ -60,7 +59,7 @@ To create an App Configuration store, start by creating a resource group for you
 Create a resource group named *AppConfigTestResources* in the Central US location with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli
-az group create --name myResourceGroup --location centralus
+az group create --name AppConfigTestResources --location centralus
 ```
 
 ### Create an App Configuration store
@@ -73,6 +72,8 @@ az appconfig create --location centralus --name <name> --resource-group AppConfi
 
 ---
 
+If you're following another tutorial to use the App Configuration store, you can go back to your original tutorial as the store should be ready. To continue with this tutorial, follow the steps below.
+
 ## Create a key-value
 
 ### [Portal](#tab/azure-portal)
@@ -81,9 +82,9 @@ az appconfig create --location centralus --name <name> --resource-group AppConfi
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
-    | `TestApp:Settings:FontColor`       | *black*                             |
+    | `TestApp:Settings:TextAlign`       | *center*                             |
   
-1. Select **Apply**.
+1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-key-value.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a key-value.":::
 
@@ -93,7 +94,7 @@ Add a key-value to the App Configuration store using the [az appconfig kv set](/
 
 
 ```azurecli
-az appconfig kv set --name <name> --key TestApp:Settings:BackgroundColor --value white
+az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value center
 ```
 
 ---
@@ -122,7 +123,6 @@ az appconfig feature set --name <name> --feature featureA
 ```
 
 ---
-
 
 ## Clean up resources
 

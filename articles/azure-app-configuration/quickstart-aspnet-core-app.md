@@ -26,16 +26,16 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Add key-values
 
-Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
+1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
 
-| Key                                | Value                               |
-|------------------------------------|-------------------------------------|
-| `TestApp:Settings:BackgroundColor` | *white*                             |
-| `TestApp:Settings:FontColor`       | *black*                             |
-| `TestApp:Settings:FontSize`        | *24*                                |
-| `TestApp:Settings:Message`         | *Data from Azure App Configuration* |
+    | Key                                | Value                               |
+    |------------------------------------|-------------------------------------|
+    | `TestApp:Settings:BackgroundColor` | *white*                             |
+    | `TestApp:Settings:FontColor`       | *black*                             |
+    | `TestApp:Settings:FontSize`        | *24*                                |
+    | `TestApp:Settings:Message`         | *Data from Azure App Configuration* |
 
-Leave **Label** and **Content type** empty for now. Select **Apply**.
+1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 
 ## Create an ASP.NET Core web app
 

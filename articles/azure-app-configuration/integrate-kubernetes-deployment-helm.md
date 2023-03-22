@@ -38,14 +38,14 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 
 ## Add key-values
 
-Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values to your App Configuration store:
+1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values to your App Configuration store:
 
-| Key | Value |
-|---|---|
-| settings.color | White |
-| settings.message | Data from Azure App Configuration |
+    | Key | Value |
+    |---|---|
+    | settings.color | White |
+    | settings.message | Data from Azure App Configuration |
 
-Leave **Label** and **Content Type** empty for now.
+1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 
 ## Add a Key Vault reference to App Configuration
 

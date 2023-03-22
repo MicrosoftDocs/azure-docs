@@ -23,13 +23,13 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 ## Add a key-value
 
-Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value to the App Configuration store:
+1. Select **Operations** > **Configuration Explorer** > **Create** > **Key-value** to add the following key-value to the App Configuration store:
 
-| Key | Value |
-|---|---|
-| TestApp:Settings:Message | Data from Azure App Configuration |
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
 
-Leave **Label** and **Content Type** empty and select **Apply**.
+1. Leave **Label** and **Content Type** with the default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 
 ## Setting up the Node.js app
 

@@ -23,13 +23,13 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
 ## Add a key-value
 
-Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
+1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value to your App Configuration store:
 
-| Key | Value |
-|---|---|
-| TestApp:Settings:Message | Data from Azure App Configuration |
-
-Leave **Label** and **Content Type** empty and select **Apply**.
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+    
+1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 
 ## Create a .NET Core console app
 

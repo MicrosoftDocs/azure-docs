@@ -28,8 +28,8 @@ Before you begin, keep in mind the following concepts:
 
 ### [Portal](#tab/portal)
 
-1. Create a new App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md). For **Location** select the target region you want to move your configuration store to and for **Pricing tier** select **Standard**.
-1. Once the resource has been deployed, recreate the access policies and network configuration settings of your source store. These will not be transferred with the configuration. This can include using manage identities, virtual networks, and public network access.
+1. Create a new App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md#create-an-app-configuration-store). For **Location** select the target region you want to move your configuration store to, and for **Pricing tier** select **Standard**.
+1. Once the resource has been deployed, recreate the access policies and network configuration settings of your source store. These will not be transferred with the configuration. This can include using managed identities, virtual networks, and public network access.
 
 #### [Azure CLI](#tab/azcli)
 
@@ -71,8 +71,8 @@ Follow these steps to export your configuration to the target store using the Az
     ![Export to another configuration store](media/export-to-config-store.png)
 1. Click on **Select Resource** and enter your **Subscription** and **Resource group**. The **Resource** is the name of the target configuration store you created previously.
 1. Select **Apply** to verify your target configuration store.
-1. Leave the from label, time, and Label fields as their default values and select **Apply**.
-1. To verify that your configurations have been successfully transferred from your source to your target store, navigate to your target configuration store in the portal. Select **Configuration Explorer** under **Operations** and verify that this contains the same key values as those in your original store.
+1. Leave the **From label**, **Time**, and **Label** fields with their default values and select **Apply**. For more information about labels, go to [Keys and values](concept-key-value.md).
+1. To verify that your configurations have been successfully transferred from your source to your target store, navigate to your target configuration store in the portal. Select **Configuration Explorer** under **Operations** and verify that this contains the same key-values as those in your original store.
     > [!NOTE]
     > This process only allows for configuration key-values to be exported by one label at a time. To export multiple, repeat steps 2-5 for each label.
 
