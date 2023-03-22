@@ -9,9 +9,20 @@ ms.service: storage-mover
 ms.date: 03/21/2023
 ---
 
-<!--
-    ## 2049 words, 35 issues: 70%
-    1118 words, 0 issues: 100%
+<!-- 
+!########################################################
+STATUS: IN REVIEW
+
+CONTENT: final       
+
+REVIEW Stephen/Fabian: completed
+REVIEW Engineering: not reviewed
+EDIT PASS: completed
+
+Initial doc score: 70
+Current doc score: 100, 1130, 0
+
+!########################################################
 -->
 
 # What is reliability in Azure Storage Mover?
