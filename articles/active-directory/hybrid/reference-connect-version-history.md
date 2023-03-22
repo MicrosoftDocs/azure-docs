@@ -47,7 +47,6 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > 
 > The following versions will retire on 15 March 2023:
 >
-> - 2.0.91.0
 > - 2.0.89.0
 > - 2.0.88.0
 > - 2.0.28.0
