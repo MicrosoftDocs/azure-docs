@@ -30,16 +30,24 @@ This guide shows you how to create and train a custom image classification model
 
 #### [Python](#tab/python)
 
-You can run through all of the model customization steps using a configured Jupyter Notebook.
+Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
+
+You can run through all of the model customization steps using a Python sample package. You can run the code in this section using a Python script, or you can download and run the Notebook on a compatible platform.
 
 <!-- nbstart https://raw.githubusercontent.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/main/docs/cognitive_service_vision_model_customization.ipynb -->
 
 > [!TIP]
 > Contents of _cognitive_service_vision_model_customization.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/cognitive_service_vision_model_customization.ipynb)**.
 
-Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
+## Install the python samples package
 
-## Credentials
+Install the [sample code](https://pypi.org/project/cognitive-service-vision-model-customization-python-samples/) to train/predict custom models with Python:
+
+```bash
+pip install cognitive-service-vision-model-customization-python-samples
+```
+
+## Authentication
 
 Enter your Computer Vision endpoint URL and key, as well as the name of the resource, in the code below.
 
@@ -64,31 +72,20 @@ else:
 resource_key = '{specify_your_resource_key}'
 ```
 
-## Install the python samples package
-
-Install the [sample code](https://pypi.org/project/cognitive-service-vision-model-customization-python-samples/) to train/predict custom models with Python:
-
-
-```bash
-pip install cognitive-service-vision-model-customization-python-samples
-```
-
 ## Prepare a dataset from Azure blob storage
 
-To train a model with your own dataset, the dataset should be prepared conformed with the COCO format described below, hosted on Azure blob storage, and accessible from your Computer Vision resource.
-
-> [!TIP]
-> Quota limit information, including the maximum number of images and categories supported, maximum image size, and so on, can be found on the [concept page](../concept-model-customization.md).
+To train a model with your own dataset, the dataset should be arranged in the COCO format described below, hosted on Azure blob storage, and accessible from your Computer Vision resource.
 
 ### Dataset annotation format
 
-We use COCO format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for multiclass classification and object detection.
+Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for multiclass classification and object detection.
 
-Note that
+Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
 
-- Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
-- Note that in the example dataset, there are few images for the sake of simplicity. Although [Florence models](https://www.microsoft.com/en-us/research/publication/florence-a-new-foundation-model-for-computer-vision/) achieve great few-shot performance (high model quality even with little data available), it's good to have more data for the model to learn. Our recommendation is to have at least five images per class, and the more the better.
-- Once your COCO annotation file is prepared, you can use the [COCO file verification script](coco-verification.md) to check the format.
+> [!NOTE]
+> In the example dataset, there are few images for the sake of simplicity. Although [Florence models](https://www.microsoft.com/research/publication/florence-a-new-foundation-model-for-computer-vision/) achieve great few-shot performance (high model quality even with little data available), it's good to have more data for the model to learn. Our recommendation is to have at least five images per class, and the more the better.
+
+Once your COCO annotation file is prepared, you can use the [COCO file verification script](coco-verification.md) to check the format.
 
 #### Multiclass classification example
 
@@ -121,7 +118,7 @@ Besides `absolute_url`, you can also use `coco_url` (the system accepts either f
 }
 ```
 
-The values in `bbox: [left, top, width, height]` are relative the image width and height.
+The values in `bbox: [left, top, width, height]` are relative to the image width and height.
 
 ### Blob storage directory structure
 
@@ -135,7 +132,10 @@ cat_dog/
     train_coco.json
 ```
 
-### Grant your Computer Vision resource access to your Azure data blob
+> [!TIP]
+> Quota limit information, including the maximum number of images and categories supported, maximum image size, and so on, can be found on the [concept page](../concept-model-customization.md).
+
+### Grant Computer Vision access to your Azure data blob
 
 You need to take an extra step to give your Computer Vision resource access to read the contents of your Azure blog storage container. There are two ways to do this.
 
@@ -158,11 +158,10 @@ Below is a series of steps for allowing the system-assigned Managed Identity of 
 
 ### Register the dataset
 
-Once your dataset has been prepared and hosted on your azure blob storage container, with access granted to your Computer Vision resource, you can register it with the service.
+Once your dataset has been prepared and hosted on your Azure blob storage container, with access granted to your Computer Vision resource, you can register it with the service.
 
 > [!NOTE]
 > The service only accesses your storage data during training. It doesn't keep copies of your data beyond the training cycle.
-
 
 ```python
 from cognitive_service_vision_model_customization_python_samples import DatasetClient, Dataset, AnnotationKind, AuthenticationKind, Authentication
@@ -197,7 +196,7 @@ if eval_dataset:
 
 ## Train a model
 
-After you registering the dataset, use it to train a custom model:
+After you register the dataset, use it to train a custom model:
 
 ```python
 from cognitive_service_vision_model_customization_python_samples import TrainingClient, Model, ModelKind, TrainingParameters, EvaluationParameters
