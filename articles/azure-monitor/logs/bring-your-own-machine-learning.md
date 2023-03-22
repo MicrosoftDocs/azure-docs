@@ -65,7 +65,7 @@ Setting up a machine learning pipeline typically involves all or some of these t
 
 This table compares the advantages and limitations of the three using machine learning pipeline implementation approaches:
 
-||Integrated notebook|External machine learning pipeline|Hybrid pipeline: Integrated notebook, external model training|
+||Integrated notebook|External machine learning pipeline|Hybrid pipeline<br>(Integrated notebook, external model training)|
 |-|-|-|-|
 |**Data exported?**|No|Yes|- Training: Yes<br>- Scoring: No |
 |**Uses other Azure services**|Optional: You can integrate a notebook with Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |Training: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>Scoring: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
