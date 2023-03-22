@@ -294,7 +294,7 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 2. Download the parameter file from [here](https://aka.ms/AddonPolicyMetricsProfile.parameters) and save it as **AddonPolicyMetricsProfile.parameters.json** in the same directory as the rules template.
 3. Create the policy definition using a command like: `az policy definition create --name "(Preview) Prometheus Metrics addon" --display-name "(Preview) Prometheus Metrics addon" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules .\AddonPolicyMetricsProfile.rules.json --params .\AddonPolicyMetricsProfile.parameters.json`
 4. After creating the policy definition, go to Azure portal -> Policy -> Definitions and select the Policy definition you created.
-5. Select on 'Assign' and then go to the 'Parameters' tab and fill in the details. Then select 'Review + Create'.
+5. Select 'Assign' and then go to the 'Parameters' tab and fill in the details. Then select 'Review + Create'.
 6. Now that the policy is assigned to the subscription, whenever you create a new cluster, which does not have Prometheus enabled, the policy will run and deploy the resources. If you want to apply the policy to existing AKS cluster, create a 'Remediation task' for that AKS cluster resource after going to the 'Policy Assignment'.
 7. Now you should see metrics flowing in the existing linked Grafana resource, which is linked with the corresponding Azure Monitor Workspace.
 
