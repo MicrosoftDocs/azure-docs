@@ -92,8 +92,6 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 
 Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for AAD authentication or a list of connection strings for access key-based authentication.
 
-### With AAD
-
 #### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
@@ -111,41 +109,14 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
     // Other changes to options
 });
-```
 
-> [!NOTE]
-> The failover support is available if you use version **6.0.0** or later of any of the following packages.
-> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
-> - `Microsoft.Azure.AppConfiguration.AspNetCore`
-> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
-
-#### [Java Spring](#tab/spring)
-
-Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
-
-```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpoint>"
-spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
-```
-> [!NOTE]
-> The failover support is available if you use version of **4.7.0** or later of any of the following packages.
-> - `spring-cloud-azure-appconfiguration-config`
-> - `spring-cloud-azure-appconfiguration-config-web`
-> - `spring-cloud-azure-starter-appconfiguration-config`
-
----
-
-### With Access Keys
-
-#### [.NET](#tab/dotnet)
-
-Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
-
-```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica connection strings
-    var connectionStrings = new List<string> { "first-replica-connection-string", "second-replica-connection-string"};
+    var connectionStrings = new string[] {
+    Environment.GetEnvironmentVariable("FIRST_REPLICA_CONNECTION_STRING"),
+    Environment.GetEnvironmentVariable("SECOND_REPLICA_CONNECTION_STRING") };
+
     
     // Connect to replica endpoints using connection strings
     options.Connect(connectionStrings);
@@ -162,13 +133,18 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 #### [Java Spring](#tab/spring)
 
-Edit the connection string configuration in `bootstrap.properties`, to use connection strings which allows a list of connection strings.
+Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
 
 ```properties
+# Only one method for connecting to a configuration store can be used.
+# Connect using AAD
+spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpoint>"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
+
+# Connect using connection strings
 spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]="${FIRST_REPLICA_CONNECTION_STRING}"
 spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_REPLICA_CONNECTION_STRING}"
 ```
-
 > [!NOTE]
 > The failover support is available if you use version of **4.7.0** or later of any of the following packages.
 > - `spring-cloud-azure-appconfiguration-config`
