@@ -124,7 +124,7 @@ The following information describes some of the parameters and arguments availab
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--cluster-name` `-c` | String | Name of the cluster resource in Azure. |
-| `--cluster-type` `-t` | `connectedClusters`, `managedClusters` | Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters, `managedClusters` for AKS clusters, or `provisionedClusters` for [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) (installing extensions on these clusters is currently in preview). |
+| `--cluster-type` `-t` | Allowed values: `connectedClusters`, `managedClusters`, `provisionedClusters` | Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters, `managedClusters` for AKS clusters, or `provisionedClusters` for [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) (installing extensions on these clusters is currently in preview). |
 | `--resource-group` `-g` | String | Name of the Azure resource group that holds the cluster resource. |
 | `--name` `-n`| String | Name of the Flux configuration in Azure. |
 | `--namespace` `--ns` | String | Name of the namespace to deploy the configuration.  Default: `default`. |
