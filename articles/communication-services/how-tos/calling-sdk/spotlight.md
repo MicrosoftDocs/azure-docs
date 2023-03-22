@@ -5,7 +5,7 @@ description: Use Azure Communication Services SDKs to send spotlight state.
 author: cnwankwo
 ms.author: cnwankwo
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 03/01/2023
 ms.custom: template-how-to
