@@ -44,7 +44,7 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
-    - name: Networking
+    - name: Networking and ingress
       items: 
       - name: Architecture overview
         href: networking.md
