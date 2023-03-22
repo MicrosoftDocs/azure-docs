@@ -159,7 +159,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
 
 Now that you have model results, you may want to change something and try again.  For example, try a different classifier technique:
 
-    [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=ada)]
+[!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=ada)]
 
 ## Examine results
 
