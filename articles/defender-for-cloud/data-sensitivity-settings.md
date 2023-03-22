@@ -4,7 +4,7 @@ description: Learn how to customize data sensitivity settings in Defender for Cl
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 03/22/2023
 ---
 # Identify and protect sensitive data in Azure Storage
 
