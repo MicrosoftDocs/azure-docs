@@ -50,7 +50,7 @@ recommendations: false
 |**Custom models**||
 | [Custom model (overview)](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
 | [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured and unstructured documents.|
-| [Custom classifier model](#custom-classifier)| The **Custom classifier model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
+| [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Read OCR
@@ -206,10 +206,10 @@ Custom extraction model can be one of two types, **custom template** or **custom
 
 [:::image type="icon" source="media/studio/custom-classifier.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
-The custom classifier model enables you to identify the document type prior to invoking the extraction model.  The classifier model is available starting with the 2023-02-28-preview. Training a custom classifier model requires at least two distinct classes and a minimum of five samples per class.
+The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the 2023-02-28-preview. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
 
 > [!div class="nextstepaction"]
-> [Learn more: custom classifier model](concept-custom-classifier.md)
+> [Learn more: custom classification model](concept-custom-classifier.md)
 
 #### Composed models
 

@@ -52,7 +52,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 #### Custom
 
 * [**Custom extraction models**](https://formrecognizer-dogfood.appliedai.azure.com/studio/custommodel/projects): extract information from forms and documents with custom extraction models. Quickly train a model by labeling as few as five sample documents.
-* [**Custom classifier model**](https://formrecognizer-dogfood.appliedai.azure.com/studio/document-classifier/projects): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
+* [**Custom classification model**](https://formrecognizer-dogfood.appliedai.azure.com/studio/document-classifier/projects): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
 
 #### Gated preview models
 
