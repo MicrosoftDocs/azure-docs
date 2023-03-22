@@ -92,7 +92,7 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 
 Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for AAD authentication or a list of connection strings for access key-based authentication.
 
-#### [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -114,9 +114,8 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica connection strings
     var connectionStrings = new string[] {
-    Environment.GetEnvironmentVariable("FIRST_REPLICA_CONNECTION_STRING"),
-    Environment.GetEnvironmentVariable("SECOND_REPLICA_CONNECTION_STRING") };
-
+        Environment.GetEnvironmentVariable("FIRST_REPLICA_CONNECTION_STRING"),
+        Environment.GetEnvironmentVariable("SECOND_REPLICA_CONNECTION_STRING") };
     
     // Connect to replica endpoints using connection strings
     options.Connect(connectionStrings);
@@ -131,7 +130,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
-#### [Java Spring](#tab/spring)
+### [Java Spring](#tab/spring)
 
 Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
 
