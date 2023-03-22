@@ -14,30 +14,30 @@ ms.topic: reference
 
 > [!CAUTION]
 >
-> On April 10, 2023, Microsoft will retire the Custom Translator v1.0 model platform. Existing customers should migrate to v2.0 models by May 07, 2023.
+> On April 10, 2023, Microsoft will retire the Custom Translator v1.0 model platform. Existing v1.0 models will migrate to the v2.0 platform.
 
-Following measured and consistent high-quality advances with models trained on the Custom Translator v2.0 platform, the decision has been made to deprecate the v1.0 platform. Custom Translator v2.0 delivers significant improvements in many domains compared to standard translations and the v1.0 platform and we recommend that you migrate to the v2.0 platform by April 10, 2023.
+Following measured and consistent high-quality results using models trained on the Custom Translator v2.0 platform, the decision has been made to deprecate the v1.0 platform. Custom Translator v2.0 delivers significant improvements in many domains compared to both standard and custom v1.0 platform translations. We recommend that you migrate your v1.0 models to the v2.0 platform by May 07, 2023.
 
 ## Custom Translator v1.0 timeline
 
-* **April 10, 2023**: v1.0 model publishing ends. There's no downtime during the v1.0 model migration. All model publishing and in-flight translation requests will continue without disruption until May 07, 2023.
+* **April 10, 2023** → v1.0 model publishing ends. There's no downtime during the v1.0 model migration. All model publishing and in-flight translation requests will continue without disruption until May 07, 2023.
 
-* **April 10, 2023—May 07, 2023**: Customers voluntarily migrate to v2.0 models.
+* **April 10, 2023—May 07, 2023** → customers voluntarily migrate to v2.0 models.
 
-* **May 08, 2023**: Remaining v1.0 published models automatically migrate and for publication by the Custom Translator Team.
+* **May 08, 2023** → remaining v1.0 published models automatically migrate and are published by the `Custom Translator Team`.
 
 ## Upgrade to v2.0
 
-* **Check to see if you have published v1.0 models**. After you sign in to the Custom Translator portal, you should see a message indicating that you have v1.0 models to upgrade. You can also see if a current workspace has v1.0 models by selecting **Workspace settings** and scrolling to the bottom of the page.
+**Check for published v1.0 models**. After signing in to the Custom Translator portal, you'll see a message indicating that you have v1.0 models to upgrade. You can check if a current workspace has v1.0 models by selecting **Workspace settings** and scrolling to the bottom of the page.
 
 * **Use the upgrade wizard**. Follow the steps listed in **Upgrade to the latest version** wizard. Depending on your training data size, it may take a few hours to a full day to upgrade your models to the v2.0 platform.
 
 ## Unpublished and opt-out published models
 
 * For unpublished models, save the model data (training, testing, dictionary) and delete the project.
-* For published models that you don't want to upgrade, save your model data, unpublish the model, and delete the project.
+
+* For published models that you don't want to upgrade, save your model data (training, testing, dictionary), unpublish the model, and delete the project.
 
 ## Next steps
 
 For more support, visit the [Azure Cognitive Services support and help options](../../cognitive-services-support-options.md) page.
-
