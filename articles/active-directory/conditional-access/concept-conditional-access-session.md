@@ -1,5 +1,5 @@
 ---
-title: Session controls in Conditional Access policy - Azure Active Directory
+title: Session controls in Conditional Access policy
 description: What are session controls in an Azure AD Conditional Access policy
 
 services: active-directory

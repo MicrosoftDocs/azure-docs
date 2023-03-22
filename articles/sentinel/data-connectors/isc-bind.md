@@ -19,7 +19,7 @@ The [ISC Bind](https://www.isc.org/bind/) connector allows you to easily connect
 | **Kusto function alias** | ISCBind |
 | **Kusto function url** | https://aka.ms/sentinel-iscbind-parser |
 | **Log Analytics table(s)** | Syslog (ISCBind)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples

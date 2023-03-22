@@ -17,7 +17,7 @@ Common Event Format (CEF) from Delinea Secret Server
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog(DelineaSecretServer)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Delinea](https://delinea.com/support/) |
 
 ## Query samples

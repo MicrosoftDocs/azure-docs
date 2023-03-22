@@ -382,6 +382,8 @@ items:
       displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
+    - name: Power automate batch transcription
+      href: power-automate-batch-transcription.md
     - name: Speech containers
       items:
         - name: Cognitive Services containers documentation

@@ -47,11 +47,11 @@ The following diagram shows the highlights from example workflow:
 
   This article's example uses the Office 365 Outlook trigger that's named **When a new email arrives**.
 
-  If you don't have a workflow, review the following documentation:
+  If you don't have a workflow, see the following documentation:
 
-  * Consumption: [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md)
+  * Consumption: [Create example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
 
-  * Standard: [Create single-tenant based logic app workflows](create-single-tenant-workflows-azure-portal.md)
+  * Standard: [Create example Standard logic app workflows](create-single-tenant-workflows-azure-portal.md)
 
 * Based on whether your logic app is Consumption or Standard, review the following requirements:
 

@@ -80,8 +80,6 @@ Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protoc
 
 Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
 
-Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
-
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
@@ -105,6 +103,10 @@ https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43
 ## Does Azure NetApp Files support Alternate Data Streams (ADS)?
 
 Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
+
+## What are SMB/CIFS `oplocks` and are they enabled on Azure NetApp Files volumes?
+
+SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS client in certain file-sharing scenarios to perform client-side caching of read-ahead, write-behind, and lock information. A client can then work with a file (read or write it) without regularly reminding the server that it needs access to the file. This improves performance by reducing network traffic. SMB/CIFS oplocks are enabled on Azure NetApp Files SMB and dual-protocol volumes.
 
 ## Next steps  
 

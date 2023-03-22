@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Active Directory recommendations | Microsoft Docs
+title: How to use Azure Active Directory recommendations
 description: Learn how to use Azure Active Directory recommendations.
 services: active-directory
 author: shlipsey3

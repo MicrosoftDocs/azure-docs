@@ -1,6 +1,6 @@
 ---
 
-title: Sensitive operations report workbook in  Azure AD | Microsoft Docs
+title: Sensitive operations report workbook in  Azure AD
 description: Learn how to use the sensitive operations report workbook.
 services: active-directory
 author: shlipsey3

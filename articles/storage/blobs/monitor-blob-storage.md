@@ -436,7 +436,7 @@ Some Azure metrics charts, such as the ones that display availability and latenc
 
 **How do I track availability of my storage account?**
 
-You can configure a resource health alert based on the [Azure Resource Health](/azure/service-health/resource-health-overview) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+You can configure a resource health alert based on the [Azure Resource Health](../../service-health/resource-health-overview.md) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
 
 ## Next steps
 

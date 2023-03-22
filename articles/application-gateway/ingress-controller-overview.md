@@ -23,7 +23,7 @@ Using Application Gateway in addition to AGIC also helps protect your AKS cluste
 
 ![Azure Application Gateway + AKS](./media/application-gateway-ingress-controller-overview/architecture.png)
 
-AGIC is configured via the Kubernetes [Ingress resource](https://kubernetes.io/docs/user-guide/ingress/), along with Service and Deployments/Pods. It provides a number of features, leveraging Azure’s native Application Gateway L7 load balancer. To name a few:
+AGIC is configured via the Kubernetes [Ingress resource](https://kubernetes.io/docs/concepts/services-networking/ingress/), along with Service and Deployments/Pods. It provides a number of features, leveraging Azure’s native Application Gateway L7 load balancer. To name a few:
   - URL routing
   - Cookie-based affinity
   - TLS termination
@@ -35,12 +35,12 @@ AGIC is configured via the Kubernetes [Ingress resource](https://kubernetes.io/d
 There are two ways to deploy AGIC for your AKS cluster. The first way is through Helm; the second is through AKS as an add-on. The primary benefit of deploying AGIC as an AKS add-on is that it's much simpler than deploying through Helm. For a new setup, you can deploy a new Application Gateway and a new AKS cluster with AGIC enabled as an add-on in one line in Azure CLI. The add-on is also a fully managed service, which provides added benefits such as automatic updates and increased support. Both ways of deploying AGIC (Helm and AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS as a first class add-on.
 
 The AGIC add-on is still deployed as a pod in the customer's AKS cluster, however, there are a few differences between the Helm deployment version and the add-on version of AGIC. Below is a list of differences between the two versions: 
-  - Helm deployment values cannot be modified on the AKS add-on:
+  - Helm deployment values can't be modified on the AKS add-on:
     - `verbosityLevel` will be set to 5 by default
     - `usePrivateIp` will be set to be false by default; this can be overwritten by the [use-private-ip annotation](ingress-controller-annotations.md#use-private-ip)
-    - `shared` is not supported on add-on 
-    - `reconcilePeriodSeconds` is not supported on add-on
-    - `armAuth.type` is not supported on add-on
+    - `shared` isn't supported on add-on 
+    - `reconcilePeriodSeconds` isn't supported on add-on
+    - `armAuth.type` isn't supported on add-on
   - AGIC deployed via Helm supports ProhibitedTargets, which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. AGIC add-on doesn't currently support this. 
   - Since AGIC add-on is a managed service, customers will automatically be updated to the latest version of AGIC add-on, unlike AGIC deployed through Helm where the customer must manually update AGIC. 
 
