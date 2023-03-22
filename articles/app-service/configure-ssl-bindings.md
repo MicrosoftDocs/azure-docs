@@ -42,7 +42,8 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 
 1. In **TLS/SSL type**, choose between **SNI SSL** and **IP based SSL**.
 
-    [!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
+    - **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)**: Multiple SNI SSL bindings may be added. This option allows multiple TLS/SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
+    - - **IP based SSL**: Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [2. Remap records for IP based SSL](#2-remap-records-for-ip-based-ssl).<br/>IP SSL is supported only in **Standard** tier or above.
 
 1. When adding a new certificate, validate the new certificate by selecting **Validate**.
 
@@ -50,7 +51,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 
     Once the operation is complete, the custom domain's TLS/SSL state is changed to **Secure**.
     
-    ![TLS/SSL binding successful](./media/configure-ssl-bindings/secure-domain-finished.png)
+    :::image type="content" source="media/configure-ssl-bindings/secure-domain-finished.png" alt-text="A screenshot showing the custom domain secured by a certificate binding.":::
     
 > [!NOTE]
 > A **Secure** state in the **Custom domains** means that it is secured with a certificate, but App Service doesn't check if the certificate is self-signed or expired, for example, which can also cause browsers to show an error or warning.
@@ -87,7 +88,7 @@ Your application code can inspect the protocol via the "x-appservice-proto" head
 - [How can I change the minimum TLS versions for the app?](#how-can-i-change-the-minimum-tls-versions-for-the-app)
 - [How do I handle TLS termination in App Service?](#how-do-i-handle-tls-termination-in-app-service)
 
-<a name="prevent-ip-changes" />
+<a name="prevent-ip-changes"></a>
 
 #### How do I make sure that the app's IP address doesn't change when I make changes to the certificate binding?
 
@@ -97,19 +98,19 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
 3. Delete the old certificate. 
 
-<a name="enforce-https" />
+<a name="enforce-https"></a>
 
 #### Can I disable the forced redirect from HTTP to HTTPS?
 
 By default, App Service forces a redirect from HTTP requests to HTTPS. To disable this behavior, see [Configure general settings](configure-common.md#configure-general-settings).
 
-<a name="enforce-tls-versions">
+<a name="enforce-tls-versions"></a>
 
 #### How can I change the minimum TLS versions for the app?
 
 Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, see [Configure general settings](configure-common.md#configure-general-settings).
 
-<a name="handle-tls-termination">
+<a name="handle-tls-termination"></a>
 
 #### How do I handle TLS termination in App Service?
 
