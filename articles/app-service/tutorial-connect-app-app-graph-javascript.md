@@ -42,15 +42,16 @@ The tutorial shows how to pass the user credential provided by the frontend app 
 1. The frontend App service passes user's token to backend App service. 
 1. The backend App is secured to allow the frontend to make an API request. The user's access token has an audience for the backend API and scope of `user_impersonation`.
 1. The backend app registration already has the Microsoft Graph with the scope `User.Read`. This is added by default to all app registrations.
+1. At the end of the previous tutorial, a _fake_ profile was returned to the frontend app because Graph wasn't connected.
 
 This tutorial extends the architecture:
 
-* Grant admin consent to bypass the user consent screen for the back-end app.
-* Change the application code to convert the access token sent from the front-end app to an access token with the required permission for Microsoft Graph.
-
+1. Grant admin consent to bypass the user consent screen for the back-end app.
+1. Change the application code to convert the access token sent from the front-end app to an access token with the required permission for Microsoft Graph.
 1. Provide code to have backend app **exchange token** for new token with scope of downstream Azure service such as Microsoft Graph. 
 1. Provide code to have backend app **use new token** to access downstream service as the current authenticate user. 
 1. **Redeploy** backend app with `az webapp up`.
+1. At the end of this tutorial, a _real_ profile is returned to the frontend app because Graph is connected.
 
 This tutorial doesn't:
 * Change the frontend app from the previous tutorial. 
@@ -136,13 +137,13 @@ The source code to complete this step is provided for you. Use the following ste
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> 
 
-## 4. Review backend code to exchange backend API token for the Microsoft Graph token
+## 4. Inspect backend code to exchange backend API token for the Microsoft Graph token
 
 In order to change the backend API audience token for a Microsoft Graph token, the backend app needs to find the Tenant ID and use that as part of the MSAL.js configuration object. Because the backend app with configured with Microsoft as the identity provider, the Tenant ID and several other required values are already in the App service app settings.
 
 The following code is already provided for you in the sample app. You need to understand why it's there and how it works so that you can apply this work to other apps you build that need this same functionality.
 
-### Get the Tenant ID
+### Inspect code for getting the Tenant ID
 
 1. Open the `./backend/src/with-graph/auth.js` file.
 
@@ -160,7 +161,7 @@ The following code is already provided for you in the sample app. You need to un
 
 3. This function gets the current tenant ID from the `WEBSITE_AUTH_OPENID_ISSUER` environment variable. The ID is parsed out of the variable with a regular expression.
 
-### Configure MSAL.js
+### Inspect code to get Graph token using MSAL.js
 
 1. Still in the `./backend/src/with-graph/auth.js` file, review the `getGraphToken()` function.
 1. Build the MSAL.js configuration object, use the MSAL configuration to create the clientCredentialAuthority. Configure the on-behalf-off request. Then use the acquireTokenOnBehalfOf to exchange the backend API access token for a Graph access token. 
@@ -218,7 +219,7 @@ The following code is already provided for you in the sample app. You need to un
     }
     ```
 
-## 5. Review backend code to access Microsoft Graph with the new token
+## 5. Inspect backend code to access Microsoft Graph with the new token
 
 To access Microsoft Graph as a user signed in to the frontend application, the changes include:
 
