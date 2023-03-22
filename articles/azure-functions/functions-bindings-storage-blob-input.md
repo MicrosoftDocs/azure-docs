@@ -253,15 +253,17 @@ The code creates a copy of a blob.
 ```python
 import logging
 import azure.functions as func
+
 app = func.FunctionApp()
+
 @app.function_name(name="BlobOutput1")
 @app.route(route="file")
 @app.blob_input(arg_name="inputblob",
                 path="sample-workitems/test.txt",
-                connection="AzureWebJobsStorage")
+                connection="<BLOB_CONNECTION_SETTING>")
 @app.blob_output(arg_name="outputblob",
                 path="newblob/test.txt",
-                connection="AzureWebJobsStorage")
+                connection="<BLOB_CONNECTION_SETTING>")
 def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
     logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     outputblob.set(inputblob)

@@ -1531,20 +1531,24 @@ The following example shows an Azure Cosmos DB input binding. The function reads
 # [v2](#tab/python-v2)
 
 ```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
 @app.queue_trigger(arg_name="msg", 
-   queue_name="outqueue", 
-   connection="AzureWebJobsStorage")
-@app.cosmos_db_input(
-    arg_name="documents", 
-    database_name="MyDatabase",
-    collection_name="MyCollection",
-    id="{msg.payload_property}",
-    partition_key="{msg.payload_property}",
-    connection_string_setting="MyAccount_COSMOSDB")
+                   queue_name="outqueue", 
+                   connection="AzureWebJobsStorage")
+@app.cosmos_db_input(arg_name="documents", 
+                     database_name="MyDatabase",
+                     collection_name="MyCollection",
+                     id="{msg.payload_property}",
+                     partition_key="{msg.payload_property}",
+                     connection_string_setting="MyAccount_COSMOSDB")
 @app.cosmos_db_output(arg_name="outputDocument", 
-    database_name="MyDatabase",", 
-    collection_name="MyCollection",
-    connection_string_setting="MyAccount_COSMOSDB")
+                      database_name="MyDatabase",
+                      collection_name="MyCollection",
+                      connection_string_setting="MyAccount_COSMOSDB")
 def test_function(msg: func.QueueMessage,
                   inputDocument: func.DocumentList, 
                   outputDocument: func.Out[func.Document]):

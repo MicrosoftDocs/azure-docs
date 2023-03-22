@@ -275,15 +275,21 @@ The following example demonstrates how to output single and multiple values to s
 ```python
 import logging
 import azure.functions as func
+
 app = func.FunctionApp()
+
 @app.function_name(name="QueueOutput1")
 @app.route(route="message")
-@app.queue_output(arg_name="msg", queue_name="python-queue-items", connection="AzureWebJobsStorage")
+@app.queue_output(arg_name="msg", 
+                  queue_name="<QUEUE_NAME>", 
+                  connection="<CONNECTION_SETTING>")
 def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('name')
-    msg.set(input_msg)
     logging.info(input_msg)
-    logging.info('name: {name}')
+    
+    msg.set(input_msg)
+    
+    logging.info(f'name: {name}')
     return 'OK'
 ```
 # [v1](#tab/python-v1)

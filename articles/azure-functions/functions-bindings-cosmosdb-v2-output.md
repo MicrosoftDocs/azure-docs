@@ -596,12 +596,15 @@ The following example demonstrates how to write a document to an Azure Cosmos DB
 ```python
 import logging
 import azure.functions as func
+
+app = func.FunctionApp()
+
 @app.route()
-@app.cosmos_db_output(
-    arg_name="documents", database_name="<DB_NAME>",
-    collection_name="<COLLECTION_NAME>",
-    create_if_not_exists=True,
-    connection_string_setting="CONNECTION_SETTING")
+@app.cosmos_db_output(arg_name="documents", 
+                      database_name="DB_NAME",
+                      collection_name="COLLECTION_NAME",
+                      create_if_not_exists=True,
+                      connection_string_setting="CONNECTION_SETTING")
 def main(req: func.HttpRequest, documents: func.Out[func.Document]) -> func.HttpResponse:
     request_body = req.get_body()
     documents.set(func.Document.from_json(request_body))

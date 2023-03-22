@@ -240,12 +240,13 @@ The following example demonstrates how to write out to a Service Bus queue in Py
 ```python
 import logging
 import azure.functions as func
+
 app = func.FunctionApp()
+
 @app.route(route="put_message")
-@app.service_bus_topic_output(
-    arg_name="message",
-    connection="CONNECTION_SETTING",
-    topic_name="mytopic")
+@app.service_bus_topic_output(arg_name="message",
+                              connection="<CONNECTION_SETTING>",
+                              topic_name="<TOPIC_NAME>")
 def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
     message.set(input_msg)
