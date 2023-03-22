@@ -6,7 +6,7 @@ ms.author: benmansheim
 ms.topic: how-to
 ms.date: 03/22/2023
 ---
-# Identify and protect sensitive data in Azure Storage
+# Customize data sensitivity settings
 
 This article describes how to customize data sensitivity settings in Microsoft Defender for Cloud. 
 
@@ -52,6 +52,8 @@ To customize sensitive data type settings that appear in Defender for Cloud
 1. Select the types that you want marked as sensitive data.
 1. Select **Apply** and **Save**.
 
+:::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
+
 ## Set the threshold for sensitive data labels
 
 If you're using Microsoft Purview labels, you can set a threshold to determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud.
@@ -67,6 +69,7 @@ To set the threshold for sensitive data labels:
 1. Select **Change** to see the list of sensitivity labels and select the lowest sensitivity level that you want marked as sensitive.
 1. Select **Apply** and **Save**.
 
+:::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing data sensitivity threshold.":::
 
 ## Next steps
 TODO: Add your next steps

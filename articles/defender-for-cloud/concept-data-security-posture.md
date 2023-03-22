@@ -67,8 +67,6 @@ When scanning resources for data sensitivity, scan results are based these setti
 
 When you enable data-aware security capabilities with the sensitive data discovery component in the Defender CSPM or Defender for Storage plans, Defender for Cloud uses algorithms to identify storage resources that appear to contain sensitive data. Resources are labeled in accordance with data sensitivity settings.
 
-:::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
-
 Changes in sensitivity settings take effect the next time that resources are scanned.
 
 
