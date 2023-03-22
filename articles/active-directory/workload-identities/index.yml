@@ -27,6 +27,17 @@ landingContent:
           - text: Frequently asked questions about license plans
             url: workload-identities-faqs.md
   # Card
+  - title: Check app health status and mitigate risk
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Remove unused applications
+          url: ../reports-monitoring/recommendation-remove-unused-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+        - text: Remove unused credentials from apps
+          url: ../reports-monitoring/recommendation-remove-unused-credential-from-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+        - text: Renew expiring application credentials
+          url: ../reports-monitoring/recommendation-renew-expiring-application-credential.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
   - title: Secure risky workload identities
     linkLists:
       - linkListType: overview
