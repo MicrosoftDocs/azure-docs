@@ -66,6 +66,9 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 - For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, **Managed Identity**, or **User-Assigned Managed Identity**.  
 
 >[!TIP]
+>If your data factory instance is Git-enabled, a linked service without key authentication will not be immediately published, which means you cannot save the integration runtime that depends on the linked service in your feature-branch. Authenticating with account key or SAS URI will immediately publish the linked service.
+
+>[!TIP]
 >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png" alt-text="Prepare the Azure Blob storage-linked service for staging":::
