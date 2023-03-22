@@ -1,37 +1,41 @@
 ---
-title: Reference list of attack paths and cloud security graph components
+title: Attack paths and cloud security graph components
 titleSuffix: Defender for Cloud
-description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
+description: This article lists Microsoft Defender for Cloud's attack paths.
 ms.topic: reference
-ms.custom: ignite-2022
 ms.date: 03/19/2023
 ---
 
 
-# Reference list of attack paths and cloud security graph components
+# Attack paths and cloud security graph components
 
-This article lists the attack paths, connections, and insights you might see in Microsoft Defender for Cloud related to Defender for Cloud Security Posture Management (CSPM). What you are shown in your environment depends on the resources you're protecting and your customized configuration. You need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view your attack paths. Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
+This article lists the attack paths, connections, and insights used in Defender for Cloud Security Posture Management (CSPM).
+
+- You need to [enable Defender for CSPM](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) to view attack paths.
+- What you see in your environment depends on the resources you're protecting, and your customized configuration. 
+
+Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
 
 ## Attack paths
 
 ### Azure VMs
 
-Prerequisite: For a list of prerequisites, see the [Availability table](how-to-manage-attack-path.md#availability) for attack paths.
+Prerequisites: [Review](how-to-manage-attack-path.md#availability) attack path prerequisites.
 
 | Attack Path Display Name | Attack Path Description |
 |--|--|
 | Internet exposed VM has high severity vulnerabilities | A virtual machine is reachable from the internet and has high severity vulnerabilities. |
 | Internet exposed VM has high severity vulnerabilities and high permission to a subscription | A virtual machine is reachable from the internet, has high severity vulnerabilities, and identity and permission to a subscription. |
-| Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine is reachable from the internet, has high severity vulnerabilities and read permission to a data store containing sensitive data. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-azure-subscriptions), or [leverage Microsoft Purview Data Catalog to protect sensitive data](https://learn.microsoft.com/azure/defender-for-cloud/information-protection). |
+| Internet exposed VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine is reachable from the internet, has high severity vulnerabilities and read permission to a data store containing sensitive data. <br/> Prerequisite: [Enable data-aware security in Defender for CSPM](data-security-posture-enable.md), or [leverage Microsoft Purview Data Catalog to protect sensitive data](defender-for-cloud/information-protection.md). |
 | Internet exposed VM has high severity vulnerabilities and read permission to a data store | A virtual machine is reachable from the internet and has high severity vulnerabilities and read permission to a data store. |
 | Internet exposed VM has high severity vulnerabilities and read permission to a Key Vault | A virtual machine is reachable from the internet and has high severity vulnerabilities and read permission to a key vault. |
 | VM has high severity vulnerabilities and high permission to a subscription | A virtual machine has high severity vulnerabilities and has high permission to a subscription. |
-| VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities and read permission to a data store containing sensitive data. <br/>Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-azure-subscriptions), or [leverage Microsoft Purview Data Catalog to protect sensitive data](https://learn.microsoft.com/azure/defender-for-cloud/information-protection). |
+| VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities and read permission to a data store containing sensitive data. <br/>Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md), or [leverage Purview Data Catalog to protect sensitive data](information-protection.md). |
 | VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities and read permission to a key vault. |
 | VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities and read permission to a data store. |
 
-### AWS Instances
+### AWS instances
 
 Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
@@ -40,12 +44,12 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Internet exposed EC2 instance has high severity vulnerabilities and high permission to an account | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to an account. |
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a DB | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has permission to a database. |
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to S3 bucket | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has an IAM role attached with permission to an S3 bucket via an IAM policy, or via a bucket policy, or via both an IAM policy and a bucket policy. 
-| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data | An AWS EC2 instance is reachable from the internet has high severity vulnerabilities and has an IAM role attached with permission to an S3 bucket containing sensitive data via an IAM policy, or via a bucket policy, or via both an IAM policy and bucket policy. <br/> Prerequisite: [Enable data-aware security for S3 buckets in Defender for CSPM](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-aws-accounts), or [leverage Microsoft Purview Data Catalog to protect sensitive data](https://learn.microsoft.com/azure/defender-for-cloud/information-protection).  |
+| Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data | An AWS EC2 instance is reachable from the internet has high severity vulnerabilities and has an IAM role attached with permission to an S3 bucket containing sensitive data via an IAM policy, or via a bucket policy, or via both an IAM policy and bucket policy. <br/> Prerequisite: [[Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md), or [leverage Purview Data Catalog to protect sensitive data](information-protection.md).  |
 | Internet exposed EC2 instance has high severity vulnerabilities and read permission to a KMS | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has an IAM role attached with permission to an AWS Key Management Service (KMS) via an IAM policy, or via an AWS Key Management Service (KMS) policy, or via both an IAM policy and an AWS KMS policy.|
 | Internet exposed EC2 instance has high severity vulnerabilities | An AWS EC2 instance is reachable from the internet and has high severity vulnerabilities. | 
 | EC2 instance with high severity vulnerabilities has high privileged permissions to an account | An AWS EC2 instance  has high severity vulnerabilities and has permissions to an account. | 
 | EC2 instance with high severity vulnerabilities has read permissions to a data store |An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket via an IAM policy or via a bucket policy, or via both an IAM policy and a bucket policy. | 
-| EC2 instance with high severity vulnerabilities has read permissions to a data store with sensitive data | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket containing sensitive data via an IAM policy or via a bucket policy, or via both an IAM and bucket policy. <br/> Prerequisite: [Enable data-aware security for S3 buckets in Defender for CSPM](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-aws-accounts), or [leverage Microsoft Purview Data Catalog to protect sensitive data](https://learn.microsoft.com/azure/defender-for-cloud/information-protection).  | 
+| EC2 instance with high severity vulnerabilities has read permissions to a data store with sensitive data | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket containing sensitive data via an IAM policy or via a bucket policy, or via both an IAM and bucket policy. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md), or [leverage Purview Data Catalog to protect sensitive data](information-protection.md).  | 
 | EC2 instance with high severity vulnerabilities has read permissions to a KMS key | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an AWS Key Management Service (KMS) key via an IAM policy, or via an AWS Key Management Service (KMS) policy, or via both an IAM and AWS KMS policy.  |
 
 ### Azure data
@@ -59,13 +63,13 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Internet exposed managed database allows basic (local user/password) authentication | Database can be accessed through the internet and allows user/password authentication, which exposes the DB to brute force attacks. |
 | Internet exposed VM has high severity vulnerabilities and a hosted database installed  | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
 | Private Azure blob storage container replicates data to internet exposed and publicly accessible Azure blob storage container (Preview) | An internal Azure storage container replicates its data to another Azure storage container which is reachable from the internet and allows public access, and poses this data at risk. |
-| Internet exposed Azure Blob Storage container with sensitive data is publicly accessible | A blob storage account container with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-azure-subscriptions), or [leverage Microsoft Purview Data Catalog to protect sensitive data](https://learn.microsoft.com/azure/defender-for-cloud/information-protection).|
+| Internet exposed Azure Blob Storage container with sensitive data is publicly accessible | A blob storage account container with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md), or [leverage Purview Data Catalog to protect sensitive data](information-protection.md).|
 
 ### AWS data
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | An S3 bucket with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for S3 buckets in Defender for CSPM](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-aws-accounts), or [leverage Microsoft Purview Data Catalog to protect sensitive data](https://learn.microsoft.com/azure/defender-for-cloud/information-protection). |
+| Internet exposed AWS S3 Bucket with sensitive data is publicly accessible | An S3 bucket with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md), or [leverage Purview Data Catalog to protect sensitive data](information-protection.md). |
 |Internet exposed SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute | Internet exposed SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute. <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md). |
 |Internet exposed SQL on EC2 instance has a user account with commonly used username and known vulnerabilities | SQL on EC2 instance is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
 |SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute | SQL on EC2 instance has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying compute. <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
@@ -75,7 +79,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 ### Azure containers
 
-Prerequisite: [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This will also give you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
+Prerequisite: In order to view attack paths that are related to containers, [enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents. You can then also [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer.
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
@@ -88,7 +92,7 @@ Prerequisite: [Enable Defender for DevOps](defender-for-devops-introduction.md).
 
 | Attack Path Display Name	| Attack Path Description |
 |--|--|
-| Internet exposed GitHub repository with plaintext secret is publicly accessible (Preview) | A GitHub repositorie is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
+| Internet exposed GitHub repository with plaintext secret is publicly accessible (Preview) | A GitHub repository is reachable from the internet, allows public read access without authorization required, and holds plaintext secrets. |
 
 ## Cloud security graph components list
 
