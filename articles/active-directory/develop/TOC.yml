@@ -56,6 +56,14 @@
         href: single-page-app-tutorial-03-sign-in-users.md
       - name: 4 - Get user data from web API
         href: single-page-app-tutorial-04-call-api.md
+  - name: Web API
+    items:
+    - name: 1 - Register the API
+      href: web-api-tutorial-01-register-app.md
+    - name: 2 - Create and configure project 
+      href: web-api-tutorial-02-prepare-api.md
+    - name: 3 - Protect API endpoint
+      href: web-api-tutorial-03-protect-endpoint.md
   - name: Web app
     items:
     - name: ASP.NET
