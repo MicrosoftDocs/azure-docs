@@ -14,7 +14,7 @@ ms.date: 02/28/2023
 
 [Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
 
-Azure Monitor offers built-in machine learning capabilities that provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
+Azure Monitor's built-in machine learning capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
 
 These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations immediately, without machine learning knowledge and further investment.    
 
@@ -33,20 +33,20 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 
 ## Use machine learning in Azure Monitor Logs
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the the high-performance Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. 
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the high-performance Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. 
 
 Use [the Kusto Query Languages's built-in time series analysis and machine learning functions, operators, and plug-ins](/azure/data-explorer/kusto/query/machine-learning-clustering) to gain insights about service health, usage, capacity and other trends and to generate forecasts and detect anomalies. 
 
-Train and run your own machine learning models on data in a Log Analytics workspace by integrating an external tool or service.   
+To gain greater flexibility and expand your ability to analyze and act on data, you can also implement your own machine learning pipeline on data in Azure Monitor Logs.   
 
-This table compares the two methods of working with machine learning in Azure Monitor Logs and provides links to tutorials that demonstrate how you can implement each method:
+This table compares the advantages and limitations of using KQL's built-in machine learning capabilities  and creating your own machine learning pipeline, and links to tutorials that demonstrate how you can implement each:
 
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
 |**Scenario**|- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :x: |- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :white_check_mark:|
 |**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |- Dependent on the machine learning service you use. <br>- Introduces latency when querying or exporting data. |
-|**Cost**|No additional cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
+|**Cost**|No extra cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
 |**Limitations**|Limited to several GBs of data, or a few million records.|Supports larger volumes, depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs). |
 | |Linear regression model with a set number of configurable parameters.|Customizable.  |
 | |Azure portal or Query API log query limits depending on whether you're working in the portal or using the API, for example, from notebooks.| Query API log query limits depending on how you [implement your machine learning pipeline].(#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
