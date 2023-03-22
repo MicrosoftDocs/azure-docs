@@ -32,6 +32,10 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
 
 1. Select your subscription and workspace.
+
+* Navigate to the Azure ML Studio and enable the feature by clicking open the preview panel.
+[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/preview-panel.png)](media/how-to-train-with-ui/preview-panel.png)
+
  
 * You may enter the job creation UI from the homepage. Click **Create new** and select **Job**. 
 [![Azure Machine Learning studio homepage](media/how-to-train-with-ui/home-entry.png)](media/how-to-train-with-ui/home-entry.png)
