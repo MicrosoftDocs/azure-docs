@@ -4,7 +4,7 @@ description: Secure HTTPS access to your custom domain by creating a TLS/SSL bin
 tags: buy-ssl-certificates
 
 ms.topic: article
-ms.date: 04/27/2022
+ms.date: 04/20/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -14,70 +14,52 @@ This article shows you how to secure the [custom domain](app-service-web-tutoria
 
 ![Web app with custom TLS/SSL certificate](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-Securing a [custom domain](app-service-web-tutorial-custom-domain.md) with a certificate involves two steps:
-
-- [Add a private certificate to App Service](configure-ssl-certificate.md) that satisfies all the [private certificate requirements](configure-ssl-certificate.md#private-certificate-requirements).
--  Create a TLS binding to the corresponding custom domain. This second step is covered by this article.
-
 ## Prerequisites
 
 To follow this how-to guide:
 
-- [Create an App Service app](./index.yml)
-- [Map a domain name to your app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
-- [Add a private certificate to your app](configure-ssl-certificate.md)
-
-> [!NOTE]
-> The easiest way to add a private certificate is to [create a free App Service managed certificate with your custom domain](tutorial-secure-domain-certificate.md).
-
-
-[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
+- [Scale up your App Service app](manage-scale-up.md) to one of the supported pricing tiers: **Basic**, **Standard**, **Premium**.
+- [Map a domain name to your app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md).
 
 <a name="upload"></a>
 
-## Secure a custom domain
+## 1. Add the binding
 
-Do the following steps:
+In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 
-In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
+1. From the left menu, select **App Services** > **\<app-name>**.
 
-From the left navigation of your app, start the **TLS/SSL Binding** dialog by:
+1. From the left navigation of your app, select **Custom domains**
 
-- Selecting **Custom domains** > **Add binding**
-- Selecting **TLS/SSL settings** > **Add TLS/SSL binding**
+1. Next to the custom domain, select **Add binding**
 
-![Add binding to domain](./media/configure-ssl-bindings/secure-domain-launch.png)
+    :::image type="content" source="media/configure-ssl-bindings/secure-domain-launch.png" alt-text="A screenshot showing how to launch the Add TLS/SSL Binding dialog.":::
 
-In **Custom Domain**, select the custom domain you want to add a binding for.
+1. If your app already has a certificate for the selected custom domain, you can select it in **Certificate**. If not, you must add a certificate using one of the selections in **Source**.
 
-If your app already has a certificate for the selected custom domain, go to [Create binding](#create-binding) directly. Otherwise, keep going.
+    - **Create App Service Managed Certificate** - Let App Service create a managed certificate for your selected domain. This option is the simplest. For more information, see [Create a free managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
+    - **Import App Service Certificate** - In **App Service Certificate**, choose an App Service certificate you've purchased for your selected domain. To purchase an App Service certificate, see [Import an App Service certificate](configure-ssl-certificate.md#buy-and-import-app-service-certificate).
+    - **Upload certificate (.pfx)** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate) to upload a PFX certificate from your local machine and specify the cetificate password.
+    - **Import from Key Vault** - Click **Select key vault certificate** and select the certificate in the dialog.
 
-### Add a certificate for custom domain
+1. In **TLS/SSL type**, choose between **SNI SSL** and **IP based SSL**.
 
-If your app has no certificate for the selected custom domain, then you have two options:
+    [!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
 
-- **Upload PFX Certificate** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate), then select this option here.
-- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#buy-and-import-app-service-certificate), then select this option here.
+1. When adding a new certificate, validate the new certificate by selecting **Validate**.
 
-> [!NOTE]
-> You can also [Create a free certificate](configure-ssl-certificate.md#create-a-free-managed-certificate) or [Import a Key Vault certificate](configure-ssl-certificate.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
+1. Select **Add**.
 
-### Create binding
-
-Use the following table to help you configure the TLS binding in the **TLS/SSL Binding** dialog, then click **Add Binding**.
-
-[!INCLUDE [Certificate binding types](../../includes/app-service-ssl-binding-types.md)]
-
-Once the operation is complete, the custom domain's TLS/SSL state is changed to **Secure**.
-
-![TLS/SSL binding successful](./media/configure-ssl-bindings/secure-domain-finished.png)
-
+    Once the operation is complete, the custom domain's TLS/SSL state is changed to **Secure**.
+    
+    ![TLS/SSL binding successful](./media/configure-ssl-bindings/secure-domain-finished.png)
+    
 > [!NOTE]
 > A **Secure** state in the **Custom domains** means that it is secured with a certificate, but App Service doesn't check if the certificate is self-signed or expired, for example, which can also cause browsers to show an error or warning.
 
-## Remap records for IP SSL
+## 2. Remap records for IP based SSL
 
-If you don't use IP SSL in your app, skip to [Test HTTPS for your custom domain](#test-https).
+This step is needed only for IP based SSL. For an SNI SSL binding, skip to [Test HTTPS for your custom domain](#3-test-https).
 
 There are two changes you need to make, potentially:
 
@@ -87,7 +69,7 @@ There are two changes you need to make, potentially:
 
 - If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
 
-## Test HTTPS
+## 3. Test HTTPS
 
 In various browsers, browse to `https://<your.custom.domain>` to verify that it serves up your app.
 
