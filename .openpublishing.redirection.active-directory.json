@@ -7277,6 +7277,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/privileged-identity-management/pim-how-to-require-mfa",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review",
       "redirect_document_id": true
