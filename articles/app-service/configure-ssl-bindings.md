@@ -37,8 +37,8 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 
     - **Create App Service Managed Certificate** - Let App Service create a managed certificate for your selected domain. This option is the simplest. For more information, see [Create a free managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
     - **Import App Service Certificate** - In **App Service Certificate**, choose an App Service certificate you've purchased for your selected domain. To purchase an App Service certificate, see [Import an App Service certificate](configure-ssl-certificate.md#buy-and-import-app-service-certificate).
-    - **Upload certificate (.pfx)** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate) to upload a PFX certificate from your local machine and specify the cetificate password.
-    - **Import from Key Vault** - Click **Select key vault certificate** and select the certificate in the dialog.
+    - **Upload certificate (.pfx)** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate) to upload a PFX certificate from your local machine and specify the certificate password.
+    - **Import from Key Vault** - Select **Select key vault certificate** and select the certificate in the dialog.
 
 1. In **TLS/SSL type**, choose between **SNI SSL** and **IP based SSL**.
 
@@ -74,7 +74,7 @@ In various browsers, browse to `https://<your.custom.domain>` to verify that it 
 
 :::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot showing an example of browsing to your custom domain with the contoso.com URL highlighted.":::
 
-Your application code can inspect the protocol via the "x-appservice-proto" header. The header will have a value of `http` or `https`. 
+Your application code can inspect the protocol via the "x-appservice-proto" header. The header has a value of `http` or `https`. 
 
 > [!NOTE]
 > If your app gives you certificate validation errors, you're probably using a self-signed certificate.
