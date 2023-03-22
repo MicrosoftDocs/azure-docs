@@ -16,8 +16,6 @@ This article shows you how to secure the [custom domain](app-service-web-tutoria
 
 ## Prerequisites
 
-To follow this how-to guide:
-
 - [Scale up your App Service app](manage-scale-up.md) to one of the supported pricing tiers: **Basic**, **Standard**, **Premium**.
 - [Map a domain name to your app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md).
 
@@ -82,7 +80,16 @@ Your application code can inspect the protocol via the "x-appservice-proto" head
 >
 > If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file.
 
-## Prevent IP changes
+## Frequently asked questions
+
+- [How do I make sure that the app's IP address doesn't change when I make changes to the certificate binding?](#how-do-i-make-sure-that-the-apps-ip-address-doesnt-change-when-i-make-changes-to-the-certificate-binding)
+- [Can I disable the forced redirect from HTTP to HTTPS?](#can-i-disable-the-forced-redirect-from-http-to-https)
+- [How can I change the minimum TLS versions for the app?](#how-can-i-change-the-minimum-tls-versions-for-the-app)
+- [How do I handle TLS termination in App Service?](#how-do-i-handle-tls-termination-in-app-service)
+
+<a name="prevent-ip-changes" />
+
+#### How do I make sure that the app's IP address doesn't change when I make changes to the certificate binding?
 
 Your inbound IP address can change when you delete a binding, even if that binding is IP SSL. This is especially important when you renew a certificate that's already in an IP SSL binding. To avoid a change in your app's IP address, follow these steps in order:
 
@@ -90,31 +97,21 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
 3. Delete the old certificate. 
 
-## Enforce HTTPS
+<a name="enforce-https" />
 
-In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **HTTPS Only**, select **On**.
+#### Can I disable the forced redirect from HTTP to HTTPS?
 
-If selected **HTTPS Only**, **Off** It means anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port by selecting **On**. 
+By default, App Service forces a redirect from HTTP requests to HTTPS. To disable this behavior, see [Configure general settings](configure-common.md#configure-general-settings).
 
-![Enforce HTTPS](./media/configure-ssl-bindings/enforce-https.png)
+<a name="enforce-tls-versions">
 
-When the operation is complete, navigate to any of the HTTP URLs that point to your app. For example:
+#### How can I change the minimum TLS versions for the app?
 
-- `http://<app_name>.azurewebsites.net`
-- `http://contoso.com`
-- `http://www.contoso.com`
+Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, see [Configure general settings](configure-common.md#configure-general-settings).
 
-## Enforce TLS versions
+<a name="handle-tls-termination">
 
-Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, follow these steps:
-
-In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
-
-![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
-
-When the operation is complete, your app rejects all connections with lower TLS versions.
-
-## Handle TLS termination
+#### How do I handle TLS termination in App Service?
 
 In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 

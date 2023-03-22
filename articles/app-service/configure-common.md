@@ -4,7 +4,7 @@ description: Learn to configure common settings for an App Service app. App sett
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 07/11/2022
+ms.date: 04/21/2023
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -433,16 +433,18 @@ Here, you can configure some common settings for the app. Some settings require 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
+    - **Platform bitness**: 32-bit or 64-bit. For Windows apps only. 
     - **FTP state**: Allow only FTPS or disable FTP altogether.
-    - **Bitness**: 32-bit or 64-bit. For Windows apps only. 
-    - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
-    
-        Always On is required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
     > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+    - **Web sockets**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
+    - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
+    
+        Always On is required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
     - **ARR affinity**: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
+    - **HTTPS Only**: When enabled, all HTTP traffic are redirected to HTTPS.
+    - **Minimum TLS version**: Select the minimum TLS encryption version required by your app.
 - **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
 
