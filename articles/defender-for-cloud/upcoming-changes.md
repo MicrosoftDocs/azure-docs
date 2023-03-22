@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/05/2023
+ms.date: 03/20/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -19,11 +19,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely) | March 2023 |
-| [Three alerts in the Defender for Resource Manager plan will be deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-will-be-deprecated) | March 2023 |
+| [Three alerts in the Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
 | [Deprecation of App Service language monitoring policies](#deprecation-of-app-service-language-monitoring-policies) | April 2023 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
+| [Deprecation of legacy compliance standards across cloud environments](#deprecation-of-legacy-compliance-standards-across-cloud-environments) | April 2023 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | April 2023 |
 
 ### Changes in the recommendation "Machines should be configured securely"
 
@@ -92,6 +93,15 @@ Customers can use alternative built-in policies to monitor any specified languag
 
 These will no longer be in Defender for Cloud's built-in recommendations. You can add them as custom recommendations to have Defender for Cloud monitor them.
 
+### Deprecation of legacy compliance standards across cloud environments
+
+**Estimated date for change: April 2023**
+
+We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+
+Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
 ### Multiple changes to identity recommendations
 
 **Estimated date for change: May 2023**
@@ -133,6 +143,15 @@ The following security recommendations will be deprecated as part of this change
 We recommend updating custom scripts, workflows, and governance rules to correspond with the V2 recommendations.
 
 We've improved the coverage of the V2 identity recommendations by scanning all Azure resources (rather than just subscriptions) which allows security administrators to view role assignments per account. These changes may result in changes to your Secure Score throughout the GA process.
+
+### Deprecation of legacy compliance standards across cloud environments
+
+**Estimated date for change: April 2023**
+
+We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+
+Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [`PCI DSS v4`](/azure/compliance/offerings/offering-pci-dss) initiative.
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ## Next steps
 
