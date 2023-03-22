@@ -139,7 +139,7 @@ Windows applications will also have the option to view processes via the Process
 ## Diagnostic information collection
 For Windows applications, you have the option to collect diagnostic information in the Health Check tab. Enabling diagnostic collection will add an auto-heal rule that creates memory dumps for unhealthy instances and saves it to a designated storage account. Enabling this option will change auto-heal configurations. If there are existing auto-heal rules, we recommend setting this up through App Service diagnostics. 
 
-Once diagnostic collection is enabled, you can create or choose an existing storage account for your files.   You can only select storage accounts in the same region as your application. Keep in mind that saving will restart your application.  After saving, if your site instances are found to be unhealthy after continuous pings, you can go to your storage account resource and view the memory dumps.
+Once diagnostic collection is enabled, you can create or choose an existing storage account for your files. You can only select storage accounts in the same region as your application. Keep in mind that saving will restart your application. After saving, if your site instances are found to be unhealthy after continuous pings, you can go to your storage account resource and view the memory dumps.
 
 
 ## Monitoring
