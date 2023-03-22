@@ -227,7 +227,7 @@ def test_function(msg: func.ServiceBusMessage):
 
 # [v1](#tab/python-v1)
 
-A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
+A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger` and the queue is set by `queueName`.
 
 ```json
 {
@@ -271,6 +271,79 @@ def main(msg: func.ServiceBusMessage):
         'user_properties': msg.user_properties,
         'metadata' : msg.metadata
     }, default=str)
+
+    logging.info(result)
+```
+
+---
+
+The following example demonstrates how to read a Service Bus queue topic via a trigger.
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="ServiceBusTopicTrigger1")
+@app.service_bus_topic_trigger(arg_name="message", 
+                               topic_name="TOPIC_NAME", 
+                               connection="CONNECTION_SETTING", 
+                               subscription_name="SUBSCRIPTION_NAME")
+def test_function(message: func.ServiceBusMessage):
+    message_body = message.get_body().decode("utf-8")
+    logging.info("Python ServiceBus topic trigger processed message.")
+    logging.info("Message Body: " + message_body)
+```
+
+# [v1](#tab/python-v1)
+
+A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger` and the topic is set by `topicName`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+   {
+     "type": "serviceBusTrigger",
+     "direction": "in",
+     "name": "msg",
+     "topicName": "inputtopic",
+     "connection": "AzureServiceBusConnectionString"
+   }
+  ]
+}
+```
+
+The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the topic in your function.
+
+```python
+import json
+
+import azure.functions as azf
+
+
+def main(msg: azf.ServiceBusMessage) -> str:
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'delivery_count': msg.delivery_count,
+        'expiration_time': (msg.expiration_time.isoformat() if
+                            msg.expiration_time else None),
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': (msg.scheduled_enqueue_time.isoformat() if
+                                   msg.scheduled_enqueue_time else None),
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
 
     logging.info(result)
 ```
