@@ -1883,14 +1883,12 @@ groups:
   title: Azure Spring Apps tier
   prompt: Select an Azure Spring Apps tier
   pivots:
-  - id: sc-standard-tier
-    title: Basic/Standard tier
-  - id: sc-enterprise-tier
-    title: Enterprise tier
   - id: sc-consumption-plan
     title: Standard consumption (Preview)
-  - id: sc-basic-standard-enterprise
-    title: Basic/Standard/Enterprise
+  - id: sc-standard
+    title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
