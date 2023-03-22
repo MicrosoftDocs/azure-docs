@@ -52,7 +52,7 @@ In this guide, you'll learn how to configure Azure DDoS Protection diagnostic lo
 
 ### Query Azure DDOS Protection logs in log analytics workspace
 
-For more information on log schemas, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md#diagnostic-logs).
+For more information on log schemas, see [View diagnostic logs](ddos-view-diagnostic-logs.md#example-log-queries).
 #### DDoSProtectionNotifications logs
 
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
