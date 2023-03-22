@@ -1,16 +1,19 @@
 ---
-title: LINQ to SQL translation in Azure Cosmos DB
+title: LINQ to SQL translation
+titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
-ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 08/06/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
+ms.service: cosmos-db
+ms.subservice: nosql
+ms.topic: conceptual
+ms.date: 03/22/2023
+ms.custom: ignite-2022
 ---
-# LINQ to SQL translation
+
+# LINQ to SQL translation in Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with API for NoSQL.
@@ -26,7 +29,7 @@ The query provider supports the following scalar expressions:
   
 - Property/array index expressions that refer to the property of an object or an array element. For example:
   
-  ```
+  ```csharp
     family.Id;
     family.children[0].familyName;
     family.children[0].grade;
@@ -35,21 +38,21 @@ The query provider supports the following scalar expressions:
   
 - Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](aggregate-functions.md).
   
-  ```
+  ```csharp
     2 * family.children[0].grade;
     x + y;
   ```
   
 - String comparison expressions, which include comparing a string value to some constant string value.  
   
-  ```
+  ```csharp
     mother.familyName == "Wakefield";
     child.givenName == s; //s is a string variable
   ```
   
 - Object/array creation expressions, which return an object of compound value type or anonymous type, or an array of such objects. You can nest these values.
   
-  ```
+  ```csharp
     new Parent { familyName = "Wakefield", givenName = "Robin" };
     new { first = 1, second = 2 }; //an anonymous type with two fields  
     new int[] { 3, child.grade, 5 };
@@ -76,7 +79,7 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
  }
 ```
 
-## <a id="SupportedLinqOperators"></a>Supported LINQ operators
+## Supported LINQ operators
 
 The LINQ provider included with the SQL .NET SDK supports the following operators:
 
