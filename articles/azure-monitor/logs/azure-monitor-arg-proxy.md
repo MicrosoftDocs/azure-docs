@@ -2,7 +2,7 @@
 title: Cross-resource query Azure Resource Graph by using Azure Monitor
 description: Use Azure Monitor to perform cross-product queries between Azure Resource Graph, Log Analytics workspaces, and classic Application Insights applications in Azure Monitor.
 author: osalzberg
-ms.author: osalzberg
+ms.author: orens
 ms.topic: conceptual
 ms.date: 03/22/2023
 ms.reviewer: osalzberg
