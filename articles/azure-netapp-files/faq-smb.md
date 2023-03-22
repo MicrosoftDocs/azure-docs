@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/16/2023
+ms.date: 03/22/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -36,11 +36,9 @@ If you're using Azure NetApp Files with Azure Active Directory Domain Services, 
 
 The Azure April 2023 update will begin enforcing a `RequireSeal:2` for Netlogon Secure Channel beginning April 11, 2023. When Azure Netapp Files tenancies attempt to pass NTLM authentication information over Netlogon, the patched domain controller will return a message of Access Denied.
 
-The enforcement of `RequireSeal:2` is a known vulnerability. See [CVE-2022-38023](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-38023) for more information. 
+This update exposes vulnerability [CVE-2022-38023](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-38023 concerning Sealing for Netlogon Secure Channel and impacts Azure NetApp Files.
 
-For a workaround, you should set the  RequireSeal value to 1 after applying the April 2023 update. For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/en-us/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
-
-<!-- add link to to this FAQ in AD topics -->
+For a workaround, after applying the April 2023 update, set the `RequireSeal` value to 1. For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/en-us/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
 
