@@ -809,6 +809,11 @@
             "source_path_from_root": "/articles/defender-for-cloud/faq-azure-monitor-logs.yml",
             "redirect_url": "/azure/defender-for-cloud/faq-data-collection-agents",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-exclude.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-storage-classic-enable#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan",
+            "redirect_document_id": true
         }
     ]
 }
