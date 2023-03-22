@@ -129,3 +129,4 @@ For more information, see:
 - [Manage individual OT network sensors](how-to-manage-individual-sensors.md)
 - [Manage OT network sensors from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage an on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Azure data encryption](/azure/security/fundamentals/encryption-overview)
