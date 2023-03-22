@@ -55,7 +55,7 @@ On the [Azure Marketplace Offer](https://aka.ms/ascmpoffer) page, you can review
 
 You can use the Azure portal and Azure CLI to provision an Azure Spring Apps Enterprise tier service instance. You can also select **Subscribe** on the VMware marketplace offer to create the service instance, as Azure Marketplace redirects you to Azure Spring Apps creation page.
 
-## Requirements
+## Prerequisites
 
 - Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
