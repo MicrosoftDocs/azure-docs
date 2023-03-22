@@ -593,7 +593,6 @@ public async void InitializeSessionService()
     }
     catch (ArgumentException argumentException)
     {
-        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
         Debug.LogError(argumentException.Message);
         CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
         return;
