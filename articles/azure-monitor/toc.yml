@@ -407,6 +407,9 @@ items:
       - name: Query Prometheus metrics in workbooks
         displayName: Prometheus
         href: essentials/prometheus-workbooks.md
+      - name: Query Prometheus using the API and PromQL
+        displayName: Prometheus
+        href: essentials/prometheus-api-promql.md
       - name: Remote-write
         items:
         - name: Overview
@@ -876,7 +879,7 @@ items:
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting
           displayName: troubleshoot, troubleshooting
-          href: /troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot
+          href: snapshot-debugger/snapshot-debugger-troubleshoot.md
     - name: Administration and security
       items:
       - name: Manage Application Insights
