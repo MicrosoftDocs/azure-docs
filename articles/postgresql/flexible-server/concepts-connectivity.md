@@ -30,7 +30,7 @@ Transient errors should be handled using retry logic. Situations that must be co
 The first and second cases are fairly straight forward to handle. Try to open the connection again. When you succeed, the transient error has been mitigated by the system. You can use your Azure Database for PostgreSQL again. We recommend having waits before retrying the connection. Back off if the initial retries fail. This way the system can use all resources available to overcome the error situation. A good pattern to follow is:
 
 * Wait for 5 seconds before your first retry.
-* For each following retry, the increase the wait exponentially, up to 60 seconds.
+* For each following retry, increase the wait exponentially, up to 60 seconds.
 * Set a max number of retries at which point your application considers the operation failed.
 
 When a connection with an active transaction fails, it is more difficult to handle the recovery correctly. There are two cases: If the transaction was read-only in nature, it is safe to reopen the connection and to retry the transaction. If however if the transaction was also writing to the database, you must determine if the transaction was rolled back, or if it succeeded before the transient error happened. In that case, you might just not have received the commit acknowledgment from the database server.
