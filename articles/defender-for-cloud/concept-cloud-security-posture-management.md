@@ -27,7 +27,7 @@ Defender for cloud offers foundational multicloud CSPM capabilities for free. Th
 The optional Defender CSPM plan, provides advanced posture management capabilities such as [Attack path analysis](how-to-manage-attack-path.md), [Cloud security explorer](how-to-manage-cloud-security-explorer.md), advanced threat hunting, [security governance capabilities](concept-regulatory-compliance.md), and also tools to assess your [security compliance](review-security-recommendations.md) with a wide range of benchmarks, regulatory standards, and any custom security policies required in your organization, industry, or region. 
 
 > [!NOTE]
-> Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Compute, Databases, and Storage resources. Billable workloads are VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines. Existing Microsoft Defender for Cloud customers receive automatically applied discounts for Defender CSPM. Billing will begin May 1st, 2023. ​
+> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on May 1 2023. Billing will apply for compute, database, and storage resources. Billable workloads will be VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines. When billing starts, existing Microsoft Defender for Cloud customers will receive automatically applied discounts for Defender CSPM. ​
 
 The following table summarizes each plan and their cloud availability.
 
