@@ -199,7 +199,7 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
-- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **should not be mapped directly** to a role attribute without using an expression to parse the role details. 
+- Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
@@ -259,7 +259,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
     - All roles will be provisioned as primary = false.
-    - The POST contains the role type. The PATCH request doesn't contain type. We are working on sending the type in both POST and PATCH requests.
+    - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups." 
     
   - **Example output** 
@@ -337,7 +337,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 - Adding a photo attribute to be provisioned to an app isn't supported today as you can't specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It's not recommended to remove the IsSoftDeleted attribute from your attribute mappings.
 - The Azure AD provisioning service doesn't support provisioning null values.
-- They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 
+- They primary key, typically "ID", shouldn't be included as a target attribute in your attribute mappings. 
 - The role attribute typically needs to be mapped using an expression, rather than a direct mapping. See section above for more details on role mapping. 
 - While you can disable groups from your mappings, disabling users isn't supported. 
 
