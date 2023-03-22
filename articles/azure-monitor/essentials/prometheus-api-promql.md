@@ -8,14 +8,14 @@ ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Query Prometheus metrics using the API and PromQL.
+# Query Prometheus metrics using the API and PromQL
 
 Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes Clusters and stores them in an Azure Monitor workspace.  PromQL - Prometheus query language, is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
 
 This article describes how to query an Azure Monitor workspace using PromQL via the REST API.
 For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
-## Prerequisites 
+## Prerequisites
 To query an Azure monitor workspace using PromQL, you need the following prerequisites:
 + An Azure Kubernetes Cluster or remote Kubernetes cluster.
 + Azure Monitor managed service for Prometheus (preview) scraping metrics from a Kubernetes cluster
@@ -48,13 +48,13 @@ Allow your app to query data from your Azure Monitor workspace.
 
 1. Select **Add**, then **Add role assignment** from the Access Control (IAM) page.  
 
-   :::image type="content" source="./media/prometheus-api-promql/access-control.png" lightbox="./media/prometheus-api-promql/access-control.png" alt-text="A screenshot showing the Azure Monitor workspace overview page":::
+   :::image type="content" source="./media/prometheus-api-promql/access-control.png" lightbox="./media/prometheus-api-promql/access-control.png" alt-text="A screenshot showing the Azure Monitor workspace overview page.":::
 
 1. On the **Add role Assignment page**, search for *Monitoring*.
 
 1. Select **Monitoring Data Reader**, then select the Members tab.
 
-    :::image type="content" source="./media/prometheus-api-promql/add-role-assignment.png" lightbox="./media/prometheus-api-promql/add-role-assignment.png" alt-text="A screenshot showing the Add role assignment page":::
+    :::image type="content" source="./media/prometheus-api-promql/add-role-assignment.png" lightbox="./media/prometheus-api-promql/add-role-assignment.png" alt-text="A screenshot showing the Add role assignment page.":::
 
 1. Select **Select members**.
 
@@ -69,7 +69,7 @@ Allow your app to query data from your Azure Monitor workspace.
 You've created your App registration and have assigned it access to query data from your Azure Monitor workspace.  You can now generate a token and use it in a query.
 
 
-### Request a Token
+### Request a token
 Send the following request in the command prompt or by using a client like Postman.
 
 ```shell
@@ -97,7 +97,7 @@ Sample response body:
 
 Save the access token from the response for use in the following HTTP requests.  
 
-## Query Endpoint
+## Query endpoint
 
 Find your workspace's query endpoint on the Azure Monitor workspace overview page.  
 
@@ -204,7 +204,7 @@ The following limitations are in addition to those detailed in the Prometheus sp
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
-## Next Steps
+## Next steps
 
 [Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)  
 [Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)  
