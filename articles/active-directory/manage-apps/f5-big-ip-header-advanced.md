@@ -21,7 +21,7 @@ Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to heade
   * See, [What is Conditional Access?](../conditional-access/overview.md)
   * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
-* Managed identities and access from on control plane
+* Managed identities and access from one control plane
   * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
 Learn more:
