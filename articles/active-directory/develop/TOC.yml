@@ -76,6 +76,8 @@
           href: custom-extension-overview.md
         - name: Custom claims provider
           href: custom-claims-provider-overview.md
+        - name: Attribute validation provider
+          href: attribute-validation-provider-overview.md
     - name: Security best practices
       displayName: least privilege, secure app configuration, conditional access
       items:
@@ -154,6 +156,22 @@
                   href: custom-extension-configure-saml-app.md
                 - name: Troubleshoot your custom claims provider API
                   href: custom-extension-troubleshoot.md
+        - name: Attribute validation provider
+          items:
+            - name: Pre attribute collection start event
+              items:
+                - name: Create and register a custom claims provider API
+                  href: custom-extension-get-started.md
+                - name: Configure a SAML app to call a custom claims provider
+                  href: custom-extension-configure-saml-app.md
+            - name: Post attribute collection start event
+              items:
+                - name: Create and register a custom claims provider API
+                  href: custom-extension-get-started.md
+                - name: Configure a SAML app to call a custom claims provider
+                  href: custom-extension-configure-saml-app.md
+            - name: Troubleshoot your custom claims provider API
+              href: custom-extension-troubleshoot.md     
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
