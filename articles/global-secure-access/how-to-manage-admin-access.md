@@ -38,9 +38,10 @@ This role does not grant the ability to manage enterprise applications, applicat
 Even with Global Secure Access Administrator role, you will need additional permissions. 
 
 For example:
-|Scenario   |Area   |Role|
+
+|Scenario  |Area       |Role        |
 |----------|-----------|------------|
-|Enriched Microsoft 365|Logs       |        |
+|Enriched Microsoft 365|Logs |        |
 |Enable Quick Access|Private Access   |Application Administrator, Global Administrator |
 |Associating Conditional Access policies with network filtering policies|Common (CA) |Conditional Access Administrator, Security Administrator, Global Administrator|
 |Set the target resource type to *Network Access (Preview)* and select the appropriate traffic profile in Conditional Access policies| Common (CA)|Conditional Access Administrator, Security Administrator, Global Administrator|
