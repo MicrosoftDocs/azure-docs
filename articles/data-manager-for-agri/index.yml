@@ -64,4 +64,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Set up Private Links
-            url: how-to-set-up-private-link.md
+            url: how-to-set-up-private-links.md

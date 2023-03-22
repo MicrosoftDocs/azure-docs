@@ -20,9 +20,9 @@ This article describes how to create a private endpoint and approval process for
 ## How to set up a private endpoint
 Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:
 
-*  [The portal](../private-link/create-private-endpoint-portal?tabs=dynamic-ip)
-*  [PowerShell](../private-link/create-private-endpoint-powershell?tabs=dynamic-ip)
-*  [CLI](../private-link/create-private-endpoint-cli?tabs=dynamic-ip)
+*  [Azure portal](../private-link/create-private-endpoint-portal.md)
+*  [PowerShell](../private-link/create-private-endpoint-powershell.md)
+*  [CLI](../private-link/create-private-endpoint-cli.md)
 
 ### Approval process for a private endpoint
 Once the network admin creates the private endpoint, the Data Manager for Agriculture admin can manage the private endpoint connection to Data Manager for Agriculture resource.
