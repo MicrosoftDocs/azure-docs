@@ -36,7 +36,9 @@ items:
   expanded: true
   items:
   - name: Get Started with Global Secure Access
-    href: how-to-get-started-with-network-access.md
+    href: how-to-get-started-with-global-secure-access.md
+  - name: Manage admin access
+    href: how-to-manage-admin-access.md
   - name: Connect
     expanded: false
     items:
