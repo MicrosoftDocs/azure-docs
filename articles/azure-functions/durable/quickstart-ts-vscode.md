@@ -30,7 +30,12 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
+::: zone pivot="nodejs-model-v3"
 * Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension
+::: zone-end
+::: zone pivot="nodejs-model-v4"
+* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension version `1.10.4` or above.
+::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
@@ -55,7 +60,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project. 
 
-1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd + Shift + P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     ![Create function](media/quickstart-js-vscode/functions-create-project.png)
 
@@ -88,7 +93,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
-A `package.json` and a `tsconfig.json` file are also created in the root folder.
+A `package.json` file and a `tsconfig.json` file are also created in the root folder.
 
 ## Install the Durable Functions npm package
 
@@ -97,7 +102,7 @@ To work with Durable Functions in a Node.js function app, you use a library call
 To use the V4 programming model, you need to install the preview `v3.x` version of `durable-functions`.
 ::: zone-end
 
-1. Use the *View* menu or <kbd>Ctrl+Shift+`</kbd> to open a new terminal in VS Code.
+1. Use the *View* menu or <kbd>Ctrl + Shift + `</kbd> to open a new terminal in VS Code.
 
 ::: zone pivot="nodejs-model-v3"
 2. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
@@ -198,7 +203,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 ::: zone pivot="nodejs-model-v4"
 
 > [!NOTE]
-> To run the V4 programming model, your app needs to have the `EnableWorkerIndexing` feature flag set. When running locally, this should have already been set in your `local.settings.json` file when creating your project.  To verify, check the following line exists in your `local.settings.json` file. If it doesn't, add it to your file.
+> To run the V4 programming model, your app needs to have the `EnableWorkerIndexing` feature flag set. When running locally, you need to set `AzureWebJobsFeaturesFlags` to value of `EnableWorkerIndexing` in your `local.settings.json` file. This should already be set when creating your project.  To verify, check the following line exists in your `local.settings.json` file, and add it if it doesn't.
 >
 > ```json
 > "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
@@ -300,7 +305,7 @@ After you've verified that the function runs correctly on your local computer, i
 To enable your V4 programming model app to run in Azure, you need to add the `EnableWorkerIndexing` flag under the `AzureWebJobsFeatureFlags` app setting.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-2. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>.
+2. Choose your new function app, then type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>.
 3. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.'
 
 ::: zone-end

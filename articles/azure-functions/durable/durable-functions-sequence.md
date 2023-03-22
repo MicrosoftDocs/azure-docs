@@ -68,7 +68,7 @@ The `context` object contains a `df` durable orchestration context object that l
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
 
-All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the preview `v3.x` of `durable-functions`. 
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the preview `v3.x` version of `durable-functions`. 
 
 There are two significant differences between an orchestrator function and other JavaScript functions:
 
