@@ -121,7 +121,7 @@ Unresolved errors listed in the next table affect the quality of training, but d
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Script | Non-normalized text |This script contains symbols. Normalize the symbols to match the audio. For example, normalize *%* to *percent*.|
+| Script | Non-normalized text |This script contains symbols. Normalize the symbols to match the audio. For example, normalize */* to *slash*.|
 | Script | Not enough question utterances| At least 10 percent of the total utterances should be question sentences. This helps the voice model properly express a questioning tone.|
 | Script | Not enough exclamation utterances| At least 10 percent of the total utterances should be exclamation sentences. This helps the voice model properly express an excited tone.|
 | Script | No valid end punctuation| Add one of the following at the end of the line: full stop (half-width '.' or full-width '。'), exclamation point (half-width '!' or full-width '！' ), or question mark ( half-width '?' or full-width '？').|
