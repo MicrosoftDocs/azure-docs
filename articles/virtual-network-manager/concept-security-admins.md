@@ -34,9 +34,7 @@ There are three kinds of actions – Allow, Always Allow, and Deny. If you creat
 Security admin rules don't depend on network security groups in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish network security groups, your organization is protected by default!
 
 > [!IMPORTANT]
-> Regarding application of security admin rules, the eventual consistency model is used. This means that the security admin rules will be applied to the resources in the virtual network after a short delay. Resources that are added to a virtual network that already has security admin rules applied on it will eventually receive those same security admin rules with a delay as well.
-
-When security admin rules are deployed, the eventual consistency model is used. This means that security admin rules will be eventually applied to the resources contained in a virtual network after a short delay. 
+> When security admin rules are deployed, the eventual consistency model is used. This means that security admin rules will be eventually applied to the resources contained in a virtual network after a short delay.   Resources that are added to a virtual network that already has security admin rules applied on it will eventually receive those same security admin rules with a delay as well.
 
 ### Management at scale
 
@@ -90,7 +88,7 @@ When you define a security admin rule, there are required and optional fields.
 
 #### Priority
 
-The Security rule priority is a value using an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 override an allow rule with a priority of 20. 
+The priority of a security admin rule is an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 overrides an allow rule with a priority of 20. 
 
 #### <a name = "action"></a>Action
 
