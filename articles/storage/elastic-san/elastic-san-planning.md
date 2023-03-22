@@ -14,6 +14,19 @@ ms.custom: ignite-2022
 
 There are three main aspects to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
 
+As an example of how this would work in practice: Say you have a large installbase with three primary workloads, SQL, AKS, and MariaDB. The total amount of storage for each of these workloads is quite sizeable and you need 150 TiB. But, you don't need every volume to operate at its highest performance levels constantly. So you deploy a SAN like so
+
+
+|Capacity  |Provisioned amount (TiB)  |IOPS  |Throughput (MB/s)  |
+|---------|---------|---------|---------|
+|Base     |90         |500,000         |8,000         |
+|Additional|60         |N/A         |N/A         |
+|Total     |150         |500,000         |8,000         |
+
+After deploying the SAN, you divide it into volume groups, one for each workload.
+
+
+
 Before deploying an Elastic SAN Preview, consider the following:
 
 - How much storage do you need?
@@ -57,9 +70,7 @@ Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-
 
 For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-## Protocol compatibility
-
-### iSCSI support
+## iSCSI support
 
 Elastic SAN supports the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. The following iSCSI commands are currently supported:
 
