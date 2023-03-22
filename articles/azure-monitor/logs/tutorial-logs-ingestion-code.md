@@ -98,7 +98,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     > [!NOTE]
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and execute it. Executing it uncommented as part of the script won't resolve the issue. The command must be executed separately.
 
-3. After you execute the script, you should see an `HTTP - 204` response, and the data should arrive in your Log Analytics workspace within a few minutes.
+3. Execute the script, and you should see an `HTTP - 204` response. The data should arrive in your Log Analytics workspace within a few minutes.
 
 
 ## [Python](#tab/python)
@@ -109,15 +109,14 @@ The following script uses the [Azure Monitor Ingestion client library for Python
 > This sample requires Python 3.7 or later.
 
 
-1. Use [pip](https://pypi.org/project/pip/) to install the Azure Monitor Ingestion client library for Python and the Azure Identify library, which is required for the authentication used in this sample.
-
+1. Use [pip](https://pypi.org/project/pip/) to install the Azure Monitor Ingestion client library for Python and the Azure Identity library, which is required for the authentication used in this sample.
     ```bash
     pip install azure-monitor-ingestion
     pip install azure-identity
     ```
 
 
-2. Replace the parameters in the **Step 0** section with values from your application, DCE, and DCR.. You might also want to replace the sample data in the **Step 2** section with your own.
+2. Replace the parameters in the **Step 0** section with values from your application, DCE, and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
 
 
     ```python
@@ -184,12 +183,14 @@ The following script uses the [Azure Monitor Ingestion client library for Python
         print(f"Upload failed: {e}")
     ```
 
-3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
+3. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
 
 ## [JavaScript](#tab/javascript)
 
+The following sample code uses the [Azure Monitor Ingestion client library for JS](/javascript/api/overview/azure/monitor-ingestion-readme).
 
-1. Use [npm](https://www.npmjs.com/) to install the Azure Monitor Ingestion client library for JavaScript and the Azure Identify library which is required for the authentication used in this sample.
+
+1. Use [npm](https://www.npmjs.com/) to install the Azure Monitor Ingestion client library for JavaScript and the Azure Identity library which is required for the authentication used in this sample.
 
     ```bash
     npm install --save @azure/monitor-ingestion
@@ -248,6 +249,79 @@ The following script uses the [Azure Monitor Ingestion client library for Python
 3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
 
 ## [Java](#tab/java)
+The following sample code uses the [Azure Monitor Ingestion client library for Java](/java/api/overview/azure/monitor-ingestion-readme).
+
+
+1. Include the Logs ingestion package and the `azure-identity` package from the [Azure Identity library](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.1/sdk/identity/azure-identity) which is used for the authentication used in this sample.
+
+
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-monitor-ingestion</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.8.0</version>
+    </dependency>
+    ```
+
+
+3. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential`.
+
+   - AZURE_TENANT_ID
+   - AZURE_CLIENT_ID
+   - AZURE_CLIENT_SECRET
+
+4. Replace the variables in the following sample code with values from your DCE, and DCR. You may also want to replace the sample data with your own.
+
+    ```java
+    public static void main(String[] args) { 
+        
+        LogsIngestionClient client = new LogsIngestionClientBuilder()
+            .endpoint("<data-collection-endpoint>") 
+            .credential(new DefaultAzureCredentialBuilder().build()) 
+            .buildClient(); 
+            
+        List<Object> dataList = Arrays.asList( 
+            new Object() { 
+                OffsetDateTime time = OffsetDateTime.now(); 
+                String computer = "Computer1"; 
+                Object additionalContext = new Object() { 
+                    String instanceName = "user4"; 
+                    String timeZone = "Pacific Time"; 
+                    int level = 4; 
+                    String counterName = "AppMetric1"; 
+                    double counterValue = 15.3; 
+                }; 
+            }, 
+            new Object() { 
+                OffsetDateTime time = OffsetDateTime.now(); 
+                String computer = "Computer2"; 
+                Object additionalContext = new Object() { 
+                    String instanceName = "user2"; 
+                    String timeZone = "Central Time"; 
+                    int level = 3; 
+                    String counterName = "AppMetric2"; 
+                    double counterValue = 43.5; 
+                }; 
+            }); 
+            
+        try { 
+            client.upload("<data-collection-rule-id>", "Custom-MyTableRawData", dataList); 
+            System.out.println("Logs uploaded successfully"); 
+        } catch (LogsUploadException exception) { 
+            System.out.println("Failed to upload logs "); 
+            exception.getLogsUploadErrors() 
+                .forEach(httpError -> System.out.println(httpError.getMessage())); 
+            } 
+        }
+    ```
+
+5. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
+
 
 
 
@@ -255,9 +329,9 @@ The following script uses the [Azure Monitor Ingestion client library for Python
 
 The following script uses the [Azure Monitor Ingestion client library for .NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme).
 
-1. Install the Azure Monitor Ingestion client library and the Azure Identify library which is required for the authentication used in this sample.
+1. Install the Azure Monitor Ingestion client library and the Azure Identity library which is required for the authentication used in this sample.
  
-    ```bash
+    ```dotnetcli
     dotnet add package Azure.Identity
     dotnet add package Azure.Monitor.Ingestion
     ```
@@ -267,8 +341,8 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 
     
 
-```csharp
-// Initialize variables
+    ```csharp
+    // Initialize variables
     var endpoint = new Uri("<data_collection_endpoint_uri>");
     var ruleId = "<data_collection_rule_id>";
     var streamName = "Custom-MyTableRawData";
@@ -343,7 +417,6 @@ The cache that drives IntelliSense might take up to 24 hours to update.
 
 ## Next steps
 
-- [Complete a similar tutorial using the Azure portal](tutorial-logs-ingestion-portal.md)
-- [Read more about custom logs](logs-ingestion-api-overview.md)
+- [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
 
