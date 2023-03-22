@@ -1,21 +1,21 @@
 ---
 title: Create a Training Job with the job creation UI
 titleSuffix: Azure Machine Learning
-description: Learn how to use the job creation UI in Azure Machine Learning studio to create a training job. 
+description: Learn how to submit a training job in Azure Machine Learning studio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devplatv2, event-tier1-build-2022
-author: wenxwei
-ms.author: wenxwei
+author: amibp
+ms.author: amipatel
 ms.date: 11/04/2022
 ms.reviewer: ssalgado
 ---
 
-# Create a training job with the job creation UI (preview)
+# Submit a training job in Studio (preview)
 
-There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning studio.
+There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with a guided experience for submitting training jobs in Azure Machine Learning studio.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -43,6 +43,8 @@ In this wizard, you can select your method of training, complete the rest of the
 ## Configure basic settings
 
 The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we have chosen for you or make changes to your desired preference. 
+
+[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
 
 These are the fields available:
 
@@ -127,7 +129,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the job preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
 
- [![Curated environments](media/how-to-train-with-ui/curated-environment.png)](media/how-to-train-with-ui/curated-environment.png)
+ [![Curated environments](media/how-to-train-with-ui/curated-environments.png)](media/how-to-train-with-ui/curated-environments.png)
 
 ### Custom environments
 
