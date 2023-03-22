@@ -20,7 +20,7 @@ API Management also provides a fully customizable, standalone, managed [develope
 
 The following diagram is a conceptual view of Azure API Management, showing the management plane (Azure control plane), API gateway (data plane), and developer portal (user plane), each with at least one option to secure interaction. For an overview of API Management components, see [What is Azure API Management?](api-management-key-concepts.md)
 
-:::image type="content" source="media/authentication-authorization-overview/api-management-security-high-level.png" alt-text="Diagram showing security features at all points of interaction in API Management." border="false":::
+![Diagram showing security features at all points of interaction in API Management.](media/authentication-authorization-overview/api-management-security-high-level.png)
 
 ## Management plane
 
@@ -57,7 +57,8 @@ Depending on the type of client app and scenarios, different *authentication flo
 
 The most common scenario is when the Azure API Management instance is a "transparent" proxy between the caller and backend API, and the calling application requests access to the API directly. The scope of the access token is between the calling application and backend API.
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.svg" alt-text="Diagram showing OAuth communication where audience is the backend." border="false":::
+
+!(media/authentication-authorization-overview/oauth-token-backend.svg)
 
 In this scenario, the access token sent along with the HTTP request is intended for the backend API, not API Management. However, API Management still allows for a defense in depth approach. For example, configure policies to [validate the token](validate-jwt-policy.md), rejecting requests that arrive without a token, or a token that's not valid for the intended backend API. You can also configure API Management to check other claims of interest extracted from the token.
 
@@ -66,8 +67,8 @@ For an example, see [Protect an API in Azure API Management using OAuth 2.0 auth
 #### Audience is API Management
 
 In this scenario, the API Management service acts on behalf of the API, and the calling application requests access to the API Management instance. The scope of the access token is between the calling application and API Management. 
+![Diagram showing OAuth communication where audience is the API Management gateway](media/authentication-authorization-overview/oauth-token-gateway.svg)
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-gateway.svg" alt-text="Diagram showing OAuth communication where audience is the API Management gateway." border="false":::
 
 There are different reasons for wanting to do this. For example:
 
