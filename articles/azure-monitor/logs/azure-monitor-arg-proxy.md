@@ -55,3 +55,4 @@ union customEvents, CL1 | take 10
 * [What is Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview)
 * [Query data in Azure Monitor by using Azure Data Explorer](/azure/data-explorer/query-monitor-data)
 * [Perform cross-resource log queries in Azure Monitor](../logs/cross-workspace-query.md)
+
