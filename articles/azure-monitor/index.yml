@@ -66,18 +66,22 @@ landingContent:
             url: ./logs/migrate-splunk-to-azure-monitor-logs.md
 
  # Card
-  - title: Get started with Log Analytics
+  - title: Get started with Azure Monitor Logs
     linkLists: 
       - linkListType: deploy
         links:
-          - text: Log Analytics workspace
+          - text: Set up a Log Analytics workspace
             url: logs/log-analytics-workspace-overview.md
-          - text: Design a Log Anlytics workspace architecture
+          - text: Design a Log Analytics workspace architecture
             url: logs/workspace-design.md
-          - text: Create a Log Analytics workspace
-            url: logs/quick-create-workspace.md
-          - text: Create a dashboard of Log Analytics data
-            url: /visualize/tutorial-logs-dashboards.md          
+          - text: Manage tables in a Log Analytics workspace
+            url: logs/manage-logs-tables.md
+          - text: Monitor workspaces with Log Analytics Workspace Insights
+            url: /logs/log-analytics-workspace-insights-overview.md
+          - text: Analyze data in Log Analytics
+            url: /logs/log-analytics-tutorial.md
+          - text: Get started with KQL log queries
+            url: /logs/log-analytics-tutorial.md               
 
    # Card 
   - title: Get started with Application Insights
