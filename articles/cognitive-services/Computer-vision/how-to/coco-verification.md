@@ -42,7 +42,7 @@ check_coco_annotation_file(json.loads(coco_file_path.read_text()), annotation_ki
 
 ## Use COCO file in a new project
 
-Once your COCO file is verified, you're ready to import it to your model customization project. See [Create and train a custom model](model-customization.md) and go to the section on selecting a COCO file&mdash;you can follow the guide from there to the end.
+Once your COCO file is verified, you're ready to import it to your model customization project. See [Create and train a custom model](model-customization.md) and go to the section on selecting/importing a COCO file&mdash;you can follow the guide from there to the end.
 
 ## Next steps
 
