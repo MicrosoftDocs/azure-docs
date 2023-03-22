@@ -32,7 +32,7 @@ The previous tutorial used the Azure Cloud Shell as the shell for the Azure CLI.
 
 The tutorial shows how to pass the user credential provided by the frontend app to the backend app then on to an Azure service. In this tutorial, the downstream service is Microsoft Graph. The user's credential is used to get their profile from Microsoft Graph. 
 
-:::image type="content" source="../media/tutorial-connect-app-app-graph-javascript/architecture-app-to-app-to-graph.png" alt-text="Architectural image of App Service connecting to App Service connecting to Microsoft Graph on behalf of a signed-in user.":::
+:::image type="content" source="./media/tutorial-connect-app-app-graph-javascript/architecture-app-to-app-to-graph.png" alt-text="Architectural image of App Service connecting to App Service connecting to Microsoft Graph on behalf of a signed-in user.":::
 
 **Authentication flow** for a user to get Microsoft Graph information in this architecture:
 
