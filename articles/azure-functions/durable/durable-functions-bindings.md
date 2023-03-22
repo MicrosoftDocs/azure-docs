@@ -23,9 +23,9 @@ Make sure to choose your Durable Functions development language at the top of th
 
 Durable Functions provides preview support of the new [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the PyPI package `azure-functions-durable`, version `1.2.2` or a later version. During the preview, you can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
 
-Using [Extension Bundles](./functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
+Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
 
-1. Remove the `extensionBundle` section of your `host.json` as described in [this Functions article](./functions-run-local.md#install-extensions).
+1. Remove the `extensionBundle` section of your `host.json` as described in [this Functions article](../functions-run-local.md#install-extensions).
  
 1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview.
 
