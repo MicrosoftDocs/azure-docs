@@ -39,6 +39,8 @@
       href: understand-performance.md
     - name: SMB Multichannel performance
       href: storage-files-smb-multichannel-performance.md
+    - name: NFS nconnect performance
+      href: nfs-nconnect-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
   - name: Understanding billing

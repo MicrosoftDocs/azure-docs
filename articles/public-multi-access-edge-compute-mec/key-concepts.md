@@ -53,6 +53,7 @@ Every Azure public MEC site is associated with a parent Azure region. This regio
 | -------------- | --------------------- | ------------ | ------------- |
 | AT&T | ATT Atlanta A | attatlanta1 | East US 2 |
 | AT&T | ATT Dallas A | attdallas1 | South Central US |
+| AT&T | ATT Detroit A | attdetroit1 | Central US |
 
 ## Azure services
 
