@@ -149,7 +149,7 @@ If you don't want to use the Azure Machine Learning curated environments or spec
 Once you've configured your job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
  [![Review](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
 
-To launch the job, choose **Create**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
+To launch the job, choose **Submit training job**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
   [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
