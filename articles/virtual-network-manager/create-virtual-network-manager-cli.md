@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 08/23/2022
+ms.date: 03/15/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -14,10 +14,12 @@ ms.devlang: azurecli
 
 Get started with Azure Virtual Network Manager by using the Azure CLI to manage connectivity for all your virtual networks.
 
-In this quickstart, you'll deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then you'll verify if the connectivity configuration got applied.
+In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then you verify if the connectivity configuration got applied.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -35,7 +37,7 @@ To begin your configuration, sign in to your Azure account. If you use the Cloud
 az login
 ```
 
-Select the subscription where network manager will be deployed.
+Select the subscription where network manager is deployed.
 
 ```azurecli
 az account set \
@@ -58,7 +60,7 @@ az group create \
 
 ## Create a Virtual Network Manager
 
-Define the scope and access type this Network Manager instance will have. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value  *<subscription_id>* with the subscription you want Virtual Network Manager to manage virtual networks for. For management groups, replace *<mgName\>* with the management group to manage.
+Define the scope and access type this Network Manager instance have. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value  *<subscription_id>* with the subscription you want Virtual Network Manager to manage virtual networks for. For management groups, replace *<mgName\>* with the management group to manage.
 
 ```azurecli
 az network manager create \
@@ -81,7 +83,7 @@ az network manager group create \
 ```
 ## Create virtual networks
 
-Create five virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB**,**VNetC** and **VNetD** in the **West US** location. Each virtual network will have a tag of **networkType** used for dynamic membership. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
+Create five virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB**,**VNetC** and **VNetD** in the **West US** location. Each virtual network has a tag of **networkType** used for dynamic membership. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
 
 ```azurecli
 az network vnet create \
@@ -116,7 +118,7 @@ az network vnet create \
 ```
 ### Add a subnet to each virtual network
 
-To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
+Complete the configuration of the virtual networks by adding a /24 subnet to each one. Create a subnet configuration named **default** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
 ```azurecli 
 az network vnet subnet create \
@@ -155,7 +157,7 @@ Azure Virtual Network manager allows you two methods for adding membership to a 
 
 ### Static membership option
 
-Using **static membership**, you'll manually add 3 VNets for your Mesh configuration to your Network Group with [az network manager group static-member create](/cli/azure/network/manager/group/static-member#az-network-manager-group-static-member-create). Replace <subscription_id> with the subscription these VNets were created under.
+Using **static membership**, you manually add 3 VNets for your Mesh configuration to your Network Group with [az network manager group static-member create](/cli/azure/network/manager/group/static-member#az-network-manager-group-static-member-create). Replace <subscription_id> with the subscription these VNets were created under.
 
 ```azurecli
 az network manager group static-member create \
@@ -185,7 +187,7 @@ az network manager group static-member create \
 ```
 ### Dynamic membership option
 
-Using [Azure Policy](concept-azure-policy-integration.md), you'll dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration.
+Using [Azure Policy](concept-azure-policy-integration.md), you dynamically add the three VNets with a tag **networkType** value of *Prod* to the Network Group. These are the three virtual networks to become part of the mesh configuration.
 
 > [!NOTE] 
 > Policies can be applied to a subscription or management group, and must always be defined *at or above* the level they're created. Only virtual networks within a policy scope are added to a Network Group.
@@ -234,7 +236,6 @@ az network manager connect-config create \
 For the configuration to take effect, commit the configuration to the target regions with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
 
 ```azurecli
-#Currently broken - can only do via portal
 az network manager post-commit \
     --network-manager-name "myAVNM" \
     --commit-type "Connectivity" \
@@ -243,7 +244,7 @@ az network manager post-commit \
     --resource-group "myAVNMResourceGroup"
 ```
 ## Verify configuration
-Virtual Networks will display configurations applied to them with [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config):
+Virtual Networks display configurations applied to them with [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config):
 
 ```azurecli
 az network manager list-effective-connectivity-config \
@@ -263,7 +264,7 @@ az network manager list-effective-connectivity-config \
     --resource-group "myAVNMResourceGroup" \
     --virtual-network-name "VNetD"
 ```
-For the virtual networks that are part of the connectivity configuration, you'll see an output similar to this:
+For the virtual networks that are part of the connectivity configuration, you see an output similar to this:
 
 ```json
 {
@@ -298,7 +299,7 @@ For the virtual networks that are part of the connectivity configuration, you'll
   ]
 }
 ```
-For virtual networks not part of the network group like **VNetD**, you'll see an output similar to this:
+For virtual networks not part of the network group like **VNetD**, you see an output similar to this:
 
 ```json
 az network manager list-effective-connectivity-config     --resource-group "myAVNMResourceGroup"     --virtual-network-name "VNetD-test"
@@ -309,7 +310,7 @@ az network manager list-effective-connectivity-config     --resource-group "myAV
 ```
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager, you'll need to make sure all of following are true before you can delete the resource:
+If you no longer need the Azure Virtual Network Manager, you need to make sure all of following are true before you can delete the resource:
 
 * There are no deployments of configurations to any region.
 * All configurations have been deleted.

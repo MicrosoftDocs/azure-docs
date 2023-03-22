@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 03/17/2023
+ms.date: 03/21/2023
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -261,7 +261,7 @@ To learn more, see [Get started with CreateUiDefinition](create-uidefinition-ove
 
 Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -278,7 +278,7 @@ New-AzResourceGroup -Name packageStorageGroup -Location westus3
 
 $storageAccount = New-AzStorageAccount `
   -ResourceGroupName packageStorageGroup `
-  -Name "demostorageaccount" `
+  -Name "<demostorageaccount>" `
   -Location westus3 `
   -SkuName Standard_LRS `
   -Kind StorageV2
@@ -308,7 +308,7 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 az group create --name packageStorageGroup --location westus3
 
 az storage account create \
-    --name demostorageaccount \
+    --name <demostorageaccount> \
     --resource-group packageStorageGroup \
     --location westus3 \
     --sku Standard_LRS \
@@ -321,13 +321,13 @@ After you add the role to the storage account, it takes a few minutes to become 
 
 ```azurecli
 az storage container create \
-    --account-name demostorageaccount \
+    --account-name <demostorageaccount> \
     --name appcontainer \
     --auth-mode login \
     --public-access blob
 
 az storage blob upload \
-    --account-name demostorageaccount \
+    --account-name <demostorageaccount> \
     --container-name appcontainer \
     --auth-mode login \
     --name "app.zip" \
@@ -404,12 +404,12 @@ The next step is to select a user, security group, or application for managing t
 
 # [PowerShell](#tab/azure-powershell)
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use this variable's value when you deploy the managed application definition.
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
 
 To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 ```azurepowershell
-$principalid=(Get-AzADGroup -DisplayName managedAppDemo).Id
+$principalid=(Get-AzADGroup -DisplayName <managedAppDemo>).Id
 ```
 
 Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use this variable's value when you deploy the managed application definition.
@@ -420,12 +420,12 @@ $roleid=(Get-AzRoleDefinition -Name Owner).Id
 
 # [Azure CLI](#tab/azure-cli)
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `managedAppDemo` with your group's name. You use this variable's value when you deploy the managed application definition.
+This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
 
 To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 ```azurecli
-principalid=$(az ad group show --group managedAppDemo --query id --output tsv)
+principalid=$(az ad group show --group <managedAppDemo> --query id --output tsv)
 ```
 
 Next, get the role definition ID of the Azure built-in role you want to grant access to the user, group, or application. You use this variable's value when you deploy the managed application definition.
@@ -485,11 +485,11 @@ Create a resource group for your managed application definition.
 az group create --name appDefinitionGroup --location westus3
 ```
 
-In the `blob` command's `account-name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name. The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
+In the `blob` command's `account-name` parameter, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name. The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurecli
 blob=$(az storage blob url \
-  --account-name demostorageaccount \
+  --account-name <demostorageaccount> \
   --container-name appcontainer \
   --auth-mode login \
   --name app.zip --output tsv)
