@@ -3,10 +3,11 @@ title: Create an instance of Azure Native New Relic Service Preview
 description: Learn how to create a resource by using Azure Native New Relic Service.
 
 ms.topic: quickstart
-ms.date: 02/21/2023
+ms.date: 04/04/2023
 ---
 
 # Quickstart: Get started with Azure Native New Relic Service Preview
+<!-- We need to include the word Preview here if this is not GA  -->
 
 In this quickstart, you create an instance of Azure Native New Relic Service Preview. You can either [create a New Relic account](new-relic-create.md) or [link to an existing New Relic account](new-relic-link-to-existing.md).
 
@@ -31,6 +32,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and then select the **Marketplace** result under **Services**.
 
+<!-- Update screenshot - Basics tab screenshot needs to be updated, as 'Associate with existing organization' button will now be enabled -->
    :::image type="content" source="media/new-relic-create/new-relic-search.png" alt-text="Screenshot that shows entering the word Marketplace in a search box.":::
 
 1. In Azure Marketplace, search for **new relic** and select the **Azure Native New Relic Service** result. The page for the service opens.
@@ -47,6 +49,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. A form to create a New Relic resource appears on the **Basics** tab.
 
+<!-- Update screenshot - Basics tab screenshot needs to be updated, as 'Associate with existing organization' button will now be enabled -->
    :::image type="content" source="media/new-relic-create/new-relic-basics.png" alt-text="Screenshot that shows the tab for basic information about a New Relic resource.":::
 
 1. Provide the following values:
@@ -60,13 +63,17 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. When you're choosing the organization under which to create the New Relic account, you have two options: create a new organization, or select an existing organization to link the newly created account.
 
-   > [!IMPORTANT]
-   > You can't use **Associate with existing** functionality, presently. The ability to create a new New Relic resource and associate it with an existing organization is currently disabled.
+   <!-- removed note  -->
 
    If you opt to create a new organization, you can choose a plan from the list of available plans by selecting **Change Plan** on the working pane.
 
    :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of the panel for changing a plan.":::
 
+1. If you chose to associate with an existing organization, the corresponding billing information, set up when you created the organization, is shared with you for review.
+ <!-- added a 5 item in the list - also need a screenshot  -->
+
+1.  If the organization you selected is currently billed by New Relic, it remains billed by New Relic.
+<!-- added a 6th bullet point  also need a new screenshot -->
  
 ## Configure metrics and logs
 
