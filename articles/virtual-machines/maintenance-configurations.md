@@ -60,7 +60,7 @@ To learn more about this topic, checkout [update management center and scheduled
 
 ## Shut Down Machines
 
-We are unable to apply maintenance updates to any shut down machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal, and this is only a display issue that the team is currently working to fix it. The maintenance configuration has not been completely disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md##Check-configuration).
+We are unable to apply maintenance updates to any shut down machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal, and this is only a display issue that the team is currently working to fix it. The maintenance configuration has not been completely disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md#Check-configuration).
 
 ## Management options
 
