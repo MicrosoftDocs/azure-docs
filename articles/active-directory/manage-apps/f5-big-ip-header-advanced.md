@@ -141,171 +141,172 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
    ![Screenshot of User Attributes and Claims information such as surname, email address, identity, etc.](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
-Feel free to add any other specific claims your BIG-IP published application might expect as headers. Any claims defined in addition to the default set will only be issued if they exist in Azure AD. In the same way, Directory [roles or group](../hybrid/how-to-connect-fed-group-claims.md)
-   memberships also need defining against a user object in Azure AD before they can be issued as a claim.
+> [!NOTE]
+> Add other claims the BIG-IP published application expects as headers. More defined claims are issued if they're in Azure AD. Define directory memberships and user objects in Azure AD before claims can be issued. See, [Configure group claims for applications by using Azure AD](../hybrid/how-to-connect-fed-group-claims.md)
 
-9. In the **SAML Signing Certificate** section, select the
-   **Download** button to save the **Federation Metadata XML** file to your computer.
+22. In the **SAML Signing Certificate** section, select **Download**. 
+23. The **Federation Metadata XML** file is saved on your computer.
 
-   ![Screenshot shows saml signing certificate](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
+   ![Screenshot of the Download link for Federation Metadata XML on the SAML Signing Certificate dialog.](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
 
-SAML signing certificates created by Azure AD have a lifespan of three years and should be managed using the published
-[guidance](./manage-certificates-for-federated-single-sign-on.md).
+SAML signing certificates created by Azure AD have a lifespan of three years.
 
 ### Azure AD authorization
 
-By default, Azure AD will only issue tokens to users that have been granted access to an application.
+By default, Azure AD issues tokens to users granted access to an application.
 
 1. In the application's configuration view, select **Users and groups**.
+2. Select **+ Add user** and in **Add Assignment**, select **Users and groups**.
+3. In the **Users and groups** dialog, add the user groups authorized to access the header-based application. 
+4. Select **Select**.
+5. Select **Assign**.
 
-2. Select **+** **Add user** and in the **Add Assignment** blade select **Users and groups**.
-
-3. In the **Users and groups** dialog, add the groups of users
-   authorized to access the internal header-based application, followed by **Select** > **Assign**
-
-This completes the Azure AD part of the SAML federation trust. The BIG-IP APM can now be set up to publish the internal web application and configured with a corresponding set of properties to complete the trust for SAML pre-authentication.
+This completes the Azure AD SAML federation trust. Next, set up BIG-IP APM to publish the web application, configured with properties to complete SAML preauthentication trust.
 
 ## Advanced configuration
 
+Use the following sections to configure SAML, header SSO, access profile, and more.
+
 ### SAML configuration
 
-The following steps create the BIG-IP SAML service provider and corresponding SAML IdP objects required to complete federating the published application, with Azure AD.
+Create the BIG-IP SAML service provider and corresponding SAML IdP objects to federate the published application, with Azure AD.
 
-1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services** > **Create**
+1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services** > **Create**.
 
-   ![Screenshot shows saml service provider create](./media/f5-big-ip-header-advanced/create-saml-sp.png)
+   ![Screenshot the Create option under the SAML Service Provider tab.](./media/f5-big-ip-header-advanced/create-saml-sp.png)
 
-2. **Provide a Name** and the exact same **Entity ID** defined in Azure AD earlier
+2. Enter a **Name**.
+3. Enter the **Entity ID** defined in Azure AD.
 
-   ![Screenshot shows new saml service provider service ](./media/f5-big-ip-header-advanced/new-saml-sp-information.png)
+   ![Screenshot of Name and Entity ID input on the Create New SAML SP Service dialog.](./media/f5-big-ip-header-advanced/new-saml-sp-information.png)
 
-   **SP Name Settings** are only required if the entity ID isn't an exact match of the hostname portion of the published URL, or equally if it isn't in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is
-   `urn:mytravel:contosoonline`.
+4. For **SP Name Settings**, make selections if the Entity ID doesn't match the hostname of the published URL, or make selections if it isn't in regular hostname-based URL format. Provide the external scheme and application hostname if entity ID is `urn:mytravel:contosoonline`.
+5. Scroll down to select the new SAML SP object.
+6. Select **Bind/UnBind IdP Connectors**.
 
-3. Scroll down to select the new SAML SP object and select
-   **Bind/UnBind IdP Connectors**.
+   ![Screenshot of the Bind Unbind IdP Connectors option under the SAML Services Provder tab.](./media/f5-big-ip-header-advanced/idp-connectors.png)
 
-   ![Screenshot shows new saml service provider object connectors](./media/f5-big-ip-header-advanced/idp-connectors.png)
+7. Select **Create New IdP Connector**. 
+8. From the drop-down, select **From Metadata**.
 
-4. Select **Create New IdP Connector** and from the     drop-down   menu choose **From Metadata**
+   ![Screenshot of the From Metadata option in the Create New IdP Connection drop-down menu.](./media/f5-big-ip-header-advanced/edit-saml-idp.png)
 
-   ![Screenshot shows edit new saml service idp](./media/f5-big-ip-header-advanced/edit-saml-idp.png)
+9. Browse to the federation metadata XML file you downloaded.
+10. Enter an **Identity Provider Name** for the APM object for the external SAML IdP. For example, `MyTravel_AzureAD`
 
-5. Browse to the federation metadata XML file you downloaded earlier and provide an **Identity Provider Name** for the APM object that will represent the external SAML IdP. For example, `MyTravel_AzureAD`
+   ![Screenshot of Select File and Identity Provider Name input under Create New SAML IdP Connector.](./media/f5-big-ip-header-advanced/idp-name.png)
 
-   ![Screenshot shows new idp connector](./media/f5-big-ip-header-advanced/idp-name.png)
+11. Select **Add New Row**.
+12. Select the new **SAML IdP Connector**.
+13. Select **Update**.
 
-6. Select **Add New Row** to choose the new **SAML IdP Connector**, followed by **Update**
+   ![Screenshot of the Update option under SAML IdP Connectors.](./media/f5-big-ip-header-advanced/update-idp-connector.png)
 
-   ![Screenshot shows how to update idp connector](./media/f5-big-ip-header-advanced/update-idp-connector.png)
+14. Select **OK**.
 
-7. Select **OK** to save the settings
-
-   ![Screenshot shows saving the settings](./media/f5-big-ip-header-advanced/save-settings.png)
+   ![Screenshot of saved settings](./media/f5-big-ip-header-advanced/save-settings.png)
 
 ### Header SSO configuration
 
-Create an APM SSO object for doing headers SSO to the backend application.
+Create an APM SSO object.
 
-1. Select **Access** > **Profiles/Policies** > **Per-Request Policies** > **Create**
+1. Select **Access** > **Profiles/Policies** > **Per-Request Policies** > **Create**.
+2. Enter a **Name**.
+3. Add at least one **Accepted Language**.
+4. Select **Finished.** 
 
-2. Provide a unique profile a name and add at least one **Accepted Language**, then select **Finished.** For example, SSO_Headers
+   ![Screenshot of Name and Accepted Language input.](./media/f5-big-ip-header-advanced/header-configuration.png)
 
-   ![Screenshot shows header configuration](./media/f5-big-ip-header-advanced/header-configuration.png)
+3. For the new per-request policy, select **Edit**.
 
-3. Select the **Edit** link for the new per-request policy you just created
+    ![Screenshot of the Edit option in the Per Request Policy column.](./media/f5-big-ip-header-advanced/header-configuration-edit.png)
 
-    ![Screenshot shows edit per-request policy](./media/f5-big-ip-header-advanced/header-configuration-edit.png)
+4. The visual policy editor starts.
+5. Under **fallback**, select the **+** symbol.
 
-4. After the visual policy editor has launched select the **+** symbol next to fallback
+    ![Screenshot of the plus option under fallback.](./media/f5-big-ip-header-advanced/visual-policy-editor.png)
 
-    ![Screenshot shows visual policy editor](./media/f5-big-ip-header-advanced/visual-policy-editor.png)
+5. On the **General Purpose** tab, select **HTTP Headers** > **Add Item**.
 
-5. In the pop-up switch to the **General Purpose** tab to select **HTTP Headers** > **Add Item**
+    ![Screenshot of the the HTTP Headers option.](./media/f5-big-ip-header-advanced/add-item.png)
 
-    ![Screenshot shows Http header add item](./media/f5-big-ip-header-advanced/add-item.png)
-
-6. Select **Add new entry** to create 3 separate **HTTP** **Header modify** entries using the following:
-
-   | Property | Description |
-   |:------|:-------|
-   | Header Name | upn |
-   | Header Value | %{session.saml.last.identity}|
-   | Header Name | employeeid |
-   | Header Value | %{session.saml.last.attr.name.employeeid} |
-   | Header Name | group\_authz |
-   | Header Value | %{session.saml.last.attr.name.`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`} |
+6. Select **Add new entry**. 
+7. Create three HTTP and Header modify entries.
+8. For **Header Name**, enter **upn**.
+9. For **Header Value**, enter **%{session.saml.last.identity}**.
+10. For **Header Name**, enter **employeeid**.
+11. Fpr **Header Value**, enter **%{session.saml.last.attr.name.employeeid}**
+12. Fpr **Header Name**, enter **group\_authz**.
+13. For **Header Value**, enter **%{session.saml.last.attr.name.`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`}**
 
    >[!Note]
-   >APM session variables defined within curly brackets are case sensitive. So, entering EmployeeID when the Azure AD attribute name is being sent as employeeid will cause an    attribute mapping failure. Unless necessary, we recommend defining all attributes in lowercase.
+   >APM session variables in curly brackets are case sensitive. We recommend you define attributes in lowercase.
 
-   ![Screenshot shows Http header modify](./media/f5-big-ip-header-advanced/http-header-modify.png)
+   ![Screenshot of header input, under HTTP Header Modify, on the Properties tab.](./media/f5-big-ip-header-advanced/http-header-modify.png)
 
-7. When done, select **Save** and close the visual policy editor.
+14. Select **Save**
+15. Close the visual policy editor.
 
-   ![Screenshot shows per request policy done and save](./media/f5-big-ip-header-advanced/per-request-policy-done.png)
+   ![Screenshot of the visual policy editor.](./media/f5-big-ip-header-advanced/per-request-policy-done.png)
 
 ### Access profile configuration
 
 An access profile binds many APM elements managing access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
 
-1. Select **Access** > **Profiles / Policies** > **Access Profiles (Per-Session Policies)** > **Create** to provide the following then select **Finished**:
+1. Select **Access** > **Profiles / Policies** > **Access Profiles (Per-Session Policies)** > **Create**.
+2. For **Name**, enter **MyTravel**.
+3. For **Profile Type**, select **All**.
+4. For **Accepted Language**, select at least one language.
+5. select **Finished**.
 
-   | Property | Description |
-   |:--------|:----------|
-   | Name | MyTravel |
-   | Profile Type | All |
-   | Accepted Language | Add at least one language|
+   ![Screenshot of entries for Name, Profile Type, and Accepted Language.](./media/f5-big-ip-header-advanced/access-profile-configuration.png)
 
-   ![Screenshot shows access profile configuration](./media/f5-big-ip-header-advanced/access-profile-configuration.png)
+6. For the per-session profile you created, select **Edit**.
 
-2. Select the **Edit** link for the per-session profile you just
-   created
+    ![Screenshot of the Edit option in the Per-Session Policy column.](./media/f5-big-ip-header-advanced/edit-per-session-profile.png)
 
-    ![Screenshot shows editing per session profile](./media/f5-big-ip-header-advanced/edit-per-session-profile.png)
+7. The visual policy editor starts.
+8. Under fallback, select the **+** symbol.
 
-3. Once the visual policy editor has launched, select the **+** symbol next to fallback
+   ![Screenshot of the plus option under fallback.](./media/f5-big-ip-header-advanced/visual-policy-editor-launch.png)
 
-   ![Screenshot shows how to launch the visual policy editor](./media/f5-big-ip-header-advanced/visual-policy-editor-launch.png)
+9. Select **Authentication** > **SAML Auth** > **Add Item**.
 
-4. In the pop-up select **Authentication** > **SAML Auth** > **Add Item**
+   ![Screenshot of the SAML Auth option on the Authentication tab.](./media/f5-big-ip-header-advanced/add-saml-auth.png)
 
-   ![Screenshot shows adding saml authentication](./media/f5-big-ip-header-advanced/add-saml-auth.png)
+10. For the **SAML authentication SP** configuration, from the **AAA Server** dropdown, select the SAML SP object you created.
+11. Select **Save**.
 
-5. For the **SAML authentication SP** configuration, set the **AAA Server** option to use the SAML SP object you created earlier, followed by **Save**.
-
-   ![Screenshot shows use aaa server for saml authentication sp](./media/f5-big-ip-header-advanced/aaa-server.png)
+   ![Screenshot of the AAA Server selection.](./media/f5-big-ip-header-advanced/aaa-server.png)
 
 ### Attribute mapping
 
-Although optional, adding a LogonID_Mapping configuration enables the BIG-IP active sessions list to display the UPN of the logged in user instead of a session number. This is useful for when analyzing logs or troubleshooting.
+The following instructions are optional. With a LogonID_Mapping configuration, the BIG-IP active sessions list has the signed-in user UPN, not a session number. Use this data when analyzing logs or troubleshooting.
 
-1. Select the **+** symbol for the SAML Auth **Successful** branch
+1. For the SAML Auth **Successful** branch, select the **+** symbol.
 
-    ![Screenshot shows how to create a saml authentication branch](./media/f5-big-ip-header-advanced/create-saml-auth-branch.png)
+    ![Screenshot of the plus symbol on the SAML Auth Successful branch.](./media/f5-big-ip-header-advanced/create-saml-auth-branch.png)
 
-2. In the pop-up select **Assignment** > **Variable Assign** > **Add Item**
+2. In the pop-up select **Assignment** > **Variable Assign** > **Add Item**.
 
-   ![Screenshot shows how to assign a variable](./media/f5-big-ip-header-advanced/assign-variable.png)
+   ![Screenshot of the Variable Assign option, on the Assignment tab.](./media/f5-big-ip-header-advanced/assign-variable.png)
 
-3. Provide a descriptive name and in the **Variable Assign** section select **Add new entry** > **change.** For example,
-LogonID_Mapping.
+3. Enter a **Name**
+4. In the **Variable Assign** section, select **Add new entry** > **change**. For example, LogonID_Mapping.
 
-   ![Screenshot shows how to add a new entry](./media/f5-big-ip-header-advanced/assign-variable-change.png)
+   ![Screenshot of the Add new entry and change options](./media/f5-big-ip-header-advanced/assign-variable-change.png)
 
-4. Set both variables to use the following, then **Finished** >
-    **Save**
+4. For **Custom Variable**, set **session.saml.last.identity**.
+5. For **Session Variable**, set **session.logon.last.username**.
+6. Select **Finished**.
+7. Select**Save**.
+8. On the Access Policy **Successful** branch, select the **Deny** terminal.
+9. Select **Allow**.
+10. Select **Save**.
+11. Select **Apply Access Policy**.
+12. Close the visual policy editor.
 
-   | Property | Description |
-   |:--------|:----------|
-   | Custom Variable | session.saml.last.identity |
-   | Session Variable | session.logon.last.username |
-
-5. Select the **Deny** terminal of the Access Policy's **Successful** branch and change it to **Allow**, followed by **Save**
-
-6. Commit the policy by selecting **Apply Access Policy** and close the visual policy editor tab
-
-### Backend pool configuration
+### Back-end pool configuration
 
 For the BIG-IP to know where to forward client traffic, you need to create an APM node object representing the backend server hosting your application, and place that node in an APM pool.
 
