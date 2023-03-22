@@ -38,7 +38,7 @@ Application Insights Profiler and Optimization Insights work together to provide
 [The Profiler](../profiler/profiler-overview.md) focuses on tracing specific requests, down to the millisecond. It provides an excellent "big picture" view of issues within your application and general best practices to address them.
 
 ### Optimization Insights
-Optimization Insights analyzes the profiling data collected by the Application Insights Profiler. As the profiler uploads data to Application Insights, some of the data is analyzed by our machine learning model to find where the application's code can be optimized. Optimization Insight:
+Optimization Insights analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. Optimization Insight:
 
 - Displays aggregated data gathered over time.
 - Connects data with the methods and functions in your application code.
@@ -72,10 +72,10 @@ The estimated CPU and Memory are determined based on the amount of activity in y
 - A breakdown of the allocated types made within the call
 
 #### Memory
-For Memory, the number is just a percentage of all allocations made within the trace. For example, if an issue takes 24%, that means you spent 24% of all your allocations within that call.
+For Memory, the number is just a percentage of all allocations made within the trace. For example, if an issue takes 24% memory, you spent 24% of all your allocations within that call.
 
 #### CPU
-For CPU, the percentage is based on the number of CPUs in your machine (four core, eight core, etc.) and the trace time. For example, if your trace is 10 seconds long and you have 4 CPUs, you have a total of 40 seconds of CPU time. If the insight says the line of code is using 5% of the CPU, that means it’s using 5% of 40 seconds, which is 2 seconds.
+For CPU, the percentage is based on the number of CPUs in your machine (four core, eight core, etc.) and the trace time. For example, let's say your trace is 10 seconds long and you have 4 CPUs, you have a total of 40 seconds of CPU time. If the insight says the line of code is using 5% of the CPU, it’s using 5% of 40 seconds, or 2 seconds.
 
 ### Filter and sort results
 
