@@ -45,6 +45,10 @@ The following tables summarize current availability:
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
 | USA               | Short-Codes | General Availability | General Availability | -        | -          |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -112,6 +116,12 @@ The following tables summarize current availability:
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
 | Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
 | Italy   | Local**     | - | - | General Availability | General Availability\* |
+| USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -227,6 +237,7 @@ The following tables summarize current availability:
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Germany           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Germany           | Local     | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.

@@ -33,7 +33,7 @@ Azure Managed Grafana has the following known limitations:
 
 * Reporting is currently not supported.
 
-* Unified alerting isn't activated by default. Activation is done manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com).
+*  Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
 
 ## Next steps
 
