@@ -78,7 +78,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+## Create the function app in Azure
+
+[!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
 
 ::: zone pivot="nodejs-model-v4" 
 ## Update app settings
@@ -91,6 +93,10 @@ To enable your V4 programming model app to run in Azure, you need to add a new a
 
 1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
 ::: zone-end
+
+## Deploy the project to Azure
+
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
