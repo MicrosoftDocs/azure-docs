@@ -26,7 +26,7 @@ To verify domain ownership to your DID, you need to have completed the following
 
 ## Verify domain ownership and distribute did-configuration.json file
 
-The domain you will verify ownership of to your DID is defined in the organizational settings.
+The domain you will verify ownership of to your DID is defined in the [overview section](verifiable-credentials-configure-tenant.md#set-up-verified-id). The domain needs to be a domain under your control and it should be in the format `https://www.example.com/`. 
 
 1. From the Azure portal, navigate to the VerifiedID page.
 
@@ -36,7 +36,7 @@ The domain you will verify ownership of to your DID is defined in the organizati
 
    ![Screenshot of download well-known config.](media/how-to-dnsbind/verify-download.png) 
 
-1. Host the `did-configuration.json` file at the location specified. Example: `https://www.example.com/.well-known/did-configuration.json`
+1. Host the `did-configuration.json` file at the location specified. Example: If you specified domain `https://www.example.com` the file need to be hosted at this URL `https://www.example.com/.well-known/did-configuration.json`.
 There can be no additional path in the URL other than the .well-known path name.
 
 1. When the `did-configuration.json` is publicly available at the .well-known/did-configuration.json URL, verify it by pressing the **Refresh verification status** button.

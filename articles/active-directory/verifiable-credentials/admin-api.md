@@ -24,11 +24,29 @@ The Microsoft Entra Verified ID Admin API enables you to manage all aspects of t
 
 ## Base URL
 
-The Admin API is server over HTTPS. All URLs referenced in the documentation have the following base: `https://verifiedid.did.msidentity.com`. 
+The Admin API is server over HTTPS. All URLs referenced in the documentation have the following base: `https://verifiedid.did.msidentity.com`.
 
 ## Authentication
 
-The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role.
+The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The access token can be for a user or for an application.
+
+### User bearer tokens
+
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. The access token must be for a user with the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) role. A user with role [global reader](../../active-directory/roles/permissions-reference.md#global-reader) will be able to perform read-only API calls.
+
+### Application bearer tokens
+
+The `Verifiable Credentials Service Admin` service supports the following application permissions.
+
+| Permission | Description |
+| ---------- | ----------- |
+| VerifiableCredential.Authority.ReadWrite | Permission to read/write authority object(s) |
+| VerifiableCredential.Contract.ReadWrite | Permission to read/write contract object(s) |
+| VerifiableCredential.Credential.Search | Permission to search for a credential to revoke |
+| VerifiableCredential.Credential.Revoke | Permission to [revoke a previously issued credential](how-to-issuer-revoke.md) |
+| VerifiableCredential.Network.Read | Permission to read entries from the [Verified ID Network](vc-network-api.md) |
+
+The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and permissions required from the above table. When acquiring the access token, via the [client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md), the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/.default`.
 
 ## Onboarding
 

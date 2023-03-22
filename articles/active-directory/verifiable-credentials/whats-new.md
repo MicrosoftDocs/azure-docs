@@ -20,6 +20,27 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## March 2023
+
+- Admin API now supports [application access tokens](admin-api.md#authentication) and in addition to user bearer tokens.
+- Introducing the Entra Verified ID [Services partner gallery](services-partners.md) listing trusted partners that can help accelerate your Entra Verified ID implementation.
+- Improvements to our Administrator onboarding experience in the [Admin portal](verifiable-credentials-configure-tenant.md#register-decentralized-id-and-verify-domain-ownership) based on customer feedback.
+- Updates to our samples in [github](https://github.com/Azure-Samples/active-directory-verifiable-credentials) showcasing how to dynamically display VC claims.
+
+## February 2023
+
+- *Public preview* - Entitlement Management customers can now create access packages that leverage Entra Verified ID [learn more](https://learn.microsoft.com/en-us/azure/active-directory/governance/entitlement-management-verified-id-settings)
+
+- The Request Service API can now do revocation check for verifiable credentials presented that was issued with [StatusList2021](https://w3c.github.io/vc-status-list-2021/) or the [RevocationList2020](https://w3c-ccg.github.io/vc-status-rl-2020/) status list types. Entra Verified ID itself still issues verifiable credentials with the RevocationList2021Status type.
+
+## January 2023
+
+- Microsoft Authenticator user experience improvements on pin code, verifiable credential overview and verifiable credentials requirements.
+
+## November 2022
+
+- Entra Verified ID now reports events in the [Azure AD Audit Log](https://learn.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Only management changes made via the Admin API are currently logged. Issuance or presentation of verifiable credentials are not reported in the audit log. The log entries will have a service name of `Verified ID` and the activity will be `Create authority`, `Update contract`, etc.  
+
 ## September 2022
 
 - The Request Service API now have [granular app permissions](verifiable-credentials-configure-tenant.md?#grant-permissions-to-get-access-tokens) and you can grant **VerifiableCredential.Create.IssueRequest** and **VerifiableCredential.Create.PresentRequest** separately to segregate duties of issuance and presentation to separate application. 
@@ -30,7 +51,8 @@ This article lists the latest features, improvements, and changes in the Microso
 
 Microsoft Entra Verified ID is now generally available (GA) as the new member of the Microsoft Entra portfolio! [read more](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-verified-id-now-generally-available/ba-p/3295506) 
 
-### Known issues 
+### Known issues
+
 - Tenants that [opt-out](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) without issuing any Verifiable Credential will get a `Specified resource does not exist` error from the Admin API and/or the Entra portal. A fix for this issue should be available by August 20, 2022.
 
 ## July 2022
@@ -43,9 +65,9 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 - For migrating your Azure Storage based credentials to become Managed Credentials there's a PowerShell script in the [GitHub samples repo](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/contractmigration/scripts/contractmigration) for the task.
 
 - We also made the following updates to our Plan and design docs:
-    - (updated) [architecture planning overview](introduction-to-verifiable-credentials-architecture.md).
-    - (updated) [Plan your issuance solution](plan-issuance-solution.md).
-    - (updated) [Plan your verification solution](plan-verification-solution.md).
+  - (updated) [architecture planning overview](introduction-to-verifiable-credentials-architecture.md).
+  - (updated) [Plan your issuance solution](plan-issuance-solution.md).
+  - (updated) [Plan your verification solution](plan-verification-solution.md).
 
 ## June 2022
 
@@ -59,12 +81,12 @@ Microsoft Entra Verified ID is now generally available (GA) as the new member of
 > You need to migrate your Azure Storage based credentials to become Managed Credentials. We'll soon provide migration instructions.
 
 - We made the following updates to our docs:
-    - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards.md).
-    - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
-    - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
-    - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
-    - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
-    - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
+  - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards.md).
+  - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
+  - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
+  - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
+  - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
+  - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
 
 ## May 2022
 
@@ -104,7 +126,7 @@ Since the beginning of the Microsoft Entra Verified ID service public preview, t
 Take the following steps to configure the Verifiable Credentials service in Europe:
 
 1. [Check the location](verifiable-credentials-faq.md#how-can-i-check-my-azure-ad-tenants-region) of your Azure Active Directory to make sure is in Europe.
-1. [Reconfigure the Verifiable Credentials service](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) in your tenant. 
+1. [Reconfigure the Verifiable Credentials service](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) in your tenant.
 
 >[!IMPORTANT]
 > On March 31st, 2022 European tenants that have not been [reconfigured](verifiable-credentials-faq.md?#how-do-i-reset-the-entra-verified-id-service) in Europe will lose access to any previous configuration and will require to configure a new instance of the Azure AD Verifiable Credential service.
@@ -133,7 +155,7 @@ To uptake this feature follow the next steps:
 
 Sample contract file:
 
-  ``` json 
+  ``` json
   {
     "attestations": {
       "idTokens": [
@@ -157,7 +179,7 @@ Sample contract file:
   } 
   ```
 
-3. You have to issue new verifiable credentials using your new configuration. All verifiable credentials previously issued continue to exist. Your previous DID remains resolvable however, they use the previous status endpoint implementation.
+1. You have to issue new verifiable credentials using your new configuration. All verifiable credentials previously issued continue to exist. Your previous DID remains resolvable however, they use the previous status endpoint implementation.
 
 >[!IMPORTANT]
 > You have to reconfigure your Azure AD Verifiable Credential service instance to create your new Identity hub endpoint. You have until March 31st 2022, to schedule and manage the reconfiguration of your deployment. On March 31st, 2022 deployments that have not been reconfigured will lose access to any previous Microsoft Entra Verified ID service configuration. Administrators will need to set up a new service instance.
