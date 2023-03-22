@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 03/22/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -80,11 +80,11 @@ Go to **Azure AD** > **User settings**.
 
 ### Learn about the 'Stay signed in?' prompt
 
-The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent [refresh token](../develop/developer-glossary.md#refresh-token). KMSI only works when the application doesn't store security tokens in local storage. The refresh tokens, or ESTS cookies, must be stored in session. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
+The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, the KMSI service gives them a persistent authentication cooke, or [refresh token](../develop/developer-glossary.md#refresh-token). The cookie must be stored in session for KMSI to work. KMSI will not work with locally stored cookies. If KMSI is not enabled, a non-persistent cookie is used and lasts for 24 hours or until the browser is closed.
 
-The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device.
+The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 
-KMSI setting is available in User settings. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
+The KMSI setting is available in **User settings**. Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
 ![Diagram showing the user sign-in flow for a managed vs. federated tenant](media/customize-branding/kmsi-workflow.png)
 
