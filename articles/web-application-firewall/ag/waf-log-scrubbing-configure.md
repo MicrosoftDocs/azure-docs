@@ -16,7 +16,7 @@ For more information, see [What is Azure Web Application Firewall log scrubbing?
 
 ## Enable log scrubbing
 
-Use the following to enable and configure log scrubbing.
+Use the following information to enable and configure log scrubbing.
 
 #### [Portal](#tab/browser)
 
@@ -31,25 +31,30 @@ To configure log scrubbing rules:
 1. Under **Log scrubbing rules**, select a **Match variable**.
 1. Select an **Operator** (if applicable).
 1. Type a **Selector** (if applicable).
+1. Select **Save**.
 
 Repeat to add additional rules.
 
 #### [PowerShell](#tab/powershell)
 
-Use the following Azure PowerShell command to enable log scrubbing:
+Use the following Azure PowerShell command to enable and configure log scrubbing:
 
 ```azurepowershell
 xxxxxx
 ```
 #### [CLI](#tab/cli)
 
-Use the following Azure CLI command to enable log scrubbing:
+Use the following Azure CLI command to enable and configure log scrubbing:
 
 ```azurecli
 xxxxxxxx
 ```
 
 ---
+
+## Verify log scrubbing
+
+To verify your log scrubbing rules, open the firewall log and search for _******_ in place of the sensitive fields.
 
 ## Next steps
 

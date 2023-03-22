@@ -10,7 +10,7 @@ ms.date: 03/20/2023
 
 # What is Azure Web Application Firewall log scrubbing?
 
-Log scrubbing is a rules engine that allows you to build custom rules to identify specific portions of a request that are sensitive, so you can scrub that information from your logs. The sensitive data is replaced with _*******_. 
+Log scrubbing is a rules engine that allows you to build custom rules to identify specific portions of a request that are sensitive, so you can scrub that information from your logs. The sensitive data is replaced with _******_. 
 
 
 ## Default log behavior
