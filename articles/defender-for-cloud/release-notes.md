@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/20/2023
+ms.date: 03/20/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,19 +19,25 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## March 2023
 
 Updates in March include:
-- [Data-aware security posture (preview)](#data-aware-security-posture-preview)
+
+- [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
 
-### Data-aware security posture (preview)
+### Some regulatory compliance standards are now available in government clouds
 
-Microsoft Defender for Cloud helps security teams to be more productive at reducing risks and responding to data breaches in the cloud. It allows them to cut through the noise with data context and prioritize the most critical security risks to prevent a costly data breach.
+We are announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
 
-- Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
-- Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique.
-- Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
+**Azure Government**:
+- [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
-Learn more about [Data-aware security posture (preview)](concept-data-security-posture.md).
+**Azure China 21Vianet**:
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ### New preview recommendation for Azure SQL Servers 
 
@@ -41,7 +47,7 @@ The recommendation is based on the existing policy [`Azure SQL Database should h
 
 This recommendation disables local authentication methods and allows only Azure Active Directory Authentication which improves security by ensuring that Azure SQL Databases can exclusively be accessed by Azure Active Directory identities. 
 
-Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server?tabs=azure-cli).
+Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server?tabs=azure-cli&view=azuresql).
 
 ### New alert in Defender for Key Vault
 
