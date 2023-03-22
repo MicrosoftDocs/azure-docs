@@ -268,7 +268,7 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 7. The visual policy editor starts.
 8. Under fallback, select the **+** symbol.
 
-   ![Screenshot of the plus option under fallback.](./media/f5-big-ip-header-advanced/visual-policy-editor-launch.png)
+   ![Screenshot of the plus option.](./media/f5-big-ip-header-advanced/visual-policy-editor-launch.png)
 
 9. Select **Authentication** > **SAML Auth** > **Add Item**.
 
