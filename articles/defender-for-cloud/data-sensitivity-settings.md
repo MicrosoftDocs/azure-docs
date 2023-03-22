@@ -1,6 +1,6 @@
 ---
-title: Identify and protect sensitive data in Azure Storage with Microsoft Defender for Cloud
-description: Use Microsoft Defender for Cloud to identify sensitive data in your Azure Storage resources to get security alerts when the sensitive data is a risk and find resource configurations that leave your sensitive data open to attacks.
+title: Customize data sensitivity settings in Microsoft Defender for Cloud
+description: Learn how to customize data sensitivity settings in Defender for Cloud
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
@@ -8,62 +8,55 @@ ms.date: 03/09/2023
 ---
 # Identify and protect sensitive data in Azure Storage
 
-This article explains how to enable data-aware security capabilities in Microsoft Defender for Cloud to prevent leaks of sensitive information. The goal is to allow organizations to configure sensitivity settings for datastores in the cloud that generate sensitivity insights in the Cloud map. 
+This article describes how to customize data sensitivity settings in Microsoft Defender for Cloud. 
 
-The sensitivity of resources in the cloud map is based on [Microsoft Purview settings and scan results](/microsoft-365/compliance/information-protection), and any labeled resource is considered sensitive. This article provides guidance on how you can use Defender for Cloud to identify sensitive resources by selecting the information types that are considered sensitive.
+[Data sensitivity settings](concept-data-security-posture.md#data-sensitivity-settings) are used to identify what's considered sensitive data in your organization. When scanning resource sensitivity in Defender for Cloud, scan results are based on:
 
-When you enable data-aware security capabilities with **Sensitive data discovery** for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-introduction.md), Defender for Cloud uses algorithms to identify Azure Storage containers, and AWS S3 buckets that appear to contain sensitive data. The resources are labeled according to the default set of info types identified as sensitive in the data sensitivity settings. You can customize the data sensitivity settings to include additional info types. Customized sensitivity settings help you:
+- The sensitivity information types you select Defender for Cloud. Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#built-in-sensitive-information-types) provided by Microsoft Purview.
+- Customized sensitive information types you've defined in Microsoft Purview and synced to Defender for Cloud
+- Defender for Cloud sensitivity thresholds based on Microsoft Purview [sensitivity labels](/microsoft-365/compliance/sensitivity-labels#what-a-sensitivity-label-is) that you've synced to Defender for Cloud
 
-- Improve the accuracy of the sensitivity insights in the Cloud map, attack paths, and security alerts
-- Hide sensitive data identification and security alerts for data that your organization considers non-sensitive
+Customizing sensitivity settings helps you to:
 
-Attack path: Internet exposed Azure Storage container with sensitive data is publicly accessible
+- Improve the accuracy of the sensitivity insights in Defender CSPM Cloud Security Graph, and in attack paths: 
+- Hide sensitive data identification and security alerts for data that your organization considers non-sensitive.
 
-## Permissions
+## Before you start
 
-To configure data sensitivity settings, you must have the **Subscription Owner** role or have these specific permissions:
+- [Review the prerequisites](concept-data-security-posture-prepare.md#configuring-data-sensitivity-settings) for customizing data sensitivity settings.
+- In Defender for Cloud, enable data-aware security capabilities in the [Defender CSPM](data-security-posture-enable.md) and/or [Defender for Storage](defender-for-storage-introduction.md) plans.
 
-- Microsoft.Storage/storageAccounts/{read/write}
-- Microsoft.Authorization/roleAssignments/{read/write/delete}
+Note that changes in sensitivity settings take effect the next time that resources are scanned.
 
-## Limitations
+## Import custom sensitive info types/labels from Microsoft Purview
 
-The identification of data sensitivity is updated every 7 days.
+You can import your custom sensitivity types and labels from Microsoft Purview. This helps you to ensure that the sensitive data categories in Defender for Cloud are consistent with the sensitivity settings in Microsoft Purview.
 
-## Prerequisites
+Import as follows:
 
-To see the sensitivity insights in Defender for Cloud, you must:
+1. Log into Microsoft Purview.
+1. Select **Agree** for the consent notice to share your sensitivity labels with Defender for Cloud.
 
-- In Microsoft Purview, create and publish sensitivity labels for your tenant in Microsoft Purview with a scope that includes Items and Schematized data assets and Auto-labeling rules. Learn more about [sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels) in Microsoft Purview.
-- In Defender for Cloud, enable data-aware security capabilities for [Defender CSPM](data-security-posture-enable.md) and [Defender for Storage](defender-for-storage-introduction.md).
+## Customize sensitive data categories/types
 
-## Import sensitivity labels from Microsoft Purview
+To customize the data sensitivity discovery for your organization, you'll need to select the sensitive data types that you want to mark as sensitive.
 
-When you enable data-aware security capabilities in Defender for Cloud, the sensitive data categories include a default list of Microsoft Purview info types. Storage or containers that are found to contain these info types are marked as containing sensitive data.
-
-You can import the sensitivity labels from Microsoft Purview to use as the default list of sensitive data categories. This helps you to ensure that the sensitive data categories in Defender for Cloud are consistent with the sensitivity labels in Microsoft Purview.
-
-To import the sensitivity labels from Microsoft Purview, log into Microsoft Purview and select **Agree** for the consent notice to share your sensitivity labels with Defender for Cloud.
-
-## Customize sensitive data categories
-
-When you enable data-aware security capabilities in Defender for Cloud, the sensitive data categories include a default list of Microsoft Purview info types. Storage or containers that are found to contain these info types are marked as containing sensitive data.
-
-To customize the data sensitivity discovery for your organization, you'll need to select the info types that you want to mark as sensitive. Some info types are organized in pre-defined categories, such as Personally Identifiable Information (PII) and Financial information. Custom labels are shown in the Custom category and all other info types are shown in the Other category.
-
-To select the info types that you want to see marked as sensitive in Defender for Cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select **Data sensitivity**.
 1. Select the info type category that you want to customize.
-    The Finance, PII, and Credentials categories are contain all of the info types that are typically associated with those categories. The Custom category contains custom info types from your Purview configuration. The Other category contains all of the rest of the available info types.
-1. Select the info types that you want marked as sensitive data.
+    - The **Finance**, **PII**, and **Credentials** categories contain all of the info types that are typically associated with those categories.
+    - The **Custom** category contains custom types from your Microsoft Purview configuration.
+    - The **Other** category contains all of the rest of the available info types.
+1. Select the types that you want marked as sensitive data.
 1. Select **Apply** and **Save**.
 
 ## Set the threshold for sensitive data labels
 
-You can set the threshold for sensitive data labels to determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud. When you turn on the Sensitivity label threshold, you can select the label with the lowest sensitivity that you want to see marked as sensitive in Defender for Cloud. Any label with a lower sensitivity than the selected label is not marked as sensitive.
+If you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a threshold to determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud.
+
+When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization. Any resources with this this minimum label or higher are presumed to contain sensitive data. For example, if you select **Confidential** as minimum, then **Highly Confidential** is also considered sensitive. **General**, **Public**, and **Non-Business** aren't.
 
 To set the threshold for sensitive data labels:
 
@@ -73,6 +66,7 @@ To set the threshold for sensitive data labels:
     The current minimum sensitivity threshold is shown.
 1. Select **Change** to see the list of sensitivity labels and select the lowest sensitivity level that you want marked as sensitive.
 1. Select **Apply** and **Save**.
+
 
 ## Next steps
 TODO: Add your next steps

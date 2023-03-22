@@ -26,20 +26,19 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What data resources can I scan? | Azure storage accounts v2, including accounts in private networks.<br/><br/> AWS S3 buckets
-What permissions do I need for scanning? | Storage account: Subscription Owner<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
-What file types are supported? | Supported file types (you can't select a subset):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
+What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Gen2<br/><br/> AWS S3 buckets
+What permissions do I need for scanning? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
+What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset):.doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt.,.cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2 ; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East ; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
 What AWS regions are supported? | Asia Pacific (Tokyo); Asia Pacific (Singapore); Asia Pacific (Sydney); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon).<br/><br/> Scanning is done locally in the region.
 Do I need to install an agent? | No, scanning is agentless.
-What's the cost? | The feature is included with each plan, and doesn’t include additional costs outside the respective plan costs.
+What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include additional costs outside the respective plan costs.
 
 ## Scanning
 
 - It takes up to 24 hours to see results for a first scan.
 - Refreshed results for a subscription that's already been scanned take up to 48 hours.
-- New Azure storage accounts in a scanned subscription aren't automatically scanned. Under **Manage sensitivity scans**, you'll need to disable the subscription, and then reenable it.
-- New AWS S3 buckets in a scanned subscription are automatically scanned.
+- New Azure storage accounts and wew AWS S3 buckets in a scanned subscription are automatically scanned in the next incremental scan (up to one week).
 
 
 ## Configuring data sensitivity settings
@@ -48,7 +47,7 @@ What's the cost? | The feature is included with each plan, and doesn’t include
 --- | ---
 Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator
 Add Purview information types | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
-Add Purview sensitivity labels | - Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/>- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect.
+Add Purview sensitivity labels | - Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> - One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> - The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/>- The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect. Scope should include Items and Schematized data assets and auto-labeling rules. [Learn more](/microsoft-365/compliance/create-sensitivity-labels) about sensitivity labels in Microsoft Purview.
 
 Note that:
 

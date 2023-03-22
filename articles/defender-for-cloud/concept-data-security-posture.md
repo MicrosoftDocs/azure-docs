@@ -57,29 +57,19 @@ Defender for Cloud uses smart sampling to scan a selected number of files in you
 
 ## Data sensitivity settings
 
-Data sensitivity settings define what's considered sensitive data in your organization. Defender for Cloud provides built-in sensitivity information types that are the same as those provided by [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about), to ensure consistent classification across services and workloads.  
+Data sensitivity settings define what's considered sensitive data in your organization. Data sensitivity values in Defender for Cloud are based on:
 
-Defender for Cloud turns some of these sensitive information types on by default (finance, PII, and credentials). You can modify the default settings, and add additional sensitive information types as needed.
+- **Predefined sensitive information types**: Defender for Cloud provides sensitive information types by syncing to the predefined types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can modify these defaults.
+- **Custom information types**: You can add custom sensitive information types that you've defined in the Purview portal.
+- **Sensitive data thresholds**: If you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
+
+When scanning resources for data sensitivity, scan results are based these settings.
+
+When you enable data-aware security capabilities with the sensitive data discovery component in the Defender CSPM or Defender for Storage plans, Defender for Cloud uses algorithms to identify storage resources that appear to contain sensitive data. Resources are labeled in accordance with data sensitivity settings.
 
 :::image type="content" source="./media/concept-data-security-posture/data-sensitivity.png" alt-text="Graphic showing data sensitivity settings.":::
 
-If you're using Microsoft Purview, you can add custom sensitive information types that you've defined in the Purview portal.
-
 Changes in sensitivity settings take effect the next time that resources are scanned.
-
-### Sensitivity labels
-
-if you're using Microsoft Purview's automatic labelling rules to assign labels to files based on specific conditions, you can set a minimum sensitivity label threshold in Defender for Cloud. When setting a threshold, you select a minimum label in the labelling rank order. All resources that have this minimum label or higher are presumed to contain sensitive data in the Defender CSPM cloud security graph. For example:
-
-When you select **Confidential** as minimum. **Highly Confidential** is also considered as sensitive. **General**, **Public**, and **Non-Business** aren't.
-
-:::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing the sensitivity threshold.":::
-
-During scanning, Defender for Cloud dynamically caךculates which label a resource should have, in accordance with labelling rules. It then displays the highest level label in the resource. Note that:
-
-- The aim of the threshold is to make it easier to explore sensitive data.
-- It doesn't indicate that the scanned resource has a file with a specific label applied on it.
-
 
 
 ## Next steps
