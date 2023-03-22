@@ -140,13 +140,16 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
 
+**Connect with AAD**
+
 ```properties
-# Only one method for connecting to a configuration store can be used.
-# Connect using AAD
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpoint>"
 spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
+```
 
-# Connect using connection strings
+**Connect with Connection String**
+
+```properties
 spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]="${FIRST_REPLICA_CONNECTION_STRING}"
 spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_REPLICA_CONNECTION_STRING}"
 ```
