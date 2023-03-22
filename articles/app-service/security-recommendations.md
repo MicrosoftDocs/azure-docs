@@ -7,7 +7,7 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: mbaldwin
-ms.custom: security-recommendations
+ms.custom: "UpdateFrequency3, security-recommendations"
 
 ---
 

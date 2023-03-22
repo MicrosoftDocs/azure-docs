@@ -1,5 +1,5 @@
 ---
-title: Set data encryption for Azure Database for MySQL flexible server by using the Azure portal
+title: Set data encryption for Azure Database for MySQL - Flexible Server by using the Azure portal
 description: Learn how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure portal.
 author: vivgk
 ms.author: vivgk
@@ -14,11 +14,11 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL flexible server.
+This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server.
 
 In this tutorial, you learn how to:
 
-- Set data encryption for Azure Database for MySQL flexible server.
+- Set data encryption for Azure Database for MySQL - Flexible Server.
 - Configure data encryption for restoration.
 - Configure data encryption for replica servers.
 
@@ -48,7 +48,7 @@ In this tutorial, you learn how to:
 
 To set up the customer managed key, perform the following steps.
 
-1. In the portal, navigate to your Azure Database for MySQL flexible server, and then, under **Security** , select **Data encryption**.
+1. In the portal, navigate to your Azure Database for MySQL - Flexible Server, and then, under **Security** , select **Data encryption**.
 
     :::image type="content" source="media/how-to-data-encryption-portal/3-mysql-data-encryption.jpeg" alt-text="Screenshot of the data encryption page.":::
 
@@ -80,7 +80,7 @@ To use data encryption as part of a restore operation, perform the following ste
 
 ## Use Data encryption for replica servers
 
-After your Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted.
+After your Azure Database for MySQL - Flexible Server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted.
 
 1. To configuration replication, under **Settings** , select **Replication** , and then select **Add replica**.
 
@@ -91,7 +91,7 @@ After your Azure Database for MySQL flexible server is encrypted with a customer
     :::image type="content" source="media/how-to-data-encryption-portal/9-mysql-compute-storage.jpeg" alt-text="Screenshot of the Compute + Storage page.":::
 
     > [!IMPORTANT]  
-    > When trying to encrypt Azure Database for MySQL flexible server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) as well by adding the managed identity and key.
+    > When trying to encrypt Azure Database for MySQL - Flexible Server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) as well by adding the managed identity and key.
 
 ## Next steps
 

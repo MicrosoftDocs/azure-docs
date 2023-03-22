@@ -14,7 +14,7 @@ An event domain is a management tool for large number of Event Grid topics relat
 * Avoid individually publishing to each of your topic endpoints.
 
 ## Example use case
-[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [domain-example-use-case.md](./includes/domain-example-use-case.md)]
 
 ## Access management
 

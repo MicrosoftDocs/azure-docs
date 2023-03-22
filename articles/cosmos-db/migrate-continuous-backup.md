@@ -38,7 +38,7 @@ The following are the key reasons to migrate into continuous mode:
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
-> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a user-assigned managed identity must be declared in the Key Vault access policy and must be set as the default identity on the account.
+> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a managed identity (System-assigned or User-assigned) must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
 ## Permissions
 
@@ -64,7 +64,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
-1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or any version higher than 6.2.0.
+1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps) or any version higher than 6.2.0.
 2. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
 3. Next, run the following steps:
 

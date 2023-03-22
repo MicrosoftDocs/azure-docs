@@ -166,6 +166,9 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 
 ## Schedule a contact with Aqua and save the downlinked data
 
+   > [!NOTE]
+   > Check [public satellite schedules](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=14) to understand if there may be public broadcast outages. Azure Orbital Ground Station does not control the public satellites and cannot guarantee availability of data during the pass.
+
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. On the **Spacecraft** page, select **AQUA**.
 3. Select **Schedule contact** on the top bar of the spacecraft's overview.

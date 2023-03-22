@@ -2,6 +2,7 @@
 title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity (preview)
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 02/08/2023
 ---
 
@@ -107,7 +108,7 @@ Serviceaccount/workload-identity-sa created
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamespace`, and `serviceAccountName`.
 
 ```azurecli
-az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
+az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME} --audience api://AzureADTokenExchange
 ```
 
 > [!NOTE]
@@ -120,7 +121,7 @@ If your application is using managed identity and still relies on IMDS to get an
 To update or deploy the workload, add these pod annotations only if you want to use the migration sidecar. You inject the following [annotation][pod-annotations] values to use the sidecar in your pod specification:
 
 * `azure.workload.identity/inject-proxy-sidecar` - value is `true` or `false`
-* `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8080`.
+* `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8000`.
 
 When a pod with the above annotations is created, the Azure Workload Identity mutating webhook automatically injects the init-container and proxy sidecar to the pod spec.
 
@@ -148,7 +149,7 @@ spec:
       runAsUser: 0
     env:
     - name: PROXY_PORT
-      value: "8080"
+      value: "8000"
   containers:
   - name: nginx
     image: nginx:alpine
@@ -157,7 +158,7 @@ spec:
   - name: proxy
     image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
     ports:
-    - containerPort: 8080
+    - containerPort: 8000
 ```
 
 This configuration applies to any configuration where a pod is being created. After updating or deploying your application, you can verify the pod is in a running state using the [kubectl describe pod][kubectl-describe] command. Replace the value `podName` with the image name of your deployed pod.

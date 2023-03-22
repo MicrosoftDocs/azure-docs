@@ -233,7 +233,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
-The module folder contains a file for your module code, named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
+The module folder contains a file for your module code, named either `Program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
 
 The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more.
 
@@ -402,7 +402,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Set a breakpoint to inspect the module.
 
-   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.

@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication user
 
-The `CommunicationUserIdentifier` interface represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
+The `CommunicationUserIdentifier` interface represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/identity/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
 
 
 #### Basic usage

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with 15Five | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with 15Five'
 description: Learn how to configure single sign-on between Azure Active Directory and 15Five.
 services: active-directory
 author: jeevansd

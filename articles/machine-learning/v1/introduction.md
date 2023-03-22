@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: balapv
 author: balapv
 ms.date: 05/10/2022
-ms.custom: cliv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, cliv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Azure Machine Learning SDK & CLI (v1) 
@@ -34,8 +34,8 @@ We recommend not to install both versions of the SDK on the same environment, si
 
 ## How do I know which SDK version I have?
 
-* To find out whether you have Azure ML Python SDK v1, run `pip show azureml-core`. (Or, in a Jupyter notebook, use `%pip show azureml-core` )
-* To find out whether you have Azure ML Python SDK v2, run `pip show azure-ai-ml`. (Or, in a Jupyter notebook, use `%pip show azure-ai-ml`)
+* To find out whether you have Azure Machine Learning Python SDK v1, run `pip show azureml-core`. (Or, in a Jupyter notebook, use `%pip show azureml-core` )
+* To find out whether you have Azure Machine Learning Python SDK v2, run `pip show azure-ai-ml`. (Or, in a Jupyter notebook, use `%pip show azure-ai-ml`)
 
 Based on the results of `pip show` you can determine which version of SDK you have.
 

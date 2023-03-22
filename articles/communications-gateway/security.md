@@ -9,7 +9,7 @@ ms.date: 02/09/2023
 ms.custom: template-concept
 ---
 
-# Security and Azure Communications Gateway
+# Overview of security for Azure Communications Gateway
 
 The customer data Azure Communications Gateway handles can be split into:
 
@@ -56,4 +56,5 @@ The following cipher suites are used for encrypting SIP and RTP.
 
 ## Next steps
 
+- Read the [security baseline for Azure Communications Gateway](/security/benchmark/azure/baselines/azure-communications-gateway-security-baseline?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json)
 - Learn about [how Azure Communications Gateway communicates with Microsoft Teams and your network](interoperability.md).

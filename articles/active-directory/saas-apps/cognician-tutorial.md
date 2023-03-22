@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cognician | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cognician'
 description: Learn how to configure single sign-on between Azure Active Directory and Cognician.
 services: active-directory
 author: jeevansd

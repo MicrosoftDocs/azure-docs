@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/14/2022
+ms.date: 03/21/2023
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
@@ -17,7 +17,7 @@ In this quickstart, you will create and activate an Azure Key Vault Managed HSM 
 
 If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The service is available in limited regions – To learn more about availability, please see [Azure Dedicated HSM purshase options](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm).
+The service is available in limited regions – To learn more about availability, please see [Azure Dedicated HSM purchase options](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
   > Each Managed HSM must have a unique name. Replace \<your-unique-managed-hsm-name\> with the name of your Managed HSM in the following examples.
 
 - Resource group name: **myResourceGroup**.
-- The location: **West US 3**.
+- The location: **East US 2**.
 - Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive

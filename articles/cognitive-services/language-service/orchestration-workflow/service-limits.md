@@ -46,6 +46,8 @@ Orchestration workflow is only available in some Azure regions. Some regions are
 | Canada Central     |           | ✓           |
 | Central India      | ✓         | ✓           |
 | Central US         |           | ✓           |
+| China East 2       | ✓         | ✓           |
+| China North 2      |           | ✓           |
 | East Asia          |           | ✓           |
 | East US            | ✓         | ✓           |
 | East US 2          | ✓         | ✓           |

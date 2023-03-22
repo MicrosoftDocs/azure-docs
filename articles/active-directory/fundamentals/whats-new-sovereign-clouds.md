@@ -1,5 +1,5 @@
 ---
-title: What's new in Sovereign Clouds? Release notes - Azure Active Directory | Microsoft Docs
+title: What's new in Sovereign Clouds? Release notes
 description: Learn what is new with Azure Active Directory Sovereign Cloud.
 author: owinfreyATL
 ms.author: owinfrey
@@ -21,6 +21,143 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## February 2023
+
+### General Availability - Filter and transform group names in token claims configuration using regular expression
+
+**Type:** New feature  
+**Service category:** Enterprise Apps             
+**Product capability:** SSO          
+
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality will allow those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+
+---
+
+### General Availability - Filter groups in tokens using a substring match
+
+**Type:** New feature  
+**Service category:** Enterprise Apps             
+**Product capability:** SSO          
+
+Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token.This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature will unblock those challenges. 
+
+For more information, see: 
+- [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
+- [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+
+
+
+---
+
+### General Availability - New SSO claims transformation features
+
+**Type:** New feature  
+**Service category:** Enterprise Apps             
+**Product capability:** SSO        
+
+Azure AD now supports claims transformations on multi-valued attributes and can emit multi-valued claims. More functions to allow match and string operations on claims processing to enable apps to be migrated from other IdPs to Azure AD. This includes:  Match on Empty(), NotEmpty(), Prefix(), Suffix(), and extract substring operators. For more information, see: [Claims mapping policy type](../develop/reference-claims-mapping-policy-type.md).
+
+---
+
+### General Availability - New Detection for Service Principal Behavior Anomalies
+
+**Type:** New feature  
+**Service category:** Access Reviews            
+**Product capability:** Identity Security & Protection       
+
+Post-authentication anomalous activity detection for workload identities. This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior will be assessed for anomalies based on an action and/or sequence of actions occurring for the account. Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting blade. A new detection type identified as Anomalous service principal activity will appear in filter options. For more information, see: [Securing workload identities](../identity-protection/concept-workload-identity-risk.md).
+
+---
+
+### General Availability - Microsoft cloud settings for Azure AD B2B
+
+**Type:** New feature  
+**Service category:** B2B              
+**Product capability:** B2B/B2C       
+
+Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
+
+- Microsoft Azure commercial and Microsoft Azure Government
+- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+
+For more information about Microsoft cloud settings for B2B collaboration., see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+
+---
+
+### Public Preview - Support for Directory Extensions using Azure AD cloud sync
+
+**Type:** New feature   
+**Service category:** Provisioning               
+**Product capability:** Azure AD Connect Cloud Sync         
+
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+
+For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
+
+
+---
+
+### General Availability - On-premises application provisioning
+
+**Type:** Changed feature   
+**Service category:** Provisioning            
+**Product capability:** Outbound to On-premises Applications        
+
+Azure AD supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Azure AD can support those as well.
+
+---
+
+## January 2023
+
+### General Availability - Azure AD Domain Services: Deeper Insights
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services             
+**Product capability:** Azure AD Domain Services        
+
+Now within the Azure portal you have access to view key data for your Azure AD-DS Domain Controllers such as: LDAP Searches/sec, Total Query Received/sec, DNS Total Response Sent/sec, LDAP Successful Binds/sec, memory usage, processor time, Kerberos Authentications, and NTLM Authentications. For more information, see: [Check fleet metrics of Azure Active Directory Domain Services](../../active-directory-domain-services/fleet-metrics.md).
+
+---
+
+### General Availability - Add multiple domains to the same SAML/Ws-Fed based identity provider configuration for your external users
+
+**Type:** New feature   
+**Service category:** B2B        
+**Product capability:** B2B/B2C   
+
+An IT admin can now add multiple domains to a single SAML/WS-Fed identity provider configuration to invite users from multiple domains to authenticate from the same identity provider endpoint. For more information, see: [Federation with SAML/WS-Fed identity providers for guest users](../external-identities/direct-federation.md).
+
+---
+
+### General Availability - New risk in Identity Protection: Anomalous user activity
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+This risk detection baselines normal administrative user behavior in Azure AD, and spots anomalous patterns of behavior like suspicious changes to the directory. The detection is triggered against the administrator making the change or the object that was changed. For more information, see: [User-linked detections](../identity-protection/concept-identity-protection-risks.md#user-linked-detections).
+
+---
+
+### General Availability - Administrative unit support for devices
+
+**Type:** New feature   
+**Service category:** Directory Management             
+**Product capability:** AuthZ/Access Delegation       
+
+You can now use administrative units to delegate management of specified devices in your tenant by adding devices to an administrative unit, and assigning built-in and custom device management roles scoped to that administrative unit. For more information, see: [Device management](../roles/administrative-units.md#device-management).
+
+---
+
+### General Availability - Azure AD Terms of Use (ToU) API
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Represents a tenant's customizable terms of use agreement that is created, and managed, with Azure Active Directory (Azure AD). You can use the following methods to create and manage the [Azure Active Directory Terms of Use feature](/graph/api/resources/agreement?#json-representation) according to your scenario. For more information, see: [agreement resource type](/graph/api/resources/agreement).
+
+---
 
 ## December 2022
 
@@ -40,7 +177,7 @@ Customers can now bring one of the most powerful forms of access control in the 
 **Service category:** Enterprise Apps        
 **Product capability:** Identity Lifecycle Management     
 
-Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item will remain available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
+Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
 
 ---
 
@@ -50,7 +187,7 @@ Restore a recently deleted application, group, servicePrincipal, administrative 
 **Service category:** Authentications (Logins)     
 **Product capability:** Identity Security & Protection   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
 
 ---
 
@@ -64,7 +201,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 **Service category:** Authentications (Logins)     
 **Product capability:** User Authentication   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business much easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
 
 ---
 
@@ -223,7 +360,7 @@ Pick a group of up to five members and provision them into your third-party appl
 
  
 
-The new Device Overview in the Azure Active Directory portal provides meaningful and actionable insights about devices in your tenant.
+The new Device Overview in the Azure portal provides meaningful and actionable insights about devices in your tenant.
 
 In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/device-management-azure-portal.md).
  
@@ -301,7 +438,7 @@ Temporary Access Pass (TAP) is now generally available. TAP can be used to secur
 
 In some scenarios customers may want to require a fresh authentication, every time before a user performs specific actions. Sign-in frequency Every time support requiring a user to reauthenticate during Intune device enrollment, password change for risky users and risky sign-ins.
 
-More information: [Configure authentication session management - Azure Active Directory - Microsoft Entra | Microsoft Docs](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time).
+More information: [Configure authentication session management](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time).
  
 ---
 

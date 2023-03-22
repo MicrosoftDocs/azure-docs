@@ -101,8 +101,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
 
     The **DNS Name** can also be obtained from the **Overview** section of the newly deployed virtual machine within the Azure portal.
 
-    > [!div class="mx-imgBorder"]
-    > [![Screenshot showing the DNS name of the IoT Edge Virtual Machine.](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+    :::image type="content" source="./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png" alt-text="Screenshot showing the DNS name of the I o T Edge virtual machine." lightbox="./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png":::
 
 1. If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`

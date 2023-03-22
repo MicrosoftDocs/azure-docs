@@ -42,7 +42,7 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 
 1. Create data services.
 
-   For example, [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md).
+   For example, [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md).
 
 1. Connect with Azure Data Studio.
 
