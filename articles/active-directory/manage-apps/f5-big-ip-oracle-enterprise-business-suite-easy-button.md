@@ -83,32 +83,29 @@ You need the following components:
   * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * An Oracle EBS Suite, Oracle AccessGate, and an LDAP-enabled Oracle Internet Database (OID)
 
-## BIG-IP configuration methods
+## BIG-IP configuration method
 
-There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. With the Easy Button, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures that applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
+This tutorial uses the Guided Configuration v16.1 Easy Button template. With the Easy Button, admins no longer go back and forth to enable services for SHA. The deployment and policy management is handled by the APM Guided Configuration wizard and Microsoft Graph. This integration ensures applications support identity federation, SSO, and Conditional Access, thus reducing administrative overhead.
 
->[!NOTE] 
-> All example strings or values referenced throughout this guide should be replaced with those for your actual environment.
+   >[!NOTE] 
+  > Replace example strings or values with those in your environment.
 
 ## Register the Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
+Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
-This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
+Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative rights
+Create a tenant app registration to authorize the Easy Button access to Graph. The BIG-IP pushes configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-2. From the left navigation pane, select the **Azure Active Directory** service
-
-3. Under Manage, select **App registrations > New registration**
-
-4. Enter a display name for your application. For example, F5 BIG-IP Easy Button
-
-5. Specify who can use the application > **Accounts in this organizational directory only**
-
-6. Select **Register** to complete the initial app registration
-
-7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
+1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+2. In the left navigation pane, select the **Azure Active Directory** service.
+3. Under **Manage**, select **App registrations > New registration**.
+4. Enter an application **Name**. For example, F5 BIG-IP Easy Button.
+5. Specify who can use the application > **Accounts in this organizational directory only**.
+6. Select **Register**.
+7. Navigate to **API permissions**.
+8. Authorize the following Microsoft Graph **Application permissions**:
 
    * Application.Read.All
    * Application.ReadWrite.All
@@ -121,75 +118,72 @@ This first step creates a tenant app registration that will be used to authorize
    * Policy.ReadWrite.ConditionalAccess
    * User.Read.All
 
-8. Grant admin consent for your organization
+9. Grant admin consent for your organization.
+10. Go to **Certificates & Secrets**.
+11. Generate a new **Client Secret**. Make a note of the Client Secret.
+12. Go to **Overview**. Make a note of the Client ID and Tenant ID.
 
-9. Go to **Certificates & Secrets**, generate a new **Client secret** and note it down
+## Configure the Easy Button
 
-10. Go to **Overview**, note the **Client ID** and **Tenant ID**
+1. Initiate the APM **Guided Configuration**.
+2. Start the **Easy Button** template.
+3. Navigate to **Access > Guided Configuration > Microsoft Integration**.
+4. Select **Azure AD Application**.
 
-## Configure Easy Button
+   ![Screenshot of the Azure AD Application option.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-Initiate the APM's **Guided Configuration** to launch the **Easy Button** Template.
+5. Review the configuration options.
+6. Select **Next**.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+   ![Screenshot of configuration options and the Next option.](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
-   ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
+7. Use the graphic to help publish your application.
 
-2. Review the list of configuration steps and select **Next**
-
-   ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
-
-3. Follow the sequence of steps required to publish your application.
-
-   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
+   ![Screenshot of graphic indicating configuration areas.](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
 
 ### Configuration Properties
 
-The **Configuration Properties** tab creates a BIG-IP application config and SSO object. Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
+The **Configuration Properties** tab creates a BIG-IP application config and SSO object. The **Azure Service Account Details** section represents the client you registered in your Azure AD tenant, as an application. With these settings a BIG-IP OAuth client registers a SAML SP in your tenant, with SSO properties. Easy Button does this action for BIG-IP services published and enabled for SHA.
 
-Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
+To reduce time and effort, reuse global settings to publish other applications.
 
-1. Provide a unique **Configuration Name** that enables an admin to easily distinguish between Easy Button configurations
+1. Enter a **Configuration Name**.
+2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
+3. For **Tenant ID, Client ID**, and **Client Secret** enter what you noted during Easy Button client registration.
+4. Confirm the BIG-IP connects to your tenant.
+5. Select **Next**.
 
-2. Enable **Single Sign-On (SSO) & HTTP Headers**
-
-3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
-
-4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
-
-   ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
+   ![ Screenshot of input on the Configuration Properties dialog.](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
-The Service Provider settings define the properties for the SAML SP instance of the application protected through SHA.
+Use Service Provider settings for the properties of the SAML SP instance of the protected application.
 
-1. Enter **Host**. This is the public FQDN of the application being secured
+1. For **Host**, enter the public FQDN of the application.
+2. For **Entity ID**, enter the identifier Azure AD uses for the SAML SP requesting a token.
 
-2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
+   ![Screenshot for Service Provider input and options.](./media/f5-big-ip-oracle/service-provider-settings.png)
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-oracle/service-provider-settings.png)
+3. (Optional) In **Security Settings**, select or clear the **Enable Encrypted Assertion** option. Encrypting assertions between Azure AD and the BIG-IP APM means the content tokens can’t be intercepted, nor personal or corporate data compromised.
+4. From the **Assertion Decryption Private Key** list, select **Create New**
 
-   Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+   ![Screenshot of Create New options in the Assertion Decryption Private Key dropdown.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-3. From the **Assertion Decryption Private Key** list, select **Create New**
+5. Select **OK**. 
+6. The **Import SSL Certificate and Keys** dialog appears in a new tab.
+7. Select **PKCS 12 (IIS)**.
+8. The certificate and private key are imported. 
+9. Close the browser tab to return to the main tab.
 
-   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
+   ![Screenshot of input for Import Type, Certificate and Key Name, and Password.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-4. Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab 
+6. Select **Enable Encrypted Assertion**.
+7. For enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate private key BIG-IP APM uses to decrypt Azure AD assertions.
+8. For enabled encryption,from the **Assertion Decryption Certificate** list, select the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
 
-5. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+   ![Screenshot of selected certificates for Assertion Decryption Private Key and Assertion Decryption Certificate.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
-   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
-
-6. Check **Enable Encrypted Assertion**
-
-7. If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM uses to decrypt Azure AD assertions
-
-8. If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP uploads to Azure AD for encrypting the issued SAML assertions.
-
-   ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
-
-### Azure Active Directory
+### Azure AD
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **Oracle E-Business Suite > Add**.
 
