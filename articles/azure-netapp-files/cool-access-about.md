@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, data blocks that have not been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
 
-The majority of cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
+Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
 Azure NetApp Files supports three types of service tiers that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard tier.
 
@@ -28,7 +28,7 @@ You can configure the Standard service level with cool access on a volume by spe
 
 After inactive data is moved to the cool tier and if it's read randomly again, it becomes “warm” and is moved back to the standard tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the standard tier. 
 
-Metadata is never cooled and will always remain in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't impacted by tiering.
+Metadata is never cooled and always remains in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't impacted by tiering.
 
 ## Supported regions 
 
@@ -72,13 +72,13 @@ This section describes a 4k random-read test across 160 files totaling 10 TB of 
 
 This test was set up via FIO to run a 4k random-read test across 160 files that total 10 TB of data. FIO was configured to randomly read each block across the entire working dataset. (It can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they're moved to the standard tier.
 
-This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm will vary due to the dataset size. This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
+This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm varies due to the dataset size. This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
 
 **Results**
 
-The following chart shows a test that ran over 2.5 days on the 10-TB working dataset that had been 100% cooled and the buffers cleared (absolute worst-case aged data). 
+The following chart shows a test that ran over 2.5 days on the 10-TB working dataset that has been 100% cooled and the buffers cleared (absolute worst-case aged data). 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-test-chart.png" alt-text="Chart titled Cool access Read IOPS warming cooled tier, long duration, 10 TB working set. The y-axis is titled IOPS and show ranges from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is approximately exponential " lightbox="../media/azure-netapp-files/cool-access-test-chart.png"::: 
+:::image type="content" source="../media/azure-netapp-files/cool-access-test-chart.png" alt-text="Chart titled Cool access Read IOPS warming cooled tier, long duration, 10 TB working set. The y-axis is titled IOPS and show ranges from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is exponential " lightbox="../media/azure-netapp-files/cool-access-test-chart.png"::: 
 
 ### 64k sequential-read test
 
@@ -132,21 +132,21 @@ Cool access offers [performance metrics](azure-netapp-files-metrics.md#cool-acce
 
 ## Billing 
 
-You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you're billed will be based on the following factors: 
+You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you're billed is based on the following factors: 
 
 * The capacity in the Standard service level
 * The capacity in the cool tier (by enabling tiering for volumes in a Standard capacity pool)
 * Network transfer between the standard tier and the cool tier at the rate that is determined by the markup on top of the transaction cost (GET and PUT requests) on blob storage and private link transfer in either direction between the standard tiers.
 
-Billing calculation for a Standard capacity pool will be at the standard tier rate for the data that isn't tiered to the cool tier. When you enable tiering for volumes, the capacity in the cool tier will be at the rate of the cool tier, and the remaining capacity will be at the rate of the standard tier. The rate of the cool tier is lower than the standard tier's rate. 
+Billing calculation for a Standard capacity pool is at the standard tier rate for the data that isn't tiered to the cool tier. When you enable tiering for volumes, the capacity in the cool tier will be at the rate of the cool tier, and the remaining capacity will be at the rate of the standard tier. The rate of the cool tier is lower than the standard tier's rate. 
 
 ### Examples of billing structure
 
-Assume that you created a 4-TiB Standard capacity pool. The billing structure will be at the Standard capacity tier rate for the entire 4 TiB. 
+Assume that you created a 4-TiB Standard capacity pool. The billing structure is at the Standard capacity tier rate for the entire 4 TiB. 
 
 When you create volumes in the capacity pool and start tiering data to the cool tier, the following scenarios explain the applicable billing structure: 
 
-* Assume that you create three volumes with 1 TiB each. You don't enable tiering at the volume level. The billing calculation will be as follows: 
+* Assume that you create three volumes with 1 TiB each. You don't enable tiering at the volume level. The billing calculation is as follows: 
 
     * 4-TiB capacity at the standard tier rate
     * Zero capacity at the cool tier rate
