@@ -433,6 +433,9 @@
             - name: Manage compute sessions
               displayName: sessions, terminal, kernel
               href: how-to-manage-compute-sessions.md
+        - name: Azure Container for PyTorch
+          displayName: acpt
+          href: how-to-azure-container-for-pytorch-environment.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -928,6 +931,9 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md
+    - name: Azure Container for PyTorch 
+      href: resource-azure-container-for-pytorch.md
+      displayName: acpt
     - name: Azure CLI
       href: /cli/azure/ml
 - name: Resources

@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 03/23/2023
 
 ---
 # Configure data persistence for a Premium Azure Cache for Redis instance
@@ -117,6 +117,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 - [How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 - [Will having firewall exceptions on the storage account affect persistence](#will-having-firewall-exceptions-on-the-storage-account-affect-persistence)
+- [How do I check if soft delete is enabled on my storage account?](#how-do-i-check-if-soft-delete-is-enabled-on-my-storage-account)
 
 ### RDB persistence
 

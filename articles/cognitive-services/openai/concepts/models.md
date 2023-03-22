@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 03/09/2023
+ms.date: 03/21/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: ChrisHMSFT
@@ -19,7 +19,8 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 
 | Model family | Description |
 |--|--|
-| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model](#chatgpt-gpt-35-turbo). |
+| [GPT-4](#gpt-4-models) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. **These models are currently in preview.**|
+| [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model (preview)](#chatgpt-gpt-35-turbo-preview). |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -53,7 +54,17 @@ You can get a list of models that are available for both inference and fine-tuni
 
 ## Finding the right model
 
-We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities. 
+We recommend starting with the most capable model in a model family to confirm whether the model capabilities meet your requirements. Then you can stay with that model or move to a model with lower capability and cost, optimizing around that model's capabilities.
+
+## GPT-4 models (preview)
+
+ GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like gpt-35-turbo, GPT-4 is optimized for chat but works well for traditional completions tasks.
+
+ These models are currently in preview. For access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4).
+- `gpt-4`
+- `gpt-4-32k`
+
+The `gpt-4` supports 8192 max input tokens and the `gpt-4-32k` supports up to 32,768 tokens.
 
 ## GPT-3 models
 
@@ -92,11 +103,11 @@ Ada is usually the fastest model and can perform tasks like parsing text, addres
 
 **Use for**: Parsing text, simple classification, address correction, keywords
 
-### ChatGPT (gpt-35-turbo)
+### ChatGPT (gpt-35-turbo) (preview)
 
 The ChatGPT model (gpt-35-turbo) is a language model designed for conversational interfaces and the model behaves differently than previous GPT-3 models. Previous models were text-in and text-out, meaning they accepted a prompt string and returned a completion to append to the prompt. However, the ChatGPT model is conversation-in and message-out. The model expects a prompt string formatted in a specific chat-like transcript format, and returns a completion that represents a model-written message in the chat.
 
-The ChatGPT model uses the same completion API that you use for other models like text-davinci-002, but it requires a unique prompt format. It's important to use the new prompt format to get the best results. Without the right prompts, the model tends to be verbose and provides less useful responses. To learn more check out our [in-depth how-to](../how-to/chatgpt.md).
+To learn more about the ChatGPT model and how to interact with the Chat API check out our [in-depth how-to](../how-to/chatgpt.md).
 
 ## Codex models
 
@@ -173,13 +184,23 @@ When using our embeddings models, keep in mind their limitations and risks.
 | davinci<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup>, South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019|
 | text-davinci-001 | Yes | No | South Central US, West Europe | N/A |  |  |
 | text-davinci-002 | Yes | No | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
-| text-davinci-003 | Yes | No | East US | N/A | 4,097 | Jun 2021 |
+| text-davinci-003 | Yes | No | East US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US, West Europe<sup>2</sup> |  |  |
-| gpt-35-turbo<sup>3</sup> (ChatGPT) | Yes | No | N/A | East US, South Central US | 4,096 | Sep 2021
+| gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | Yes | No | East US, South Central US | N/A | 4,096 | Sep 2021
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US and West Europe are currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for fine-tuning. 
-<br><sup>3</sup> Currently, only version `"0301"` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+<br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+
+### GPT-4 Models
+
+|  Model ID                | Supports Completions | Supports Embeddings |  Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  ----------------------- | -------------------- | ------------------- | ------------------------- | ------------------- | -------------------- | ---------------------- |
+| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     | Yes                  | No                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) | Yes                  | No                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
+
+<sup>1</sup> The model is in preview and only available by request.<br>
+<sup>2</sup> Currently, only version `0314` of this model is available.
 
 ### Codex Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
@@ -194,7 +215,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 ### Embeddings Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- | --- | --- |
-| text-embeddings-ada-002 | No | Yes | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
+| text-embedding-ada-002 | No | Yes | East US, South Central US, West Europe | N/A |8,192 | Sep 2021 |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |

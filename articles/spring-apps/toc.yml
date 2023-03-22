@@ -16,6 +16,23 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Run apps on Standard consumption plan
+    expanded: true
+    items:
+    - name: Provision a service instance
+      href: quickstart-provision-standard-consumption-service-instance.md
+    - name: Provision in an Azure Container Apps environment with VNet
+      href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
+    - name: Access apps in a VNet
+      href: quickstart-access-standard-consumption-within-virtual-network.md
+    - name: Launch your first event-driven app
+      href: quickstart-deploy-event-driven-app-standard-consumption.md
+    - name: Set up autoscale
+      href: quickstart-apps-autoscale-standard-consumption.md
+    - name: Map a custom domain to Azure Spring Apps
+      href: quickstart-standard-consumption-custom-domain.md
+    - name: Analyze logs and metrics
+      href: quickstart-analyze-logs-and-metrics-standard-consumption.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
@@ -178,6 +195,8 @@ items:
       href: how-to-built-in-persistent-storage.md
     - name: Use custom persistent storage
       href: how-to-custom-persistent-storage.md
+    - name: Use custom persistent storage with the Standard consumption plan
+      href: how-to-custom-persistent-storage-with-standard-consumption.md
     - name: Identify outbound public IP addresses
       href: how-to-outbound-public-ip.md
     - name: Move across regions
@@ -254,6 +273,8 @@ items:
       href: how-to-configure-ingress.md
     - name: Customer responsibilities running Azure Spring Apps in a virtual network
       href: vnet-customer-responsibilities.md
+    - name: Customer responsibilities for Standard consumption plan in a virtual network
+      href: standard-consumption-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
   - name: Secure
