@@ -431,7 +431,7 @@ If no BIG-IP error message appears, then the issue is probably more related to S
 Learn more:
 
 * Go to devcentral.f5.com for [APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107)
-* Go to techdocs.f5.com for [BIG-IP Access Policy Manager: Visual Policy Editor, Session Variables](https://techdocs.f5.com/bigip-16-1-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html#GUID-4C5F6ACA-C645-4BD5-B7A4-B41760C264C0)
+* Go to techdocs.f5.com for [BIG-IP Access Policy Manager: Visual Policy Editor](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-visual-policy-editor.html)
 
 ## Resources
 
