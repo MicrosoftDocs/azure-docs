@@ -479,7 +479,7 @@ mlflow_model = Model(
     version=str(1), # use str(int(time.time())) if you want a random model number
     description="MLflow model created from local path",
 )
-ml_client_registry.model.create_or_update(mlflow_model)
+ml_client_registry.models.create_or_update(mlflow_model)
 ```
 
 ---
@@ -548,7 +548,7 @@ mlflow_model = Model(
     version=version_timestamp,
     description="MLflow model created from job output",
 )
-ml_client_workspace.model.create_or_update(mlflow_model)
+ml_client_workspace.models.create_or_update(mlflow_model)
 ```
 
 > [!TIP]
