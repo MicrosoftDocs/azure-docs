@@ -57,13 +57,14 @@ cd msdocs-django-postgresql-sample-app
 
 -----
 
-Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance. Set the value for `SECRET_KEY` to the same value used in the App Service app settings.
 
 ```
 DBNAME=<database name>
 DBHOST=<database-hostname>
 DBUSER=<db-user-name>
 DBPASS=<db-password>
+SECRET_KEY=<secret key>
 ```
 
 Create a virtual environment for the app:
