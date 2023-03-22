@@ -35,12 +35,11 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 - **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you. 
 
 - **Active-active database**: Unlike MongoDB Atlas, Cosmos DB for MongoDB supports active-active across multiple regions. Databases can span multiple regions, with no single point of failure for **writes and reads for the same data**. MongoDB Atlas global clusters only support active-passive deployments for writes for the same data.  
-
-- **Cost efficient, granular, unlimited scalability**: Sharded collections can scale to any size, unlike other MongoDB service offerings. Scaling is done in a cost-efficient manner unlike other MongoDB service offerings. The Azure Cosmos DB platform can scale in increments as small as 1/100th of a VM due to its architecture. This means that you can scale your database to the exact size you need, without paying for unused resources.
+- **Cost efficient, granular, unlimited scalability**: Sharded collections can scale to any size, unlike other MongoDB service offerings. The Azure Cosmos DB platform can scale in increments as small as 1/100th of a VM due to its architecture. This means that you can scale your database to the exact size you need, without paying for unused resources.
 
 - **Serverless deployments**: Cosmos DB for MongoDB offers a [serverless capacity mode](../serverless.md). With [Serverless](../serverless.md), you're only charged per operation, and don't pay for the database when you don't use it.
 
-- **Free Tier**: With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level. Free tier accounts are [sandboxed](../limit-total-account-throughput.md).
+- **Free Tier**: With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level. Free tier accounts are automatically [sandboxed](../limit-total-account-throughput.md) so you never pay for usage.
 
 - **Free 7 day Continuous Backups**: Azure Cosmos DB for MongoDB offers free 7 day continuous backups for any amount of data. This means that you can restore your database to any point in time within the last 7 days. 
 
