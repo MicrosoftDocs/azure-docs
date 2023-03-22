@@ -1,6 +1,6 @@
 ---
-title: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS
-description: Learn to implement SHA with header-based SSO to Oracle EBS using F5’s BIG-IP Easy Button guided configuration
+title: Configure F5 BIG-IP Easy Button for SSO to Oracle Enterprise Business Suite
+description: Learn to implement SHA with header-based SSO to Oracle EBS using F5 BIG-IP Easy Button Guided Configuration
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/31/2022
+ms.date: 03/22/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS
+# Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle Enterprise Business Suite
 
 In this article, learn to secure Oracle Enterprise Business Suite (EBS) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
