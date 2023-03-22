@@ -6,7 +6,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
 ms.topic: include file
-ms.date: 03/20/20223
+ms.date: 03/21/2023
 ms.author: kpunjabi
 ---
 
@@ -16,10 +16,10 @@ ms.author: kpunjabi
 - An app with voice and video calling, refer to our [Voice](../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
 - [Access tokesn](../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
 - [Access tokesn](../../quickstarts/identity/access-tokens.md) for External identity users.
-- For Translated captions you will need to have a [Teams premium](https://www.microsoft.com/en-us/microsoft-teams/premium#tabx93f55452286a4264a2778ef8902fb81a) license. 
+- For Translated captions you will need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.
 
 >[!NOTE]
->Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in the QuickStart below.
+>Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |
@@ -40,6 +40,8 @@ if let call = self.call { @State var captionsCallFeature = call.feature(Features
 ```
 
 ### Microsoft 365 users 
+
+If you're building an app for Microsoft 365 Users using ACS SDK. 
 
 ``` swift
 if let teamsCall = self.teamsCall { @State var captionsCallFeature = call.feature(Features.teamsCaptions) }
