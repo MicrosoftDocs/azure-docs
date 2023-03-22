@@ -74,7 +74,4 @@ After 24 hours you can find the results of resources with sensitive data in the 
 
 ## Next steps
 
-Now that you have data-aware security posture enabled, you can:
-
-- [Customize the data sensitivity settings](data-sensitivity-settings.md)
 - [Review the security risks in your data](data-security-review-risks.md)
