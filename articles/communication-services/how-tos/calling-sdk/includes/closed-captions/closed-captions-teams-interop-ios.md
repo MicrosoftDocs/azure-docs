@@ -1,6 +1,6 @@
 ---
 title: include file
-description: iOS how-to guide for enabling Closed captions during a call .
+description: iOS how-to guide for enabling Closed captions during a call.
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -12,11 +12,11 @@ ms.author: kpunjabi
 
 ## Prerequisites
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
-- An app with voice and video calling, refer to our [Voice](../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
-- [Access tokesn](../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
-- [Access tokesn](../../quickstarts/identity/access-tokens.md) for External identity users.
-- For Translated captions you will need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
+- An app with voice and video calling, refer to our [Voice](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
+- [Access tokens](../../../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
+- [Access tokens](../../../../quickstarts/identity/access-tokens.md) for External identity users.
+- For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.
 
 >[!NOTE]
 >Please note that you will need to have a voice calling app using ACS calling SDKs to access the closed captions feature that is described in this guide.
@@ -71,7 +71,7 @@ teamsCaptionsFeature.delegate = self.callObserver
 
 ## Start captions
 
-Once you've got all your listeners setup you can now start captions.
+Once you've got all your listeners setup, you can now start captions.
 
 ``` swift
 func startCaptions() {
@@ -140,7 +140,7 @@ func setSpokenLanguage() {
 
 ### Get supported caption language 
 
-If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check will be done against their own user account if they meeting organizer doesn't have a Teams premium license.
+If your organization has an active Teams premium license, then your ACS users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check is done against their own user account if they meeting organizer doesn't have a Teams premium license.
 
 ``` swift
 // ISO 639-1 formatted language code
