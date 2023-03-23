@@ -37,7 +37,16 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 - Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#scanning-aws-storage) for AWS scanning, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
 - Check that there's no policy that blocks the connection to your Amazon S3 buckets.
 
+### Enable for AWS resources
+
+1. Enable data security posture as described above
+1. Proceed with the instructions to download the CloudFormation template and to run it in AWS.
+
+Automatic discovery of S3 buckets in the AWS account starts automatically. The Defender for Cloud scanner runs in your AWS account and connects to the your S3 buckets.
+
 ### Check for blocking policies
+
+If the enable process didn't work because of a blocked policy, check the following:
 
 - Make sure that the S3 bucket policy doesn't block the connection. In the AWS S3 bucket, select the **Permissions** tab > Bucket policy. Check the policy details to make sure the MDC scanner service running in the Microsoft account in AWS isn't blocked.
 - Make sure that there's no SCP policy that blocks the connection to the S3 bucket. For 
@@ -47,13 +56,6 @@ bucket is hosted.
 GetBucketLocation, GetObject, ListBucket, GetBucketPublicAccessBlock
 - Check that your SCP policy allows calls to the us-east-1 AWS Region, which is the default 
 region for API calls.
-
-### Enable for AWS resources
-
-1. Enable data security posture as described above
-1. Proceed with the instructions to download the CloudFormation template and to run it in AWS.
-
-Automatic discovery of S3 buckets in the AWS account starts automatically. The Defender for Cloud scanner runs in your AWS account and connects to the your S3 buckets.
 
 ## Next steps
 

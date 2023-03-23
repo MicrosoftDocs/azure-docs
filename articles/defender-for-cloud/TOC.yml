@@ -243,7 +243,7 @@
     items:
     - name: Enable data-aware security posture
       href: data-security-posture-enable.md
-    - name: Review risks to sensitive data
+    - name: Explore risks to sensitive data
       href: data-security-review-risks.md
     - name: Customize sensitivity settings
       href: data-sensitivity-settings.md
