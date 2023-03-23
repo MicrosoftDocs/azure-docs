@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Decision tree
 
-This article provides an overview to the Azure Active Directory (Azure AD) custom claims provider. Use this decision tree to help you determine the solution best suited for your environment.
+Use this decision tree to help you determine the solution best suited for your environment.
 
 [![Decision matrix with key criteria to help choose between solutions one, two, and three.](media/multilateral-federation-decision-tree/tradeoff-decision-matrix.png)](media/multilateral-federation-decision-tree/tradeoff-decision-matrix.png#lightbox)
 
@@ -24,12 +24,12 @@ This article provides an overview to the Azure Active Directory (Azure AD) custo
 
 The following are resources to help with your migration to the solutions covered in this content.
 
-| Azure AD Custom Claims Provider   | Description           | Relevant for  Migrating to... |
+| Migration Resource   | Description           | Relevant for  migrating to... |
 | - | - | - |
-| [Resources for migrating applications to Azure Active Directory ](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure Active Directory (Azure AD) | Solution 1, Solution 2, and Solution 3 |
-| Token Augmentation Documentation **TBA** | **TBA** | Solution 1 |
+| [Resources for migrating applications to Azure Active Directory (Azure AD)](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure AD | Solution 1, Solution 2, and Solution 3 |
+| [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md)|This article provides an overview to the Azure AD custom claims provider | Solution 1 |
 | [Custom security attributes documentation](../fundamentals/custom-security-attributes-manage.md) | This article describes how to manage access to custom security attributes | Solution 1 |
-| [Azure Active Directory SSO integration with Cirrus Identity Bridge](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md) | Tutorial to integrate Cirrus Identity Bridge for Azure AD with Azure Active Directory (Azure AD) | Solution 1 |
+| [Azure AD SSO integration with Cirrus Identity Bridge](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md) | Tutorial to integrate Cirrus Identity Bridge for Azure AD with Azure AD | Solution 1 |
 | [Cirrus Identity Bridge Overview](https://blog.cirrusidentity.com/documentation/azure-bridge-setup-rev-6.0) | Link to the documentation for the Cirrus Identity Bridge | Solution 1 |
 | [Configuring Shibboleth as SAML Proxy](https://shibboleth.atlassian.net/wiki/spaces/KB/pages/1467056889/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD) | Link to a Shibboleth article that describes how to use the SAML proxying feature to connect Shibboleth IdP to Azure AD | Solution 2 |
 | [Azure MFA deployment considerations](../authentication/howto-mfa-getstarted.md) | Link to guidance for configuring multi-factor authentication (MFA) using Azure AD | Solution 1 and Solution 2 |
