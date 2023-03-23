@@ -136,7 +136,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-python-postgres-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack* &rarr; **Python 3.10**.
-        1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name is also set by default to appropriate values.
+        1. *Database* &rarr;  **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
@@ -581,7 +581,7 @@ The `azd up` command cloned the sample app project template to your machine. The
 
 * **Source code**: The code and assets for a Flask or Django web app that can be used for local development or deployed to Azure.
 * **Bicep files**: Infrastructure as code (IaC) files that are used by `azd` to create the necessary resources in Azure.
-* **Configuration files**: Essential configuration files such as `azure.yaml` that are used by `azd` to provision, deploy and wire resources together to produce a fully-fledged application.
+* **Configuration files**: Essential configuration files such as `azure.yaml` that are used by `azd` to provision, deploy and wire resources together to produce a fully fledged application.
 
 ### 2. Provisioned the Azure resources
 
@@ -592,7 +592,7 @@ The `azd up` command created all of the resources for the sample application in 
 * **Azure App Service plan**: An App Service plan was created to host App Service instances. App Service plans define what compute resources are available for one or more web apps.
 * **Azure App Service**: An App Service instance was created in the new App Service plan to host and run the deployed application. In this case a Linux instance was created and configured to run Python apps. Additional configurations were also applied to the app service, such as setting the Postgres connection string and secret keys. 
 * **Azure Database for PostgresSQL**: A Postgres database and server were created for the app hosted on App Service to connect to. The required admin user, network and connection settings were also configured.
-* **Azure Application Insights**: Application insights was setup and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
+* **Azure Application Insights**: Application insights was set up and configured for the app hosted on the App Service. This service enables detailed telemetry and monitoring for your application.
 
 You can inspect the Bicep files in the [`infra`](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/tree/main/infra) folder of the project to understand how each of these resources were provisioned in more detail. The `resources.bicep` file defines most of the different services created in Azure. For example, the App Service plan and App Service web app instance were created and connected using the following Bicep code:
 
