@@ -1,5 +1,5 @@
 ---
-title: List users, groups, or devices in an administrative unit - Azure Active Directory
+title: List users, groups, or devices in an administrative unit
 description: List users, groups, or devices in an administrative unit in Azure Active Directory.
 services: active-directory
 documentationcenter: ''

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/19/2022
+ms.date: 03/14/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp

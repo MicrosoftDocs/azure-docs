@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 03/15/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -28,7 +28,7 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-To complete this tutorial, you need to have an existing Azure Database for MySQL database and static web app. Additionally, you need to install Azure Data Studio. 
+To complete this tutorial, you need to have an existing Azure Database for MySQL database and static web app. Additionally, you need to install Azure Data Studio.
 
 | Resource | Description |
 |---|---|
@@ -62,7 +62,11 @@ To use your Azure database for local development, you need to retrieve the conne
 
 1. In the *Connect from your app* section, select the ADO.NET connection string and set it aside in a text editor.
 
-Make sure to replace the `{your_password}` placeholder in the connection string with your password, and the `{your_database}` placeholder with the database name `MyTestPersonDatabase`. You create the `MyTestPersonDatabase` in the coming steps. Delete the *SslMode* and the *SslCa* sections of the connection string, since these require extra steps and are intended for production purposes.
+1. Replace the `{your_password}` placeholder in the connection string with your password.
+
+1. Replace the `{your_database}` placeholder with the database name `MyTestPersonDatabase`. You'll create the `MyTestPersonDatabase` in the coming steps.
+
+1. Delete the *SslMode* and the *SslCa* sections of the connection string as these require extra steps and are intended for production purposes.
 
 ## Create sample data
 
@@ -105,15 +109,35 @@ The rest this tutorial focuses on editing your static web app's source code to m
 
 1. Switch to the `main` branch.
 
+    # [Bash](#tab/bash)
+
     ```bash
     git checkout main
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    git checkout main
+    ```
+
+    ---
+
 1. Synchronize your local version with what's on GitHub by using `git pull`.
+
+    # [Bash](#tab/bash)
 
     ```bash
     git pull origin main
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    git pull origin main
+    ```
+
+    ---
 
 ### Create the database configuration file
 

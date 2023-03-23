@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Pass-through Authentication - How it works | Microsoft Docs'
+title: 'Azure AD Connect: Pass-through Authentication - How it works'
 description: This article describes how Azure Active Directory Pass-through Authentication works
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on

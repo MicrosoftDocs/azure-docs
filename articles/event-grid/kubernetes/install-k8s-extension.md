@@ -43,7 +43,7 @@ If you run into an issue, see the [Troubleshooting](#troubleshooting) section fo
 ## PKI Certificate requirements
 The Event Grid broker (server) serves two kinds of clients. Server authentication is done using Certificates. Client authentication is done using either certificates or SAS keys based on the client type.
 
-- Event Grid operators that make control plane requests to the Event Grid broker are authenticated using certificates.
+- Event Grid operators that make control-plane requests to the Event Grid broker are authenticated using certificates.
 - Event Grid publishers that publisher events to an Event Grid topic are authenticated with the topic's SAS keys.
 
 To establish a secure HTTPS communication with the Event Grid broker and Event Grid operator, we use PKI Certificates during the installation of Event Grid extension. Here are the general requirements for these PKI certificates:
@@ -80,7 +80,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     :::image type="content" source="./media/install-k8s-extension/cluster-extensions-add.png" alt-text="Cluster extensions - Add button":::    
 1. On the **New resource** page, select **Event Grid on Kubernetes Extension**.
 
-    :::image type="content" source="./media/install-k8s-extension/select-event-grid-extension.png" alt-text="Select Event Grid on Kubernetes extension":::        
+    :::image type="content" source="./media/install-k8s-extension/select-extension.png" alt-text="Select Event Grid on Kubernetes extension":::        
 1. On the **Event Grid on Kubernetes Extension** page, select **Create**.
 
     :::image type="content" source="./media/install-k8s-extension/select-create-extension.png" alt-text="Select Create Kubernetes extension":::            
@@ -100,7 +100,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients communicate with the Event Grid broker.
 
         > [!IMPORTANT]
-        > Enabling this option will make all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid operator won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
+        > Enabling this option makes the communication with the Event Grid broker to use HTTP as transport. Hence, any publishing client and the Event Grid operator won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
     1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
 
         :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page":::
@@ -136,7 +136,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 
     > [!IMPORTANT]
     > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations). For more information, see the [Custom Location documentation](../../azure-arc/kubernetes/custom-locations.md).
-1. After the deployment succeeds, you'll be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension. If you see **Pending** for the **Install status**, wait for a few minutes and then select **Refresh** on the toolbar. 
+1. After the deployment succeeds, you'll be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension. If you see **Pending** for the **Install status**, wait for a few minutes, and then select **Refresh** on the toolbar. 
 
     :::image type="content" source="./media/install-k8s-extension/extension-installed.png" alt-text="Event Grid extension - installed":::   
 
@@ -242,7 +242,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 
 ### Azure Arc connect cluster issues
 
-**Problem**: When navigating to **Azure Arc** and clicking **Kubernetes cluster** on the left-hand side menu, the page displayed doesn't show the Kubernetes cluster where I intent to install Event Grid.
+**Problem**: When you navigate to **Azure Arc** and select **Kubernetes cluster** on the left-hand side menu, the page displayed doesn't show the Kubernetes cluster where I intent to install Event Grid.
 
 **Resolution**: Your Kubernetes cluster isn't registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc-enabled Kubernetes team.
 

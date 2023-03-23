@@ -16,7 +16,7 @@ ms.date: 03/09/2023
 
 This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#transcriptions) directly.
 
-In addition to [Power Automate](/power-automate/getting-started), you can use the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/) with [Power Apps](/power-apps) and [Logic Apps](/azure/logic-apps/).
+In addition to [Power Automate](/power-automate/getting-started), you can use the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/) with [Power Apps](/power-apps) and [Logic Apps](../../logic-apps/index.yml).
 
 > [!TIP]
 > Try more Speech features in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
@@ -74,7 +74,7 @@ Later you'll [upload files to the container](#upload-files-to-the-container) aft
 
 ### Create SAS URI by path
 
-To transcribe an audio file that's in your [Azure Blob Storage container](#create-the-azure-blob-storage-container) you need a [Shared Access Signature (SAS) URI](/azure/storage/common/storage-sas-overview) for the file.
+To transcribe an audio file that's in your [Azure Blob Storage container](#create-the-azure-blob-storage-container) you need a [Shared Access Signature (SAS) URI](../../storage/common/storage-sas-overview.md) for the file.
 
 The [Azure Blob Storage connector](/connectors/azureblob/) supports SAS URIs for individual blobs, but not for entire containers.
 

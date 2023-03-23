@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/14/2023
+ms.date: 03/15/2023
 
 ms.author: justinha
 author: sabina-smith
@@ -23,6 +23,9 @@ Microsoft Authenticator Lite is another surface for Azure Active Directory (Azur
 
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
+>[!NOTE]
+>This is an important security enhancement for users authenticating via telecom transports. The 'Microsoft managed' setting for this feature will be set to enabled on May 26th, 2023. This will enable the feature for all users in tenants where the feature is set to Microsoft managed. If you wish to change the state of this feature, please do so before May 26th, 2023.
+
 ## Prerequisites
 
 - Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API.
@@ -32,7 +35,7 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
   | Operating system | Outlook version |
   |:----------------:|:---------------:|
-  |Android           | 4.2308.0        |
+  |Android           | 4.2309.1        |
   |iOS               | 4.2309.0        |
 
 ## Enable Authenticator Lite
@@ -56,26 +59,40 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 ### Request
 
-```http
-PATCH https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
-Content-Type: application/json
- 
+```JSON
+//Retrieve your existing policy via a GET. 
+//Leverage the Response body to create the Request body section. Then update the Request body similar to the Request body as shown below.
+//Change the Query to PATCH and Run query
+
 {
-    "CompanionAppAllowedState": {
-        "state": "enabled",
-        "excludeTargets": [
-            {
-                "id": "s4432809-3bql-5m2l-0p42-8rq4707rq36m",
-                "targetType": "group"
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
+    "id": "MicrosoftAuthenticator",
+    "state": "enabled",
+    "isSoftwareOathEnabled": false,
+    "excludeTargets": [],
+    "featureSettings": {
+        "companionAppAllowedState": {
+            "state": "enabled",
+            "includeTarget": {
+                "targetType": "group",
+                "id": "s4432809-3bql-5m2l-0p42-8rq4707rq36m"
+            },
+            "excludeTarget": {
+                "targetType": "group",
+                "id": "00000000-0000-0000-0000-000000000000"
             }
-        ],
-        "includeTargets": [
-            {
-                "id": "all_users",
-                "targetType": "group"
-            }
-        ]
-    }
+        }
+    },
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets": [
+        {
+            "targetType": "group",
+            "id": "all_users",
+            "isRegistrationRequired": false,
+            "authenticationMode": "any"
+        }
+    ]
 }
 ```
 
