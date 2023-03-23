@@ -10,4 +10,4 @@ ms.author: sgilley
 ms.custom: include file
 ---
 
-Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
+Create [a new notebook](../quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
