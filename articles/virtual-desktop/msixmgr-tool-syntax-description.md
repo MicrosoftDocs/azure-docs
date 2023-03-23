@@ -31,28 +31,27 @@ This article contains an overview of the command-line syntax to help you underst
 
 |Description|Example|
 | -------- | -------- |
-|Adds package at specified file path.  
--AddPackage [path to the MSIX package] [optional arguments]|`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix`|
+|Adds package at specified file path|-AddPackage [path to the MSIX package] [optional arguments]|
+||`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix`|
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
 |-QuietUX|Installs MSIX package silently, without any user interaction|`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix -QuietUX`  |
 
 
-  
 **-RemovePackage or -x**
 
 |Description|Example|
 | -------- | -------- |
-|Removes package with specified package full name  
--RemovePackage [Package Name] [optional arguments]|`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe`|
+|Removes package with specified package full name|-RemovePackage [Package Name] [optional arguments]|
+||`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe`|
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
 |-QuietUX|Uninstalls MSIX package silently, without any user interaction|`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe msix `-QuietUX  |
 
 
-  
+
 **- FindPackage**
 
 |Description|Example|
@@ -87,6 +86,7 @@ This article contains an overview of the command-line syntax to help you underst
 
 
 
+
 **-UnmountImage**
 
 |Description|Example|
@@ -113,10 +113,8 @@ This article contains an overview of the command-line syntax to help you underst
 |-destination|Specifies directory to place the resulting package folder(s) in|`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx"`|
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls`|
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`|
-|-validateSignature|Validates a package's signature file before unpacking package. This will require that the package's certificate is installed on the machine.   
-Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](https://learn.microsoft.com/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`|
-
-
+|-validateSignature|Validates a package's signature file before unpacking package. This will require that the package's certificate is installed on the machine.||
+|Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
 
 **-?**
 
@@ -126,6 +124,17 @@ Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/c
 
 
 ## Next Steps
-Learn more about MSIX app attach at [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach) 
+Learn more about MSIX app attach at [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach)  
+  
+To learn how to set up app attach, check out these articles:
 
+- [Set up MSIX app attach with the Azure portal](/azure/virtual-desktop/app-attach-azure-portal)
+- [Set up MSIX app attach using PowerShell](/azure/virtual-desktop/app-attach-powershell)
+- [Create PowerShell scripts for MSIX app attach](/azure/virtual-desktop/app-attach)
+- [Prepare an MSIX image for Azure Virtual Desktop](/azure/virtual-desktop/app-attach-image-prep)
+- [Set up a file share for MSIX app attach](/azure/virtual-desktop/app-attach-file-share)  
+     
+     
+If you have questions about MSIX app attach, see our [App attach FAQ](/azure/virtual-desktop/app-attach-faq) and [App attach glossary](/azure/virtual-desktop/app-attach-glossary) 
+   
 
