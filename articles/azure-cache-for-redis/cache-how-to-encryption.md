@@ -39,10 +39,10 @@ Data in a Redis server is stored in memory by default. This data isn't encrypted
 
 ### Enterprise tiers
 
-In the **Enterprise** tier, disk encryption is used to encrypt:
+In the **Enterprise** tier, disk encryption is used to encrypt the persistence disk, temporary files, and the OS disk:
 
-- the persistence disk, which holds persisted RDB or AOF files as part of [data persistence](cache-how-to-premium-persistence.md) 
-- temporary files for data that is exported using the [export](cache-how-to-import-export-data.md) feature. (Encryption of the final exported data is controlled by settings in the storage account.)
+- persistence disk: holds persisted RDB or AOF files as part of [data persistence](cache-how-to-premium-persistence.md) 
+- temporary files used in _export_: temporary data used exported is encrypted. When you [export](cache-how-to-import-export-data.md) data, the encryption of the final exported data is controlled by settings in the storage account.
 - the OS disk 
 
 MMK is used to encrypt these disks by default, but CMK can also be used.
@@ -65,7 +65,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 - Disk encryption isn't available in the Basic and Standard tiers for the C0 or C1 SKUs
 - Only user assigned managed identity is supported to connect to Azure Key Vault
-- Changing between MMK and CMK on an existing cache instance triggers a long-running maintenance operation. We don't recommend this for production use as service disruption will occur. 
+- Changing between MMK and CMK on an existing cache instance triggers a long-running maintenance operation. We don't recommend this for production use because a service disruption occurs. 
 
 ### Azure Key Vault prerequisites and limitations
 
@@ -100,13 +100,13 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
    :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-version.png" alt-text="Screenshot showing the select identity and key fields completed.":::
 
-1. When you have entered all the information for your cache, select **Review + create**.
+1. When you've entered all the information for your cache, select **Review + create**.
 
 ### Add CMK encryption to an existing Enterprise cache
 
 1. Go to the **Encryption** in the Resource menu of your cache instance. If CMK is already set up, you see the key information. 
 
-1. If you haven't set up or t change CMK settings, select **Change encryption settings** 
+1. If you haven't set up or if you want to change CMK settings, select **Change encryption settings** 
    :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-use.png" alt-text="Screenshot encryption selected in the Resource menu for an Enterprise tier cache.":::
 
 1. Select **Use a customer-managed key** to see your configuration options. 
@@ -121,7 +121,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
-   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="Screenshot ":::
+   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="Screenshot showing the select identity and key fields completed for Encryption.":::
 
 ## Next Steps
 
