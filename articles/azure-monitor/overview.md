@@ -82,6 +82,8 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 
 :::image type="content" source="media/overview/data-platform.png" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-overview-context.png":::
 
+:::image type="content" source="media/overview/data-platform-4.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-overview-context.png":::
+
 Click on the picture to see a larger version of the data platform diagram in context.
 
 |Pillar of Observability/<br>Data Store|Description|
