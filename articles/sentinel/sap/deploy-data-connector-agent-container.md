@@ -19,6 +19,8 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. [Prepare SAP environment](preparing-sap.md)
 
 1. **Deploy data connector agent (*You are here*)**
