@@ -177,11 +177,9 @@ After a data flow has been published, you can add a new pipeline to move and tra
 
 1. Select **Validate** to ensure you haven't made any errors or omissions. Then, select **Publish** to publish the pipeline.
 
-1. Observe the JSON data placed into the Azure Blob Storage container as an output of the data flow using Azure Cosmos DB analytical store change data capture.
+1. Observe the data placed into the Azure Blob Storage container as an output of the data flow using Azure Cosmos DB analytical store change data capture.
 
-    ```json
-    
-    ```
+    :::image type="content" source="media/get-started-change-data-capture/output-files.png" alt-text="Screnshot of the output files from the pipeline in the Azure Blob Storage container.":::
 
     > [!NOTE]
     > The initial cluster startup time may take up to three minutes. To avoid cluster startup time in the subsequent change data capture executions, configure the Dataflow cluster **Time to live** value. For more information about the itegration runtime and TTL, see [integration runtime in Azure Data Factory](../data-factory/concepts-integration-runtime.md).
