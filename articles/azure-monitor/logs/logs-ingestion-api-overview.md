@@ -7,7 +7,7 @@ ms.date: 06/27/2022
 ---
 
 # Logs Ingestion API in Azure Monitor
-The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace using either [REST API](#rest-api-call) or [client libraries](#client-libraries). By using this API, you can send data to [supported Azure tables](#supported-tables) or to [custom tables that you create](../logs/create-custom-table.md#create-a-custom-table). You can even [extend the schema of Azure tables with custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column) to accept additional data.
+The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace using either a [REST API call](#rest-api-call) or [client libraries](#client-libraries). By using this API, you can send data to [supported Azure tables](#supported-tables) or to [custom tables that you create](../logs/create-custom-table.md#create-a-custom-table). You can even [extend the schema of Azure tables with custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column) to accept additional data.
 
 
 ## Basic operation
@@ -33,7 +33,7 @@ The Log ingestion API requires the following components to be created before you
 |:---|:---|
 | Data collection endpoint (DCE) | The DCE provides an endpoint for the application to send to. A single DCE can support multiple DCRs.  |
 | Data collection rule (DCR) | [Data collection rules](../essentials/data-collection-rule-overview.md) define data collected by Azure Monitor and specify how and where that data should be sent or stored. The API call must specify a DCR to use. The DCR must understand the structure of the input data and the structure of the target table. If the two don't match, it can include a [transformation](../essentials/data-collection-transformations.md) to convert the source data to match the target table. You can also use the transformation to filter source data and perform any other calculations or conversions.
-| Log Analytics workspace | The Log Analytics workspace contains the tables that will receive the data. The target tables are specific in the DCR. See [Support tables](#support-tables) for the tables that the ingestion API can send to. |
+| Log Analytics workspace | The Log Analytics workspace contains the tables that will receive the data. The target tables are specific in the DCR. See [Support tables](#supported-tables) for the tables that the ingestion API can send to. |
 
 ## Supported tables
 The following tables can receive data from the ingestion API.
@@ -63,7 +63,7 @@ You can use the following client libraries to send data to the Logs ingestion AP
 - [Python](/python/api/overview/azure/monitor-ingestion-readme)
 
 
-## REST API
+## REST API call
 To send data to Azure Monitor with a REST API call, make a POST call to the DCE over HTTP. Details of the call are described in the following sections.
 
 ### Endpoint URI

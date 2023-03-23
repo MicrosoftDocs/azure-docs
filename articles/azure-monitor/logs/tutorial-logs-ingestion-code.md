@@ -386,7 +386,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     
     // Upload logs
     Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
-```
+    ```
 
 3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
 
