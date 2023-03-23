@@ -24,7 +24,7 @@ Learn how to develop a training script with a notebook on an Azure Machine Learn
 
 ## Prerequisites
 
-To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
+[!INCLUDE [workspace](includes/prereq-workspace.md)]
 
 ## Start with Notebooks
 

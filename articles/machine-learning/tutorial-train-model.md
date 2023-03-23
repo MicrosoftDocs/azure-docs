@@ -33,10 +33,11 @@ The steps are:
 
 ## Prerequisites
 
-1. To use Azure Machine Learning, you'll first need a workspace. If you don't have one, complete [Create resources you need to get started](quickstart-create-resources.md) to create a workspace and learn more about using it.
+1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
 1. Open or create a notebook in your workspace:
+    * [!INCLUDE [clone](includes/prereq-clone-notebook.md)]
     * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
-    * Or, open **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
+    * Or, open **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. [!INCLUDE [find samples](includes/prereq-find-samples.md)]
 
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
