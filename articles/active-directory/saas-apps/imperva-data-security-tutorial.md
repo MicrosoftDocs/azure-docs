@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Imperva Data Security | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Imperva Data Security'
 description: Learn how to configure single sign-on between Azure Active Directory and Imperva Data Security.
 services: active-directory
 author: jeevansd

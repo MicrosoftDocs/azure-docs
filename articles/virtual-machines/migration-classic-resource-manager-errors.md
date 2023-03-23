@@ -7,8 +7,9 @@ ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 10/10/2022
+ms.date: 03/08/2023
 ms.author: tagore 
+ms.custom: compute-evergreen
 ---
 
 # Errors that commonly occur during Classic to Azure Resource Manager migration

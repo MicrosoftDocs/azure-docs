@@ -8,7 +8,6 @@ ms.contributor: cawa
 ms.reviewer: cawa
 ms.date: 01/11/2023
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell
 ---
 
 # Track a web app outage using Change Analysis

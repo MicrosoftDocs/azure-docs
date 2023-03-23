@@ -370,7 +370,7 @@ When you register a file in Azure Maps using the data registry API, an MD5 hash 
 [storage account overview]: /azure/storage/common/storage-account-overview
 [create storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [managed identity]: /azure/active-directory/managed-identities-azure-resources/overview
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Azure portal]: https://portal.azure.com/
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/
 [geographic scope]: geographic-scope.md

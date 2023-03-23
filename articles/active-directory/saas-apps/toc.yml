@@ -348,6 +348,8 @@
         href: boxcryptor-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
+      - name: BrainStorm Platform
+        href: brainstorm-platform-tutorial.md
       - name: Braze
         href: braze-tutorial.md
       - name: Bridge
@@ -1073,7 +1075,7 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
-      - name: HawkeyeBSB
+      - name: Hawkeye Platform
         href: hawkeyebsb-tutorial.md
       - name: hCaptcha Enterprise
         href: hcaptcha-enterprise-tutorial.md
@@ -1269,6 +1271,8 @@
         href: iserver-portal-tutorial.md
       - name: i-Sight
         href: isight-tutorial.md
+      - name: Island
+        href: island-tutorial.md
       - name: IT-Conductor
         href: it-conductor-tutorial.md
       - name: ITRP
@@ -1441,6 +1445,8 @@
         href: lecorpio-tutorial.md
       - name: Ledgy
         href: ledgy-tutorial.md
+      - name: LegalForce
+        href: legalforce-tutorial.md
       - name: Lenses.io
         href: lensesio-tutorial.md
       - name: Lessonly
@@ -1603,7 +1609,7 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
-      - name: MURAL Identity
+      - name: Mural Identity
         href: mural-identity-tutorial.md  
       - name: MVISION Cloud Azure AD SSO Configuration
         href: skyhighnetworks-tutorial.md
@@ -1895,6 +1901,8 @@
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
         href: prisma-cloud-tutorial.md
+      - name: Proactis Rego Source-to-Pay
+        href: proactis-rego-source-to-pay-tutorial.md
       - name: Procaire
         href: procaire-tutorial.md
       - name: ProcessUnity
@@ -1909,7 +1917,7 @@
         href: productive-tutorial.md  
       - name: Profit.co
         href: profitco-saml-app-tutorial.md
-      - name: Projectplace
+      - name: ProjectPlace
         href: projectplace-tutorial.md
       - name: Prolorus
         href: prolorus-tutorial.md
@@ -2203,6 +2211,8 @@
         href: signagelive-tutorial.md
       - name: SignalFx
         href: signalfx-tutorial.md
+      - name: Signiant Media Shuttle
+        href: signiant-media-shuttle-tutorial.md
       - name: Sigstr
         href: sigstr-tutorial.md
       - name: SilkRoad Life Suite
@@ -2337,6 +2347,8 @@
         href: sumologic-tutorial.md
       - name: SumTotalCentral
         href: sumtotalcentral-tutorial.md
+      - name: SuperAnnotate
+        href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
       - name: SURFsecureID - Azure MFA
@@ -2643,6 +2655,8 @@
         href: watch-by-colors-tutorial.md
       - name: Wandera
         href: wandera-tutorial.md
+      - name: Wayleadr
+        href: wayleadr-tutorial.md
       - name: Way We Do
         href: waywedo-tutorial.md
       - name: Wdesk
@@ -2741,6 +2755,8 @@
         href: yodeck-tutorial.md
       - name: Yonyx Interactive Guides
         href: yonyx-tutorial.md
+      - name: YOU at College
+        href: you-at-college-tutorial.md
       - name: YouEarnedIt
         href: youearnedit-tutorial.md
       - name: Yuhu Property Management Platform
@@ -3122,7 +3138,7 @@
         href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: Netsparker Enterprise
+      - name: NetsparkerEnterprise
         href: netsparker-enterprise-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
@@ -3278,6 +3294,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Thrive LXP
         href: thrive-lxp-provisioning-tutorial.md
+      - name: Torii
+        href: torii-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
       - name: Tribeloo

@@ -1,5 +1,5 @@
 ---
-title: High availability for Azure MFA Server - Azure Active Directory
+title: High availability for Azure MFA Server
 description: Deploy multiple instances of Azure Multi-Factor Authentication Server in configurations that provide high availability.
 
 services: multi-factor-authentication

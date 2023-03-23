@@ -27,7 +27,7 @@ The code in this guide uses remote images referenced by URL. You may want to try
 In your main class, save a reference to the URL of the image you want to analyze.
 
 ```csharp
-var imageSource = VisionSource.FromUrl(new Uri("https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"));
+var imageSource = VisionSource.FromUrl(new Uri("https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"));
 ```
 
 > [!TIP]
@@ -59,7 +59,7 @@ auto imageSource = VisionSource::FromUrl("https://learn.microsoft.com/azure/cogn
 
 #### [REST](#tab/rest)
 
-When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://docs.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
+When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
 
 To analyze a local image, you'd put the binary image data in the HTTP request body.
 

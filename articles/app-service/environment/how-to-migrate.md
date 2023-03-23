@@ -3,6 +3,7 @@ title: Use the migration feature to migrate your App Service Environment to App 
 description: Learn how to migrate your App Service Environment to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 12/5/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal

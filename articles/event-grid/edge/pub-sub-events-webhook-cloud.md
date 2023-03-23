@@ -14,9 +14,9 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Publish, subscribe to events in cloud
 
-This article walks through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge. This tutorial uses and Azure Function as the Event Handler. For additional destination types, see [event handlers](event-handlers.md).
+This article walks through all the steps needed to publish and subscribe to events using Event Grid on IoT Edge. This tutorial uses and Azure Function as the Event Handler. For more destination types, see [event handlers](event-handlers.md).
 
-See [Event Grid Concepts](concepts.md) to understand what an event grid topic and subscription are before proceeding.
+See [Event Grid Concepts](concepts.md) to understand what an Event Grid topic and subscription are before proceeding.
 
 > [!IMPORTANT]
 > On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
@@ -24,12 +24,12 @@ See [Event Grid Concepts](concepts.md) to understand what an event grid topic an
 
 
 ## Prerequisites 
-In order to complete this tutorial, you will need:
+In order to complete this tutorial, you need:
 
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
 * **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)]
+[!INCLUDE [deploy-iot-edge](../includes/deploy-iot-edge.md)]
 
 ## Create an Azure function in the Azure portal
 
@@ -59,14 +59,14 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-In your new function, select **Get function URL** at the top right, select default (**Function key**), and then select **Copy**. You will use the function URL value later in the tutorial.
+In your new function, select **Get function URL** at the top right, select default (**Function key**), and then select **Copy**. You use the function URL value later in the tutorial.
 
 > [!NOTE]
 > Refer to the [Azure Functions](../../azure-functions/functions-overview.md) documentation for more samples and tutorials on reacting to events and using EventGrid event triggers.
 
 ## Create a topic
 
-As a publisher of an event, you need to create an event grid topic. Topic refers to an end point where publishers can send events to.
+As a publisher of an event, you need to create an Event Grid topic. Topic refers to an end point where publishers can send events to.
 
 1. Create topic2.json with the following content. See our [API documentation](api.md) for details about the payload.
 
@@ -107,9 +107,9 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Create an event subscription
 
-Subscribers can register for events published to a topic. To receive any event, the subscribers will need to create an Event grid subscription on a topic of interest.
+Subscribers can register for events published to a topic. To receive any event, the subscribers need to create an Event Grid subscription on a topic of interest.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [deploy-iot-edge](../includes/edge-persist-event-subscriptions.md)]
 
 1. Create subscription2.json with the following content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -199,11 +199,11 @@ You can view the event delivered in the Azure portal under the **Monitor** optio
 
 ## Next steps
 
-In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles:
+In this tutorial, you created an Event Grid topic, subscription, and published events. Now that you know the basic steps, see the following articles:
 
 * To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 * Create/update subscription with [filters](advanced-filtering.md).
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication
-* Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-event-grid-cloud.md)
+* Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-cloud.md)
 * [Monitor topics and subscriptions on the edge](monitor-topics-subscriptions.md)

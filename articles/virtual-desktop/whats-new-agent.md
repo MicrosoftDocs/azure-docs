@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2023
+ms.date: 03/10/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -25,14 +25,20 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 
 | Release | Latest version |
 |---|---|
-| Generally available | 1.0.6028.2200 |
+| Generally available | 1.0.6129.9100 |
 | In-flight | N/A |
+
+## Version 1.0.6129.9100
+
+This update was released in March 2023 and includes the following changes:
+
+- General improvements and bug fixes.
 
 ## Version 1.0.6028.2200
 
 This update was released in February 2023 and includes the following changes:
 
-- Domain Trust health check is now enabled. When virtual machines (VMs) fail the Domain Trust health check, they're now given the "Unavailable" status.
+- Domain Trust health check is now enabled. When virtual machines (VMs) fail the Domain Trust health check, they're now given the *Unavailable* status.
 - General improvements and bug fixes.
 
 ## Version 1.0.5739.9000/1.0.5739.9800

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PerimeterX | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PerimeterX'
 description: Learn how to configure single sign-on between Azure Active Directory and PerimeterX.
 services: active-directory
 author: jeevansd

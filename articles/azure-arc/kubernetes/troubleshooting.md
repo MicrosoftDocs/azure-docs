@@ -1,7 +1,8 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 01/23/2023
+ms.date: 03/13/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
 
@@ -85,21 +86,6 @@ If you encounter this issue, and your cluster is behind an outbound proxy server
 ### Unable to retrieve MSI certificate
 
 Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](network-requirements.md) have been met, then try again.
-
-### Azure CLI is unable to download Helm chart for Azure Arc agents
-
-With Helm version >= 3.7.0, you may run into the following error when using `az connectedk8s connect` to connect the cluster to Azure Arc:
-
-```azurecli
-az connectedk8s connect -n AzureArcTest -g AzureArcTest
-```
-
-```output
-Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
-Run 'helm --help' for usage.
-```
-
-To resolve this issue, you'll need to install a prior version of [Helm 3](https://helm.sh/docs/intro/install/), where the version is less than 3.7.0. After you've installed that version, run the `az connectedk8s connect` command again to connect the cluster to Azure Arc.
 
 ### Insufficient cluster permissions
 

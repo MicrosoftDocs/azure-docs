@@ -131,7 +131,7 @@ You'll use the connection string as a GitHub secret.
        with:
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
         server-name: POSTGRESQL_SERVER_NAME
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
     ```
 
 3. Complete your workflow by adding an action to logout of Azure. Here's the completed workflow. The file appears in the `.github/workflows` folder of your repository.
@@ -161,7 +161,7 @@ You'll use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout
@@ -196,7 +196,7 @@ You'll use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout

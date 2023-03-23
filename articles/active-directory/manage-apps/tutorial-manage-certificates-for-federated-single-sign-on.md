@@ -53,7 +53,7 @@ By default, Azure configures a certificate to expire after three years when it's
 1. Save the new certificate.
 1. Download the new certificate in the correct format.
 1. Upload the new certificate to the application.
-1. Make the new certificate active in the Azure Active Directory portal.
+1. Make the new certificate active in the Azure portal.
 
 The following two sections help you perform these steps.
 
@@ -61,8 +61,8 @@ The following two sections help you perform these steps.
 
 First, create and save new certificate with a different expiration date:
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Azure Active Directory admin center** page appears.
-1. Select **Enterprise applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. From the list of applications, select your desired application.
 1. Under the **Manage** section, select **Single sign-on**.
 1. If the **Select a single sign-on method** page appears, select **SAML**.

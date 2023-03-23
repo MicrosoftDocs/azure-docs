@@ -181,7 +181,7 @@ The streamed logs look like this:
 > [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
 
 > [!div class="nextstepaction"]
-> [Use Private Endpoings for App Service apps](../../networking/private-endpoint.md)
+> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Azure Monitor overview](/azure-monitor/overview.md)

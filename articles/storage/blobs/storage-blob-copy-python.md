@@ -37,7 +37,7 @@ The source blob for a copy operation may be one of the following types:
 
 If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the earlier code example. For more information on blob leases, see [Create and manage blob leases with Python](storage-blob-lease-python.md).
+The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the code example. For more information on blob leases, see [Create and manage blob leases with Python](storage-blob-lease-python.md).
 
 The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported. When a blob is copied, its system properties are copied to the destination blob with the same values.
 
