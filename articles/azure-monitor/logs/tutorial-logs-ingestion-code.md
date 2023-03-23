@@ -187,7 +187,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-3. Replace the variables in the following sample code with values from your DCE, and DCR. Use *Custom-MyTableRawData* for the `data_stream_name` to match the DCR in the tutorial. You might also want to replace the sample data with your own.
+3. Replace the variables in the following sample code with values from your DCE, and DCR. You might also want to replace the sample data with your own.
 
     ```javascript
     const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
@@ -196,9 +196,9 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     require("dotenv").config();
     
     async function main() {
-      const logsIngestionEndpoint = process.env.LOGS_INGESTION_ENDPOINT || "logs_ingestion_endpoint";
-      const ruleId = process.env.DATA_COLLECTION_RULE_ID || "data_collection_rule_id";
-      const streamName = process.env.STREAM_NAME || "data_stream_name";
+      const logsIngestionEndpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com";
+      const ruleId = "dcr-00000000000000000000000000000000";
+      const streamName = "Custom-MyTableRawData";
       const credential = new DefaultAzureCredential();
       const client = new LogsIngestionClient(logsIngestionEndpoint, credential);
       const logs = [
@@ -279,13 +279,13 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-4. Replace the variables in the following sample code with values from your DCE, and DCR. Use *Custom-MyTableRawData* for the `<data-stream-name>` to match the DCR in the tutorial. You may also want to replace the sample data with your own.
+4. Replace the variables in the following sample code with values from your DCE, and DCR. You may also want to replace the sample data with your own.
 
     ```java
     public static void main(String[] args) { 
         
         LogsIngestionClient client = new LogsIngestionClientBuilder()
-            .endpoint("<data-collection-endpoint>") 
+            .endpoint("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com") 
             .credential(new DefaultAzureCredentialBuilder().build()) 
             .buildClient(); 
             
@@ -314,7 +314,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
             }); 
             
         try { 
-            client.upload("<data-collection-rule-id>", "<data-stream-name>", dataList); 
+            client.upload("dcr-00000000000000000000000000000000", "Custom-MyTableRawData", dataList);  
             System.out.println("Logs uploaded successfully"); 
         } catch (LogsUploadException exception) { 
             System.out.println("Failed to upload logs "); 
@@ -346,15 +346,15 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-2. Replace the variables in the following sample code with values from your DCE, and DCR. Use *Custom-MyTableRawData* for the `data_stream_name` to match the DCR in the tutorial. You may also want to replace the sample data with your own.
+2. Replace the variables in the following sample code with values from your DCE, and DCR. You may also want to replace the sample data with your own.
 
     
 
     ```csharp
     // Initialize variables
-    var endpoint = new Uri("<data_collection_endpoint_uri>");
-    var ruleId = "<data_collection_rule_id>";
-    var streamName = "<data_stream_name>";
+    var endpoint = new Uri("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com";);
+    var ruleId = "dcr-00000000000000000000000000000000";
+    var streamName = "Custom-MyTableRawData";
     
     // Create credential and client
     var credential = new DefaultAzureCredential();
