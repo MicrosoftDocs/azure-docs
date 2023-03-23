@@ -57,8 +57,6 @@
       href: existing-vnet-integration.md
     - name: Update managed resources
       href: update-managed-resources.md
-    - name: Use portal to publish application definition
-      href: publish-portal.md
     - name: Use secret from Key Vault
       href: key-vault-access.md
     - name: Deploy with Managed Identity
