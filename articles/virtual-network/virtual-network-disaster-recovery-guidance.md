@@ -14,7 +14,7 @@ ms.author: allensu
 
 A Virtual Network is a logical representation of your network in the cloud. It allows you to define your own private IP address space and segment the network into subnets. Virtual networks serve as a trust boundary to host your compute resources such as Azure Virtual Machines and load balancers. A virtual network allows direct private IP communication between the resources hosted in it. You can link a virtual network to an on-premises network through a VPN Gateway, or ExpressRoute.
 
-A virtual network is created within the scope of a region. You can **create** virtual networks with the same address space in two different regions (For example, US East and US West), but because they have the same address space, you can't connect them together. 
+A virtual network is created within the scope of a region. You can **create** virtual networks with the same address space in two different regions, but because they have the same address space, you can't connect them together. 
 
 ## Business Continuity
 
