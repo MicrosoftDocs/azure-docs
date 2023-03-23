@@ -34,10 +34,10 @@ The Enterprise tier provides the following managed VMware Tanzu components that 
 - Application Live View for VMware Tanzu
 - Application Accelerator for VMware Tanzu
 
-As the most advanced tier in Azure Spring Apps, a Microsoft-provided, first-party Azure service, the Enterprise tier pricing is composed of the following two parts:
+The pricing for Azure Spring Apps Enterprise tier is composed of the following two parts:
 
-- Infrastructure pricing to Microsoft, based on vCPU and memory usage of apps and managed Tanzu components.
-- Tanzu component licensing pricing to VMware, based on vCPU usage of apps.
+- Infrastructure pricing, set by Microsoft, based on vCPU and memory usage of apps and managed Tanzu components.
+- Tanzu component licensing pricing, set by VMware, based on vCPU usage of apps.
 
 For more information about pricing, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
