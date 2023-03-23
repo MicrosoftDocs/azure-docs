@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 03/23/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.collection: M365-identity-device-management
@@ -43,7 +43,7 @@ Use the following CSS selectors to configure the details of the sign-in experien
     ![Screenshot of the sign-in screen with the .ext-header and .ext-header-logo areas highlighted.](media/reference-company-branding-css-template/ext-header-and-logo.png)
 
 - `.ext-middle` - Style for the full-screen background that aligns the sign-in box vertically to the middle and horizontally to the center
-- `.ext-vertical-split-main-section` - Style for the container of the partial-screen background in the vertical split template that contains both a sign-in box and a background (This style is also known as the Active Directory Federation Services (ADFS) template)
+- `.ext-vertical-split-main-section` - Style for the container of the partial-screen background in the vertical split template that contains both a sign-in box and a background (This style is also known as the Active Directory Federation Services (ADFS) template.)
 - `.ext-vertical-split-background-image-container` - Sign-in box background in the vertical split/ADFS template
 - `.ext-sign-in-box` - Sign-in box container
 
@@ -73,7 +73,7 @@ Use the following CSS selectors to configure the details of the sign-in experien
 
     ![Screenshot of the sign-in box at the Sign-in options step, with the secondary - Back - button highlighted.](media/reference-company-branding-css-template/ext-secondary-button.png)
 
-- `.ext-error` - Error text.
+- `.ext-error` - Error text
 
     ![Screenshot of the sign-in box with error text highlighted.](media/reference-company-branding-css-template/ext-error-text.png)
 

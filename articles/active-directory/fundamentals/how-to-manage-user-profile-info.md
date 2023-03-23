@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 03/23/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -80,7 +80,7 @@ Go to **Azure AD** > **User settings**.
 
 ### Learn about the 'Stay signed in?' prompt
 
-The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, a persistent authentication cookie is issued. The cookie must be stored in session for KMSI to work. KMSI will not work with locally stored cookies. If KMSI is not enabled, a non-persistent cookie is issued and lasts for 24 hours or until the browser is closed.
+The **Stay signed in?** prompt appears after a user successfully signs in. This process is known as **Keep me signed in** (KMSI). If a user answers **Yes** to this prompt, a persistent authentication cookie is issued. The cookie must be stored in session for KMSI to work. KMSI won't work with locally stored cookies. If KMSI isn't enabled, a non-persistent cookie is issued and lasts for 24 hours or until the browser is closed.
 
 The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 
@@ -101,7 +101,7 @@ If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in
 
 ![Sample 'Stay signed in?' prompt](media/customize-branding/kmsi-stay-signed-in-prompt.png)
 
-Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the details below in the **Basic info** section.
+Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the following error code details in the **Basic info** section.
 
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
