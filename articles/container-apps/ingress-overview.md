@@ -29,10 +29,12 @@ For configuration details, see [Configure ingress](ingress.md).
 
 ## Public and private ingress
 
-When you enable ingress, you choose whether ingress to your container app is public (external) or private (internal).  
+When you enable ingress, you can choose between two types of ingress:
 
-- External: Allows public access to your container app.
-- Internal: Allows access only private access to your container app from within environment's internal VNET.
+- Public: Allows external access from the public internet and from apps within the same environment.
+- Private: Allows only internal access from with your container app's environment.
+
+Ingress external to your environment uses a [fully qualified domain name](#domain-names) (FQDN) to route traffic to your container app.  In addition to the FQDN, container apps can access another app in the same environment by using its name.  The name of the container app is defined in `name` property in the container app's resource.  
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you may have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
@@ -48,7 +50,7 @@ With HTTP ingress enabled, your container app has:
 - Support for HTTP/1.1 and HTTP/2
 - Support for  WebSocket and gRPC
 - HTTPS endpoints that always use TLS 1.2, terminated at the ingress point
-- Endpoints that always expose port 80 (for HTTP) and 443 (for HTTPS)
+- Endpoints that expose ports 80 (for HTTP) and 443 (for HTTPS)
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443
 - A fully qualified domain name (FQDN)
 - Request timeout is 240 seconds
@@ -77,32 +79,11 @@ With TCP ingress enabled, your container app:
 
 ## Domain names
 
-Each app in a Container Apps environment is automatically assigned a fully qualified domain name (FQDN) that is based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+Each app in a Container Apps environment is automatically assigned a fully qualified domain name (FQDN) based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 
 You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 
-Within a Container Apps environment, apps can communicate with each other using their app names.
-
-VNET-scope ingress requires additional DNS configuration. For more information, see [DNS configuration for VNET-scope ingress](./networking.md#dns).
-
-### Default fully qualified domain names (FQDN)
-
-The automatically assigned domain name takes the following forms:
-
-|Ingress visibility setting | Fully qualified domain name |
-|---|---|
-| External | `<APP_NAME>.<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`|
-| Internal | `<APP_NAME>.internal.<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io` |
-
-For HTTP ingress, traffic is routed to individual applications based on the FQDN in the host header.
-
-For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the container app's `name` property) and its `exposedPort` number.
-
-You can get access to the environment's unique identifier by querying the environment settings. For more information, see [Connect applications](connect-apps.md#get-fully-qualified-domain-name).
-
-### App names
-
-In addition to the default FQDN and the custom domain name, one container app can access another app in the same environment by using its name.  The name of the container app is defined by the `name` property in the Container Apps resource.
+VNET-scope ingress requires more DNS configuration. For more information, see [DNS configuration for VNET-scope ingress](./networking.md#dns).
 
 ## IP restrictions
 
@@ -114,7 +95,8 @@ For more information, see [Configure IP restrictions](ip-restrictions.md).
 
 Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
 
-You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md).
+You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md)
+
 
 ## Traffic splitting
 

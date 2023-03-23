@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Set up IP ingress restrictions in Azure Container Apps (preview)
+# Set up IP ingress restrictions in Azure Container Apps
 
 Azure Container Apps allows you to limit inbound traffic to your container app by configuring IP ingress restrictions via ingress configuration.
 
