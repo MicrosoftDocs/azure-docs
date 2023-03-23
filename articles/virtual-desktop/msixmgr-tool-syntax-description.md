@@ -3,13 +3,12 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title:       # MSIXMGR Tool Paramters
-description: # his article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
+title:       MSIXMGR Tool Paramters
+description: this article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
 author:      fiza-microsoft # GitHub alias
 ms.author:   fizaazmi # Microsoft alias
-ms.service:  # Add the ms.service or ms.prod value
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # Add the ms.topic value
+ms.prod:     msix
+ms.topic:    concept-article
 ms.date:     03/21/2023
 ---
 
@@ -20,11 +19,12 @@ This article contains an overview of the command-line syntax to help you underst
 
 ## Prerequisites:
 
-- [Requirements](/azure/virtual-desktop/app-attach-msixmgr%23requirements:~:text=Windows%2010%2020H2.-,Requirements,-Before%20you%20can%20)  
+- [Requirements](/learn.microsoft.com/en-us/azure/virtual-desktop/app-attach-msixmgr#requirements)  
 - [MSIX App Attach](/azure/virtual-desktop/app-attach-azure-portal)  
 - [Using the MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
 
 ## Syntax
+
 
 
   
@@ -115,7 +115,7 @@ This article contains an overview of the command-line syntax to help you underst
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls`|
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`|
 |-validateSignature|Validates a package's signature file before unpacking package. This will require that the package's certificate is installed on the machine.   
-Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`|
+Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](https://learn.microsoft.com/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`|
 
 
 
