@@ -133,27 +133,27 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 
 1. 1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
    ```dotnetcli
-       code: src 
-       command: 
-         python train.py 
-         # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
-       environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
-       compute: azureml:<your compute name>
-       services:
-           my_vs_code:
-             job_service_type: vs_code
-             nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
-           my_tensor_board:
-             job_service_type: tensor_board
-             log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
-             nodes: all
-           my_jupyter_lab:
-             job_service_type: jupyter_lab
-             nodes: all
-           my_ssh:
-            job_service_type: ssh
-            ssh_public_keys: <paste the entire pub key content>
-            nodes: all
+   code: src 
+   command: 
+     python train.py 
+     # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
+   environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
+   compute: azureml:<your compute name>
+   services:
+       my_vs_code:
+         job_service_type: vs_code
+         nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
+       my_tensor_board:
+         job_service_type: tensor_board
+         log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
+         nodes: all
+       my_jupyter_lab:
+         job_service_type: jupyter_lab
+         nodes: all
+       my_ssh:
+        job_service_type: ssh
+        ssh_public_keys: <paste the entire pub key content>
+        nodes: all
    ```
 
        The `services` section specifies the training applications you want to interact with.  
