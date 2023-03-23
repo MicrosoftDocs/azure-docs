@@ -45,10 +45,9 @@ Other examples of attack paths for sensitive data include:
 Explore data risks and exposure in cloud security graph insights using a query template, or by defining a manual query.
 
 1. In Defender for Cloud, open **Cloud Security Explorer**.
-1. Select a query template, or build your own query.
+1. Select a query template, or build your own query. Here;s an example:
 
-[Review](resource-graph-samples.md) some sample queries.
-
+    :::image type="content" source="./media/data-security-review-risks/query.png" alt-text="Insights data query." lightbox=".data-security-review-risks/query.png":::
 
 ## Explore sensitive data security alerts
 

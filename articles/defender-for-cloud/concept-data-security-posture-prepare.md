@@ -25,9 +25,12 @@ Sensitive data discovery is available in the Defender CSPM and Defender for Stor
 
 The table summarizes support for data-aware posture management.
 
+- , but it can’t discover data that’s encrypted with a Customer Key.
+
 **Support** | **Details**
 --- | ---
-What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Note that we don't scan page blobs.
+What Azure data resources can I scan? | Azure storage accounts v1, v2<br/><br/> Azure Data Lake Storage Gen1/Gen2<br/><br/>Accounts are supported behind private networks but not behind private endpoints.<br/><br/>  Defender for Cloud can discover data encrypted by KMB or a customer-managed key. <br/><br/>Page blobs aren't scanned.
+What AWS data resources can I scan? | AWS S3 buckets<br/><br/> Defender for Cloud can scan encrypted data, but not data encrypted with a customer-managed key.
 What permissions do I need for scanning? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
@@ -68,7 +71,7 @@ In order to protect AWS resources in Defender for Cloud, you set up an AWS conne
 - The CloudFormation template creates a new role in AWS IAM, to allow permission for the Defender for Cloud scanner to access data in the S3 buckets. 
 - To connect AWS accounts, you need Administrator permissions on the account.
 - The role allows these permissions: S3 read only; KMS decrypt.
-- Defender for Cloud can discover data encrypted by KMB, but it can’t discover data that’s encrypted with a Customer Key.
+
 
 
 
