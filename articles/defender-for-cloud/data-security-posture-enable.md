@@ -48,14 +48,9 @@ GetBucketLocation, GetObject, ListBucket, GetBucketPublicAccessBlock
 - Check that your SCP policy allows calls to the us-east-1 AWS Region, which is the default 
 region for API calls.
 
-### Enable data-aware security posture
+### Enable for AWS resources
 
-1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
-1. Select the relevant AWS account.
-1. For the Defender CSPM plan, select the **On** status.
-
-    If Defender CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Data security posture** component is set to **On** status.
-
+1. Enable data security posture as described above
 1. Proceed with the instructions to download the CloudFormation template and to run it in AWS.
 
 Automatic discovery of S3 buckets in the AWS account starts automatically. The Defender for Cloud scanner runs in your AWS account and connects to the your S3 buckets.
