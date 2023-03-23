@@ -19,11 +19,11 @@ The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows
 
 The steps required to configure the Logs ingestion API are as follows:
 
-1. Create an Azure AD application to authenticate against the API.
-3. Create a data collection endpoint (DCE) to receive data.
-2. Create a custom table in a Log Analytics workspace. This is the table you'll be sending data to. As part of this process, you will create a data collection rule (DCR) to direct the data to the target table.
-5. Give the AD application access to the DCR.
-6. Use sample code to send data to using the Logs ingestion API.
+1. [Create an Azure AD application](#create-azure-ad-application) to authenticate against the API.
+3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
+2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to. As part of this process, you will create a data collection rule (DCR) to direct the data to the target table.
+5. [Give the AD application access to the DCR](#assign-permissions-to-the-dcr).
+6. [Use sample code to send data to using the Logs ingestion API](#send-sample-data).
 
 
 ## Prerequisites
