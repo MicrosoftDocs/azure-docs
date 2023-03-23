@@ -34,6 +34,7 @@ The steps are:
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
+
 1. Open or create a notebook in your workspace:
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
     * Or, open **tutorials/get-started-notebooks/train-model.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
