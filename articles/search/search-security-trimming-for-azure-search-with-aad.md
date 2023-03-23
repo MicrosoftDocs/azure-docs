@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/23/2023
 ms.custom: devx-track-csharp
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
@@ -22,7 +22,7 @@ This article covers the following tasks:
 > - Cache the new groups
 > - Index documents with associated groups
 > - Issue a search request with group identifiers filter
-> 
+
 > [!NOTE]
 > Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/23/2023
 ---
 
 # Security filters for trimming results in Azure Cognitive Search

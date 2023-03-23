@@ -32,16 +32,28 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
+1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition:
 
-    ```json
+   ```http
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30 
     {
-        "name" : "hotel-tables",
-        "type" : "azuretable",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "tblHotels", "query" : "PartitionKey eq '123'" }
+        "name": "my-table-storage-ds",
+        "description": null,
+        "type": "azuretable",
+        "subtype": null,
+        "credentials": {
+           "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>"
+        },
+        "container": {
+           "name": "my-table-in-azure-storage",
+           "query": ""
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null,
+        "encryptionKey": null,
+        "identity": null
     }
-    ```
+   ```
 
 1. Set "type" to `"azuretable"` (required).
 
@@ -49,7 +61,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 1. Set "container" to the name of the table.
 
-1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is specified any other way, the indexer will execute a full table scan, resulting in poor performance if the tables are large.
+1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is null, the indexer executes a full table scan, which can result in poor performance if the tables are large.
 
 A data source definition can also include [soft deletion policies](search-howto-index-changed-deleted-blobs.md), if you want the indexer to delete a search document when the source document is flagged for deletion.
 
@@ -113,17 +125,30 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     {
       "name" : "my-search-index",
       "fields": [
-        { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "Key", "type": "Edm.String", "key": true, "searchable": false },
         { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
       ]
     }
     ```
 
-1. Create a document key field ("key": true), but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field in your table. 
+1. Create a document key field ("key": true), but allow the indexer to populate it automatically. 
 
-   A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the key value is `PK1RK1`. If the partition key is null, just the row key is used.
+   A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `1` and RowKey is `1_123`, then the key value is `11_123`. If the partition key is null, just the row key is used.
 
-1. Create additional fields that correspond to entity fields. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category.
+   To use implicit field mapping, name the document key field "Key" in the search index definition.
+
+   Alternatively, you can use a different name in the index, but you'll need to create an explicit field mapping in the indexer definition, where the source field name is "Key":
+
+   ```json
+    "fieldMappings" : [
+      {
+        "sourceFieldName" : "Key",
+        "targetFieldName" : "MyDocumentKeyFieldName"
+      }
+   ]
+   ```
+
+1. Now add any other entity fields that you want in your index. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category to receive those values.
 
    :::image type="content" source="media/search-howto-indexing-tables/table.png" alt-text="Screenshot of table content in Storage browser." border="true":::
 
@@ -131,31 +156,34 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 ## Configure and run the table indexer
 
-Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once you have an index and data source, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-        "name" : "table-indexer",
-        "dataSourceName" : "my-table-datasource",
+        "name" : "my-table-indexer",
+        "dataSourceName" : "my-table-storage-ds",
         "targetIndexName" : "my-search-index",
-        "parameters": {
-            "batchSize": null,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration:" { }
+        "disabled": null,
+        "schedule": null,
+        "parameters" : {
+            "batchSize" : null,
+            "maxFailedItems" : null,
+            "maxFailedItemsPerBatch" : null,
+            "base64EncodeKeys" : null,
+            "configuration" : { }
         },
-        "schedule" : { },
-        "fieldMappings" : [ ]
+        "fieldMappings" : [ ],
+        "cache": null,
+        "encryptionKey": null
     }
     ```
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
-1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
 An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
