@@ -35,41 +35,100 @@ To sign-in to the Azure CLI, run the following command and complete the sign-in.
 az login
 ```
 
-## Assign yourself to the Cognitive Services User role
+## Assign yourself to the Cognitive Services User role using azurecli
 
 Assigning yourself to the Cognitive Services User role will allow you to use your account for access to the specific cognitive services resource
 
-1. Get your user information
+Get your user information
 
-    ```azurecli
-    export user=$(az account show | jq -r .user.name)
-    ```
+```azurecli
+export user=$(az account show | jq -r .user.name)
+ ```
 
-2. Assign yourself to “Cognitive Services User” role.
+Assign yourself to “Cognitive Services User” role.
 
-    ```azurecli
-    export resourceId=$(az group show -g $myResourceGroupName | jq -r .id)
-    az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
-    ```
+```azurecli
+export resourceId=$(az group show -g $myResourceGroupName | jq -r .id)
+az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
+```
 
     > [!NOTE]
     > Role assignment change will take ~5 mins to become effective. Therefore, I did this step ahead of time. Skip this if you have already done this previously.
 
-3. Acquire an Azure AD access token. Access tokens expire in one hour. you'll then need to acquire another one.
+# defining the system message
 
-    ```azurecli
-    export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com | jq -r .accessToken)
-    ```
+system_message_template = "<|im_start|>system\n{}\n<|im_end|>"
+system_message = system_message_template.format("")
 
-4. Make an API call
+## Acquire and token and make and API call using azcli
+
+Acquire an Azure AD access token. Access tokens expire in one hour. you'll then need to acquire another one.
+
+```azurecli
+export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com | jq -r .accessToken)
+```
+
+Make an API call
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
-    ```bash
-    curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $accessToken" \
-    -d '{ "prompt": "Once upon a time" }'
-    ```
+```bash
+curl ${endpoint%/}/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $accessToken" \
+-d '{ "prompt": "Once upon a time" }'
+```
+## Acquire and token and make and API call using python
+
+Acquire an Azure AD access token. Access tokens expire in one hour. you'll then need to acquire another one.
+
+```python
+from azure.identity import DefaultAzureCredential
+import openai
+# Request credential
+default_credential = DefaultAzureCredential()
+token = default_credential.get_token("https://cognitiveservices.azure.com/.default")
+```
+
+Configure OpenAI API and use the access token to authorize the call bu setting the token as the api_key value
+
+ ```python
+import os
+import openai
+openai.api_type = "azure_ad"
+openai.api_base = "https://oai-az-test-02.openai.azure.com/"
+openai.api_version = "2022-12-01"
+openai.api_key = f"{token.token}"
+```
+
+Create a prompt
+
+```python
+def create_prompt(system_message, messages):
+    prompt = system_message
+    message_template = "\n<|im_start|>{}\n{}\n<|im_end|>"
+    for message in messages:
+        prompt += message_template.format(message['sender'], message['text'])
+    prompt += "\n<|im_start|>assistant\n"
+    return prompt
+```
+ Ask a question
+ 
+```python
+messages = [{"sender": "user", "text": "Hello world",]
+
+response = openai.Completion.create(
+    engine="GPT",
+    prompt= create_prompt(system_message, messages),
+    temperature=0.7,
+    max_tokens=800,
+    top_p=0.95,
+    frequency_penalty=0,
+    presence_penalty=0,      
+    stop=["<|im_end|>"])
+ 
+print(response)   
+ ``` 
+
 
 ## Authorize access to managed identities
 
