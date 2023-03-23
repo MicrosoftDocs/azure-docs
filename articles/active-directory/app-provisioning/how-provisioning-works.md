@@ -76,7 +76,7 @@ You can use scoping filters to define attribute-based rules that determine which
 
 It's possible to use the Azure AD user provisioning service to provision B2B (guest) users in Azure AD to SaaS applications. However, for B2B users to sign in to the SaaS application using Azure AD, you must manually configure the SaaS application to use Azure AD as a Security Assertion Markup Language (SAML) identity provider. 
 
-Follow these general guidelines when configuring SaaS apps for B2B collaboration:  
+Follow these general guidelines when configuring SaaS apps for B2B (guest) users:  
 - For most of the apps, user setup needs to happen manually. Users must be created manually in the app as well.
 - For apps that support automatic setup, such as Dropbox, separate invitations are created from the apps. Users must be sure to accept each invitation.
 - In the user attributes, to mitigate any issues with mangled user profile disk (UPD) in guest users, always set the user identifier to **user.mail**.
