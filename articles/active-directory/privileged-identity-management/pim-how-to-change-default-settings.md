@@ -81,7 +81,7 @@ To enforce this requirement, you need to:
 
 > [!NOTE]
 > **“On activation, require Azure AD Conditional Access authentication context”** setting defines authentication context, requirements for which the user will need to satisfy when they activate the role. After the role is activated, this does not prevent users from using another browsing session, device, location, etc. to use permissions. For example, users may use an Intune compliant device to activate the role, then after the role is activated sign-in to the same user account from another device that is not Intune compliant, and use the previously activated role from there. 
-> To protect from this situation, in addition to the Conditional Access policy that is scoped to authentication context and “*All users*”, create two Conditional Access policies: 
+> To protect from this situation, create two Conditional Access policies: 
 >1. The first Conditional Access policy targeted to authentication context. It should have “*All users*” or eligible users in its scope. This policy will specify requirements the user needs to meet to activate the role. 
 >1. The second Conditional Access policy targeted to directory roles. This policy will specify requirements users need to meet to sign-in with directory role activated. 
 >
