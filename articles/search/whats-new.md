@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/15/2022
+ms.date: 03/21/2023
 ms.custom: references_regions 
 ---
 
@@ -17,6 +17,12 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 > [!NOTE]
 > Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## March 2023
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [**ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search (GitHub)**](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | Sample | Python code and a template for combining Cognitive Search with the large language models in OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). To summarize the key points: <ul><li>Use Cognitive Search to consolidate and index searchable content.</li> <li>Query the index for initial search results.</li> <li>Assemble prompts from those results and send to the gpt-35-turbo (preview) model in Azure OpenAI.</li> <li>Return a summary and provide citations and transparency in your customer-facing app so that users can evaluate the response.</li> </ul>|
 
 ## November 2022
 

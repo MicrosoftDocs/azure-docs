@@ -237,8 +237,8 @@
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
   - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
+    tocHref: /azure/iot/
+    topicHref: /azure/iot/
     items:
       - name: Device Development
         tocHref: /azure/iot-develop/
@@ -685,12 +685,12 @@
         tocHref: /azure/industry
         topicHref: /azure/industry
 #  - name: Internet of Things
-#    tocHref: /azure/iot-fundamentals/
-#    topicHref: /azure/iot-fundamentals/
+#    tocHref: /azure/iot/
+#    topicHref: /azure/iot/
 #    items:
 #    - name: IoT Fundamentals
-#      tocHref: /azure/iot-fundamentals/
-#      topicHref: /azure/iot-fundamentals/
+#      tocHref: /azure/iot/
+#      topicHref: /azure/iot/
 #    - name: IoT Edge
 #      tocHref: /azure/iot-edge/
 #      topicHref: /azure/iot-edge/

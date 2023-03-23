@@ -4,7 +4,7 @@ description: Learn how to create an application group and a workspace, and assig
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 03/01/2023
+ms.date: 03/22/2023
 ---
 
 # Create an application group, a workspace, and assign users in Azure Virtual Desktop
@@ -79,13 +79,41 @@ Here's how to create an application group using the [desktopvirtualization](/cli
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Use the `az desktopvirtualization applicationgroup create` command with the following example to create an application group. More parameters are available, such as to register existing application groups. For more information, see the [az desktopvirtualization applicationgroup Azure CLI reference](/cli/azure/desktopvirtualization/applicationgroup).
+2. Get the resource ID of the host pool you want to create an application group for and store it in a variable by running the following command:
 
    ```azurecli
-   az desktopvirtualization applicationgroup create --name <Name> --resource-group <ResourceGroupName>
+   hostPoolArmPath=$(az desktopvirtualization hostpool show \
+       --name <Name> \
+       --resource-group <ResourceGroupName> \
+       --query [id] \
+       --output tsv)
    ```
 
-3. You can view the properties of your new application group by running the following command:
+3. Use the `az desktopvirtualization applicationgroup create` command with the following examples to create an application group. For more information, see the [az desktopvirtualization applicationgroup Azure CLI reference](/cli/azure/desktopvirtualization/applicationgroup).
+
+   1. To create a Desktop application group in the Azure region UK South, run the following command:
+
+      ```azurecli
+      az desktopvirtualization applicationgroup create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --application-group-type Desktop \
+          --host-pool-arm-path $hostPoolArmPath \
+          --location uksouth
+      ```
+
+   1. To create a RemoteApp application group in the Azure region UK South, run the following command. You can only create a RemoteApp application group with a pooled host pool.
+
+      ```azurecli
+      az desktopvirtualization applicationgroup create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --application-group-type RemoteApp \
+          --host-pool-arm-path $hostPoolArmPath \
+          --location uksouth
+      ```
+
+4. You can view the properties of your new application group by running the following command:
 
    ```azurecli
    az desktopvirtualization applicationgroup show --name <Name> --resource-group <ResourceGroupName>
@@ -100,13 +128,43 @@ Here's how to create an application group using the [Az.DesktopVirtualization](/
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Use the `New-AzWvdApplicationGroup` cmdlet with the following example to create an application group. More parameters are available, such as to register existing application groups. For more information, see the [New-AzWvdApplicationGroup PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdapplicationgroup).
+2. Get the resource ID of the host pool you want to create an application group for and store it in a variable by running the following command:
 
    ```azurepowershell
-   New-AzWvdApplicationGroup -Name <Name> -ResourceGroupName <ResourceGroupName>
+   $hostPoolArmPath = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName).Id
    ```
 
-3. You can view the properties of your new workspace by running the following command:
+3. Use the `New-AzWvdApplicationGroup` cmdlet with the following examples to create an application group. For more information, see the [New-AzWvdApplicationGroup PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdapplicationgroup).
+
+   1. To create a Desktop application group in the Azure region UK South, run the following command:
+
+      ```azurepowershell
+      $parameters = @{
+          Name = '<Name>'
+          ResourceGroupName = '<ResourceGroupName>'
+          ApplicationGroupType = 'Desktop'
+          HostPoolArmPath = $hostPoolArmPath
+          Location = 'uksouth'
+      }
+   
+      New-AzWvdApplicationGroup @parameters
+      ```
+
+   1. To create a RemoteApp application group in the Azure region UK South, run the following command. You can only create a RemoteApp application group with a pooled host pool.
+
+      ```azurepowershell
+      $parameters = @{
+          Name = '<Name>'
+          ResourceGroupName = '<ResourceGroupName>'
+          ApplicationGroupType = 'RemoteApp'
+          HostPoolArmPath = $hostPoolArmPath
+          Location = 'uksouth'
+      }
+   
+      New-AzWvdApplicationGroup @parameters
+      ```
+
+4. You can view the properties of your new workspace by running the following command:
 
    ```azurepowershell
    Get-AzWvdApplicationGroup -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
