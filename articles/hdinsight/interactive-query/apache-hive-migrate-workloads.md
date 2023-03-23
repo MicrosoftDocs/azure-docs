@@ -27,7 +27,7 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 ### Hive client changes
 Hive 3 supports only the thin client, Beeline for running queries and Hive administrative commands from the command line. Beeline uses a JDBC connection to HiveServer to execute all commands. Parsing, compiling, and executing operations occur in HiveServer.
 
-You enter supported Hive CLI commands by invoking Beeline using the hive keyword as a hive user or invoke a beeline using `beeline -u <JDBC URL>`. You can get the JDBC URL from Ambari Hive page.
+You enter supported Hive CLI commands by invoking Beeline using the Hive keyword as a Hive user or invoke a beeline using `beeline -u <JDBC URL>`. You can get the JDBC URL from Ambari Hive page.
 
 :::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URL output." border="true":::
 
@@ -36,7 +36,7 @@ Use Beeline (instead of the thick client Hive CLI, which is no longer supported)
 1. Instead of maintaining the entire Hive code base, you can maintain only the JDBC client.
 1. Startup overhead is lower by using Beeline because the entire Hive code base isn't involved.
 
-You can also execute the hive script, which is under the directory “/usr/bin”, which invokes a beeline connection using JDBC URL.
+You can also execute the Hive script, which is under the directory “/usr/bin”, which invokes a beeline connection using JDBC URL.
 
 :::image type="content" source="./media/apache-hive-migrate-workloads/beeline-connection-using-jdbc-url.png" alt-text="Screenshot showing beeline connection output." border="true":::
 
@@ -131,7 +131,7 @@ Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by
 
 ### Other HDInsight 4.x upgrade changes
 
-1. Managed, ACID tables not owned by the hive user remain managed tables after the upgrade, but hive becomes the owner.
+1. Managed, ACID tables not owned by the Hive user remain managed tables after the upgrade, but Hive becomes the owner.
 2. After the upgrade, the format of a Hive table is the same as before the upgrade. For example, native or non-native tables remain native or non-native, respectively.
 
 ## Location Changes
@@ -262,7 +262,7 @@ Hive has changed table creation in the following ways
     A default configuration change can cause applications that change column types to fail.
    
      **Before Upgrade**
-    In HDInsight 3.x hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
+    In HDInsight 3.x Hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
 
     **After Upgrade**
     The hive.metastore.disallow.incompatible.col.type.changes is true by default. Hive prevents changes to incompatible column types. Compatible column type changes, such as INT, STRING, BIGINT, aren't blocked.
@@ -304,7 +304,7 @@ To fix this issue, you can follow the below option.
     select * from
     (SELECT col_1 from table1 where col_2 >= unix_timestamp('2020-03-07','yyyy-MM-dd'));
     ```
-    The root case of this issue is that the current hive codebase is throwing an exception which parsing the UNIX_TIMESTAMP because there's no precision mapping in HiveTypeSystemImpl.java code for the precision of UNIX_TIMESTAMP which Calcite recognizes as BIGINT.
+    The root case of this issue is that the current Hive codebase is throwing an exception which parsing the UNIX_TIMESTAMP because there's no precision mapping in `HiveTypeSystemImpl.java code` for the precision of `UNIX_TIMESTAMP` which Calcite recognizes as `BIGINT`.
     But the below query works fine
     `select * from (SELECT col_1 from table1 where col_2 >= 1);`
     
@@ -338,7 +338,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive query gives the incorrect result. Even the select count(*) query gives the incorrect result.
 
     **Cause**
-    The property “hive.compute.query.using.stats” is set to true by default. If we set it to true, then it uses the stats, which is stored in metastore to execute the query. If the stats aren't up to date, then it results in incorrect results.
+    The property “hive.compute.query.using.stats” is set to true, by default. If we set it to true, then it uses the stats, which is stored in metastore to execute the query. If the stats aren't up to date, then it results in incorrect results.
 
     **Resolution**
     collect the stats for the managed tables using `alter table <table_name> compute statics;` command at the table level and column level. Reference link - https://cwiki.apache.org/confluence/display/hive/statsdev#StatsDev-TableandPartitionStatistics
@@ -363,7 +363,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     MB).
     
 
-     If you face any issue related to OOM by setting the property `hive.auto.convert.join` to true then it's advisable to set it to false only for that particular query at the session level and not at the cluster level. This issue might occur if the stats are wrong and hive decides to use map join based on the stats.
+     If you face any issue related to OOM by setting the property `hive.auto.convert.join` to true then it's advisable to set it to false only for that particular query at the session level and not at the cluster level. This issue might occur if the stats are wrong and Hive decides to use map join based on the stats.
 
 1. **Issue**
     Hive query gives the incorrect result if the query has a join condition and the tables involved has null or empty values.
@@ -459,7 +459,7 @@ The above script automatically connects to your backend DB and fetches the detai
     PARTITIONS;
     ('difference', [])
     ```
-    From this output, you can find the column names that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
+    From this output, you can find the column names that are missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
