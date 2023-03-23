@@ -28,13 +28,13 @@ This class is held in the `CallCompositeLocalOptions` object that represents opt
 
 `displayName` differs from the `displayName` passed in via the `CallCompositeRemoteOptions`. `CallCompositeParticipantViewData` `displayName` is only used locally as an override, where `CallCompositeRemoteOptions` `displayName` is passed to the server and shared with other participants. When `CallCompositeParticipantViewData` `displayName` isn't provided, `CallCompositeRemoteOptions` `displayName` is used.
 
-#### Navigation Bar View Data
+#### Setup Screen View Data
 
-`CallCompositeNavigationBarViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle would always be set to hidden. Here `title` is a required field to build the object and `subtitle` is optional. This class is locally stored and its information will not be sent up to the server.
+`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle would always be set to hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information will not be sent up to the server.
 
 #### Usage
 
-To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and/or `CallCompositeNavigationBarViewData` and inject `CallCompositeLocalOptions` to `callComposite.launch`.
+To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and/or `CallCompositeSetupScreenViewData` and inject `CallCompositeLocalOptions` to `callComposite.launch`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -63,7 +63,7 @@ final CallCompositeParticipantViewData participantViewData = new CallCompositePa
     .setScaleType((ImageView.ScaleType) scaleType)
     .setDisplayName((String) displayName);
 
-final CallCompositeNavigationBarViewData navigationBarViewData = new CallCompositeNavigationBarViewData()
+final CallCompositeSetupScreenViewData setupScreenViewData = new CallCompositeSetupScreenViewData()
     .setTitle((String) title)
     .setSubtitle((String) subTitle);
 
