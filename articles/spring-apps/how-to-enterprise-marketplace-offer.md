@@ -57,7 +57,7 @@ You can use the Azure portal or the Azure CLI to provision an Azure Spring Apps 
 
 ## Requirements
 
-You must understand and fulfill the following requirements to successfully create an instance of the Azure Marketplace offer and accept the licensing agreements.
+You must understand and fulfill the following requirements to successfully create an instance of Azure Spring Apps Enterprise with purchasing the Azure Marketplace offer. 
 
 - Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information, see the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) section of [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
