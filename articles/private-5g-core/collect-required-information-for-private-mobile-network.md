@@ -28,7 +28,7 @@ Collect all of the following values for the mobile network resource that will re
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
-   |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
+   |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*). </br></br> Note: We recommend that this resource group is also used when [Collecting the required information for a site](collect-required-information-for-a-site.md).              |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you're deploying the private mobile network. This can be the East US or the West Europe region.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
