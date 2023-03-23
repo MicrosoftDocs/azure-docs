@@ -44,7 +44,7 @@ let layer = ImageLayer(options: [
 map.layers.insertLayer(layer, below: "labels")
 ```
 
-Alternatively, a URL to an image hosted on the online can be specified. However, if your scenario allows, add the image to your project's `Assets` folder, that will load faster since the image will be locally available and won't have to be downloaded.
+Alternatively, a URL to an image hosted on the online can be specified. However, if your scenario allows, add the image to your project's `Assets` folder, that loads faster since the image is locally available with no need to be downloaded.
 
 ```swift
 // Create an image layer.

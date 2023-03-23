@@ -70,7 +70,7 @@ For more information, see the [Navigating the map](how-to-use-ios-map-control-li
 
 ## Scope feature events to layer
 
-When adding a delegate to the map, layer IDs can be passed in as a second parameter. When layers are passed in, the events will only fire if the event occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
+When adding a delegate to the map, layer IDs can be passed in as a second parameter. When layers are passed in, the event only fires if it occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
 
 ```swift
 class ShowScopedEventsHandlingViewController: UIViewController, AzureMapDelegate {
