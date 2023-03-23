@@ -5,7 +5,7 @@ author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 03/02/2023
+ms.date: 03/23/2023
 topic: how-to
 keywords: azure, openshift, aro, red hat, lockbox
 #Customer intent: I need to learn how to authorize or reject requests from Microsoft support engineers to access my Azure Red Hat OpenShift cluster resources.
@@ -13,7 +13,7 @@ keywords: azure, openshift, aro, red hat, lockbox
 
 # Authorize support requests for cluster access with Azure Lockbox
 
-In some circumstances, a support agent at Microsoft may need access to your OpenShift cluster resources. The Azure Lockbox feature works with Azure Redhat OpenShift to provide customers a way to review and approve or reject requests from Microsoft support to access their cluster resources. This ability can be particularly important for financial, government, or other regulatory industries where there is extra scrutiny regarding access to resources.
+In some circumstances, a support agent at Microsoft may need access to your OpenShift cluster resources. The Azure Lockbox feature works with Azure Redhat OpenShift to provide customers a way to review and approve or reject requests from Microsoft support to access their cluster resources. This ability can be important for financial, government, or other regulatory industries where there's extra scrutiny regarding access to resources.
 
 With Azure Lockbox, whenever a support ticket is created, you have the ability to grant consent to Microsoft support agents to access your cluster resources. The actions that the support engineer can take are limited to those [listed below](#aro-lockbox-actions). Azure Lockbox will tell you exactly what action the support agent is trying to execute.
 
@@ -34,7 +34,7 @@ As a result of the selection:
 - Approve: Access is granted to the Microsoft support engineer. The access is granted for a default period of eight hours.
 - Deny: The elevated access request by the support engineer is rejected and no further action is taken.
 
-See [Customer Lockbox--workflow](/azure/security/fundamentals/customer-lockbox-overview#workflow) for additional details about the access request process.
+See [Customer Lockbox--workflow](/azure/security/fundamentals/customer-lockbox-overview#workflow) for another details about the access request process.
 
 ## Operating limitations
 
