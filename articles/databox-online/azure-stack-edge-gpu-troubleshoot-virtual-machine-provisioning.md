@@ -135,13 +135,15 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
 ### Primary NIC attached to a SRIOV enabled vSwitch
 
-**Error description:** The primary NIC attached to a single root I/O virtualization (SRIOV) interface-enabled vSwitch caused network traffic to bypass the hyper-v, so the host could not receive DHCP request from the VM, resulting in a provisioning timeout.
+**Error description:** The primary network interface attached to a single root I/O virtualization (SRIOV) interface-enabled virtual switch caused network traffic to bypass the hyper-v, so the host could not receive DHCP requests from the VM, resulting in a provisioning timeout.
 
 **Suggested solutions:**
 
-- On an Azure Stack Edge Pro 1 device, vSwitches created on Port 1 to Port 4 do not enable accelerated networking. On Port 5 or Port 6, vSwitches will enable accelerated networking by default. 
+- Connect a VM primary network interface virtual switch without enabling accelerated networking.
 
- - On an Azure Stack Edge Pro 2 device, vSwitches created on Port 1 or Port 2 do not enable accelerated networking. On Port 3 or Port 4, vSwitches will enable accelerated networking by default. 
+- On an Azure Stack Edge Pro 1 device, virtual switches created on Port 1 to Port 4 do not enable accelerated networking. On Port 5 or Port 6, virtual switches will enable accelerated networking by default. 
+
+ - On an Azure Stack Edge Pro 2 device, virtual switches created on Port 1 or Port 2 do not enable accelerated networking. On Port 3 or Port 4, virtual switches will enable accelerated networking by default. 
  
 ##	Network interface creation issues
 
