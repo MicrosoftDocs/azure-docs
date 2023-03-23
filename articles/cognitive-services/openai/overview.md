@@ -43,11 +43,9 @@ Access is currently limited as we navigate high demand, upcoming product improve
 
 More specific information is included in the application form. We appreciate your patience as we work to responsibly enable broader access to Azure OpenAI.
 
-Apply here for initial access or for a production review:
+Apply here for access:
 
 <a href="https://aka.ms/oaiapply" target="_blank">Apply now</a>
-
-All solutions using Azure OpenAI are also required to go through a use case review before they can be released for production use, and are evaluated on a case-by-case basis. In general, the more sensitive the scenario the more important risk mitigation measures will be for approval.
 
 ## Comparing Azure OpenAI and OpenAI
 
