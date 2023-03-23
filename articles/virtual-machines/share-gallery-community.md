@@ -81,7 +81,8 @@ Utilizing community-submitted virtual machine images has several risks. Certain 
 
 ### Reporting images through the Azure Portal:
 Selecting a community image will show several "Report" options. You can report the whole image, or report a specific version if previous versions were unaffected by the issue you encountered.
-    :::image type="content" source="media/shared-image-galleries/report-options.png"" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
+
+:::image type="content" source="media/shared-image-galleries/report-options.png" alt-text="Screenshot showing the Report button for malicious images.":::
 
 ### Reporting images externally:
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
