@@ -137,13 +137,20 @@ PNG WITH TRANSPARENT PADDING
 :::image type="content" source="media/overview/insights.png"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-large-in-overview-context.png":::
 
 PNG WITHOUT PADDING
+
 :::image type="content" source="media/overview/insights-no-padding.png"  alt-text="3Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-large-in-overview-context.png":::
 
 PNG SHRUNK SO RIGHT SIZE
+
 :::image type="content" source="media/overview/insights-shrink-for-size.png"  alt-text="4Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-large-in-overview-context.png":::
 
 SVG
+
 :::image type="content" source="media/overview/insights-no-scaling.svg"  alt-text="4Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-no-scaling.svg":::
+
+SVG bounding box
+
+:::image type="content" source="media/overview/insights-no-scaling-bounding box.svg"  alt-text="4Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-no-scaling.svg":::
 
 EXAMPLE TRANSPARENT LIGHT BOX
 See Data sources. 
