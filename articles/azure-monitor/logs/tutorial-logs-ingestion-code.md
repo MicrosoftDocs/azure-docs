@@ -106,19 +106,20 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 The following sample code uses the [Azure Monitor Ingestion client library for Python](/python/api/overview/azure/monitor-ingestion-readme).
 
 
-1. Use [pip](https://pypi.org/project/pip/) to install the Azure Monitor Ingestion client library for Python and the Azure Identity library, which is required for the authentication used in this sample.
+1. Use [pip](https://pypi.org/project/pip/) to install the Azure Monitor Ingestion and Azure Identity client libraries for Python. The Azure Identity library is required for the authentication used in this sample.
+
     ```bash
     pip install azure-monitor-ingestion
     pip install azure-identity
     ```
 
-3. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
+2. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
 
    - AZURE_TENANT_ID
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-2. Replace the variables in the following sample code with values from your DCE, and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
+3. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data in the **Step 2** section with your own.
 
 
     ```python
@@ -174,20 +175,21 @@ The following sample code uses the [Azure Monitor Ingestion client library for P
 The following sample code uses the [Azure Monitor Ingestion client library for JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme).
 
 
-1. Use [npm](https://www.npmjs.com/) to install the Azure Monitor Ingestion client library for JavaScript and the Azure Identity library which is required for the authentication used in this sample.
+1. Use [npm](https://www.npmjs.com/) to install the Azure Monitor Ingestion and Azure Identity client libraries for JavaScript. The Azure Identity library is required for the authentication used in this sample.
+
 
     ```bash
     npm install --save @azure/monitor-ingestion
     npm install --save @azure/identity
     ```
 
-3. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
+2. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential` in the Azure Identity library.
 
    - AZURE_TENANT_ID
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-3. Replace the variables in the following sample code with values from your DCE, and DCR. You might also want to replace the sample data with your own.
+3. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data with your own.
 
     ```javascript
     const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
@@ -248,13 +250,13 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     });
     ```
 
-3. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
+4. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
 
 ## [Java](#tab/java)
 The following sample code uses the [Azure Monitor Ingestion client library for Java](/java/api/overview/azure/monitor-ingestion-readme).
 
 
-1. Include the Logs ingestion package and the `azure-identity` package from the [Azure Identity library](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.1/sdk/identity/azure-identity) which is used for the authentication used in this sample.
+1. Include the Logs ingestion package and the `azure-identity` package from the [Azure Identity library](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.1/sdk/identity/azure-identity). The Azure Identity library is required for the authentication used in this sample.
 
     > [!NOTE]
     > See the Maven repositories for [Microsoft Azure Client Library For Identity](https://mvnrepository.com/artifact/com.azure/azure-identity) and [Microsoft Azure SDK For Azure Monitor Data Ingestion](https://mvnrepository.com/artifact/com.azure/azure-monitor-ingestion) for the latest versions.
@@ -263,12 +265,11 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-monitor-ingestion</artifactId>
-        <version>1.0.0</version>
-    </dependency>
+        <version>{get-latest-version}</version>    
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity</artifactId>
-        <version>1.8.0</version>
+        <version>{get-latest-version}</version>
     </dependency>
     ```
 
@@ -279,7 +280,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-4. Replace the variables in the following sample code with values from your DCE, and DCR. You may also want to replace the sample data with your own.
+4. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
 
     ```java
     public static void main(String[] args) { 
@@ -333,7 +334,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
 
 The following script uses the [Azure Monitor Ingestion client library for .NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme).
 
-1. Install the Azure Monitor Ingestion client library and the Azure Identity library which is required for the authentication used in this sample.
+1. Install the Azure Monitor Ingestion client library and the Azure Identity library. The Azure Identity library is required for the authentication used in this sample.
  
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -346,7 +347,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-2. Replace the variables in the following sample code with values from your DCE, and DCR. You may also want to replace the sample data with your own.
+2. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
 
     
 
