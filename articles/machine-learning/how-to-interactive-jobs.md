@@ -92,7 +92,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
           ),
           "My_tensorboard": TensorBoardJobService(
             nodes="all",
-            logDir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
+            log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
             }          
           ),
           "My_ssh": SshJobService(
