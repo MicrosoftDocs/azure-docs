@@ -259,8 +259,8 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
 
 1. Include the Logs ingestion package and the `azure-identity` package from the [Azure Identity library](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.0.1/sdk/identity/azure-identity) which is used for the authentication used in this sample.
 
-> [!NOTE]
-> See the Maven repositories for [Microsoft Azure Client Library For Identity](https://mvnrepository.com/artifact/com.azure/azure-identity) and [Microsoft Azure SDK For Azure Monitor Data Ingestion](https://mvnrepository.com/artifact/com.azure/azure-monitor-ingestion) for the latest versions.
+    > [!NOTE]
+    > See the Maven repositories for [Microsoft Azure Client Library For Identity](https://mvnrepository.com/artifact/com.azure/azure-identity) and [Microsoft Azure SDK For Azure Monitor Data Ingestion](https://mvnrepository.com/artifact/com.azure/azure-monitor-ingestion) for the latest versions.
 
     ```xml
     <dependency>
