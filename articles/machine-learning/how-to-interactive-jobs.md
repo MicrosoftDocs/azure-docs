@@ -147,20 +147,20 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
          job_service_type: ssh
          ssh_public_keys: <paste the entire pub key content>
          nodes: all
-   	```
+   ```
 
-      The `services` section specifies the training applications you want to interact with.  
+   The `services` section specifies the training applications you want to interact with.  
 
-      You can put `sleep <specific time>` at the end of the command to specify the amount of time you want to reserve the compute resource. The format follows: 
-   	* sleep 1s
-   	* sleep 1m
-   	* sleep 1h
-   	* sleep 1d
+   You can put `sleep <specific time>` at the end of the command to specify the amount of time you want to reserve the compute resource. The format follows: 
+   * sleep 1s
+   * sleep 1m
+   * sleep 1h
+   * sleep 1d
 
-      You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+   You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
  
-      > [!NOTE]
-    	> If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+   > [!NOTE]
+   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id> `to submit your training job. For more details on running a job via CLIv2, check out this [article](./how-to-train-model.md). 
 
