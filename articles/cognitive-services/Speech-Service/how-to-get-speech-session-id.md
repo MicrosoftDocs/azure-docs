@@ -48,7 +48,7 @@ Open the log file your application produced and look for `SessionId:`. The numbe
 ```
 ### Get Session ID using JavaScript
 
-If you use Speech SDK for JavaScript, you need to use `sessionStarted` event of the [Recognizer class](/javascript/api/microsoft-cognitiveservices-speech-sdk/recognizer).
+If you use Speech SDK for JavaScript, you get Session ID with the help of `sessionStarted` event from the [Recognizer class](/javascript/api/microsoft-cognitiveservices-speech-sdk/recognizer).
 
 See an example of getting Session ID using JavaScript in [this sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/index.html). Look for `recognizer.sessionStarted = onSessionStarted;` and then for `function onSessionStarted`.
 
