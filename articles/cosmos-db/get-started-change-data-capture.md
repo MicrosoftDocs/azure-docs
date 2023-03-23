@@ -14,7 +14,7 @@ ms.date: 03/23/2023
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
-TODO
+Use Change Data Capture (CDC) in Azure Cosmos DB analytical store as a source to [Azure Data Factory](../data-factory/index.yml) or [Azure Synapse Analytics](../synapse-analytics/index.yml) to capture specific changes to your data.
 
 ## Prerequisites
 
@@ -38,10 +38,10 @@ First, enable Azure Synapse Link at the account level and then enable analytical
 
 ## Create a target Azure resource using data flows
 
-The change data capture feature of the analytical store is available through the data flow feature of [Azure Data Factory](../data-factory/concepts-data-flow-overview.md) or [Azure Synapse Analytics](../synapse-analytics/concepts-data-flow-overview.md). For this guide, use [Azure Data Factory](../data-factory/index.yml).
+The change data capture feature of the analytical store is available through the data flow feature of [Azure Data Factory](../data-factory/concepts-data-flow-overview.md) or [Azure Synapse Analytics](../synapse-analytics/concepts-data-flow-overview.md). For this guide, use Azure Data Factory.
 
 > [!IMPORTANT]
-> You can alternatively use [Azure Synapse Analytics](../synapse-analytics/index.yml). First, [create an Azure Synapse workspace](../synapse-analytics/quickstart-create-workspace.md), if you don't already have one. Within the newly created workspace, select the **Develop** tab, select **Add new resource**, and then select **Data flow**.
+> You can alternatively use Azure Synapse Analytics. First, [create an Azure Synapse workspace](../synapse-analytics/quickstart-create-workspace.md), if you don't already have one. Within the newly created workspace, select the **Develop** tab, select **Add new resource**, and then select **Data flow**.
 
 1. [Create an Azure Data Factory](../data-factory/quickstart-create-data-factory.md), if you don't already have one.
 
