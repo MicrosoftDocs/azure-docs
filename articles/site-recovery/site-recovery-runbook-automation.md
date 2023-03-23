@@ -1,11 +1,11 @@
 ---
 title: Add Azure Automation runbooks to Site Recovery recovery plans
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery using Azure Site Recovery.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 08/10/2022
 ---
 
@@ -17,7 +17,7 @@ This article describes how to integrate Azure Automation runbooks, to extend [Az
 
 You can use recovery plans when you fail over on-premises machines, or Azure VMs. Recovery plans help you to define a systematic recovery process that defines how machines fail over, and how they start and recover after failover. 
 
-Recovery large apps can be complex. Recovery plans help impose order so that recovery is consistently accurate, repeatable, and automated. You can automate tasks within a recovery plan using scripts, as well as Azure Automation runbooks. Typical examples might be configuring settings on an Azure VM after failover, or reconfiguring an app that's running on the VM.
+Recovery of large apps can be complex. Recovery plans help impose order so that recovery is consistently accurate, repeatable, and automated. You can automate tasks within a recovery plan using scripts, as well as Azure Automation runbooks. Typical examples might be configuring settings on an Azure VM after failover, or reconfiguring an app that's running on the VM.
 
 - [Learn more](recovery-plan-overview.md) about recovery plans.
 - [Learn more](../automation/automation-runbook-types.md) about Azure Automation runbooks.

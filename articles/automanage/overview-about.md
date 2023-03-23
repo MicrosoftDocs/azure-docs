@@ -1,6 +1,6 @@
 ---
-title: About Azure Automanage
-description: Learn about Azure Automanage for virtual machines.
+title: About Azure Automanage Machine Best Practices
+description: Learn about Azure Automanage machine best practices.
 author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
@@ -12,7 +12,7 @@ ms.custom: overview
 
 # Azure Automanage machine best practices
 
-This article covers information about Azure Automanage for machine best practices, which have the following benefits:
+This article covers information about Azure Automanage machine best practices, which have the following benefits:
 
 - Intelligently onboards virtual machines to select best practices Azure services
 - Automatically configures each service per Azure best practices
@@ -58,7 +58,7 @@ If you are enabling Automanage for the first time in a subscription:
 If you are enabling Automanage on a machine in a subscription that already has Automanage machines:
 * **Contributor** role on the resource group containing your machines
 
-The Automanage service will grant **Contributor** permission to this first party application (Automanage API Application Id: d828acde-4b48-47f5-a6e8-52460104a052) to perform actions on Automanaged machines. Guest users will need to have the **directory reader role** assigned to enable Automanage.
+The Automanage service will grant **Contributor** permission to this first party application (Automanage API Application ID: d828acde-4b48-47f5-a6e8-52460104a052) to perform actions on Automanaged machines. Guest users will need to have the **directory reader role** assigned to enable Automanage.
 
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.

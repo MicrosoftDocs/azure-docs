@@ -7,7 +7,9 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 11/17/2021
 ms.author: mbender
+ms.custom: template-concept
 ---
+
 # What's new in Azure Load Balancer?
 
 Azure Load Balancer is updated regularly. Stay up to date with the latest announcements. This article provides you with information about:
@@ -23,6 +25,7 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 
 | Type |Name |Description  |Date added  |
 | ------ |---------|---------|---------|
+| SKU | [Basic Load Balancer is retiring on 30 September 2025](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/) | Basic Load Balancer will retire on 30th September 2025. Make sure to [migrate to Standard SKU](load-balancer-basic-upgrade-guidance.md) before this date. | September 2022 |
 | SKU | [Gateway Load Balancer now generally available](https://azure.microsoft.com/updates/generally-available-azure-gateway-load-balancer/) | Gateway Load Balancer is a new SKU of Azure Load Balancer targeted for scenarios requiring transparent NVA (network virtual appliance) insertion. Learn more about [Gateway Load Balancer](gateway-overview.md) or our supported [third party partners](gateway-partners.md). | July 2022 |
 | SKU | [Gateway Load Balancer public preview](https://azure.microsoft.com/updates/gateway-load-balancer-preview/) | Gateway Load Balancer is a fully managed service enabling you to deploy, scale, and enhance the availability of third party network virtual appliances (NVAs) in Azure. You can add your favorite third party appliance whether it is a firewall, inline DDoS appliance, deep packet inspection system, or even your own custom appliance into the network path transparently – all with a single click.| November 2021 |
 | Feature | [Support for IP-based backend pools (General Availability)](https://azure.microsoft.com/updates/iplbga/) | Azure Load Balancer supports adding and removing resources from a backend pool via an IPv4 or IPv6 addresses. This enables easy management of containers, virtual machines, and virtual machine scale sets associated with Load Balancer. It will also allow IP addresses to be reserved as part of a backend pool before the associated resources are created. Learn more [here](backend-pool-management.md)|March 2021 |
@@ -43,6 +46,7 @@ The product group is actively working on resolutions for the following known iss
 | ---------- |---------|---------|
 | IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, please leverage NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
 | numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, is not respected. Load Balancer health probes will probe up/down immediately after 1 probe regardless of the property's configured value | To reflect the current behavior, please set the value of numberOfProbes ("Unhealthy threshold" in Portal) as 1 |
+|Cross region balancer in West Europe| Currently, there are a limited amount of IP addresses available in West Europe for Azure's cross region Load Balancer. This may impact customers' ability to deploy cross region load balancers in the West Europe region.| We recommend that customers use another home region as part of their cross region deployment.|                                        
 
   
 

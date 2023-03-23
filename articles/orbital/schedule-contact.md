@@ -1,22 +1,23 @@
 ---
 title: How to schedule a contact on Azure Orbital Earth Observation service
 description: Learn how to schedule a contact.
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 07/12/2022
-ms.author: wamota
+ms.date: 12/06/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Schedule a contact
+# Quickstart: Schedule a contact
 
 Schedule a contact with the selected satellite for data retrieval/delivery on Azure Orbital. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the contact profile.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Must be a Contributer at the subscription level.
 - A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
 - A contact profile. Learn more on how to [configure a contact profile](contact-profile.md).
 

@@ -62,9 +62,7 @@ This article shows how to add a map to your integration account. If you're worki
 
   * Standard workflows
 
-    * Only XSLT 1.0 is supported.
-
-    * References to external assemblies from maps aren't supported.
+    * References to external assemblies from maps are currently in preview. To configure support for external assemblies, see [.NET Framework assembly support for XSLT transformations added to Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120).
 
     * No limits apply to map file sizes.
 
@@ -92,7 +90,7 @@ This article shows how to add a map to your integration account. If you're worki
 
       * Edit your maps or payloads to reduce memory consumption.
 
-      * Create [Standard logic app workflows](logic-apps-overview.md#resource-type-and-host-environment-differences) instead.
+      * Create [Standard logic app workflows](logic-apps-overview.md#resource-environment-differences) instead.
 
         These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options for compute and memory resources. However, Standard workflows support only XSLT 1.0 and don't support referencing external assemblies from maps.
 

@@ -4,10 +4,10 @@ description: Learn what log sources might be appropriate for Basic Log ingestion
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 04/25/2022
+ms.date: 01/05/2023
 ms.custom: 
 ---
-# Log sources to use for Basic Logs ingestion (preview)
+# Log sources to use for Basic Logs ingestion
 
 Log collection is critical to a successful security analytics program. The more log sources you have for an investigation or threat hunt, the more you might accomplish.
 
@@ -15,11 +15,7 @@ The primary log sources used for detection often contain the metadata and contex
 
 Event log data in Basic Logs can't be used as the primary log source for security incidents and alerts. But Basic Log event data is useful to correlate and draw conclusions when you investigate an incident or perform threat hunting.
 
-This topic highlights log sources to consider configuring for Basic Logs when they're stored in Log Analytics tables. Before configuring tables as Basic Logs, [compare log data plans (preview)](../azure-monitor/logs/log-analytics-workspace-overview.md#log-data-plans-preview).
-
-> [!IMPORTANT]
-> The Basic Logs feature is currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+This topic highlights log sources to consider configuring for Basic Logs when they're stored in Log Analytics tables. Before configuring tables as Basic Logs, [compare log data plans](../azure-monitor/logs/basic-logs-configure.md).
 
 ## Storage access logs for cloud providers
 
@@ -65,6 +61,5 @@ A new and growing source of log data is Internet of Things (IoT) connected devic
 
 ## Next steps
 
-- [Log plans](../azure-monitor/logs/log-analytics-workspace-overview.md#log-data-plans-preview)
-- [Configure Basic Logs in Azure Monitor (Preview)](../azure-monitor/logs/basic-logs-configure.md)
+- [Set a table's log data plan in Azure Monitor Logs](../azure-monitor/logs/basic-logs-configure.md)
 - [Start an investigation by searching for events in large datasets (preview)](investigate-large-datasets.md)

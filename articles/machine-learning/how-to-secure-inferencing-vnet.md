@@ -10,7 +10,6 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
-ms.custom: 
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
@@ -47,22 +46,27 @@ In this article, you learn how to secure inferencing environments (online endpoi
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
 + If using Azure Kubernetes Service (AKS), you must have an existing AKS cluster secured as described in the [Secure Azure Kubernetes Service inference environment](how-to-secure-kubernetes-inferencing-environment.md) article.
 
 ## Secure managed online endpoints
 
-For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md) article.
+For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md) article.
 
-## Secure Azure Kubernetes Service
+## Secure Azure Kubernetes Service online endpoints
 
-To configure and attach an Azure Kubernetes Service cluster for secure inference, use the following steps:
+To use Azure Kubernetes Service cluster for secure inference, use the following steps:
 
 1. Create or configure a [secure Kubernetes inferencing environment](how-to-secure-kubernetes-inferencing-environment.md).
-1. [Attach the Kubernetes cluster to the workspace](how-to-attach-kubernetes-anywhere.md).
+2. Deploy [Azure Machine Learning extension](how-to-deploy-kubernetes-extension.md).
+3. [Attach the Kubernetes cluster to the workspace](how-to-attach-kubernetes-anywhere.md).
+4. Model deployment with Kubernetes online endpoint can be done using CLI v2, Python SDK v2 and Studio UI.
+ 
+   * CLI v2 - https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes
+   * Python SDK V2 - https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/kubernetes
+   * Studio UI - Follow the steps in [managed online endpoint deployment](how-to-use-managed-online-endpoint-studio.md) through the Studio. After entering the __Endpoint name__ select __Kubernetes__ as the compute type instead of __Managed__ 
 
-Afterwards, you can use the cluster for inference deployments to online endpoints. For more information, see [How to deploy an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
 ## Limit outbound connectivity from the virtual network
 

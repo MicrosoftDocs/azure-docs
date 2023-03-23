@@ -5,10 +5,9 @@ keywords: azure app service, web app, linux, docker, compose, multicontainer, mu
 author: msangapu-msft
 
 ms.topic: tutorial
-ms.date: 10/31/2020
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-#Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
@@ -35,7 +34,7 @@ To complete this tutorial, you need experience with [Docker Compose](https://doc
 
 ## Download the sample
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -204,7 +203,7 @@ To connect the WordPress app to this new MySQL server, you'll configure a few Wo
 To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
 When the app setting has been created, Cloud Shell shows information similar to the following example:
@@ -219,7 +218,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@&lt;mysql-server-name&gt;"
+    "value": "adminuser"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -425,7 +424,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@&lt;mysql-server-name&gt;"
+    "value": "adminuser"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -519,10 +518,10 @@ In this tutorial, you learned how to:
 > * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
-Advance to the next tutorial to learn how to map a custom DNS name to your app.
+Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

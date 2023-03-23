@@ -5,9 +5,8 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: modillon
+ms.author: kesheth
+author: expekesheth
 ms.date: 06/06/2022
 ---
 

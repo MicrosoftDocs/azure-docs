@@ -13,7 +13,7 @@ ms.custom: contperf-fy21q3, mode-ui
 
 In this quickstart, you learn how to create an Azure Resource Manager template (ARM template) in the Azure portal. You edit and deploy the template from the portal.
 
-ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+ARM templates are JSON or Bicep files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
@@ -54,7 +54,7 @@ Rather than manually building an entire ARM template, let's start by retrieving 
 
 You can use the portal for quickly developing and deploying ARM templates. In general, we recommend using Visual Studio Code for developing your ARM templates, and Azure CLI or Azure PowerShell for deploying the template, but you can use the portal for quick deployments without installing those tools.
 
-In this section, let's suppose you have an ARM template that you want to deploy one time with setting up the other tools.
+In this section, let's suppose you have an ARM template that you want to deploy one time without setting up the other tools.
 
 1. Again, select **Deploy a custom template** in the portal.
 

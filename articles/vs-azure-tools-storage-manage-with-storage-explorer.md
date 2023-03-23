@@ -1,9 +1,8 @@
 ---
-title: Get started with Storage Explorer | Microsoft Docs
+title: Get started with Storage Explorer
 description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
 author: cawaMS
-
 ms.service: storage
 ms.topic: article
 ms.date: 11/08/2019
@@ -39,27 +38,52 @@ The following versions of macOS support Storage Explorer:
 
 * macOS 10.12 Sierra and later versions
 
-# [Linux](#tab/linux)
+# [Ubuntu](#tab/linux-ubuntu)
 
-Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer) for most common distributions of Linux. We recommend Snap Store for this installation. The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
+Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
-For supported distributions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+Ubuntu comes preinstalled with `snapd`, which allows you to run snaps. You can learn more on the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
 
-Storage Explorer requires the use of a password manager. You might have to connect to a password manager manually. You can connect Storage Explorer to your system's password manager by running the following command:
+Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install dependencies manually. The following distributions of Linux support *.tar.gz* installation:
+Installing the Storage Explorer snap is recommended, but Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install all of Storage Explorer's dependencies manually.
 
-* Ubuntu 22.04 x64
-* Ubuntu 20.04 x64
-* Ubuntu 18.04 x64
+For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
-The *.tar.gz* installation might work on other distributions, but only these listed ones are officially supported.
+# [Red Hat Enterprise Linux](#tab/linux-rhel)
 
-For more help installing Storage Explorer on Linux, see [Linux dependencies](./storage/common/storage-explorer-troubleshooting.md#linux-dependencies) in the Azure Storage Explorer troubleshooting guide.
+Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
+
+To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+
+Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+For more help installing Storage Explorer on RHEL, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
+
+# [SUSE Linux Enterprise Server](#tab/linux-sles)
+
+> [!NOTE]
+> Storage Explorer has not been tested for SLES. You may try using Storage Explorer on your system, but we cannot guarantee that Storage Explorer will work as expected.
+
+Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
+
+To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+
+Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
 ---
 
@@ -271,6 +295,4 @@ As you enter text in the search box, Storage Explorer displays all resources tha
 
 [14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png
 [15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/create-shared-access-signature-for-storage-explorer.png
-[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-cosmos-db-by-connection-string.png
-[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string-for-cosmos-db.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-search-for-resource.png

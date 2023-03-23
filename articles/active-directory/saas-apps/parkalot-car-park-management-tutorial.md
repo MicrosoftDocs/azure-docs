@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Parkalot - Car park management | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Parkalot - Car park management'
 description: Learn how to configure single sign-on between Azure Active Directory and Parkalot - Car park management.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---

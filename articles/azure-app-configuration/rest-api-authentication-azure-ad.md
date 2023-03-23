@@ -45,7 +45,7 @@ The Azure AD authority is the endpoint you use for acquiring an Azure AD token. 
 
 ### Authentication libraries
 
-Azure provides a set of libraries, called Azure Active Directory Authentication Libraries, to simplify the process of acquiring an Azure AD token. Azure builds these libraries for multiple languages. For more information, see the [documentation](../active-directory/azuread-dev/active-directory-authentication-libraries.md).
+Microsoft Authentication Library (MSAL) helps to simplify the process of acquiring an Azure AD token. Azure builds these libraries for multiple languages. For more information, see the [documentation](../active-directory/develop/msal-overview.md).
 
 ## Errors
 

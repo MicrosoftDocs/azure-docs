@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Ideagen Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Ideagen Cloud for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Ideagen Cloud.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/08/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

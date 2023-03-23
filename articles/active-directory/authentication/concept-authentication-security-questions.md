@@ -1,5 +1,5 @@
 ---
-title: Security questions authentication method - Azure Active Directory
+title: Security questions authentication method
 description: Learn about using security questions in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory

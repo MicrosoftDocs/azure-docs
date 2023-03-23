@@ -3,17 +3,15 @@ title: Route traffic via NVA - Azure PowerShell script sample
 description: Azure PowerShell script sample - Route traffic through a firewall NVA.
 services: virtual-network
 documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: mbender 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Route traffic through a network virtual appliance script sample

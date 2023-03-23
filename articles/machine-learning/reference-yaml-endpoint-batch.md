@@ -7,11 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
-author: blackmist
-ms.author: larryfr
+ms.reviewer: mopeakande 
+author: santiagxf 
+ms.author: fasantia
 ms.date: 10/21/2021
-ms.reviewer: laobri
 ---
 
 # CLI (v2) batch endpoint YAML schema
@@ -46,7 +45,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-endpoint.yml":::
 
 ## Next steps
 

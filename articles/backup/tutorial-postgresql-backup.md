@@ -3,9 +3,9 @@ title: Tutorial - Back up Azure Database for PostgreSQL server
 description: Learn about how to back up Azure Database for PostgreSQL server to an Azure Backup Vault.
 ms.topic: tutorial
 ms.date: 02/25/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up Azure Database for PostgreSQL server
 

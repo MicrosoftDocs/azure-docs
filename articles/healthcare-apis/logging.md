@@ -2,11 +2,11 @@
 title: Logging for Azure Health Data Services
 description: This article explains how logging works and how to enable logging for the Azure Health Data Services
 services: healthcare-apis
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 06/06/2022
-ms.author: ginle
+ms.date: 10/10/2022
+ms.author: mikaelw
 ---
 
 # Logging for Azure Health Data Services
@@ -62,7 +62,7 @@ For more information about service logs and metrics for the DICOM service and Me
 >[Enable diagnostic logging in the DICOM service](./dicom/enable-diagnostic-logging.md)
 
 >[!div class="nextstepaction"]
->[How to display MedTech service metrics](./../healthcare-apis/iot/how-to-display-metrics.md)
+>[How to enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

@@ -81,6 +81,42 @@ Azure metrics charts use dashed line style to indicate that there is a missing v
    > [!NOTE]
    > If you still prefer a line chart for your metric, moving mouse over the chart may help to assess the time granularity by highlighting the data point at the location of the mouse pointer.
 
+## Units of measure in metrics charts
+
+Azure monitor metrics uses SI based prefixes. Metrics will only be using IEC prefixes if the resource provider has chosen an appropriate unit for a metric.
+For ex: The resource provider Network interface (resource name: rarana-vm816) has no metric unit defined for "Packets Sent". The prefix used for the metric value here is k representing kilo (1000), a SI prefix. 
+![Screenshot that shows metric value with prefix kilo.](./media/metrics-troubleshoot/prefix-si.png)
+
+The resource provider Storage account (resource name: ibabichvm) has metric unit defined for "Blob Capacity" as bytes. Hence, the prefix used is mebi (1024^2), an IEC prefix.
+![Screenshot that shows metric value with prefix mebi.](./media/metrics-troubleshoot/prefix-iec.png)
+
+SI uses decimal
+
+|   Value   | abbreviation |          SI         |
+|:---------:|:------------:|:-------------------:|
+|   1000	  |  k	         | kilo                |
+|   1000^2  |  M           | mega                |
+|   1000^3  |  G	         | giga                |
+|   1000^4  |  T	         | tera                |
+|   1000^5  |  P	         | peta                |
+|   1000^6  |  E	         | exa                 |
+|   1000^7  |  Z           | zetta               |
+|   1000^8  |  Y	         | yotta               |
+
+IEC uses binary
+
+|Value | abbreviation| IEC |Legacy|     |
+|:----:|:-----------:|:---:|:----:|:---:|
+|1024  |  Ki         |kibi |	K	  | kilo|
+|1024^2|	Mi         |mebi |	M	  | mega|
+|1024^3|	Gi         |gibi |	G	  | giga|
+|1024^4|	Ti         |tebi |	T	  | tera|
+|1024^5|	Pi         |pebi |	-	  |     |
+|1024^6|	Ei         |exbi |	-	  |     |
+|1024^7|	Zi         |zebi |	-	  |     |
+|1024^8|	Yi         |yobi |  -   |     |
+
+
 ## Chart shows unexpected drop in values
 
 In many cases, the perceived drop in the metric values is a misunderstanding of the data shown on the chart. You can be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics can be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:

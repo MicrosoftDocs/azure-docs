@@ -1,12 +1,10 @@
 ---
 title: Azure VPN Gateway FAQ
 description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and VNet-to-VNet configuration settings.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 01/30/2023
 ms.author: cherylmc
 ---
 
@@ -113,7 +111,7 @@ For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *
 
 Zone-redundant and zonal gateways (gateway SKUs that have *AZ* in the name) both rely on a *Standard SKU* Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method.
 
-For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), only dynamic IP address assignment is supported. However, this doesn't mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does my VPN tunnel get authenticated?
 

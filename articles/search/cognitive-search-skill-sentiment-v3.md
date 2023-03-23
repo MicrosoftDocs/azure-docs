@@ -32,7 +32,7 @@ Parameters are case-sensitive.
 | Parameter Name | Description |
 |----------------|----------------------|
 | `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See the [full list of supported languages](../cognitive-services/language-service/sentiment-opinion-mining/language-support.md). |
-| `modelVersion`   | (optional) Specifies the [version of the model](../cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model) to use when calling sentiment analysis. It will default to the most recent version when not specified. We recommend you do not specify this value unless it's necessary. |
+| `modelVersion`   | (optional) Specifies the [version of the model](../cognitive-services/language-service/concepts/model-lifecycle.md) to use when calling sentiment analysis. It will default to the most recent version when not specified. We recommend you do not specify this value unless it's necessary. |
 | `includeOpinionMining` | If set to `true`, enables [the opinion mining feature](../cognitive-services/language-service/sentiment-opinion-mining/overview.md#opinion-mining), which allows aspect-based sentiment analysis to be included in your output results. Defaults to `false`. |
 
 ## Skill inputs 

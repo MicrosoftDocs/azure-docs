@@ -1,8 +1,8 @@
 ---
 title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web sdk.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.service: azure-maps
@@ -28,14 +28,15 @@ This video provides an overview of Spatial IO module in the Azure Maps Web SDK.
 
 </br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Only use data and services that are from a source you trust, especially if referencing it from another domain. The spatial IO module does take steps to minimize risk, however the safest approach is too not allow any danagerous data into your application to begin with. 
 
 ## Prerequisites
 
-Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](./quick-demo-map-app.md#create-an-azure-maps-account) and [get the primary subscription key for your account](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
+* An [Azure Maps account]
+* A [subscription key]
 
 ## Installing the Spatial IO module
 
@@ -53,10 +54,10 @@ You can load the Azure Maps spatial IO module using one of the two options:
     npm install azure-maps-spatial-io
     ```
 
-    Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
+    Then, use an import declaration to add the module into a source file:
 
-    ```html
-    <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
+    ```js
+    import * as spatial from "azure-maps-spatial-io";
     ```
 
 ## Using the Spatial IO module
@@ -218,7 +219,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </html>
     ```
 
-5. Remember to replace `<Your Azure Maps Key>` with your primary key. Open your HTML file, and you'll see results similar to the following image:
+5. Remember to replace `<Your Azure Maps Key>` with your subscription key. Open your HTML file, and you'll see results similar to the following image:
 
     <center>
 
@@ -252,3 +253,6 @@ Refer to the Azure Maps Spatial IO documentation:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Spatial IO package](/javascript/api/azure-maps-spatial-io/)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

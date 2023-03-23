@@ -12,12 +12,12 @@ ms.topic: how-to
 
 ## Overview
 
-Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Attack Surface inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
+Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Approved inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
 
 Defender EASM provides four dashboards:
 
 - **Attack Surface Summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface, providing insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
-- **Security Posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Confirmed Inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+- **Security Posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR Compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
 
@@ -37,13 +37,16 @@ Microsoft identifies organizations' attack surfaces through proprietary technolo
 
 At the top of this dashboard, Defender EASM provides a list of security priorities organized by severity (high, medium, low). Large organizations’ attack surfaces can be incredibly broad, so prioritizing the key findings derived from our expansive data helps users quickly and efficiently address the most important exposed elements of their attack surface. These priorities can include critical CVEs, known associations to compromised infrastructure, use of deprecated technology, infrastructure best practice violations, or compliance issues.
 
-Insight Priorities are determined by Microsoft’s assessment of the potential impact of each insight. For instance, high severity insights may include vulnerabilities that are new, exploited frequently, particularly damaging, or easily exploited by hackers with a lower skill level. Low Severity Insights may include use of deprecated technology that is no longer supported, infrastructure that will soon expire, or compliance issues that do not align with security best practices. Each Insight contains suggested remediation actions to protect against potential exploits.
+Insight Priorities are determined by Microsoft’s assessment of the potential impact of each insight. For instance, high severity insights may include vulnerabilities that are new, exploited frequently, particularly damaging, or easily exploited by hackers with a lower skill level. Low severity insights may include use of deprecated technology that is no longer supported, infrastructure that will soon expire, or compliance issues that do not align with security best practices. Each insight contains suggested remediation actions to protect against potential exploits.
+
+Some insights will be flagged with "Potential" in the title. A "Potential" insight occurs when Defender EASM is unable to confirm that an asset is impacted by a vulnerability. This is common when our scanning system detects the presence of a specific service but cannot detect the version number; for example, some services enable administrators to hide version information. Vulnerabilities are often associated with specific versions of the software, so manual investigation is required to determine whether the asset is impacted. Other vulnerabilities can be remediated by steps that Defender EASM is unable to detect. For instance, users can make recommended changes to service configurations or run backported patches. If an insight is prefaced with "Potential", the system has reason to believe that the asset is impacted by the vulnerability but is unable to confirm it for one of the above listed reasons. To manually investigate, please click the insight name to review remediation guidance that can help you determine whether your assets are impacted.
+
 
 ![Screenshot of attack surface priorities with clickable options highlighted](media/Dashboards-2.png)
 
-Based on the Attack Surface Priorities chart displayed above, a user would want to first investigate the two Medium Severity Observations. You can click the top-listed observation (“Hosts with Expired SSL Certificates”) to be directly routed to a list of applicable assets, or instead select “View All 91 Insights” to see a comprehensive, expandable list of all potential observations that Defender EASM categorizes as “medium severity”.
+A user will usually decide to first investigate any High Severity Observations. You can click the top-listed observation to be directly routed to a list of impacted assets, or instead select “View All __ Insights” to see a comprehensive, expandable list of all potential observations within that severity group.
 
-The Medium Severity Observations page features a list of all potential insights in the left-hand column. This list is sorted by the number of assets that are impacted by each security risk, displaying the issues that impact the greatest number of assets first. To view the details of any security risk, simply click on it from this list. 
+The Observations page features a list of all potential insights in the left-hand column. This list is sorted by the number of assets that are impacted by each security risk, displaying the issues that impact the greatest number of assets first. To view the details of any security risk, simply click on it from this list. 
 
 ![Screenshot of attack surface drilldown for medium severity priorities](media/Dashboards-3.png)
 
@@ -135,7 +138,7 @@ For instance, the “clientUpdateProhibited” status code prevents unauthorized
 
 ### Open Ports
 
-This section helps users understand how their IP space is managed, detecting services that are exposed on the open internet. Attackers commonly scan ports across the internet to look for known exploits related to service vulnerabilities or misconfigurations. Microsoft identifies these open ports to compliment vulnerability assessment tools, flagging observations for review to ensure they are properly managed by your information technology team.
+This section helps users understand how their IP space is managed, detecting services that are exposed on the open internet. Attackers commonly scan ports across the internet to look for known exploits related to service vulnerabilities or misconfigurations. Microsoft identifies these open ports to complement vulnerability assessment tools, flagging observations for review to ensure they are properly managed by your information technology team.
 
 ![Screenshot of open ports chart](media/Dashboards-15.png)
 

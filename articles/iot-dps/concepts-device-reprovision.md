@@ -1,12 +1,13 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Device concepts
-description: Describes device reprovisioning concepts for the Azure IoT Hub Device Provisioning Service (DPS)
+title: Device lifecycle and reprovisioning concepts
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Describes device reprovisioning concepts and policies for the Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
+
 ms.author: kgremban
 ms.date: 04/16/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # IoT Hub Device reprovisioning concepts
@@ -58,7 +59,7 @@ Depending on the scenario, a device could send a request to a provisioning servi
 * **Never re-provision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 
 > [!NOTE]
-> DPS will always call the custom allocation webhook regardless of re-provisioning policy in case there is new [ReturnData](how-to-send-additional-data.md) for the device. If the re-provisioning policy is set to **never re-provision**, the webhook will be called but the device will not change its assigned hub.
+> DPS will always call the custom allocation webhook regardless of re-provisioning policy in case there is new [ReturnData](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation) for the device. If the re-provisioning policy is set to **never re-provision**, the webhook will be called but the device will not change its assigned hub.
 
 When designing your solution and defining a reprovisioning logic there are a few things to consider. For example:
 

@@ -1,11 +1,11 @@
 ---
 title: Data protection in Azure Stream Analytics
 description: This article explains how to encrypt your private data used by an Azure Stream Analytics job.
-author: sidramadoss
-ms.author: sidram
+author: ahartoon
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 03/13/2023
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -69,7 +69,7 @@ Use the following steps to configure your storage account for private data asset
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
-1. To authenticate with Managed Identity (preview), select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list with the *Storage Blob Data Contributor* role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+1. To authenticate with Managed Identity, select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list with the *Storage Blob Data Contributor* role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Private data storage account settings with managed identity authentication":::
 

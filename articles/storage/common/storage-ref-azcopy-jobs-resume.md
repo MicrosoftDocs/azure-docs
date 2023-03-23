@@ -1,5 +1,5 @@
 ---
-title: azcopy jobs resume | Microsoft Docs
+title: azcopy jobs resume
 description: This article provides reference information for the azcopy jobs resume command.
 author: normesta
 ms.service: storage

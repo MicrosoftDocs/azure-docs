@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 04/26/2022
+ms.date: 11/01/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -27,6 +27,9 @@ SAS guards access to Service Bus based on authorization rules that are configure
 Shared Access Signatures are a claims-based authorization mechanism using simple tokens. Using SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
 
 SAS authentication in Service Bus is configured with named [Shared Access Authorization Policies](#shared-access-authorization-policies) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [queues](service-bus-messaging-overview.md#queues) and [topics](service-bus-messaging-overview.md#topics).
+
+> [!NOTE]
+> These keys are plain text strings using a Base64 representation, and must not be decoded before they are used.
 
 The Shared Access Signature token contains the name of the chosen authorization policy, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
 
@@ -131,7 +134,7 @@ If you are using **Azure CLI**, use the [`az servicebus namespace authorization-
 
 The scenario described as follows include configuration of authorization rules, generation of SAS tokens, and client authorization.
 
-For a sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
+For a sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample07_CrudOperations.md).
 
 ## Access Shared Access Authorization rules on an entity
 

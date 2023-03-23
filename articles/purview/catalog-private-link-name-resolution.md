@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 02/23/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account, for secure access.
 ---
 
@@ -46,7 +46,7 @@ When you create ingestion, portal and account private endpoints, the DNS CNAME r
 
 - During the deployment of _portal_ private endpoint for your Microsoft Purview account, we also create a new private DNS zone that corresponds to the `privatelink` subdomain for Microsoft Purview as `privatelink.purviewstudio.azure.com` including DNS A resource records for _Web_.
 
-- If you enable ingestion private endpoints, additional DNS zones are required for managed resources. 
+- If you enable ingestion private endpoints, additional DNS zones are required for managed or configured resources. 
 
 The following table shows an example of Azure Private DNS zones and DNS A Records that are deployed as part of configuration of private endpoint for a Microsoft Purview account if you enable _Private DNS integration_ during the deployment: 
 
@@ -175,6 +175,7 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 | `Contoso-Purview.proxy.purview.azure.com` | A | \<account private endpoint IP address of Microsoft Purview\> |
 | `Contoso-Purview.guardian.purview.azure.com` | A | \<account private endpoint IP address of Microsoft Purview\> |
 | `gateway.purview.azure.com` | A | \<account private endpoint IP address of Microsoft Purview\> |
+| `insight.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
 | `manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
 | `cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
 | `hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Microsoft Purview\> |
@@ -197,14 +198,14 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
    |Portal     |Microsoft Purview          |`privatelink.purviewstudio.azure.com`        |Web         |
    |Ingestion     |Microsoft Purview managed Storage Account - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
    |Ingestion   |Microsoft Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
-   |Ingestion     |Microsoft Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
+   |Ingestion     |Microsoft Purview configured Event Hubs - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
 
 2. Create [Virtual network links](../dns/private-dns-virtual-network-links.md) in your Azure Private DNS Zones for your Azure Virtual Networks to allow internal name resolution.
    
 3. From your management PC and self-hosted integration runtime VM, test name resolution and network connectivity to your Microsoft Purview account using tools such as Nslookup.exe and PowerShell
 
 To test name resolution you need to resolve the following FQDNs through their private IP addresses:
-(Instead of Contoso-Purview, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
+(Instead of Contoso-Purview, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed or configured resources names)
 
 - `Contoso-Purview.purview.azure.com`
 - `web.purview.azure.com`
@@ -213,7 +214,7 @@ To test name resolution you need to resolve the following FQDNs through their pr
 - `atlas-12345678-1234-1234-abcd-123456789abc.servicebus.windows.net`
 
 To test network connectivity, from self-hosted integration runtime VM you can launch PowerShell console and test connectivity using `Test-NetConnection`. 
-You must resolve each endpoint by their private endpoint and obtain TcpTestSucceeded as True. (Instead of Contoso-Purview, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
+You must resolve each endpoint by their private endpoint and obtain TcpTestSucceeded as True. (Instead of Contoso-Purview, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed or configured resources names)
 
 - `Test-NetConnection -ComputerName Contoso-Purview.purview.azure.com -port 443`
 - `Test-NetConnection -ComputerName web.purview.azure.com -port 443`

@@ -10,9 +10,9 @@ ms.custom: mode-ui
 This article shows how to create a custom topic or a domain in Azure Event Grid. 
 
 ## Prerequisites
-If you new to Azure Event Grid, read through [Event Grid overview](overview.md) before starting this tutorial.
+If you're new to Azure Event Grid, read through [Event Grid overview](overview.md) before starting this tutorial.
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
 ## Create a custom topic or domain
 An Event Grid topic provides a user-defined endpoint that you post your events to. 
@@ -20,7 +20,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the top, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. If you are create a domain, search for **Event Grid Domains**.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
 3. On the **Event Grid Topics** or **Event Grid Domains** page, select **+ Create** on the toolbar. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/create-topic-button.png" alt-text="Screenshot showing the Create Topic button on Event Grid topics page.":::
@@ -72,9 +72,9 @@ On the **Security** page of the **Create Topic**  or **Create Event Grid Domain*
 
     :::image type="content" source="./media/create-custom-topic/data-residency.png" alt-text="Screenshot showing the Data residency section of the Advanced page in the Create Topic wizard.":::
 
-    The **Cross-Geo** option allows Microsoft-initiated failover to the paired region in case of a region failure. For more information, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md). Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from user. Microsoft reserves right to make a determination of when this path will be taken. The mechanism doesn't involve a user consent before the user's topic or domain is failed over. For more information, see [How do I recover from a failover?](/azure/event-grid/event-grid-faq).
+    The **Cross-Geo** option allows Microsoft-initiated failover to the paired region in case of a region failure. For more information, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md). Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from user. Microsoft reserves right to make a determination of when this path will be taken. The mechanism doesn't involve a user consent before the user's topic or domain is failed over. For more information, see [How do I recover from a failover?](./faq.yml).
 
-    If you select the **Regional** option, you may define your own disaster recovery plan. For more information, see [Build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md).
+    If you select the **Regional** option, you may define your own disaster recovery plan. 
 3. Select **Next: Tags** to move to the **Tags** page. 
 
 ## Tags page

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure frankli for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure frankli for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to frankli.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2021
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

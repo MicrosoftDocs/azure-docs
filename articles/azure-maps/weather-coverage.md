@@ -1,9 +1,9 @@
 ---
 title:  Microsoft Azure Maps Weather services coverage
 description: Learn about Microsoft Azure Maps Weather services coverage
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 03/28/2022
+author: eriklindeman
+ms.author: eriklind
+ms.date: 11/08/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -36,7 +36,7 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 
 ### Severe weather alerts
 
-Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
+[Severe weather alerts][severe-weather-alerts] service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
 
 ### Other
 
@@ -46,9 +46,9 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 - **Daily indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
 - **Historical weather**. The Historical Weather service includes Daily Historical [Records][dh-records], [Actuals][dh-actuals] and [Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
 - **Hourly forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
-- **Quarter-day forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
-- **Tropical storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
-- **Weather along route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
+- **Quarter-day forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) service returns detailed weather forecast by quarter-day for up to 15 days.
+- **Tropical storms**. The Tropical Storm service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
+- **Weather along route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
 
 ## Azure Maps Weather coverage tables
 
@@ -57,272 +57,274 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 
 ## Americas
 
-| Country/Region                           | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
-|------------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
-| Anguilla                                 |            ✓             |                              |                       |   ✓   |
-| Antarctica                               |            ✓             |                              |                       |   ✓   |
-| Antigua & Barbuda                        |            ✓             |                              |                       |   ✓   |
-| Argentina                                |            ✓             |                              |                       |   ✓   |
-| Aruba                                    |            ✓             |                              |                       |   ✓   |
-| Bahamas                                  |            ✓             |                              |                       |   ✓   |
-| Barbados                                 |            ✓             |                              |                       |   ✓   |
-| Belize                                   |            ✓             |                              |                       |   ✓   |
-| Bermuda                                  |            ✓             |                              |                       |   ✓   |
-| Bolivia                                  |            ✓             |                              |                       |   ✓   |
-| Bonaire                                  |            ✓             |                              |                       |   ✓   |
-| Brazil                                   |            ✓             |                              |            ✓          |   ✓   |
-| British Virgin Islands                   |            ✓             |                              |                       |   ✓   |
-| Canada                                   |            ✓             |               ✓              |            ✓         |   ✓   |
-| Cayman Islands                           |            ✓             |                              |                       |   ✓   |
-| Chile                                    |            ✓             |                              |                       |   ✓   |
-| Colombia                                 |            ✓             |                              |                       |   ✓   |
-| Costa Rica                               |            ✓             |                              |                       |   ✓   |
-| Cuba                                     |            ✓             |                              |                       |   ✓   |
-| Curaçao                                  |            ✓             |                              |                       |   ✓   |
-| Dominica                                 |            ✓             |                              |                       |   ✓   |
-| Dominican Republic                       |            ✓             |                              |                       |   ✓   |
-| Ecuador                                  |            ✓             |                              |                       |   ✓   |
-| El Salvador                              |            ✓             |                              |                       |   ✓   |
-| Falkland Islands                         |            ✓             |                              |                       |   ✓   |
-| French Guiana                            |            ✓             |                              |                       |   ✓   |
-| Greenland                                |            ✓             |                              |                       |   ✓   |
-| Grenada                                  |            ✓             |                              |                       |   ✓   |
-| Guadeloupe                               |            ✓             |                              |                       |   ✓   |
-| Guatemala                                |            ✓             |                              |                       |   ✓   |
-| Guyana                                   |            ✓             |                              |                       |   ✓   |
-| Haiti                                    |            ✓             |                              |                       |   ✓   |
-| Honduras                                 |            ✓             |                              |                       |   ✓   |
-| Jamaica                                  |            ✓             |                              |                       |   ✓   |
-| Martinique                               |            ✓             |                              |                       |   ✓   |
-| Mexico                                   |            ✓             |                              |                       |   ✓   |
-| Montserrat                               |            ✓             |                              |                       |   ✓   |
-| Nicaragua                                |            ✓             |                              |                       |   ✓   |
-| Panama                                   |            ✓             |                              |                       |   ✓   |
-| Paraguay                                 |            ✓             |                              |                       |   ✓   |
-| Peru                                     |            ✓             |                              |                       |   ✓   |
-| Puerto Rico                              |            ✓             |                              |            ✓          |   ✓   |
-| Saint Barthélemy                         |            ✓             |                              |                       |   ✓   |
-| Saint Kitts & Nevis                      |            ✓             |                              |                       |   ✓   |
-| Saint Lucia                              |            ✓             |                              |                       |   ✓   |
-| Saint Martin                             |            ✓             |                              |                       |   ✓   |
-| Saint Pierre & Miquelon                  |            ✓             |                              |                       |   ✓   |
-| Saint Vincent & the Grenadines           |            ✓             |                              |                       |   ✓   |
-| Sint Eustatius                           |            ✓             |                              |                       |   ✓   |
-| Sint Maarten                             |            ✓             |                              |                       |   ✓   |
-| South Georgia & South Sandwich Islands   |            ✓             |                              |                       |   ✓   |
-| Suriname                                 |            ✓             |                              |                       |   ✓   |
-| Trinidad & Tobago                        |            ✓             |                              |                       |   ✓   |
-| Turks & Caicos Islands                   |            ✓             |                              |                       |   ✓   |
-| U.S. Outlying Islands                    |            ✓             |                              |                       |   ✓   |
-| U.S. Virgin Islands                      |            ✓             |                              |            ✓          |   ✓   |
-| United States                            |            ✓             |               ✓              |            ✓         |   ✓   |
-| Uruguay                                  |            ✓             |                              |                       |   ✓   |
-| Venezuela                                |            ✓             |                              |                       |   ✓   |
+| Country/Region                           | Infrared satellite & Radar tiles | Minute forecast | Severe weather alerts | Other* |
+|------------------------------------------|:------------------------:|:-----------------------:|:---------------------:|:------:|
+| Anguilla                                 |            ✓             |             ✓           |                       |   ✓   |
+| Antarctica                               |            ✓             |                         |                       |   ✓   |
+| Antigua & Barbuda                        |            ✓             |             ✓           |                       |   ✓   |
+| Argentina                                |            ✓             |             ✓           |                       |   ✓   |
+| Aruba                                    |            ✓             |             ✓           |                       |   ✓   |
+| Bahamas                                  |            ✓             |             ✓           |                       |   ✓   |
+| Barbados                                 |            ✓             |             ✓           |                       |   ✓   |
+| Belize                                   |            ✓             |             ✓           |                       |   ✓   |
+| Bermuda                                  |            ✓             |                         |                       |   ✓   |
+| Bolivia                                  |            ✓             |             ✓           |                       |   ✓   |
+| Bonaire                                  |            ✓             |             ✓           |                       |   ✓   |
+| Brazil                                   |            ✓             |             ✓           |            ✓          |   ✓   |
+| British Virgin Islands                   |            ✓             |             ✓           |                       |   ✓   |
+| Canada                                   |            ✓             |             ✓           |            ✓         |   ✓   |
+| Cayman Islands                           |            ✓             |             ✓           |                       |   ✓   |
+| Chile                                    |            ✓             |             ✓           |                       |   ✓   |
+| Colombia                                 |            ✓             |             ✓           |                       |   ✓   |
+| Costa Rica                               |            ✓             |             ✓           |                       |   ✓   |
+| Cuba                                     |            ✓             |             ✓           |                       |   ✓   |
+| Curaçao                                  |            ✓             |             ✓           |                       |   ✓   |
+| Dominica                                 |            ✓             |             ✓           |                       |   ✓   |
+| Dominican Republic                       |            ✓             |             ✓           |                       |   ✓   |
+| Ecuador                                  |            ✓             |             ✓           |                       |   ✓   |
+| El Salvador                              |            ✓             |             ✓           |                       |   ✓   |
+| Falkland Islands                         |            ✓             |             ✓           |                       |   ✓   |
+| French Guiana                            |            ✓             |             ✓           |                       |   ✓   |
+| Greenland                                |            ✓             |                         |                       |   ✓   |
+| Grenada                                  |            ✓             |             ✓           |                       |   ✓   |
+| Guadeloupe                               |            ✓             |             ✓           |                       |   ✓   |
+| Guatemala                                |            ✓             |             ✓           |                       |   ✓   |
+| Guyana                                   |            ✓             |             ✓           |                       |   ✓   |
+| Haiti                                    |            ✓             |             ✓           |                       |   ✓   |
+| Honduras                                 |            ✓             |             ✓           |                       |   ✓   |
+| Jamaica                                  |            ✓             |             ✓           |                       |   ✓   |
+| Martinique                               |            ✓             |             ✓           |                       |   ✓   |
+| Mexico                                   |            ✓             |             ✓           |                       |   ✓   |
+| Montserrat                               |            ✓             |             ✓           |                       |   ✓   |
+| Nicaragua                                |            ✓             |             ✓           |                       |   ✓   |
+| Panama                                   |            ✓             |             ✓           |                       |   ✓   |
+| Paraguay                                 |            ✓             |             ✓           |                       |   ✓   |
+| Peru                                     |            ✓             |             ✓           |                       |   ✓   |
+| Puerto Rico                              |            ✓             |             ✓           |            ✓          |   ✓   |
+| Saint Barthélemy                         |            ✓             |             ✓           |                       |   ✓   |
+| Saint Kitts & Nevis                      |            ✓             |             ✓           |                       |   ✓   |
+| Saint Lucia                              |            ✓             |             ✓           |                       |   ✓   |
+| Saint Martin                             |            ✓             |             ✓           |                       |   ✓   |
+| Saint Pierre & Miquelon                  |            ✓             |                         |                       |   ✓   |
+| Saint Vincent & the Grenadines           |            ✓             |             ✓           |                       |   ✓   |
+| Sint Eustatius                           |            ✓             |                         |                       |   ✓   |
+| Sint Maarten                             |            ✓             |             ✓           |                       |   ✓   |
+| South Georgia & South Sandwich Islands   |            ✓             |                         |                       |   ✓   |
+| Suriname                                 |            ✓             |             ✓           |                       |   ✓   |
+| Trinidad & Tobago                        |            ✓             |             ✓           |                       |   ✓   |
+| Turks & Caicos Islands                   |            ✓             |             ✓           |                       |   ✓   |
+| U.S. Outlying Islands                    |            ✓             |                         |                       |   ✓   |
+| U.S. Virgin Islands                      |            ✓             |             ✓           |            ✓          |   ✓   |
+| United States                            |            ✓             |            ✓            |            ✓         |   ✓   |
+| Uruguay                                  |            ✓             |             ✓           |                       |   ✓   |
+| Venezuela                                |            ✓             |             ✓           |                       |   ✓   |
 
 ## Asia Pacific
 
-| Country/Region                     | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
-|-----------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
-| Afghanistan                        |            ✓             |                              |                       |   ✓   |
-| American Samoa                     |            ✓             |                              |           ✓           |   ✓   |
-| Australia                          |            ✓             |               ✓              |            ✓         |   ✓   |
-| Bangladesh                         |            ✓             |                              |                       |   ✓   |
-| Bhutan                             |            ✓             |                              |                       |   ✓   |
-| British Indian Ocean Territory     |            ✓             |                              |                       |   ✓   |
-| Brunei                             |            ✓             |                              |                       |   ✓   |
-| Cambodia                           |            ✓             |                              |                       |   ✓   |
-| China                              |            ✓             |               ✓              |            ✓         |   ✓   |
-| Christmas Island                   |            ✓             |                              |                       |   ✓   |
-| Cocos (Keeling) Islands            |            ✓             |                              |                       |   ✓   |
-| Cook Islands                       |            ✓             |                              |                       |   ✓   |
-| Fiji                               |            ✓             |                              |                       |   ✓   |
-| French Polynesia                   |            ✓             |                              |                       |   ✓   |
-| Guam                               |            ✓             |                              |           ✓           |   ✓   |
-| Heard Island & McDonald Islands    |            ✓             |                              |                       |   ✓   |
-| Hong Kong SAR                      |            ✓             |                              |                       |   ✓   |
-| India                              |            ✓             |                              |                       |   ✓   |
-| Indonesia                          |            ✓             |                              |                       |   ✓   |
-| Japan                              |            ✓             |               ✓              |            ✓         |   ✓   |
-| Kazakhstan                         |            ✓             |                              |                       |   ✓   |
-| Kiribati                           |            ✓             |                              |                       |   ✓   |
-| Korea                              |            ✓             |               ✓              |            ✓         |   ✓   |
-| Kyrgyzstan                         |            ✓             |                              |                       |   ✓   |
-| Laos                               |            ✓             |                              |                       |   ✓   |
-| Macao SAR                          |            ✓             |                              |                       |   ✓   |
-| Malaysia                           |            ✓             |                              |                       |   ✓   |
-| Maldives                           |            ✓             |                              |                       |   ✓   |
-| Marshall Islands                   |            ✓             |                              |           ✓           |   ✓   |
-| Micronesia                         |            ✓             |                              |           ✓           |   ✓   |
-| Mongolia                           |            ✓             |                              |                       |   ✓   |
-| Myanmar                            |            ✓             |                              |                       |   ✓   |
-| Nauru                              |            ✓             |                              |                       |   ✓   |
-| Nepal                              |            ✓             |                              |                       |   ✓   |
-| New Caledonia                      |            ✓             |                              |                       |   ✓   |
-| New Zealand                        |            ✓             |                              |           ✓           |   ✓   |
-| Niue                               |            ✓             |                              |                       |   ✓   |
-| Norfolk Island                     |            ✓             |                              |                       |   ✓   |
-| North Korea                        |            ✓             |                              |                       |   ✓   |
-| Northern Mariana Islands           |            ✓             |                              |           ✓           |   ✓   |
-| Pakistan                           |            ✓             |                              |                       |   ✓   |
-| Palau                              |            ✓             |                              |           ✓           |   ✓   |
-| Papua New Guinea                   |            ✓             |                              |                       |   ✓   |
-| Philippines                        |            ✓             |                              |           ✓           |   ✓   |
-| Pitcairn Islands                   |            ✓             |                              |                       |   ✓   |
-| Samoa                              |            ✓             |                              |                       |   ✓   |
-| Singapore                          |            ✓             |                              |                       |   ✓   |
-| Solomon Islands                    |            ✓             |                              |                       |   ✓   |
-| Sri Lanka                          |            ✓             |                              |                       |   ✓   |
-| Taiwan                             |            ✓             |                              |                       |   ✓   |
-| Tajikistan                         |            ✓             |                              |                       |   ✓   |
-| Thailand                           |            ✓             |                              |                       |   ✓   |
-| Timor-Leste                        |            ✓             |                              |                       |   ✓   |
-| Tokelau                            |            ✓             |                              |                       |   ✓   |
-| Tonga                              |            ✓             |                              |                       |   ✓   |
-| Turkmenistan                       |            ✓             |                              |                       |   ✓   |
-| Tuvalu                             |            ✓             |                              |                       |   ✓   |
-| Uzbekistan                         |            ✓             |                              |                       |   ✓   |
-| Vanuatu                            |            ✓             |                              |                       |   ✓   |
-| Vietnam                            |            ✓             |                              |                       |   ✓   |
-| Wallis & Futuna                    |            ✓             |                              |                       |   ✓   |
+| Country/Region                    | Infrared satellite & Radar tiles | Minute forecast | Severe weather alerts | Other* |
+|-----------------------------------|:------------------------:|:-----------------------:|:---------------------:|:------:|
+| Afghanistan                        |            ✓            |            ✓           |                       |   ✓   |
+| American Samoa                     |            ✓            |                        |           ✓           |   ✓   |
+| Australia                          |            ✓            |            ✓           |            ✓          |   ✓   |
+| Bangladesh                         |            ✓            |            ✓           |                       |   ✓   |
+| Bhutan                             |            ✓            |            ✓           |                       |   ✓   |
+| British Indian Ocean Territory     |            ✓            |                         |                       |   ✓   |
+| Brunei                             |            ✓            |            ✓           |                       |   ✓   |
+| Cambodia                           |            ✓            |            ✓           |                       |   ✓   |
+| China                              |            ✓            |            ✓           |            ✓          |   ✓   |
+| Christmas Island                   |            ✓            |                         |                       |   ✓   |
+| Cocos (Keeling) Islands            |            ✓            |                         |                       |   ✓   |
+| Cook Islands                       |            ✓            |                         |                       |   ✓   |
+| Fiji                               |            ✓            |                         |                       |   ✓   |
+| French Polynesia                   |            ✓            |                         |                       |   ✓   |
+| Guam                               |            ✓            |             ✓           |           ✓           |   ✓   |
+| Heard Island & McDonald Islands    |            ✓            |                         |                       |   ✓   |
+| Hong Kong SAR                      |            ✓            |             ✓           |                       |   ✓   |
+| India                              |            ✓            |             ✓           |                       |   ✓   |
+| Indonesia                          |            ✓            |             ✓           |                       |   ✓   |
+| Japan                              |            ✓            |             ✓           |            ✓         |   ✓   |
+| Kazakhstan                         |            ✓            |             ✓           |                       |   ✓   |
+| Kiribati                           |            ✓            |                         |                       |   ✓   |
+| Korea                              |            ✓            |             ✓           |            ✓         |   ✓   |
+| Kyrgyzstan                         |            ✓            |             ✓           |                       |   ✓   |
+| Laos                               |            ✓            |             ✓           |                       |   ✓   |
+| Macao SAR                          |            ✓            |             ✓           |                       |   ✓   |
+| Malaysia                           |            ✓            |             ✓           |                       |   ✓   |
+| Maldives                           |            ✓            |                         |                       |   ✓   |
+| Marshall Islands                   |            ✓            |                         |           ✓           |   ✓   |
+| Micronesia                         |            ✓            |                         |           ✓           |   ✓   |
+| Mongolia                           |            ✓            |                         |                       |   ✓   |
+| Myanmar                            |            ✓            |                         |                       |   ✓   |
+| Nauru                              |            ✓            |                         |                       |   ✓   |
+| Nepal                              |            ✓            |             ✓           |                       |   ✓   |
+| New Caledonia                      |            ✓            |                         |                       |   ✓   |
+| New Zealand                        |            ✓            |             ✓           |           ✓           |   ✓   |
+| Niue                               |            ✓            |                         |                       |   ✓   |
+| Norfolk Island                     |            ✓            |                         |                       |   ✓   |
+| North Korea                        |            ✓            |             ✓           |                       |   ✓   |
+| Northern Mariana Islands           |            ✓            |             ✓           |           ✓           |   ✓   |
+| Pakistan                           |            ✓            |             ✓           |                       |   ✓   |
+| Palau                              |            ✓            |             ✓           |           ✓           |   ✓   |
+| Papua New Guinea                   |            ✓            |             ✓           |                       |   ✓   |
+| Philippines                        |            ✓            |             ✓           |           ✓           |   ✓   |
+| Pitcairn Islands                   |            ✓            |                         |                       |   ✓   |
+| Samoa                              |            ✓            |                         |                       |   ✓   |
+| Singapore                          |            ✓            |             ✓           |                       |   ✓   |
+| Solomon Islands                    |            ✓            |                         |                       |   ✓   |
+| Sri Lanka                          |            ✓            |             ✓           |                       |   ✓   |
+| Taiwan                             |            ✓            |             ✓           |                       |   ✓   |
+| Tajikistan                         |            ✓            |             ✓           |                       |   ✓   |
+| Thailand                           |            ✓            |             ✓           |                       |   ✓   |
+| Timor-Leste                        |            ✓            |             ✓           |                       |   ✓   |
+| Tokelau                            |            ✓            |                         |                       |   ✓   |
+| Tonga                              |            ✓            |                         |                       |   ✓   |
+| Turkmenistan                       |            ✓            |             ✓           |                       |   ✓   |
+| Tuvalu                             |            ✓            |                         |                       |   ✓   |
+| Uzbekistan                         |            ✓            |             ✓           |                       |   ✓   |
+| Vanuatu                            |            ✓            |                         |                       |   ✓   |
+| Vietnam                            |            ✓            |             ✓           |                       |   ✓   |
+| Wallis & Futuna                    |            ✓            |                         |                       |   ✓   |
 
 ## Europe
 
-| Country/Region          | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
-|-------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
-| Albania                 |            ✓             |                              |                       |   ✓   |
-| Andorra                 |            ✓             |                              |           ✓           |   ✓   |
-| Armenia                 |            ✓             |                              |                       |   ✓   |
-| Austria                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Azerbaijan              |            ✓             |                              |                       |   ✓   |
-| Belarus                 |            ✓             |                              |                       |   ✓   |
-| Belgium                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Bosnia & Herzegovina    |            ✓             |               ✓              |            ✓         |   ✓   |
-| Bulgaria                |            ✓             |                              |           ✓           |   ✓   |
-| Croatia                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Cyprus                  |            ✓             |                              |           ✓           |   ✓   |
-| Czechia                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Denmark                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Estonia                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Faroe Islands           |            ✓             |                              |                       |   ✓   |
-| Finland                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| France                  |            ✓             |               ✓              |            ✓         |   ✓   |
-| Georgia                 |            ✓             |                              |                       |   ✓   |
-| Germany                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Gibraltar               |            ✓             |               ✓               |                     |   ✓   |
-| Greece                  |            ✓             |                              |           ✓           |   ✓   |
-| Guernsey                |            ✓             |                              |                       |   ✓   |
-| Hungary                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Iceland                 |            ✓             |                              |           ✓           |   ✓   |
-| Ireland                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Isle of Man             |            ✓             |                              |                       |   ✓   |
-| Italy                   |            ✓             |                              |           ✓           |   ✓   |
-| Jan Mayen               |            ✓             |                              |                       |   ✓   |
-| Jersey                  |            ✓             |                              |                       |   ✓   |
-| Kosovo                  |            ✓             |                              |           ✓           |   ✓   |
-| Latvia                  |            ✓             |                              |           ✓           |   ✓   |
-| Liechtenstein           |            ✓             |               ✓              |            ✓         |   ✓   |
-| Lithuania               |            ✓             |                              |           ✓           |   ✓   |
-| Luxembourg              |            ✓             |               ✓              |            ✓         |   ✓   |
-| North Macedonia         |            ✓             |                              |           ✓           |   ✓   |
-| Malta                   |            ✓             |                              |           ✓           |   ✓   |
-| Moldova                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Monaco                  |            ✓             |               ✓              |            ✓         |   ✓   |
-| Montenegro              |            ✓             |               ✓              |            ✓         |   ✓   |
-| Netherlands             |            ✓             |               ✓              |            ✓         |   ✓   |
-| Norway                  |            ✓             |               ✓              |            ✓         |   ✓   |
-| Poland                  |            ✓             |               ✓              |            ✓         |   ✓   |
-| Portugal                |            ✓             |               ✓              |            ✓         |   ✓   |
-| Romania                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Russia                  |            ✓             |                              |           ✓           |   ✓   |
-| San Marino              |            ✓             |                              |           ✓           |   ✓   |
-| Serbia                  |            ✓             |               ✓              |            ✓         |   ✓   |
-| Slovakia                |            ✓             |               ✓              |            ✓         |   ✓   |
-| Slovenia                |            ✓             |               ✓              |            ✓         |   ✓   |
-| Spain                   |            ✓             |               ✓              |            ✓         |   ✓   |
-| Svalbard                |            ✓             |                              |                       |   ✓   |
-| Sweden                  |            ✓             |               ✓              |            ✓         |   ✓   |
-| Switzerland             |            ✓             |               ✓              |            ✓         |   ✓   |
-| Turkey                  |            ✓             |                              |                       |   ✓   |
-| Ukraine                 |            ✓             |                              |                       |   ✓   |
-| United Kingdom          |            ✓             |               ✓              |            ✓         |   ✓   |
-| Vatican City            |            ✓             |                              |           ✓           |   ✓   |
+| Country/Region          | Infrared satellite & Radar tiles | Minute forecast | Severe weather alerts | Other* |
+|-------------------------|:------------------------:|:-----------------------:|:---------------------:|:------:|
+| Albania                 |            ✓            |            ✓            |                       |   ✓   |
+| Andorra                 |            ✓            |            ✓            |           ✓           |   ✓   |
+| Armenia                 |            ✓            |            ✓            |                       |   ✓   |
+| Austria                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Azerbaijan              |            ✓            |            ✓            |                       |   ✓   |
+| Belarus                 |            ✓            |            ✓            |                       |   ✓   |
+| Belgium                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Bosnia & Herzegovina    |            ✓            |            ✓            |            ✓          |   ✓   |
+| Bulgaria                |            ✓            |            ✓            |           ✓           |   ✓   |
+| Croatia                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Cyprus                  |            ✓            |            ✓            |           ✓           |   ✓   |
+| Czechia                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Denmark                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Estonia                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Faroe Islands           |            ✓            |                         |                       |   ✓   |
+| Finland                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| France                  |            ✓            |            ✓            |            ✓          |   ✓   |
+| Georgia                 |            ✓            |            ✓            |                       |   ✓   |
+| Germany                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Gibraltar               |            ✓            |            ✓            |                       |   ✓   |
+| Greece                  |            ✓            |            ✓            |           ✓           |   ✓   |
+| Guernsey                |            ✓            |                         |                       |   ✓   |
+| Hungary                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Iceland                 |            ✓            |                         |           ✓           |   ✓   |
+| Ireland                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Isle of Man             |            ✓            |                         |                       |   ✓   |
+| Italy                   |            ✓            |            ✓            |           ✓           |   ✓   |
+| Jan Mayen               |            ✓            |                          |                       |   ✓   |
+| Jersey                  |            ✓            |                          |                       |   ✓   |
+| Kosovo                  |            ✓            |            ✓            |           ✓           |   ✓   |
+| Latvia                  |            ✓            |                          |           ✓           |   ✓   |
+| Liechtenstein           |            ✓            |            ✓            |            ✓          |   ✓   |
+| Lithuania               |            ✓            |                          |           ✓           |   ✓   |
+| Luxembourg              |            ✓            |            ✓            |            ✓          |   ✓   |
+| North Macedonia         |            ✓            |                          |           ✓           |   ✓   |
+| Malta                   |            ✓            |                          |           ✓           |   ✓   |
+| Moldova                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Monaco                  |            ✓            |            ✓            |            ✓          |   ✓   |
+| Montenegro              |            ✓            |            ✓            |            ✓          |   ✓   |
+| Netherlands             |            ✓            |            ✓            |            ✓          |   ✓   |
+| Norway                  |            ✓            |            ✓            |            ✓          |   ✓   |
+| Poland                  |            ✓            |            ✓            |            ✓          |   ✓   |
+| Portugal                |            ✓            |            ✓            |            ✓          |   ✓   |
+| Romania                 |            ✓            |            ✓            |            ✓          |   ✓   |
+| Russia                  |            ✓            |            1             |           ✓           |   ✓   |
+| San Marino              |            ✓            |                          |           ✓           |   ✓   |
+| Serbia                  |            ✓            |            ✓            |            ✓          |   ✓   |
+| Slovakia                |            ✓            |            ✓            |            ✓          |   ✓   |
+| Slovenia                |            ✓            |            ✓            |            ✓          |   ✓   |
+| Spain                   |            ✓            |            ✓            |            ✓          |   ✓   |
+| Svalbard                |            ✓            |                          |                       |   ✓   |
+| Sweden                  |            ✓            |            ✓            |            ✓          |   ✓   |
+| Switzerland             |            ✓            |            ✓            |            ✓          |   ✓   |
+| Turkey                  |            ✓            |             ✓           |                       |   ✓   |
+| Ukraine                 |            ✓            |             ✓           |                       |   ✓   |
+| United Kingdom          |            ✓            |            ✓            |            ✓          |   ✓   |
+| Vatican City            |            ✓            |                         |            ✓          |   ✓   |
+
+1 Partial coverage includes Moscow and Saint Petersburg
 
 ## Middle East & Africa
 
-| Country/Region                         | Infrared satellite tiles | Minute forecast, Radar tiles | Severe weather alerts | Other* |
-|----------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
-| Algeria                                |            ✓             |                              |                       |   ✓   |
-| Angola                                 |            ✓             |                              |                       |   ✓   |
-| Bahrain                                |            ✓             |                              |                       |   ✓   |
-| Benin                                  |            ✓             |                              |                       |   ✓   |
-| Botswana                               |            ✓             |                              |                       |   ✓   |
-| Bouvet Island                          |            ✓             |                              |                       |   ✓   |
-| Burkina Faso                           |            ✓             |                              |                       |   ✓   |
-| Burundi                                |            ✓             |                              |                       |   ✓   |
-| Cameroon                               |            ✓             |                              |                       |   ✓   |
-| Cape Verde                             |            ✓             |                              |                       |   ✓   |
-| Central African Republic               |            ✓             |                              |                       |   ✓   |
-| Chad                                   |            ✓             |                              |                       |   ✓   |
-| Comoros                                |            ✓             |                              |                       |   ✓   |
-| Congo (DRC)                            |            ✓             |                              |                       |   ✓   |
-| Côte d'Ivoire                          |            ✓             |                              |                       |   ✓   |
-| Djibouti                               |            ✓             |                              |                       |   ✓   |
-| Egypt                                  |            ✓             |                              |                       |   ✓   |
-| Equatorial Guinea                      |            ✓             |                              |                       |   ✓   |
-| Eritrea                                |            ✓             |                              |                       |   ✓   |
-| eSwatini                               |            ✓             |                              |                       |   ✓   |
-| Ethiopia                               |            ✓             |                              |                       |   ✓   |
-| French Southern Territories            |            ✓             |                              |                       |   ✓   |
-| Gabon                                  |            ✓             |                              |                       |   ✓   |
-| Gambia                                 |            ✓             |                              |                       |   ✓   |
-| Ghana                                  |            ✓             |                              |                       |   ✓   |
-| Guinea                                 |            ✓             |                              |                       |   ✓   |
-| Guinea-Bissau                          |            ✓             |                              |                       |   ✓   |
-| Iran                                   |            ✓             |                              |                       |   ✓   |
-| Iraq                                   |            ✓             |                              |                       |   ✓   |
-| Israel                                 |            ✓             |                              |            ✓          |   ✓   |
-| Jordan                                 |            ✓             |                              |                       |   ✓   |
-| Kenya                                  |            ✓             |                              |                       |   ✓   |
-| Kuwait                                 |            ✓             |                              |                       |   ✓   |
-| Lebanon                                |            ✓             |                              |                       |   ✓   |
-| Lesotho                                |            ✓             |                              |                       |   ✓   |
-| Liberia                                |            ✓             |                              |                       |   ✓   |
-| Libya                                  |            ✓             |                              |                       |   ✓   |
-| Madagascar                             |            ✓             |                              |                       |   ✓   |
-| Malawi                                 |            ✓             |                              |                       |   ✓   |
-| Mali                                   |            ✓             |                              |                       |   ✓   |
-| Mauritania                             |            ✓             |                              |                       |   ✓   |
-| Mauritius                              |            ✓             |                              |                       |   ✓   |
-| Mayotte                                |            ✓             |                              |                       |   ✓   |
-| Morocco                                |            ✓             |                              |                       |   ✓   |
-| Mozambique                             |            ✓             |                              |                       |   ✓   |
-| Namibia                                |            ✓             |                              |                       |   ✓   |
-| Niger                                  |            ✓             |                              |                       |   ✓   |
-| Nigeria                                |            ✓             |                              |                       |   ✓   |
-| Oman                                   |            ✓             |                              |                       |   ✓   |
-| Palestinian Authority                  |            ✓             |                              |                       |   ✓   |
-| Qatar                                  |            ✓             |                              |                       |   ✓   |
-| Réunion                                |            ✓             |                              |                       |   ✓   |
-| Rwanda                                 |            ✓             |                              |                       |   ✓   |
-| Saint Helena, Ascension, Tristan da Cunha |         ✓             |                              |                       |   ✓   |
-| São Tomé & Príncipe                    |            ✓             |                              |                       |   ✓   |
-| Saudi Arabia                           |            ✓             |                              |                       |   ✓   |
-| Senegal                                |            ✓             |                              |                       |   ✓   |
-| Seychelles                             |            ✓             |                              |                       |   ✓   |
-| Sierra Leone                           |            ✓             |                              |                       |   ✓   |
-| Somalia                                |            ✓             |                              |                       |   ✓   |
-| South Africa                           |            ✓             |                              |                       |   ✓   |
-| South Sudan                            |            ✓             |                              |                       |   ✓   |
-| Sudan                                  |            ✓             |                              |                       |   ✓   |
-| Syria                                  |            ✓             |                              |                       |   ✓   |
-| Tanzania                               |            ✓             |                              |                       |   ✓   |
-| Togo                                   |            ✓             |                              |                       |   ✓   |
-| Tunisia                                |            ✓             |                              |                       |   ✓   |
-| Uganda                                 |            ✓             |                              |                       |   ✓   |
-| United Arab Emirates                   |            ✓             |                              |                       |   ✓   |
-| Yemen                                  |            ✓             |                              |                       |   ✓   |
-| Zambia                                 |            ✓             |                              |                       |   ✓   |
-| Zimbabwe                               |            ✓             |                              |                       |   ✓   |
+| Country/Region                         | Infrared satellite & Radar tiles | Minute forecast | Severe weather alerts | Other* |
+|----------------------------------------|:------------------------:|:-----------------------:|:---------------------:|:------:|
+| Algeria                                |            ✓             |           ✓             |                       |   ✓   |
+| Angola                                 |            ✓             |           ✓             |                       |   ✓   |
+| Bahrain                                |            ✓             |           ✓             |                       |   ✓   |
+| Benin                                  |            ✓             |           ✓             |                       |   ✓   |
+| Botswana                               |            ✓             |           ✓             |                       |   ✓   |
+| Bouvet Island                          |            ✓             |                         |                       |   ✓   |
+| Burkina Faso                           |            ✓             |           ✓             |                       |   ✓   |
+| Burundi                                |            ✓             |           ✓             |                       |   ✓   |
+| Cameroon                               |            ✓             |           ✓             |                       |   ✓   |
+| Cape Verde                             |            ✓             |           ✓             |                       |   ✓   |
+| Central African Republic               |            ✓             |           ✓             |                       |   ✓   |
+| Chad                                   |            ✓             |           ✓             |                       |   ✓   |
+| Comoros                                |            ✓             |           ✓             |                       |   ✓   |
+| Congo (DRC)                            |            ✓             |           ✓             |                       |   ✓   |
+| Côte d'Ivoire                          |            ✓             |           ✓             |                       |   ✓   |
+| Djibouti                               |            ✓             |           ✓             |                       |   ✓   |
+| Egypt                                  |            ✓             |           ✓             |                       |   ✓   |
+| Equatorial Guinea                      |            ✓             |           ✓             |                       |   ✓   |
+| Eritrea                                |            ✓             |           ✓             |                       |   ✓   |
+| Eswatini                               |            ✓             |           ✓             |                       |   ✓   |
+| Ethiopia                               |            ✓             |           ✓             |                       |   ✓   |
+| French Southern Territories            |            ✓             |                         |                       |   ✓   |
+| Gabon                                  |            ✓             |           ✓             |                       |   ✓   |
+| Gambia                                 |            ✓             |           ✓             |                       |   ✓   |
+| Ghana                                  |            ✓             |           ✓             |                       |   ✓   |
+| Guinea                                 |            ✓             |           ✓             |                       |   ✓   |
+| Guinea-Bissau                          |            ✓             |           ✓             |                       |   ✓   |
+| Iran                                   |            ✓             |           ✓             |                       |   ✓   |
+| Iraq                                   |            ✓             |           ✓             |                       |   ✓   |
+| Israel                                 |            ✓             |           ✓             |            ✓          |   ✓   |
+| Jordan                                 |            ✓             |           ✓             |                       |   ✓   |
+| Kenya                                  |            ✓             |           ✓             |                       |   ✓   |
+| Kuwait                                 |            ✓             |           ✓             |                       |   ✓   |
+| Lebanon                                |            ✓             |           ✓             |                       |   ✓   |
+| Lesotho                                |            ✓             |           ✓             |                       |   ✓   |
+| Liberia                                |            ✓             |           ✓             |                       |   ✓   |
+| Libya                                  |            ✓             |           ✓             |                       |   ✓   |
+| Madagascar                             |            ✓             |           ✓             |                       |   ✓   |
+| Malawi                                 |            ✓             |           ✓             |                       |   ✓   |
+| Mali                                   |            ✓             |           ✓             |                       |   ✓   |
+| Mauritania                             |            ✓             |           ✓             |                       |   ✓   |
+| Mauritius                              |            ✓             |           ✓             |                       |   ✓   |
+| Mayotte                                |            ✓             |           ✓             |                       |   ✓   |
+| Morocco                                |            ✓             |                         |                       |   ✓   |
+| Mozambique                             |            ✓             |           ✓             |                       |   ✓   |
+| Namibia                                |            ✓             |           ✓             |                       |   ✓   |
+| Niger                                  |            ✓             |           ✓             |                       |   ✓   |
+| Nigeria                                |            ✓             |           ✓             |                       |   ✓   |
+| Oman                                   |            ✓             |           ✓             |                       |   ✓   |
+| Palestinian Authority                  |            ✓             |           ✓             |                       |   ✓   |
+| Qatar                                  |            ✓             |           ✓             |                       |   ✓   |
+| Réunion                                |            ✓             |           ✓             |                       |   ✓   |
+| Rwanda                                 |            ✓             |           ✓             |                       |   ✓   |
+| Saint Helena, Ascension, Tristan da Cunha |         ✓             |           ✓             |                       |   ✓   |
+| São Tomé & Príncipe                    |            ✓             |           ✓             |                       |   ✓   |
+| Saudi Arabia                           |            ✓             |           ✓             |                       |   ✓   |
+| Senegal                                |            ✓             |           ✓             |                       |   ✓   |
+| Seychelles                             |            ✓             |           ✓             |                       |   ✓   |
+| Sierra Leone                           |            ✓             |           ✓             |                       |   ✓   |
+| Somalia                                |            ✓             |           ✓             |                       |   ✓   |
+| South Africa                           |            ✓             |           ✓             |                       |   ✓   |
+| South Sudan                            |            ✓             |           ✓             |                       |   ✓   |
+| Sudan                                  |            ✓             |           ✓             |                       |   ✓   |
+| Syria                                  |            ✓             |           ✓             |                       |   ✓   |
+| Tanzania                               |            ✓             |           ✓             |                       |   ✓   |
+| Togo                                   |            ✓             |           ✓             |                       |   ✓   |
+| Tunisia                                |            ✓             |           ✓             |                       |   ✓   |
+| Uganda                                 |            ✓             |           ✓             |                       |   ✓   |
+| United Arab Emirates                   |            ✓             |           ✓             |                       |   ✓   |
+| Yemen                                  |            ✓             |           ✓             |                       |   ✓   |
+| Zambia                                 |            ✓             |           ✓             |                       |   ✓   |
+| Zimbabwe                               |            ✓             |           ✓             |                       |   ✓   |
 
 ## Next steps
 

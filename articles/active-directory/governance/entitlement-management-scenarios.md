@@ -1,5 +1,5 @@
 ---
-title: Common scenarios in entitlement management - Azure AD
+title: Common scenarios in entitlement management
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using entitlement management.
 
 ---
-# Common scenarios in Azure AD entitlement management
+# Common scenarios in entitlement management
 
 There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, catalog owners, access package managers, approvers, and requestors.
 

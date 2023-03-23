@@ -2,10 +2,8 @@
 title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC). The article includes prerequisites, architecture, and cmdlets.
 services: virtual-machines
-documentationcenter: ''
 author: mgoedtel
 manager: evansma
-editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -15,17 +13,17 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 07/13/2020
+ms.date: 03/13/2023
 ms.author: magoedte
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
-The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
-
 > [!NOTE]
-> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../../governance/machine-configuration/overview.md). The guest configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Automange named [machine configuration](../../governance/machine-configuration/overview.md). The machine configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
+The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
 The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the
 [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
@@ -84,7 +82,10 @@ This information can be seen in the Azure portal or you can use PowerShell.
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  If it does not, the extension deployment will return a failure.  Also make sure you are using the name of the *Node Configuration* and not the Configuration.
+> [!WARNING]
+> For the Node Configuration name, make sure the node configuration exists in Azure State Configuration. If it does not, the extension deployment will return a failure.
+
+Make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
 [to compile the Node Configuration (MOF file)](../../automation/automation-dsc-compile.md).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.

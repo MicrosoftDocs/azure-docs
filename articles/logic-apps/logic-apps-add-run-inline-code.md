@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 10/01/2022
 ms.custom: devx-track-js
 ---
 
 # Run code snippets in workflows with Inline Code operations in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To create and run a code snippet in your logic app workflow without much setup, you can use the **Inline Code** built-in connector. This connector has an action that returns the result from the code snippet so that you can use that output in your workflow's subsequent actions.
 
@@ -45,11 +47,11 @@ The following diagram shows the highlights from example workflow:
 
   This article's example uses the Office 365 Outlook trigger that's named **When a new email arrives**.
 
-  If you don't have a workflow, review the following documentation:
+  If you don't have a workflow, see the following documentation:
 
-  * Consumption: [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md)
+  * Consumption: [Create example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
 
-  * Standard: [Create single-tenant based logic app workflows](create-single-tenant-workflows-azure-portal.md)
+  * Standard: [Create example Standard logic app workflows](create-single-tenant-workflows-azure-portal.md)
 
 * Based on whether your logic app is Consumption or Standard, review the following requirements:
 
@@ -409,4 +411,5 @@ For more information about the **Execute JavaScript Code** action's structure an
 
 ## Next steps
 
-Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

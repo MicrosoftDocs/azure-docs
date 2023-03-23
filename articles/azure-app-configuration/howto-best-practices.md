@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/21/2022
 ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 ---
@@ -55,7 +55,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 ## References to external data
 
-App Configuration is designed to store any configuration data that you would normally save in configuration files or environment variables. However, some types of data may better suited to reside in other sources. For example, store secrets in Key Vault, files in Azure Storage, membership information in Azure AD groups, or customer lists in a database.
+App Configuration is designed to store any configuration data that you would normally save in configuration files or environment variables. However, some types of data may be better suited to reside in other sources. For example, store secrets in Key Vault, files in Azure Storage, membership information in Azure AD groups, or customer lists in a database.
 
 You can still take advantage of App Configuration by saving a reference to external data in a key-value. You can [use content type](./concept-key-value.md#use-content-type) to differentiate each data source. When your application reads a reference, it loads the actual data from the referenced source, assuming it has the necessary permission to the source. If you change the location of your external data, you only need to update the reference in App Configuration instead of updating and redeploying your entire application.
 
@@ -76,8 +76,8 @@ Use the App Configuration provider or SDK libraries to access App Configuration 
 
 You can also make your App Configuration data accessible to your application as *Application settings* or environment variables. With this approach, you can avoid changing your application code.
 
-* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
-* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
+* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. App Configuration offers tools to [export a collection of key-values as references](howto-import-export-data.md#export-data-to-azure-app-service) at once. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
+* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions without selecting the option of export-as-reference. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
 
 ## Reduce requests made to App Configuration
 

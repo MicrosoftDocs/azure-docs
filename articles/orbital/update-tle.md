@@ -1,18 +1,23 @@
 ---
 title: Update the spacecraft TLE on Azure Orbital Earth Observation service
 description: Update the TLE of an existing spacecraft resource.
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
-ms.date: 06/03/2022
-ms.author: wamota
+ms.date: 12/06/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
 # Tutorial: Update the spacecraft TLE
 
 Update the TLE of an existing spacecraft resource.
+
+ > [!NOTE]
+   > TLE stands for Two-Line Element.
+   > 
+   > Be sure to update the TLE value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
 
 ## Prerequisites
 

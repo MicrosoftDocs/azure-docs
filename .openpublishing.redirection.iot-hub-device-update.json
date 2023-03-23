@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/iot-hub-device-update/migration-pp-to-ppr.md",
+            "redirect_url": "/azure/iot-hub-device-update/migration-public-preview-refresh-to-ga",
+            "redirect_document_id": true
+        }
+      ]
+}

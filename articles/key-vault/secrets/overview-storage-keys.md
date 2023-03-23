@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/18/2019 
+ms.date: 01/24/2023
 ms.custom: devx-track-azurecli
 # Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli
 > Key Vault Managed Storage Account Keys (legacy) is supported as-is with no more updates planned. Only Account SAS are supported with SAS definitions signed storage service version no later than 2018-03-28.
 
 > [!IMPORTANT]
-> We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
+> We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs, queues, and tables](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
 > Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Azure AD authentication is not possible.
 
 An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by periodically regenerating them in storage account and provides shared access signature tokens for delegated access to resources in your storage account.
@@ -86,10 +86,10 @@ Use the Azure CLI [az keyvault-set-policy](/cli/azure/keyvault?#az-keyvault-set-
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
 ```
 
-Note that permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
+Permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
 ### Create a Key Vault Managed storage account
 
- Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) command. Set a regeneration period of 30 days. When it is time to rotate, KeyVault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
+ Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?#az-keyvault-storage-add) command. Set a regeneration period of 30 days. When it's time to rotate, KeyVault regenerates the key that isn't active, and then sets the newly created key as active. Only one of the keys is used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
 
 - `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?#az-keyvault-list) command.
 - `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
@@ -128,7 +128,7 @@ SAS definition template will be the passed to the `--template-uri` parameter in 
 |`SignedServices (ss)`|Required. Specifies the signed services accessible with the account SAS. Possible values include:<br /><br /> - Blob (`b`)<br />- Queue (`q`)<br />- Table (`t`)<br />- File (`f`)<br /><br /> You can combine values to provide access to more than one service. For example, `ss=bf` specifies access to the Blob and File endpoints.|  
 |`SignedResourceTypes (srt)`|Required. Specifies the signed resource types that are accessible with the account SAS.<br /><br /> - Service (`s`): Access to service-level APIs (*for example*, Get/Set Service Properties, Get Service Stats, List Containers/Queues/Tables/Shares)<br />- Container (`c`): Access to container-level APIs (*for example*, Create/Delete Container, Create/Delete Queue, Create/Delete Table, Create/Delete Share, List Blobs/Files and Directories)<br />- Object (`o`): Access to object-level APIs for  blobs, queue messages,  table entities, and files(*for example,* Put Blob, Query Entity, Get Messages, Create File, etc.)<br /><br /> You can combine values to provide access to more than one resource type. For example, `srt=sc` specifies access to service and container resources.|  
 |`SignedPermission (sp)`|Required. Specifies the signed permissions for the account SAS. Permissions are only valid if they match the specified signed resource type; otherwise they're ignored.<br /><br /> - Read (`r`): Valid for all signed resources types (Service, Container, and Object). Permits read permissions to the specified resource type.<br />- Write (`w`): Valid for all signed resources types (Service, Container, and Object). Permits write permissions to the specified resource type.<br />- Delete (`d`): Valid for Container and Object resource types, except for queue messages.<br />- Permanent Delete (`y`): Valid for Object resource type of Blob only.<br />- List (`l`): Valid for Service and Container resource types only.<br />- Add (`a`): Valid for the following Object resource types only: queue messages, table entities, and append blobs.<br />- Create (`c`): Valid for the following Object resource types only: blobs and files. Users can create new blobs or files, but may not overwrite existing blobs or files.<br />- Update (`u`): Valid for the following Object resource types only: queue messages and table entities.<br />- Process (`p`): Valid for the following Object resource type only: queue messages.<br/>- Tag (`t`): Valid for the following Object resource type only: blobs. Permits blob tag operations.<br/>- Filter (`f`): Valid for the following Object resource type only: blob. Permits filtering by blob tag.<br/>- Set Immutability Policy (`i`): Valid for the following Object resource type only: blob. Permits set/delete immutability policy and legal hold on a blob.|
-|`SignedProtocol (spr)`|Optional. Specifies the protocol permitted for a request made with the account SAS. Possible values are both HTTPS and HTTP (`https,http`) or HTTPS only (`https`).  The default value is `https,http`.<br /><br /> Note that HTTP only isn't a permitted value.|    
+|`SignedProtocol (spr)`|Optional. Specifies the protocol permitted for a request made with the account SAS. Possible values are both HTTPS and HTTP (`https,http`) or HTTPS only (`https`).  The default value is `https,http`.<br /><br /> HTTP only isn't a permitted value. |    
 
 For more information about account SAS, see:
 [Create an account SAS](/rest/api/storageservices/create-account-sas)

@@ -3,8 +3,9 @@ title: 'Transform data using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 ms.service: data-factory
 ms.subservice: tutorials
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 09/26/2022
 author: nabhishek
 ms.author: abnarain
 ---
@@ -336,8 +337,3 @@ Advance to the next tutorial to learn how to transform data by running Hive scri
 
 > [!div class="nextstepaction"]
 > [Tutorial: transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
-
-
-
-
-

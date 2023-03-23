@@ -5,8 +5,8 @@ author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 08/31/2022
-ms.author: seshin 
+ms.date: 09/16/2022
+ms.author: danzhang 
 ms.reviewer: wiassaf
 ---
 
@@ -40,7 +40,7 @@ You can connect to your Synapse workspace using Synapse Studio. You can also use
 
 Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1443. These ports are used by Synapse Studio.
 
-Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. The 1433 port used by SSMS (Desktop Application).
+To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. The 1433 port used by SSMS (Desktop Application).
 
 ## Manage the Azure Synapse workspace firewall 
 

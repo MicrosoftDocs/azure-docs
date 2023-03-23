@@ -3,7 +3,8 @@ title: Azure Cosmos DB integrated cache frequently asked questions
 description: Frequently asked questions about the Azure Cosmos DB integrated cache.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: sidandrews
@@ -11,7 +12,7 @@ ms.reviewer: jucocchi
 ---
 
 # Azure Cosmos DB integrated cache frequently asked questions
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 The Azure Cosmos DB integrated cache is an in-memory cache that is built in to Azure Cosmos DB. This article answers commonly asked questions about the Azure Cosmos DB integrated cache.
 
@@ -19,11 +20,11 @@ The Azure Cosmos DB integrated cache is an in-memory cache that is built in to A
 
 ### Why does the integrated cache require a dedicated gateway?
 
-If you’ve connected to Azure Cosmos DB using gateway mode, you’ve used the standard gateway. While the Azure Cosmos DB backend (your provisioned throughput and storage) has dedicated capacity per container, the standard gateway is shared among many customers. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer are minimal. Because the integrated cache is specific to your Azure Cosmos DB account and requires significant CPU and memory, it requires a dedicated gateway node.
+If you’ve connected to Azure Cosmos DB using gateway mode, you’ve used the standard gateway. While the Azure Cosmos DB backend (your provisioned throughput and storage) has dedicated capacity per container, the standard gateway is shared among many customers. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer are minimal. Because the integrated cache is specific to your Azure Cosmos DB account and requires significant CPU and memory, it requires dedicated gateway nodes. 
 
 ### What is a dedicated gateway?
 
-A [dedicated gateway](dedicated-gateway.md) is server-side compute that is a front-end to data in an Azure Cosmos DB account. When you connect to your dedicated gateway endpoint, your application sends a request to the dedicated gateway, which then routes the request to different backend partitions.
+A [dedicated gateway](dedicated-gateway.md) is server-side compute that is a front-end to data in an Azure Cosmos DB account. When you connect to your dedicated gateway endpoint [using gateway mode](nosql/sdk-connection-modes.md), your application sends a request to the dedicated gateway, which then routes the request to different backend partitions. Using direct mode with the dedicated gateway is supported, but these requests will not use the integrated cache.
 
 ### Does using the dedicated gateway offer any other performance benefits over using the standard gateway?
 
@@ -48,9 +49,9 @@ If your app previously used gateway mode with the standard gateway, the integrat
 
 For scenarios that require high availability and in order to be covered by the Azure Cosmos DB availability SLA, you should provision at least 3 dedicated gateway nodes. For example, if one dedicated gateway node is needed in production, you should provision two additional dedicated gateway nodes to account for possible downtime, outages and upgrades. If only one dedicated gateway node is provisioned, you will temporarily lose availability in these scenarios. Additionally, [ensure your dedicated gateway has enough nodes](./integrated-cache.md#i-want-to-understand-if-i-need-to-add-more-dedicated-gateway-nodes) to serve your workload.
 
-### The integrated cache is only available for SQL (Core) API right now. Are you planning on releasing it for other APIs as well?
+### The integrated cache is only available for API for NoSQL right now. Are you planning on releasing it for other APIs as well?
 
-Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but is beyond the initial scope of the integrated cache.
+Expanding the integrated cache beyond API for NoSQL is planned on the long-term roadmap but is beyond the initial scope of the integrated cache.
 
 ### What consistency does the integrated cache support?
 

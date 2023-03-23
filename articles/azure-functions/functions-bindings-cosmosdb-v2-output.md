@@ -4,7 +4,7 @@ description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -79,7 +79,7 @@ namespace CosmosDBSamplesV2
 
 ### Queue trigger, write one doc (v4 extension)
 
-Apps using Cosmos DB [extension version 4.x] or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -330,7 +330,7 @@ public String cosmosDbQueryById(
 
 #### HTTP trigger, save one document to database via return value
 
-The following example shows a Java function whose signature is annotated with ```@CosmosDBOutput``` and has return value of type ```String```. The JSON document returned by the function will be automatically written to the corresponding CosmosDB collection.
+The following example shows a Java function whose signature is annotated with `@CosmosDBOutput` and has return value of type `String`. The JSON document returned by the function will be automatically written to the corresponding Azure Cosmos DB collection.
 
 ```java
     @FunctionName("WriteOneDoc")
@@ -369,7 +369,7 @@ The following example shows a Java function whose signature is annotated with ``
 
 ### HTTP trigger, save one document to database via OutputBinding
 
-The following example shows a Java function that writes a document to CosmosDB via an ```OutputBinding<T>``` output parameter. In this example, the ```outputItem``` parameter needs to be annotated with ```@CosmosDBOutput```, not the function signature. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the document to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
+The following example shows a Java function that writes a document to Azure Cosmos DB via an `OutputBinding<T>` output parameter. In this example, the `outputItem` parameter needs to be annotated with `@CosmosDBOutput`, not the function signature. Using `OutputBinding<T>` lets your function take advantage of the binding to write the document to Azure Cosmos DB while also allowing returning a different value to the function caller, such as a JSON or XML document.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -415,7 +415,7 @@ The following example shows a Java function that writes a document to CosmosDB v
 
 ### HTTP trigger, save multiple documents to database via OutputBinding
 
-The following example shows a Java function that writes multiple documents to CosmosDB via an ```OutputBinding<T>``` output parameter. In this example, the ```outputItem``` parameter is annotated with ```@CosmosDBOutput```, not the function signature. The output parameter, ```outputItem``` has a list of ```ToDoItem``` objects as its template parameter type. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the documents to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
+The following example shows a Java function that writes multiple documents to Azure Cosmos DB via an `OutputBinding<T>` output parameter. In this example, the `outputItem` parameter is annotated with `@CosmosDBOutput`, not the function signature. The output parameter, `outputItem` has a list of `ToDoItem` objects as its template parameter type. Using `OutputBinding<T>` lets your function take advantage of the binding to write the documents to Azure Cosmos DB while also allowing returning a different value to the function caller, such as a JSON or XML document.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -462,7 +462,7 @@ The following example shows a Java function that writes multiple documents to Co
     }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be ```OutputBinding<T>```, where T is either a native Java type or a POJO.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Azure Cosmos DB.  The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
@@ -542,7 +542,7 @@ For bulk insert form the objects first and then run the stringify function. Here
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-The following example show how to write data to Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to a Cosmos DB document.
+The following example show how to write data to Azure Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to an Azure Cosmos DB document.
 
 ```json
 { 
@@ -626,13 +626,13 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 ::: zone pivot="programming-language-csharp" 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
@@ -640,7 +640,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+# [Extension 4.x+](#tab/functionsv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
 
@@ -648,7 +648,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-output-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+# [Extension 4.x+](#tab/functionsv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-output-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
 
@@ -679,7 +679,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
 
@@ -700,11 +700,9 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| Azure Cosmos DB | [HTTP status codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## Next steps
 
 - [Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
-
-[extension version 4.x]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4

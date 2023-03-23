@@ -5,8 +5,8 @@ author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
 ms.topic: reference
-ms.date: 08/28/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.date: 01/26/2023
+ms.custom: template-how-to
 ---
 
 
@@ -23,9 +23,6 @@ Making an Azure Logic app compatible to run with the **Custom Task Extension** r
 - Configure the callback action (only applicable to the callback scenario)
 - Enable system assigned managed identity.
 - Configure AuthZ policies.
-
-> [!NOTE]
-> For our public preview we will provide a UI and a deployment script that will automate the following steps.
 
 To configure those you'll follow these steps:
 
@@ -205,17 +202,19 @@ To configure those you'll follow these steps:
 
 1. Select Save.    
 
-1. For Logic Apps authorization policy, we'll need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we'll need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure portal** to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 
 1. Create two authorization policies based on the tables below:
 
+    Policy name: AzureADLifecycleWorkflowsAuthPolicy   
+    
     |Claim  |Value  |
     |---------|---------|
     |Issuer     |  https://sts.windows.net/(Tenant ID)/       |
     |Audience     | Application ID of your Logic Apps Managed Identity       |
-    |appID     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
+    |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App   
  
@@ -223,7 +222,7 @@ To configure those you'll follow these steps:
     |---------|---------|
     |Issuer     |  https://login.microsoftonline.com/(Tenant ID)/v2.0       |
     |Audience     | Application ID of your Logic Apps Managed Identity       |
-    |appID     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
+    |azp     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
 1. Save the Authorization policy.
 > [!NOTE]

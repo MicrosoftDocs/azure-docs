@@ -102,6 +102,21 @@ Although PHP does not support connection pooling, you can try using persistent d
 
    * [PHP Connection Management](https://www.php.net/manual/en/pdo.connections.php)
 
+#### Python
+
+Below are the popular databases and modules for connection pooling which contain examples for how to implement them.
+
+* [MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-connection-pooling.html)
+* [MariaDB](https://mariadb.com/docs/ent/connect/programming-languages/python/connection-pools/)
+* [PostgreSQL](https://www.psycopg.org/docs/pool.html)
+* [Pyodbc](https://github.com/mkleehammer/pyodbc/wiki/The-pyodbc-Module#pooling)
+* [SQLAlchemy](https://docs.sqlalchemy.org/en/20/core/pooling.html)
+
+HTTP Connection Pooling
+
+  * Keep-alive and HTTP connection pooling are enabled by default in [Requests](https://requests.readthedocs.io/en/latest/user/advanced/#keep-alive) module.
+  * [Urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.connectionpool.html) 
+
 ### Modify the application to reuse connections
 
 *  For additional pointers and examples on managing connections in Azure functions, review [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
@@ -154,7 +169,7 @@ TCP connections and SNAT ports are not directly related. A TCP connections usage
 * A SNAT port can be shared by different flows, if the flows are different in either protocol, IP address or port. The TCP Connections metric counts every TCP connection.
 * The TCP connections limit happens at the worker instance level. The Azure Network outbound load balancing doesn't use the TCP Connections metric for SNAT port limiting.
 * The TCP connections limits are described in [Sandbox Cross VM Numerical Limits - TCP Connections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
-* Existing TCP sessions will fail when new outbound TCP sessions from Azure App Service source port. You can either use a single IP or reconfigure backend pool members to avoid conflicts
+* Existing TCP sessions will fail when new outbound TCP sessions are added from Azure App Service source port. You can either use a single IP or reconfigure backend pool members to avoid conflicts.
 
 |Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|Isolated tier (ASE)|
 |---|---|---|---|---|---|

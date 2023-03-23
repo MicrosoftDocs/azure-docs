@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 10/17/2022
 ms.author: mbaldwin
 ---
 # Configure cryptographic key auto-rotation in Azure Key Vault
@@ -18,7 +18,7 @@ Automated cryptographic key rotation in [Key Vault](../general/overview.md) allo
 
 Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
 
-For more information about objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
+For more information about how objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
 ## Integration with Azure services
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
@@ -140,7 +140,7 @@ Invoke-AzKeyVaultKeyRotation -VaultName <vault-name> -Name <key-name>
 
 ## Configure key near expiry notification
 
-Configuration of expiry notification for Event Grid key near expiry event. You can configure notification with days, months and years before expiry to trigger near expiry event. 
+Configuration of expiry notification for Event Grid key near expiry event. In case when automated rotation cannot be used, like when a key is imported from local HSM, you can configure near expiry notification as a reminder for manual rotation or as a trigger to custom automated rotation through integration with Event Grid. You can configure notification with days, months and years before expiry to trigger near expiry event. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
 
@@ -242,3 +242,4 @@ Key rotation policy can also be configured using ARM templates.
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
 - [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
 - [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)
+- [Automatic key rotation for transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation#automatic-key-rotation)

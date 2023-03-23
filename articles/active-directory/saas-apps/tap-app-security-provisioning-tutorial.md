@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure TAP App Security for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure TAP App Security for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to TAP App Security.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

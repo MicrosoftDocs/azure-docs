@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: cmmdesai
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure Workday for automatic user provisioning
@@ -19,6 +19,10 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >Use this tutorial, if the users you want to provision from Workday need an on-premises AD account and an Azure AD account. 
 >* If the users from Workday only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) user provisioning. 
 >* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
+
+The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/TfndXBlhlII]
 
 ## Overview
 
@@ -79,7 +83,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 Configuring Workday to Active Directory user provisioning requires considerable planning covering different aspects such as:
 * Setup of the Azure AD Connect provisioning agent 
 * Number of Workday to AD user provisioning apps to deploy
-* Selecting the the right matching identifier, attribute mapping, transformation and scoping filters
+* Selecting the right matching identifier, attribute mapping, transformation and scoping filters
 
 Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines and recommended best practices. 
 
@@ -387,7 +391,7 @@ In this section, you will configure how user data flows from Workday to Active D
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only |
 | **PreferredNameData**    |  cn    |   |   Written on create only |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Written on create only 
-| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Written on create only |
+| `Replace(Mid(Replace([UserID], , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )`      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
 | **LastName**   |   sn   |     |  Create + update |

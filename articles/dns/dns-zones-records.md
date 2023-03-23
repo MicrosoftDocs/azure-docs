@@ -1,14 +1,14 @@
 ---
 title: DNS Zones and Records overview - Azure DNS
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
-author: rohinkoul
+author: greg-lindsay
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/20/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Overview of DNS zones and records
@@ -19,7 +19,7 @@ This article explains the key concepts of domains, DNS zones, DNS records, and r
 
 The Domain Name System is a hierarchy of domains. The hierarchy starts from the 'root' domain, whose name is simply '**.**'.  Below this come top-level domains, such as 'com', 'net', 'org', 'uk' or 'jp'.  Below the top-level domains are second-level domains, such as 'org.uk' or 'co.jp'. The domains in the DNS hierarchy are globally distributed, hosted by DNS name servers around the world.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf, or allow you to specify alternative name servers.
+A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf or allow you to specify alternative name servers.
 
 Azure DNS provides a globally distributed and high-availability name server infrastructure that you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
@@ -35,7 +35,7 @@ Azure DNS currently doesn't support purchasing of domain names. If you want to p
 
 ### Time-to-live
 
-The time to live, or TTL, specifies how long each record is cached by clients before being requeried. In the above example, the TTL is 3600 seconds or 1 hour.
+The time to live, or TTL, specifies how long each record is cached by clients before being queried. In the above example, the TTL is 3600 seconds or 1 hour.
 
 In Azure DNS, the TTL gets specified for the record set, not for each record, so the same value is used for all records within that record set.  You can specify any TTL value between 1 and 2,147,483,647 seconds.
 
@@ -65,7 +65,7 @@ These constraints arise from the DNS standards and aren't limitations of Azure D
 
 ### NS records
 
-The NS record set at the zone apex (name '\@') gets created automatically with each DNS zone, and gets deleted automatically when the zone gets deleted. It can't be deleted separately.
+The NS record set at the zone apex (name '\@') gets created automatically with each DNS zone and gets deleted automatically when the zone gets deleted. It can't be deleted separately.
 
 This record set contains the names of the Azure DNS name servers assigned to the zone. You can add more name servers to this NS record set, to support cohosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, removing or modifying the pre-populated Azure DNS name servers isn't allowed. 
 
@@ -96,7 +96,7 @@ TXT records are used to map domain names to arbitrary text strings. They're used
 
 The DNS standards permit a single TXT record to contain multiple strings, each of which may be up to 255 characters in length. Where multiple strings are used, they are concatenated by clients and treated as a single string.
 
-When calling the Azure DNS REST API, you need to specify each TXT string separately.  When using the Azure portal, PowerShell or CLI interfaces you should specify a single string per record, which is automatically divided into 255-character segments if necessary.
+When calling the Azure DNS REST API, you need to specify each TXT string separately.  When you use the Azure portal, PowerShell, or CLI interfaces, you should specify a single string per record. This string is automatically divided into 255-character segments if necessary.
 
 The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined).
 

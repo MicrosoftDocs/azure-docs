@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 02/14/2023
 ms.author: banders
 ---
 
@@ -50,6 +50,17 @@ Use the following information to create an EA subscription.
 
 After the new subscription is created, the account owner can see it in on the **Subscriptions** page.
 
+## Can't view subscription
+
+If you created a subscription but can't find it in the Subscriptions list view, a view filter might be applied.
+
+To clear the filter and view all subscriptions:
+
+1. In the Azure portal, navigate to **Subscriptions**.
+2. At the top of the list, select the Subscriptions filter item.
+3. At the top of the subscriptions filter box, select **All**. At the bottom of the subscriptions filter box, clear **Show only subscriptions selected in the global subscriptions filter**.  
+    :::image type="content" source="./media/create-enterprise-subscription/subscriptions-filter-item.png" alt-text="Screenshot showing the Subscriptions filter box with options." lightbox="./media/create-enterprise-subscription/subscriptions-filter-item.png" :::
+4. Select **Apply** to close the box and refresh the list of subscriptions.
 
 ## Create an Azure subscription programmatically
 

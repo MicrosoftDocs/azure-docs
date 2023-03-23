@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with MOVEit Transfer - Azure AD integration'
+title: 'Tutorial: Azure AD SSO integration with MOVEit Transfer'
 description: Learn how to configure single sign-on between Azure Active Directory and MOVEit Transfer - Azure AD integration.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with MOVEit Transfer - Azure AD integration

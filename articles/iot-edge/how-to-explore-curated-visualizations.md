@@ -13,7 +13,7 @@ services: iot-edge
 
 # Explore curated visualizations
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can visually explore metrics collected from IoT Edge devices using Azure Monitor workbooks. Curated monitoring workbooks for IoT Edge devices are provided in the form of public templates:
 

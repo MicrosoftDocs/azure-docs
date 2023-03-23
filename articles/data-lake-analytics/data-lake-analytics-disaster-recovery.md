@@ -1,24 +1,27 @@
 ---
 title: Disaster recovery guidance for Azure Data Lake Analytics
 description: Learn how to plan disaster recovery for your Azure Data Lake Analytics accounts.
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 06/03/2019
+ms.date: 01/20/2023
 ---
 # Disaster recovery guidance for Azure Data Lake Analytics
 
-Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it is running, making it cost-effective. This article provides guidance on how to protect your jobs from rare region-wide outages or accidental deletions.
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]s
+
+Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it's running, making it cost-effective. This article provides guidance on how to protect your jobs from rare region-wide outages or accidental deletions.
 
 ## Disaster recovery guidance
 
-When using Azure Data Lake Analytics, it's critical for you to prepare your own disaster recovery plan. This article helps guide you to build a disaster recovery plan. There are additional resources that can help you create your own plan:
+When using Azure Data Lake Analytics, it's critical for you to prepare your own disaster recovery plan. This article helps guide you to build a disaster recovery plan. There are more resources that can help you create your own plan:
+
 - [Failure and disaster recovery for Azure applications](/azure/architecture/reliability/disaster-recovery)
 - [Azure resiliency technical guidance](/azure/architecture/checklist/resiliency-per-service)
 
 ## Best practices and scenario guidance
 
-You can run a recurring U-SQL job in an ADLA account in a region that reads and writes U-SQL tables as well as unstructured data.  Prepare for a disaster by taking these steps:
+You can run a recurring U-SQL job in an ADLA account in a region that reads and writes U-SQL tables and unstructured data.  Prepare for a disaster by taking these steps:
 
 1. Create ADLA and ADLS accounts in the secondary region that will be used during an outage.
 

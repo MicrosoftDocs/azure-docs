@@ -1,13 +1,10 @@
 ---
 title: 'Azure VPN Gateway topologies and design'
 description: Learn about VPN Gateway topologies and designs to connect on-premises locations to virtual networks.
-services: vpn-gateway
 author: cherylmc
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
-
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/14/2022
+ms.date: 02/13/2023
 ms.author: cherylmc
 
 ---

@@ -8,32 +8,36 @@ metadata:
   description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
   services: service
   ms.service: stream-analytics
+  ms.custom: ignite-2022
   ms.topic: landing-page
-  author: sidram
-  ms.author: sidram
-  ms.date: 09/16/2019
-
+  author: ajetasin
+  ms.author: ajetasi
+  ms.date: 10/31/2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   - title: About Azure Stream Analytics
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a job with Azure portal
-            url: stream-analytics-quick-create-portal.md
       - linkListType: overview
         links:
           - text: What is Azure Stream Analytics?
             url: stream-analytics-introduction.md
           - text: Azure Stream Analytics solution patterns
             url: stream-analytics-solution-patterns.md
-      - linkListType: whats-new
+      - linkListType: quickstart
         links:
-          - text: Stream Analytics compatibility levels
-            url: stream-analytics-compatibility-level.md
-          - text: Stream Analytics preview features
-            url: stream-analytics-previews.md
+          - text: Create a job with Azure portal
+            url: stream-analytics-quick-create-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Capture Event Hubs data in parquet format
+            url: event-hubs-parquet-capture-tutorial.md
+          - text: Write to a delta table in Data Lake Storage Gen2 
+            url: write-to-delta-table-adls-gen2.md
+          - text: Build real time Power BI dashboards with no code editor 
+            url: no-code-power-bi-tutorial.md
+          - text: Analyze fraudulent call data and visualize results
+            url: stream-analytics-real-time-fraud-detection.md
       - linkListType: concept
         links:
           - text: Choose a streaming analytics technology
@@ -70,7 +74,7 @@ landingContent:
             url: stream-analytics-define-outputs.md
       - linkListType: concept
         links:
-          - text: Output to Cosmos DB
+          - text: Output to Azure Cosmos DB
             url: stream-analytics-documentdb-output.md
           - text: Output to Azure SQL Database
             url: stream-analytics-sql-output-perf.md
@@ -84,16 +88,22 @@ landingContent:
             url: stream-analytics-troubleshoot-output.md
   - title: Monitor and troubleshoot your job
     linkLists: 
+      - linkListType: concept
+        links:
+          - text: Stream Analytics job metrics 
+            url: stream-analytics-job-metrics.md
+          - text: Stream Analytics dimensions for job metrics
+            url: stream-analytics-job-metrics-dimensions.md
       - linkListType: how-to-guide
         links:
-          - text: Introduction to monitoring
+          - text: Monitor and manage jobs using Azure portal
             url: stream-analytics-monitoring.md
-          - text: Monitor jobs with Azure PowerShell
-            url: stream-analytics-monitor-and-manage-jobs-use-powershell.md 
-          - text: Create a job monitor using the Azure .NET SDK
-            url: stream-analytics-monitor-jobs.md
           - text: Monitor and manage jobs from Visual Studio
             url: stream-analytics-monitor-jobs-use-vs.md
+          - text: Analyze job performance using job metrics and dimensions
+            url: stream-analytics-job-analysis-with-metric-dimensions.md
+          - text: Debug queries locally using job diagram in Visual Studio Code
+            url: debug-locally-using-job-diagram-vs-code.md
           - text: Troubleshoot using resource logs
             url: stream-analytics-job-diagnostic-logs.md
           - text: Debug using the job diagram

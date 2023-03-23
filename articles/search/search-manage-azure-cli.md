@@ -3,12 +3,13 @@ title: Azure CLI scripts using the az search module
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-author: DerekLegenzoff
-ms.author: delegenz
+author: mattmsft
+ms.author: magottei
 ms.service: cognitive-search
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 01/25/2023
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI
@@ -40,7 +41,7 @@ You cannot use tools or APIs to transfer content, such as an index, from one ser
 
 Preview administration features are typically not available in the **az search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -149,6 +150,13 @@ Results should look similar to the following output:
   "tags": null,
   "type": "Microsoft.Search/searchServices"
 }
+```
+
+[**az search service delete**](/cli/azure/search/service#az-search-service-delete-required-parameters) removes the service and its data.
+
+```azurecli-interactive
+az search service delete --name <service-name> \
+                         --resource-group  <search-service-resource-group-name> \
 ```
 
 ### Create a service with IP rules

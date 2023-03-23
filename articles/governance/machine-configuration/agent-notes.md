@@ -19,9 +19,20 @@ The guest configuration agent receives improvements on an ongoing basis. To stay
 - Known issues
 - Bug fixes
 
-For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](/azure/azure-arc/servers/agent-release-notes).
+For information on release notes for the connected machine agent, please see [What's new with the connected machine agent](../../azure-arc/servers/agent-release-notes.md).
 
 ## Release notes
+
+### Version 1.29.48 - January 2023
+
+#### New Features
+
+- In this release we have added support for Linux distributions such as Red Hat Enterprise Linux (RHEL) 9, Mariner 1&2, Alma 9, and Rocky 9. 
+
+#### Fixed
+
+- Reliability improvements were made to the guest configuration policy engine
+
 
 ### Guest Configuration Linux Extension version 1.26.38
 

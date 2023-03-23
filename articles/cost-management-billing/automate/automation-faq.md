@@ -62,7 +62,7 @@ See [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md).
 
 ### When will the [Enterprise Reporting APIs](../manage/enterprise-api.md) get turned off?
 
-The Enterprise Reporting APIs are deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the APIs as soon as possible. For more information, see [Migrate from Enterprise Reporting to Azure Resource Manager APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md).
+The Enterprise Reporting APIs are deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the APIs as soon as possible. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 
 ### When will the [Consumption Usage Details API](/rest/api/consumption/usage-details/list) get turned off?
 

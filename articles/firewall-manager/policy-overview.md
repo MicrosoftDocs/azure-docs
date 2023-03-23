@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 02/10/2023
 ms.author: victorh
 ---
 
@@ -25,7 +25,7 @@ Policies can be associated with one or more virtual hubs or VNets. The firewall 
 
 ## Classic rules and policies
 
-Azure Firewall supports both Classic rules and policies, but policies is the recommenced configuration. The following table compares policies and classic rules:
+Azure Firewall supports both Classic rules and policies, but policies is the recommended configuration. The following table compares policies and classic rules:
 
 
 | Subject | Policy  | Classic rules |
@@ -37,13 +37,14 @@ Azure Firewall supports both Classic rules and policies, but policies is the rec
 |Pricing     |Billed based on firewall association. See [Pricing](#pricing).|Free|
 |Supported deployment mechanisms     |Portal, REST API, templates, Azure PowerShell, and CLI|Portal, REST API, templates, PowerShell, and CLI. |
 
-## Standard and Premium policies
+## Basic, Standard, and Premium policies
 
-Azure Firewall supports Standard and Premium policies. The following table summarizes the difference between the two:
+Azure Firewall supports Basic (preview), Standard, and Premium policies. The following table summarizes the difference between these policies:
 
 
 |Policy type|Feature support  | Firewall SKU support|
 |---------|---------|----|
+|Basic policy|NAT rules, Application rules<br>IP Groups<br>Threat Intelligence (alerts)|Basic
 |Standard policy    |NAT rules, Network rules, Application rules<br>Custom DNS, DNS proxy<br>IP Groups<br>Web Categories<br>Threat Intelligence|Standard or Premium|
 |Premium policy    |All Standard feature support, plus:<br><br>TLS Inspection<br>Web Categories<br>URL Filtering<br>IDPS|Premium
 
@@ -53,11 +54,11 @@ Azure Firewall supports Standard and Premium policies. The following table summa
 New policies can be created from scratch or inherited from existing policies. Inheritance allows DevOps to create local firewall policies on top of organization mandated base policy.
 
 Policies created with non-empty parent policies inherit all rule collections from the parent policy. 
-Network rule collections inherited from a parent policy are always prioritized above network rule collections defined as part of a new policy. The same logic also applies to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
+Network rule collections inherited from a parent policy are always prioritized over network rule collections defined as part of a new policy. The same logic also applies to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
 
 Threat Intelligence mode is also inherited from the parent policy. You can set your threat Intelligence mode to a different value to override this behavior, but you can't turn it off. It's only possible to override with a stricter value. For example, if your parent policy is set to **Alert only**, you can configure this local policy to **Alert and deny**.
 
-Like Threat Intelligence mode, the Threat Intelligence allowlist is inherited from the parent policy. The child policy can add additional IP addresses to the allowlist.
+Like Threat Intelligence mode, the Threat Intelligence allowlist is inherited from the parent policy. The child policy can add more IP addresses to the allowlist.
 
 NAT rule collections aren't inherited because they're specific to a given firewall.
 

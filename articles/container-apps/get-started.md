@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli, event-tier1-build-2022
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -172,4 +172,4 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

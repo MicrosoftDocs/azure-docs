@@ -67,7 +67,7 @@ You can also create a key vault by using the [Resource Manager template](https:/
 ## Set key vault advanced access policies
 
 > [!IMPORTANT]
-> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
+> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](../articles/key-vault/general/soft-delete-overview.md).
 
 The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes.
 
@@ -149,7 +149,7 @@ Your key vault KEK URLs must be versioned. Azure enforces this restriction of ve
 
 ### Azure CLI
 
-Use the Azure CLI [`z keyvault key create`](/cli/azure/keyvault/key#az-keyvault-key-create) command to generate a new KEK and store it in your key vault.
+Use the Azure CLI [`az keyvault key create`](/cli/azure/keyvault/key#az-keyvault-key-create) command to generate a new KEK and store it in your key vault.
 
 ```azurecli-interactive
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA --size 4096

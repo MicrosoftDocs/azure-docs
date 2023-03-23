@@ -44,11 +44,7 @@ val participantViewData: CallCompositeParticipantViewData = CallCompositePartici
     .setScaleType((ImageView.ScaleType) scaleType)
     .setDisplayName((String) displayName)
 
-<<<<<<< HEAD
-val CallCompositeNavigationBarViewData navigationBarViewData = CallCompositeNavigationBarViewData()
-=======
 val setupScreenViewData: CallCompositeSetupScreenViewData = CallCompositeSetupScreenViewData()
->>>>>>> ef3071d236b6 (Correcting data model code sample for android)
     .setTitle((String) title)
     .setSubtitle((String) subTitle)
 

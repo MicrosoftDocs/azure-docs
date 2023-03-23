@@ -1,7 +1,6 @@
 ---
 title: Access Kubernetes resources from the Azure portal
 description: Learn how to interact with Kubernetes resources to manage an Azure Kubernetes Service (AKS) cluster from the Azure portal.
-services: container-service
 ms.topic: article
 ms.date: 12/16/2020
 ---
@@ -112,5 +111,5 @@ This article showed you how to access Kubernetes resources for your AKS cluster.
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
-[cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
+[cli-aad-upgrade]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md

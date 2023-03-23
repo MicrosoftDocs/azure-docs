@@ -1,5 +1,5 @@
 ---
-title: Create or edit a dynamic group and get status - Azure AD | Microsoft Docs
+title: Create or edit a dynamic group and get status
 description: How to create or update a group membership rule in the Azure portal, and check its processing status.
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 11/14/2022
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -41,8 +41,8 @@ For examples of syntax, supported properties, operators, and values for a member
 
 ## To create a group membership rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Intune administrator, or User administrator role in the Azure AD organization.
-1. Search for and select **Groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global Administrator, Intune Administrator, or User Administrator role in the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Groups**.
 1. Select **All groups**, and select **New group**.
 
    ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group-azure-active-directory.png)
@@ -61,8 +61,8 @@ If the rule you entered isn't valid, an explanation of why the rule couldn't be 
 
 ## To update an existing rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Group administrator, Intune administrator, or User administrator role in the Azure AD organization.
-1. Select **Groups** > **All groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global Administrator, Group Administrator, Intune Administrator, or User Administrator role in the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Groups** > **All groups**.
 1. Select a group to open its profile.
 1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
@@ -90,6 +90,9 @@ The following status messages can be shown for **Dynamic rule processing** statu
 - **Update complete**: Processing has completed and all applicable updates have been made.
 - **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
+
+>[!NOTE]
+>In this screen you now may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property. Global admins, group admins, user admins, and Intune admins can manage this setting and can pause and resume dynamic group processing. Group owners without the correct roles do not have the rights needed to edit this setting.
 
 The following status messages can be shown for **Last membership change** status:
 

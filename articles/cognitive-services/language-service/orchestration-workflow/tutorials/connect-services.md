@@ -23,7 +23,7 @@ This tutorial will include creating a **chit chat** knowledge base and **email c
 
 ## Prerequisites
 
-- Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) **and select the custom question answering feature** in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+- Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) **and select the custom question answering feature** in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   - You will need the key and endpoint from the resource you create to connect your bot to the API. You'll paste your key and endpoint into the code below later in the tutorial. Copy them from the **Keys and Endpoint** tab in your resource.
   - When you enable custom question answering, you must select an Azure search resource to connect to.
   - Make sure the region of your resource is supported by [conversational language understanding](../../conversational-language-understanding/service-limits.md#regional-availability).
@@ -87,6 +87,7 @@ Now your orchestration project is ready to be used. Any incoming request will be
 ```powershell
 dotnet add package Azure.AI.Language.Conversations
 ```
+Alternatively, you can search for "Azure.AI.Language.Conversations" in the NuGet package manager and install the latest release.
 
 3. In `Program.cs`, replace `{api-key}` and the `{endpoint}` variables. Use the key and endpoint for the Language resource you created earlier. You can find them in the **Keys and Endpoint** tab in your Language resource in Azure.
 
@@ -95,10 +96,11 @@ Uri endpoint = new Uri("{endpoint}");
 AzureKeyCredential credential = new AzureKeyCredential("{api-key}");
 ```
 
-4. Replace the orchestrationProject parameters to **Orchestrator** and **Testing** as below if they are not set already.
+4. Replace the project and deployment parameters to **Orchestrator** and **Testing** as below if they are not set already.
 
 ```csharp
-ConversationsProject orchestrationProject = new ConversationsProject("Orchestrator", "Testing");
+string projectName = "Orchestrator";
+string deploymentName = "Testing";
 ```
 
 5. Run the project or press F5 in Visual Studio. 

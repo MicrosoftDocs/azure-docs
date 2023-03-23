@@ -1,20 +1,20 @@
 ---
-author: aahill
+author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/18/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.2.0b1/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.3.0b1/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md) | [Package (PyPi)](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b2/sdk/cognitivelanguage/azure-ai-language-conversations) 
+[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b3/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md) | [Package (PyPi)](https://pypi.org/project/azure-ai-language-conversations/1.1.0b3/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b3/sdk/cognitivelanguage/azure-ai-language-conversations) 
 
 ---
 
@@ -26,13 +26,14 @@ Use this quickstart to create a text summarization application with the client l
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -43,13 +44,13 @@ After installing Python, you can install the client library with:
 # [Document summarization](#tab/document-summarization)
 
 ```console
-pip install azure-ai-textanalytics==5.2.0b4
+pip install azure-ai-textanalytics==5.3.0b1
 ```
 
 # [Conversation summarization](#tab/conversation-summarization)
 
 ```console
-pip install azure-ai-language-conversations==1.1.0b2
+pip install azure-ai-language-conversations==1.1.0b3
 ```
 
 ---
@@ -60,7 +61,7 @@ pip install azure-ai-language-conversations==1.1.0b2
 
 ## Code example
 
-Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -155,84 +156,86 @@ with client:
                                 "text": "Hello, you’re chatting with Rene. How may I help you?",
                                 "id": "1",
                                 "role": "Agent",
-                                "participantId": "Agent_1"
+                                "participantId": "Agent_1",
                             },
                             {
                                 "text": "Hi, I tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn’t work.",
                                 "id": "2",
                                 "role": "Customer",
-                                "participantId": "Customer_1"
+                                "participantId": "Customer_1",
                             },
                             {
                                 "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
                                 "id": "3",
                                 "role": "Agent",
-                                "participantId": "Agent_1"
+                                "participantId": "Agent_1",
                             },
                             {
                                 "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
                                 "id": "4",
                                 "role": "Customer",
-                                "participantId": "Customer_1"
+                                "participantId": "Customer_1",
                             },
                             {
                                 "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
                                 "id": "5",
                                 "role": "Agent",
-                                "participantId": "Agent_1"
+                                "participantId": "Agent_1",
                             },
                             {
                                 "text": "No. Nothing happened.",
                                 "id": "6",
                                 "role": "Customer",
-                                "participantId": "Customer_1"
+                                "participantId": "Customer_1",
                             },
                             {
                                 "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
                                 "id": "7",
                                 "role": "Agent",
-                                "participantId": "Agent_1"
-                            }
+                                "participantId": "Agent_1",
+                            },
                         ],
                         "modality": "text",
                         "id": "conversation1",
-                        "language": "en"
+                        "language": "en",
                     },
                 ]
             },
             "tasks": [
                 {
-                    "taskName": "analyze 1",
+                    "taskName": "Issue task",
                     "kind": "ConversationalSummarizationTask",
-                    "parameters": {
-                        "summaryAspects": ["Issue, Resolution"]
-                    }
-                }
-            ]
+                    "parameters": {"summaryAspects": ["issue"]},
+                },
+                {
+                    "taskName": "Resolution task",
+                    "kind": "ConversationalSummarizationTask",
+                    "parameters": {"summaryAspects": ["resolution"]},
+                },
+            ],
         }
     )
 
     # view result
     result = poller.result()
-    task_result = result["tasks"]["items"][0]
-    print("... view task status ...")
-    print("status: {}".format(task_result["status"]))
-    resolution_result = task_result["results"]
-    if resolution_result["errors"]:
-        print("... errors occured ...")
-        for error in resolution_result["errors"]:
-            print(error)
-    else:
-        conversation_result = resolution_result["conversations"][0]
-        if conversation_result["warnings"]:
-            print("... view warnings ...")
-            for warning in conversation_result["warnings"]:
-                print(warning)
+    task_results = result["tasks"]["items"]
+    for task in task_results:
+        print(f"\n{task['taskName']} status: {task['status']}")
+        task_result = task["results"]
+        if task_result["errors"]:
+            print("... errors occurred ...")
+            for error in task_result["errors"]:
+                print(error)
         else:
-            summaries = conversation_result["summaries"]
-            print("... view task result ...")
-            print("issue: {}".format(summaries[0]["text"]))
-            print("resolution: {}".format(summaries[1]["text"]))
+            conversation_result = task_result["conversations"][0]
+            if conversation_result["warnings"]:
+                print("... view warnings ...")
+                for warning in conversation_result["warnings"]:
+                    print(warning)
+            else:
+                summaries = conversation_result["summaries"]
+                for summary in summaries:
+                    print(f"{summary['aspect']}: {summary['text']}")
 
 ```
 
@@ -242,11 +245,11 @@ with client:
 ### Output
 
 ```console
-... view task status ...
-status: succeeded
-... view task result ...
-issue: Customer tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work
-resolution: Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine
+Issue task status: succeeded
+issue: Customer tried to set up wifi connection for Smart Brew 300 coffee machine but it didn't work. No error message.
+
+Resolution task status: succeeded
+resolution: Asked customer to check if the Contoso Coffee app prompts to connect with the machine. Customer ended the chat.
 ```
 
 ---

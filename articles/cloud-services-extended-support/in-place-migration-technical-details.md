@@ -70,6 +70,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Affinity Groups | Not supported. Remove any affinity groups before migration.  | 
 | Virtual networks using [virtual network peering](../virtual-network/virtual-network-peering-overview.md)| Before migrating a virtual network that is peered to another virtual network, delete the peering, migrate the virtual network to Resource Manager and re-create peering. This can cause downtime depending on the architecture. | 
 | Virtual networks that contain App Service environments | Not supported | 
+| Virtual networks with Azure Batch Deployments | Not supported | 
 | Virtual networks that contain HDInsight services | Not supported. 
 | Virtual networks that contain Azure API Management deployments | Not supported. <br><br> To migrate the virtual network, change the virtual network of the API Management deployment. This is a no downtime operation. | 
 | Classic Express Route circuits | Not supported. <br><br>These circuits need to be migrated to Azure Resource Manager before beginning PaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-howto-move-arm.md). |  

@@ -2,15 +2,15 @@
 title: Support passwordless authentication with FIDO2 keys in apps you develop
 description: This deployment guide explains how to support passwordless authentication with FIDO2 security keys in the applications you develop
 services: active-directory
-author: knicholasa
+author: henrymbuguakiarie
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 1/29/2021
-ms.author: nichola
-# ms.reviewer: 
+ms.author: henrymbugua
+ms.reviewer: knicholasa
 ms.custom: aaddev
 # Customer intent: As a developer, I want to know how to support FIDO2 authentication in my apps
 ---

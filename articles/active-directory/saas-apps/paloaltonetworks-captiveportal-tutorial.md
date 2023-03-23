@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks Captive Portal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks Captive Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks Captive Portal.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks Captive Portal

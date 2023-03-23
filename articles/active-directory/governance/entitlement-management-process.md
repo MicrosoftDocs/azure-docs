@@ -1,6 +1,6 @@
 ---
-title: Request process & notifications - Azure AD entitlement management
-description: Learn about the request process for an access package and when email notifications are sent in Azure Active Directory entitlement management.
+title: Request process & notifications - Microsoft Entra entitlement management
+description: Learn about the request process for an access package and when email notifications are sent in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# Request process and email notifications in Azure AD entitlement management
+# Request process and email notifications in entitlement management
 
-When a user submits a request to an access package, a process begins to deliver that access request. Azure AD entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
+When a user submits a request to an access package, a process begins to deliver that access request. Entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
 
 ## Request process
 

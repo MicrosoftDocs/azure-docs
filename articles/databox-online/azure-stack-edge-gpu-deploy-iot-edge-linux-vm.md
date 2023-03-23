@@ -291,7 +291,7 @@ Use these steps to verify that your IoT Edge runtime is running.
 
    To troubleshoot your IoT Edge device configuration, see [Troubleshoot your IoT Edge device](../iot-edge/troubleshoot.md?view=iotedge-2020-11&tabs=linux&preserve-view=true).
 
-   <!-- Cannot get the link to render properly for version at https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2020-11 -->
+   <!-- Cannot get the link to render properly for version at https://learn.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2020-11 -->
 
 ## Update the IoT Edge runtime
 
@@ -303,4 +303,4 @@ To deploy and run an IoT Edge module on your Ubuntu VM, see the steps in [Deploy
 
 To deploy Nvidia’s DeepStream module, see [Deploy the Nvidia DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU](azure-stack-edge-deploy-nvidia-deepstream-module.md).
 
-To deploy NVIDIA DIGITS, see [Enable a GPU in a prefabricated NVIDIA module](/azure/iot-edge/configure-connect-verify-gpu?view=iotedge-2020-11&preserve-view=true#enable-a-gpu-in-a-prefabricated-nvidia-module).
+To deploy NVIDIA DIGITS, see [Enable a GPU in a prefabricated NVIDIA module](../iot-edge/configure-connect-verify-gpu.md?preserve-view=true&view=iotedge-2020-11#enable-a-gpu-in-a-prefabricated-nvidia-module).

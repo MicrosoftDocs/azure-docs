@@ -5,11 +5,14 @@ author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 03/21/2023
 ---
 # Microsoft Purview (formerly Azure Purview) deployment best practices
 
 This article is a guide to successfully deploying Microsoft Purview (formerly Azure Purview) into production in your data estate. It's intended to help you strategize and phase your deployment from research to hardening your production environment, and is best used in tandem with our [deployment checklist](tutorial-azure-purview-checklist.md).
+
+>[!NOTE]
+>These best practices cover the deployment for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
 
 If you're looking for a strictly technical deployment guide, use the [deployment checklist](tutorial-azure-purview-checklist.md).
 
@@ -208,7 +211,7 @@ Once you have the agreed requirements and participated business units to onboard
 |[Scan Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Start to onboard your database sources and scan them to populate key assets|Two Days|
 |[Create custom classifications and rules](create-a-custom-classification-and-classification-rule.md)|Once your assets are scanned, your users may realize that there are other use cases for more classification beside the default classifications from Microsoft Purview.|2-4 Weeks|
 |[Scan Power BI](register-scan-power-bi-tenant.md)|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts that have requirements to include lineage from the storage layer.|1-2 Weeks|
-|[Import glossary terms](how-to-create-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Microsoft Purview via .csv file.|One Week|
+|[Import glossary terms](how-to-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Microsoft Purview via .csv file.|One Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|One Week|
 |[Add sensitive labels and scan](how-to-automatically-label-your-content.md)|This might be optional for some organizations, depending on the usage of Labeling from Microsoft 365.|1-2 Weeks|
 |[Get classification and sensitive insights](concept-insights.md)|For reporting and insight in Microsoft Purview, you can access this functionality to get various reports and provide presentation to management.|One Day|
@@ -312,45 +315,9 @@ In the Microsoft Purview Data Map, there are several areas where the Catalog Adm
 
 ## Moving tenants
 
-If your Azure Subscription moves tenants while you have a Microsoft Purview account, there are some steps you should follow after the move.
+If your Azure Subscription moves tenants while you have a Microsoft Purview account, you will need to create a new Microsoft Purview account and re-register and scan your sources.
 
-Currently your Microsoft Purview account's system assigned and user assigned managed identities will be cleared during the move to the new tenant. This is because your Azure tenant houses all authentication information, so these need to be updated for your Microsoft Purview account in the new tenant.
-
-After the move, follow the below steps to clear the old identities, and create new ones:
-
-1. If you're running locally, sign in to Azure through the Azure CLI.
-
-    ```azurecli-interactive
-      az login
-      ```
-    Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure portal. 
-    Direct browser link: [https://shell.azure.com](https://shell.azure.com).
-
-1. Obtain an access token by using [az account get-access-token](/cli/azure/account#az-account-get-access-token).
-    ```azurecli-interactive
-    az account get-access-token
-    ```
-
-1. Run the following bash command to disable all managed identities (user and system assigned managed identities):
-
-    > [!IMPORTANT]
-    > Be sure to replace these values in the below commands:
-    > - \<Subscription_Id>: Your Azure Subscription ID
-    > - \<Resource_Group_Name>: Name of the resource group where your Microsoft Purview account is housed.
-    > - \<Account_Name>: Your Microsoft Purview account name
-    > - \<Access_Token>: The token from the first two steps.
-
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d'{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
-    ```
-
-1. To enable your new system managed assigned identity (SAMI), run the following bash command:
-  
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
-    ```
-
-1. If you had a user assigned managed identity (UAMI), to enable one on your new tenant, register your UAMI in Microsoft Purview as you did originally by following [the steps from the manage credentials article](manage-credentials.md#create-a-user-assigned-managed-identity).
+Moving tenants is not currently supported for Microsoft Purview.
 
 ## Next steps
 

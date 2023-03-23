@@ -1,10 +1,10 @@
 ---
-title: Error codes for Device Update for Azure IoT Hub | Microsoft Docs
+title: Error codes for Device Update for Azure IoT Hub
 description: This document provides a table of error codes for various Device Update components.
 author: chrisjlin
 ms.author: lichris
 ms.date: 06/28/2022
-ms.topic: reference
+ms.topic: troubleshooting
 ms.service: iot-hub-device-update
 ---
 
@@ -73,7 +73,7 @@ The DO error code can be obtained by examining the exceptions thrown in response
    +--------------- Facility code (4 bits) 
  ```
 
-For more information about parsing codes, see [Device Update Agent result codes and extended result codes](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/device-update-agent-extended-result-codes.md) or [implement a custom Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers).
+For more information about parsing codes, see [Device Update Agent result codes and extended result codes](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/device-update-agent-extended-result-codes.md) or [implement a custom Content Handler](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/inc/aduc/content_handler.hpp).
 
 ## Device Update content service
 

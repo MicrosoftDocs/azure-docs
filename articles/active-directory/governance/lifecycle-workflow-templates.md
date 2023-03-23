@@ -1,13 +1,14 @@
 ---
-title: Workflow Templates and categories - Azure Active Directory
-description: Conceptual article discussing workflow templates and categories with Lifecycle Workflows
+title: Workflow Templates and categories
+description: Conceptual article discussing workflow templates and categories with Lifecycle Workflows.
 author: owinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: conceptual 
-ms.date: 07/06/2022
+ms.date: 01/26/2023
 ms.custom: template-concept
 ---
 
@@ -69,7 +70,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 |---------|---------|---------|
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
-|Days from event     | 0        | ✔️        |
+|Days from event     | 0        | ❌        |
 |Event timing     | On        |  ❌       |
 |Event User attribute     | EmployeeHireDate        |   ❌      |
 |Scope type     | Rule based        | ❌        |
@@ -166,7 +167,7 @@ The default specific parameters for the **Post-Offboarding of an employee** temp
 
 ## Next steps
 
-- [workflowTemplate resource type](/graph/api/resources/identitygovernance-workflowtemplate?view=graph-rest-beta)
+- [workflowTemplate resource type](/graph/api/resources/identitygovernance-workflowtemplate?view=graph-rest-beta&preserve-view=true)
 - [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
 

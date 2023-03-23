@@ -3,12 +3,12 @@ title: Recover deleted Cognitive Services resource
 titleSuffix: Azure Cognitive Services
 description: This article provides instructions on how to recover an already-deleted Cognitive Services resource.
 services: cognitive-services
-author: nitinme
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 07/02/2021
-ms.author: nitinme
+ms.author: aahi
 ---
 
 # Recover deleted Cognitive Services resources

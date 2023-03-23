@@ -5,17 +5,19 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 06/15/2022
+ms.date: 03/22/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd 
-ms.custom: devx-track-azurepowershell
+ms.custom: engagement-fy23
 ---
 
 # Change feed support in Azure Blob Storage
 
 The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+
+To learn how to process records in the change feed, see [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 ## How the change feed works
 
@@ -64,6 +66,17 @@ Enable change feed on your storage account by using Azure portal:
 1. Choose the **Save** button to confirm your data protection settings.
 
     :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot showing how to enable change feed in Azure portal":::
+
+### [Azure CLI](#tab/azure-cli)
+
+Enable change feed on a storage account by calling the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command with the `--enable-change-feed` parameter:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --enable-change-feed
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -134,9 +147,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 
 The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. The **$blobchangefeed** container can be viewed either via the Azure portal or via Azure Storage Explorer.
 
-Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK.
-
-See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
+Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK. To learn how to process records in the change feed, see [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 <a id="segment-index"></a>
 
@@ -201,7 +212,7 @@ Change feed files are stored in the `$blobchangefeed/log/` virtual directory as 
 
 ### Event record schemas
 
-For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to change feed and not yet supported for Blob Storage Events.
+For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to change feed and not yet supported for Blob Storage Events.
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
@@ -544,7 +555,9 @@ This section describes known issues and conditions in the current release of the
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
+- [Storage account failover](../common/storage-disaster-recovery-guidance.md) is not supported on accounts with the change feed enabled. Disable the change feed before initiating a failover.
 - Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file.
+- You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
 
 ## Feature support
 

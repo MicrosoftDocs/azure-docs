@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -41,9 +41,10 @@ If developing using a JavaScript framework, one of the following open-source pro
 
 ## Prerequisites
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+* An [Azure Maps account]
+* A [subscription key]
 
 ## Key features support
 
@@ -97,13 +98,13 @@ The following are some of the key differences between the Bing Maps and Azure Ma
 > The Position class has a static helper function for importing coordinates that are in `latitude, longitude` format. The [atlas.data.Position.fromLatLng](/javascript/api/azure-maps-control/atlas.data.position)function can often be replace the `new Microsoft.Maps.Location` function in Bing Maps code.
 
 * Rather than specifying styling information on each shape that is added to the map, Azure Maps separates styles from the data. Data is stored in data sources and is connected to rendering layers that Azure Maps code uses to render the data. This approach provides enhanced performance benefit. Additionally, many layers support data-driven styling where business logic can be added to layer style options that will change how individual shapes are rendered within a layer based on properties defined in the shape.
-* Azure Maps provides a bunch of useful spatial math functions in the `atlas.math` namespace, however these differ from those in the Bing Maps spatial math module. The primary difference is that Azure Maps doesn’t provide built-in functions for binary operations such as union and intersection, however, since Azure Maps is based on GeoJSON that is an open standard, there are many open-source libraries available. One popular option that works well with Azure Maps and provides a ton of spatial math capabilities is [turf js](http://turfjs.org/).
+* Azure Maps provides a bunch of useful spatial math functions in the `atlas.math` namespace, however these differ from those in the Bing Maps spatial math module. The primary difference is that Azure Maps doesn’t provide built-in functions for binary operations such as union and intersection, however, since Azure Maps is based on GeoJSON that is an open standard, there are many open-source libraries available. One popular option that works well with Azure Maps and provides a ton of spatial math capabilities is [turf js](https://turfjs.org/).
 
 See also the [Azure Maps Glossary](./glossary.md) for an in-depth list of terminology associated with Azure Maps.
 
 ## Web SDK side-by-side examples
 
-The following is a collection of code samples for each platform that cover common use cases to help you migrate your web application from Bing Maps V8 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript; however, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](./how-to-use-map-control.md).
+The following is a collection of code samples for each platform that cover common use cases to help you migrate your web application from Bing Maps V8 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript; however, Azure Maps also provides TypeScript definitions as an additional option through an [npm module](./how-to-use-map-control.md).
 
 **Topics**
 
@@ -125,7 +126,7 @@ The following is a collection of code samples for each platform that cover commo
 
 ### Load a map
 
-Loading a map in both SDK’s follows the same set of steps;
+Loading a map in both SDKs follows the same set of steps;
 
 * Add a reference to the Map SDK.
 * Add a `div` tag to the body of the page that will act as a placeholder for the map.
@@ -1519,7 +1520,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 
 ### Add drawing tools
 
-Both Bing and Azure Maps provide a module that add the ability for the user to draw and edit shapes on the map using the mouse or other input device. They both support drawing pushpins, lines, and polygons. Azure Maps also provides options for drawing circles and rectangles.
+Both Bing and Azure Maps provide a module that adds the ability for the user to draw and edit shapes on the map using the mouse or other input device. They both support drawing pushpins, lines, and polygons. Azure Maps also provides options for drawing circles and rectangles.
 
 **Before: Bing Maps**
 
@@ -1689,3 +1690,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Migrate a web service](migrate-from-bing-maps-web-services.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

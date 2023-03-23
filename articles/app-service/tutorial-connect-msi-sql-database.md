@@ -4,7 +4,7 @@ description: Secure Azure SQL Database connectivity with managed identity from a
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/16/2022
+ms.date: 04/01/2023
 ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 ---
 # Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
@@ -52,7 +52,7 @@ To debug your app using SQL Database as the back end, make sure that you've allo
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## 1. Grant database access to Azure AD user
 
@@ -63,11 +63,11 @@ First, enable Azure Active Directory authentication to SQL Database by assigning
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
+    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
     ```
 
     > [!TIP]
-    > To see the list of all user principal names in Azure AD, run `az ad user list --query [].userPrincipalName`.
+    > To see the list of all user principal names in Azure AD, run `az ad user list --query '[].userPrincipalName'`.
     >
 
 1. Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
@@ -169,7 +169,7 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient):
 
     ```powershell
-    Install-Package Microsoft.Data.SqlClient -Version 4.0.1
+    Install-Package Microsoft.Data.SqlClient -Version 5.1.0
     ```
 
 1. In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md), the `MyDbConnection` connection string in *appsettings.json* isn't used at all yet. The local environment and the Azure environment both get connection strings from their respective environment variables in order to keep connection secrets out of the source file. But now with Active Directory authentication, there are no more secrets. In *appsettings.json*, replace the value of the `MyDbConnection` connection string with:
@@ -309,7 +309,7 @@ What you learned:
 > * Connect to SQL Database from Visual Studio using Azure AD authentication
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)

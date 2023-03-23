@@ -36,7 +36,7 @@ You can invoke the plugin in a Kusto query with the following command. There are
 evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
 ```
 
-The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
+The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
 * The `*` wildcard in the `SELECT` clause isn't supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
 
     For example, consider the below Azure Digital Twins query that is executed using the API:
@@ -78,7 +78,7 @@ Before querying with the plugin, you'll need to ingest your Azure Digital Twins 
 
 ### Ingesting with data history
 
-The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and twin property updates are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
+The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and graph updates (including twin property updates, twin lifecycle events, and relationship lifecycle events) are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
 
 ### Direct ingestion
 
@@ -132,11 +132,11 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 #### Example schema
 
-Here's an example of a schema that might be used to represent shared data.
+Here's an example of a schema that might be used to represent shared data. The example follows the Azure Data Explorer [data history schema for twin property updates](concepts-data-history.md#twin-property-updates).
 
-| `timestamp` | `twinId` | `modelId` | `name` | `value` | `relationshipTarget` | `relationshipID` |
-| --- | --- | --- | --- | --- | --- | --- |
-| 2021-02-01 17:24 | ConfRoomTempSensor | `dtmi:com:example:TemperatureSensor;1` | temperature | 301.0 |  |  |
+| `TimeStamp` | `SourceTimeStamp` | `TwinId` | `ModelId` | `Name` | `Value` | `RelationshipTarget` | `RelationshipID` |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2021-02-01 17:24 | 2021-02-01 17:11 | ConfRoomTempSensor | `dtmi:com:example:TemperatureSensor;1` | temperature | 301.0 |  |  |
 
 Digital twin properties are stored as key-value pairs (`name, value`). `name` and `value` are stored as dynamic data types. 
 

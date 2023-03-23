@@ -17,7 +17,7 @@ ms.date: 07/11/2022
 In order to access the managed identity feature for Azure Service Fabric applications, you must first enable the Managed Identity Token Service on the cluster. This service is responsible for the authentication of Service Fabric applications using their managed identities, and for obtaining access tokens on their behalf. Once the service is enabled, you can see it in Service Fabric Explorer under the **System** section in the left pane, running under the name **fabric:/System/ManagedIdentityTokenService** next to other system services.
 
 > [!NOTE] 
-> Deployment of Service Fabric applications with managed identities are supported starting with API version `"2019-06-01-preview"`. You can also use the same API version for application type, application type version and service resources. The minimum supported Service Fabric runtime is 6.5 CU2. In additoin, the build / package environment should also have the SF .Net SDK at CU2 or higher
+> Deployment of Service Fabric applications with managed identities are supported starting with API version `"2019-06-01-preview"`. You can also use the same API version for application type, application type version and service resources. The minimum supported Service Fabric runtime is 6.5 CU2. In addition, the build / package environment should also have the SF .Net SDK at CU2 or higher
 
 ## System-assigned managed identity
 

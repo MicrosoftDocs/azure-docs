@@ -1,6 +1,6 @@
 ---
-title: Govern access for applications in your environment - Azure AD
-description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
+title: Govern access for applications in your environment
+description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
 services: active-directory
 documentationcenter: ''
 author: amsliu
@@ -19,19 +19,19 @@ ms.collection: M365-identity-device-management
 
 # Govern access for applications in your environment
 
-Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. Its features ensure that the right people have the right access to the right resources in your organization at the right time.
+Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. Its features ensure that the right people have the right access to the right resources in your organization at the right time.
 
-Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications. The application sensitivity may be based on its purpose or the data it contains, such as financial information or personal information of the organization's customers. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  As part of your organization's controls for managing access, you can use Azure AD features to
+Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications. The application sensitivity may be based on its purpose or the data it contains, such as financial information or personal information of the organization's customers. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  As part of your organization's controls for managing access, you can use Microsoft Entra features to
 
 * set up appropriate access
 * enforce access checks
 * produce reports to demonstrate how those controls are being used to meet your compliance and risk management objectives.
 
-In addition to the application access governance scenario, you can also use identity governance and the other Azure AD features for other scenarios, such as [reviewing and removing users from other organizations](../governance/access-reviews-external-users.md) or [managing users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).  If your organization has multiple administrators in Azure AD or Azure, uses B2B or self-service group management, then you should [plan an access reviews deployment](deploy-access-reviews.md) for those scenarios.
+In addition to the application access governance scenario, you can also use identity governance and the other Microsoft Entra features for other scenarios, such as [reviewing and removing users from other organizations](../governance/access-reviews-external-users.md) or [managing users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).  If your organization has multiple administrators in Azure AD or Azure, uses B2B or self-service group management, then you should [plan an access reviews deployment](deploy-access-reviews.md) for those scenarios.
 
 ## Getting started with governing access to applications
 
-Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD  with many popular SaaS applications, as well as on-premises applications, and applications that your organization has developed. Once you've prepared your Azure AD environment, as described in the section below, the three step plan covers how to connect an application to Azure AD and enable identity governance features to be used for that application.
+Microsoft Entra identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD  with many popular SaaS applications, as well as on-premises applications, and applications that your organization has developed. Once you've prepared your Azure AD environment, as described in the section below, the three step plan covers how to connect an application to Azure AD and enable identity governance features to be used for that application.
 
 1. [Define your organization's policies for governing access to the application](identity-governance-applications-define.md)
 1. [Integrate the application with Azure AD](identity-governance-applications-integrate.md) to ensure only authorized users can access the application, and review user's existing access to the application to set a baseline of all users having been reviewed

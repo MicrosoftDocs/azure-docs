@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure InviteDesk for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure InviteDesk for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to InviteDesk.
 author: twimmers
 writer: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

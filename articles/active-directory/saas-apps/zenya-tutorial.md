@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zenya | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zenya'
 description: Learn how to configure single sign-on between Azure Active Directory and Zenya.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 01/09/2023
 ms.author: jeedes
 ---
 
@@ -93,6 +93,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. Fill the **Identifier** box with the value that's displayed behind the label **EntityID** on the **Zenya SAML2 info** page. This page is still open in your other browser tab.
 
 	c. Fill the **Reply-URL** box with the value that's displayed behind the label **Reply URL** on the **Zenya SAML2 info** page. This page is still open in your other browser tab.
+	
+	d. Fill the **Logout-URL** box with the value that's displayed behind the label **Logout URL** on the **Zenya SAML2 info** page. This page is still open in your other browser tab.
 
 1. Zenya application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

@@ -1,18 +1,18 @@
 ---
-title: Query Avro data by using Azure Data Lake Analytics | Microsoft Docs
+title: Query Avro data by using Azure Data Lake Analytics
 description: Use message body properties to route device telemetry to Blob storage and query the Avro format data that's written to Blob storage.
-author: ash2017
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub 
-services: iot-hub 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2019
-ms.author: asrastog
 ---
 # Query Avro data by using Azure Data Lake Analytics
 
 This article discusses how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services. [Message Routing](iot-hub-devguide-messages-d2c.md) allows you to filter data using rich queries based on message properties, message body, device twin tags, and device twin properties. To learn more about the querying capabilities in Message Routing, see the article about [message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 
-The challenge has been that when Azure IoT Hub routes messages to Azure Blob storage, by default IoT Hub writes the content in Avro format, which has both a message body property and a message property. The Avro format is not used for any other endpoints. Although the Avro format is great for data and message preservation, it's a challenge to use it to query data. In comparison, JSON or CSV format is much easier for querying data. IoT Hub now supports writing data to Blob storage in JSON as well as AVRO.
+The challenge has been that when Azure IoT Hub routes messages to Azure Blob storage, by default IoT Hub writes the content in Avro format, which has both a message body property and a message property. The Avro format isn't used for any other endpoints. Although the Avro format is great for data and message preservation, it's a challenge to use it to query data. In comparison, JSON or CSV format is easier for querying data. IoT Hub now supports writing data to Blob storage in JSON and AVRO.
 
 For more information, see [Using Azure Storage as a routing endpoint](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
@@ -30,13 +30,13 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 
    ![The Routing Rules](./media/iot-hub-query-avro-data/query-avro-data-1b.png)
 
-   For more information on settings up routes and custom endpoints, see [Message Routing for an IoT hub](iot-hub-create-through-portal.md#message-routing-for-an-iot-hub).
+   For more information on settings up routes and custom endpoints, see [Message Routing for an IoT hub](how-to-routing-portal.md).
 
-2. Ensure that your device has the encoding, content type, and needed data in either the properties or the message body, as referenced in the product documentation. When you view these attributes in Device Explorer, as shown here, you can verify that they are set correctly.
+2. Ensure that your device has the encoding, content type, and needed data in either the properties or the message body, as referenced in the product documentation. When you view these attributes in Device Explorer, as shown here, you can verify that they're set correctly.
 
    ![The Event Hub Data pane](./media/iot-hub-query-avro-data/query-avro-data-2.png)
 
-3. Set up an Azure Data Lake Store instance and a Data Lake Analytics instance. Azure IoT Hub does not route to a Data Lake Store instance, but a Data Lake Analytics instance requires one.
+3. Set up an Azure Data Lake Store instance and a Data Lake Analytics instance. Azure IoT Hub doesn't route to a Data Lake Store instance, but a Data Lake Analytics instance requires one.
 
    ![Data Lake Store and Data Lake Analytics instances](./media/iot-hub-query-avro-data/query-avro-data-3.png)
 
@@ -165,6 +165,6 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 
 In this tutorial, you learned how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services.
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
+* To learn more about message routing in IoT Hub, see [Use IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
 
-To learn more about message routing in IoT Hub, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+* To learn more about routing query syntax, see [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate web services from Bing Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -53,7 +53,7 @@ Azure Maps has several additional REST web services that may be of interest;
 * [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
 * [Traffic](/rest/api/maps/traffic) Flow – Access real-time traffic flow data as both raster and vector tiles.
 * [Geolocation API](/rest/api/maps/geolocation/get-ip-to-location) – Get the location of an IP address.
-* [Weather Services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
+* [Weather services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
 
 Be sure to also review the following best practices guides:
 
@@ -62,9 +62,13 @@ Be sure to also review the following best practices guides:
 
 ## Prerequisites
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+* An [Azure Maps account]
+* A [subscription key]
+
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Geocoding addresses
 
@@ -314,7 +318,7 @@ This approach however will only snap to the road segments that are loaded within
 
 **Using the Azure Maps vector tiles directly to snap coordinates**
 
-The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](./zoom-levels-and-tile-grid.md) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](http://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
+The Azure Maps vector tiles contain the raw road geometry data that can be used to calculate the nearest point on a road to a coordinate to do basic snapping of individual coordinates. All road segments appear in the sectors at zoom level 15, so you will want to retrieve tiles from there. You can then use the [quadtree tile pyramid math](./zoom-levels-and-tile-grid.md) to determine that tiles are needed and convert the tiles to geometries. From there a spatial math library, such as [turf js](https://turfjs.org/) or [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) can be used to calculate the closest line segments.
 
 ## Retrieve a map image (Static Map)
 
@@ -672,3 +676,6 @@ Learn more about the Azure Maps REST services.
 
 > [!div class="nextstepaction"]
 > [Best practices for using the search service](how-to-use-best-practices-for-search.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

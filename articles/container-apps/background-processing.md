@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
@@ -129,15 +129,9 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Here we use Azure CLI as there isn't an equivalent PowerShell cmdlet to get the connection string for the storage account queue.
-
 ```azurepowershell
  $QueueConnectionString = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAcctName).Context.ConnectionString
 ```
-<!--
-
- $QueueConnectionString = (az storage account show-connection-string -g $ResourceGroupName --name $StorageAcctName --query connectionString --out json)  -replace '"',''
--->
 
 ---
 
@@ -352,5 +346,3 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
-
-

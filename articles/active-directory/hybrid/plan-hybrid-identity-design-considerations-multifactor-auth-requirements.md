@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - multi-factor authentication requirements Azure | Microsoft Docs
+title: Hybrid identity design - multi-factor authentication requirements Azure
 description: With Conditional Access control, Azure AD verifies the specific conditions you pick when authenticating the user and before allowing access to the application.
 documentationcenter: ''
 services: active-directory
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1

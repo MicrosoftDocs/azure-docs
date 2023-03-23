@@ -14,6 +14,9 @@ ms.date: 07/19/2022
 ---
 # Intents 
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](utterances.md).
 
 Define a set of intents that corresponds to actions users want to take in your application. For example, a travel app would have several intents:

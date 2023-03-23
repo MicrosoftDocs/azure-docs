@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: lgayhardt
 ms.author: lagayhar
-ms.reviewer: cgronlun
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ---
 # How to select algorithms for Azure Machine Learning
@@ -35,6 +35,16 @@ Machine Learning designer provides a comprehensive portfolio of algorithms, such
 Along with guidance in the Azure Machine Learning Algorithm Cheat Sheet, keep in mind other requirements when choosing a machine learning algorithm for your solution. Following are additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
 
 ## Comparison of machine learning algorithms
+
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
 
 Some learning algorithms make particular assumptions about the structure of the data or the desired results. If you can find one that fits your needs, it can give you more useful results, more accurate predictions, or faster training times.
 

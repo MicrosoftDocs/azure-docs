@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure SAP SuccessFactors to Active Directory user provisioning 
@@ -16,6 +16,9 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors need an on-premises AD account and optionally an Azure AD account. If the users from SuccessFactors only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure SAP SuccessFactors to Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) user provisioning. 
 
+The following video provides a quick overview of the steps involved when planning your provisioning integration with SAP SuccessFactors. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/66v2FR2-QrY]
 
 ## Overview
 

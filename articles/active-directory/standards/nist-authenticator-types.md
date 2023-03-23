@@ -10,35 +10,34 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
-ms.date: 09/13/2022
+ms.date: 11/23/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
 # NIST authenticator types and aligned Azure Active Directory methods
 
-The authentication process begins when a claimant asserts its control of one of more authenticators that are associated with a subscriber. The subscriber can be a person or another entity.
+The authentication process begins when a claimant asserts its control of one of more authenticators associated with a subscriber. The subscriber is a person or another entity. Use the following table to learn about National Institute of Standards and Technology (NIST) authenticator types and associated Azure Active Directory (Azure AD) authentication methods.
 
-| The National Institute of Standards and Technology (NIST) authenticator type| Azure Active Directory (Azure AD) authentication methods |
+|NIST authenticator type| Azure AD authentication method|
 | - | - |
-|  Memorized secret <br> (something you know)|  Password (Cloud accounts)  <br>Password (Federated)<br> Password (Password Hash Sync)<br>Password (Passthrough Authentication) |
-|Lookup secret <br> (something you have)| None. A lookup secret is by definition data not held in a system. |
-|Out-of-band <br>(something you have)| Phone (SMS) - not recommended |
-| Single-factor one-time password <br>‎(something you have)| Microsoft Authenticator App (One-time password)  <br>Single factor one-time password ‎(through OTP manufacturers)<sup data-htmlnode="">1</sup> | 
-| Multifactor one-time password<br>(something you have + something you know or something you are)| Multifactor one-time password ‎(through OTP manufacturers) <sup data-htmlnode="">1</sup>| 
-|Single-factor crypto software<br>(something you have)|Compliant mobile device <br> Microsoft Authenticator App (Notification) <br> Hybrid Azure AD joined<sup data-htmlnode="">2</sup> with software TPM<br> Azure AD joined<sup data-htmlnode="">2</sup> with software TPM |
-| Single-factor crypto hardware <br>(something you have) | Azure AD joined<sup data-htmlnode="">2</sup> with hardware TPM <br> Hybrid Azure AD joined<sup data-htmlnode="">2</sup> with hardware TPM|
-|Multifactor crypto software<br>(something you have + something you know or something you are) | Microsoft Authenticator app for iOS (Passwordless)<br> Windows Hello for Business with software TPM |
-|Multifactor crypto hardware <br>(something you have + something you know or something you are) |Microsoft Authenticator app for Android (Passwordless)<br> Windows Hello for Business with hardware TPM<br> Smartcard (Federated identity provider) <br> FIDO 2 security key |
+|Memorized secret <br> (something you know)|  Password: Cloud accounts, federated, password hash sync, passthrough authentication|
+|Look-up secret <br> (something you have)| None: A look-up secret is data not held in a system|
+|Out-of-band <br>(something you have)| Phone (SMS): Not recommended |
+|Single-factor one-time password (OTP) <br> (something you have)| Microsoft Authenticator App OTP <br> Single-factor OTP (OTP manufacturers) <sup data-htmlnode="">1</sup>| 
+|Multi-factor OTP <br> (something you have, know, or are)| Multi-factor OTP (OTP manufacturers) <sup data-htmlnode="">1</sup>| 
+|Single-factor crypto software <br> (something you have)|Compliant mobile device <br> Microsoft Authenticator App (notification) <br> Hybrid Azure AD joined <sup data-htmlnode="">2</sup> with software TPM <br> Azure AD joined <sup data-htmlnode="">2</sup> with software TPM |
+|Single-factor crypto hardware <br> (something you have) | Azure AD joined <sup data-htmlnode="">2</sup> with hardware TPM <br> Hybrid Azure AD joined <sup data-htmlnode="">2</sup> with hardware TPM|
+|Multi-factor crypto software <br> (something you have, know, or are) | Microsoft Authenticator app for iOS (passwordless) <br> Windows Hello for Business with software TPM |
+|Multi-factor crypto hardware <br> (something you have, you know, or are) |Microsoft Authenticator app for Android (passwordless) <br> Windows Hello for Business with hardware TPM <br> Smartcard (Federated identity provider) <br> FIDO 2 security key|
 
+<sup data-htmlnode="">1</sup> 30-second or 60-second OATH-TOTP SHA-1 token
 
-<sup data-htmlnode="">1</sup> OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety.
+<sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity](../devices/index.yml)
 
-<sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity documentation](../devices/index.yml). 
+## SMS isn't recommended 
 
-## Why SMS isn't recommended 
-
-SMS text messages meet the NIST standard, but NIST doesn't recommend them. The risks of device swap, SIM changes, number porting, and other behaviors can cause problems. If these actions are taken maliciously, they can result in an insecure experience. Although SMS text messages aren't recommended, they're better than using a password alone, because they require more effort for hackers. 
+SMS text messages meet the NIST standard, but NIST doesn't recommend them. The risks of device swap, SIM changes, number porting, and other behaviors can cause issues. If these actions are malicious, they can result in an insecure experience. Although SMS text messages aren't recommended, they're better than using only a password, because they require more effort for hackers. 
 
 ## Next steps 
 

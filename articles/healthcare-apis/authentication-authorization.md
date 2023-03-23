@@ -2,11 +2,11 @@
 title: Azure Health Data Services Authentication and Authorization
 description: This article provides an overview of the authentication and authorization of Azure Health Data Services.
 services: healthcare-apis
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: overview
 ms.date: 06/06/2022
-ms.author: ginle
+ms.author: mikaelw
 ---
 
 # Authentication and Authorization for Azure Health Data Services
@@ -32,6 +32,7 @@ FHIR service of Azure Health Data Services provides the following roles:
 * **FHIR Data Exporter**: Can read and export ($export operator) data.
 * **FHIR Data Contributor**: Can perform all data plane operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
+* **FHIR SMART User**: Role allows user to read and write FHIR data according to the [SMART IG V1.0.0 specifications](http://hl7.org/fhir/smart-app-launch/1.0.0/).
 
 DICOM service of Azure Health Data Services provides the following roles:
 

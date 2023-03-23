@@ -11,7 +11,7 @@ ms.date: 09/13/2022
 
 # Microsoft Purview collections architectures and best practices  
 
-At the core of Microsoft Purview, the data map is a platform as a service (PaaS) component that keeps an up-to-date map of assets and their metadata across your data estate. To hydrate the data map, you need to register and scan your data sources. In an organization, there might be thousands of sources of data that are managed and governed by either centralized or decentralized teams.  
+At the core of [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions), the data map is a platform as a service (PaaS) component that keeps an up-to-date map of assets and their metadata across your data estate. To hydrate the data map, you need to register and scan your data sources. In an organization, there might be thousands of sources of data that are managed and governed by either centralized or decentralized teams.  
 
 [Collections](./how-to-create-and-manage-collections.md) in Microsoft Purview support organizational mapping of metadata. By using collections, you can manage and maintain data sources, scans, and assets in a hierarchy instead of a flat structure. Collections allow you to build a custom hierarchical model of your data landscape based on how your organization plans to use Microsoft Purview to govern your landscape.
 

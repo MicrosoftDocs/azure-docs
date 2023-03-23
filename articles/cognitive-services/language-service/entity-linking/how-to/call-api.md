@@ -17,8 +17,10 @@ ms.custom: language-service-entity-linking, ignite-fall-2021
 
 The entity linking feature can be used to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "*Mars*" refers to the planet, or to the Roman god of war). It will return the entities in the text with links to [Wikipedia](https://www.wikipedia.org/) as a knowledge base.
 
-> [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+
+## Development options
+
+[!INCLUDE [development-options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 
@@ -34,7 +36,7 @@ When you submit documents to be processed by entity linking, you can specify whi
 
 Entity linking produces a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
-To send an API request, You will need a Language resource endpoint and key.
+To send an API request, you will need a Language resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 

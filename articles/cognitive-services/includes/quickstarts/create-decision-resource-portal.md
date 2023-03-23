@@ -38,7 +38,7 @@ ms.author: pafarley
    | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
    | **Region** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
    | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
-   | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](/azure/cognitive-services/custom-vision-service/limits-and-quotas).|
+   | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](../../custom-vision-service/limits-and-quotas.md).|
    | **Storage** | You can optionally use your own Azure database resource to store the data that Metrics Advisor will use.
 1. Mark your acknowledgment of the Service Agreement and Terms and then select **Review + create**.
 

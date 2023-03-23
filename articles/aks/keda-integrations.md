@@ -1,7 +1,6 @@
 ---
 title: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview)
 description: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview).
-services: container-service
 author: tomkerkhove
 ms.topic: article
 ms.date: 05/24/2022
@@ -11,6 +10,8 @@ ms.author: tomkerkhove
 # Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview)
 
 The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features provided by Azure and open source projects.
+
+[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -56,7 +57,7 @@ However, these external scalers aren't supported as part of the add-on and rely 
 [aks-support-policy]: support-policies.md
 [keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
-[keda-troubleshoot]: keda-troubleshoot.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 
 <!-- LINKS - external -->
 [keda-scalers]: https://keda.sh/docs/latest/scalers/

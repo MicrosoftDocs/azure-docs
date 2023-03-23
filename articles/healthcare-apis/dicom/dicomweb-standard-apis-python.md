@@ -1,12 +1,12 @@
 ---
 title:  Using DICOMweb Standard APIs with Python - Azure Health Data Services
 description: This tutorial describes how to use DICOMweb Standard APIs with Python. 
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 02/15/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # Using DICOMWeb&trade; Standard APIs with Python

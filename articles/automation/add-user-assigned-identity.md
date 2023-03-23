@@ -3,6 +3,7 @@ title: Using a user-assigned managed identity for an Azure Automation account
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 ms.date: 10/26/2021
 ms.topic: conceptual 
 ---
@@ -12,15 +13,15 @@ ms.topic: conceptual
 This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 > [!NOTE]
-> User-assigned managed identities are supported for Azure jobs only.  
+> **User-assigned managed identities (UAMI) are in general supported for Azure jobs only.** One other scenario in which user-assigned managed identities (UAMI) run successfully in Hybrid Workers is, when only the Hybrid Worker VM has a UAMI assigned (i.e., the Automation Account can't have any UAMI assigned, otherwise the VM UAMI will fail authenticating). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
-- The user-assigned managed identity and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
+- The [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
 
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 

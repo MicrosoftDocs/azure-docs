@@ -4,6 +4,7 @@ description: In this tutorial, you learn how to manage access to an application 
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
+ms.reviewer: ergreenl
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial

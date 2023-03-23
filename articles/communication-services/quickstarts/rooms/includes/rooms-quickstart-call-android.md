@@ -79,4 +79,6 @@ remoteParticipant.addOnRoleChangedListener(isRoleChanged);
 remoteParticipant.getRole();
 ```
 
+The ability to join a room call and display the roles of call participants is available in the Android Mobile Calling SDK version [2.4.0-beta.1](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/2.4.0-beta.1/aar) and above.
+
 You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

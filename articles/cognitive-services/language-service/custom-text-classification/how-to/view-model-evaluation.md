@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -45,6 +45,19 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 ### Multi label classification 
 
 [!INCLUDE [Model evaluation](../includes/rest-api/model-evaluation-multi-label.md)]
+
+---
+
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../../conversational-language-understanding/includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../includes/rest-api/load-export-model.md)]
 
 ---
 

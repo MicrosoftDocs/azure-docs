@@ -1,8 +1,8 @@
 ---
 title: Clustering point data in the Web SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Web SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -16,7 +16,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Enabling clustering on a data source
 
