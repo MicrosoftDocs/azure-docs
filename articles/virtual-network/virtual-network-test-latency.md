@@ -13,9 +13,9 @@ ms.author: allensu
 
 # Test network latency between Azure VMs
 
-This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly-available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
+This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
-For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol [TCP] and User Datagram Protocol [UDP] traffic. Most applications use these protocols, and they have the greatest effect on application performance.
+For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. Most applications use these protocols, and they have the greatest effect on application performance.
 
 Many other common network latency test tools, such as Ping, don't measure the type of network traffic that's used in real workloads. These tools use Internet Control Message Protocol (ICMP), which most applications don't use, and which can be treated differently from application traffic. These test results might not apply to workloads that use TCP and UDP.
 
@@ -25,12 +25,12 @@ Tools like Latte or SockPerf measure only TCP or UDP payload delivery times. The
 
 Latte or SockPerf use the following approach to measure network latency between two physical or virtual computers:
 
-1. Create a two-way communications channel between the computers by alternately designating one as sender and one as receiver.
+1. Create a two-way communications channel between the computers by designating one as sender and one as receiver.
 1. Send and receive packets in both directions and measure the round-trip time (RTT).
 
-## Optimal VM configuration for latency
+## VM configuration for optimum latency
 
-To optimize network latency, observe the following recommendations when you create your VMs:
+To optimize VMs for network latency, observe the following recommendations when you create your VMs:
 
 - Use the latest version of Windows or Linux.
 - Enable [Accelerated Networking](accelerated-networking-overview.md) for increased performance.
@@ -53,7 +53,6 @@ Use the following process to test network latency and analyze results:
 
 1. Repeat tests whenever you observe or deploy changes.
 
-- 
 ## Test VMs with Latte or SockPerf
 
 Use the following procedures to install and test network latency with [Latte](https://github.com/mellanox/sockperf) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
@@ -78,12 +77,12 @@ Use the following procedures to install and test network latency with [Latte](ht
    latte -a <receiver IP address>:<port> -i <iterations>
    ```
 
-   - Around 65,000 iterations is long enough to return representative results.
+   - Around 65,000 iterations are enough to return representative results.
    - Any available port number is fine.
 
    For a VM with an IP address of `10.0.0.4`, the command might look like:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
 
-1. On the *sender* VM, start *latte.exe* from the command line. Run the same command as on the receiver, except with `-c` added to indicate that this is the *client*, or sender. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
+1. On the *sender* VM, start *latte.exe* from the command line. Run the same command as on the receiver, except with `-c` added to indicate the *client* or sender VM. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
    ```cmd
    latte -c -a <receiver IP address>:<port> -i <iterations>
