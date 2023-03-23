@@ -4,8 +4,8 @@ titleSuffix: Azure IoT
 description: A list of the IoT SDKs and libraries. Includes SDKs for device development and SDKs for building service applications.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-fundamentals
-services: iot-fundamentals
+ms.service: iot
+services: iot
 ms.topic: conceptual
 ms.date: 02/20/2023
 
