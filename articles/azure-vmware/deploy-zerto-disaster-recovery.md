@@ -36,19 +36,19 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 
 In this scenario, the primary site is an on-premises vSphere-based environment. The disaster recovery site is an Azure VMware Solution private cloud. 
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution.":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1-diagram.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution."lightbox="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1-diagram.png":::
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution cloud disaster recovery
 
 In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. The disaster recovery site is an Azure VMware Solution private cloud in a different Azure Region.
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2.png" alt-text="Diagram showing scenario 2 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2-diagram.png" alt-text="Diagram showing scenario 2 for the Zerto disaster recovery solution on Azure VMware Solution."lightbox="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2-diagram.png":::
 
 ### Scenario 3: Azure VMware Solution to IaaS VMs cloud disaster recovery
 
 In this scenario, the primary site is an Azure VMware Solution private cloud in one Azure Region. Azure Blobs and Azure IaaS (Hyper-V based) VMs are used in times of Disaster.
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3.png" alt-text="Diagram showing Scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3-diagram.png" alt-text="Diagram showing Scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution."lightbox="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3-diagram.png":::
 
 ## Prerequisites
 
