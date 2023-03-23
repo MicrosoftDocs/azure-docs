@@ -54,14 +54,14 @@ At the end of the Preview lifecycle for the runtime, Microsoft will assess if th
 If not eligible for GA stage, the Preview runtime will move into the retirement cycle.
 
 ### Generally available runtimes
-Once a runtime is Generally Available, only security fixes will be backported. In addition, new components or features will be introduced if they do not change underlying dependencies or component versions. 
+Once a runtime is Generally Available, only security fixes will be backported. In addition, new components or features will be introduced if they don't change underlying dependencies or component versions. 
 
 At the end of the GA lifecycle for the runtime, Microsoft will assess if the runtime will have an extended lifecycle (LTS) based on customer usage, security and stability criteria.
 
 If not eligible for LTS stage, the GA runtime will move into the retirement cycle.
 
 ### Long term support runtimes
-For runtimes that are covered by Long term support (LTS) customers are encouraged to expedite validation and migration of code base and workloads to the latest GA runtimes. We recommend that customers do not onboard new workloads using an LTS runtime. Security fixes and stability improvements may be backported, but no new components or features will be introduced into the runtime at this stage.
+For runtimes that are covered by Long term support (LTS) customers are encouraged to expedite validation and migration of code base and workloads to the latest GA runtimes. We recommend that customers don't onboard new workloads using an LTS runtime. Security fixes and stability improvements may be backported, but no new components or features will be introduced into the runtime at this stage.
 
 ### End of life announcement
 Prior to the end of the runtime lifecycle at any stage, an end of life announcement (EOLA) is performed.
@@ -74,6 +74,6 @@ If necessary due to outstanding security issues, runtime usage, or other factors
 
 ### End of life date and retirement
 As of the applicable EOL date, runtimes are considered retired and deprecated.
-* It is not possible to create new Spark pools of the retirement version through Azure Synapse Studio, Synapse API, or Azure portal.
-* The retirement runtime version will not be available on Azure Synapse Studio, Synapse API, or Azure portal.
+* It's not possible to create new Spark pools of the retirement version through Azure Synapse Studio, Synapse API, or Azure portal.
+* The retirement runtime version won't not be available on Azure Synapse Studio, Synapse API, or Azure portal.
 * Spark Pools definitions and associated metadata will remain in the Synapse workspace for a defined period after the applicable End-of-Life (EOL) date; **however, all pipelines, jobs and notebooks will no longer be able to execute.**
