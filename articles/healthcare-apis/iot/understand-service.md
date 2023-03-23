@@ -6,11 +6,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 03/07/2023
+ms.date: 03/21/2023
 ms.author: jasteppe
 ---
 
-# Understand the MedTech service device message data transformation
+# Understand the MedTech service device message data transformation 
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
@@ -20,9 +20,9 @@ This article provides an overview of the device message data processing stages w
 The MedTech service device message data processing follows these steps and in this order:
 
 * Ingest
-* Normalize - Device mappings applied.
+* Normalize - Device mapping applied.
 * Group - (Optional)
-* Transform - FHIR destination mappings applied.
+* Transform - FHIR destination mapping applied.
 * Persist
 
 :::image type="content" source="media/understand-service/understand-device-message-flow.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/understand-service/understand-device-message-flow.png":::
@@ -47,7 +47,7 @@ The device message event hub uses the MedTech service's [system-assigned managed
 > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Normalize
-Normalize is the next stage where device message data is processed using user-selected/user-created conforming and valid [device mappings](how-to-configure-device-mappings.md). This mapping process results in transforming device message data into a normalized schema. 
+Normalize is the next stage where device message data is processed using the user-selected/user-created conforming and valid [device mapping](how-to-configure-device-mappings.md). This mapping process results in transforming device message data into a normalized schema. 
 
 The normalization process not only simplifies data processing at later stages, but also provides the capability to project one device message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single device message. This device message would create four separate FHIR Observation resources. Each resource would represent a different vital sign, with the device message projected into four different normalized messages.
 
@@ -61,7 +61,7 @@ Group is the next *optional* stage where the normalized messages available from 
 Device identity and measurement type grouping are optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observation resources. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation resource that represents a 1-hour period or a 24-hour period.
 
 ## Transform
-Transform is the next stage where normalized messages are processed using user-selected/user-created conforming and valid [FHIR destination mappings](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observation resources if a matching FHIR destination mapping has been authored.
+Transform is the next stage where normalized messages are processed using the user-selected/user-created conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observation resources if a matching FHIR destination mapping has been authored.
 
 At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, along with its associated [Patient](https://www.hl7.org/fhir/patient.html) resource, is also retrieved from the FHIR service using the device identifier present in the device message. These resources are added as a reference to the FHIR Observation resource being created.
 
@@ -116,9 +116,9 @@ In this article, you learned about the MedTech service device message processing
 To learn how to configure the MedTech service device and FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [How to configure device mappings](how-to-configure-device-mappings.md)
+> [How to configure the device mapping](how-to-configure-device-mappings.md)
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
+> [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -31,12 +31,12 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* [Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+* An [Azure Maps account]
+* A [subscription key]
 
-For more information about Azure Maps authentication, see [Manage authentication in Azure Maps].
-
-[Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Sample code
 
@@ -481,7 +481,7 @@ To add the JavaScript:
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps primary subscription key to the map SDK.
+            //Add your Azure Maps subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -1028,7 +1028,7 @@ To see more code examples and an interactive coding experience:
 > [How to use the map control](how-to-use-map-control.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Visual Studio Code]: https://code.visualstudio.com
 [Simple Store Locator]: https://samples.azuremaps.com/?sample=simple-store-locator

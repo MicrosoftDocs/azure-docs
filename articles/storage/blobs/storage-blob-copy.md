@@ -19,7 +19,7 @@ This article shows how to copy a blob using the [Azure Storage client library fo
 
 ## Prerequisites
 
-- **Client object:** The code examples assume that you've created a client object to connect with Blob Storage data resources. To learn about client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+- **Client object:** The code examples assume that you're working with a client object to connect with Blob Storage data resources. To learn about client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 - **Permissions:** Make sure that the authorization mechanism has the correct permissions to perform a copy operation. To learn more, see the REST API authorization guidance for the following operations:
     - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
     - [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url#authorization)
@@ -31,44 +31,62 @@ This article shows how to copy a blob using the [Azure Storage client library fo
 A copy operation can perform any of the following actions:
 
 - Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or it can be a new blob created by the copy operation.
-- Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
+- Copy a source blob to a destination blob with the same name, which replace the destination blob. This type of copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
 - Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs isn't supported.
 - Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
 - Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
 
-The source blob for a copy operation may be one of the following types:
-- Block blob
-- Append blob
-- Page blob
-- Blob snapshot
-- Blob version
+The source blob for a copy operation may be one of the following types: block blob, append blob, page blob, blob snapshot, or blob version. The copy operation always copies the entire source blob or file. Copying a range of bytes or set of blocks isn't supported.
 
-If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob is overwritten.
+If the destination blob already exists, it must be of the same blob type as the source blob, and the existing destination blob is overwritten. The destination blob can't be modified while a copy operation is in progress, and a destination blob can only have one outstanding copy operation.
 
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the code example.
+#### Copying blob properties, tags, and metadata
 
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported. When a blob is copied, its system properties are copied to the destination blob with the same values.
+When a blob is copied, its system properties are copied to the destination blob with the same values. Tags are only copied from the source blob if they are specified as part of the copy options. When the source blob and destination blob are the same, any existing metadata is overwritten with the new metadata.
+
+#### Copying a leased blob
+
+A copy operation only reads from the source blob, so the source blob lease state doesn't affect the operation. However, the `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value changes before the copy operation finishes, the operation fails. You can prevent changes to the source blob by leasing it for the duration of the copy operation.
 
 ## Copy a blob
 
-To copy a blob, call one of the following methods:
+Starting in version 2018-03-28, you can use the following methods to begin a synchronous copy of data for source blob sizes up to 256MiB:
+
+- [SyncCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.synccopyfromuri)
+- [SyncCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.synccopyfromuriasync)
+
+The source for these methods can be any committed block blob which is authorized with a shared access signature. If the size of the source blob is greater than 256 MiB, the request fails with a 409 (Conflict) error. These methods wrap the [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) REST API operation.
+
+The following methods begin an asynchronous copy of data from the source blob:
 
 - [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
 - [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
 
-The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
+The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation. These methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation.
 
-### Copy a blob within the same storage account
-
-The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing an existing blob and copies it to a new blob in a different container within the same storage account. This example also acquires a lease on the source blob before copying. Acquiring a lease ensures that no other client can modify the blob until the copy is complete and the lease is released.
+The following example shows how to copy a source blob to a destination blob, using a [Uri](/dotnet/api/system.uri) object to represent the source blob URI:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyBlob":::
 
-### Copy a blob from another storage account
+#### Copy a blob within the same storage account
 
-If the source is a blob in another storage account, access to the source blob must be authorized via a shared access signature. The following example shows how to copy a blob from another storage account.
+If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. 
 
-### Check the status of a copy operation
+The following example shows a scenario for copying a blob from a different container within the same storage account. Both the source and destination blobs are authorized using Azure AD.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/Program.cs" id="Snippet_CopyWithinStorageAccount":::
+
+#### Copy a blob from another storage account
+
+If the source is a blob in another storage account, access to the source blob must be authorized via SAS token. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
+
+The following example shows a scenario for copying a blob from another storage account: 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/Program.cs" id="Snippet_CopyAcrossStorageAccounts":::
+
+You can also generate the source blob URI with an appended SAS token by calling [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) on a container client. With this approach, the SAS is signed by the shared key credential of the client.
+
+#### Check the status of a copy operation
 
 To check the status of a copy operation, you can call [UpdateStatusAsync](/dotnet/api/azure.storage.blobs.models.copyfromurioperation.updatestatusasync#azure-storage-blobs-models-copyfromurioperation-updatestatusasync(system-threading-cancellationtoken)) and parse the response to get the value for the `x-ms-copy-status` header. 
 

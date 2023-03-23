@@ -29,9 +29,11 @@ To get the Session ID, when using SDK you need to:
 1. Enable application logging.
 1. Find the Session ID inside the log.
 
-If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details [below](#get-session-id-using-speech-cli).
+If you use Speech SDK for JavaScript, get the Session ID as described in [this section](#get-session-id-using-javascript).
 
-In case of [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) you need to "inject" the session information in the requests. See details [below](#provide-session-id-using-rest-api-for-short-audio).
+If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details in [this section](#get-session-id-using-speech-cli).
+
+In case of [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) you need to "inject" the session information in the requests. See details in [this section](#provide-session-id-using-rest-api-for-short-audio).
 
 ### Enable logging in the Speech SDK
 
@@ -39,17 +41,22 @@ Enable logging for your application as described in [this article](how-to-use-lo
 
 ### Get Session ID from the log
 
-Open the log file your application produced and look for `SessionId:`. The number, that would follow is the Session ID you need. In the log excerpt example below `0b734c41faf8430380d493127bd44631` is the Session ID.
+Open the log file your application produced and look for `SessionId:`. The number that would follow is the Session ID you need. In the following log excerpt example `0b734c41faf8430380d493127bd44631` is the Session ID.
 
 ```
 [874193]: 218ms SPX_DBG_TRACE_VERBOSE:  audio_stream_session.cpp:1238 [0000023981752A40]CSpxAudioStreamSession::FireSessionStartedEvent: Firing SessionStarted event: SessionId: 0b734c41faf8430380d493127bd44631
 ```
+### Get Session ID using JavaScript
+
+If you use Speech SDK for JavaScript, you get Session ID with the help of `sessionStarted` event from the [Recognizer class](/javascript/api/microsoft-cognitiveservices-speech-sdk/recognizer).
+
+See an example of getting Session ID using JavaScript in [this sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/index.html). Look for `recognizer.sessionStarted = onSessionStarted;` and then for `function onSessionStarted`.
 
 ### Get Session ID using Speech CLI
 
-If you use [Speech CLI](spx-overview.md), then you will see the Session ID in `SESSION STARTED` and `SESSION STOPPED` console messages.
+If you use [Speech CLI](spx-overview.md), then you'll see the Session ID in `SESSION STARTED` and `SESSION STOPPED` console messages.
 
-You can also enable logging for your sessions and get the Session ID from the log file as described above. Run the appropriate Speech CLI command to get the information on using logs:
+You can also enable logging for your sessions and get the Session ID from the log file as described in [this section](#get-session-id-from-the-log). Run the appropriate Speech CLI command to get the information on using logs:
 
 ```console
 spx help recognize log
