@@ -3,7 +3,7 @@ title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/07/2022
+ms.date: 02/14/2023
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
@@ -54,6 +54,11 @@ When an orchestration function is given more work to do (for example, a response
 
 The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have an activity-chaining orchestrator function, like the following orchestrator function:
 
+> [!NOTE]
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
+>
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experience.
+
 # [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
@@ -90,7 +95,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -102,6 +107,23 @@ module.exports = df.orchestrator(function*(context) {
     output.push(yield context.df.callActivity("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return output;
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const helloActivityName = "sayHello";
+
+df.app.orchestration("helloSequence", function* (context) {
+    const output = [];
+    output.push(yield context.df.callActivity(helloActivityName, "Tokyo"));
+    output.push(yield context.df.callActivity(helloActivityName, "Seattle"));
+    output.push(yield context.df.callActivity(helloActivityName, "Cairo"));
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello Cairo!"]
     return output;
 });
 ```
@@ -289,7 +311,7 @@ public static async Task CheckSiteAvailable(
 
 The feature is not currently supported in dotnet-isolated worker. Instead, write an activity which performs the desired HTTP call.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -297,6 +319,20 @@ const df = require("durable-functions");
 module.exports = df.orchestrator(function*(context) {
     const url = context.df.getInput();
     var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("checkSiteAvailable", function* (context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp({ method: "GET", url });
     if (res.statusCode >= 400) {
         // handling of error codes goes here
     }
@@ -412,7 +448,7 @@ public static async Task<object> Mapper(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### Orchestrator
 
@@ -427,7 +463,7 @@ module.exports = df.orchestrator(function*(context) {
     const weather = yield context.df.callActivity("GetWeather", location);
 
     // ...
-};
+});
 ```
 
 #### `GetWeather` Activity
@@ -438,6 +474,29 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+
+```javascript
+const getWeatherActivityName = "getWeather";
+
+df.app.orchestration("getWeatherOrchestrator", function* (context) {
+    const location = {
+        city: "Seattle",
+        state: "WA",
+    };
+    const weather = yield context.df.callActivity(getWeatherActivityName, location);
+
+    // ...
+});
+
+df.app.activity(getWeatherActivityName, async function (location) {
+    const { city, state } = location; // destructure properties into variables
+
+    // ...
+});
 ```
 
 # [Python](#tab/python)
