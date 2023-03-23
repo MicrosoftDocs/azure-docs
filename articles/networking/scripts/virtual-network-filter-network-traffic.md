@@ -1,29 +1,23 @@
 ---
-title: Azure CLI script sample - Filter VM network traffic | Microsoft Docs
+title: Azure CLI script sample - Filter VM network traffic
 description: Use an Azure CLI script to filter inbound and outbound virtual machine (VM) network traffic with front-end and back-end subnets.
-services: virtual-network
-documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 07/07/2017
-ms.author: mbender
+ms.date: 03/23/2023
+ms.author: allensu
 
 ---
 
 # Use an Azure CLI script to filter inbound and outbound VM network traffic
 
-This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, HTTPS and SSH, while outbound traffic to the Internet from the back-end subnet is not permitted. After running the script, you will have one virtual machine with two NICs. Each NIC is connected to a different subnet.
+This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, HTTPS and SSH, while outbound traffic to the Internet from the back-end subnet isn't permitted. After running the script, you'll have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
-
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filter VM network traffic")]
 
@@ -56,4 +50,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md)
+More networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md)
