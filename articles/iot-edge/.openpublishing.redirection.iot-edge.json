@@ -167,12 +167,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-edge/iot-edge-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+            "redirect_url": "/azure/iot/iot-introduction",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-edge/iot-edge-glossary.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+            "redirect_url": "/azure/iot/iot-glossary/",
             "redirect_document_id": false
         },
         {

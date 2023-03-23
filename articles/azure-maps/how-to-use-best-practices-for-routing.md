@@ -26,8 +26,8 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be 
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 For more information about the coverage of the Route service, see the [Routing Coverage].
 
@@ -283,7 +283,7 @@ To learn more, please see:
 
 [Route service]: /rest/api/maps/route
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Routing Coverage]: routing-coverage.md
 [Postman]: https://www.postman.com/downloads/
 [RouteType]: /rest/api/maps/route/postroutedirections#routetype
