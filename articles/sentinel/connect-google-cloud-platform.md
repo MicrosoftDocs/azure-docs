@@ -14,10 +14,10 @@ Organizations are increasingly moving to multi-cloud architectures, whether by d
 
 This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multi-cloud environment.
 
-With the new GCP Pub/Sub Connector for GCP Audit Logs, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
+With the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
 
 > [!IMPORTANT]
-> The GCP Pub/Sub Connector for GCP Audit Logs is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
+> The GCP Pub/Sub Audit Logs connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
 
 Once you ingest the GCP data, you can view the details of three types of audit logs: 
 - Admin activity logs 
@@ -97,13 +97,13 @@ You can set up the GCP environment in one of two ways:
 
 1. Wait five minutes before moving to the next step. 
 
-## Set up the GCP Pub/Sub connector in Microsoft Sentinel
+## Set up the GCP Pub/Sub Audit Logs connector in Microsoft Sentinel
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 1. In the **Content hub**, in the search bar, type *Google Cloud Platform Audit Logs*.
 1. Install the **Google Cloud Platform Audit Logs** solution. 
-1. Select **Data connectors**, and in the search bar, type *GCP Pub/Sub*. 
-1. Select the *GCP Pub/Sub connector - Audit Logs (Preview)* connector.
+1. Select **Data connectors**, and in the search bar, type *GCP Pub/Sub Audit Logs*. 
+1. Select the **GCP Pub/Sub Audit Logs (Preview)** connector.
 1. Below the connector description, select **Open connector page**. 
 1. In the **Configuration** area, select **Add new**. 
 1. Type the resource parameters you created when you [created the GCP resources](#create-gcp-resources-via-the-terraform-api). Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
@@ -112,7 +112,7 @@ TBD - screenshot
 
 ## Verify that the GCP data is in the Microsoft Sentinel environment 
 
-1. To ensure that the GCP logs were successfully ingested into Microsoft Sentinel, run the following query 30 minutes after you finish to [set up the connector](#set-up-the-connector). 
+1. To ensure that the GCP logs were successfully ingested into Microsoft Sentinel, run the following query 30 minutes after you finish to [set up the connector](#set-up-the-gcp-pubsub-audit-logs-connector-in-microsoft-sentinel). 
 
     ```    
     GCPAuditLogs 
@@ -153,6 +153,9 @@ Alternatively, you can set up the environment [via the Terraform API](#create-gc
     > To find the tenant ID, in the Azure portal, navigate to **All Services > Azure Active Directory > Overview** and copy the **TenantID**. 
 
 1. Make sure that **Enable pool** is selected. 
+
+    TBD - screenshot
+
 1. To add a provider to the pool:
     - Select **OIDC** 
     - Type the **Issuer (URL)**: *https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d* 
@@ -209,7 +212,7 @@ Alternatively, you can set up the environment [via the Terraform API](#create-gc
 1. Check the incoming messages.  
 
 ## Next steps
-In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub connector. To learn more about Microsoft Sentinel, see the following articles:
+In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub Audit Logs connector. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
