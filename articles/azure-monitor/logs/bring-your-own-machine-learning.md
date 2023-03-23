@@ -100,8 +100,8 @@ Scoring is the process of applying a machine learning model on new data to get
 
 **Examples:**
 
-- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data).
-- [Score machine learning models with PREDICT in serverless Apache Spark pools](/azure/synapse-analytics/machine-learning/tutorial-score-model-predict-spark-pool).
+- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data)
+- [Score machine learning models with PREDICT in serverless Apache Spark pools](/azure/synapse-analytics/machine-learning/tutorial-score-model-predict-spark-pool)
 - [Deploy machine learning models to Azure](/azure/machine-learning/v1/how-to-deploy-and-where?tabs=azcli)
 
 ### Get insights from scored data on schedule
