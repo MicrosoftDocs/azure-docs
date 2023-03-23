@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 03/13/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -78,11 +78,11 @@ In this case, to open the Microsoft Purview governance portal, either use a mach
 
 ### Is it possible to restrict access to the Microsoft Purview managed storage account and event hub namespace (for private endpoint ingestion only) but keep portal access enabled for users across the web?
 
-No. When you set **Public network access** to **Deny**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for private endpoint ingestion only. When you set **Public network access** to **Allow**, access to the Microsoft Purview managed storage account and event hub namespace is automatically set for **All Networks**. You can't modify the private endpoint ingestion manually for the managed storage account or event hub namespace manually.
+Yes. You can configure Microsoft Purview firewall setting to Disabled for ingestion only (Preview). By choosing this option, public network access to your Microsoft Purview account through API and Microsoft Purview governance portal is allowed, however public network access is set to disabled on your Microsoft Purview account's Managed storage account and event hub.
 
-### If public network access is set to Allow, does it mean the managed storage account and event hub namespace can be publicly accessible?
+### If public network access is set to Allow, does it mean the managed storage account and event hub namespace are accessible by anyone?
 
-No. As protected resources, access to the Microsoft Purview managed storage account and event hub namespace is restricted to Microsoft Purview only. These resources are deployed with a deny assignment to all principals, which prevents any applications, users, or groups from gaining access to them.
+No. As protected resources, access to the Microsoft Purview managed storage account and event hub namespace is restricted to Microsoft Purview only using RBAC authenitcation schemes. These resources are deployed with a deny assignment to all principals, which prevents any applications, users, or groups from gaining access to them.
 
 To read more about Azure deny assignment, see [Understand Azure deny assignments](../role-based-access-control/deny-assignments.md).
 
