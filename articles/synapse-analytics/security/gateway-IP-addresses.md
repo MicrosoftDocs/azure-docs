@@ -1,11 +1,11 @@
 ---
 title: Gateway IP addresses
-description: An article that teaches you to configure connectivity settings in Azure Synapse Analytics 
+description: An article that teaches you what are the IP addresses used in different regions. 
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
 ms.date: 03/23/2023 
-author: ilijazagorac-msft 
+author: ilijazagorac
 ms.author: ilijazagorac 
 ---
 
@@ -13,7 +13,7 @@ ms.author: ilijazagorac
 
 The table below lists the individual Gateway IP addresses and also Gateway IP address ranges per region.
 
-Periodically, we will retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](gateway-migration.md). We strongly encourage customers to use the **Gateway IP address subnets** in order to not be impacted by this activity in a region.
+Periodically, we will retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](https://learn.microsoft.com/en-us/azure/azure-sql/database/gateway-migration?view=azuresql&tabs=in-progress-ip). We strongly encourage customers to use the **Gateway IP address subnets** in order to not be impacted by this activity in a region.
 
 > [!IMPORTANT]  
 > - Logins for SQL Database or dedicated SQL pools (formerly SQL DW) in Azure Synapse can land on **any of the Gateways in a region**. For consistent connectivity to SQL Database or dedicated SQL pools (formerly SQL DW) in Azure Synapse, allow network traffic to and from **ALL** Gateway IP addresses and Gateway IP address subnets for the region.
