@@ -33,11 +33,11 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with the [az group create](/cli/azure/group) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus3* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. 
 
 
 ```azurecli-interactive
-az group create --name myResourceGroupVM --location eastus3
+az group create --name myResourceGroupVM --location eastus2
 ```
 
 The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
@@ -63,7 +63,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "eastus3",
+  "location": "eastus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -171,10 +171,10 @@ The following table categorizes sizes into use cases.
 To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm) command. 
 
 ```azurecli-interactive 
-az vm list-sizes --location eastus --output table
+az vm list-sizes --location eastus2 --output table
 ```
 
-Partial output:
+Example partial output:
 
 ```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
