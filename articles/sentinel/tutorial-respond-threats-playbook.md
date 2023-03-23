@@ -24,9 +24,9 @@ This tutorial shows you how to use playbooks together with automation rules to a
 
 ## What are automation rules and playbooks?
 
-[Automation rules](automate-incident-handling-with-automation-rules.md) help you triage incidents in Microsoft Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known [false positives](false-positives.md), change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
+[Automation rules](automate-incident-handling-with-automation-rules.md) help you triage incidents in Microsoft Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known [false positives](false-positives.md), change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents or alerts.
 
-Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an alert or incident. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts or incidents are generated, by being attached to an analytics rule or an automation rule, respectively. It can also be run manually on-demand.
+Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an **entire incident**, to an **individual alert**, or to a **specific entity**. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts are generated or when incidents are created or updated, by being attached to an automation rule. It can also be run manually on-demand on specific incidents, alerts, or entities.
 
 Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power, customizability, and built-in templates of Logic Apps. Each playbook is created for the specific subscription to which it belongs, but the **Playbooks** display shows you all the playbooks available across any selected subscriptions.
 
@@ -235,13 +235,14 @@ In particular, note this important information about [**playbooks based on the e
 
 You've created your playbook and defined the trigger, set the conditions, and prescribed the actions that it will take and the outputs it will produce. Now you need to determine the criteria under which it will run and set up the automation mechanism that will run it when those criteria are met.
 
-### Respond to incidents
+### Respond to incidents and alerts
+<a name="respond-to-incidents"></a><a name="respond-to-alerts"></a> <!-- Anchor links included here for backward compatibility with, and redirection of, old headings -->
 
-You use a playbook to respond to an **incident** by creating an [automation rule](automate-incident-handling-with-automation-rules.md) that will run when the incident is generated, and in turn it will call the playbook.
+To use a playbook to respond automatically to an **entire incident** or to an **individual alert**, create an [automation rule](automate-incident-handling-with-automation-rules.md) that will run when the incident is created or updated, or when the alert is generated. This automation rule will include a step that calls the playbook you want to use.
 
 To create an automation rule:
 
-1. From the **Automation** blade in the Microsoft Sentinel navigation menu, select **Create** from the top menu and then **Add new rule**.
+1. From the **Automation** blade in the Microsoft Sentinel navigation menu, select **Create** from the top menu and then **Automation rule**.
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
 
@@ -249,9 +250,11 @@ To create an automation rule:
 
    :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
-1. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name** condition.
+1. **Trigger:** Select the appropriate trigger according to the circumstance for which you're creating the automation rule&mdash;**When incident is created**, **When incident is updated**, or **When alert is created**.
 
-1. Add any other conditions you want this automation rule's activation to depend on. Click **Add condition** and choose conditions from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
+1. **Conditions:** If you selected an incident trigger and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
+
+1. Add any other conditions you want this automation rule's activation to depend on. Select **+ Add** and choose [conditions or condition groups](add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 
 1. Choose the actions you want this automation rule to take. Available actions include **Assign owner**, **Change status**, **Change severity**, **Add tags**, and **Run playbook**. You can add as many actions as you like.
 

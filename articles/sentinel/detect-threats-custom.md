@@ -229,7 +229,7 @@ In the **Automated responses** tab, you can use [automation rules](automate-inci
    
 The grid displayed under **Automation rules** shows the automation rules that already apply to this analytics rule (by virtue of it meeting the conditions defined in those rules). You can edit any of these by selecting the ellipsis at the end of each row. Or, you can [create a new automation rule](create-manage-use-automation-rules.md).
 
-Use automation rules to perform basic triage, assignment, [workflow](incident-tasks.md), and closing of incidents. 
+Use automation rules to perform [basic triage](investigate-incidents.md#navigate-and-triage-incidents), assignment, [workflow](incident-tasks.md), and closing of incidents. 
 
 Automate more complex tasks and invoke responses from remote systems to remediate threats by calling playbooks from these automation rules. You can do this for incidents as well as for individual alerts.
 
@@ -239,7 +239,9 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 
     :::image type="content" source="media/tutorial-detect-threats-custom/automated-response-tab.png" alt-text="Define the automated response settings":::
 
-- Under **Alert automation (classic)** at the bottom of the screen, you'll see any playbooks you've configured to run automatically when an alert is generated using the old method. If you still have any of these, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from there.
+- Under **Alert automation (classic)** at the bottom of the screen, you'll see any playbooks you've configured to run automatically when an alert is generated using the old method. 
+    - **Beginning from April 2023**, you will no longer be able to configure playbooks to run using this method. 
+    - If you still have any playbooks listed here, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from there. After you've done that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**.
 
 Select **Review and create** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**.
 
