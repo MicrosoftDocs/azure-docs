@@ -232,7 +232,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 ## Troubleshooting
 
-You can use refresh logs to identify errors and debug your application.
+You can use refresh logs to identify errors and debug your application. For more information on how to utilize these logs, follow the configuration instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 - Logging will be enabled automatically as long as `services.AddAzureAppConfiguration()` is invoked in your `ConfigureServices` method. No code changes are needed.  
 - Logs will be output to the console at different log levels.
@@ -244,7 +244,6 @@ You can use refresh logs to identify errors and debug your application.
     | Warning | Indicates errors that occurred during refresh. |
 - The logging category will be `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`.
 
-For more information on how to utilize these logs, follow the configuration instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging). 
 Logs can alternatively be enabled and configured through [Azure SDK logging](/dotnet/azure/sdk/logging).
 
 ## Clean up resources
