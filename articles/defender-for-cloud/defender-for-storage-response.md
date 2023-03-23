@@ -1,7 +1,7 @@
 ---
 title: Setting a response to data risks - Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage .
-ms.date: 03/16/2023
+ms.date: 03/23/2023
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
