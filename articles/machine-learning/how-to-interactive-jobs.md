@@ -54,10 +54,10 @@ By specifying interactive applications at job creation, you can connect directly
   :::image type="content" source="./media/interactive-jobs/sleep-command.png" alt-text="Screenshot of reviewing a drafted job and completing the creation.":::
 
   You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
-      * sleep 1s
-      * sleep 1m
-      * sleep 1h
-      * sleep 1d
+  * sleep 1s
+  * sleep 1m
+  * sleep 1h
+  * sleep 1d
 
   You can also use the ```sleep infinity``` command that would keep the job alive indefinitely. 
     
