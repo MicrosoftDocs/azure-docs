@@ -105,9 +105,6 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 
 The following sample code uses the [Azure Monitor Ingestion client library for Python](/python/api/overview/azure/monitor-ingestion-readme).
 
-> [!NOTE]
-> This sample requires Python 3.7 or later.
-
 
 1. Use [pip](https://pypi.org/project/pip/) to install the Azure Monitor Ingestion client library for Python and the Azure Identity library, which is required for the authentication used in this sample.
     ```bash
