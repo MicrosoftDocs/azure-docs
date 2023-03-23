@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 01/18/2022
-ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -45,7 +45,7 @@ Automated ML supports model training for computer vision tasks like image classi
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
-    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
+    > Only Python 3.7 and 3.8 are compatible with automated ML support for computer vision tasks. 
 
 ## Select your task type
 Automated ML for images supports the following task types:
@@ -306,7 +306,7 @@ Parameter | Detail
 
 
 > [!NOTE]
-> For a complete sweep configuration sample, please refer to this [tutorial](../tutorial-auto-train-image-models.md#hyperparameter-sweeping-for-image-tasks).
+> For a complete sweep configuration sample, please refer to this [tutorial](../tutorial-auto-train-image-models.md#manual-hyperparameter-sweeping-for-image-tasks).
 
 ### Arguments
 

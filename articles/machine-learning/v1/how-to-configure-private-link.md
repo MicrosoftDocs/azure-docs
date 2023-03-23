@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
@@ -190,7 +190,7 @@ In some situations, you may want to allow someone to connect to your secured wor
 > [!WARNING]
 > When connecting over the public endpoint while the workspace uses a private endpoint to communicate with other resources:
 > * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. 
-> * Using Jupyter, JupyterLab, and RStudio on a compute instance, including running notebooks, __is not supported__.
+> * Using Jupyter, JupyterLab, RStudio, or Posit Workbench (formerly RStudio Workbench) on a compute instance, including running notebooks, __is not supported__.
 
 To enable public access, use the following steps:
 

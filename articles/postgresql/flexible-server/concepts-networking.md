@@ -74,10 +74,10 @@ Here are some concepts to be familiar with when you're using virtual networks wi
   At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview.md#security-rules) in an NSG. 
 
   > [!IMPORTANT]
-  > High availability Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to destination ports 5432, 6432 within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to Azure storage for log archival. If you create [Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md) to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please make sure to allow traffic to  destination ports 5432 and 6432 within the subnet, and also to Azure storage by using [service tag](../../virtual-network/service-tags-overview.md) Azure Storage as a destination.
+  > High availability and other Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to destination port 5432 within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to Azure storage for log archival. If you create [Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md) to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please make sure to allow traffic to  destination port 5432  within the subnet, and also to Azure storage by using [service tag](../../virtual-network/service-tags-overview.md) Azure Storage as a destination. Also, if you elect to use [Azure Active Directory authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL - Flexible Server please allow outbound traffic to Azure AD using Azure AD [service tag](../../virtual-network/service-tags-overview.md)
+
 
 * **Private DNS zone integration**. Azure private DNS zone integration allows you to resolve the private DNS within the current virtual network or any in-region peered virtual network where the private DNS zone is linked. 
-
 ### Using a private DNS zone
 
 If you use the Azure portal or the Azure CLI to create flexible servers with a virtual network, a new private DNS zone is automatically provisioned for each server in your subscription by using the server name that you provided. 
@@ -106,6 +106,34 @@ Private DNS zone settings and virtual network peering are independent of each ot
 > Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
 
 
+### Using Hub and Spoke private networking design 
+
+Hub and spoke is a popular networking model for efficiently managing common communication or security requirements.
+
+The hub is a virtual network that acts as a central location for managing external connectivity. It also hosts services used by multiple workloads. The hub coordinates all communications to and from the spokes. IT rules or processes like security can inspect, route, and centrally manage traffic. The spokes are virtual networks that host workloads, and connect to the central hub through virtual network peering. Shared services are hosted in their own subnets for sharing with the spokes. A perimeter subnet then acts as a security appliance.
+
+The spokes are also virtual networks in Azure, used to isolate individual workloads. The traffic flow between the on-premises headquarters and Azure is connected through ExpressRoute or Site to Site VPN, connected to the hub virtual network. The virtual networks from the spokes to the hub are peered, and enable communication to on-premises resources. You can implement the hub and each spoke in separate subscriptions or resource groups.
+
+There are two main patterns for connecting spoke virtual networks to each other:
+
+* Spokes directly connected to each other. Virtual network peerings or VPN tunnels are created between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
+* Spokes communicate over a network appliance. Each spoke virtual network has a peering to Virtual WAN or to a hub virtual network. An appliance routes traffic from spoke to spoke. The appliance can be managed by Microsoft (as with Virtual WAN) or by you.
+
+:::image type="content" source="./media/how-to-manage-virtual-network-portal/hub-spoke-architecture.png" alt-text="Diagram that shows basic hub and spoke architecture with hybrid connectivity via Express Hub.":::
+
+Use [Azure Virtual Network Manager (AVNM)](../../virtual-network-manager/overview.md) to create new (and onboard existing) hub and spoke virtual network topologies for the central management of connectivity and security controls.
+
+### Replication across Azure regions and virtual networks with private networking
+
+Database replication is the process of copying data from a central or primary server to multiple servers known as replicas. The primary server accepts read and write operations whereas the replicas serve read-only transactions. The primary server and replicas collectively form a database cluster.The goal of database replication is to ensure redundancy, consistency, high availability, and accessibility of data, especially in high-traffic, mission-critical applications.
+
+Azure Database for PostgreSQL - Flexible Server offers two methods for replications: physical (i.e. streaming) via [built -in Read Replica feature](./concepts-read-replicas.md) and [logical replication](./concepts-logical.md). Both are ideal for different use cases, and a user may choose one over the other depending on the end goal.
+
+Replication across Azure regions, with separate [virtual networks (VNETs)](../../virtual-network/virtual-networks-overview.md) in each region, requires connectivity across regional virtual network boundaries that can be provided via [virtual network peering](../../virtual-network/virtual-network-peering-overview.md) or in [Hub and Spoke architectures](#using-hub-and-spoke-private-networking-design) via network appliance.
+
+By default DNS name resolution is scoped to a virtual network. This means that any client in one virtual network (VNET1) is unable to resolve the Flexible Server FQDN in another virtual network (VNET2)
+
+In order to resolve this issue, you must make sure clients in VNET1 can access the Flexible Server Private DNS Zone. This can be achieved by adding a [virtual network link](../../dns/private-dns-virtual-network-links.md) to the Private DNS Zone of your Flexible Server instance.
 
 ### Unsupported virtual network scenarios
 
@@ -172,7 +200,9 @@ An example that uses an FQDN as a host name is `hostname = servername.postgres.d
 
 Azure Database for PostgreSQL - Flexible Server enforces connecting your client applications to the PostgreSQL service by using Transport Layer Security (TLS). TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of Secure Sockets Layer (SSL). 
 
-Azure Database for PostgreSQL supports TLS 1.2 and later. In [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/), the Internet Engineering Task Force (IETF) explicitly states that TLS 1.0 and TLS 1.1 must not be used. Both protocols were deprecated by the end of 2019.
+There are several government entities worldwide that maintain guidelines for TLS with regard to network security, including Department of Health and Human Services (HHS) or the National Institute of Standards and Technology (NIST) in the United States. The level of security that TLS provides is most affected by the TLS protocol version and the supported cipher suites. A cipher suite is a set of algorithms, including a cipher, a key-exchange algorithm and a hashing algorithm, which are used together to establish a secure TLS connection. Most TLS clients and servers support multiple alternatives, so they have to negotiate when establishing a secure connection to select a common TLS version and cipher suite.
+
+Azure Database for PostgreSQL supports TLS version 1.2 and later. In [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/), the Internet Engineering Task Force (IETF) explicitly states that TLS 1.0 and TLS 1.1 must not be used. Both protocols were deprecated by the end of 2019.
 
 All incoming connections that use earlier versions of the TLS protocol, such as TLS 1.0 and TLS 1.1, will be denied by default. 
 
@@ -180,6 +210,18 @@ All incoming connections that use earlier versions of the TLS protocol, such as 
 > SSL and TLS certificates certify that your connection is secured with state-of-the-art encryption protocols. By encrypting your  connection on the wire, you prevent unauthorized access to your data while in transit. This is why we strongly recommend using latest versions of TLS to encrypt your connections to Azure Database for PostgreSQL - Flexible Server. 
 > Although its not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the **require_secure_transport** server parameter to OFF. You can also set TLS version by setting **ssl_min_protocol_version** and **ssl_max_protocol_version** server parameters.
 
+[Certificate authentication](https://www.postgresql.org/docs/current/auth-cert.html) is performed using **SSL client certificates** for authentication. In this scenario, PostgreSQL server compares the CN (common name) attribute of the client certificate presented, against the requested database user.
+**Azure Database for PostgreSQL - Flexible Server does not support SSL certificate based authentication at this time.**
+
+To determine your current SSL connection status you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL - Flexible Server instance's SSL usage by process, client, and application by using the following query:
+
+```sql
+SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
+   FROM pg_stat_ssl
+   JOIN pg_stat_activity
+   ON pg_stat_ssl.pid = pg_stat_activity.pid
+   ORDER BY ssl;
+```
 ## Next steps
 
 * Learn how to create a flexible server by using the **Private access (VNet integration)** option in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).

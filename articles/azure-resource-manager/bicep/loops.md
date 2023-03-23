@@ -2,12 +2,14 @@
 title: Iterative loops in Bicep
 description: Use loops to iterate over collections in Bicep
 ms.topic: conceptual
-ms.date: 12/02/2021
+ms.date: 12/09/2022
 ---
 
 # Iterative loops in Bicep
 
 This article shows you how to use the `for` syntax to iterate over items in a collection. This functionality is supported starting in v0.3.1 onward. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment. To go through a quickstart, see [Quickstart: Create multiple instances](./quickstart-loops.md).
+
+To use loops to create multiple resources or modules, each instance must have a unique value for the name property. You can use the index value or unique values in arrays or collections to create the names.
 
 ### Training resources
 
@@ -61,9 +63,10 @@ Loops can be declared by:
 
 Using loops in Bicep has these limitations:
 
+- Bicep loops only work with values that can be determined at the start of deployment.
 - Loop iterations can't be a negative number or exceed 800 iterations.
 - Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
-- Can't loop on multiple levels of properties.
+- To loop on multiple levels of properties, use the [lambda map function](./bicep-functions-lambda.md#map).
 
 ## Integer index
 
@@ -132,7 +135,7 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
 
 ## Array elements
 
-The following example creates one storage account for each name provided in the `storageNames` parameter.
+The following example creates one storage account for each name provided in the `storageNames` parameter. Note the name property for each resource instance must be unique.
 
 ```bicep
 param location string = resourceGroup().location
@@ -152,7 +155,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for name 
 }]
 ```
 
-The next example iterates over an array to define a property. It creates two subnets within a virtual network.
+The next example iterates over an array to define a property. It creates two subnets within a virtual network. Note the subnet names must be unique.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/loops/loopproperty.bicep" highlight="23-28" :::
 
@@ -208,7 +211,7 @@ output deployedNSGs array = [for (name, i) in orgNames: {
 
 ## Dictionary object
 
-To iterate over elements in a dictionary object, use the [items function](bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects. Note the nsg resource names must be unique.
 
 ```bicep
 param nsgValues object = {

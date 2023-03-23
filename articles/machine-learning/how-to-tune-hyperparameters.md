@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
 ms.author: amipatel
 author: amibp
+ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -237,7 +238,7 @@ mlflow.log_metric("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values for training jobs, see [Enable logging in Azure ML training jobs](how-to-log-view-metrics.md).
+For more information on logging values for training jobs, see [Enable logging in Azure Machine Learning training jobs](how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 
@@ -329,12 +330,12 @@ sweep_job.early_termination = None
 Control your resource budget by setting limits for your sweep job.
 
 * `max_total_trials`: Maximum number of trial jobs. Must be an integer between 1 and 1000.
-* `max_concurrent_trials`: (optional) Maximum number of trial jobs that can run concurrently. If not specified, all jobs launch in parallel. If specified, must be an integer between 1 and 100.
+* `max_concurrent_trials`: (optional) Maximum number of trial jobs that can run concurrently. If not specified, max_total_trials number of jobs launch in parallel. If specified, must be an integer between 1 and 1000.
 * `timeout`: Maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials.
 * `trial_timeout`: Maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. 
 
 >[!NOTE] 
->If both max_total_trials and max_concurrent_trials are specified, the hyperparameter tuning experiment terminates when the first of these two thresholds is reached.
+>If both max_total_trials and timeout are specified, the hyperparameter tuning experiment terminates when the first of these two thresholds is reached.
 
 >[!NOTE] 
 >The number of concurrent trial jobs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
@@ -479,4 +480,4 @@ az ml job download --name <sweep-job> --output-name model
 
 ## Next steps
 * [Track an experiment](how-to-log-view-metrics.md)
-* [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a trained model](how-to-deploy-online-endpoints.md)

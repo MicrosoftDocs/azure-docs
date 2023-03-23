@@ -18,6 +18,9 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 - [SNI domain certificates](https://wikipedia.org/wiki/Server_Name_Indication) are required.
 - Ingress must be enabled for the container app
 
+> [!NOTE]
+> To configure a custom DNS suffix for all container apps in an environment, see [Custom environment DNS suffix in Azure Container Apps](environment-custom-dns-suffix.md). If you configure a custom environment DNS suffix, you cannot add a custom domain that contains this suffix to your Container App.
+
 ## Add a custom domain and certificate
 
 > [!IMPORTANT]

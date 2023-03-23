@@ -3,15 +3,13 @@ title: Analyze network security - Security Group View - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: This article will describe how to use PowerShell to analyze a virtual machines security with Security Group View.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo 
-ms.custom: devx-track-azurepowershell
+ms.workload: infrastructure-services
+ms.date: 11/20/2020
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Analyze your Virtual Machine security with Security Group View using PowerShell

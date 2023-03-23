@@ -102,8 +102,8 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
         --resource-group $RESOURCE_GROUP \
         --name $DB_SERVER_NAME \
         --location $LOCATION \
-        --admin-user $DB_USERNAME \
-        --admin-password $DB_PASSWORD \
+        --admin-user $ADMIN_USERNAME \
+        --admin-password $ADMIN_PASSWORD \
         --sku-name GP_Gen5_2
     ```
 
@@ -303,3 +303,8 @@ Learn more about running Java apps on App Service on Linux in the developer guid
 
 > [!div class="nextstepaction"] 
 > [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+
+Learn how to secure your app with a custom domain and certificate.
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

@@ -334,19 +334,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | sqlServerRegistrations | Yes | Yes |
 > | sqlServerRegistrations / sqlServers | No | No |
 
-## Microsoft.AzurePercept
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | accounts / devices | No | No |
-> | accounts / devices / sensors | No | No |
-> | accounts / sensors | No | No |
-> | accounts / solutioninstances | No | No |
-> | accounts / solutions | No | No |
-> | accounts / targets | No | No |
-
 ## Microsoft.AzureScan
 
 > [!div class="mx-tableFixed"]
@@ -2398,7 +2385,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!NOTE]
 > For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported. Front Door doesn't support the use of # or : in the tag name.
 > 
-> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS and Traffic Manager tag names do not support special and unicode characters. The value can contain all characters.
 > 
 > Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 
@@ -3027,6 +3014,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | managedInstances / databases | Yes | No |
 > | managedInstances / databases / advancedThreatProtectionSettings | No | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
+> | managedInstances / databases / LongTermRetentionBackups | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
 > | managedInstances / dnsAliases | No | No |
 > | managedInstances / metricDefinitions | No | No |
@@ -3054,6 +3042,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / databases / auditRecords | No | No |
 > | servers / databases / automaticTuning | No | No |
 > | servers / databases / backupLongTermRetentionPolicies | No | No |
+> | servers / databases / LongTermRetentionBackups | No | No |
 > | servers / databases / backupShortTermRetentionPolicies | No | No |
 > | servers / databases / databaseState | No | No |
 > | servers / databases / dataMaskingPolicies | No | No |

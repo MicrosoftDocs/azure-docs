@@ -614,7 +614,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
-The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux Consumption plan.
+For Linux Consumption plan it is also required to add the two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare).
 
 For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 
@@ -1622,132 +1622,134 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 A function app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
 
-> [!IMPORTANT]
-> To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you're using functions with [Logic Apps](../logic-apps/index.yml), your functions are a dependency of another resource.
+Considerations for custom deployments:
 
-# [Bicep](#tab/bicep)
++ To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you're using functions with [Logic Apps](../logic-apps/index.yml), your functions are a dependency of another resource.
 
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: functionAppName
-  location: location
-  kind: 'functionapp'
-  properties: {
-    serverFarmId: hostingPlan.id
-    siteConfig: {
-      alwaysOn: true
-      appSettings: [
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+    # [Bicep](#tab/bicep)
+    
+    ```bicep
+    resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
+      name: functionAppName
+      location: location
+      kind: 'functionapp'
+      properties: {
+        serverFarmId: hostingPlan.id
+        siteConfig: {
+          alwaysOn: true
+          appSettings: [
+            {
+              name: 'FUNCTIONS_EXTENSION_VERSION'
+              value: '~3'
+            }
+            {
+              name: 'Project'
+              value: 'src'
+            }
+          ]
         }
-        {
-          name: 'Project'
-          value: 'src'
-        }
+      }
+      dependsOn: [
+        storageAccount
       ]
     }
-  }
-  dependsOn: [
-    storageAccount
-  ]
-}
-
-resource config 'Microsoft.Web/sites/config@2022-03-01' = {
-  parent: functionApp
-  name: 'appsettings'
-  properties: {
-    AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-    AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-    FUNCTIONS_EXTENSION_VERSION: '~3'
-    FUNCTIONS_WORKER_RUNTIME: 'dotnet'
-    Project: 'src'
-  }
-  dependsOn: [
-    sourcecontrol
-    storageAccount
-  ]
-}
-
-resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
-  parent: functionApp
-  name: 'web'
-  properties: {
-    repoUrl: repoUrl
-    branch: branch
-    isManualIntegration: true
-  }
-}
-```
-
-# [JSON](#tab/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[variables('functionAppName')]",
-    "location": "[parameters('location')]",
-    "kind": "functionapp",
-    "properties": {
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-      "siteConfig": {
-        "alwaysOn": true,
-        "appSettings": [
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
-          },
-          {
-            "name": "Project",
-            "value": "src"
+    
+    resource config 'Microsoft.Web/sites/config@2022-03-01' = {
+      parent: functionApp
+      name: 'appsettings'
+      properties: {
+        AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
+        FUNCTIONS_EXTENSION_VERSION: '~3'
+        FUNCTIONS_WORKER_RUNTIME: 'dotnet'
+        Project: 'src'
+      }
+      dependsOn: [
+        sourcecontrol
+        storageAccount
+      ]
+    }
+    
+    resource sourcecontrol 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
+      parent: functionApp
+      name: 'web'
+      properties: {
+        repoUrl: repoUrl
+        branch: branch
+        isManualIntegration: true
+      }
+    }
+    ```
+    
+    # [JSON](#tab/json)
+    
+    ```json
+    "resources": [
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2022-03-01",
+        "name": "[variables('functionAppName')]",
+        "location": "[parameters('location')]",
+        "kind": "functionapp",
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+          "siteConfig": {
+            "alwaysOn": true,
+            "appSettings": [
+              {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~3"
+              },
+              {
+                "name": "Project",
+                "value": "src"
+              }
+            ]
           }
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.Web/sites/config",
+        "apiVersion": "2022-03-01",
+        "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
+        "properties": {
+          "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+          "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
+          "FUNCTIONS_EXTENSION_VERSION": "~3",
+          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+          "Project": "src"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+          "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.Web/sites/sourcecontrols",
+        "apiVersion": "2022-03-01",
+        "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
+        "properties": {
+          "repoUrl": "[parameters('repoURL')]",
+          "branch": "[parameters('branch')]",
+          "isManualIntegration": true
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
         ]
       }
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     ]
-  },
-  {
-    "type": "Microsoft.Web/sites/config",
-    "apiVersion": "2022-03-01",
-    "name": "[format('{0}/{1}', variables('functionAppName'), 'appsettings')]",
-    "properties": {
-      "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-      "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-      "FUNCTIONS_EXTENSION_VERSION": "~3",
-      "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-      "Project": "src"
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
-      "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]",
-      "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-    ]
-  },
-  {
-    "type": "Microsoft.Web/sites/sourcecontrols",
-    "apiVersion": "2022-03-01",
-    "name": "[format('{0}/{1}', variables('functionAppName'), 'web')]",
-    "properties": {
-      "repoUrl": "[parameters('repoURL')]",
-      "branch": "[parameters('branch')]",
-      "isManualIntegration": true
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-    ]
-  }
-]
-```
+    ```
+    
+    ---
 
----
++ The previous Bicep file and ARM template use the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) application settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you're not deploying from source control, you can remove this app settings value.
 
-> [!TIP]
-> This Bicep/ARM template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you're not deploying from source control, you can remove this app settings value.
++ When updating application settings using Bicep or ARM, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. 
 
 ## Deploy your template
 

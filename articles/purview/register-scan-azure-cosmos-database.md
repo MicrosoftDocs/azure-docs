@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure Cosmos DB Database (SQL API)'
+title: 'Connect to Azure Cosmos DB Database (SQL API)'
 description: This article outlines the process to register an Azure Cosmos DB instance in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos DB database
 author: athenads
 ms.author: athenadsouza
@@ -10,7 +10,7 @@ ms.custom: template-how-to, ignite-fall-2021, ignite-2022
 ---
 # Connect to Azure Cosmos DB for NoSQL in Microsoft Purview
 
-This article outlines the process to register an Azure Cosmos DB for NoSQL instance in Microsoft Purview, including instructions to authenticate and interact with the Azure Cosmos DB database source
+This article outlines the process to register and scan Azure Cosmos DB for NoSQL instance in Microsoft Purview, including instructions to authenticate and interact with the Azure Cosmos DB database source
 
 ## Supported capabilities
 

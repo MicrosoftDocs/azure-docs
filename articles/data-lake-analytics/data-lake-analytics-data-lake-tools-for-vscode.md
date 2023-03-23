@@ -9,7 +9,7 @@ ms.date: 10/17/2022
 
 # Use Azure Data Lake Tools for Visual Studio Code
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 In this article, learn how you can use Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test, and run U-SQL scripts. The information is also covered in the following video:
 

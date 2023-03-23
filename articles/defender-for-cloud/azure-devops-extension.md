@@ -1,12 +1,15 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 09/20/2022
+ms.date: 01/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
 
 # Configure the Microsoft Security DevOps Azure DevOps extension
+
+> [!NOTE]
+> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the Microsoft Security DevOps Azure DevOps extension. MSCA customers should follow the instructions in this article to install and configure the extension.
 
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
@@ -17,7 +20,7 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
-| [Credscan](detect-credential-leaks.md) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
+| [Credscan](detect-exposed-secrets.md) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
 | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template, Bicep file | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
@@ -41,7 +44,7 @@ If you don't have access to install the extension, you must request access from 
 1. Select **Shared**.
 
     > [!Note]
-    > If you've already [installed the Microsoft Security DevOps extension](azure-devops-extension.md), it will be listed in the **Installed** tab.
+    > If you've already [installed the Microsoft Security DevOps extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops), it will be listed in the Installed tab.
 
 1. Select **Microsoft Security DevOps**.
 
@@ -108,6 +111,9 @@ If you don't have access to install the extension, you must request access from 
       displayName: 'Microsoft Security DevOps'
     ```
 
+> [!Note] 
+> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
+
 1. Select **Save and run**.
 
 1. To commit the pipeline, select **Save and run**.
@@ -124,6 +130,7 @@ The pipeline will run for a few minutes and save the results.
 - Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
 
 ## Next steps
+
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.

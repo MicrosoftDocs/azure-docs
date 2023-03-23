@@ -18,13 +18,14 @@ ms.devlang: azurecli
 You learn how to:
 
 > [!div class="checklist"]
-> - Create a Container Apps environment to host your container apps
-> - Create an Azure Blob Storage account
-> - Create a Dapr state store component for the Azure Blob storage
-> - Deploy two container apps: one that produces messages, and one that consumes messages and persists them in the state store
-> - Verify the solution is up and running
+> * Create a Container Apps environment for your container apps
+> * Create an Azure Blob Storage state store for the container app
+> * Deploy two apps that produce and consume messages and persist them in the state store
+> * Verify the interaction between the two microservices.
 
-In this tutorial, you deploy the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) quickstart.
+With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
+
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart. 
 
 The application consists of:
 
@@ -208,7 +209,7 @@ az role assignment create --assignee $PRINCIPAL_ID  \
 ```azurepowershell
 Install-Module Az.Resources
 
-New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Data Contributor' -Scope '/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAcctName'
+New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Data Contributor' -Scope "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAcctName"
 ```
 
 ---
@@ -219,7 +220,7 @@ There are multiple ways to authenticate to external resources via Dapr. This exa
 
 # [Bash](#tab/bash)
 
-Create a config file named **statestore.yaml** with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. Since the application is authenticating directly via Managed Identity, there's no need to include the storage account key directly within the component. The following example shows how your **statestore.yaml** file should look when configured for your Azure Blob Storage account:
+Open a text editor and create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
 
 ```yaml
 # statestore.yaml for Azure Blob storage component
@@ -295,8 +296,6 @@ az containerapp create \
   --user-assigned $IDENTITY_ID \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image dapriosamples/hello-k8s-node:latest \
-  --target-port 3000 \
-  --ingress 'internal' \
   --min-replicas 1 \
   --max-replicas 1 \
   --enable-dapr \
@@ -325,7 +324,6 @@ $ServiceArgs = @{
     Location = $Location
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $ServiceTemplateObj
-    IngressTargetPort = 3000
     ScaleMinReplica = 1
     ScaleMaxReplica = 1
     DaprEnabled = $true
@@ -421,7 +419,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPP
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | sort by TimeGenerated | take 5" \
-  --out table |
+  --out table
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

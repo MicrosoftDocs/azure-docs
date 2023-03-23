@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 12/09/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -34,7 +34,7 @@ Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to b
 
 - [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
     - When an account is provisioned, a storage account is created in the subscription in order to cater to secured scanning, which may be charged separately.
-    - An Event Hubs namespace can be [enabled at creation](create-catalog-portal.md#create-an-account) or enabled in the [Azure portal](https://portal.azure.com) on the managed resources page of the account to enable monitoring with [*Atlas Kafka* topics events](manage-kafka-dotnet.md). This will be charged separately if it's enabled.
+    - An Event Hubs namespace can be [configured at creation](create-catalog-portal.md#create-an-account) or enabled in the [Azure portal](https://portal.azure.com) on the Kafka configuration page of the account to enable monitoring with [*Atlas Kafka* topics events](manage-kafka-dotnet.md). The Event Hubs will be charged separately.
 
 
 - [Azure private endpoint](./catalog-private-link.md)

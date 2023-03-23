@@ -109,7 +109,7 @@ We recommend you install an endpoint detection and response (EDR) product to pro
 
 ### Enable threat and vulnerability management assessments
 
-Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Microsoft Defender for Cloud can help you identify problem spots through [Microsoft Defender for Endpoint's threat and vulnerability management solution](../defender-for-cloud/deploy-vulnerability-assessment-tvm.md). You can also use third-party products if you're so inclined, although we recommend using Microsoft Defender for Cloud and Microsoft Defender for Endpoint.
+Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Microsoft Defender for Cloud can help you identify problem spots through [Microsoft Defender for Endpoint's threat and vulnerability management solution](../defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management.md). You can also use third-party products if you're so inclined, although we recommend using Microsoft Defender for Cloud and Microsoft Defender for Endpoint.
 
 ### Patch software vulnerabilities in your environment
 
@@ -125,7 +125,7 @@ You can prevent unwanted system access by configuring Azure Virtual Desktop to l
 
 ### Establish tiered admin access
 
-We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Endpoint Manager. In a multi-session environment, we recommend you don't let users install software directly.
+We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Intune. In a multi-session environment, we recommend you don't let users install software directly.
 
 ### Consider which users should access which resources
 

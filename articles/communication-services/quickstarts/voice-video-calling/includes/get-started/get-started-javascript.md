@@ -14,18 +14,21 @@ In this quickstart, you'll learn how to start a call using the Azure Communicati
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
+> [!NOTE] 
+> Outbound calling to an Azure Communication Services user can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-1ton--page). The UI Library enables developers to add a call client that is VoIP enabled into their application with only a couple lines of code.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
@@ -98,7 +101,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that will enable us to make and receive calls. 
+You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that will enable us to make and receive calls. 
 
 Add the following code to **app.js**:
 

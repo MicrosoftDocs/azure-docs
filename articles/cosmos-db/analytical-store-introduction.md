@@ -33,7 +33,7 @@ Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly li
 
 ## Features of analytical store 
 
-When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the Change Feed or ETL to sync the data.
+When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container, in a storage account that is fully managed by Azure Cosmos DB, in an internal subscription. Customers don't need to spend time with storage administration. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the Change Feed or ETL to sync the data.
 
 ## Column store for analytical workloads on operational data
 
@@ -228,7 +228,7 @@ There are two types of schema representation in the analytical store. These type
 
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
-* The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
+* The first document defines the base schema and properties must always have the same type across all documents. The only exceptions are:
   * From `NULL` to any other data type. The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
   * From `float` to `integer`. All documents will be represented in analytical store.
   * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
@@ -271,14 +271,20 @@ WITH (num varchar(100)) AS [IntToFloat]
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Representation challenges workarounds
+
+It is possible that an old document, with an incorrect schema, was used to create your container's analytical store base schema. Based on all the rules presented above, you may be receiving `NULL` for certain properties when querying your analytical store using Azure Synapse Link. To delete or update the problematic documents won't help because base schema reset isn't currently supported. The possible solutions are:
+
+ * To migrate the data to a new container, making sure that all documents have the correct schema.
+ * To abandon the property with the wrong schema and add a new one, with another name, that has the correct schema in all documents. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have `NULL`. You can add the **status2** property to all documents and start to use it, instead of the original property.
 
 #### Full fidelity schema representation
 
 The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
-This is achieved by translating the leaf properties of the operational data into the analytical store with distinct columns based on the data type of values in the property. The leaf property names are extended with data types as a suffix in the analytical store schema such that they can be queries without ambiguity.
+This is achieved by translating the leaf properties of the operational data into the analytical store as JSON `key-value` pairs, where the datatype is the `key` and the property content is the `value`. This JSON object representation allows queries without ambiguity, and you can individually analyze each datatype.
 
-In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
+In other words, in the full fidelity schema representation, each datatype of each property of each document will generate a `key-value`pair in a JSON object for that property. Each of them count as one of the 1000 maximum properties limit.
 
 For example, let's take the following sample document in the transactional store:
 
@@ -296,11 +302,14 @@ salary: 1000000
 }
 ```
 
-The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
+The nested object `address` is a property in the root level of the document and will be represented as a column. Each leaf property in the `address` object will be represented as a JSON object: `{"object":{"streetNo":{"int32":15850},"streetName":{"string":"NE 40th St."},"zip":{"int32":98052}}}`.
 
-##### Data type to suffix map for full fidelity schema
+Unlike the well-defined schema representation, the full fidelity method allows variation in datatypes. If the next document in this collection of the example above has `streetNo` as a string, it will be represented in analytical store as `"streetNo":{"string":15850}`. In well-defined schema method, it wouldn't be represented.
 
-Here's a map of all the property data types and their suffix representations in the analytical store in full fidelity schema representation:
+
+##### Datatypes map for full fidelity schema
+
+Here's a map of all the property data types and their representations in the analytical store in full fidelity schema representation:
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
@@ -324,11 +333,118 @@ Here's a map of all the property data types and their suffix representations in 
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Using full fidelity schema with Spark
+
+Spark will manage each datatype as a column when loading into a `DataFrame`. Let's assume a collection with the documents below.
+
+```json
+{
+	"_id" : "1" ,
+	"item" : "Pizza",
+	"price" : 3.49,
+	"rating" : 3,
+	"timestamp" : 1604021952.6790195
+},
+{
+	"_id" : "2" ,
+	"item" : "Ice Cream",
+	"price" : 1.59,
+	"rating" : "4" ,
+	"timestamp" : "2022-11-11 10:00 AM"
+}
+```
+
+While the first document has `rating` as a number and `timestamp` in utc format, the second document has `rating` and `timestamp` as strings. Assuming that this collection was loaded into `DataFrame` without any data transformation, the output of the `df.printSchema()`  is:
+
+```JSON
+root
+ |-- _rid: string (nullable = true)
+ |-- _ts: long (nullable = true)
+ |-- id: string (nullable = true)
+ |-- _etag: string (nullable = true)
+ |-- _id: struct (nullable = true)
+ |    |-- objectId: string (nullable = true)
+ |-- item: struct (nullable = true)
+ |    |-- string: string (nullable = true)
+ |-- price: struct (nullable = true)
+ |    |-- float64: double (nullable = true)
+ |-- rating: struct (nullable = true)
+ |    |-- int32: integer (nullable = true)
+ |    |-- string: string (nullable = true)
+ |-- timestamp: struct (nullable = true)
+ |    |-- float64: double (nullable = true)
+ |    |-- string: string (nullable = true)
+ |-- _partitionKey: struct (nullable = true)
+ |    |-- string: string (nullable = true)
+ ```
+
+In well-defined schema representation, both `rating` and `timestamp` of the second document wouldn't be represented. In full fidelity schema, you can use the following examples to individually access to each value of each datatype.
+
+In the example below, we can use `PySpark` to run an aggregation:
+
+```PySpark
+df.groupBy(df.item.string).sum().show()
+```
+
+In the example below, we can use `PySQL` to run another aggregation:
+
+```PySQL
+df.createOrReplaceTempView("Pizza")
+sql_results = spark.sql("SELECT sum(price.float64),count(*) FROM Pizza where timestamp.string is not null and item.string = 'Pizza'")
+sql_results.show()
+```
+
+##### Using full fidelity schema with SQL
+
+Considering the same documents of the Spark example above, customers can use the following syntax example:
+
+```SQL
+SELECT rating,timestamp_string,timestamp_utc
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=<your-database-account-name';Database=<your-database-name>',
+                OBJECT = '<your-collection-name>',
+                SERVER_CREDENTIAL = '<your-synapse-sql-server-credential-name>')
+WITH ( 
+rating integer '$.rating.int32',    
+timestamp varchar(50) '$.timestamp.string',
+timestamp_utc float '$.timestamp.float64' 
+) as HTAP 
+WHERE timestamp is not null or timestamp_utc is not null
+```
+
+Starting from the query above, customers can implement transformations using `cast`, `convert` or any other T-SQL function to manipulate your data. Customers can also hide complex datatype structures by using views.
+
+```SQL
+create view MyView as
+SELECT MyRating=rating,MyTimestamp = convert(varchar(50),timestamp_utc)
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=<your-database-account-name';Database=<your-database-name>',
+                OBJECT = '<your-collection-name>',
+                SERVER_CREDENTIAL = '<your-synapse-sql-server-credential-name>')
+WITH ( 
+rating integer '$.rating.int32',    
+timestamp_utc float '$.timestamp.float64' 
+) as HTAP 
+WHERE  timestamp_utc is not null
+union all 
+SELECT MyRating=convert(integer,rating_string),MyTimestamp = timestamp_string
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = 'Account=<your-database-account-name';Database=<your-database-name>',
+                OBJECT = '<your-collection-name>',
+                SERVER_CREDENTIAL = '<your-synapse-sql-server-credential-name>')
+WITH ( 
+rating_string varchar(50) '$.rating.string',    
+timestamp_string varchar(50) '$.timestamp.string' 
+) as HTAP 
+WHERE  timestamp_string is not null
+```
+
+
 ##### Working with the MongoDB `_id` field
 
-the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
+the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, full fidelity schema will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
 
-###### Spark
+###### Working with the MongoDB `_id` field in Spark
 
 ```Python
 import org.apache.spark.sql.types._
@@ -345,7 +461,7 @@ df = spark.read.format("cosmos.olap")\
 
 df.select("id", "_id.objectId").show()
 ```
-###### SQL
+###### Working with the MongoDB `_id` field in SQL
 
 ```SQL
 SELECT TOP 100 id=CAST(_id as VARBINARY(1000))
@@ -358,10 +474,13 @@ FROM OPENROWSET('CosmosDB',
 
 It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
- * This option is only valid for accounts that **don't** have Synapse Link already enabled.
- * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
- * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
+* Currently, if you enable Synapse Link in your NoSQL API account using the Azure Portal, it will be enabled as well-defined schema.
+* Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
+* Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+* It's not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+* Currently, containers schema in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
+  * Containers or graphs created before Synapse Link was enabled with full fidelity schema at account level will have well-defined schema.
+  * Containers or graphs created after Synapse Link was enabled with full fidelity schema at account level will have full fidelity schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
  
@@ -374,7 +493,7 @@ The schema representation type decision must be made at the same time that Synap
 > In the command above, replace `create` with `update` for existing accounts.
  
   With the PowerShell:
-  ```
+  ```PowerShell
    New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
    ```
  
@@ -429,8 +548,8 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
- * Single region Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) Azure Storage accounts.
- * If any geo-region replication is configured for the Azure Cosmos DB database account, analytical store is allocated in Zone-Redundant Storage (ZRS) Azure storage accounts.
+ * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS.
 
 ## Backup
 
@@ -442,10 +561,7 @@ Although analytical store has built-in protection against physical failures, bac
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
-* Continuous backup mode isn't fully supported yet:
-  * Database accounts with Synapse Link enabled currently can't use continuous backup mode. 
-  * Database accounts with continuous backup mode enabled can enable Synapse Link through a support case. This capability is in preview now.
-  * Database accounts that have neither continuous backup nor Synapse Link enabled can use these two features together through a support case. This capability is in preview now.
+* Currently Continuous backup mode and Synapse Link aren't supported in the same database account. Customers have to choose one of these two features and this decision can't be changed.
 
 ### Backup Polices
 

@@ -3,13 +3,11 @@ title: 'Create a NAT gateway - Bicep'
 titleSuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using Bicep.
 services: load-balancer
-documentationcenter: na
 author: asudbring
 # Customer intent: I want to create a NAT gateway using Bicep so that I can provide outbound connectivity for my virtual machines.
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2022
 ms.author: allensu

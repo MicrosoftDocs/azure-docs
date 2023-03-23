@@ -67,6 +67,15 @@ In this case, we will create a certificate called **ExampleCertificate**, or imp
 
 :::image type="content" source="../media/certificates/tutorial-import-cert/cert-import.png" alt-text="Importing a certificate through the Azure portal":::
 
+When importing a .pem file, check if the format is the following:
+
+-----BEGIN CERTIFICATE-----<br>
+MIID2TCCAsGg...<br>
+-----END CERTIFICATE-----<br>
+-----BEGIN PRIVATE KEY-----<br>
+MIIEvQIBADAN...<br>
+-----END PRIVATE KEY-----<br>
+
 When importing a certificate, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
 
 Once you receive the message that the certificate has been successfully imported, you may click on it on the list to view its properties.

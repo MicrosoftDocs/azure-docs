@@ -27,13 +27,17 @@
     items:
     - name: Azure portal
       href: create-cluster.md
+  - name: Build application
+    items:
+    - name: Clickstream analysis
+      href: quick-start-build-application.md
 - name: Tutorials
   items:
   - name: Capture Event Hubs data in Parquet format
     href: event-hubs-parquet-capture-tutorial.md
   - name: Write output data to delta table in ADLS Gen2
     href: write-to-delta-table-adls-gen2.md
-  - name: Build near-real time dashboards with no code editor
+  - name: Build real-time dashboards with no code editor
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
@@ -231,6 +235,10 @@
       href: move-cluster.md  
   - name: Build with no code editor
     items:
+    - name: Build real-time dashboard with Power BI dataset
+      href: no-code-build-power-bi-dashboard.md
+    - name: Capture Event Hubs data in Delta Lake format
+      href: capture-event-hub-data-delta-lake.md
     - name: Capture Event Hubs data in Parquet format
       href: capture-event-hub-data-parquet.md
     - name: Materialize data to Azure Cosmos DB
@@ -322,7 +330,7 @@
       href: stream-analytics-cicd-api.md
     - name: Export and deploy with Azure Resource Manager
       href: resource-manager-export.md
-  - name: Continuous integration and deployment
+  - name: CI/CD
     items:
     - name: CI/CD overview
       href: cicd-overview.md
@@ -330,6 +338,8 @@
       href: cicd-tools.md
     - name: Set up a pipeline with Azure DevOps
       href: set-up-cicd-pipeline.md
+    - name: Configure autoscale settings
+      href: cicd-autoscale.md
   - name: Visual Studio
     items:
     - name: Migrate ASA projects to VSCode

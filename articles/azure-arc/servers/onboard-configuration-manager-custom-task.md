@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Connect machines at scale with a Configuration Manager custom task sequence
 
-Microsoft Endpoint Configuration Manager facilitates comprehensive management of servers supporting the secure and scalable deployment of applications, software updates, and operating systems. Configuration Manager offers the custom task sequence as a flexible paradigm for application deployment.
+Microsoft Configuration Manager facilitates comprehensive management of servers supporting the secure and scalable deployment of applications, software updates, and operating systems. Configuration Manager offers the custom task sequence as a flexible paradigm for application deployment.
 
 You can use a custom task sequence, that can deploy the Connected Machine Agent to onboard a collection of devices to Azure Arc-enabled servers.
 

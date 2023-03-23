@@ -4,8 +4,7 @@ description: Learn about best practices to employ when connecting data sources t
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 #  Data collection best practices

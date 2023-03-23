@@ -3,7 +3,7 @@ title: Enable Microsoft Defender for Cloud's integrated workload protections
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multicloud resources
 ms.topic: quickstart
-ms.date: 09/20/2022
+ms.date: 01/24/2023
 ms.custom: mode-other, ignite-2022
 ---
 
@@ -49,13 +49,13 @@ When you enabled Defender plans on an entire Azure subscription, the protections
 
 1. Select **Enable all** to enable all of the plans for Defender for Cloud.
 
-    :::image type="content" source="media/enable-enhanced-security/enable-all-plans.png" alt-text="Screenshot that shows where to select enable all on the plans page." lightbox="media/enable-enhanced-security/enable-all-plans.png":::
+    :::image type="content" source="media/enable-enhanced-security/enable-all-plans.png" alt-text="Screenshot that shows where to select the enable all button on the plans page." lightbox="media/enable-enhanced-security/enable-all-plans.png":::
     
 1. Select **Save**.
 
 All of the plans are turned on and the monitoring components required by each plan are deployed to the protected resources.
 
-If you want to disable any of the plans, turn the plan off. The extensions used by the plan are not uninstalled but, after a short time, the extensions stop collecting data.
+If you want to disable any of the plans, turn off the plan. The extensions used by the plan aren't uninstalled but, after a short time, the extensions stop collecting data.
 
 ### Enable enhanced security on multiple subscriptions or workspaces
 
@@ -67,7 +67,7 @@ If you want to disable any of the plans, turn the plan off. The extensions used 
 
 1. In the Defender for Cloud menu, select **Getting started**.
 
-    The Upgrade tab lists subscriptions and workspaces that you can onboard the Defender plans to.
+    The Upgrade tab lists subscriptions and workspaces that you can onboard the Defender plan to.
 
     :::image type="content" source="./media/enable-enhanced-security/getting-started-upgrade.png" alt-text="Screenshot of enabling Defender plans for multiple subscriptions." lightbox="media/enable-enhanced-security/getting-started-upgrade.png"::: 
 
@@ -79,13 +79,13 @@ If you want to disable any of the plans, turn the plan off. The extensions used 
     > - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
     > - If you select a workspace that's eligible for a free trial, the next step will begin a trial.   
 
-If you want to disable any of the plans, turn the plan off. The extensions used by the plan are not uninstalled but, after a short time, the extensions stop collecting data.
+If you want to disable any of the plans, turn off the plan. The extensions used by the plan aren't uninstalled but, after a short time, the extensions stop collecting data.
 
 ## Next steps
 
 Certain plans allow you to customize your protection.
 
-- Learn about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans) to help you choose which plan you want to apply to your subscription.
+- Learn about the [Defender for Servers plans](plan-defender-for-servers-select-plan.md#plan-features) to help you choose which plan you want to apply to your subscription.
 - Defender for Databases lets you [select which type of resources you want to protect](quickstart-enable-database-protections.md).
 - Learn more about [how to enable Defender for Containers](defender-for-containers-enable.md) for different Kubernetes environments.
 - Learn about the [monitoring components](monitoring-components.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.

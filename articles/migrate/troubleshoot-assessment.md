@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 10/20/2022
+ms.date: 01/17/2023
 ms.custom: engagement-fy23
 ---
 
@@ -24,7 +24,7 @@ Conditionally supported Windows operating system | The operating system has pass
 Unsupported Windows operating system | Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading the server before you migrate to Azure.
 Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure. [Learn more](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
 Unendorsed Linux OS | The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
-Unknown operating system | The operating system of the VM was specified as **Other** in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
+Unknown operating system | The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
 Unsupported bit version | VMs with a 32-bit operating system might boot in Azure, but we recommend that you upgrade to 64-bit before you migrate to Azure.
 Requires a Microsoft Visual Studio subscription | The server is running a Windows client operating system, which is supported only through a Visual Studio subscription.
 VM not found for the required storage performance | The storage performance (input/output operations per second (IOPS) and throughput) required for the server exceeds Azure VM support. Reduce storage requirements for the server before migration.

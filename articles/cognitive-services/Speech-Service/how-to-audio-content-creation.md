@@ -14,7 +14,7 @@ ms.author: eur
 
 # Speech synthesis with the Audio Content Creation tool
 
-You can use the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
+You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
 
 Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune text-to-speech voices and design customized audio experiences. 
 
@@ -23,7 +23,7 @@ The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-
 - No-code approach: You can use the Audio Content Creation tool for text-to-speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
 - Developer-friendly: You can listen to the output audio and adjust the SSML to improve speech synthesis. Then you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-basics.md) to integrate the SSML into your applications. For example, you can use the SSML for building a chat bot.
 
-You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=stt-tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
+You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
 
 To learn more, view the Audio Content Creation tutorial video [on YouTube](https://youtu.be/ygApYuOOG6w).
 
@@ -75,7 +75,7 @@ Each step in the preceding diagram is described here:
 1. Choose the Speech resource you want to work with.
 
 1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Enter or upload your content into Audio Content Creation.
-1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=stt-tts). You can use prebuilt neural voices or a custom neural voice.
+1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
    > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
@@ -131,7 +131,7 @@ You can get your content into the Audio Content Creation tool in either of two w
 
         ```xml
         <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-            <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
+            <voice name="en-US-JennyNeural">
             Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
             </voice>
         </speak>
@@ -192,7 +192,7 @@ Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocont
 
 If they can't find the available Speech resource, they can check to ensure that they're in the right directory. To do so, they select the account profile at the upper right and then select **Switch** next to **Current directory**. If there's more than one directory available, it means they have access to multiple directories. They can switch to different directories and go to **Settings** to see whether the right Speech resource is available. 
 
-Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
+Users who are in the same Speech resource will see each other's work in the Audio Content Creation tool. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 
 ### Remove users from a Speech resource
 
@@ -215,5 +215,5 @@ If you want to allow a user to grant access to other users, you need to assign t
 
 ## Next steps
 
-* [Long Audio API](./long-audio-api.md)
-
+- [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
+- [Batch synthesis](batch-synthesis.md)

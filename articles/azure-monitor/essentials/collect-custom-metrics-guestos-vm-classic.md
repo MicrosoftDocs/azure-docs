@@ -38,7 +38,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
-1. In the Azure portal, go to the **Storage accounts** resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
+1. In the Azure portal, go to the **Storage accounts** resource pane. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
    ![Storage access keys](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## Create a service principal
@@ -185,7 +185,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	On the left menu, select **Monitor.**
 
-1.	On the **Monitor** blade, select **Metrics**.
+1.	On the **Monitor** pane on the left, select **Metrics**.
 
     ![Navigate metrics](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 

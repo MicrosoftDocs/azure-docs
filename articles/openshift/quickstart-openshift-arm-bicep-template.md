@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm
 ms.author: johnmarc
-ms.date: 03/17/2022
+ms.date: 02/15/2023
 keywords: azure, openshift, aro, red hat, arm, bicep
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
@@ -453,7 +453,10 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
-var contribRole = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
+var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
+var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
+var workerSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'worker')
 
 resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01' = {
   name: clusterVnetName
@@ -493,26 +496,24 @@ resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01'
   }
 }
 
-resource clusterVnetName_Microsoft_Authorization_id_name_aadObjectId 'Microsoft.Network/virtualNetworks/providers/roleAssignments@2018-09-01-preview' = {
-  name: '${clusterVnetName}/Microsoft.Authorization/${guid(resourceGroup().id, deployment().name, aadObjectId)}'
+resource clusterVnetName_Microsoft_Authorization_id_name_aadObjectId 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(aadObjectId, clusterVnetName_resource.id, contributorRoleDefinitionId)
+  scope: clusterVnetName_resource
   properties: {
-    roleDefinitionId: contribRole
+    roleDefinitionId: contributorRoleDefinitionId
     principalId: aadObjectId
+    principalType: 'ServicePrincipal'
   }
-  dependsOn: [
-    clusterVnetName_resource
-  ]
 }
 
-resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.Network/virtualNetworks/providers/roleAssignments@2018-09-01-preview' = {
-  name: '${clusterVnetName}/Microsoft.Authorization/${guid(resourceGroup().id, deployment().name, rpObjectId)}'
+resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(rpObjectId, clusterVnetName_resource.id, contributorRoleDefinitionId)
+  scope: clusterVnetName_resource
   properties: {
-    roleDefinitionId: contribRole
+    roleDefinitionId: contributorRoleDefinitionId
     principalId: rpObjectId
+    principalType: 'ServicePrincipal'
   }
-  dependsOn: [
-    clusterVnetName_resource
-  ]
 }
 
 resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-04-30' = {
@@ -522,7 +523,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
   properties: {
     clusterProfile: {
       domain: domain
-      resourceGroupId: '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+      resourceGroupId: resourceGroupId
       pullSecret: pullSecret
     }
     networkProfile: {
@@ -535,14 +536,14 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
     }
     masterProfile: {
       vmSize: masterVmSize
-      subnetId: resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
+      subnetId: masterSubnetId
     }
     workerProfiles: [
       {
         name: 'worker'
         vmSize: workerVmSize
         diskSizeGB: workerVmDiskSize
-        subnetId: resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'worker')
+        subnetId: workerSubnetId
         count: workerCount
       }
     ]
@@ -573,6 +574,9 @@ This section provides information on deploying the azuredeploy.json template.
 ### azuredeploy.json parameters
 
 The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
+
+> [!NOTE]
+> For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
 
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
@@ -727,10 +731,10 @@ PULL_SECRET=$(cat pull-secret.txt)    # the pull secret text
 ### Define the following parameters as environment variables - Azure CLI
 
 ```azurecli-interactive
-RESOURCEGROUP=aro-rg   # the new resource group for the cluster
-LOCATION=eastus        # the location of the new cluster
-DOMAIN=mydomain        # the domain prefix for the cluster
-CLUSTER=aro-cluster    # the name of the cluster
+RESOURCEGROUP=aro-rg            # the new resource group for the cluster
+LOCATION=eastus                 # the location of the new cluster
+DOMAIN=mydomain                 # the domain prefix for the cluster
+ARO_CLUSTER_NAME=aro-cluster    # the name of the cluster
 ```
 
 ### Register the required resource providers - Azure CLI
@@ -754,7 +758,7 @@ az group create --name $RESOURCEGROUP --location $LOCATION
 - Azure CLI
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" --role Contributor > app-service-principal.json
+az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" > app-service-principal.json
 SP_CLIENT_ID=$(jq -r '.appId' app-service-principal.json)
 SP_CLIENT_SECRET=$(jq -r '.password' app-service-principal.json)
 SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
@@ -792,7 +796,7 @@ az deployment group create \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \
-    --parameters clusterName=$ARO_CLUSTER_NAME \
+    --parameters clusterName=$CLUSTER \
     --parameters aadClientId=$SP_CLIENT_ID \
     --parameters aadObjectId=$SP_OBJECT_ID \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
@@ -808,11 +812,11 @@ To connect to your new cluster, review the steps in [Connect to an Azure Red Hat
 Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
 
 ```azurecli-interactive
-az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 > [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Red Hat Openshift (ARO) repo](https://github.com/Azure/OpenShift).
 
 ## Next steps
 

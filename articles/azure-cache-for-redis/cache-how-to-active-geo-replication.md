@@ -19,6 +19,10 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
 
+> [!IMPORTANT]
+> The FLUSHALL and FLUSHDB commands are blocked when using active geo-replication to prevent accidental data loss across replicated cache instances.
+>
+
 ## Create or join an active geo-replication group
 
 1. When creating a new Azure Cache for Redis resource, select the **Advanced** tab. Complete the first part of the form including clustering policy. For more information on choosing **Clustering policy**, see [Clustering Policy](quickstart-create-redis-enterprise.md#clustering-policy).

@@ -33,7 +33,7 @@ You will need an Azure AD license to use PIM and all of it's settings. Currently
 Ensure that your directory has Azure AD Premium P2 licenses for the following categories of users:
 
 - Users with eligible and/or time-bound assignments to Azure AD or Azure roles managed using PIM
-- Users with eligible and/or time-bound assignments as members or owners of privileged access groups
+- Users with eligible and/or time-bound assignments as members or owners of PIM for Groups
 - Users able to approve or reject activation requests in PIM
 - Users assigned to an access review
 - Users who perform access reviews

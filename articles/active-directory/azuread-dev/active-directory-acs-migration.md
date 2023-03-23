@@ -279,7 +279,7 @@ In these cases, you might want to consider migrating your web application to ano
 
 ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png) 
 
-[Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does.
+[Auth0](https://auth0.com/access-management) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/access-management), and supports nearly every feature that ACS does.
 
 ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png)
 
@@ -344,7 +344,7 @@ In these cases, you might consider migrating your web application to another clo
 
 ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png)
 
-[Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does.
+[Auth0](https://auth0.com/access-management) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/access-management), and supports nearly every feature that ACS does.
 
 ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png)
 [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to Ping's ACS retirement guidance for more details on using these products.

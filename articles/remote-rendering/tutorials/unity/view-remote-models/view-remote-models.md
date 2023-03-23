@@ -26,8 +26,9 @@ For this tutorial you need:
 
 * An active pay-as-you-go Azure subscription [Create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(download)](https://git-scm.com/downloads)
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
 * Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
@@ -75,14 +76,8 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
         ![Screenshot of the Unity Project Settings dialog. The Quality entry is selected in the list on the left. The context menu for the default quality level is opened on the right. The low entry is selected.](./media/settings-quality.png)
 
-1. Select **Graphics** from the left list menu
-    1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-        ![Screenshot of the Unity Project Settings dialog. The Graphics entry is selected in the list on the left. The button to select a Universal Render Pipeline asset is highlighted.](./media/settings-graphics-render-pipeline.png)\
-        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
-        ![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./media/hybrid-rendering-pipeline.png)
-
-        > [!NOTE]
-        > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    > [!NOTE]
+    > In the scope of this tutorial, we stick with the Unity built-in render pipeline. If you would like to use the Universal Render Pipeline, see [Unity Render Pipelines](../../../how-tos/unity/unity-render-pipelines.md) for additional setup steps.
 
 1. Select **XR Plugin Management** from the left list menu
     1. Click the **Install XR Plugin Management** button.

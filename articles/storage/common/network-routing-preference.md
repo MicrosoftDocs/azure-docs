@@ -6,11 +6,11 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 03/03/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
-ms.custom: references_regions
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Network routing preference for Azure Storage
@@ -18,9 +18,6 @@ ms.custom: references_regions
 You can configure network [routing preference](../../virtual-network/ip-services/routing-preference-overview.md) for your Azure storage account to specify how network traffic is routed to your account from clients over the internet. By default, traffic from the internet is routed to the public endpoint of your storage account over the [Microsoft global network](../../networking/microsoft-global-network.md). Azure Storage provides additional options for configuring how traffic is routed to your storage account.
 
 Configuring routing preference gives you the flexibility to optimize your traffic either for premium network performance or for cost. When you configure a routing preference, you specify how traffic will be directed to the public endpoint for your storage account by default. You can also publish route-specific endpoints for your storage account.
-
-> [!NOTE]
-> This feature is not supported in premium performance storage accounts or accounts configured to use Zone-redundant storage (ZRS).
 
 ## Microsoft global network versus Internet routing
 

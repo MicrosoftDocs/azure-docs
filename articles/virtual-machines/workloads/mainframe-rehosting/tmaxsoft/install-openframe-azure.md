@@ -81,7 +81,6 @@ Hard disk: 100 GB (minimum)<br/>
 </tr>
 <tr><td>Optional software for Windows users
 </td>
-<td>PuTTY: Used in this guide to configure VM features<br/>
 WinSCP: A popular SFTP client and FTP client you can use<br/>
 Eclipse for Windows: A development platform supported by TmaxSoft<br/>
 (Microsoft Visual Studio is not supported at this time)
@@ -139,33 +138,18 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 ### Generate a public/private key pair
 
-If you are using a Windows operating system, you need PuTTYgen to generate a public/private key pair.
-
 The public key can be freely shared, but the private key should be kept entirely secret and should never be shared with another party. After generating the keys, you must paste the **SSH public key** into the configuration—in effect, uploading it to the Linux VM. It is stored inside authorized\_keys within the \~/.ssh directory of the user account’s home directory. The Linux VM is then
-able to recognize and validate the connection once you provide the associated **SSH private key** in the SSH client (in our case, PuTTY).
+able to recognize and validate the connection once you provide the associated **SSH private key** in the SSH client.
 
 When giving new individuals access the VM: 
 
-- Each new individual generates their own public/private keys using PuTTYgen.
+- Each new individual generates their own public/private keys.
 - Individuals store their own private keys separately and send the public key information to the administrator of the VM.
 - The administrator pastes the contents of the public key to the \~/.ssh/authorized\_keys file.
-- The new individual connects via PuTTY.
+- The new individual connects via OpenSSH.
 
-**To generate a public/private key pair**
+For more information about creating SSH key pairs, see [Create and use an SSH public-private key pair for Linux VMs in Azure](../../../linux/mac-create-ssh-keys.md).
 
-1.  Download [PuTTYgen](https://www.putty.org) and install it using all the default settings.
-
-2.  To open PuTTYgen, locate the PuTTY installation directory in `C:\Program Files\PuTTY`.
-
-    ![PuTTY interface](media/puttygen-01.png)
-
-3.  Click **Generate**.
-
-    ![Screenshot that shows the PuTTY Key Generator dialog box and highlights the Generate button.](media/puttygen-02.png)
-
-4.  After generation, save both the public key and private key. Paste the contents of the public key in the **SSH public key** section of the **Create virtual machine \> Basics** pane (shown in steps 6 and 7 in the previous section).
-
-    ![PuTTY Key Generator dialog box](media/puttygen-03.png)
 
 ### Configure VM features
 
@@ -184,7 +168,7 @@ When giving new individuals access the VM:
 
     ![tmax on Azure dashboard](media/create-vm-03.png)
 
-6. Open PuTTY.
+6. Open bash or a PowerShell prompt.
 
 7. For **Host Name**, type your username and the public IP address you copied. For example, **username\@publicip**.
 
@@ -1473,7 +1457,7 @@ That completes the installation of the OpenFrame components.
 
 ## Next steps
 
-If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://datamigration.microsoft.com/).
+If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](/data-migration/).
 
 -   [Get started with Azure](../../../../index.yml)
 -   [Host Integration Server (HIS) documentation](/host-integration-server/)

@@ -1,15 +1,15 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
-ms.author: aahi
+ms.date: 02/13/2023
+ms.author: jboback
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-[Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) 
+[Reference documentation](/javascript/api/overview/azure/ai-language-text-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text/samples/v1) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-language-text) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitivelanguage/ai-language-text) 
 
 Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for Node.js. In the following example, you'll create a JavaScript application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
 
@@ -25,7 +25,7 @@ Use this quickstart to create a Personally Identifiable Information (PII) detect
 * To use the Analyze feature, you'll need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -50,7 +50,7 @@ npm init
 Install the npm package:
 
 ```console
-npm install @azure/ai-text-analytics@5.1.0
+npm install @azure/ai-language-text
 ```
 
 > [!div class="nextstepaction"]
@@ -68,30 +68,31 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
-const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for detecting sensitive information (PII) from text 
-async function piiRecognition(client) {
+//an example document for pii recognition
+const documents = [ "The employee's phone number is (555) 555-5555." ];
 
-    const documents = [
-        "The employee's phone number is (555) 555-5555."
-    ];
-
-    const results = await client.recognizePiiEntities(documents, "en");
-    for (const result of results) {
-        if (result.error === undefined) {
-            console.log("Redacted Text: ", result.redactedText);
-            console.log(" -- Recognized PII entities for input", result.id, "--");
-            for (const entity of result.entities) {
-                console.log(entity.text, ":", entity.category, "(Score:", entity.confidenceScore, ")");
-            }
-        } else {
-            console.error("Encountered an error:", result.error);
-        }
+async function main() {
+    console.log(`PII recognition sample`);
+  
+    const client = new TextAnalysisClient(endpoint, new AzureKeyCredential(key));
+  
+    const documents = ["My phone number is 555-555-5555"];
+  
+    const [result] = await client.analyze("PiiEntityRecognition", documents, "en");
+  
+    if (!result.error) {
+      console.log(`Redacted text: "${result.redactedText}"`);
+      console.log("Pii Entities: ");
+      for (const entity of result.entities) {
+        console.log(`\t- "${entity.text}" of type ${entity.category}`);
+      }
     }
 }
-piiRecognition(textAnalyticsClient)
+
+main().catch((err) => {
+console.error("The sample encountered an error:", err);
+});
 ```
 
 > [!div class="nextstepaction"]
@@ -100,7 +101,8 @@ piiRecognition(textAnalyticsClient)
 ## Output
 
 ```console
-Redacted Text:  The employee's phone number is **************.
- -- Recognized PII entities for input 0 --
-(555) 555-5555 : Phone Number (Score: 0.8 )
+PII recognition sample
+Redacted text: "My phone number is ************"
+Pii Entities:
+        - "555-555-5555" of type PhoneNumber
 ```

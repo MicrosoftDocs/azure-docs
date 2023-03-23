@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Join Azure-SSIS integration runtime to a virtual network via Azure portal
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to join your existing Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to a virtual network via portal. 
 

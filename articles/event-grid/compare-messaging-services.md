@@ -2,7 +2,7 @@
 title: Compare Azure messaging services
 description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
 ms.topic: overview
-ms.date: 04/26/2022
+ms.date: 11/01/2022
 ---
 
 # Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus
@@ -23,7 +23,7 @@ An event is a lightweight notification of a condition or a state change. The pub
 
 Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
 
-A series of events report a condition and are analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
+A series of events reports a condition and are analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
 
 ### Message
 A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. The publisher of the message has an expectation about how the consumer handles the message. A contract exists between the two sides. For example, the publisher sends a message with the raw data, and expects the consumer to create a file from that data and send a response when the work is done.
@@ -41,7 +41,7 @@ It has the following characteristics:
 - Serverless
 - At least once delivery of an event
 
-Event Grid is offered in two editions: **Azure Event Grid**, a fully managed PaaS service on Azure, and **Event Grid on Kubernetes with Azure Arc**, which lets you use Event Grid on your Kubernetes cluster wherever that is deployed, on-prem or on the cloud. For more information, see [Azure Event Grid overview](overview.md) and [Event Grid on Kubernetes with Azure Arc overview](./kubernetes/overview.md).
+Event Grid is offered in two editions: **Azure Event Grid**, a fully managed PaaS service on Azure, and **Event Grid on Kubernetes with Azure Arc**, which lets you use Event Grid on your Kubernetes cluster wherever that is deployed, on-premises or on the cloud. For more information, see [Azure Event Grid overview](overview.md) and [Event Grid on Kubernetes with Azure Arc overview](./kubernetes/overview.md).
 
 ## Azure Event Hubs
 Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources. Event Hubs allows telemetry and event data to be made available to various stream-processing infrastructures and analytics services. It's available either as data streams or bundled event batches. This service provides a single solution that enables rapid data retrieval for real-time processing, and repeated replay of stored raw data. It can capture the streaming data into a file for processing and analysis.
@@ -55,7 +55,7 @@ It has the following characteristics:
 For more information, see [Event Hubs overview](../event-hubs/event-hubs-about.md).
 
 ## Azure Service Bus
-Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The service is intended for enterprise applications that require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables cloud-native applications to provide reliable state transition management for business processes. When handling high-value messages that cannot be lost or duplicated, use Azure Service Bus. This service also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.
+Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The service is intended for enterprise applications that require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables cloud-native applications to provide reliable state transition management for business processes. When handling high-value messages that can't be lost or duplicated, use Azure Service Bus. This service also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.
 
 Service Bus is a brokered messaging system. It stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive the messages. It has the following characteristics:
 
@@ -77,9 +77,9 @@ For more information, see [Service Bus overview](../service-bus-messaging/servic
 ## Use the services together
 In some cases, you use the services side by side to fulfill distinct roles. For example, an e-commerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
 
-In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to a data warehouse, see [Stream big data into a data warehouse](event-grid-event-hubs-integration.md). The following image shows the workflow for streaming the data.
+In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to Azure Synapse Analytics, see [Stream big data into a Azure Synapse Analytics](event-grid-event-hubs-integration.md). The following image shows the workflow for streaming the data.
 
-:::image type="content" source="./media/compare-messaging-services/overview.png" alt-text="Image showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
+:::image type="content" source="./media/compare-messaging-services/overview.svg" alt-text="Image showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
 
 ## Next steps
 See the following articles: 

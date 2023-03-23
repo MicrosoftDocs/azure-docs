@@ -42,6 +42,22 @@ landingContent:
           url: tutorial-azure-ml-in-a-day.md
 
   # Card
+  - title: Work with data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Create datastore
+          url: how-to-datastore.md
+        - text: Access data in a notebook
+          url: how-to-access-data-interactive.md
+        - text: Use Apache Spark in Azure Machine Learning
+          url: interactive-data-wrangling-with-apache-spark-azure-ml.md
+        - text: Create data assets
+          url: how-to-create-data-assets.md
+        - text: Work with tables
+          url: how-to-mltable.md
+
+  # Card
   - title: Train models
     linkLists:
       - linkListType: how-to-guide
@@ -56,6 +72,8 @@ landingContent:
             url: tutorial-first-experiment-automated-ml.md
           - text: Use designer (drag-n-drop) in studio
             url: tutorial-designer-automobile-price-train-score.md
+          - text: Train with R
+            url: how-to-r-train-model.md
   # Card
   - title: Deploy models
     linkLists:
@@ -63,10 +81,12 @@ landingContent:
         links:
         - text: Streamline model deployment with endpoints 
           url: concept-endpoints.md
-        - text: Real-time scoring with a managed online endpoint
-          url: how-to-deploy-managed-online-endpoints.md
-        - text: Batch scoring with managed endpoints 
-          url: how-to-use-batch-endpoint.md
+        - text: Real-time scoring with online endpoints
+          url: how-to-deploy-online-endpoints.md
+        - text: Batch scoring with batch endpoints 
+          url: batch-inference/how-to-use-batch-endpoint.md
+        - text: Deploy R models
+          url: how-to-r-deploy-r-model.md
 
   # Card
   - title: "Manage the ML lifecycle (MLOps)"

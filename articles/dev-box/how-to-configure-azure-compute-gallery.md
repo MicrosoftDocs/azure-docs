@@ -74,35 +74,30 @@ Follow these steps to manually assign each role:
 
 1. Select the **Access Control (IAM)** menu item.
 
-1. Select **+ Add** > **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. On the Role tab, select **Reader**, and then select **Next**.
-
-1. On the Members tab, select **+ Select Members**.
-
-1. In Select members, search for *Windows 365*, select **Windows 365** from the list, and then select **Select**. 
-
-1. On the Members tab, select **Next**.
-
-1. On the Review + assign tab, select **Review + assign**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Reader**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Search for and select **Windows 365**. |
 
 #### Dev center Managed Identity
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
+1. Open the gallery you want to attach to the dev center from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
 
 1. Select **Access Control (IAM)** from the left menu.
 
-1. Select **+ Add** > **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. On the Role tab, select the **Owner** role, and then select **Next**.
-
-1. On the Members tab, under **Assign access to**, select **Managed Identity**, and then select **+ Select Members**.
-
-1. In Select managed identities, search for and select the user assigned managed identity you created in "Create a Dev center Managed Identity" and then select 
-**Select**.
-
-1. On the Members tab, select **Next**.
-
-1. On the Review + assign tab, select **Review + assign**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Contributor**. |
+    | **Assign access to** | Select **Managed Identity**. |
+    | **Members** | Search for and select the user assigned managed identity you created in [Add a user assigned identity to dev center](#add-a-user-assigned-identity-to-dev-center). |
 
 You can use the same managed identity in multiple DevCenters and Azure Compute Galleries. Any DevCenter with the managed identity added will have the necessary permissions to the images in the Azure Compute Gallery you've added the owner role assignment to.
 

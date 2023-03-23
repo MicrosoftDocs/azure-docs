@@ -44,7 +44,7 @@ You'll need the workspace ID and workspace key for the Log Analytics workspace t
 
 Intune is a Microsoft product that allows you to centrally manage the Log Analytics workspace configuration settings that are applied to one or more of your devices. Follow these steps to configure your devices through Intune:
 
-1. Sign in to [Microsoft Endpoint Manager Admin Center](https://endpoint.microsoft.com/).
+1. Sign in to [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 2. Go to **Devices** > **Configuration profiles**.
 3. Create a new Windows 10 profile, and then select **templates**.
 4. In the list of templates, select **Device restrictions (Windows 10 Team)**.

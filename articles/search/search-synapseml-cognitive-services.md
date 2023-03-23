@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/13/2022
+ms.date: 02/01/2023
 ---
 
 # Tutorial: Index large data from Apache Spark using SynapseML and Cognitive Search
@@ -22,7 +22,7 @@ In this Azure Cognitive Search tutorial, learn how to index and query large data
 > + Write the output to a search index hosted in Azure Cognitive Search
 > + Explore and query over the content you created
 
-This tutorial takes a dependency on [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. In SynapseML, search indexing and machine learning are exposed through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, you'll use the **AzureSearchWriter** transformer that calls Cognitive Search for indexing, and other transformers that calls Cognitive Services for analysis and AI enrichment.
+This tutorial takes a dependency on [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. In SynapseML, search indexing and machine learning are exposed through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, you'll use the **AzureSearchWriter** APIs for analysis and AI enrichment.
 
 Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this tutorial shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
 
@@ -38,13 +38,13 @@ You'll need the `synapseml` library and several Azure resources. If possible, us
 + [Azure Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>3</sup> 
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>4</sup>
 
-<sup>1</sup> This tutorial includes instructions for loading the package.
+<sup>1</sup> This link resolves to a tutorial for loading the package.
 
-<sup>2</sup> You can use the free tier but [choose a higher tier](search-sku-tier.md) if data volumes are large. You'll need the [API key](search-security-api-keys.md#find-existing-keys) for this resource.
+<sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For non-free tiers, you'll need to provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#2---set-up-dependencies) step further on.
 
-<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure Translator. In the instructions below, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
+<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure Translator. In the instructions that follow, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
 
-<sup>4</sup> In this tutorial, Azure Databricks provides the computing platform. You could also use Azure Synapse Analytics or any other computing platform supported by `synapseml`. The Azure Databricks article listed in the prerequisites includes multiple steps. For this tutorial, follow only the instructions in "Create a workspace".
+<sup>4</sup> In this tutorial, Azure Databricks provides the Spark computing platform and the instructions in the link will tell you how to set up the workspace. For this tutorial, we used the portal steps in "Create a workspace".
 
 > [!NOTE]
 > All of the above Azure resources support security features in the Microsoft Identity platform. For simplicity, this tutorial assumes key-based authentication, using endpoints and keys copied from the portal pages of each service. If you implement this workflow in a production environment, or share the solution with others, remember to replace hard-coded keys with integrated security or encrypted keys.
@@ -237,8 +237,8 @@ from synapse.ml.cognitive import *
 
 You can check the search service pages in Azure portal to explore the index definition created by AzureSearchWriter.
 
-<!-- > [!NOTE]
-> If you can't use default search index, you can provide an external custom definition in JSON, passing its URI as a string in the "indexJson" property. Generate the default index first so that you know which fields to specify, and then follow with customized properties if you need specific analyzers, for example.  -->
+> [!NOTE]
+> If you can't use default search index, you can provide an external custom definition in JSON, passing its URI as a string in the "indexJson" property. Generate the default index first so that you know which fields to specify, and then follow with customized properties if you need specific analyzers, for example.
 
 ## 8 - Query the index
 
@@ -258,7 +258,7 @@ url = "https://{}.search.windows.net/indexes/{}/docs/search?api-version=2020-06-
 requests.post(url, json={"search": "door", "count": "true", "select": "Description, Translations"}, headers={"api-key": search_key}).json()
 ```
 
-The following screenshot shows the cell output for above script.
+The following screenshot shows the cell output for sample script.
 
 :::image type="content" source="media/search-synapseml-cognitive-services/query-results.png" alt-text="Screenshot of query results showing the count, search string, and return fields." border="true":::
 

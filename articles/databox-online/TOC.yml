@@ -32,8 +32,12 @@
       
   - name: Concepts
     items:
-    - name: Ready safety
-      href: azure-stack-edge-pro-2-safety.md
+    - name: View safety
+      items:
+        - name: In English (en-us)
+          href: azure-stack-edge-pro-2-safety.md
+        - name: In other languages
+          href: azure-stack-edge-pro-2-safety-languages.md
     - name: Review requirements
       href: azure-stack-edge-pro-2-system-requirements.md
     - name: Understand limits
@@ -310,8 +314,6 @@
           href: azure-stack-edge-gpu-manage-edge-resource-groups-portal.md
         - name: VM sizes
           href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
-        - name: Virtual switches
-          href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: VM tags
           href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
       - name: Reset VM password
@@ -337,6 +339,11 @@
         - name: GPU extension issues
           href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
 
+    - name: Azure Kubernetes service
+      items:
+        - name: Deploy AKS on Azure Stack Edge
+          href: azure-stack-edge-deploy-aks-on-azure-stack-edge.md
+  
     - name: Kubernetes
       items:
       - name: What is Kubernetes?
@@ -408,6 +415,8 @@
             href: azure-stack-edge-gpu-deploy-compute-module-simple.md
           - name: Sync data from local share
             href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/Scripts/IotEdgeScript/README.md
+          - name: Move to Linux VMs
+            href: azure-stack-edge-move-to-self-service-iot-edge.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
         
@@ -457,6 +466,10 @@
     items:         
     - name: Check network readiness 
       href: azure-stack-edge-deploy-check-network-readiness.md
+    - name: Create virtual switches and virtual networks via PowerShell
+      href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+    - name: Deploy via config file
+      href: azure-stack-edge-zero-touch-provisioning.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -478,7 +491,9 @@
       - name: Prepare for device failure
         href: azure-stack-edge-gpu-prepare-device-failure.md
       - name: Recover from device failure
-        href: azure-stack-edge-gpu-recover-device-failure.md   
+        href: azure-stack-edge-gpu-recover-device-failure.md
+      - name: Erase device data
+        href: azure-stack-edge-gpu-secure-erase-certificate.md
     - name: Monitor
       items: 
       - name: Review alerts
@@ -507,7 +522,11 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2209 - Current
+    - name: 2301 - Current
+      href: azure-stack-edge-gpu-2301-release-notes.md
+    - name: 2210
+      href: azure-stack-edge-gpu-2210-release-notes.md
+    - name: 2209
       href: azure-stack-edge-gpu-2209-release-notes.md
     - name: 2207
       href: azure-stack-edge-gpu-2207-release-notes.md
@@ -540,7 +559,7 @@
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+      href: /dotnet/api/overview/azure/databoxedge
     - name: Azure CLI
       href: /cli/azure/databoxedge
     - name: Azure Policy built-ins
@@ -622,7 +641,9 @@
       href: azure-stack-edge-migrate-fpga-gpu.md  
   - name: Release notes
     items:
-      - name: 2101 - Current
+      - name: 2301 - Current
+        href: azure-stack-edge-2301-release-notes.md
+      - name: 2101
         href: azure-stack-edge-2101-release-notes.md
       - name: 2007
         href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json

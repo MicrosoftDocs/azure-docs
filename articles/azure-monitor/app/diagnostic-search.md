@@ -61,7 +61,7 @@ The event types are:
 * **Custom Event**: If you inserted calls to `TrackEvent()` to [monitor usage](./api-custom-events-metrics.md), you can search them here.
 * **Exception**: Uncaught [exceptions in the server](./asp-net-exceptions.md), and the exceptions that you log by using `TrackException()`.
 * **Dependency**: [Calls from your server application](./asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](./javascript.md).
-* **Availability**: Results of [availability tests](./monitor-web-app-availability.md).
+* **Availability**: Results of [availability tests](availability-overview.md)
 
 ## Filter on property values
 
@@ -125,13 +125,13 @@ The first time you do this step, you're asked to configure a link to your Azure 
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./java-in-process-agent.md#autocollected-logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-enable.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
 
 * [Write code](./api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 
 Learn how to [send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md).
 
-## <a name="questions"></a>Q & A
+## <a name="questions"></a>Frequently asked questions
 
 Find answers to common questions.
 
@@ -147,5 +147,5 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 
 * [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
-* [Set up availability and responsiveness tests](./monitor-web-app-availability.md)
+* [Availability overview](availability-overview.md)
 * [Troubleshooting](../faq.yml)

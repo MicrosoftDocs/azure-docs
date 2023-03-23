@@ -154,7 +154,7 @@ Usually, Speech resources use [Cognitive Services regional endpoints](../cogniti
 This is a sample request URL:
 
 ```http
-https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
+https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions
 ```
 
 > [!NOTE]
@@ -166,11 +166,11 @@ That means that in our example, the REST API endpoint name will be: <p/>`my-priv
 
 And the sample request URL needs to be converted to:
 ```http
-https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/transcriptions
+https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.1/transcriptions
 ```
 This URL should be reachable from the virtual network with the private endpoint attached (provided the [correct DNS resolution](#resolve-dns-from-the-virtual-network)).
 
-After you turn on a custom domain name for a Speech resource, you typically replace the host name in all request URLs with the new custom domain host name. All other parts of the request (like the path `/speechtotext/v3.0/transcriptions` in the earlier example) remain the same.
+After you turn on a custom domain name for a Speech resource, you typically replace the host name in all request URLs with the new custom domain host name. All other parts of the request (like the path `/speechtotext/v3.1/transcriptions` in the earlier example) remain the same.
 
 > [!TIP]
 > Some customers develop applications that use the region part of the regional endpoint's DNS name (for example, to send the request to the Speech resource deployed in the particular Azure region).

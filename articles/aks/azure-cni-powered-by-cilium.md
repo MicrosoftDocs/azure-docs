@@ -1,7 +1,9 @@
 ---
 title: Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Azure CNI Powered by Cilium.
-services: container-service
+author: asudbring
+ms.author: allensu
+ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions
 ms.date: 10/24/2022
@@ -18,8 +20,6 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 - More efficient network policy enforcement
 - Better observability of cluster traffic
 - Support for larger clusters (more nodes, pods, and services)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## IP Address Management (IPAM) with Azure CNI Powered by Cilium
 
@@ -55,33 +55,37 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Azure CLI with aks-preview extension 0.5.109 or later.
 * If using ARM templates or the REST API, the AKS API version must be 2022-09-02-preview or later.
 
-### Install the aks-preview CLI extension
+## Install the aks-preview Azure CLI extension
 
-```azurecli-interactive
-# Install the aks-preview extension
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
 az extension add --name aks-preview
+```
 
-# Update the extension to make sure you have the latest version installed
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Register the `CiliumDataplanePreview` preview feature
+## Register the 'CiliumDataplanePreview' feature flag
 
-To create an AKS cluster with Azure CNI powered by Cilium, you must enable the `CiliumDataplanePreview` feature flag on your subscription.
-
-Register the `CiliumDataplanePreview` feature flag by using the `az feature register` command, as shown in the following example:
+Register the `CiliumDataplanePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CiliumDataplanePreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
 ```
 
-When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -110,7 +114,6 @@ Create the cluster using `--enable-cilium-dataplane`:
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --max-pods 250 \
-  --node-count 2 \
   --network-plugin azure \
   --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
@@ -119,29 +122,13 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 
 ### Option 2: Assign IP addresses from an overlay network
 
-Run these commands to create a resource group and VNet with a single subnet:
-
-```azurecli-interactive
-# Create the resource group
-az group create --name <resourceGroupName> --location <location>
-```
-
-```azurecli-interactive
-# Create a VNet with a subnet for nodes and a subnet for pods
-az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-```
-
-Then create the cluster using `--enable-cilium-dataplane`:
+Run this commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
-  --max-pods 250 \
-  --node-count 2 \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
-  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --enable-cilium-dataplane
 ```
 
@@ -149,7 +136,7 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 
 - *Can I customize Cilium configuration?*
 
-    No, the Cilium configuration is managed by AKS can't be modified. We recommend that customers who require more control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
+    No, the Cilium configuration is managed by AKS and can't be modified. We recommend that customers who require more control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
 
 - *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
 
@@ -174,3 +161,6 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

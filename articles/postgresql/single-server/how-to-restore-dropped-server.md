@@ -4,8 +4,8 @@ description: This article describes how to restore a dropped server in Azure Dat
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: bahusse
-author: Bashar-MSFT
+ms.author: sisawant 
+author: code-sidd
 ms.date: 06/24/2022
 ---
 

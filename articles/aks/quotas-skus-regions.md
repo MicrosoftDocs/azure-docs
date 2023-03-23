@@ -2,7 +2,6 @@
 title: Limits for resources, SKUs, regions
 titleSuffix: Azure Kubernetes Service
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
 
@@ -37,6 +36,12 @@ VM sizes with less than 2 CPUs may not be used with AKS.
 Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can be reliably scheduled, AKS requires nodes use VM sizes with at least 2 CPUs.
 
 For more information on VM types and their compute resources, see [Sizes for virtual machines in Azure][vm-skus].
+
+## Supported container image sizes
+
+AKS doesn't set a limit on the container image size. However, it's important to understand that the larger the container image, the higher the memory demand. This could potentially exceed resource limits or the overall available memory of worker nodes. By default, memory for VM size Standard_DS2_v2 for an AKS cluster is set to 7 GiB.
+
+When a container image is very large (1 TiB or more), kubelet might not be able to pull it from your container registry to a node due to lack of disk space.
 
 ## Region availability
 

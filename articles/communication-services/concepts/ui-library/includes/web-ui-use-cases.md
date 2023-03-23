@@ -18,6 +18,9 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | ------------------- | ------------------------------------------------------ |
 | Call types          | Join a Microsoft Teams meeting                                     |
 |                     | Join an Azure Communication Services call by using a group ID   |
+|                     | Join an Azure Communication Services [Room](../../rooms/room-concept.md) |
+|                     | Start an outbound call to another Azure Communication Services user |
+|                     | Start an outbound call to a [phone number](../../telephony/telephony-concept.md#voice-calling-pstn) |
 | [Teams interoperability](../../teams-interop.md)      | Join the call lobby                                             |
 |                     | Display a transcription and recording alert banner               |
 | Call controls       | Mute and unmute a call                                       |
@@ -50,7 +53,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 ## Supported identities
 
-To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md).
+To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
 
 ## Teams interoperability
 
@@ -96,7 +99,7 @@ The following table compares composites and UI components for observability use 
 
 ## Recommended architecture
 
-Initialize a composite and base components by using an Azure Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+Initialize a composite and base components by using an Azure Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended UI Library architecture.":::
 

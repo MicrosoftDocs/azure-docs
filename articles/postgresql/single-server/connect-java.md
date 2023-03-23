@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: judubois
 author: jdubois
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
 ms.date: 09/27/2022
 ---
 
@@ -93,6 +93,8 @@ az group create \
 
 ## Create an Azure Database for PostgreSQL instance
 
+The following sections describe how to create and configure your database instance.
+
 ### Create a PostgreSQL server and set up admin user
 
 The first thing you'll create is a managed PostgreSQL server with an admin user.
@@ -104,7 +106,7 @@ The first thing you'll create is a managed PostgreSQL server with an admin user.
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
-```bash
+```azurecli
 az login --scope https://graph.microsoft.com/.default
 ```
 
@@ -229,7 +231,7 @@ EOF
 Then, use the following command to run the SQL script to create the Azure AD non-admin user:
 
 ```bash
-psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` sslmode=require" < create_ad_user.sql
+psql "host=$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com user=$CURRENT_USERNAME@$AZ_DATABASE_SERVER_NAME dbname=$AZ_DATABASE_NAME port=5432 password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) sslmode=require" < create_ad_user.sql
 ```
 
 Now use the following command to remove the temporary SQL script file:
@@ -293,8 +295,8 @@ Using your favorite IDE, create a new Java project using Java 8 or above, and ad
       </dependency>
       <dependency>
         <groupId>com.azure</groupId>
-        <artifactId>azure-identity-providers-jdbc-postgresql</artifactId>
-        <version>1.0.0-beta.1</version>
+        <artifactId>azure-identity-extensions</artifactId>
+        <version>1.0.0</version>
       </dependency>
     </dependencies>
 </project>
@@ -340,7 +342,7 @@ Create a *src/main/resources/application.properties* file, then add the followin
 
 ```bash
 cat << EOF > src/main/resources/application.properties
-url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require&authenticationPluginClassName=com.azure.identity.providers.postgresql.AzureIdentityPostgresqlAuthenticationPlugin
+url=jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
 user=${AZ_POSTGRESQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```

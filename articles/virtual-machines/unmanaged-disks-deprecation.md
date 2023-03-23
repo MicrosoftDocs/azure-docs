@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 11/08/2022
 ms.author: rogarana
 ---
 
@@ -20,7 +20,7 @@ With managed disks, you don't have to worry about managing storage accounts for 
 
 ## How does this affect me?
 
-- As of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks.
+- As of June 30th, 2023, new subscriptions won't be eligible to create unmanaged disks.
 - As of September 30, 2023, existing customers won't be able to create new unmanaged disks.
 - On September 30, 2025, customers will no longer be able to start IaaS VMs by using unmanaged disks. Any VMs that are still running or allocated will be stopped and deallocated.
 
@@ -30,19 +30,19 @@ Start planning your migration to Azure managed disks today.
 
 1. Make a list of all affected VMs:
 
-   - The VMs with **Uses managed disks** set to **No** on the [Azure portal's VM pane](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) are all the affected VMs within the subscription.
+   - The VMs with **Uses managed disks** set to **No** on the [Azure portal's VM pane](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) are all the affected VMs within the subscription.
    - You can also query Azure Resource Graph by using the [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) or [PowerShell](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/governance/resource-graph/concepts/work-with-data.md) to view the list of all flagged VMs and related information for the selected subscriptions.
    - On February 28, 2020, we sent out emails to subscription owners with a list of all subscriptions that contain these VMs. Please use them to build this list.
 
 1. [Learn more](windows/migrate-to-managed-disks.md) about migrating your VMs to managed disks. For more information, see [Frequently asked questions about migrating to managed disks](faq-for-disks.yml).
 
-1. For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%228a82f77d-c3ab-7b08-d915-776b4ff64ff4%22%7D).
+1. For technical questions, issues, and help with adding subscriptions to the allowlist, [contact support](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%228a82f77d-c3ab-7b08-d915-776b4ff64ff4%22%7D).
 
 1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved reliability, scalability, security, and new features of Azure managed disks.
 
 ## What resources are available for this migration?
 
 - [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): Microsoft and community support for migration.
-- [Azure Migration Support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%221135e3d0-20e2-aec5-4ef0-55fd3dae2d58%22%7D): Dedicated support team for technical assistance during migration.
+- [Azure Migration Support](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%226f16735c-b0ae-b275-ad3a-03479cfa1396%22,%22supportTopicId%22:%221135e3d0-20e2-aec5-4ef0-55fd3dae2d58%22%7D): Dedicated support team for technical assistance during migration.
 - [Microsoft FastTrack](https://www.microsoft.com/fasttrack): FastTrack can assist eligible customers with planning and execution of this migration. [Nominate yourself](https://azure.microsoft.com/programs/azure-fasttrack/#nomination).
 - If your company/organization has partnered with Microsoft or works with Microsoft representatives such as cloud solution architects (CSAs) or technical account managers (TAMs), please work with them for additional resources for migration.

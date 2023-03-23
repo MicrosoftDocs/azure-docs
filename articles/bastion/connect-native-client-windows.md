@@ -2,11 +2,10 @@
 title: 'Connect to a VM using a native client and Azure Bastion'
 titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Windows computer by using Bastion and a native client.
-services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 12/05/2022
 ms.author: cherylmc
 ---
 
@@ -35,9 +34,10 @@ After you deploy this feature, there are two different sets of connection instru
   * Set up concurrent VM sessions with Bastion.
   * [Upload files](vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
 
-Currently, this feature has the following limitation:
+**Limitations**
 
 * Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to your Linux VM using an SSH key pair, download your private key to a file on your local machine.
+* This feature isn't supported on Cloud Shell.
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -51,6 +51,12 @@ Before you begin, verify that you have the following prerequisites:
   * [Enable Azure AD sign-in for a Windows VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) or [Linux VM](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
   * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
   * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
+
+## <a name="secure "></a>Secure your native client connection
+
+If you want to further secure your native client connection, you can limit port access by only providing access to port 22/3389. To restrict port access, you must deploy the following NSG rules on your AzureBastionSubnet to allow access to select ports and deny access from any other ports.
+
+:::image type="content" source="./media/connect-native-client-windows/network-security-group.png" alt-text="Screenshot that shows NSG configurations." lightbox="./media/connect-native-client-windows/network-security-group.png":::
 
 ## <a name="configure"></a>Configure the native client support feature
 
@@ -134,6 +140,9 @@ Use the example that corresponds to the type of target VM to which you want to c
    ```azurecli
    az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
    ```
+
+> [!IMPORTANT]
+> Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM. 
 
    **SSH:**
 

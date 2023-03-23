@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/20/2022
+ms.date: 10/28/2022
 ms.topic: how-to
 ---
 
@@ -77,22 +77,20 @@ The **My apps** page lists all the IoT Central applications you have access to. 
 
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy uses a standard pricing plan that you'll be billed for.
 
-Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
+Navigate to **Application > Management** and select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
 
-:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application management page.":::
+:::image type="content" source="media/howto-create-iot-central-application/app-copy.png" alt-text="Screenshot that shows the copy application settings page." lightbox="media/howto-create-iot-central-application/app-copy.png":::
 
-:::image type="content" source="media/howto-create-iot-central-application/app-copy-2.png" alt-text="Screenshot that shows the Copy Application settings page.":::
+After the application copy operation succeeds, you can navigate to the new application using the link.
 
-After the app copy operation succeeds, you can navigate to the new application using the link.
-
-Copying an application also copies the definition of rules and email action. Some actions, such as Flow and  Logic Apps, are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it's a good idea to check the rules and actions to make sure they're up-to-date in the new app.
+Copying an application also copies the definition of rules and email action. Some actions, such as Flow and Logic Apps, are tied to specific rules by the rule ID. When a rule is copied to a different application, it gets its own rule ID. In this case, users must create a new action and then associate the new rule with it. In general, it's a good idea to check the rules and actions to make sure they're up-to-date in the new application.
 
 > [!WARNING]
 > If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
 
 ## Create and use a custom application template
 
-When you create an Azure IoT Central application, you have a choice of built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
+When you create an Azure IoT Central application, you choose from the built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
 
 When you create an application template, it includes the following items from your existing application:
 
@@ -119,8 +117,7 @@ To create an application template from an existing IoT Central application:
 1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
-
-:::image type="content" source="media/howto-create-iot-central-application/create-template-2.png" alt-text="Screenshot that shows export an application template.":::
+:::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows export an application template." lightbox="media/howto-create-iot-central-application/create-template.png":::
 
 ### Use an application template
 

@@ -118,25 +118,16 @@ To make role assignments, use the following steps:
 
 1. Select **Access Control (IAM)** from the left menu.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-access-control.png" alt-text="Screenshot showing the dev center page with the Access Control link highlighted.":::
-
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/add-role-assignment.png" alt-text="Screenshot showing the Add menu with Add role assignment highlighted.":::
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Owner**, **Contributor**, or **Reader**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the dev center. |
 
-1. On the Add role assignment page, choose the built-in role you want to assign, and then select **Next**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-built-in-roles.png" alt-text="Screenshot showing the Add role assignment search box highlighted.":::
-
-1. On the Members page, select **+ Select Members**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/dev-center-owner-select-members.png" alt-text="Screenshot showing the Members tab with Select members highlighted.":::
-
-1. On the **Select members** pane, select the Active Directory Users or Groups you want to add, and then select **Select**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/select-members-search.png" alt-text="Screenshot showing the Select members pane with a user account highlighted.":::
-
-1. On the Add role assignment page, select **Review + assign**.
 ## Next steps
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)

@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 02/14/2023
 ms.custom: mode-ui
 ---
 
@@ -17,6 +17,8 @@ Azure Red Hat OpenShift is a managed OpenShift service that lets you quickly dep
 Sign in to the [Azure portal](https://portal.azure.com). 
 
 Create a service principal, as explained in [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the client ID and the appID.** 
+
+Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on registering resource providers using Azure portal, see [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Create an Azure Red Hat OpenShift cluster
 1.	On the Azure portal menu or from the **Home** page, select **All Services** under three horizontal bars on the top left hand page.
@@ -32,6 +34,9 @@ Create a service principal, as explained in [Use the portal to create an Azure A
         *	Select **Master VM Size** and **Worker VM Size**.
 
     ![**Basics** tab on Azure portal](./media/Basics.png)
+    
+    > [!NOTE]
+    > In the **Domain name** field, you can either specify a domain name (e.g., *example.com*) or a prefix (e.g., *abc*) that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group (e.g., *aro-abc*) that is created to host the cluster VMs.
 
 4. On the **Authentication** tab of the **Azure Red Hat OpenShift** dialog, complete the following sections.
 

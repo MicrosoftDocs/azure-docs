@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 11/10/2022
 ms.author: ryanwi
 ROBOTS: NOINDEX
 ---
@@ -20,6 +20,7 @@ ROBOTS: NOINDEX
 Here is a list of recommended topics to learn more about multi-tenant applications:
 
 - Get a general understanding of [what it means to be a multi-tenant application](./developer-glossary.md#multi-tenant-application)
+- Learn about [tenancy in Azure Active Directory](single-and-multi-tenant-apps.md)
 - Get a general understanding of [how to configure an application to be multi-tenant](./howto-convert-app-to-be-multi-tenant.md)
 - Get a step-by-step overview of [how the Azure AD consent framework is used to implement consent](./quickstart-register-app.md), which is required for multi-tenant applications
 - For more depth, learn [how a multi-tenant application is configured and coded end-to-end](./howto-convert-app-to-be-multi-tenant.md), including how to register, use the "common" endpoint, implement "user" and "admin" consent, how to implement more advanced multi-tier scenarios

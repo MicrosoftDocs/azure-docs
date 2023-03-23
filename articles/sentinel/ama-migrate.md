@@ -22,9 +22,6 @@ This article provides specific details and differences for Microsoft Sentinel.
 ## Gap analysis between agents
 The following tables show gap analyses for the log types that currently rely on agent-based data collection for Microsoft Sentinel. This will be updated as support for AMA grows towards parity with the Log Analytics agent. 
 
-> [!IMPORTANT]
-> The AMA currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders, such as for Windows forwarded events or Syslog events.
-
 ### Windows logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
@@ -36,24 +33,25 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors-reference.md#windows-firewall)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
 |**Windows Event Logs**     |  Collection only       | Collection only        |
-|**Custom logs**     |   Collection only       |    Collection only     |
+|**Custom logs (text)**     |   Collection only       |    Collection only     |
 |**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
 |**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors-reference.md#windows-dns-server-preview) (Public preview)        |
 
+> [!IMPORTANT]
+> The Azure Monitor agent provides a throughput that is 25% better than legacy Log Analytics agents. Migrate to the new AMA connectors to get higher performance, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
 
 ### Linux logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
 |**Syslog**     |  Collection only      |   [Syslog data connector](connect-syslog.md)      |
-|**Common Event Format (CEF)**     |  Collection only       |  [CEF data connector](connect-common-event-format.md)       |
+|**Common Event Format (CEF)**     |  [CEF via AMA data connector](connect-cef-ama.md)       |  [CEF data connector](connect-common-event-format.md)       |
 |**Sysmon**     |   Collection only    |  Collection only      |
-|**Custom logs**     |   -       |  Collection only       |
+|**Custom logs (text)**     |   Collection only       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
-
 
 ## Recommended migration plan
 
@@ -61,7 +59,7 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Migration plan considerations](../azure-monitor/agents/azure-monitor-agent-migration.md#migration-plan-considerations) in the Azure Monitor documentation.
+1. Make sure that you've reviewed necessary prerequisites and other considerations as [documented here](../azure-monitor/agents/azure-monitor-agent-migration.md#before-you-begin) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 

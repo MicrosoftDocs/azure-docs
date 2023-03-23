@@ -2,7 +2,7 @@
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
 description: Follow this quickstart to run a PHP console application that populates an Azure Cosmos DB for Gremlin database in the Azure portal.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2022

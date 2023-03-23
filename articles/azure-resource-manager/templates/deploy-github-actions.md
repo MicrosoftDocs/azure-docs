@@ -32,120 +32,12 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-# [Service principal](#tab/userlevel)
+[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
-
-Create a resource group if you do not already have one.
-
-```azurecli-interactive
-    az group create -n {MyResourceGroup} -l {location}
-```
-
-Replace the placeholder `myApp` with the name of your application.
-
-```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
-```
-
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You will only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values.
-
-```output
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-```
-
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. The scope in the previous example is limited to the resource group.
-
-# [OpenID Connect](#tab/openid)
-
-
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
-
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
-
-    ```azurecli-interactive
-    az ad app create --display-name myApp
-    ```
-
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
-
-    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
-
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
-
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
-    
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
-
-    ```azurecli-interactive
-     az ad sp create --id $appId
-    ```
-
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
-
-    ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/
-    ```
-
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
-
-    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
-    * Set a value for `CREDENTIAL-NAME` to reference later.
-    * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-    
-    ```azurecli
-    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
-    ```
-    
-    To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-    
-
----
 ## Configure the GitHub secrets
 
-# [Service principal](#tab/userlevel)
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
 
-You need to create secrets for your Azure credentials, resource group, and subscriptions.
-
-1. In [GitHub](https://github.com/), browse your repository.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
-
-1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (example: `myResourceGroup`).
-
-1. Create an additional secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
-
-# [OpenID Connect](#tab/openid)
-
-You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings**.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
-
----
 ## Add Resource Manager template
 
 Add a Resource Manager template to your GitHub repository. This template creates a storage account.

@@ -72,6 +72,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 1. Set your connection string in `Server/appsettings.json`
 2. Set your endpoint URL string in `Server/appsettings.json`
+3. Set your adminUserId string in `Server/appsettings.json`
 3. `npm run setup` from the root directory
 4. `npm run start` from the root directory
 

@@ -3,14 +3,12 @@ title: Troubleshoot a connection between Microsoft Sentinel and a CEF or Syslog 
 description: Learn how to troubleshoot issues with your Microsoft Sentinel CEF or Syslog data connector.
 author: limwainstein
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 
@@ -21,6 +19,10 @@ Other symptoms of a failed connector deployment include when either the **securi
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
 If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
+
+> [!IMPORTANT]
+>
+> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.
 
 ## How to use this article
 

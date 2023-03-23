@@ -1,19 +1,14 @@
 ---
-title: Azure virtual machine network throughput | Microsoft Docs
+title: Azure virtual machine network throughput
 description: Learn about Azure virtual machine network throughput, including how bandwidth is allocated to a virtual machine.
 services: virtual-network
-documentationcenter: na
-author: steveesp
-editor: ''
+author: asudbring
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 4/26/2019
-ms.author: steveesp
+ms.author: allensu
 ms.reviewer: kumud, mareat
 ---
 

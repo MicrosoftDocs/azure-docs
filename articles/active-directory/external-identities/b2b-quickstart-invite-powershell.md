@@ -2,8 +2,8 @@
 title: 'Quickstart: Add a guest user with PowerShell - Azure AD'
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user. You'll use the Microsoft Graph Identity Sign-ins and the Microsoft Graph Users PowerShell modules.
 services: active-directory
-author: msmimart
-ms.author: mimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.date: 02/16/2022
 ms.topic: quickstart
@@ -23,7 +23,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 ### PowerShell Module
-Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Users).
+Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Users). You can use the `#Requires` statement to prevent running a script unless the required PowerShell modules are met.
+
+```powershell
+#Requires -Modules Microsoft.Graph.Identity.SignIns, Microsoft.Graph.Users
+```
 
 ### Get a test email account
 
@@ -34,7 +38,7 @@ You need a test email account that you can send the invitation to. The account m
 Run the following command to connect to the tenant domain:
 
 ```powershell
-Connect-MgGraph -Scopes user.readwrite.all
+Connect-MgGraph -Scopes 'User.ReadWrite.All'
 ```
 
 When prompted, enter your credentials.
@@ -66,9 +70,16 @@ When prompted, enter your credentials.
 When no longer needed, you can delete the test user account in the directory. Run the following command to delete a user account:
 
 ```powershell
- Remove-AzureADUser -ObjectId "<UPN>"
+ Remove-MgUser -UserId '<String>'
 ```
-For example: `Remove-AzureADUser -UserId john_contoso.com#EXT#@fabrikam.onmicrosoft.com`
+For example: 
+```powershell 
+Remove-MgUser -UserId 'john_contoso.com#EXT#@fabrikam.onmicrosoft.com'
+``` 
+or 
+```powershell 
+Remove-MgUser -UserId '3f80a75e-750b-49aa-a6b0-d9bf6df7b4c6'
+```
 
 
 ## Next steps

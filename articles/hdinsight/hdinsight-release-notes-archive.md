@@ -1,10 +1,10 @@
 ---
 title: Archived release notes for Azure HDInsight
-description: Archived release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
+description: Archived release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive and more.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 10/25/2022
+ms.date: 02/28/2023
 ---
 
 # Archived release notes
@@ -13,6 +13,300 @@ ms.date: 10/25/2022
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
+
+## Release date: December 12, 2022
+
+This release applies to HDInsight 4.0. and 5.0 HDInsight release is made available to all regions over several days.
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
+
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
+
+* **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
+* **Ambari** user auto UI logout due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
+* **Spark** - A new and optimized version of Spark 3.1.3 is included in this release. We tested Apache Spark 3.1.2(previous version) and Apache Spark 3.1.3(current version) using the TPC-DS benchmark. The test was carried out using E8 V3  SKU, for Apache Spark on 1-TB workload. Apache Spark 3.1.3 (current version) outperformed Apache Spark 3.1.2 (previous version) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. The Microsoft Spark team added optimizations available in Azure Synapse with Azure HDInsight. For more information, please refer to [ Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
+
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+
+* Qatar Central
+* Germany North
+
+![Icon showing what's changed with text.](media/hdinsight-release-notes/new-icon-for-changed.png)
+
+* HDInsight has moved away from Azul Zulu Java JDK  8 to Adoptium Temurin JDK 8, which supports high-quality TCK certified runtimes, and associated technology for use across the Java ecosystem.
+
+* HDInsight has migrated to reload4j. The log4j changes are applicable to
+
+  * Apache Hadoop
+  * Apache Zookeeper
+  * Apache Oozie
+  * Apache Ranger
+  * Apache Sqoop
+  * Apache Pig
+  * Apache Ambari 
+  * Apache Kafka
+  * Apache Spark
+  * Apache Zeppelin
+  * Apache Livy
+  * Apache Rubix
+  * Apache Hive
+  * Apache Tez
+  * Apache HBase
+  * OMI
+  * Apache Pheonix
+
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+
+HDInsight to implement TLS1.2 going forward, and earlier versions are updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
+
+For more information, see [How to enable Transport Layer Security (TLS)](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
+
+
+![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
+
+End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022. HDInsight begins release of cluster images using Ubuntu 18.04 from June 27,  2021. We recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
+
+For more information on how to check Ubuntu version of cluster, see [here](https://learnubuntu.com/check-ubuntu-version)
+
+1. Execute the command “lsb_release -a” in the terminal.  
+
+1. If the value for “Description” property in output is “Ubuntu 16.04 LTS”, then this update is applicable to the cluster.  
+
+![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
+
+* Support for Availability Zones selection for Kafka and HBase (write access) clusters.
+
+## Open source bug fixes
+
+**Hive bug fixes**
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)| INSERT OVERWRITE error - File Not Found|
+|[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)| Wrong results when subquery has COALESCE in correlation predicate|
+|[HIVE-24999](https://issues.apache.org/jira/browse/HIVE-24999)| HiveSubQueryRemoveRule generates invalid plan for IN subquery with multiple correlations| 
+|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there's direct insert, the attempt ID has to be checked when reading the manifest fails|
+|[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)| Upgrade DataNucleus dependency to 5.2 |
+|[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default|
+|[HIVE-26173](https://issues.apache.org/jira/browse/HIVE-26173)| Upgrade derby to 10.14.2.0|
+|[HIVE-25920](https://issues.apache.org/jira/browse/HIVE-25920)| Bump Xerce2 to 2.12.2.|
+|[HIVE-26300](https://issues.apache.org/jira/browse/HIVE-26300)| Upgrade Jackson data bind version to 2.12.6.1+ to avoid CVE-2020-36518|
+
+## Release date: 08/10/2022
+
+This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+
+
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+### New Feature
+
+**1. Attach external disks in HDI Hadoop/Spark clusters**
+
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+
+This new feature allows you to add more disks in cluster, which used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks are part of node manager’s local directories.
+
+> [!NOTE]
+> The added disks are only configured for node manager local directories.
+> 
+
+For more information, [see here](./hdinsight-hadoop-provision-linux-clusters.md#configuration--pricing)
+
+**2. Selective logging analysis**
+
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
+
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
+
+For more information, [see here](./selective-logging-analysis.md)
+
+
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+### Fixed
+
+#### **Log analytics**
+
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+Customers using older version of cluster with OMS version 13 need to install OMS version 14 to meet the security requirements. (How to check current version & Install 14) 
+
+**How to check your current OMS version**
+
+1. Log in to the cluster using SSH.
+1. Run the following command in your SSH Client.
+
+```
+sudo /opt/omi/bin/ominiserver/ --version
+```
+![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
+
+**How to upgrade your OMS version from 13 to 14**
+
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
+1. Click **Script actions** 
+1. From **Submit script action** panel, choose **Script type** as custom 
+1. Paste the following link in the Bash script URL box
+https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
+1. Select **Node type(s)**
+1. Click **Create** 
+
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+
+1. Verify the successful installation of the patch using the following steps:  
+
+  1. Log in to the cluster using SSH.
+  1. Run the following command in your SSH Client.
+
+  ```
+  sudo /opt/omi/bin/ominiserver/ --version
+  ```
+
+### Other bug fixes
+
+1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
+2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
+3. Improved cluster creation reliability when 100+ worked nodes are configured.
+
+### Open source bug fixes
+
+#### TEZ bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
+
+#### Hive bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
+|Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
+
+### Known issues
+
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.
+
+### Release date: 08/10/2022
+
+This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+
+
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+### New Feature
+
+**1. Attach external disks in HDI Hadoop/Spark clusters**
+
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
+
+> [!NOTE]
+> The added disks are only configured for node manager local directories.
+> 
+
+For more information, [see here](./hdinsight-hadoop-provision-linux-clusters.md#configuration--pricing)
+
+**2. Selective logging analysis**
+
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
+
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
+
+For more information, [see here](./selective-logging-analysis.md)
+
+
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+
+### Fixed
+
+#### **Log analytics**
+
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+Customers using older version of cluster with OMS version 13 need to install OMS version 14 to meet the security requirements. (How to check current version & Install 14) 
+
+**How to check your current OMS version**
+
+1. Log in to the cluster using SSH.
+1. Run the following command in your SSH Client.
+
+```
+sudo /opt/omi/bin/ominiserver/ --version
+```
+![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
+
+**How to upgrade your OMS version from 13 to 14**
+
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
+1. Click **Script actions** 
+1. From **Submit script action** panel, choose **Script type** as custom 
+1. Paste the following link in the Bash script URL box
+https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
+1. Select **Node type(s)**
+1. Click **Create** 
+
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
+
+1. Verify the successful installation of the patch using the following steps:  
+
+  1. Log in to the cluster using SSH.
+  1. Run the following command in your SSH Client.
+
+  ```
+  sudo /opt/omi/bin/ominiserver/ --version
+  ```
+
+### Other bug fixes
+
+1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
+2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
+3. Improved cluster creation reliability when 100+ worked nodes are configured.
+
+### Open source bug fixes
+
+#### TEZ bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
+
+#### Hive bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
+|Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
+
+### Known issues
+
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.
 
 ## Release date: 06/03/2022
 
@@ -77,7 +371,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 | Adding ability for user to set bind user|[HIVE-21009](https://issues.apache.org/jira/browse/HIVE-21009)|
 | Implement UDF to interpret date/timestamp using its internal representation and Gregorian-Julian hybrid calendar|[HIVE-22241](https://issues.apache.org/jira/browse/HIVE-22241)|
 | Beeline option to show/not show execution report|[HIVE-22204](https://issues.apache.org/jira/browse/HIVE-22204)|
-| Tez: SplitGenerator tries to look for plan files, which won't exist for Tez|[HIVE-22169](https://issues.apache.org/jira/browse/HIVE-22169)|
+| Tez: SplitGenerator tries to look for plan files, which doesn't exist for Tez|[HIVE-22169](https://issues.apache.org/jira/browse/HIVE-22169)|
 | Remove expensive logging from the LLAP cache hotpath|[HIVE-22168](https://issues.apache.org/jira/browse/HIVE-22168)|
 | UDF: FunctionRegistry synchronizes on org.apache.hadoop.hive.ql.udf.UDFType class|[HIVE-22161](https://issues.apache.org/jira/browse/HIVE-22161)|
 | Prevent the creation of query routing appender if property is set to false|[HIVE-22115](https://issues.apache.org/jira/browse/HIVE-22115)|
@@ -173,7 +467,7 @@ OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supp
 ### Deprecation notices
 #### Azure Virtual Machine Scale Sets on HDInsight  
 
-HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
+HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
 
 #### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
 
@@ -234,10 +528,10 @@ Starting from July 2021, the Interactive Query workload in HDInsight only suppor
 Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
 ### Upcoming changes
-The following changes will happen in upcoming releases.
+The following changes happen in upcoming releases.
 
 #### Built-in LLAP component in ESP Spark cluster will be removed
-HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change will help to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
+HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change helps to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
 
 ### New region
 - West US 3
@@ -310,13 +604,13 @@ The OS versions for this release are:
 
 ### New features
 #### OS version upgrade
-As referenced in [Ubuntu's release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel will reach End of Life (EOL) in April 2021. We started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 with this release. Newly created HDInsight 4.0 clusters will run on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 will run as is with full support.
+As referenced in [Ubuntu's release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel reaches End of Life (EOL) in April 2021. We started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 with this release. Newly created HDInsight 4.0 clusters runs on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 runs as is with full support.
 
 HDInsight 3.6 will continue to run on Ubuntu 16.04. It will change to Basic support (from Standard support) beginning 1 July 2021. For more information about dates and support options, see [Azure HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions). Ubuntu 18.04 won't be supported for HDInsight 3.6. If you'd like to use Ubuntu 18.04, you'll need to migrate your clusters to HDInsight 4.0. 
 
 You need to drop and recreate your clusters if you'd like to move existing HDInsight 4.0 clusters to Ubuntu 18.04. Plan to create or recreate your clusters after Ubuntu 18.04 support becomes available.
 
-After creating the new cluster, you can SSH to your cluster and run `sudo lsb_release -a` to verify that it runs on Ubuntu 18.04. We recommend that you test your applications in your test subscriptions first before moving to production. [Learn more about the HDInsight Ubuntu 18.04 update](./hdinsight-ubuntu-1804-qa.md).
+After creating the new cluster, you can SSH to your cluster and run `sudo lsb_release -a` to verify that it runs on Ubuntu 18.04. We recommend that you test your applications in your test subscriptions first before moving to production.
 
 #### Scaling optimizations on HBase accelerated writes clusters
 HDInsight made some improvements and optimizations on scaling for HBase accelerated write enabled clusters. [Learn more about HBase accelerated write](./hbase/apache-hbase-accelerated-writes.md).

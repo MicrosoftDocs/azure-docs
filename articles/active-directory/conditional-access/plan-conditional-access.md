@@ -30,9 +30,22 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 ### Prerequisites
 
 * A working Azure AD tenant with Azure AD Premium or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An account with Conditional Access Administrator privileges.
+* An account with privileges to create Conditional Access policies.
 * A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+
+#### Permissions
+
+Conditional Access policies can be created or modified by anyone assigned the following roles:
+
+- Conditional Access Administrator 
+- Security Administrator
+- Global Administrator
+
+Conditional Access policies can be read by anyone assigned the following roles:
+
+- Security Reader
+- Global Reader
 
 ## Understand Conditional Access policy components
 
@@ -53,7 +66,7 @@ Will this policy apply to any application, user action, or authentication contex
 
 *	What application(s) will the policy apply to?
 *	What user actions will be subject to this policy?
-*	What authentication contexts does this policy will be applied to?
+*	What authentication contexts will this policy be applied to?
 
 **Conditions**
 
@@ -171,7 +184,7 @@ The following name indicates that this policy is the first of four policies to e
 
 ### Block countries from which you never expect a sign-in.
 
-Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are based in smaller geographic locations.**Be sure to exempt your emergency access accounts from this policy**.
+Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
 
 ## Deploy Conditional Access policy
 

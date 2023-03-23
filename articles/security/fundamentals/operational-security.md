@@ -337,5 +337,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+- [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

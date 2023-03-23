@@ -26,7 +26,7 @@ Azure Machine Learning provides multiple ways to submit ML training jobs. In thi
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Quickstart: Create Azure ML resources](quickstart-create-resources.md) article.
+* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Quickstart: Create Azure Machine Learning resources](quickstart-create-resources.md) article.
 
 # [Python SDK](#tab/python)
 
@@ -55,7 +55,7 @@ To use the __REST API__ information, you need the following items:
 
 ### Clone the examples repository
 
-The code snippets in this article are based on examples in the [Azure ML examples GitHub repo](https://github.com/azure/azureml-examples). To clone the repository to your development environment, use the following command:
+The code snippets in this article are based on examples in the [Azure Machine Learning examples GitHub repo](https://github.com/azure/azureml-examples). To clone the repository to your development environment, use the following command:
 
 ```bash
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -86,7 +86,7 @@ To connect to the workspace, you need identifier parameters - a subscription, re
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
-#Enter details of your AzureML workspace
+#Enter details of your Azure Machine Learning workspace
 subscription_id = '<SUBSCRIPTION_ID>'
 resource_group = '<RESOURCE_GROUP>'
 workspace = '<AZUREML_WORKSPACE_NAME>'
@@ -97,11 +97,11 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 # [Azure CLI](#tab/azurecli)
 
-When using the Azure CLI, you need identifier parameters - a subscription, resource group, and workspace name. While you can specify these parameters for each command, you can also set defaults that will be used for all the commands. Use the following commands to set default values. Replace `<subscription ID>`, `<AzureML workspace name>`, and `<resource group>` with the values for your configuration:
+When using the Azure CLI, you need identifier parameters - a subscription, resource group, and workspace name. While you can specify these parameters for each command, you can also set defaults that will be used for all the commands. Use the following commands to set default values. Replace `<subscription ID>`, `<Azure Machine Learning workspace name>`, and `<resource group>` with the values for your configuration:
 
 ```azurecli
 az account set --subscription <subscription ID>
-az configure --defaults workspace=<AzureML workspace name> group=<resource group>
+az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
 ```
 
 # [REST API](#tab/restapi)
@@ -116,19 +116,21 @@ The REST API examples in this article use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`,
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). You can retrieve a token with the following command. The token is stored in the `$TOKEN` environment variable:
 
-```azurecli
-TOKEN=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
 
+When you train using the REST API, data and training scripts must be uploaded to a storage account that the workspace can access. The following example gets the storage information for your workspace and saves it into variables so we can use it later:
+
+:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
+
 ---
 
 ### 2. Create a compute resource for training
 
-An AzureML compute cluster is a fully managed compute resource that can be used to run the training job. In the following examples, a compute cluster named `cpu-compute` is created.
+An Azure Machine Learning compute cluster is a fully managed compute resource that can be used to run the training job. In the following examples, a compute cluster named `cpu-compute` is created.
 
 # [Python SDK](#tab/python)
 
@@ -173,7 +175,7 @@ curl -X PUT \
 
 # [Python SDK](#tab/python)
 
-To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure ML. 
+To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure Machine Learning. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
@@ -182,12 +184,12 @@ To run this script, you'll use a `command`. The command will be run by submittin
 In the above examples, you configured:
 - `code` - path where the code to run the command is located
 - `command` -  command that needs to be run
-- `environment` - the environment needed to run the training script. In this example, we use a curated or ready-made environment provided by AzureML called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of it.
+- `environment` - the environment needed to run the training script. In this example, we use a curated or ready-made environment provided by Azure Machine Learning called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of it.
 - `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. To use files or folders as inputs, you can use the `Input` class.
 
 For more information, see the [reference documentation](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).
 
-When you submit the job, a URL is returned to the job status in the AzureML studio. Use the studio UI to view the job progress. You can also use `returned_job.status` to check the current status of the job.
+When you submit the job, a URL is returned to the job status in the Azure Machine Learning studio. Use the studio UI to view the job progress. You can also use `returned_job.status` to check the current status of the job.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -198,22 +200,28 @@ In the above, you configured:
 - `code` - path where the code to run the command is located
 - `command` - command that needs to be run
 - `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. 
-- `environment` - the environment needed to run the training script. In this example, we use a curated or ready-made environment provided by AzureML called `AzureML-sklearn-0.24-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of it.
+- `environment` - the environment needed to run the training script. In this example, we use a curated or ready-made environment provided by Azure Machine Learning called `AzureML-sklearn-0.24-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of it.
 To submit the job, use the following command. The run ID (name) of the training job is stored in the `$run_id` variable:
 
 ```azurecli
 run_id=$(az ml job create -f jobs/single-step/scikit-learn/iris/job.yml --query name -o tsv)
 ```
 
-You can use the stored run ID to return information about the job. The `--web` parameter opens the AzureML studio web UI where you can drill into details on the job:
+You can use the stored run ID to return information about the job. The `--web` parameter opens the Azure Machine Learning studio web UI where you can drill into details on the job:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_show":::
 
 # [REST API](#tab/restapi)
 
-As part of job submission, the training scripts and data must be uploaded to a cloud storage location that your AzureML workspace can access. These examples don't cover the uploading process. For information on using the Blob REST API to upload files, see the [Put Blob](/rest/api/storageservices/put-blob) reference. 
+As part of job submission, the training scripts and data must be uploaded to a cloud storage location that your Azure Machine Learning workspace can access. 
 
-1. Create a versioned reference to the training data. In this example, the data is located at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`. In your workspace, you might upload the file to the default storage for your workspace:
+1. Use the following Azure CLI command to upload the training script. The command specifies the _directory_ that contains the files needed for training, not an individual file. If you'd like to use REST to upload the data instead, see the [Put Blob](/rest/api/storageservices/put-blob) reference:
+
+    ```azurecli
+    az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/testjob -s cli/jobs/single-step/scikit-learn/iris/src/ --account-name $AZURE_STORAGE_ACCOUNT
+    ```
+
+1. Create a versioned reference to the training data. In this example, the data is already in the cloud and located at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`. For more information on referencing data, see [Data in Azure Machine Learning](concept-data.md):
 
     ```bash
     DATA_VERSION=$RANDOM
@@ -229,7 +237,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     }"
     ```
 
-1. Register a versioned reference to the training script for use with a job. In this case, the script would be located at `https://azuremlexamples.blob.core.windows.net/testjob`. This `testjob` is the folder in Blob storage that contains the training script and any dependencies needed by the script. In the following example, the ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
+1. Register a versioned reference to the training script for use with a job. In this example, the script location is the default storage account and container you uploaded to in step 1. The ID of the versioned training code is returned and stored in the `$TRAIN_CODE` variable:
 
     ```bash
     TRAIN_CODE=$(curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/codes/train-lightgbm/versions/1?api-version=$API_VERSION" \
@@ -238,12 +246,12 @@ As part of job submission, the training scripts and data must be uploaded to a c
     --data-raw "{
             \"properties\": {
             \"description\": \"Train code\",
-            \"codeUri\": \"https://larrystore0912.blob.core.windows.net/azureml-blobstore-c8e832ae-e49c-4084-8d28-5e6c88502655/testjob\"
+            \"codeUri\": \"https://$AZURE_STORAGE_ACCOUNT.blob.core.windows.net/$AZUREML_DEFAULT_CONTAINER/testjob\"
         }
     }" | jq -r '.id')
     ```
 
-1. Create the environment that the cluster will use to run the training script. In this example, we use a curated or ready-made environment provided by AzureML called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`. The following command retrieves a list of the environment versions, with the newest being at the top of the collection. `jq` is used to retrieve the ID of the latest (`[0]`) version, which is then stored into the `$ENVIRONMENT` variable.
+1. Create the environment that the cluster will use to run the training script. In this example, we use a curated or ready-made environment provided by Azure Machine Learning called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`. The following command retrieves a list of the environment versions, with the newest being at the top of the collection. `jq` is used to retrieve the ID of the latest (`[0]`) version, which is then stored into the `$ENVIRONMENT` variable.
 
     ```bash
     ENVIRONMENT=$(curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/environments/AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu/versions?api-version=$API_VERSION" --header "Authorization: Bearer $TOKEN" | jq -r .value[0].id)
@@ -282,7 +290,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
 
 ## Register the trained model
 
-The following examples demonstrate how to register a model in your AzureML workspace.
+The following examples demonstrate how to register a model in your Azure Machine Learning workspace.
 
 # [Python SDK](#tab/python)
 
@@ -331,9 +339,9 @@ curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSC
 
 ## Next steps
 
-Now that you have a trained model, learn [how to deploy it using an online endpoint](how-to-deploy-managed-online-endpoints.md).
+Now that you have a trained model, learn [how to deploy it using an online endpoint](how-to-deploy-online-endpoints.md).
 
-For more examples, see the [AzureML examples](https://github.com/azure/azureml-examples) GitHub repository.
+For more examples, see the [Azure Machine Learning examples](https://github.com/azure/azureml-examples) GitHub repository.
 
 For more information on the Azure CLI commands, Python SDK classes, or REST APIs used in this article, see the following reference documentation:
 

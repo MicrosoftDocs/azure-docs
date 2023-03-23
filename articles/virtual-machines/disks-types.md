@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 10/12/2022
+ms.date: 03/06/2023
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -167,7 +167,7 @@ Standard SSDs are designed to provide single-digit millisecond latencies and the
 
 ### Standard SSD transactions
 
-For standard SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB. These transactions incur a billable cost.
+For standard SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB. These transactions incur a billable cost but, there is an hourly limit on the number of transactions that can incur a billable cost. If that hourly limit is reached, additional transactions during that hour no longer incur a cost. For details, see the [blog post](https://aka.ms/billedcapsblog).
 
 ### Standard SSD Bursting
 

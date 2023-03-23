@@ -1,7 +1,7 @@
 ---
 title: Collect information for your private mobile network
-titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core Preview.
+titleSuffix: Azure Private 5G Core
+description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information to deploy a private mobile network
 
-This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview.
+This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core.
 
 - You can use this information to deploy a private mobile network through the [Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 - Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](deploy-private-mobile-network-with-site-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
@@ -30,9 +30,19 @@ Collect all of the following values for the mobile network resource that will re
    |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
    |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
-   |The region in which you're deploying the private mobile network. We recommend you use the East US region.                         |**Instance details: Region**|
+   |The region in which you're deploying the private mobile network. This can be the East US or the West Europe region.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
+
+### Collect the required information for a network slice
+
+Collect all of the following values to provision a network slice in the private mobile network. You'll be able to create additional slices after you deploy the mobile network resource.
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   | The name for the slice. | **Slice configuration: Slice name** |
+   | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice configuration: Slice Service Type (SST)** |
+   | The slice differentiator (SD) value. This optional setting is a string of six hexadecimal digits, and can be used to differentiate between multiple network slices that have the same SST value. | **Slice configuration: Slice Differentiator (SD)** |
 
 ## Collect SIM and SIM group values
 
@@ -44,10 +54,10 @@ If you want to provision SIMs as part of deploying your private mobile network:
 
 1. Choose one of the following encryption types for the new SIM group to which all of the SIMs you provision will be added:  
 Note that once the SIM group is created, the encryption type cannot be changed.
-    - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](/azure/security/fundamentals/encryption-atrest).
+    - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](../security/fundamentals/encryption-atrest.md).
     - Customer-managed keys (CMK) that you must manually configure.  
-    You must create a Key URI in your [Azure Key Vault](/azure/key-vault/) and a [User-assigned identity](/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key.
-         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+    You must create a Key URI in your [Azure Key Vault](../key-vault/index.yml) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key.
+         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md).
          - The SIM group accesses the key via the user-assigned identity.
          - For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
 
@@ -57,7 +67,6 @@ Note that once the SIM group is created, the encryption type cannot be changed.
    |---------|---------|
    |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|
    |The region that the SIM group belongs to.|**Region**|
-   |The mobile network that the SIM group belongs to.|**Mobile network**|
    |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|
    |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|
    |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|
@@ -109,7 +118,7 @@ The following example shows the file format you'll need if you want to provision
 
 - If you're using the ARM template in [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md), the default service and SIM policy are automatically included.
 
-- If you use the Azure portal to deploy your private mobile network, you'll be given the option of creating the default service and SIM policy. You'll need to decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-sim-policy.md) if you need it.
+- If you use the Azure portal to deploy your private mobile network, you'll be given the option of creating the default service and SIM policy. You'll need to decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-sim-policy.md) if you need it. If you choose this option, you will also need to provide the name of the data network that will be used by the default policy.
 
 - If they aren't suitable, you can choose to deploy the private mobile network without any services or SIM policies. In this case, any SIMs you provision won't be brought into service when you create your private mobile network. You'll need to create your own services and SIM policies later.  
 

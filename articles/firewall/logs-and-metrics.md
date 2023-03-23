@@ -5,8 +5,9 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/02/2021
+ms.date: 10/31/2022
 ms.author: victorh
+ms.custom: FY23 content-maintenance
 ---
 
 # Azure Firewall logs and metrics
@@ -16,6 +17,9 @@ You can monitor Azure Firewall using firewall logs. You can also use activity lo
 You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
 
 Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection.
+
+> [!NOTE]
+> Structured firewall logs (preview) is available which offers more control over the logs and faster queries. For more information, see [Azure Firewall preview features](firewall-preview.md#structured-firewall-logs-preview).
 
 ## Diagnostic logs
 

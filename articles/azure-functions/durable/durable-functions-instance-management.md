@@ -3,7 +3,7 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
 ms.custom: ignite-2022
@@ -795,7 +795,7 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 
 # [JavaScript](#tab/javascript)
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpSyncStart/index.js":::
 
 See [Start instances](#javascript-function-json) for the function.json configuration.
 
@@ -852,7 +852,7 @@ public HttpResponseMessage httpStartAndWait(
     try {
         String timeoutString = req.getQueryParameters().get("timeout");
         Integer timeoutInSeconds = Integer.parseInt(timeoutString);
-        OrchestrationMetadata orchestration = client.waitForInstanceStart(
+        OrchestrationMetadata orchestration = client.waitForInstanceCompletion(
                 instanceId,
                 Duration.ofSeconds(timeoutInSeconds),
                 true /* getInputsAndOutputs */);
@@ -860,7 +860,7 @@ public HttpResponseMessage httpStartAndWait(
                 .body(orchestration.getSerializedOutput())
                 .header("Content-Type", "application/json")
                 .build();
-    } catch (Exception timeoutEx) {
+    } catch (TimeoutException timeoutEx) {
         // timeout expired - return a 202 response
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -1262,7 +1262,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 public void purgeInstances(
         @TimerTrigger(name = "purgeTimer", schedule = "0 0 12 * * *") String timerInfo,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
-        ExecutionContext context) {
+        ExecutionContext context) throws TimeoutException {
     PurgeInstanceCriteria criteria = new PurgeInstanceCriteria()
             .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(60)))
             .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(30)))

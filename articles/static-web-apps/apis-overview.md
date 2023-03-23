@@ -42,9 +42,14 @@ The following constraints apply to all API backends:
 
 - Each static web app environment can only be configured with one type of backend API at a time.
 - The API route prefix must be `/api`.
-- Route rules for APIs only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
+- Route rules for APIs only support [redirects](configuration.md#define-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
 - Only HTTP requests are supported for APIs. WebSocket, for example, is not supported.
 - The maximum duration of each API request 45 seconds.
+- Network isolated backends are not supported.
+
+The following constraints apply to Bring your own API backends:
+- An application must be deployed to your static web app before requests to the `/api` route can be resolved.
+- Bring your own API backends cannot be linked to a Static Web Apps pull request environment.
 
 ## Next steps
 

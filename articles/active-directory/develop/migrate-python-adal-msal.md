@@ -2,7 +2,7 @@
 title: Python ADAL to MSAL migration guide
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Python app to the Microsoft Authentication Library (MSAL) for Python.
 services: active-directory
-author: rayluo
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
-ms.author: rayluo
-ms.reviewer: marsma, rayluo, nacanuma
+ms.author: henrymbugua
+ms.reviewer: rayluo, nacanuma
 ms.custom: aaddev, devx-track-python, has-adal-ref
 #Customer intent: As a Python application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
@@ -36,7 +36,7 @@ Supports:
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-See [What's different about the Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md) for more details.
+For more information about MSAL, see [MSAL overview](./msal-overview.md).
 
 ### Scopes not resources
 
@@ -44,8 +44,7 @@ ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for s
 
 You can add the `/.default` scope suffix to the resource to help migrate your apps from the v1.0 endpoint (ADAL) to the Microsoft identity platform (MSAL). For example, for the resource value of `https://graph.microsoft.com`, the equivalent scope value is `https://graph.microsoft.com/.default`.  If the resource is not in the URL form, but a resource ID of the form `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, you can still use the scope value as `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
-For more details about the different types of scopes, refer
-[Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md) and the [Scopes for a Web API accepting v1.0 tokens](./msal-v1-app-scopes.md) articles.
+For more details about the different types of scopes, refer to [Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md) and the [Scopes for a Web API accepting v1.0 tokens](./msal-v1-app-scopes.md) articles.
 
 ### Error handling
 
@@ -89,7 +88,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     #   https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/1.2.3/sample/device_code_sample.py#L72
     # which uses a resource rather than a scope,
     # you need to convert your v1 resource into v2 scopes
-    # See https://learn.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#scopes-not-resources
+    # See https://learn.microsoft.com/azure/active-directory/develop/migrate-python-adal-msal#scopes-not-resources
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://learn.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
@@ -119,8 +118,3 @@ for old_rt, scopes in get_preexisting_rt_and_their_scopes_from_elsewhere():
 
 print("Migration completed")
 ```
-
-
-## Next steps
-
-For more information, refer to [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md).

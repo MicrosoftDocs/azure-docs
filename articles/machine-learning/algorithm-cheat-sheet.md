@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-
+ms.reviewer: lagayhar
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 10/21/2021
+ms.date: 11/04/2022
 adobe-target: true
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer

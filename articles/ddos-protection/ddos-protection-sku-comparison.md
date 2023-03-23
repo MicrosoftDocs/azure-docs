@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 10/19/2022
+ms.date: 01/17/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -19,27 +19,16 @@ The sections in this article discuss the resources and settings of Azure DDoS Pr
 
 Azure DDoS Network Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. For more information about enabling DDoS Network Protection, see [Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal](manage-ddos-protection.md).
 
-## DDoS IP Protection
+## DDoS IP Protection Preview
 
  DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF. For more information about enabling DDoS IP Protection, see [Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell](manage-ddos-protection-powershell-ip.md).
 
 > [!NOTE]
-> DDoS IP Protection is currently only available in the Azure Preview Portal.
+> DDoS IP Protection is currently only available in Azure Preview PowerShell.
 
-DDoS IP Protection is currently available in the following regions.
+> [!NOTE]
+> Protecting a public IP resource attached to a Public Load Balancer is not supported for DDoS IP Protection SKU.
 
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific        |
-|------------------|----------------------|---------------|--------------------|---------------------|
-| West Central US  | France Central       | UAE Central   | South Africa North | Australia Central   |
-| North Central US | Germany West Central | Qatar Central |                    | Korea Central       |
-| West US          | Switzerland North    |               |                    | Japan East          |
-| West US 3        | France South         |               |                    | West India          |
-|                  | Norway East          |               |                    | Jio India Central    |
-|                  | Sweden Central       |               |                    | Australia Central 2 |
-|                  | Germany North        |               |                    |                     |
-
-
- 
 ## SKUs
 
 Azure DDoS Protection supports two SKU Types, DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
@@ -48,6 +37,8 @@ The following table shows features and corresponding SKUs.
 
 | Feature | DDoS IP Protection | DDoS Network Protection |
 |---|---|---|
+| Protects Public IP Standard SKU | Yes | Yes |
+| Protects Public IP Basic SKU | No | Yes |
 | Active traffic monitoring & always on detection |  Yes| Yes |
 | L3/L4 Automatic attack mitigation  | Yes | Yes |
 | Automatic attack mitigation | Yes | Yes |
@@ -58,10 +49,12 @@ The following table shows features and corresponding SKUs.
 | Mitigation policies tuned to customers application | Yes| Yes |
 | Integration with Firewall Manager | Yes | Yes |
 | Azure Sentinel data connector and workbook | Yes | Yes |
+| Protection of resources across subscriptions in a tenant   | Yes | Yes |
+| Public IP Standard SKU protection | Yes | Yes |
+| Public IP Basic SKU protection | No | Yes |
 | DDoS rapid response support | Not available | Yes |
 | Cost protection | Not available  | Yes |
 | WAF discount | Not available | Yes |
-| Protection of resources across subscriptions in a tenant   | Yes | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 >[!Note]

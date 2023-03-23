@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 01/29/2023
 
 
 ms.author: justinha
-author: vimrang
+author: justinha
 manager: amycolannino
 ms.reviewer: vimrang
 
@@ -38,6 +38,9 @@ To configure Staged Rollout, follow these steps:
 1. Click **Manage groups** and add groups you want to be part of cloud authentication. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
 For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+
+>[!NOTE]
+> When Staged rollout is enabled for a user, the user is considered a managed user and all authentication will happen at Azure AD. For a federated Tenant, if CBA is enabled on Staged Rollout, password authentication only works if PHS is enabled too otherwise password authentication will fail.
 
 ## Use Azure AD connect to update certificateUserIds attribute
 

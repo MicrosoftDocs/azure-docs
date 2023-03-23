@@ -16,8 +16,6 @@ ms.custom: ignite-fall-2021
 
 To enable or disable this feature (these prerequisites are not required to use the feature):
 
-- Your user must be a member of your organization's Azure Active Directory, and not a guest user.
-
 - Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):

@@ -114,7 +114,7 @@ Set-AzVMExtension -ResourceGroupName $myResourceGroup -VMName $myVM -Name 'OpenS
   "properties": {
     "publisher": "Microsoft.Azure.OpenSSH",
     "type": "WindowsOpenSSH",
-    "typeHandlerVersion": "3.0",
+    "typeHandlerVersion": "3.0"
   }
 }
 ```

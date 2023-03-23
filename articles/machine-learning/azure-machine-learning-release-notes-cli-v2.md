@@ -5,12 +5,12 @@ description: Learn about the latest updates to Azure Machine Learning CLI (v2)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022 engagement-fy23
 ms.topic: reference
 ms.author: hancwang
 author: luigiw
 ms.reviewer: larryfr
-ms.date: 04/12/2022
+ms.date: 11/08/2022
 ---
 
 # Azure Machine Learning CLI (v2) release notes
@@ -23,6 +23,72 @@ In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+
+## 2022-11-08
+
+### Azure Machine Learning CLI (v2) v2.11.0
+
+- The CLI is depending on azure-ai-ml 1.1.0.
+- `az ml registry`
+  - Added `ml registry delete` command.
+  - Adjusted registry experimental tags and imports to avoid warning printouts for unrelated operations.
+- `az ml environment`
+   - Prevented registering an already existing environment that references conda file.
+
+## 2022-10-10
+
+### Azure Machine Learning CLI (v2) v2.10.0
+
+- The CLI is depending on GA version of azure-ai-ml.
+- Dropped support for Python 3.6.
+- `az ml registry`
+  - New command group added to manage ML asset registries.
+- `az ml job`
+  - Added `az ml job show-services` command.
+  - Added model sweeping and hyperparameter tuning to AutoML NLP jobs.
+- `az ml schedule`
+  - Added `month_days` property in recurrence schedule.
+- `az ml compute`
+  - Added custom setup scripts support for compute instances.
+
+## 2022-09-22
+
+### Azure Machine Learning CLI (v2) v2.8.0
+
+- `az ml job`
+  - Added spark job support.
+  - Added shm_size and docker_args to job.
+- `az ml compute`
+  - Compute instance supports managed identity.
+  - Added idle shutdown time support for compute instance.
+- `az ml online-deployment`
+  - Added support for data collection for eventhub and data storage.
+  - Added syntax validation for scoring script.
+- `az ml batch-deployment`
+  - Added syntax validation for scoring script.
+
+## 2022-08-10
+
+### Azure Machine Learning CLI (v2) v2.7.0
+
+- `az ml component`
+  - Added AutoML component.
+- `az ml dataset`
+  - Deprecated command group (Use `az ml data` instead).
+
+## 2022-07-16
+
+### Azure Machine Learning CLI (v2) v2.6.0
+
+- Added MoonCake cloud support.
+- `az ml job`
+  - Allow Git repo URLs to be used as code.
+  - AutoML jobs use the same input schema as other job types.
+  - Pipeline jobs now supports registry assets.
+- `az ml component`
+  - Allow Git repo URLs to be used as code.
+- `az ml online-endpoint`
+  - MIR now supports registry assets.
 
 ## 2022-05-24
 
@@ -75,7 +141,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 - `az ml job`
   - For all job types, flattened the `code` section of the YAML schema. Instead of `code.local_path` to specify the path to the source code directory, it is now just `code`
-  - For all job types, changed the schema for defining data inputs to the job in the job YAML. Instead of specifying the data path using either the `file` or `folder` fields, use the `path` field to specify either a local path, a URI to a cloud path containing the data, or a reference to an existing registered Azure ML data asset via `path: azureml:<data_name>:<data_version>`. Also specify the `type` field to clarify whether the data source is a single file (`uri_file`) or a folder (`uri_folder`). If `type` field is omitted, it defaults to `type: uri_folder`. For more information, see the section of any of the [job YAML references](reference-yaml-job-command.md) that discuss the schema for specifying input data.
+  - For all job types, changed the schema for defining data inputs to the job in the job YAML. Instead of specifying the data path using either the `file` or `folder` fields, use the `path` field to specify either a local path, a URI to a cloud path containing the data, or a reference to an existing registered Azure Machine Learning data asset via `path: azureml:<data_name>:<data_version>`. Also specify the `type` field to clarify whether the data source is a single file (`uri_file`) or a folder (`uri_folder`). If `type` field is omitted, it defaults to `type: uri_folder`. For more information, see the section of any of the [job YAML references](reference-yaml-job-command.md) that discuss the schema for specifying input data.
   - In the [sweep job YAML schema](reference-yaml-job-sweep.md), changed the `sampling_algorithm` field from a string to an object in order to support additional configurations for the random sampling algorithm type
   - Removed the component job YAML schema. With this release, if you want to run a command job inside a pipeline that uses a component, just specify the component to the `component` field of the command job YAML definition. 
   - For all job types, added support for referencing the latest version of a nested asset in the job YAML configuration. When referencing a registered environment or data asset to use as input in a job, you can alias by latest version rather than having to explicitly specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
@@ -120,7 +186,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added support for running pipeline jobs ([pipeline job YAML schema](reference-yaml-job-pipeline.md))
   - Added support for job input literals and input data URIs for all job types
   - Added support for job outputs for all job types
-  - Changed the expression syntax from `{ <expression> }` to `${{ <expression> }}`. For more information, see [Expression syntax for configuring Azure ML jobs](reference-yaml-core-syntax.md#expression-syntax-for-configuring-azure-ml-jobs-and-components)
+  - Changed the expression syntax from `{ <expression> }` to `${{ <expression> }}`. For more information, see [Expression syntax for configuring Azure Machine Learning jobs](reference-yaml-core-syntax.md#expression-syntax-for-configuring-azure-machine-learning-jobs-and-components)
 - `az ml environment`
   - Updated [environment YAML schema](reference-yaml-environment.md)
   - Added support for creating environments from Docker build context
@@ -131,7 +197,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Renamed `az ml data` subgroup to `az ml dataset`
   - Updated dataset YAML schema
 - `az ml component`
-  - Added the `az ml component` commands for managing Azure ML components
+  - Added the `az ml component` commands for managing Azure Machine Learning components
   - Added support for command components ([command component YAML schema](reference-yaml-component-command.md))
 - `az ml online-endpoint`
   - `az ml endpoint` subgroup split into two separate groups: `az ml online-endpoint` and `az ml batch-endpoint`

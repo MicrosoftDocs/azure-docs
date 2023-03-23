@@ -8,9 +8,9 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/17/2022
+ms.date: 01/19/2023
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
@@ -87,7 +87,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 When ACR is behind a virtual network, Azure Machine Learning can’t use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
-> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
+> The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](v1/how-to-train-with-custom-image.md) that already include the packages.
 
 > [!WARNING]
 > If your Azure Container Registry uses a private endpoint or service endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster.
@@ -101,7 +101,7 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 
 [!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
 
-For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
+For information on using a firewall solution, see [Configure required input and output communication](how-to-access-azureml-behind-firewall.md).
 
 ## Secure the workspace with private endpoint
 
@@ -123,8 +123,8 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 
     * **Blob**
     * **File**
-    * **Queue** - Only needed if you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
-    * **Table** - Only needed if you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Queue** - Only needed if you plan to use [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Table** - Only needed if you plan to use [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
 
     :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
 
@@ -219,7 +219,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension does not return this information.
 
     ```azurecli-interactive
-    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'container_registry'
+    az ml workspace show -n yourworkspacename -g resourcegroupname --query 'container_registry'
     ```
 
     This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
@@ -319,6 +319,17 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
+
+## Secure Azure Monitor and Application Insights
+
+To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
+
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
+
+    > [!TIP]
+    > New workspaces create a workspace-based Application Insights resource by default.
+
+1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For steps on how to do this, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
 ## Securely connect to your workspace
 

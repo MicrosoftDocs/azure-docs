@@ -36,7 +36,7 @@ For more information on Azure AD multifactor authentication, see [What is Azure 
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
+         1. Optionally you can choose to exclude users or groups from the policy.
 1. **Enforce Policy** - **On**
 1. **Save**
 

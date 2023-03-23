@@ -76,10 +76,10 @@ The following example creates a service named *MyDMS* in the resource group *MyD
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 
-$service = New-AzDms -ResourceGroupName myResourceGroup `
+$service = New-AzDms -ResourceGroupName MyDMSResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
-  -Sku Basic_2vCores `  
+  -Sku GeneralPurpose_4vCores `  
   -VirtualSubnetId $vSubNet.Id`
 ```
 
@@ -104,6 +104,9 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -AuthType SqlAuthentication `
   -TrustServerCertificate:$true
 ```
+
+> [!NOTE]
+> If the migration ends with an error when providing source DataSource as public IP address or the DNS of SQL Server, then use the name of the Azure VM running the SQL Server.
 
 The next example shows creation of Connection Info for a server called SQLAzureTarget using sql authentication:
 
@@ -252,4 +255,4 @@ Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 
 ## Next step
 
-* Review the migration guidance in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review the migration guidance in the Microsoft [Database Migration Guide](/data-migration/).

@@ -1,14 +1,13 @@
 ---
 title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Service (AKS) 
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.date: 10/03/2022
+ms.date: 02/20/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
 
-This article shows you how to enable encryption at rest for your Kubernetes data in etcd using Azure Key Vault with the Key Management Service (KMS) plugin. The KMS plugin allows you to:
+This article shows you how to enable encryption at rest for your Kubernetes secrets in etcd using Azure Key Vault with the Key Management Service (KMS) plugin. The KMS plugin allows you to:
 
 * Use a key in Key Vault for etcd encryption.
 * Bring your own keys.
@@ -23,19 +22,20 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 * Azure CLI version 2.39.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> KMS only supports Konnectivity and Vnet Integration. 
+> KMS supports Konnectivity or [API Server Vnet Integration][api-server-vnet-integration]. 
 > You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks cluster show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
 
 ## Limitations
 
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
-* Deletion of the key, Key Vault, or the associated identity.
+* Deletion of the key, Key Vault, or the associated identity isn't supported.
 * KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation, thus there's a cycle dependency.
-* Using more than 2000 secrets in a cluster.
-* Bring your own (BYO) Azure Key Vault from another tenant.
-* Change associated Azure Key Vault model (public, private) if KMS is enabled. For [changing associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
-* Stop/start cluster which is enabled KMS with private key vault.
+* Azure Key Vault with Firewall enabled to allow public access isn't supported because it blocks traffic from KMS plugin to the Key Vault.
+* The maximum number of secrets that a cluster enabled with KMS supports is 2,000.
+* Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
+* With KMS enabled, you can't  change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
+* If a cluster is enabled KMS with private key vault and not using the `API Server VNet integration` tunnel, then stop/start cluster is not allowed.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 
@@ -172,6 +172,8 @@ After changing the key ID (including key name and key version), you can use [az 
 
 > [!WARNING]
 > Remember to update all secrets after key rotation. Otherwise, the secrets will be inaccessible if the old keys don't exist or aren't working.
+> 
+> Once you rotate the key, the old key (key1) is still cached and shouldn't be deleted. If you want to delete the old key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without impacting existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
@@ -282,6 +284,8 @@ After changing the key ID (including key name and key version), you can use [az 
 
 > [!WARNING]
 > Remember to update all secrets after key rotation. Otherwise, the secrets will be inaccessible if the old keys are not existing or working.
+> 
+> Once you rotate the key, the old key (key1) is still cached and shouldn't be deleted. If you want to delete the old key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without impacting existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
@@ -334,7 +338,7 @@ Use the following command to disable KMS on existing cluster.
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
 ```
 
-Use the following command to update all secrets. Otherwise, the old secrets will still be encrypted with the previous key. For larger clusters, you may want to subdivide the secrets by namespace or script an update.
+Use the following command to update all secrets. Otherwise, the old secrets will still be encrypted with the previous key and the encrypt/decrypt permission on key vault is still required. For larger clusters, you may want to subdivide the secrets by namespace or script an update.
 
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
@@ -359,3 +363,4 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [Enable-KMS-with-private-key-vault]: use-kms-etcd-encryption.md#enable-kms-with-private-key-vault
 [changing-associated-key-vault-mode]: use-kms-etcd-encryption.md#update-key-vault-mode
 [install-azure-cli]: /cli/azure/install-azure-cli
+[api-server-vnet-integration]: api-server-vnet-integration.md

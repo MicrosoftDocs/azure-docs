@@ -6,11 +6,42 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 02/06/2023
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## November 2022
+
+### Support for RedisJSON
+
+Support for using the RedisJSON module has now reached General Availability (GA).
+
+For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+
+### Redis 6 becomes default update
+
+All versions of Azure Cache for Redis REST API, PowerShell, Azure CLI and Azure SDK, will create Redis instances using Redis 6 starting January 20, 2023. Previously, we announced this change would take place on November 1, 2022, but due to unforeseen changes, the date has now been pushed out to January 20, 2023.
+
+For more information, see [Redis 6 becomes default for new cache instances](#redis-6-becomes-default-for-new-cache-instances).
+
+## October 2022
+
+### Enhancements for passive geo-replication
+
+Several enhancements have been made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
+
+- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
+  
+  - Geo Replication Connectivity Lag (preview)
+  - Geo Replication Data Sync Offset (preview)
+  - Geo Replication Full Sync Event Finished (preview)
+  - Geo Replication Full Sync Event Started (preview)
+
+- Customers can now initiate a failover between geo-primary and geo-replica caches with a single selection or CLI command, eliminating the hassle of manually unlinking and relinking caches. For more information, see [Initiate a failover from geo-primary to geo-secondary](cache-how-to-geo-replication.md#initiate-a-failover-from-geo-primary-to-geo-secondary).
+
+- A global cache URL is also now offered that automatically updates their DNS records after geo-failovers are triggered, allowing their application to manage only one cache address. For more information, see [Geo-primary URL](cache-how-to-geo-replication.md#geo-primary-url).
 
 ## September 2022
 
@@ -45,10 +76,13 @@ The **RediSearch** module is also now available for Azure Cache for Redis. For m
 
 ### Redis 6 becomes default for new cache instances
 
-Beginning November 1, 2022, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
+> [!IMPORTANT]
+> Previously, we announced this change would take place on November 1, 2022. The new date is January 20th, 2023. The text has been updated to reflect the new date.
+
+Beginning January 20, 2023, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
 
 >[!NOTE]
-> This change does not affect any existing instances. It is only applicable to new instances created from November 1, 2022, and onward.
+> This change does not affect any existing instances. It is only applicable to new instances created from January 20, 2023, and onward.
 >
 > The default Redis version that is used when creating a cache instance can vary because it is  based on the latest stable version offered in Azure Cache for Redis.
 

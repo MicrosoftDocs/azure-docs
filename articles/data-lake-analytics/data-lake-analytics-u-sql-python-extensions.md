@@ -2,20 +2,23 @@
 title: Extend U-SQL scripts with Python in Azure Data Lake Analytics
 description: Learn how to run Python code in U-SQL scripts using Azure Data Lake Analytics
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/20/2017
+ms.date: 01/20/2023
 ms.custom: devx-track-python
 ---
+
 # Extend U-SQL scripts with Python code in Azure Data Lake Analytics
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Prerequisites
 
 Before you begin, ensure the Python extensions are installed in your Azure Data Lake Analytics account.
 
-* Navigate to you Data Lake Analytics Account in the Azure portal
-* In the left menu, under **GETTING STARTED** click on **Sample Scripts**
-* Click **Install U-SQL Extensions** then **OK**
+* Navigate to your Data Lake Analytics Account in the Azure portal
+* In the left menu, under **GETTING STARTED** select **Sample Scripts**
+* Select **Install U-SQL Extensions** then **OK**
 
 ## Overview
 
@@ -62,9 +65,9 @@ OUTPUT @m
 
 ### Schemas
 
-* Index vectors in Pandas are not supported in U-SQL. All input data frames in the Python function always have a 64-bit numerical index from 0 through the number of rows minus 1.
-* U-SQL datasets cannot have duplicate column names
-* U-SQL datasets column names that are not strings.
+* Index vectors in Pandas aren't supported in U-SQL. All input data frames in the Python function always have a 64-bit numerical index from 0 through the number of rows minus 1.
+* U-SQL datasets can't have duplicate column names
+* U-SQL datasets column names that aren't strings.
 
 ### Python Versions
 
@@ -74,7 +77,7 @@ Only Python 3.5.1 (compiled for Windows) is supported.
 
 All the standard Python modules are included.
 
-### Additional Python modules
+### More Python modules
 
 Besides the standard Python libraries, several commonly used Python libraries are included:
 
@@ -88,7 +91,7 @@ Currently, an exception in Python code shows up as generic vertex failure. In th
 
 ### Input and Output size limitations
 
-Every vertex has a limited amount of memory assigned to it. Currently, that limit is 6 GB for an AU. Because the input and output DataFrames must exist in memory in the Python code, the total size for the input and output cannot exceed 6 GB.
+Every vertex has a limited amount of memory assigned to it. Currently, that limit is 6 GB for an AU. Because the input and output DataFrames must exist in memory in the Python code, the total size for the input and output can't exceed 6 GB.
 
 ## Next steps
 

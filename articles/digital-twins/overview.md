@@ -35,7 +35,7 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
-You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define a model that defines a Building type, a Floor type, and an Elevator type. Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), and they describe types of entities according to their state properties, telemetry events, commands, components, and relationships. You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
+You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define a model that defines a Building type, a Floor type, and an Elevator type. Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md), and they describe types of entities according to their state properties, telemetry events, commands, components, and relationships. You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
 
 >[!TIP]
 >DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
@@ -58,7 +58,7 @@ Azure Digital Twins provides a rich event system to keep your graph current, inc
 
 ## Query for environment insights
 
-Azure Digital Twins provides a powerful query API​ to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
+Azure Digital Twins provides a powerful [query API​](/rest/api/digital-twins/dataplane/query) to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
 
 ## Visualize environment in 3D Scenes Studio (preview)
 
@@ -72,7 +72,7 @@ Here's an example of a scene in 3D Scenes Studio, showing how digital twin prope
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
-To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
+To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that graph updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
 To send digital twin data to other Azure services or ultimately outside of Azure, you can create *event routes*, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
 
@@ -102,7 +102,7 @@ The following diagram shows where Azure Digital Twins might lie in the context o
 
 ## Resources
 
-Here are some resources that may be useful while working with Azure Digital Twins. You can view more resources under the **Resources** header in the table of contents for this documentation set.
+This section highlights some resources that may be useful while working with Azure Digital Twins. You can view additional resources in the **Resources** section of this documentation set (accessible through the navigation links to the left).
 
 ### Service limits
 

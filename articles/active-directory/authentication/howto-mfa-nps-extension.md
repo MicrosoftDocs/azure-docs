@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -104,11 +104,11 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 ### Network requirements
 
-The NPS server must be able to communicate with the following URLs over ports 80 and 443:
+The NPS server must be able to communicate with the following URLs over TCP port 443:
 
-* *https:\//strongauthenticationservice.auth.microsoft.com*
-* *https:\//strongauthenticationservice.auth.microsoft.us*
-* *https:\//strongauthenticationservice.auth.microsoft.cn*
+* *https:\//strongauthenticationservice.auth.microsoft.com* (for Azure Public cloud customers).
+* *https:\//strongauthenticationservice.auth.microsoft.us* (for Azure Government customers).
+* *https:\//strongauthenticationservice.auth.microsoft.cn* (for Azure China 21Vianet customers). 
 * *https:\//adnotifications.windowsazure.com*
 * *https:\//login.microsoftonline.com*
 * *https:\//credentials.azure.com*
@@ -157,19 +157,16 @@ There are two factors that affect which authentication methods are available wit
 
 * The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
    - **PAP** supports all the authentication methods of Azure AD Multi-Factor Authentication in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
-   - **CHAPV2** and **EAP** support phone call and mobile app notification.
-
-    > [!NOTE]
-    > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
-    >
-    > Also, regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS client (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
-    >
-    > As a workaround, you can run the [CrpUsernameStuffing script](https://github.com/OneMoreNate/CrpUsernameStuffing) to forward RADIUS attributes that are configured in the Network Access Policy and allow MFA when the user's authentication method requires the use of a One-Time Passcode (OTP), such as SMS, a Microsoft Authenticator passcode, or a hardware FOB.  
-
+   - **CHAPV2** and **EAP** support phone call and mobile app notification.  
 
 * The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
 You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#verification-methods) in Azure.
+
+ > [!NOTE]
+ > Regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS client (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
+ >
+ > As a workaround, you can run the [CrpUsernameStuffing script](https://github.com/OneMoreNate/CrpUsernameStuffing) to forward RADIUS attributes that are configured in the Network Access Policy and allow MFA when the user's authentication method requires the use of a One-Time Passcode (OTP), such as SMS, a Microsoft Authenticator passcode, or a hardware FOB.
 
 ### Register users for MFA
 
@@ -412,6 +409,19 @@ To check if you have a valid certificate, check the local *Computer Account's Ce
 A VPN server may send repeated requests to the NPS server if the timeout value is too low. The NPS server detects these duplicate requests and discards them. This behavior is by design, and doesn't indicate a problem with the NPS server or the Azure AD Multi-Factor Authentication NPS extension.
 
 For more information on why you see discarded packets in the NPS server logs, see [RADIUS protocol behavior and the NPS extension](#radius-protocol-behavior-and-the-nps-extension) at the start of this article.
+
+### How do I get Microsoft Authenticator number matching to work with NPS?
+Make sure you run the latest version of the NPS extension. NPS extension versions beginning with 1.0.1.40 support number matching.
+
+Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to Approve/Deny. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Authenticator app, other software tokens, and so on.
+
+If the user doesn't have an OTP method registered, they'll continue to get the Approve/Deny experience. A user with number matching disabled will always see the Approve/Deny experience.
+
+To create the registry key that overrides push notifications:
+1. On the NPS Server, open the Registry Editor.
+2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
+3. Set the following Key Value Pair: Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP Value = TRUE
+4. Restart the NPS Service.
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 

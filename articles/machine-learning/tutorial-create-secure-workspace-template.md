@@ -94,6 +94,17 @@ The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure
 | [machinelearningcompute.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningcompute.bicep) | Defines an Azure Machine Learning compute cluster and compute instance. |
 | [privateaks.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/privateaks.bicep) | Defines an Azure Kubernetes Services cluster instance. |
 
+> [!IMPORTANT]
+> The example templates may not always use the latest API version for Azure Machine Learning. Before using the template, we recommend modifying it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+>
+> Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
+>
+> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure Machine Learning workspace that uses an API version of `2022-05-01`:
+>
+>```json
+>resource machineLearning 'Microsoft.MachineLearningServices/workspaces@2022-05-01' = {
+>```
+
 # [Terraform](#tab/terraform)
 
 The template consists of multiple files. The following table describes what each file is responsible for:
@@ -137,7 +148,10 @@ To run the Bicep template, use the following commands from the `machine-learning
 
     ---
 
-1. To run the template, use the following command:
+1. To run the template, use the following command. Replace the `prefix` with a unique prefix. The prefix will be used when creating Azure resources that are required for Azure Machine Learning. Replace the `securepassword` with a secure password for the jump box. The password is for the login account for the jump box (`azureadmin` in the examples below):
+
+    > [!TIP]
+    > The `prefix` must be 5 or less characters. It can't be entirely numeric or contain the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
 
     # [Azure CLI](#tab/cli)
 
@@ -146,7 +160,7 @@ To run the Bicep template, use the following commands from the `machine-learning
         --resource-group exampleRG \
         --template-file main.bicep \
         --parameters \
-        prefix=myprefix \
+        prefix=prefix \
         dsvmJumpboxUsername=azureadmin \
         dsvmJumpboxPassword=securepassword
     ```
@@ -156,7 +170,7 @@ To run the Bicep template, use the following commands from the `machine-learning
     $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG `
         -TemplateFile ./main.bicep `
-        -prefix "myprefix" `
+        -prefix "prefix" `
         -dsvmJumpboxUsername "azureadmin" `
         -dsvmJumpboxPassword $dsvmPassword
     ```
@@ -218,6 +232,16 @@ After the template completes, use the following steps to connect to the DSVM:
     > The first time you connect to the DSVM desktop, a PowerShell window opens and begins running a script. Allow this to complete before continuing with the next step.
 
 1. From the DSVM desktop, start __Microsoft Edge__ and enter `https://ml.azure.com` as the address. Sign in to your Azure subscription, and then select the workspace created by the template. The studio for your workspace is displayed.
+
+## Troubleshooting
+
+### Error: Windows computer name cannot be more than 15 characters long, be entirely numeric, or contain the following characters
+
+This error can occur when the name for the DSVM jump box is greater than 15 characters or includes one of the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
+When using the Bicep template, the jump box name is generated programmatically using the prefix value provided to the template. To make sure the name does not exceed 15 characters or contain any invalid characters, use a prefix that is 5 characters or less and do not use any of the following characters in the prefix: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
+When using the Terraform template, the jump box name is passed using the `dsvm_name` parameter. To avoid this error, use a name that is not greater than 15 characters and does not use any of the following characters as part of the name: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
 
 ## Next steps
 

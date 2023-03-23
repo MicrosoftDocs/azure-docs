@@ -81,7 +81,7 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 ## Restore
 
-In Azure Database for MySQL, performing a restore creates a new server from the original server's backups and restores all databases contained in the server.
+In Azure Database for MySQL, performing a restore creates a new server from the original server's backups and restores all databases contained in the server. Restore is currently not supported if original server is in stopped state.
 
 There are two types of restore available:
 

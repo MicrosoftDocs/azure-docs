@@ -6,11 +6,11 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 01/30/2023
 ms.custom: kr2b-contr-experiment
 ---
 
-# Compress data with columnar tables
+# Compress data with columnar tables in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -194,8 +194,27 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-This feature still has significant limitations. See [limits and
-limitations](reference-limits.md#columnar-storage).
+This feature still has significant limitations:
+
+* Compression is on disk, not in memory
+* Append-only (no UPDATE/DELETE support)
+* No space reclamation (for example, rolled-back transactions may still consume
+  disk space)
+* No index support, index scans, or bitmap index scans
+* No tidscans
+* No sample scans
+* No TOAST support (large values supported inline)
+* No support for ON CONFLICT statements (except DO NOTHING actions with no
+  target specified).
+* No support for tuple locks (SELECT ... FOR SHARE, SELECT ... FOR UPDATE)
+* No support for serializable isolation level
+* Support for PostgreSQL server versions 12+ only
+* No support for foreign keys, unique constraints, or exclusion constraints
+* No support for logical decoding
+* No support for intra-node parallel scans
+* No support for AFTER ... FOR EACH ROW triggers
+* No UNLOGGED columnar tables
+* No TEMPORARY columnar tables
 
 ## Next steps
 

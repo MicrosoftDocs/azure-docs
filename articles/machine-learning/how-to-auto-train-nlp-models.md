@@ -6,6 +6,7 @@ services: machine-learning
 author: wenxwei
 ms.author: wenxwei
 ms.service: machine-learning
+ms.reviewer: ssalgado
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
@@ -25,7 +26,7 @@ In this article, you learn how to train natural language processing (NLP) models
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
-You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure ML’s MLOps capabilities. 
+You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md) capability to label your text data or bring your existing labeled data. Automated ML provides the option to use distributed training on multi-GPU compute clusters for faster model training. The resulting model can be operationalized at scale by leveraging Azure Machine Learning’s MLOps capabilities. 
 
 ## Prerequisites
 
@@ -255,7 +256,7 @@ text_classification_job.set_featurization(dataset_language='eng')
 
 ## Distributed training
 
-You can also run your NLP experiments with distributed training on an Azure ML compute cluster. 
+You can also run your NLP experiments with distributed training on an Azure Machine Learning compute cluster. 
 
 # [Azure CLI](#tab/cli)
 
@@ -328,9 +329,9 @@ See the following sample YAML files for each NLP task.
 
 See the sample notebooks for detailed code examples for each NLP task. 
 
-* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-multiclass-sentiment.ipynb)
 * [Multi-label text classification](
-https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-text-classification-multilabel-task-paper-cat.ipynb)
+https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-multilabel-paper-cat.ipynb)
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-named-entity-recognition-task/automl-nlp-text-ner-task.ipynb)
 
 ---
@@ -505,8 +506,8 @@ You can control the resources spent on your hyperparameter sweep by specifying t
 
 Parameter | Detail
 -----|----
-`max_trials` |  Required parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1.
-`max_concurrent_trials`| Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  <br><br> **NOTE:** The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
+`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. The default value is 1.
+`max_concurrent_trials`| Maximum number of runs that can run concurrently. If specified, must be an integer between 1 and 100.  The default value is 1. <br><br> **NOTE:** <li> The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.  <li> `max_concurrent_trials` is capped at `max_trials` internally. For example, if user sets `max_concurrent_trials=4`, `max_trials=2`, values would be internally updated as `max_concurrent_trials=2`, `max_trials=2`.
 
 You can configure all the sweep related parameters as shown in the example below.
 

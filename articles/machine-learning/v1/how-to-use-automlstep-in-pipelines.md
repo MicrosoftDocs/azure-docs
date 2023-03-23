@@ -5,12 +5,12 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: larryfr
-author: blackmist
-manager: cgronlun
-ms.date: 10/21/2021
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado
+ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---
 
 # Use automated ML in an Azure Machine Learning pipeline in Python
@@ -98,7 +98,7 @@ compute_target = ws.compute_targets[compute_name]
 
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
-After that, the code checks if the AzureML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md). 
+After that, the code checks if the Azure Machine Learning compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md). 
 
 The code blocks until the target is provisioned and then prints some details of the just-created compute target. Finally, the named compute target is retrieved from the workspace and assigned to `compute_target`. 
 
@@ -416,7 +416,7 @@ model_output_port.download('.', show_progress=True)
 
 Downloaded files are written to the subdirectory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
 
-For local processing, you may need to install relevant packages, such as Pandas, Pickle, the AzureML SDK, and so forth. For this example, it's likely that the best model found by automated ML will depend on XGBoost.
+For local processing, you may need to install relevant packages, such as Pandas, Pickle, the Azure Machine Learning SDK, and so forth. For this example, it's likely that the best model found by automated ML will depend on XGBoost.
 
 ```bash
 !pip install xgboost==0.90

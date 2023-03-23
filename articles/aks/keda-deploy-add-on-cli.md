@@ -3,7 +3,6 @@ title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using Az
 description: Use Azure CLI to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 author: raorugan
 ms.author: raorugan
-ms.service: container-service
 ms.topic: article
 ms.date: 10/10/2022
 ms.custom: template-how-to 
@@ -15,37 +14,43 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 
 [!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 - Firewall rules are configured to allow access to the Kubernetes API server. ([learn more][aks-firewall-requirements])
 
-### Install the extension `aks-preview` 
- 
-Install the `aks-preview` extension in the AKS cluster to make sure you have the latest version of AKS extension before installing KEDA add-on.
+## Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az extension add --upgrade --name aks-preview
+az extension add --name aks-preview
 ```
 
-### Register the `AKS-KedaPreview` feature flag
-
-To use the KEDA, you must enable the `AKS-KedaPreview` feature flag on your subscription. 
+Run the following command to update to the latest version of the extension released:
 
 ```azurecli
-az feature register --name AKS-KedaPreview --namespace Microsoft.ContainerService
+az extension update --name aks-preview
 ```
 
-You can check on the registration status by using the `az feature list` command:
+## Register the 'AKS-KedaPreview' feature flag
+
+Register the `AKS-KedaPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-KedaPreview')].{Name:name,State:properties.state}"
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-KedaPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-KedaPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -167,6 +172,10 @@ This article showed you how to install the KEDA add-on on an AKS cluster using A
 
 You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 
+<!-- LINKS - internal -->
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials

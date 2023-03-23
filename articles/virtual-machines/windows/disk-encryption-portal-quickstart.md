@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 01/04/2023
 ms.custom: mode-ui
 ---
 
@@ -15,7 +15,7 @@ ms.custom: mode-ui
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. In this quickstart you will use the Azure portal to deploy a Windows virtual machine, create a key vault for the storage of encryption keys, and encrypt the VM.
+Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. In this quickstart you'll use the Azure portal to deploy a Windows virtual machine, create a key vault for the storage of encryption keys, and encrypt the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -46,8 +46,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="ResourceGroup creation screen":::
 
-1. Click "Review + Create".
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. Select "Review + Create".
+1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
@@ -67,15 +67,15 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
 1. To the left of **Key vault and key**, select **Click to select a key**.
 1. On the **Select key from Azure Key Vault**, under the **Key Vault** field, select **Create new**.
-1. On the **Create key vault** screen, ensure that the Resource Group is *myResourceGroup*, and give your key vault a name.  Every key vault across Azure must have an unique name.
+1. On the **Create key vault** screen, ensure that the Resource Group is *myResourceGroup*, and give your key vault a name.  Every key vault across Azure must have a unique name.
 1. On the **Access Policies** tab, check the **Azure Disk Encryption for volume encryption** box.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="disks and encryption selection":::
 
 1. Select **Review + create**.  
-1. After the key vault has passed validation, select **Create**. This will return you to the **Select key from Azure Key Vault** screen.
+1. After the key vault has passed validation, select **Create**. You will return to the **Select key from Azure Key Vault** screen.
 1. Leave the **Key** field blank and choose **Select**.
-1. At the top of the encryption screen, click **Save**. A popup will warn you that the VM will reboot. Click **Yes**.
+1. At the top of the encryption screen, select **Save**. A popup will warn you that the VM will reboot. Select **Yes**.
 
 ## Clean up resources
 
@@ -83,7 +83,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
-In this quickstart, you created a Key Vault that was enable for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.  
+In this quickstart, you created a Key Vault that was enabled for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.  
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption overview](disk-encryption-overview.md)

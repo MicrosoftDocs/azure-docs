@@ -4,8 +4,8 @@ description: Learn how to manage read replicas Azure Database for PostgreSQL - F
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 10/14/2022
 ---
 
@@ -20,7 +20,7 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 ## Prerequisites
 
-An [Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-database-portal.md) to be the primary server.
+An [Azure Database for PostgreSQL server](./quickstart-create-server-portal.md) to be the primary server.
 
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
@@ -117,46 +117,35 @@ You can also delete the read replica from the **Replication** window by followin
 
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-confirm.png" alt-text="Confirm to delete te replica":::
 
-[//]: # (## Monitor a replica)
+## Monitor a replica
 
-[//]: # ()
-[//]: # (Two metrics are available to monitor read replicas.)
+Two metrics are available to monitor read replicas.
 
-[//]: # ()
-[//]: # (### Max Lag Across Replicas metric)
+### Max Physical Replication Lag
+> Available only on the primary.
 
-[//]: # ()
-[//]: # (The **Max Lag Across Replicas** metric shows the lag in bytes between the primary server and the most-lagging replica.)
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary server and the most-lagging replica.
 
-[//]: # ()
-[//]: # (1.	In the Azure portal, select the primary Azure Database for PostgreSQL server.)
+1.	In the Azure portal, select the primary server.
 
-[//]: # ()
-[//]: # (2.	Select **Metrics**. In the **Metrics** window, select **Max Lag Across Replicas**.)
+2.	Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
 
-[//]: # ()
-[//]: # (    :::image type="content" source="./media/how-to-read-replicas-portal/select-max-lag.png" alt-text="Monitor the max lag across replicas":::)
+    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics blade showing Max Physical Replication Lag metric.":::
 
-[//]: # ()
-[//]: # (3.	For your **Aggregation**, select **Max**.)
+3.	For your **Aggregation**, select **Max**.
 
-[//]: # ()
-[//]: # (### Replica Lag metric)
+### Read Replica Lag metric
+> Available only on replicas.
 
-[//]: # ()
-[//]: # (The **Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your master, the metric reflects this time lag.)
+The **Read Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your primary, the metric reflects this time lag. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay.
 
-[//]: # ()
-[//]: # (1. In the Azure portal, select the Azure Database for PostgreSQL read replica.)
+1. In the Azure portal, select read replica.
 
-[//]: # ()
-[//]: # (2. Select **Metrics**. In the **Metrics** window, select **Replica Lag**.)
+2. Select **Metrics**. In the **Metrics** window, select **Read Replica Lag**.
 
-[//]: # ()
-[//]: # (   :::image type="content" source="./media/how-to-read-replicas-portal/select-replica-lag.png" alt-text="Monitor the replica lag":::)
-
-[//]: # ()
-[//]: # (3. For your **Aggregation**, select **Max**.)
+   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="  screenshot of the Metrics blade showing Read Replica Lag metric.":::
+    
+3. For your **Aggregation**, select **Max**.
 
 ## Next steps
 

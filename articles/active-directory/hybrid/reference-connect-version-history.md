@@ -24,7 +24,9 @@ This article helps you keep track of the versions that have been released and un
 
 You can upgrade your Azure AD Connect server from all supported versions with the latest versions:
 
-You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).
+You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).\
+
+Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/aadconnectrss` into your ![RSS feed reader icon](../fundamentals/media/whats-new/feed-icon-16x16.png) feed reader.
 
 The following table lists related topics:
 
@@ -76,6 +78,28 @@ Auto-upgrade is meant to push all important updates and critical fixes to you. I
 If you want all the latest features and updates, check this page and install what you need.
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+
+## 2.1.20.0
+
+### Release status: 
+11/9/2022: Released for download
+
+### Bug fixes
+
+ - We fixed a bug where the new employeeLeaveDateTime attribute was not syncing correctly in version 2.1.19.0. Note that if the incorrect attribute was already used in a rule, then the rule must be updated with the new attribute and any objects in the AAD connector space that have the incorrect attribute must be removed with the "Remove-ADSyncCSObject" cmdlet, and then a full sync cycle must be run.
+
+## 2.1.19.0
+
+### Release status: 
+11/2/2022: Released for download
+
+### Functional changes
+
+ - We added a new attribute 'employeeLeaveDateTime' for syncing to Azure AD. To learn more about how to use this attribute to manage your users' life cycles, please refer to [this article](../governance/how-to-lifecycle-workflow-sync-attributes.md)
+
+### Bug fixes
+
+ - we fixed a bug where Azure AD Connect Password writeback stopped with error code "SSPR_0029 ERROR_ACCESS_DENIED"
 
 ## 2.1.18.0
 
@@ -412,6 +436,9 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 - We added the following new user properties to sync from on-premises Active Directory to Azure AD:
   - employeeType
   - employeeHireDate
+    >[!NOTE]
+    > There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.  For more information see, [Synchronizing lifecycle workflow attributes](../governance/how-to-lifecycle-workflow-sync-attributes.md)
+
 - This release requires PowerShell version 5.0 or newer to be installed on the Windows server. This version is part of Windows Server 2016 and newer.
 - We increased the group sync membership limits to 250,000 with the new V2 endpoint.
 - We updated the Generic LDAP Connector and the Generic SQL Connector to the latest versions. To learn more about these connectors, see the reference documentation for:

@@ -4,8 +4,8 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
-    - name: Event Hubs for Apache Kafka
-      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: What is Azure Event Hubs for Apache Kafka?
+      href: azure-event-hubs-kafka-overview.md
     - name: Azure Schema Registry in Event Hubs
       href: schema-registry-overview.md      
     - name: Terminology
@@ -29,18 +29,16 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Send and receive events
       items:
-        - name: .NET (Azure.Messaging.EventHubs)
+        - name: .NET
           href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java (azure-messaging-eventhubs)
+        - name: Java
           href: event-hubs-java-get-started-send.md
-        - name: Java (azure-eventhubs - legacy)
-          href: event-hubs-java-get-started-send-legacy.md
+        - name: Python
+          href: event-hubs-python-get-started-send.md
+        - name: JavaScript
+          href: event-hubs-node-get-started-send.md
         - name: Spring
           href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
-        - name: Python (azure-eventhub)
-          href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs)
-          href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (send only)
@@ -74,7 +72,7 @@
     - name: Capture Event Hubs data in Parquet format
       href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=/azure/event-hubs/TOC.json
       maintainContext: true
-    - name: Build real time dashboards with Power BI
+    - name: Build real-time dashboards with Power BI
       href: ../stream-analytics/no-code-power-bi-tutorial.md
       maintainContext: true
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
@@ -94,6 +92,8 @@
         href: event-hubs-capture-overview.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
+    - name: Log compaction
+      href: log-compaction.md
     - name: Application groups
       href: resource-governance-overview.md     
     - name: Tiers 
@@ -175,8 +175,6 @@
         href: event-hubs-amqp-troubleshoot.md
 - name: How-to guides
   items:
-    - name: Create and manage application groups
-      href: resource-governance-with-app-groups.md
     - name: Develop
       items:
         - name: Get Event Hubs connection string
@@ -205,8 +203,17 @@
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
             - name: JavaScript in GitHub (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
+    - name: Use log compaction
+      href: use-log-compaction.md
+    - name: Create and manage application groups
+      href: resource-governance-with-app-groups.md
+
     - name: Process data
       items:
+        - name: Build real-time dashboard with Power BI dataset
+          href: ../stream-analytics/no-code-build-power-bi-dashboard.md?toc=/azure/event-hubs/toc.json
+        - name: Capture Event Hubs data in Delta Lake format
+          href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json
         - name: Capture Event Hubs data in Parquet format
           href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
         - name: Materialize data to Azure Cosmos DB
@@ -239,8 +246,12 @@
           href: apache-kafka-migration-guide.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
-        - name: Mirror a Kafka broker in an event hub
-          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Replicate data from a Kafka cluster to Event Hubs
+          items:
+          - name: Using Apache Kafka Mirror Maker 2
+            href: event-hubs-kafka-mirrormaker-2-tutorial.md
+          - name: Using Apache Kafka Mirror Maker 1
+            href: event-hubs-kafka-mirror-maker-tutorial.md
         - name: Connect Apache Spark to an event hub
           href: event-hubs-kafka-spark-tutorial.md
         - name: Connect Apache Flink to an event hub

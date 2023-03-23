@@ -3,22 +3,15 @@ title: Work with anomaly detection analytics rules in Microsoft Sentinel | Micro
 description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/30/2022
+ms.date: 11/02/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Work with anomaly detection analytics rules in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> - Anomaly rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules are enabled, or activated, by default, so they will generate anomalies out-of-the-box. You can find and query these anomalies in the **Anomalies** table in the **Logs** section.
 
 ## View customizable anomaly rule templates
-
-Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules are enabled, or activated, by default, so they will generate anomalies out-of-the-box. You can find and query these anomalies in the **Anomalies** table in the **Logs** section.
 
 You can now find anomaly rules displayed in a grid in the **Anomalies** tab in the **Analytics** page. The list can be filtered by the following criteria:
 

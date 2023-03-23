@@ -2,7 +2,7 @@
 title: Comparison of Azure Video Indexer and Azure Media Services v3 presets
 description: This article compares Azure Video Indexer capabilities and Azure Media Services v3 presets.
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 11/10/2022
 ms.author: juliako
 
 ---
@@ -11,7 +11,9 @@ ms.author: juliako
 
 This article compares the capabilities of **Azure Video Indexer(AVI) APIs** and **Media Services v3 APIs**.
 
-Currently, there is an overlap between features offered by the [Azure Video Indexer APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). The following table offers the current guideline for understanding the differences and similarities.
+Currently, there is an overlap between features offered by the [Azure Video Indexer APIs](https://api-portal.videoindexer.ai/) and the [Media Services v3 APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). Azure Media Services have [announced deprecation](https://learn.microsoft.com/azure/media-services/latest/release-notes#retirement-of-the-azure-media-redactor-video-analyzer-and-face-detector-on-september-14-2023) of their Video Analysis preset starting September 2023. It is advised to use Azure Video Indexer Video Analysis going forward, which is general available and offers more functionality.
+
+The following table offers the current guideline for understanding the differences and similarities.
 
 ## Compare
 

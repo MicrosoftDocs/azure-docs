@@ -6,6 +6,7 @@ ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 08/24/2022
 ms.author: kunsun
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot common exit code issues in Azure Spring Apps
@@ -41,7 +42,7 @@ The exit code indicates the reason the application terminated. The following lis
 
     For example, you need to connect to Azure Key Vault to import certificates in your application, but your application doesn't have the necessary permissions to access it.
 
-  - If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy static files in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-static-file.md).
+  - If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
 - **137** - The application exited because of an out-of-memory error. The application requested resources that the hosting platform failed to provide. Update your application's Java Virtual Machine (JVM) parameters to restrict resource usage or scale up application resources.
   

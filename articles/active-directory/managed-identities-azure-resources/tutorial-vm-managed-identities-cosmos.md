@@ -448,5 +448,5 @@ Learn more about managed identities for Azure resources:
 
 Learn more about Azure Cosmos DB:
 
-- [Azure Cosmos DB resource model](../../cosmos-db/account-databases-containers-items.md)
+- [Azure Cosmos DB resource model](../../cosmos-db/resource-model.md)
 - [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](../../cosmos-db/sql/sql-api-get-started.md)

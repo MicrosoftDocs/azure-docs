@@ -26,6 +26,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 If you choose to use PowerShell locally, this article requires that you install the Azure PowerShell
 module and connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
+Some of the steps require cmdlets from the [Az.ImageBuilder](https://www.powershellgallery.com/packages/Az.ImageBuilder) module. Install separately by using the following command.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImageBuilder
+```
+
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
@@ -184,7 +190,7 @@ Grant Azure image builder permissions to create images in the specified resource
 
    ```azurepowershell-interactive
    $SrcObjParams = @{
-     SourceTypePlatformImage = $true
+     PlatformImageSource = $true
      Publisher = 'MicrosoftWindowsServer'
      Offer = 'WindowsServer'
      Sku = '2019-Datacenter'
@@ -212,7 +218,7 @@ Grant Azure image builder permissions to create images in the specified resource
    ```azurepowershell-interactive
    $ImgCustomParams01 = @{
      PowerShellCustomizer = $true
-     CustomizerName = 'settingUpMgmtAgtPath'
+     Name = 'settingUpMgmtAgtPath'
      RunElevated = $false
      Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
    }

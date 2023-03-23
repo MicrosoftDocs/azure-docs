@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage a Power BI tenant same tenant
 description: This guide describes how to connect to a Power BI tenant in the same tenant as Microsoft Purview, and use Microsoft Purview's features to scan and manage your Power BI tenant source.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 01/31/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -19,6 +19,19 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
 | [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No |
+
+When scanning Power BI source, Microsoft Purview supports:
+
+- Extracting technical metadata including:
+
+    - Workspaces
+    - Dashboards
+    - Reports
+    - Datasets including the tables and columns
+    - Dataflows
+    - Datamarts
+
+- Fetching static lineage on assets relationships among above Power BI artifacts as well as external data source assets. Learn more from [Power BI lineage](how-to-lineage-powerbi.md).
 
 For a list of metadata available for Power BI, see our [available metadata documentation](available-metadata.md).
 
@@ -120,9 +133,12 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 3. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-   2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
+   2. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
+      - `*.powerbi.com` 
+      - `*.analysis.windows.net` 
+   
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
-   4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed. Restart the machine after you newly install the JDK for it to take effect.
 
 1. In Azure Active Directory tenant, create a security group.
 
@@ -155,7 +171,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-   2. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   2. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed. Restart the machine after you newly install the JDK for it to take effect.
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.
@@ -174,8 +190,11 @@ Use any of the following deployment checklists during the setup or for troublesh
 2. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. (Optional)
    2. All required [private endpoints for Microsoft Purview](./catalog-private-link-end-to-end.md) are deployed.
-   3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
-   3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
+   3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled. The following endpoints must be reachable from self-hosted runtime VM:
+      - `*.powerbi.com` 
+      - `*.analysis.windows.net` 
+   
+   4. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
 
 1. In Azure Active Directory tenant, create a security group.
 
@@ -317,7 +336,7 @@ For more information about Microsoft Purview network settings, see [Use private 
 
 To create and run a new scan, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**. [For information about the Redirect URI see this documenation from Azure Active Directory](/azure/active-directory/develop/reply-url).
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**. [For information about the Redirect URI see this documentation from Azure Active Directory](../active-directory/develop/reply-url.md).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-app-registration.png" alt-text="Screenshot how to create App in Azure AD.":::
 

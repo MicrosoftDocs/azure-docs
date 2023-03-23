@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 01/18/2023
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
 ---
 
-# Install and run Translator containers (preview)
+# Install and run Translator containers
 
 Containers enable you to run several features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
 
@@ -24,7 +24,7 @@ See the list of [languages supported](../language-support.md) when using Transla
 
 > [!IMPORTANT]
 >
-> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
+> * To use the Translator container, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container) below.
 > * Translator container supports limited features compared to the cloud offerings.  Form more information, _see_ [**Container translate methods**](translator-container-supported-parameters.md).
 
 <!-- markdownlint-disable MD033 -->
@@ -68,7 +68,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
-| Translator connected |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
+| Translator connected |`2` cores, 2-GB memory |`4` cores, 8-GB memory | 4 |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster. 
 
@@ -88,6 +88,13 @@ Complete and submit the [**Azure Cognitive Services
 Application for Gated Services**](https://aka.ms/csgate-translator) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
+
+
+## Translator container image
+
+The Translator container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/tags).
 
 ## Get container images with **docker commands**
 

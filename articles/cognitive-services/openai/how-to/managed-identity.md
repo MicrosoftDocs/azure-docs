@@ -1,5 +1,5 @@
 ---
-title: How to Configure Azure OpenAI with Managed Identities
+title: How to Configure Azure OpenAI Service with Managed Identities
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Azure Active Directory
 ms.service: cognitive-services
@@ -12,7 +12,7 @@ recommendations: false
 ms.custom: 
 ---
 
-# How to Configure Azure OpenAI with Managed Identities
+# How to Configure Azure OpenAI Service with Managed Identities
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Azure Active Directory (Azure AD).
 
@@ -23,7 +23,7 @@ In the following sections, you'll use  the Azure CLI to assign roles, and obtain
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
 - The following Python libraries: os, requests, json
 
@@ -65,7 +65,7 @@ Assigning yourself to the Cognitive Services User role will allow you to use you
 Use the access token to authorize your API call by setting the `Authorization` header value.
 
     ```bash
-    curl ${endpoint%/}/openai/deployment/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview \
+    curl ${endpoint%/}/openai/deployment/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01 \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $accessToken" \
     -d '{ "prompt": "Once upon a time" }'

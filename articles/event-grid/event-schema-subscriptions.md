@@ -2,7 +2,7 @@
 title: Azure subscription as Event Grid source
 description: Describes the properties that are provided for subscription events with Azure Event Grid
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 12/02/2022
 ---
 
 # Azure subscription as an Event Grid source

@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Android app with Azure Maps'
 titleSuffix:  Microsoft Azure Maps
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps
@@ -390,6 +390,9 @@ The next step in building your application is to install the Azure Maps Android 
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
 :::image type="content" source="media/quick-android-map/quickstart-android-map.png" alt-text="A screenshot showing Azure Maps in an Android application.":::
+
+> [!TIP]
+> By default, Android reloads the activity when the orientation changes or the keyboard is hidden. This results in the map state being reset (reload the map which resets the view and reloads data to initial state). To prevent this from happening, add the following to the mainfest: `android:configChanges="orientation|keyboardHidden"`. This will stop the activity from reloading and instead call `onConfigurationChanged()` when the orientation has changed or the keyboard is hidden.
 
 ## Clean up resources
 

@@ -58,7 +58,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/identity/access-tokens.md).
 
 - DeleteIdentity
 

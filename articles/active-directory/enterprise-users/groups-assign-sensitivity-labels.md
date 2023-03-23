@@ -104,7 +104,7 @@ Your group is created and the site and group settings associated with the select
 
 ## Remove a label from an existing group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global admin or Groups admin account, or as a group owner.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global Administrator or Groups admin account, or as a group owner.
 1. Select **Groups**.
 1. From the **All groups** page, select the group that you want to remove the label from.
 1. On the **Group** page, select **Properties**.

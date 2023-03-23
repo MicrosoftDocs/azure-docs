@@ -30,7 +30,7 @@ To turn on drain mode in the Azure portal:
 
 ## Set drain mode using PowerShell
 
-You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.8.0&preserve-view=true) command.
+You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) command.
 
 Run this cmdlet to enable drain mode:
 

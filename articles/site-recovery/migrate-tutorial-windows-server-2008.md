@@ -3,8 +3,10 @@ title: Migrate Windows Server 2008 servers to Azure with Azure Migrate/Site Reco
 description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Migrate.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/27/2020
-ms.custom: MVC
+ms.date: 12/30/2022
+ms.custom: MVC, engagement-fy23
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 
@@ -15,10 +17,7 @@ This tutorial shows you how to migrate on-premises servers running Windows Serve
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare your on-premises environment for migration.
-> * Set up the target environment.
-> * Set up a replication policy.
-> * Enable replication.
+> * Migrate on-premises Windows Server 2008 machines to Azure.
 > * Run a test migration to make sure everything's working as expected.
 > * Fail over to Azure and complete the migration.
 
@@ -37,7 +36,7 @@ We recommend that you migrate machines to Azure using the [Azure Migrate](../mig
 
 
 |Operating System  | Environment  |
-|---------|---------|
+|------------------|--------------|
 |Windows Server 2008 SP2 - 32 bit and 64 bit(IA-32 and x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware VMs, Hyper-V VMs, and Physical Servers    |
 |Windows Server 2008 R2 SP1 - 64 bit</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware VMs, Hyper-V VMs, and Physical Servers|
 
@@ -48,7 +47,7 @@ We recommend that you migrate machines to Azure using the [Azure Migrate](../mig
 
 ### Prerequisites
 
-Before you start, it's helpful to review the Azure Site Recovery architecture for [VMware and physical server migration](vmware-azure-architecture.md) or [Hyper-V virtual machine migration](hyper-v-azure-architecture.md) 
+Before you start, it's helpful to review the Azure Site Recovery architecture for [VMware and physical server migration](vmware-azure-architecture.md) or [Hyper-V virtual machine migration](hyper-v-azure-architecture.md).
 
 To migrate Hyper-V virtual machines running Windows Server 2008 or Windows Server 2008 R2, follow the steps in the [migrate on-premises machines to Azure](migrate-tutorial-on-premises-azure.md) tutorial.
 
@@ -77,7 +76,7 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
   > [!TIP]
   > A test failover is highly recommended before migrating servers. Ensure that  you've performed at least one successful test failover on each server that you  are migrating. As part of the test failover, connect to the test failed over  machine and ensure things work as expected.
   >
-  >The test failover operation is non-disruptive and helps you test migrations by  creating virtual machines in an isolated network of your choice. Unlike the  failover operation, during the test failover operation, data replication  continues to progres. You can perform as many test failovers as you like before  you are ready to migrate. 
+  >The test failover operation is non-disruptive and helps you test migrations by  creating virtual machines in an isolated network of your choice. Unlike the  failover operation, during the test failover operation, data replication  continues to progress. You can perform as many test failovers as you like before  you are ready to migrate. 
   >
   
 
@@ -107,8 +106,8 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 
 ### Prepare your on-premises environment for migration
 
-- To migrate Windows Server 2008 virtual machines running on VMware, [setup the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
-- If the Configuration Server cannot be setup as a VMware virtual machine, [setup the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+- To migrate Windows Server 2008 virtual machines running on VMware, [set up the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- If the Configuration Server cannot be set up as a VMware virtual machine, [set up the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#source-settings).
 
 ### Set up the target environment
 

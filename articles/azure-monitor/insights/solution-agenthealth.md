@@ -15,16 +15,16 @@ The Agent Health solution in Azure helps you understand which monitoring agents 
 You can also use the Agent Health solution to:
 
 * Keep track of how many agents are deployed and where they're distributed geographically.
-* Perform other queries to maintain awareness of the distribution of agents deployed in Azure, in other cloud environments, or on-premises.    
+* Perform other queries to maintain awareness of the distribution of agents deployed in Azure, in other cloud environments, or on-premises.
 
 ## Prerequisites
 Before you deploy this solution, confirm that you have supported [Windows agents](../agents/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../agents/om-agents.md) integrated with your workspace.
 
 ## Management packs
-If your Operations Manager management group is connected to a Log Analytics workspace, the following management packs are installed in Operations Manager. These management packs are also installed on directly connected Windows computers after you add this solution.
+If your Operations Manager management group is connected to a Log Analytics workspace, the following management packs are installed in Operations Manager. These management packs are also installed on directly connected Windows computers after you add this solution:
 
-* Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
-* Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
+* Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentDirect)
+* Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer)
 
 There's nothing to configure or manage with these management packs. For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../agents/om-agents.md).
 
@@ -37,14 +37,14 @@ The following table describes the connected sources that this solution supports.
 | Connected source | Supported | Description |
 | --- | --- | --- |
 | Windows agents | Yes | Heartbeat events are collected from direct Windows agents.|
-| System Center Operations Manager management group | Yes | Heartbeat events are collected from agents that report to the management group every 60 seconds and then forwarded to Azure Monitor. A direct connection from Operations Manager agents to Azure Monitor is not required. Heartbeat event data is forwarded from the management group to the Log Analytics workspace.|
+| System Center Operations Manager management group | Yes | Heartbeat events are collected from agents that report to the management group every 60 seconds and are then forwarded to Azure Monitor. A direct connection from Operations Manager agents to Azure Monitor isn't required. Heartbeat event data is forwarded from the management group to the Log Analytics workspace.|
 
-## Using the solution
+## Use the solution
 When you add the solution to your Log Analytics workspace, the **Agent Health** tile is added to your dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.
 
 ![Screenshot that shows the Agent Health tile on the dashboard.](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
-Select the **Agent Health** tile to open the **Agent Health** dashboard.  The dashboard includes the columns in the following table. Each column lists the top 10 events by count that match that column's criteria for the specified time range. You can run a log search that provides the entire list by selecting **See all** beneath each column, or by selecting the column heading.
+Select the **Agent Health** tile to open the **Agent Health** dashboard. The dashboard includes the columns in the following table. Each column lists the top 10 events by count that match that column's criteria for the specified time range. You can run a log search that provides the entire list. Select **See all** beneath each column or select the column heading.
 
 | Column | Description |
 |--------|-------------|
@@ -57,10 +57,10 @@ Select the **Agent Health** tile to open the **Agent Health** dashboard.  The da
 | Geo-location of agents | A partition of the countries/regions where you have agents, and a total count of the number of agents that have been installed in each country/region|
 | Count of gateways installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers|
 
-![Screenshot that shows an example of the Agent Health solution dashboard.](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
+![Screenshot that shows an example of the Agent Health solution dashboard.](./media/solution-agenthealth/agenthealth-solution-dashboard.png)
 
 ## Azure Monitor log records
-The solution creates one type of record in the Log Analytics workspace: heartbeat. Heartbeat records have the properties in the following table.  
+The solution creates one type of record in the Log Analytics workspace: heartbeat. Heartbeat records have the properties listed in the following table.
 
 | Property | Description |
 | --- | --- |
@@ -81,14 +81,14 @@ The solution creates one type of record in the Log Analytics workspace: heartbea
 | `RemoteIPLongitude` | Longitude of the computer's geographic location|
 | `RemoteIPLatitude` | Latitude of the computer's geographic location|
 
-Each agent that reports to an Operations Manager management server will send two heartbeats. The `SCAgentChannel` property's value will include both `Direct` and `SCManagementServer`, depending on what data sources and monitoring solutions you've enabled in your subscription. 
+Each agent that reports to an Operations Manager management server will send two heartbeats. The `SCAgentChannel` property's value will include both `Direct` and `SCManagementServer`, depending on what data sources and monitoring solutions you've enabled in your subscription.
 
 If you recall, data from solutions is sent either:
 
-* Directly from an Operations Manager management server to Azure Monitor
-* Directly from the agent to Azure Monitor, because of the volume of data collected on the agent
+* Directly from an Operations Manager management server to Azure Monitor.
+* Directly from the agent to Azure Monitor, because of the volume of data collected on the agent.
 
-For heartbeat events that have the value `SCManagementServer`, the `ComputerIP` value is the IP address of the management server because it actually uploads the data. For heartbeats where `SCAgentChannel` is set to `Direct`, it's the public IP address of the agent.  
+For heartbeat events that have the value `SCManagementServer`, the `ComputerIP` value is the IP address of the management server because it actually uploads the data. For heartbeats where `SCAgentChannel` is set to `Direct`, it's the public IP address of the agent.
 
 ## Sample log searches
 The following table provides sample log searches for records that the solution collects.
@@ -110,5 +110,4 @@ The following table provides sample log searches for records that the solution c
 
 ## Next steps
 
-* Learn about [generating alerts from log queries in Azure Monitor](../alerts/alerts-overview.md). 
-
+Learn about [generating alerts from log queries in Azure Monitor](../alerts/alerts-overview.md).

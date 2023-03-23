@@ -4,9 +4,9 @@ description: In this tutorial, learn how to create a Recovery Services vault, de
 ms.date: 01/11/2022
 ms.topic: tutorial
 ms.custom: mvc
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Use Azure portal to back up multiple virtual machines

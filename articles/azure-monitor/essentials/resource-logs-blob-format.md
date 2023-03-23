@@ -37,7 +37,7 @@ You are only impacted by this change if you:
  
 To identify if you have  diagnostic settings that are sending data to an Azure storage account, you can navigate to the **Monitor** section of the portal, click on **Diagnostic Settings**, and identify any resources that have **Diagnostic Status** set to **Enabled**:
 
-![Azure Monitor Diagnostic Settings blade](media/resource-logs-blob-format/portal-diag-settings.png)
+![Azure Monitor Diagnostic Settings pane](media/resource-logs-blob-format/portal-diag-settings.png)
 
 If Diagnostic Status is set to enabled, you have an active diagnostic setting on that resource. Click on the resource to see if any diagnostic settings are sending data to a storage account:
 

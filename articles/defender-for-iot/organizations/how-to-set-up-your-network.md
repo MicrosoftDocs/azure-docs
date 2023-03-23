@@ -147,8 +147,6 @@ Use the following tables to ensure that required firewalls are open on your work
 |--|--|--|--|--|--|--|
 | HTTPS | TCP | Out | 443 | Access to Azure | Sensor |OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more. Connected Azure services include IoT Hub, Blob Storage, Event Hubs, and the Microsoft Download Center.<br><br>**For OT sensor versions 22.x**: Download the list from the **Sites and sensors** page in the Azure portal. Select an OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More options > Download endpoint details**. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).<br><br>**For OT sensor versions 10.x**:  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`<br> `download.microsoft.com`|
 
-
-
 ### Sensor access to the on-premises management console
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
@@ -196,37 +194,29 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. Connect a monitor and a keyboard to the appliance.
 
-    1. Use the **support** user and password to sign in.
+    1. Use the **support** user* and password to sign in.
 
     1. Use the command **network list** to see the current IP address.
 
-4. If the network parameters are misconfigured, use the following procedure to change it:
+4. If the network parameters are misconfigured, sign into the OT sensor as the **cyberx_host** user* to re-run the OT monitoring software configuration wizard. For example:
 
-    1. Use the command **network edit-settings**.
+    ```bash
+    root@xsense:/# sudo dpkg-reconfigure iot-sensor
+    ```
 
-    1. To change the management network IP address, select **Y**.
+    The configuration wizard starts automatically. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
-    1. To change the subnet mask, select **Y**.
-
-    1. To change the DNS, select **Y**.
-
-    1. To change the default gateway IP address, select **Y**.
-
-    1. For the input interface change (for sensor only), select **Y**.
-
-    1. For the bridge interface, select **N**.
-
-    1. To apply the settings, select **Y**.
-
-5. After you restart, connect with user support, and use the **network list** command to verify that the parameters were changed.
+5. Restart the sensor machine and sign in with the **support** user*. Run the **network list** command to verify that the parameters were changed.
 
 6. Try to ping and connect from the GUI again.
+
+(*) For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ### Appliance isn't responding
 
 1. Connect with a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-2. Use the **support** credentials to sign in.
+2. Use the *support* credentials to sign in.
 
 3. Use the **system sanity** command and check that all processes are running.
 

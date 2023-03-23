@@ -1,5 +1,5 @@
 ---
-title: Train models with the Azure ML Python SDK (v1) (preview)
+title: Train models with the Azure Machine Learning Python SDK (v1) (preview)
 titleSuffix: Azure Machine Learning
 description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference with SDK v1.
 services: machine-learning
@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 ---
 # Train models with the Azure Machine Learning Python SDK (v1)
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-attach-compute-targets.md)
-> * [v2 (preview)](../how-to-train-model.md)
+> * [v2 (current version)](../how-to-train-model.md)
 	 
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
 
@@ -39,6 +39,11 @@ To use compute targets managed by Azure Machine Learning, see:
 * [Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md)
 * [Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md)
+
+> [!IMPORTANT]
+> Items in this article marked as "preview" are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -130,7 +135,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
 
 ## <a id="synapse"></a>Apache Spark pools
 
-The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](../how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
+The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
 
 ## Azure HDInsight 
 
@@ -370,5 +375,5 @@ See these notebooks for examples of training with various compute targets:
 * Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
 * [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)

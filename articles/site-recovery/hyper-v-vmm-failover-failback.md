@@ -5,7 +5,8 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Fail over and fail back Hyper-V VMs replicated to your secondary on-premises site

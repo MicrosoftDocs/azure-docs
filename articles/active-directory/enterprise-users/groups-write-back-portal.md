@@ -36,7 +36,7 @@ To understand the behavior of No writeback in the portal, check the properties o
 By default, the **Group writeback state** of groups is set to **No writeback**. This means:
 
 - **Microsoft 365 groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null```, to ensure backwards compatibility with older version of group writeback, the group is written back to your on-premises Active Directory as a distribution group.
-- **Azure AD security groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null``` then the group is not written back to your on-premises Active Directory.
+- **Azure AD security groups**: if the group ```IsEnabled = null``` and ```onPremisesGroupType = null``` then the group isn't written back to your on-premises Active Directory.
 
 ## Show writeback columns
 
@@ -58,8 +58,36 @@ You can also configure writeback settings for a group on the property page for t
 - Targeted the writeback type as a security group
 
 :::image type="content" source="./media/groups-write-back-portal/groups-properties-view.png" alt-text="Screenshot of changing writeback settings in the group properties." lightbox="media/groups-write-back-portal/groups-properties-view.png":::
+ 
+## Read the Writeback configuration using PowerShell
+
+You can use PowerShell to get a list of writeback enabled group using the following PowerShell Get-MgGroup cmdlet.
+
+```powershell-console
+Connect-MgGraph -Scopes @('Group.Read.all')
+Select-MgProfile -Name beta
+PS D:\> Get-MgGroup -All |Where-Object {$_.AdditionalProperties.writebackConfiguration.isEnabled -Like $true} |Select-Object Displayname,@{N="WriteBackEnabled";E={$_.AdditionalProperties.writebackConfiguration.isEnabled}}
+
+DisplayName WriteBackEnabled
+----------- ----------------
+CloudGroup1           True
+CloudGroup2           True
+```
+
+## Read the Writeback configuration using Graph Explorer
+
+Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) and use the following endpoint ```https://graph.microsoft.com/beta/groups/{Group_ID}```.
+
+Replace the Group_ID with a cloud group ID, and then select on Run query.
+In the **Response Preview**, scroll to the end to see the part of the JSON file.
+
+```JSON
+"writebackConfiguration": {
+        "isEnabled": true,
+```
 
 ## Next steps
 
 - Check out the groups REST API documentation for the [preview writeback property on the settings template](/graph/api/resources/group?view=graph-rest-beta&preserve-view=true).
-- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md)
+- For more about group writeback operations, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback.md).
+- For more information about the writebackConfiguration resource, read [writebackConfiguration resource type](/graph/api/resources/writebackconfiguration?view=graph-rest-beta&preserve-view=true).

@@ -25,7 +25,7 @@ highlightedContent:
     - title: About the Speech SDK
       itemType: overview
       url: speech-sdk.md
-    - title: Speech service release notes
+    - title: What's new
       itemType: whats-new
       url: releasenotes.md
     - title: Language support in the Speech service
@@ -123,8 +123,8 @@ conceptualContent:
           text: Recognize speech, intents, and entities
           url: intent-recognition.md
         - itemType: how-to-guide
-          text: Recognize speech intents with LUIS
-          url: get-started-intent-recognition.md
+          text: Recognize speech intents with CLU
+          url: get-started-intent-recognition-clu.md
         - itemType: how-to-guide
           text: Recognize speech intents with simple pattern matching
           url: how-to-use-simple-language-pattern-matching.md
@@ -159,6 +159,9 @@ conceptualContent:
         - itemType: how-to-guide
           text: Migrate to the v3.1 REST API
           url: migrate-v3-0-to-v3-1.md
+        - itemType: how-to-guide
+          text: Migrate to Batch synthesis REST API
+          url: migrate-to-batch-synthesis.md
 
 tools:
   title: Software development kits (SDKs)

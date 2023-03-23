@@ -38,7 +38,7 @@ Azure AD terms of use policies have the following capabilities:
 - Require employees or guests to accept your terms of use policy before getting access.
 - Require employees or guests to accept your terms of use policy on every device before getting access.
 - Require employees or guests to accept your terms of use policy on a recurring schedule.
-- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multi-Factor Authentication (MFA).
+- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multifactor Authentication (MFA).
 - Require employees to accept your terms of use policy before registering security information in Azure AD self-service password reset (SSPR).
 - Present a general terms of use policy for all users in your organization.
 - Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
@@ -68,7 +68,7 @@ Azure AD terms of use policies use the PDF format to present content. The PDF fi
 
 Once you've completed your terms of use policy document, use the following procedure to add it.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select, **New terms**.
  
@@ -89,7 +89,7 @@ Once you've completed your terms of use policy document, use the following proce
    | Expire starting on | Frequency | Result |
    | --- | --- | --- |
    | Today's date  | Monthly | Starting today, users must accept the terms of use policy and then reaccept every month. |
-   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire and then users must reaccept every month.  |
+   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire, and then users must reaccept every month.  |
 
    For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, this is how expirations might occur for two users:
 
@@ -153,7 +153,7 @@ If you want to view more activity, Azure AD terms of use policies include audit 
 
 To get started with Azure AD audit logs, use the following procedure:
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select a terms of use policy.
 1. Select **View audit logs**.
@@ -196,7 +196,7 @@ Users can review and see the terms of use policies that they've accepted by usin
 
 You can edit some details of terms of use policies, but you can't modify an existing document. The following procedure describes how to edit the details.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit terms**.
@@ -215,7 +215,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## Update the version or pdf of an existing terms of use
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit terms**.
@@ -233,7 +233,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## View previous versions of a ToU
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy for which you want to view a version history.
 1. Select **Languages and version history**
@@ -245,19 +245,18 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
 ## See who has accepted each version
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. To see who has currently accepted the ToU, select the number under the **Accepted** column for the ToU you want.
 1. By default, the next page will show you the current state of each user's acceptance to the ToU
-1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each users events in details about each version and what happened.
+1. If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each user's events in details about each version and what happened.
 1. Alternatively, you can select a specific version from the **Version**  drop-down to see who has accepted that specific version.
-
 
 ## Add a ToU language
 
 The following procedure describes how to add a ToU language.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to edit.
 1. Select **Edit Terms**
@@ -320,7 +319,7 @@ If a user is using browser that isn't supported, they'll be asked to use a diffe
 
 You can delete old terms of use policies using the following procedure.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select the terms of use policy you want to remove.
 1. Select **Delete terms**.
@@ -386,8 +385,11 @@ A: On the Terms of use blade, select the number under **Accepted**. You can also
 **Q: How long is information stored?**<br />
 A: The user counts in the terms of use report and who accepted/declined are stored for the life of the terms of use. The Azure AD audit logs are stored for 30 days.
 
-**Q: Why do I see a different number of consents in the terms of use report vs. the Azure AD audit logs?**<br />
-A: The terms of use report is stored for the lifetime of that terms of use policy, while the Azure AD audit logs are stored for 30 days. Also, the terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
+**Q: Why do I see a different number of consents in the terms of use details overview versus the Azure AD audit logs?**<br />
+A: The terms of use details overview data is stored for the lifetime of that terms of use policy, while the Azure AD audit logs are stored for 30 days.
+
+**Q: Why do I see a different number of consents in the terms of use details overview versus the exported CSV report?**<br />
+A: The terms of use details overview reflects aggregated acceptances of the current version of the policy (updated once every day).  If expiration is enabled or a TOU agreement is updated (with re-acceptance required), the count on the details overview is reset since the acceptances are expired, thereby showing the count of the current version. All acceptance history is still captured in the CSV report.
 
 **Q: If hyperlinks are in the terms of use policy PDF document, will end users be able to click them?**<br />
 A: Yes, end users are able to select hyperlinks to other pages but links to sections within the document aren't supported. Also, hyperlinks in terms of use policy PDFs don't work when accessed from the Azure AD MyApps/MyAccount portal.
@@ -414,7 +416,7 @@ A: You can [review previously accepted terms of use policies](#how-users-can-rev
 A: If you've configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilize the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you'll need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
+A: Terms of use utilize the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com, https://myaccount.microsoft.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you'll need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 

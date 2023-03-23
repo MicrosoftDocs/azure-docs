@@ -2,8 +2,9 @@
 title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
 description: Learn tips to optimize your cost when building machine learning models in Azure Machine Learning
-author: ssalgadodev
-ms.author: ssalgado
+ms.reviewer: ssalgado
+author: joburges
+ms.author: joburges
 ms.custom: subject-cost-optimization, event-tier1-build-2022
 ms.service: machine-learning
 ms.subservice: core
@@ -31,6 +32,11 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Deploy resources to the same region
 
 For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 
@@ -83,7 +89,9 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 
 ## Schedule compute instances
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 

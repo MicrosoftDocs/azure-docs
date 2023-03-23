@@ -1,11 +1,8 @@
 ---
 title: "Upgrade Azure Arc-enabled Kubernetes agents"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 09/09/2022
 ms.topic: how-to
 description: "Control agent upgrades for Azure Arc-enabled Kubernetes"
-keywords: "Kubernetes, Arc, Azure, K8s, containers, agent, update, auto upgrade"
 ---
 
 # Upgrade Azure Arc-enabled Kubernetes agents

@@ -5,7 +5,7 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 09/16/2022
+ms.date: 12/21/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -22,7 +22,7 @@ A lifecycle management policy is comprised of one or more rules that define a se
 
 - The number of days since the blob was created.
 - The number of days since the blob was last modified.
-- The number of days since the blob was last accessed. To use this condition in an action, you must first [optionally enable access time tracking](#optionally-enable-access-time-tracking).
+- The number of days since the blob was last accessed. To use this condition in an action, you should first [optionally enable last access time tracking](#optionally-enable-access-time-tracking).
 
 When the selected condition is true, then the management policy performs the specified action. For example, if you have defined an action to move a blob from the hot tier to the cool tier if it has not been modified for 30 days, then the lifecycle management policy will move the blob 30 days after the last write operation to that blob.
 
@@ -30,7 +30,7 @@ For a blob snapshot or version, the condition that is checked is the number of d
 
 ## Optionally enable access time tracking
 
-Before you configure a lifecycle management policy, you can choose to enable blob access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation.
+Before you configure a lifecycle management policy, you can choose to enable blob access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation.To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
 #### [Portal](#tab/azure-portal)
 
@@ -94,19 +94,21 @@ There are two ways to add a policy through the Azure portal.
 
 1. Select **Add a rule** and name your rule on the **Details** form. You can also set the **Rule scope**, **Blob type**, and **Blob subtype** values. The following example sets the scope to filter blobs. This causes the **Filter set** tab to be added.
 
-   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-details.png" alt-text="Lifecycle management add a rule details page in Azure portal":::
+  :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-details.png" alt-text="Lifecycle management add a rule details page in Azure portal":::
 
 1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
-   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
+  :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
 
-   The **Last accessed** option is available only if you have enabled access time tracking. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
+  The **Last accessed** option is available only if you have enabled access time tracking. To learn how to enable access tracking, see [Optionally enable access time tracking](#optionally-enable-access-time-tracking).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs whose name begins with *log* in a container called *sample-container*.
 
-   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
+  :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
 
 1. Select **Add** to add the new policy.
+
+Keep in mind that a lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you should select **Base blobs**, **Snapshots**, and **Versions** in the **Blob Subtype** section when you are specifying a delete action as part of the policy.
 
 #### Code view
 

@@ -8,9 +8,9 @@ ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 08/08/2022
+ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -24,7 +24,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 [!INCLUDE [endpoints-option](../../../includes/machine-learning-endpoints-preview-note.md)]
 
 > [!IMPORTANT]
-> When using the Azure ML __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure ML __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-managed-online-endpoints.md).
+> When using the Azure Machine Learning __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure Machine Learning __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-online-endpoints.md).
 
 > For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). 
 
@@ -42,11 +42,11 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 * A registered model that uses a GPU.
 
-    * To learn how to register models, see [Deploy Models](../how-to-deploy-managed-online-endpoints.md).
+    * To learn how to register models, see [Deploy Models](../how-to-deploy-online-endpoints.md).
 
     * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](../how-to-train-tensorflow.md).
 
-* A general understanding of [How and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
+* A general understanding of [How and where to deploy models](../how-to-deploy-online-endpoints.md).
 
 ## Connect to your workspace
 
@@ -136,7 +136,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](../how-to-deploy-managed-online-endpoints.md).
+This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](../how-to-deploy-online-endpoints.md).
 
 ## Define the conda environment
 
@@ -146,8 +146,8 @@ The conda environment file specifies the dependencies for the service. It includ
 name: project_environment
 dependencies:
   # The Python interpreter version.
-  # Currently Azure ML only supports 3.5.2 and later.
-- python=3.6.2
+  # Currently Azure Machine Learning only supports 3.5.2 and later.
+- python=3.7
 
 - pip:
   # You must list azureml-defaults as a pip dependency

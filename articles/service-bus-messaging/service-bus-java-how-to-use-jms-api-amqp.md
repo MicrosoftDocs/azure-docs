@@ -23,7 +23,7 @@ Support for AMQP 1.0 in Service Bus means that you can use the queuing and publi
 
 ## Get started with Service Bus
 
-This article assumes that you already have a Service Bus namespace that contains a queue named `basicqueue`. If you don't, you can [create the namespace and queue](service-bus-create-namespace-portal.md) by using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
+This article assumes that you already have a Service Bus namespace that contains a queue named `basicqueue`. If you don't, you can [create the namespace and queue](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) by using the [Azure portal](https://portal.azure.com). For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Partitioned queues and topics also support AMQP. For more information, see [Partitioned messaging entities](service-bus-partitioning.md) and [AMQP 1.0 support for Service Bus partitioned queues and topics](./service-bus-amqp-protocol-guide.md).

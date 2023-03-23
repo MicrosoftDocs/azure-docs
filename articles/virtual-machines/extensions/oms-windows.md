@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: windows
 ms.date: 11/02/2021 
 ms.custom: devx-track-azurepowershell

@@ -63,7 +63,7 @@ When you use Azure portal, you can assign one system assigned identity and up to
     1. Select **Add**. 
 1. Refresh the list in the **User assigned** tab to see the added user-assigned identity.
 
-You can use similar steps to enable an identity for an event grid domain.
+You can use similar steps to enable an identity for an Event Grid domain.
 
 ## Configure data residency
 
@@ -72,7 +72,7 @@ You can use similar steps to enable an identity for an event grid domain.
 
     The **Cross-Geo** option allows Microsoft-initiated failover to the paired region in case of a region failure. For more information, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md). Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from user. Microsoft reserves right to make a determination of when this path will be taken. The mechanism doesn't involve a user consent before the user's topic or domain is failed over. For more information, see [How do I recover from a failover?](./event-grid-faq.yml).
 
-    If you select the **Regional** option, you may define your own disaster recovery plan. For more information, see [Build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md). 
+    If you select the **Regional** option, you may define your own disaster recovery plan. 
 
     :::image type="content" source="./media/configure-custom-topic/data-residency.png" alt-text="Screenshot showing the Configuration page with data residency settings.":::        
 1. After updating the setting, select **Apply** to apply changes.  

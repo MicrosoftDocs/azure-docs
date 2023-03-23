@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create a private endpoint by using the Azure CLI'
-description: In this quickstart, you'll learn how to create a private endpoint by using the Azure CLI.
+title: 'Quickstart: Create a private endpoint - Azure CLI'
+description: In this quickstart, you'll learn how to create a private endpoint using the Azure CLI.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 05/24/2022
 ms.author: allensu
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using the Azure CLI.
 ---
+
 # Quickstart: Create a private endpoint by using the Azure CLI
 
 Get started with Azure Private Link by using a private endpoint to connect securely to an Azure web app.
@@ -102,6 +103,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
 
 A private endpoint can have a static or dynamically assigned IP address.
+
 > [!IMPORTANT]
 > You must have a previously deployed Azure WebApp to proceed with the steps in this article. For more information, see [Prerequisites](#prerequisites) .
 
@@ -236,6 +238,15 @@ Use the VM you created in the previous step to connect to the webapp across the 
    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 10. Close the connection to **myVM**.
+
+## Clean up resources
+
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, private link service, load balancer, and all related resources.
+
+```azurecli-interactive
+  az group delete \
+    --name CreatePrivateEndpointQS-rg
+```
 
 ## Next steps
 

@@ -6,14 +6,13 @@ ms.topic: conceptual
 ---
 # Evaluate the impact of a new Azure Policy definition
 
-Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet
+Azure Policy is a powerful tool for managing your Azure resources to meet business standards
 compliance needs. When people, processes, or pipelines create or update resources, Azure Policy
 reviews the request. When the policy definition effect is [Modify](./effects.md#modify),
 [Append](./effects.md#deny), or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters
 the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or
 [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created
-for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny),
-Policy stops the creation or alteration of the request.
+for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny) or [DenyAction](./effects.md#denyaction), Policy stops the creation or alteration of the request.
 
 These outcomes are exactly as desired when you know the policy is defined correctly. However, it's
 important to validate a new policy works as intended before allowing it to change or block work. The
@@ -110,8 +109,7 @@ setup appropriate
 [Azure Monitor alerts and notifications](../../../azure-monitor/alerts/alerts-overview.md) for
 when non-compliant devices are identified. It's also recommended to evaluate the policy definition
 and related assignments on a scheduled basis to validate the policy definition is meeting business
-policy and compliance needs. Policies should be removed if no longer needed. Policies also need
-updating from time to time as the underlying Azure resources evolve and add new properties and
+policy and compliance needs. Policies should be removed if no longer needed. Policies also need to update from time to time as the underlying Azure resources evolve and add new properties and
 capabilities.
 
 ## Next steps

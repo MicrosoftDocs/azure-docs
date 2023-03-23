@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/06/2018
+ms.date: 01/26/2023
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management

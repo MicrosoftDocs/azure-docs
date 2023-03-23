@@ -19,6 +19,9 @@ Microsoft Sentinel delivers intelligent security analytics and threat intelligen
 
 Microsoft Sentinel is your bird's-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
+> [!NOTE]
+> Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
+
 - **Collect data at cloud scale** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
 - **Detect previously undetected threats**, and [minimize false positives](false-positives.md) using Microsoft's analytics and unparalleled threat intelligence.
@@ -78,8 +81,9 @@ Microsoft Sentinel's automation and orchestration solution provides a highly ext
 - HTTP requests
 - Microsoft Teams
 - Slack
-- Windows Defender ATP
-- Defender for Cloud Apps
+- Azure Active Directory
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Cloud Apps
 
 For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular alert or incident is generated.
 

@@ -1,7 +1,9 @@
 ---
 title: Migrate from Azure Data Lake Storage Gen1 to Gen2 using the Azure portal
+titleSuffix: Azure Storage
 description: You can simplify the task of migrating from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 by using the Azure portal.
 author: normesta
+
 ms.topic: how-to
 ms.author: normesta
 ms.date: 09/12/2022
@@ -193,7 +195,7 @@ The following functionality isn't supported in the compatibility layer.
 
 - Chunk-encoding for append operations.
 
-- Any API calls that use https://management.azure.com/  as the Azure Active Directory (Azure AD) token audience.
+- Any API calls that use `https://management.azure.com/`  as the Azure Active Directory (Azure AD) token audience.
 
 - File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`).
 

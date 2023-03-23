@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -34,7 +34,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
   > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
   > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
 
-* If you aren't using VS Code, make sure you have the following installed in your development environment:
+* If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
   * A [**Java Development Kit** (JDK)](/java/openjdk/download#openjdk-17) version 8 or later. For more information, *see* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
 
@@ -45,9 +45,12 @@ In this quickstart you'll, use the following features to analyze and extract dat
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later, you'll paste your key and endpoint into the code below:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later, you paste your key and endpoint into the code:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
 
 ## Set up
 
@@ -61,9 +64,9 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
     ```powershell
     mkdir translator-text-app; cd translator-text-app
-   ```
+    ```
 
-1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from your working directory. This command creates essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
     ```console
     gradle init --type basic
@@ -72,6 +75,9 @@ In this quickstart you'll, use the following features to analyze and extract dat
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
 1. Accept the default project name (form-recognizer-app) by selecting **Return** or **Enter**.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=create-gradle-project)
 
 ### Install the client library
 
@@ -95,9 +101,11 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     }
     ```
 
+[I ran into an issue with installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=install-library)
+
 ## Create a Java application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. From the form-recognizer-app directory, run the following command:
 
@@ -105,7 +113,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     mkdir -p src/main/java
     ```
 
-    You'll create the following directory structure:
+    You create the following directory structure:
 
     :::image type="content" source="../../media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
@@ -245,6 +253,9 @@ Once you've added a code sample to your application, navigate back to your main 
     ```console
     gradle run
     ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-general-document)
 
 ### General document model output
 
@@ -386,6 +397,9 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-layout)
+
 ### Layout model output
 
 Here's a snippet of the expected output:
@@ -413,7 +427,7 @@ To view the entire output,visit the Azure samples repository on GitHub to view t
 
 ## Prebuilt model
 
-Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+Analyze and extract common fields from specific document types using a prebuilt model. In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 > [!TIP]
 > You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../../concept-model-overview.md#model-data-extraction).
@@ -463,9 +477,9 @@ public class FormRecognizer {
     String modelId = "prebuilt-invoice";
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-    SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+    SyncPoller < OperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
 
-    AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult();
+    AnalyzeResult analyzeInvoiceResult = analyzeInvoicePoller.getFinalResult();
 
     for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
       AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
@@ -596,6 +610,9 @@ Once you've added a code sample to your application, navigate back to your main 
     ```console
     gradle run
     ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-prebuilt)
 
 ### Prebuilt model output
 

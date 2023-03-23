@@ -24,7 +24,7 @@ When you enable distributed tracing for IoT Hub, you can:
 - Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you want to implement distributed tracing for the non-Azure services in your IoT solution.
 
-In this article, you use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) with distributed tracing. Distributed tracing support is still in progress for the other SDKs.
+In this article, you use the [Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/main/readme.md) with distributed tracing. Distributed tracing support is still in progress for the other SDKs.
 
 ## Prerequisites
 
@@ -209,7 +209,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 ### Update by using Azure IoT Hub for Visual Studio Code
 
-1. With Visual Studio Code installed, install the latest version of [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
+1. With Visual Studio Code installed, install the latest version of [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for Visual Studio Code.
 
 1. Open Visual Studio Code, and go to the **Explorer** tab and the **Azure IoT Hub** section. 
 

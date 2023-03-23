@@ -3,8 +3,9 @@ title: How to view AutoML model training code
 titleSuffix: Azure Machine Learning AutoML
 description: How to view model training code for an automated ML trained model and explanation of each stage.
 services: machine-learning
-author: cesardl
-ms.author: cesardl
+author: shouryaj
+ms.author: shoja
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
@@ -41,16 +42,16 @@ The following diagram illustrates that you can generate the code for automated M
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
-* Automated ML code generation is only available for experiments run on remote Azure ML compute targets. Code generation isn't supported for local runs.
+* Automated ML code generation is only available for experiments run on remote Azure Machine Learning compute targets. Code generation isn't supported for local runs.
 
-* All automated ML runs triggered through AzureML Studio, SDKv2 or CLIv2 will have code generation enabled.
+* All automated ML runs triggered through Azure Machine Learning Studio, SDKv2 or CLIv2 will have code generation enabled.
 
 ## Get generated code and model artifacts
-By default, each automated ML trained model generates its training code after training completes. Automated ML saves this code in the experiment's `outputs/generated_code` for that specific model. You can view them in the Azure ML studio UI on the **Outputs + logs** tab of the selected model. 
+By default, each automated ML trained model generates its training code after training completes. Automated ML saves this code in the experiment's `outputs/generated_code` for that specific model. You can view them in the Azure Machine Learning studio UI on the **Outputs + logs** tab of the selected model. 
 
 * **script.py** This is the model's training code that you likely want to analyze with the featurization steps, specific algorithm used, and hyperparameters.
 
-* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureML compute through Azure ML SDKv2.
+* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in Azure Machine Learning compute through Azure Machine Learning SDKv2.
 
 After the automated ML training run completes, there are you can access the `script.py` and the `script_run_notebook.ipynb` files via the Azure Machine Learning studio UI. 
 
@@ -66,13 +67,13 @@ If you're using the Python SDKv2, you can also download the "script.py" and the 
 
 ## script.py
 
-The `script.py` file contains the core logic needed to train a model with the previously used hyperparameters. While intended to be executed in the context of an Azure ML script run, with some modifications, the model's training code can also be run standalone in your own on-premises environment.
+The `script.py` file contains the core logic needed to train a model with the previously used hyperparameters. While intended to be executed in the context of an Azure Machine Learning script run, with some modifications, the model's training code can also be run standalone in your own on-premises environment.
 
 The script can roughly be broken down into several the following parts: data loading, data preparation, data featurization, preprocessor/algorithm specification, and training.
 
 ### Data loading
 
-The function `get_training_dataset()` loads the previously used dataset. It assumes that the script is run in an AzureML script run under the same workspace as the original experiment.
+The function `get_training_dataset()` loads the previously used dataset. It assumes that the script is run in an Azure Machine Learning script run under the same workspace as the original experiment.
 
 ```python
 def get_training_dataset(dataset_id):
@@ -314,7 +315,7 @@ The main code that runs all the previous functions is the following:
 def main(training_dataset_id=None):
     from azureml.core.run import Run
     
-    # The following code is for when running this code as part of an AzureML script run.
+    # The following code is for when running this code as part of an Azure Machine Learning script run.
     run = Run.get_context()
     setup_instrumentation(run)
     
@@ -351,7 +352,7 @@ Finally, the model is serialized and saved as a `.pkl` file named "model.pkl":
 
 ## script_run_notebook.ipynb
 
-The `script_run_notebook.ipynb` notebook serves as an easy way to execute `script.py` on an Azure ML compute.
+The `script_run_notebook.ipynb` notebook serves as an easy way to execute `script.py` on an Azure Machine Learning compute.
 This notebook is similar to the existing automated ML sample notebooks however, there are a couple of key differences as explained in the following sections.
 
 ### Environment
@@ -365,7 +366,7 @@ If you make changes to `script.py` that require additional dependencies, or you 
 
 ### Submit the experiment
 
-Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a [`Command Job`](/how-to-train-sdk) and provide the generated code (script.py) to it. 
+Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a `Command Job` and provide the generated code (script.py) to it. 
 
 The following example contains the parameters and regular dependencies needed to run a Command Job, such as compute, environment, etc.
 ```python
@@ -387,7 +388,7 @@ command_job = command(
 )
  
 returned_job = ml_client.create_or_update(command_job)
-print(returned_job.studio_url) # link to naviagate to submitted run in AzureML Studio
+print(returned_job.studio_url) # link to naviagate to submitted run in Azure Machine Learning Studio
 ```
 
 ## Next steps

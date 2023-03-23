@@ -24,9 +24,11 @@
         - name: Java Spring
           href: quickstart-java-spring-app.md
         - name: Python
-          href: quickstart-python.md
+          href: quickstart-python-provider.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
+        - name: Azure Container Apps
+          href: quickstart-container-apps.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -113,10 +115,15 @@
           href: monitor-app-configuration.md
         - name: Reference for monitoring data
           href: monitor-app-configuration-reference.md
+
 - name: Samples
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Python SDK
+      href: quickstart-python.md
     - name: Samples on GitHub
       href: https://github.com/Azure/AppConfiguration/tree/main/examples
 - name: Concepts
@@ -138,7 +145,7 @@
     - name: Reliability
       items:
         - name: Availability zone support
-          href: ../availability-zones/migrate-app-configuration.md
+          href: ../reliability/migrate-app-configuration.md
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
     - name: Security
@@ -156,7 +163,7 @@
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
+          href: /security/benchmark/azure/baselines/azure-app-configuration-security-baseline?toc=/azure/azure-app-configuration/TOC.json
 - name: How-to guides
   items:
     - name: Use labels for per-environment configuration
@@ -206,9 +213,9 @@
     - name: Feature management
       items:
         - name: .NET Core/.NET Standard
-          href: /dotnet/api/microsoft.featuremanagement
+          href: https://www.nuget.org/packages/Microsoft.FeatureManagement/
         - name: .NET built-in feature filters
-          href: /dotnet/api/microsoft.featuremanagement.featurefilters
+          href: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
         - name: Java Spring
           href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Control plane

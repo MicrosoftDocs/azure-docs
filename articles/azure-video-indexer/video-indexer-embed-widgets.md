@@ -2,7 +2,7 @@
 title: Embed Azure Video Indexer widgets in your apps
 description: Learn how to embed Azure Video Indexer widgets in your apps.
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 01/10/2023
 ms.author: juliako
 ms.custom: devx-track-js
 ---
@@ -21,13 +21,13 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animatedCharacters, keywords, audioEffects, labels, sentiments, emotions, topics, keyframes, transcript, ocr, speakers, scenes, spokenLanguage, observedPeople and namedEntities.|
-|`controls`|Strings separated by comma|Allows you to control the controls that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renders only search option and download button.<br/>Available options: search, download, presets, language.|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: `people`, `keywords`, `audioEffects`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, `spokenLanguage`, `observedPeople`, `namedEntities`.|
+|`controls`|Strings separated by comma|Allows you to control the controls that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renders only search option and download button.<br/>Available options: `search`, `download`, `presets`, `language`.|
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 |`search` | String | Allows you to control the initial search term.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=azure` renders the insights filtered by the word "Azure". | 
-|`sort` | Strings separated by comma | Allows you to control the sorting of an insight.<br/>Each sort consists of 3 values: widget name, property and order, connected with '_' `sort=name_property_order`<br/>Available options:<br/>widgets: keywords, audioEffects, labels, sentiments, emotions, keyframes, scenes, namedEntities and spokenLanguage.<br/>property: startTime, endTime, seenDuration, name and ID.<br/>order: asc and desc.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?sort=labels_id_asc,keywords_name_desc` renders the labels sorted by ID in ascending order and keywords sorted by name in descending order.| 
+|`sort` | Strings separated by comma | Allows you to control the sorting of an insight.<br/>Each sort consists of 3 values: widget name, property and order, connected with '_' `sort=name_property_order`<br/>Available options:<br/>widgets: `keywords`, `audioEffects`, `labels`, `sentiments`, `emotions`, `keyframes`, `scenes`, `namedEntities` and `spokenLanguage`.<br/>property: `startTime`, `endTime`, `seenDuration`, `name` and `ID`.<br/>order: asc and desc.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?sort=labels_id_asc,keywords_name_desc` renders the labels sorted by ID in ascending order and keywords sorted by name in descending order.| 
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 ### Player widget
@@ -251,9 +251,9 @@ If you embed Azure Video Indexer insights with your own [Azure Media Player](htt
 
 ### Cognitive Insights widget
 
-You can choose the types of insights that you want. To do this, specify them as a value to the following URL parameter that's added to the embed code that you get (from the API or from the web app): `&widgets=<list of wanted widgets>`.
+You can choose the types of insights that you want. To do this, specify them as a value to the following URL parameter that's added to the embed code that you get (from the [API](https://aka.ms/avam-dev-portal) or from the [Azure Video Indexer](https://www.videoindexer.ai/) website): `&widgets=<list of wanted widgets>`.
 
-The possible values are: `people`, `animatedCharacters` , `keywords`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, and `namedEntities`.
+The possible values are: `people`, `keywords`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, `namedEntities`, `logos`.
 
 For example, if you want to embed a widget that contains only people and keywords insights, the iframe embed URL will look like this:
 
@@ -308,9 +308,9 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 
 For more information, see [supported browsers](video-indexer-get-started.md#supported-browsers).
 
-## Embed and customize Azure Video Indexer widgets in your app using npm package
+## Embed and customize Azure Video Indexer widgets in your app using npmjs package
 
-Using our [@azure/video-analyzer-for-media-widgets](https://www.npmjs.com/package/@azure/video-analyzer-for-media-widgets) NPM package, you can add the insights widgets to your app and customize it according to your needs.
+Using our [@azure/video-analyzer-for-media-widgets](https://www.npmjs.com/package/@azure/video-analyzer-for-media-widgets) package, you can add the insights widgets to your app and customize it according to your needs.
 
 Instead of adding an iframe element to embed the insights widget, with this new package you can easily embed & communicate between our widgets. Customizing your widget is only supported in this package - all in one place.   
 

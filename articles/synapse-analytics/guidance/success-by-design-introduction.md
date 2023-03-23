@@ -1,8 +1,8 @@
 ---
 title: Success by design
 description: "TODO: Success by design"
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual

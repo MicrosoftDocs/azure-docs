@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items: 
-  - name: About Events
+  - name: What are Events?
     href: events-overview.md
 - name: Quickstarts
   expanded: true
@@ -28,7 +28,7 @@ items:
       href: events-enable-diagnostic-settings.md
   - name: Disable Events and delete workspaces
     href: events-disable-delete-workspace.md 
-  - name: Troubleshoot and problem solve
+  - name: Troubleshoot
     expanded: true
     items:
     - name: Events troubleshooting guide  
@@ -41,5 +41,5 @@ items:
 - name: Resources
   expanded: true
   items:
-    - name: FAQs
+    - name: FAQs - Events
       href: events-faqs.md

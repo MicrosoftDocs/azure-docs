@@ -2,7 +2,7 @@
 title: Use a managed identity in Azure Kubernetes Service
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 11/08/2022
 ---
 
 # Use a managed identity in Azure Kubernetes Service
@@ -57,7 +57,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at [Azure AD Pod Identity Role Assignment configuration](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/).
 
 ## Create an AKS cluster using a managed identity
 
@@ -88,6 +88,9 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
 ## Update an AKS cluster to use a managed identity
+
+> [!NOTE]
+> If AKS has custom private DNS zone, AKS does not support to use system-assigned managed identity. 
 
 To update an AKS cluster currently using a service principal to work with a system-assigned managed identity, run the following CLI command.
 
@@ -157,7 +160,7 @@ az role assignment create --assignee 22222222-2222-2222-2222-222222222222 --role
 For user-assigned kubelet identity which is outside the default worker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
 
 ```azurecli-interactive
-az role assignment create --assignee <control-plane-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
+az role assignment create --assignee <kubelet-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
 ```
 
 Example:
@@ -175,7 +178,7 @@ A custom control plane managed identity enables access to be granted to the exis
 
 > [!NOTE]
 > USDOD Central, USDOD East, USGov Iowa regions in Azure US Government cloud aren't currently supported.
->
+> 
 > AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
 
 If you don't have a managed identity, you should create one by running the [az identity][az-identity-create] command.
@@ -200,6 +203,8 @@ The output should resemble the following:
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```
+
+Before creating the cluster, you need to [add the role assignment for control plane identity][add role assignment for control plane identity].
 
 Run the following command to create a cluster with your existing identity:
 
@@ -466,3 +471,4 @@ Use [Azure Resource Manager templates ][aks-arm-template] to create a managed id
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [workload-identity-overview]: workload-identity-overview.md
 [aad-pod-identity]: use-azure-ad-pod-identity.md
+[add role assignment for control plane identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity

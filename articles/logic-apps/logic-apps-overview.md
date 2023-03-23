@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4, engagement-fy23
-ms.date: 09/23/2022
+ms.date: 02/07/2023
 ---
 
 # What is Azure Logic Apps?
@@ -133,11 +133,13 @@ Create your logic apps as Azure Resource Manager templates so that you can [set 
 
 If no suitable connector is available to run the code you want, you can create and call your own code snippets from your workflow by using [Azure Functions](../azure-functions/functions-overview.md). Or, create your own [APIs](logic-apps-create-api-app.md) and [custom connectors](custom-connector-overview.md) that you can call from your workflows.
 
-### Access resources inside Azure virtual networks
+### Direct access to resources in Azure virtual networks
 
-Logic app workflows can access secured resources such as virtual machines (VMs), other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Azure Logic Apps service that uses dedicated resources and runs separately from the global multi-tenant Azure Logic Apps service.
+Logic app workflows can access secured resources such as virtual machines (VMs), other services, and systems that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you use either [Azure Logic Apps (Standard)](single-tenant-overview-compare.md) or an [*integration service environment* (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). Both Azure Logic Apps (Standard) and an ISE are dedicated instances of the Azure Logic Apps service that use dedicated resources and run separately from the global multi-tenant Azure Logic Apps service.
 
-Running logic apps in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
+Running logic apps in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+
+Azure Logic Apps (Standard) and an ISE also provide the following benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
 

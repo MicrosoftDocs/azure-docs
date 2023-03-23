@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: deploy, cliv1, sdkv1
-ms.author: larryfr
-author: blackmist
+ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
+ms.author: bozhlin
+author: bozhong68
 ms.reviewer: larryfr
-ms.date: 10/21/2021
+ms.date: 11/04/2022
 ---
 
 # Deploy a model to Azure Container Instances with CLI (v1)

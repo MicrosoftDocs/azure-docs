@@ -50,7 +50,7 @@ After creating a Communication Services resource you can start building client s
 
 | Resource                               |Description                           |
 |---                                    |---                                   |
-|**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens authenticate clients against your Azure Communication Services resource. These tokens are provisioned and reissued using  Communication Services Identity APIs and SDKs.|
+|**[Create your first user access token](./quickstarts/identity/access-tokens.md)**|User access tokens authenticate clients against your Azure Communication Services resource. These tokens are provisioned and reissued using  Communication Services Identity APIs and SDKs.|
 |**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your browser or native apps using the Calling SDK. |
 |**[Add telephony calling to your app](./quickstarts/telephony/pstn-call.md)**|With Azure Communication Services you can add telephony calling capabilities to your application.|
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|

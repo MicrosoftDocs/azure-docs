@@ -1,19 +1,19 @@
 ---
-title: Migrate from a Run As account to a managed identity
-description: This article describes how to migrate from a Run As account to a managed identity in Azure Automation.
+title: Migrate from a Run As account to Managed identities
+description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/17/2022
+ms.date: 03/03/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate from an existing Run As account to a managed identity
+# Migrate from an existing Run As account to Managed identities
 
 > [!IMPORTANT]
-> Azure Automation Run As accounts will retire on *September 30, 2023*. Microsoft won't provide support beyond that date. From now through *September 30, 2023*, you can continue to use Azure Automation Run As accounts. However, we recommend that you transition to [managed identities](../automation/automation-security-overview.md#managed-identities) before *September 30, 2023*.
->
-> For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](automation-managed-identity-faq.md).
+> Azure Automation Run As accounts will retire on *30 September 2023* and completely move to [Managed Identities](automation-security-overview.md#managed-identities). All runbook executions using RunAs accounts, including Classic Run As accounts wouldn't be supported after this date. Starting 01 April 2023, the creation of **new** Run As accounts in Azure Automation will not be possible.
+
+For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](automation-managed-identity-faq.md).
 
 Run As accounts in Azure Automation provide authentication for managing resources deployed through Azure Resource Manager or the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate is generated. The certificate is valid for one year. Renewing the certificate every year before it expires keeps the Automation account working but adds overhead. 
 
@@ -23,7 +23,7 @@ A managed identity can be [system assigned](enable-managed-identity-for-automati
 
 ## Prerequisites
 
-Before you migrate from a Run As account to a managed identity:
+Before you migrate from a Run As account or Classic Run As account to a managed identity:
 
 1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md) managed identity, or create both types. To learn more about the differences between them, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
@@ -38,9 +38,12 @@ Before you migrate from a Run As account to a managed identity:
 
    For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
 
+1. If you're using Classic Run As accounts, ensure that you have [migrated](../virtual-machines/classic-vm-deprecation.md) resources deployed through classic deployment model to Azure Resource Manager.
+1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/Check-AutomationRunAsAccountRoleAssignments.ps1) to find out which Automation accounts are using a Run As account. If your Azure Automation accounts contain a Run As account, it will have the built-in contributor role assigned to it by default. You can use the script to check the Azure Automation Run As accounts and determine if their role assignment is the default one or if it has been changed to a different role definition.
+
 ## Migrate from an Automation Run As account to a managed identity
 
-To migrate from an Automation Run As account to a managed identity for your runbook authentication, follow these steps:
+To migrate from an Automation Run As account or Classic Run As account to a managed identity for your runbook authentication, follow these steps:
    
 1. Change the runbook code to use a managed identity. 
 
@@ -48,7 +51,7 @@ To migrate from an Automation Run As account to a managed identity for your runb
 
     For managed identity support, use the `Connect-AzAccount` cmdlet. To learn more about this cmdlet, see [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?branch=main&view=azps-8.3.0) in the PowerShell reference.
 
-    - If you're using Az modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](./automation-update-azure-modules.md?branch=main#update-az-modules) article. 
+    - If you're using `Az` modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](./automation-update-azure-modules.md?branch=main#update-az-modules) article. 
     - If you're using AzureRM modules, update `AzureRM.Profile` to the latest version and replace it by using the `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
     
     To understand the changes to the runbook code that are required before you can use managed identities, use the [sample scripts](#sample-scripts).
@@ -57,49 +60,7 @@ To migrate from an Automation Run As account to a managed identity for your runb
 
 ## Sample scripts
 
-The following examples of runbook scripts fetch the Resource Manager resources by using the Run As account (service principal) and the managed identity.
-
-# [Run As account](#tab/run-as-account)
-
-```powershell-interactive
-  $connectionName = "AzureRunAsConnection"
-  try
-  {
-      # Get the connection "AzureRunAsConnection"
-      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-
-      "Logging in to Azure..."
-      Add-AzureRmAccount `
-          -ServicePrincipal `
-          -TenantId $servicePrincipalConnection.TenantId `
-          -ApplicationId $servicePrincipalConnection.ApplicationId `
-          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-  }
-  catch {
-      if (!$servicePrincipalConnection)
-      {
-          $ErrorMessage = "Connection $connectionName not found."
-          throw $ErrorMessage
-      } else{
-          Write-Error -Message $_.Exception
-          throw $_.Exception
-      }
-  }
-
-  #Get all Resource Manager resources from all resource groups
-  $ResourceGroups = Get-AzureRmResourceGroup 
-
-  foreach ($ResourceGroup in $ResourceGroups)
-  {    
-      Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
-      $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
-      ForEach ($Resource in $Resources)
-      {
-          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
-      }
-      Write-Output ("")
-  } 
-  ```
+The following examples of runbook scripts fetch the Resource Manager resources by using the Run As account (service principal) and the managed identity. You would notice the difference in runbook code at the beginning of the runbook, where it authenticates against the resource. 
 
 # [System-assigned managed identity](#tab/sa-managed-identity)
 
@@ -159,6 +120,48 @@ foreach ($ResourceGroup in $ResourceGroups)
     Write-Output ("") 
 }
 ```
+# [Run As account](#tab/run-as-account)
+
+```powershell-interactive
+  $connectionName = "AzureRunAsConnection"
+  try
+  {
+      # Get the connection "AzureRunAsConnection"
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+          -ServicePrincipal `
+          -TenantId $servicePrincipalConnection.TenantId `
+          -ApplicationId $servicePrincipalConnection.ApplicationId `
+          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+  }
+  catch {
+      if (!$servicePrincipalConnection)
+      {
+          $ErrorMessage = "Connection $connectionName not found."
+          throw $ErrorMessage
+      } else{
+          Write-Error -Message $_.Exception
+          throw $_.Exception
+      }
+  }
+
+  #Get all Resource Manager resources from all resource groups
+  $ResourceGroups = Get-AzureRmResourceGroup 
+
+  foreach ($ResourceGroup in $ResourceGroups)
+  {    
+      Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+      $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+      ForEach ($Resource in $Resources)
+      {
+          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+      }
+      Write-Output ("")
+  } 
+  ```
+
 ---
 
 ## Graphical runbooks
@@ -173,7 +176,7 @@ foreach ($ResourceGroup in $ResourceGroups)
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/activity-parameter-configuration.png" alt-text="Screenshot that shows examining the parameters used by a cmdlet.":::
 
-    For use with the Run As account, the cmdlet will use the `ServicePrinicipalCertificate` parameter set to `ApplicationId`. `CertificateThumbprint` will be from `RunAsAccountConnection`.
+    For use with the Run As account, the cmdlet uses the `ServicePrinicipalCertificate` parameter set to `ApplicationId`. `CertificateThumbprint` will be from `RunAsAccountConnection`.
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/parameter-sets-inline.png" alt-text="Screenshot that shows parameter sets." lightbox="./media/migrate-run-as-account-managed-identity/parameter-sets-expanded.png":::
  
@@ -191,7 +194,7 @@ The following steps include an example to show how a graphical runbook that uses
 
 1. Replace the Run As connection that uses `AzureRunAsConnection` and the connection asset that internally uses the PowerShell `Get-AutomationConnection` cmdlet with the `Connect-AzAccount` cmdlet.
 
-1. Add identity support for use in the runbook by using the `Connect-AzAccount` activity from the `Az.Accounts` cmdlet that uses the PowerShell code to connect to the managed identity.
+1. Add identity support for use in the runbook by adding a new code activity as mentioned in the following step, which leverages the `Connect-AzAccount` cmdlet to connect to the Managed Identity.
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/add-functionality-inline.png" alt-text="Screenshot of adding functionality to a graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/add-functionality-expanded.png":::
 
@@ -213,6 +216,8 @@ For example, in the runbook **Start Azure V2 VMs** in the runbook gallery, you m
 
 For more information, see the sample runbook name **AzureAutomationTutorialWithIdentityGraphical** that's created with the Automation account.
 
+> [!NOTE]
+> AzureRM PowerShell modules are retiring on 29 February 2024. If you are using AzureRM PowerShell modules in Graphical runbooks, you must upgrade them to use Az PowerShell modules. [Learn more](https://learn.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0).
 
 ## Next steps
 

@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/12/2022
+ms.date: 3/1/2023
 ms.author: amsliu
-ms.reviewer: ilyal
+ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -22,6 +22,9 @@ ms.collection: M365-identity-device-management
 Use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to allow eligible role members for Azure resources to schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
 
 This article is for members who need to activate their Azure resource role in Privileged Identity Management.
+
+>[!NOTE]
+>As of March 2023, you may now activate your assignments and view your access directly from blades outside of PIM in the Azure portal. Read more [here](pim-resource-roles-activate-your-roles.md#activate-with-azure-portal).
 
 ## Activate a role
 
@@ -72,12 +75,20 @@ When you need to take on an Azure resource role, you can request activation by u
 
 Privileged Identity Management supports Azure Resource Manager (ARM) API commands to manage Azure resource roles, as documented in the [PIM ARM API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
 
+To activate an eligible Azure role assignment and gain activated access, use the [Role Assignment Schedule Requests - Create REST API](/rest/api/authorization/role-assignment-schedule-requests/create?tabs=HTTP) to create a new request and specify the security principal, role definition, requestType = SelfActivate and scope. To call this API, you must have an eligible role assignment on the scope. 
+
+Use a GUID tool to generate a unique identifier that will be used for the role assignment identifier. The identifier has the format: 00000000-0000-0000-0000-000000000000. 
+
+Replace {roleAssignmentScheduleRequestName} in the below PUT request with the GUID identifier of the role assignment. 
+
+For more details on managing eligible roles for Azure resources, see this [PIM ARM API tutorial](/rest/api/authorization/privileged-role-assignment-rest-sample?source=docs#activate-an-eligible-role-assignment). 
+
 The following is a sample HTTP request to activate an eligible assignment for an Azure role.
 
 ### Request
 
 ````HTTP
-PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/fea7a502-9a96-4806-a26f-eee560e52045?api-version=2020-10-01
+PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}?api-version=2020-10-01
 ````
 
 ### Request body
@@ -205,6 +216,22 @@ If you do not require activation of a role that requires approval, you can cance
 ## Deactivate a role assignment
 
 When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
+
+## Activate with Azure portal
+
+Privileged Identity Management role activation has been integrated into the Billing and Access Control (AD) extensions within the Azure portal. Shortcuts to Subscriptions (billing) and Access Control (AD) allow you to activate PIM roles directly from these blades.
+
+From the Subscriptions blade, select “View eligible subscriptions” in the horizontal command menu to check your eligible, active, and expired assignments. From there, you can activate an eligible assignment in the same pane.
+
+   ![Screenshot of view eligible subscriptions on the Subscriptions page.](./media/pim-resource-roles-activate-your-roles/view-subscriptions-1.png)
+
+   ![Screenshot of view eligible subscriptions on the Cost Management: Integration Service page.](./media/pim-resource-roles-activate-your-roles/view-subscriptions-2.png)
+
+In Access control (IAM) for a resource, you can now select “View my access” to see your currently active and eligible role assignments and activate directly.
+
+   ![Screenshot of current role assignments on the Measurement page.](./media/pim-resource-roles-activate-your-roles/view-my-access.png)
+
+By integrating PIM capabilities into different Azure portal blades, this new feature allows you to gain temporary access to view or edit subscriptions and resources more easily.
 
 ## Troubleshoot
 

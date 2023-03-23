@@ -14,7 +14,7 @@ ms.reviewer: jucocchi
 # Indexing in Azure Cosmos DB - Overview
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](account-databases-containers-items.md#azure-cosmos-db-containers) without having to define any schema or configure secondary indexes.
+Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](resource-model.md#azure-cosmos-db-containers) without having to define any schema or configure secondary indexes.
 
 The goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index-policy.md).
 

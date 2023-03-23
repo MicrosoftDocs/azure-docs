@@ -21,7 +21,7 @@ This outbound method is subject to the following requirements:
 
 + The upstream must be Azure Web App or Azure Function.
 
-+ The Azure Web PubSub Service service must be on the Standard tier.
++ The Azure Web PubSub Service service must be on the Standard or Premium tier.
 
 + The Azure Web App or Azure Function must be on certain SKUs. See [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 

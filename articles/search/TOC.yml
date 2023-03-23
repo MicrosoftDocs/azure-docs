@@ -25,8 +25,6 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
-  - name: Visual Studio Code 
-    href: search-get-started-vs-code.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -184,6 +182,8 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
+  - name: Create a search service
+    href: search-create-service-portal.md
   - name: Planning
     items:
     - name: Choose a tier
@@ -195,13 +195,13 @@
     - name: Plan and manage costs
       href: search-sku-manage-costs.md
     - name: Availability and recovery
-      href: search-performance-optimization.md
+      href: search-reliability.md
+    - name: Availability migration guidance
+      href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
   - name: Service management
     items:
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
     - name: Manage with PowerShell
@@ -214,19 +214,13 @@
       href: search-howto-move-across-regions.md
   - name: Security
     items:
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Find encrypted objects
-        href: search-security-get-encryption-keys.md
     - name: Inbound connections
       items:
-      - name: Use key authentication
+      - name: Connect using API keys
         href: search-security-api-keys.md
-      - name: Use Azure roles
+      - name: Connect using Azure roles
         href: search-security-rbac.md
-      - name: Authenticate apps with Azure AD
+      - name: Configure apps for Azure AD
         href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
@@ -244,6 +238,12 @@
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
+    - name: Data encryption
+      items:
+      - name: Customer-managed keys
+        href: search-security-manage-encryption-keys.md
+      - name: Find encrypted objects
+        href: search-security-get-encryption-keys.md
     - name: Document-level security
       items:
       - name: Security filters
@@ -368,8 +368,6 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Azure SQL Server VMs
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Power Query (preview - retired)
-        href: search-how-to-index-power-query-data-sources.md
       - name: SharePoint in Microsoft 365
         href: search-howto-index-sharepoint-online.md
   - name: Skillsets (indexers)
@@ -396,16 +394,8 @@
         href: cognitive-search-custom-skill-interface.md
       - name: Scale out custom skills
         href: cognitive-search-custom-skill-scale.md
-      - name: Example - Azure Functions (Python)
-        href: cognitive-search-custom-skill-python.md
-      - name: Example - Azure Functions
+      - name: Example - Bing Entity Search
         href: cognitive-search-create-custom-skill-example.md
-      - name: Example - Azure Form Recognizer
-        href: cognitive-search-custom-skill-form.md
-      - name: Example - Azure Machine Learning
-        href: cognitive-search-tutorial-aml-custom-skill.md
-      - name: Example - Azure Machine Learning Designer
-        href: cognitive-search-tutorial-aml-designer-custom-skill.md
     - name: Knowledge store
       items:
       - name: Create using REST
@@ -422,46 +412,50 @@
     items:
     - name: Create a basic query
       href: search-query-create.md
-    - name: Create a semantic query
-      href: semantic-how-to-query-request.md
-    - name: Return a semantic answer
-      href: semantic-answers.md
-    - name: Add spell check to queries
-      href: speller-how-to-add.md
-    - name: Search results paging and formatting
-      href: search-pagination-page-layout.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Use full Lucene (examples)
-      href: search-query-lucene-examples.md
-    - name: Partial terms and special characters
-      href: search-query-partial-matching.md
-    - name: Fuzzy search
-      href: search-query-fuzzy.md
+    - name: Add spell check to queries
+      href: speller-how-to-add.md
     - name: Autocomplete "Search-as-you-type"
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-add-autocomplete-suggestions.md
-  - name: Filters
-    items:
-    - name: Filter overview
-      href: search-filters.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
-    - name: Troubleshoot collection filters
-      href: search-query-troubleshoot-collection-filters.md
-    - name: Understand collection filters
-      href: search-query-understand-collection-filters.md
-    - name: Normalize text
-      href: search-normalizers.md
+    - name: Filters
+      items:
+      - name: Filter overview
+        href: search-filters.md
+      - name: Add faceted navigation
+        href: search-faceted-navigation.md
+      - name: Troubleshoot collection filters
+        href: search-query-troubleshoot-collection-filters.md
+      - name: Understand collection filters
+        href: search-query-understand-collection-filters.md
+      - name: Normalize text
+        href: search-normalizers.md
+    - name: Search results 
+      items:
+      - name: Paging, sorting, and formatting
+        href: search-pagination-page-layout.md
+      - name: Return a semantic answer
+        href: semantic-answers.md
+    - name: Advanced queries
+      items:
+      - name: Use full Lucene (examples)
+        href: search-query-lucene-examples.md
+      - name: Partial terms and special characters
+        href: search-query-partial-matching.md
+      - name: Fuzzy search
+        href: search-query-fuzzy.md
   - name: Relevance
     items:
     - name: Configure scoring
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
+    - name: Configure semantic search
+      href: semantic-how-to-query-request.md
   - name: Performance and monitoring
     items:
     - name: Performance analysis
@@ -493,7 +487,7 @@
     - name: Search API
       href: /dotnet/api/overview/azure/search.documents-readme
     - name: Management API
-      href: /dotnet/api/overview/azure/search/management
+      href: /dotnet/api/microsoft.azure.management.search
   - name: Java
     items:
     - name: Search API

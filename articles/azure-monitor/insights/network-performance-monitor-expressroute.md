@@ -4,7 +4,7 @@ description: Use the ExpressRoute Monitor capability in Network Performance Moni
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
-ms.date: 11/27/2018
+ms.date: 11/14/2022
 ms.reviewer: shijain
 
 ---
@@ -18,6 +18,8 @@ You can use the Azure ExpressRoute Monitor capability in [Network Performance Mo
 
 - Autodetection of ExpressRoute circuits associated with your subscription.
 - Tracking of bandwidth utilization, loss and latency at the circuit, peering, and Azure Virtual Network level for ExpressRoute.
+   > [!NOTE]
+   > Use [Connection Monitor](../../network-watcher/connection-monitor-overview.md) instead of Connection Monitor (Classic) when using VWAN with ExpressRoute.
 - Discovery of network topology of your ExpressRoute circuits.
 
 ![ExpressRoute Monitor](media/network-performance-monitor-expressroute/expressroute-intro.png)

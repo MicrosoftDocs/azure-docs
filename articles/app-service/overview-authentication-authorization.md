@@ -3,9 +3,9 @@ title: Authentication and authorization
 description: Find out about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 07/21/2021
+ms.date: 02/03/2023
 ms.reviewer: mahender
-ms.custom: seodec18, fasttrack-edit
+ms.custom: "UpdateFrequency3, seodec18, fasttrack-edit"
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
@@ -31,6 +31,8 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |
+| [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) | `/.auth/login/github` | [App Service GitHub login](configure-authentication-provider-github.md) |
+| [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/) | `/.auth/login/apple` | [App Service Sign in With Apple login (Preview)](configure-authentication-provider-apple.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [App Service OpenID Connect login](configure-authentication-provider-openid-connect.md) |
 
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
@@ -83,7 +85,7 @@ The authentication and authorization module runs in a separate container, isolat
 
 The authentication flow is the same for all providers, but differs depending on whether you want to sign in with the provider's SDK:
 
-- Without provider SDK: The application delegates federated sign-in to App Service. This is typically the case with browser apps, which can present the provider's login page to the user. The server code manages the sign-in process, so it is also called _server-directed flow_ or _server flow_. This case applies to browser apps. It also applies to native apps that sign users in using the Mobile Apps client SDK because the SDK opens a web view to sign users in with App Service authentication.
+- Without provider SDK: The application delegates federated sign-in to App Service. This is typically the case with browser apps, which can present the provider's login page to the user. The server code manages the sign-in process, so it is also called _server-directed flow_ or _server flow_. This case applies to browser apps and mobile apps that use an embedded browser for authentication. 
 - With provider SDK: The application signs users in to the provider manually and then submits the authentication token to App Service for validation. This is typically the case with browser-less apps, which can't present the provider's sign-in page to the user. The application code manages the sign-in process, so it is also called _client-directed flow_ or _client flow_. This case applies to REST APIs, [Azure Functions](../azure-functions/functions-overview.md), and JavaScript browser clients, as well as browser apps that need more flexibility in the sign-in process. It also applies to native mobile apps that sign users in using the provider's SDK.
 
 Calls from a trusted browser app in App Service to another REST API in App Service or [Azure Functions](../azure-functions/functions-overview.md) can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md).
@@ -95,7 +97,7 @@ The table below shows the steps of the authentication flow.
 | 1. Sign user in | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK and receives an authentication token. For information, see the provider's documentation. |
 | 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code [posts token from provider](configure-authentication-customize-sign-in-out.md#client-directed-sign-in) to `/.auth/login/<provider>` for validation. |
 | 3. Establish authenticated session | App Service adds authenticated cookie to response. | App Service returns its own authentication token to client code. |
-| 4. Serve authenticated content | Client includes authentication cookie in subsequent requests (automatically handled by browser). | Client code presents authentication token in `X-ZUMO-AUTH` header (automatically handled by Mobile Apps client SDKs). |
+| 4. Serve authenticated content | Client includes authentication cookie in subsequent requests (automatically handled by browser). | Client code presents authentication token in `X-ZUMO-AUTH` header. |
 
 For client browsers, App Service can automatically direct all unauthenticated users to `/.auth/login/<provider>`. You can also present users with one or more `/.auth/login/<provider>` links to sign in to your app using their provider of choice.
 
@@ -162,7 +164,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
     
     **Export settings**
     
-    `az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME?api-version=2020-09-01 --method get > auth.json`
+    `az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME/config/authsettingsV2?api-version=2020-09-01 --method get > auth.json`
     
     **Update settings**
     
@@ -178,7 +180,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
     
     **Import settings**
     
-    `az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME?api-version=2020-09-01 --method put --body @auth.json`
+    `az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME/config/authsettingsV2?api-version=2020-09-01 --method put --body @auth.json`
     
 ## More resources
 

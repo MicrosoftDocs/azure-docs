@@ -6,10 +6,10 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.date: 01/30/2023
 ---
 
-# Useful Diagnostic Queries
+# Useful diagnostic queries in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

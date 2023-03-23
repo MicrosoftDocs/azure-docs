@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, references_regions
 
 # Create an Azure Image Builder Bicep or ARM JSON template
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Azure Image Builder uses a Bicep file or an ARM JSON template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -536,7 +536,7 @@ Customize properties:
 - **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: `5m`.
 
 > [!NOTE]
-> There's no Linux restart customizer. If you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer. There's a 20min SSH timeout to the build VM.
+> There is no Linux restart customizer.
 
 ### PowerShell customizer
 
@@ -649,7 +649,7 @@ This customizer is supported by Windows directories and Linux paths, but there a
 If there's an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
 
 > [!NOTE]
-> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`. For files that are in Azure storage, ensure that you assign an identity with permissions to view that file to the build VM by following the documentation here: [User Assigned Identity for the Image Builder Build VM](https://learn.microsoft.com/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell#user-assigned-identity-for-the-image-builder-build-vm). Any file that is not stored in Azure must be publicly accessible for Azure Image Builder to be able to download it.
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`. For files that are in Azure storage, ensure that you assign an identity with permissions to view that file to the build VM by following the documentation here: [User Assigned Identity for the Image Builder Build VM](#user-assigned-identity-for-the-image-builder-build-vm). Any file that is not stored in Azure must be publicly accessible for Azure Image Builder to be able to download it.
 
 - **sha256Checksum** - generate the SHA256 checksum of the file locally, update the checksum value to lowercase, and Image Builder will validate the checksum during the deployment of the image template.
 
@@ -683,8 +683,8 @@ customize: [
     type: 'WindowsUpdate'
     searchCriteria: 'IsInstalled=0'
     filters: [
-      exclude:$_.Title -like '*Preview*''
-      include:$true'
+     'exclude:$_.Title -like \'*Preview*\''
+     'include:$true'
     ]
     updateLimit: 20
   }
@@ -760,7 +760,7 @@ Image Builder will read these commands, these commands are written out to the AI
 
 Azure Image Builder supports three distribution targets:
 
-- **managedImage** - managed image.
+- **ManagedImage** - Managed image.
 - **sharedImage** - Azure Compute Gallery.
 - **VHD** - VHD in a storage account.
 
@@ -974,7 +974,7 @@ az resource show \
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder.
+The `source` section contains information about the source image that will be used by Image Builder. Azure Image Builder only supports generalized images as source images, specialized images are not supported at this time.
 
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 
@@ -1154,7 +1154,7 @@ properties: {
   If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
   
 > [!IMPORTANT]
-> You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image. For the CLI command and portal instructions on how to assign the contributor role to the resource group see the following documentation [Troubleshoot VM Azure Image Builder: Authorization error creating disk](https://learn.microsoft.com/us/azure/virtual-machines/linux/image-builder-troubleshoot#authorization-error-creating-disk)
+> You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image. For the CLI command and portal instructions on how to assign the contributor role to the resource group see the following documentation [Troubleshoot VM Azure Image Builder: Authorization error creating disk](./image-builder-troubleshoot.md#authorization-error-creating-disk)
 
 - **The stagingResourceGroup property is specified with a resource group that doesn't exist**
 

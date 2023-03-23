@@ -6,10 +6,13 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 08/22/2022
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
 
 # Quickstart: Deploy your first application to Azure Spring Apps
+
+> [!NOTE]
+> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -23,6 +26,7 @@ The application code used in this tutorial is a simple app. When you've complete
 This quickstart explains how to:
 
 > [!div class="checklist"]
+
 > - Generate a basic Spring project.
 > - Provision a service instance.
 > - Build and deploy an app with a public endpoint.
@@ -35,6 +39,8 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Provision an instance of Azure Spring Apps
 
@@ -99,7 +105,7 @@ Use the following steps to clone the Spring Boot sample project.
 1. Use the following command to clone the [Spring Boot sample project](https://github.com/spring-guides/gs-spring-boot.git) from GitHub.
 
    ```azurecli-interactive
-   git clone https://github.com/spring-guides/gs-spring-boot.git
+   git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
 1. Use the following command to move to the project folder.
@@ -135,20 +141,21 @@ Deploying the application can take a few minutes.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Generate a Spring project
 
 Use the following steps to create the project:
 
-1. Use [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. The following URL provides default settings for you. 
+1. Use [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. The following URL provides default settings for you.
 
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.10&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 
-The following image shows the recommended Initializr settings for the *hellospring* sample project. 
+The following image shows the recommended Initializr settings for the *hellospring* sample project.
 
-This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**. 
+This example uses Java version 11.  To use a different Java version, change the Java version setting under **Project Metadata**.
 
 :::image type="content" source="media/quickstart/initializr-page.png" alt-text="Screenshot of Spring Initializr page." lightbox="media/quickstart/initializr-page.png":::
 
@@ -248,6 +255,10 @@ Use the following steps to build and deploy your app.
 
 ## [Visual Studio Code](#tab/VS-Code)
 
+## Prerequisites
+
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
 ## Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
 
 To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
@@ -277,5 +288,7 @@ To learn how to use more Azure Spring capabilities, advance to the quickstart se
 
 > [!div class="nextstepaction"]
 > [Introduction to the sample app](./quickstart-sample-app-introduction.md)
+
+For a packaged app template with Azure Spring Apps infrastructure provisioned using Bicep, see [Spring Boot PetClinic Microservices Application Deployed to Azure Spring Apps](https://github.com/Azure-Samples/apptemplates-microservices-spring-app-on-AzureSpringApps).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

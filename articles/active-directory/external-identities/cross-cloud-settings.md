@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 02/14/2023
 
 ms.author: mimart
 author: msmimart
@@ -14,10 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Microsoft cloud settings for B2B collaboration (Preview)
-
-> [!NOTE]
-> Microsoft cloud settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Configure Microsoft cloud settings for B2B collaboration
 
 When Azure AD organizations in separate Microsoft Azure clouds need to collaborate, they can use Microsoft cloud settings to enable Azure AD B2B collaboration. B2B collaboration is available between the following global and sovereign Microsoft Azure clouds:
 
@@ -49,7 +46,7 @@ In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to c
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings**.
-1. Select **Microsoft cloud settings (Preview)**.
+1. Select **Microsoft cloud settings**.
 1. Select the checkboxes next to the external Microsoft Azure clouds you want to enable.
 
    ![Screenshot showing Microsoft cloud settings.](media/cross-cloud-settings/cross-cloud-settings.png)

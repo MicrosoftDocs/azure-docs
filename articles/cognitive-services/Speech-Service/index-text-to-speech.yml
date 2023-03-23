@@ -32,8 +32,8 @@ landingContent:
       links:
         - text: Improve synthesis with SSML
           url: speech-synthesis-markup.md
-        - text: Synthesize large text samples with the Long Audio API
-          url: long-audio-api.md
+        - text: Batch synthesis for long-form text
+          url: batch-synthesis.md
     - linkListType: concept
       links:
         - text: What is Custom Neural Voice?

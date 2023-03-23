@@ -1,7 +1,6 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
-ms.service: azure-arc
-ms.date: 10/12/2022
+ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
@@ -231,8 +230,15 @@ Optional parameters:
 To delete a custom location, use the following command:
 
 ```azurecli
-az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+az customlocation delete -n <customLocationName> -g <resourceGroupName> 
 ```
+
+Required parameters:
+
+| Parameter name | Description |
+|----------------|------------|
+| `--name, --n` | Name of the custom location |
+| `--resource-group, --g` | Resource group of the custom location  |
 
 ## Troubleshooting
 
@@ -245,4 +251,4 @@ To resolve this issue, modify your network policy to allow pod-to-pod internal c
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment.
 - Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
-- Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions.md#currently-available-extensions).
+- Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions-release.md).

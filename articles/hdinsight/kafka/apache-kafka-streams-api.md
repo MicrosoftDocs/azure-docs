@@ -4,7 +4,7 @@ description: Tutorial - Learn how to use the Apache Kafka Streams API with Kafka
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 08/23/2022
+ms.date: 11/17/2022
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -14,7 +14,7 @@ Learn how to create an application that uses the Apache Kafka Streams API and ru
 
 The application used in this tutorial is a streaming word count. It reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
 
-Kafka stream processing is often done using Apache Spark or Apache Storm. Kafka version 1.1.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution.
+Kafka stream processing is often done using Apache Spark. Kafka version 2.1.1 and 2.4.1 (in HDInsight 4.0 and 5.0) supports the Kafka Streams API. This API allows you to transform data streams between input and output topics. 
 
 For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A Kafka on HDInsight 3.6 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
+* A Kafka on HDInsight 4.0 or 5.0 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
 * Complete the steps in the [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
@@ -64,7 +64,7 @@ The important things to understand in the `pom.xml` file are:
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
 
-    * `maven-compiler-plugin`: Used to set the Java version used by the project to 8. Java 8 is required by HDInsight 3.6.
+    * `maven-compiler-plugin`: Used to set the Java version used by the project to 8. Java 8 is required by HDInsight 4.0 and 5.0.
     * `maven-shade-plugin`: Used to generate an uber jar that contains this application, and any dependencies. It's also used to set the entry point of the application, so that you can directly run the Jar file without having to specify the main class.
 
 ### Stream.java

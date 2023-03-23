@@ -56,4 +56,4 @@ Defender for IoT will now monitor your newly added resource groups, and surfaces
 Advance to the next article to learn how to create Defender-IoT-micro-agent.
 
 > [!div class="nextstepaction"]
-> [Create a Defender for IoT micro agent module twin (Preview)](tutorial-create-micro-agent-module-twin.md)
+> [Create a Defender for IoT micro agent module twin](tutorial-create-micro-agent-module-twin.md)

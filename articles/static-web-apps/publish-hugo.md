@@ -149,7 +149,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
       - name: Build And Deploy
@@ -176,7 +176,7 @@ If your Hugo application uses the [Git Info feature](https://gohugo.io/variables
 Update your workflow file to [fetch your full Git history](https://github.com/actions/checkout/blob/main/README.md#fetch-all-history-for-all-tags-and-branches) by adding a new parameter under the `actions/checkout` step to set the `fetch-depth` to `0` (no limit):
 
 ```yaml
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
           fetch-depth: 0

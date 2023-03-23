@@ -1,5 +1,5 @@
 ---
-title: 'How to customize a model with Azure OpenAI (REST)'
+title: 'How to customize a model with Azure OpenAI Service (REST)'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI by using the REST API
 services: cognitive-services
@@ -17,9 +17,9 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource
     
     For more information about creating a resource, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
@@ -98,14 +98,14 @@ The first step in creating a customized model is to choose a base model. The cho
 - `davinci`\*
     \* available by request
 
-You can use the [Models API](../reference.md#models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
+You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
 ## Upload your training data
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. Once you've prepared your training data, you can upload your files to the service. We offer two ways to upload training data:
 
-- [From a local file](../reference.md#upload-a-file)
-- [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-azure-blob)
+- [From a local file](/rest/api/cognitiveservices/azureopenaistable/files/upload)
+- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaistable/files/import)
 
 For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
@@ -209,7 +209,7 @@ status = (r.json())["status"]
 print(f'Fine-tuning model with job ID: {job_id}.')
 ```
 
-You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
+You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/create) section of the [REST API](/rest/api/cognitiveservices/azureopenaistable/fine-tunes) documentation.
 
 ## Check the status of your customized model
 
@@ -242,7 +242,7 @@ print(f'Found {len((r.json())["data"])} fine-tune jobs.')
 
 ## Deploy a customized model
 
-When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](../reference.md#list-all-available-models). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
@@ -383,7 +383,7 @@ You can use various methods to delete the deployment for your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
-- [REST APIs](../reference.md#delete-a-deployment) 
+- [REST APIs](/rest/api/cognitiveservices/azureopenaistable/deployments/delete)
 - Python SDK
 
 The following Python example uses the REST API to delete the deployment for your customized model.
@@ -400,7 +400,7 @@ r = requests.delete(api_base + 'openai/deployments/' + deployment_id,
 Similarly, you can use various methods to delete your customized model:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
-- [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) 
+- [REST APIs](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/delete)
 - Python SDK
 
 > [!NOTE]
@@ -420,7 +420,7 @@ r = requests.delete(api_base + 'openai/fine-tunes/' + job_id,
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
-- [REST APIs](../reference.md#delete-a-file) 
+- [REST APIs](/rest/api/cognitiveservices/azureopenaistable/files/delete)
 - Python SDK
 
 The following Python example uses the REST API to delete the training, validation, and result files for your customized model.
@@ -456,5 +456,5 @@ for id in results:
 
 ## Next steps
 
-- Explore the full REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [full REST documentation here](../reference.md).
+- Explore the control plane REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [control plane REST documentation here](/rest/api/cognitiveservices/azureopenaistable/deployments).
 - Explore more of the [Python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).

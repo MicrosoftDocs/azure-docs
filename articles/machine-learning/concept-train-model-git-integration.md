@@ -10,7 +10,7 @@ author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
 ms.date: 04/05/2022
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 # Git integration for Azure Machine Learning
 
@@ -32,7 +32,7 @@ Azure Machine Learning provides a shared file system for all users in the worksp
 To clone a Git repository into this file share, we recommend that you create a compute instance & [open a terminal](how-to-access-terminal.md).
 Once the terminal is opened, you have access to a full Git client and can clone and work with Git via the Git CLI experience.
 
-We recommend that you clone the repository into your users directory so that others will not make collisions directly on your working branch.
+We recommend that you clone the repository into your user directory so that others will not make collisions directly on your working branch.
 
 > [!TIP]
 > There is a performance difference between cloning to the local file system of the compute instance or cloning to the mounted filesystem (mounted as  the `~/cloudfiles/code` directory). In general, cloning to the local filesystem will have better performance than to the mounted filesystem. However, the local filesystem is lost if you delete and recreate the compute instance. The mounted filesystem is kept if you delete and recreate the compute instance.
@@ -87,15 +87,16 @@ cat ~/.ssh/id_rsa.pub
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
 > * FireFox/IE may not support clipboard permissions properly.
 
-2) Select and copy the key output in the clipboard.
+2) Select and copy the SSH key output to your clipboard.
+3) Next, follow the steps to add the SSH key to your preferred account type:
 
 + [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
-+ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
++ [GitLab](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account)
 
 + [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
 
-+ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Follow **Step 4**.
 
 ### Clone the Git repository with SSH
 
@@ -180,16 +181,27 @@ The logged information contains text similar to the following JSON:
 }
 ```
 
-### Python SDK
+### View properties
 
-After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.run%28class%29) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
+After submitting a training run, a [Job](/python/api/azure-ai-ml/azure.ai.ml.entities.job) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
-run.properties['azureml.git.commit']
+job.properties["azureml.git.commit"]
 ```
+
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml job show --name my_job_id --query "{GitCommit:properties."""azureml.git.commit"""}"
+```
+
+---
 
 ## Next steps
 
-* [Use compute targets for model training](v1/how-to-set-up-training-targets.md)
+* [Access a compute instance terminal in your workspace](how-to-access-terminal.md)

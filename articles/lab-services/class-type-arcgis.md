@@ -4,8 +4,8 @@ description: Learn how to set up a lab for classes using ArcGIS.
 author: nicolela
 ms.topic: how-to
 ms.date: 02/28/2022
-ms.author: nicolela
 ms.custom: devdivchpfy22
+ms.service: lab-services
 ---
 
 # Set up a lab for ArcMap\ArcGIS Desktop

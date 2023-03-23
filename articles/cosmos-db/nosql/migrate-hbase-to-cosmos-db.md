@@ -343,7 +343,7 @@ sqlline.py ZOOKEEPER/hbase-unsecure
 
 ### Migration options
 
-There are various methods to migrate data offline, but here we will introduce how to use Azure Data Factory and Data Migration Tool.
+There are various methods to migrate data offline, but here we will introduce how to use Azure Data Factory.
 
 | Solution    | Source version | Considerations  |
 | --------- | -------- | ------- |
@@ -458,7 +458,6 @@ It writes in parallel at high speed, its performance is high. On the other hand,
 Phoenix is supported as a Data Factory data source. Refer to the following documents for detailed steps.
 
 * [Copy data from Phoenix using Azure Data Factory](../../data-factory/connector-phoenix.md)
-* [Tutorial: Use Data migration tool to migrate your data to Azure Cosmos DB](../import-data.md)
 * [Copy data from HBase using Azure Data Factory](../../data-factory/connector-hbase.md)
 
 ## Migrate your code

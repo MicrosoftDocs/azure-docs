@@ -35,6 +35,11 @@ There are different error messages that correspond to different types of 429 exc
 ## Request rate is large
 This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you're using manual throughput, this occurs when you've consumed more RU/s than the manual throughput provisioned. If you're using autoscale, this occurs when you've consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you'll see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you'll see 429 responses when you consume more than 4000 request units in a single second.
 
+> [!TIP]
+> All operations are charged based on the number of resources they consume. These charges are measured in request units. These charges include requests that do not complete successfully due to application errors such as `400`, `412`, `449`, etc. While looking at throttling or usage, it is a good idea to investigate if some pattern has changed in your usage which would result in an increase of these operations. Specifically, check for tags `412` or `449` (actual conflict).
+>
+> For more information about provisioned throughput, see [provisioned throughput in Azure Cosmos DB](../set-throughput.md).
+
 ### Step 1: Check the metrics to determine the percentage of requests with 429 error
 Seeing 429 error messages doesn't necessarily mean there's a problem with your database or container. A small percentage of 429 responses is normal whether you're using manual or autoscale throughput, and is a sign that you're maximizing the RU/s you've provisioned.
 
@@ -116,7 +121,8 @@ If there's high percent of rate limited requests and no hot partition:
 
 If there's high percent of rate limited requests and there's an underlying hot partition:
 -  Long-term, for best cost and performance, consider **changing the partition key**. The partition key can't be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
-- Short-term, you can temporarily increase the RU/s to allow more throughput to the hot partition. This isn't recommended as a long-term strategy, as it leads to overprovisioning RU/s and higher cost. 
+- Short-term, you can temporarily increase the overall RU/s of the resource to allow more throughput to the hot partition. This isn't recommended as a long-term strategy, as it leads to overprovisioning RU/s and higher cost. 
+- Short-term, you can use the [**throughput redistribution across partitions feature** (preview)](distribute-throughput-across-partitions.md) to assign more RU/s to the physical partition that is hot. This is recommended only when the hot physical partition is predictable and consistent.
 
 > [!TIP]
 >  When you increase the throughput, the scale-up operation will either complete instantaneously or require up to 5-6 hours to complete, depending on the number of RU/s you want to scale up to. If you want to know the highest number of RU/s you can set without triggering the asynchronous scale-up operation (which requires Azure Cosmos DB to provision more physical partitions), multiply the number of distinct PartitionKeyRangeIds by 10,0000 RU/s. For example, if you have 30,000 RU/s provisioned and 5 physical partitions (6000 RU/s allocated per physical partition), you can increase to 50,000 RU/s (10,000 RU/s per physical partition) in an instantaneous scale-up operation. Increasing to >50,000 RU/s would require an asynchronous scale-up operation. Learn more about [best practices for scaling provisioned throughput (RU/s)](../scaling-provisioned-throughput-best-practices.md).
@@ -182,7 +188,7 @@ Yes. There are two main scenarios where this can occur.
 
 For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you'll see 429 responses when the underlying physical partition it resides in exceeds 5000 RU/s, that is, exceeds 100% normalized utilization.
 
-Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-theres-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429 responses) to debug these scenarios.
+Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-theres-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429-responses) to debug these scenarios.
 
 Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale didn't scale to the max RU/s?**
 

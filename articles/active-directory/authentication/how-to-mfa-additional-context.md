@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 01/29/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management

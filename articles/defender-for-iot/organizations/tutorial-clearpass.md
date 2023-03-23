@@ -3,10 +3,10 @@ title: Integrate ClearPass with Microsoft Defender for IoT
 description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with ClearPass.
 ms.topic: tutorial
 ms.date: 02/07/2022
-ms.custom: template-tutorial
+ms.custom: how-to
 ---
 
-# Tutorial: Integrate ClearPass with Microsoft Defender for IoT
+# Integrate ClearPass with Microsoft Defender for IoT
 
 This tutorial will help you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT.
 
@@ -25,6 +25,7 @@ The integration allows for the following:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Create a ClearPass API user
 > - Create a ClearPass operator profile
 > - Create a ClearPass OAuth API client
@@ -151,6 +152,8 @@ To enable viewing the device inventory in ClearPass, you need to set up Defender
 
 To enable viewing the alerts discovered by Defender for IoT in Aruba, you need to set the forwarding rule. This rule defines which information about the ICS, and SCADA security threats identified by Defender for IoT security engines is sent to ClearPass.
 
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+
 **To define a ClearPass forwarding rule on the Defender for IoT sensor**:
 
 1. In the Defender for IoT sensor, select **Forwarding** and then select **Create new rule**.
@@ -166,12 +169,11 @@ To enable viewing the alerts discovered by Defender for IoT in Aruba, you need t
 1. In the **Host** field, define the ClearPass server IP and port to send alert information.
 1. Define which alert information you want to forward.
     - **Report illegal function codes:** Protocol violations - Illegal field value violating ICS protocol specification (potential exploit).
-    -  **Report unauthorized PLC programming and firmware updates:** Unauthorized PLC changes.
-    -  **Report unauthorized PLC stop:** PLC stop (downtime). 
-    - **Report malware related alerts:** Industrial malware attempts, such as TRITON, NotPetya. 
+    - **Report unauthorized PLC programming and firmware updates:** Unauthorized PLC changes.
+    - **Report unauthorized PLC stop:** PLC stop (downtime).
+    - **Report malware related alerts:** Industrial malware attempts, such as TRITON, NotPetya.
     - **Report unauthorized scanning:** Unauthorized scanning (potential reconnaissance)
 1. Select **Save**.
-
 
 ## Monitor ClearPass and Defender for IoT communication
 
@@ -182,7 +184,6 @@ Once the sync has started, endpoint data is populated directly into the Policy M
 1. Sign in to the Defender for IoT sensor.
 
 1. Select **System settings** > **Integrations** > **ClearPass**.
-
 
     :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="Screenshot of the view the time and date of your last sync.":::
 
@@ -198,6 +199,4 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this article, you learned how to get started with the ClearPass integration. Continue on to learn about our [CyberArk integration](./tutorial-cyberark.md). 
-
-
+In this article, you learned how to get started with the ClearPass integration. Continue on to learn about our [CyberArk integration](./tutorial-cyberark.md).

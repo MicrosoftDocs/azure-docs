@@ -10,7 +10,7 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/29/2022
-ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (SDK v1, part 1 of 3)

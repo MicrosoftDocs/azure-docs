@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 02/21/2023
 ms.author: helohr
 manager: femila
 ---
@@ -17,19 +17,25 @@ In this article, we'll give you a brief overview of what kinds of identities and
 
 Azure Virtual Desktop supports different types of identities depending on which configuration you choose. This section explains which identities you can use for each configuration.
 
+>[!IMPORTANT]
+>Azure Virtual Desktop doesn't support signing in to Azure AD with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using MSIX app attach.
+
 ### On-premises identity
 
 Since users must be discoverable through Azure Active Directory (Azure AD) to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) aren't supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
 
 ### Hybrid identity
 
-Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure AD, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Azure AD using [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You can also use Azure AD to manage these identities and sync them to [Azure AD Directory Services (Azure AD DS)](../active-directory-domain-services/overview.md).
+Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure AD, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Azure AD using [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You can also use Azure AD to manage these identities and sync them to [Azure AD Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md).
 
 When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Azure AD don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Azure AD accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Azure AD.
 
 ### Cloud-only identity
 
-Azure Virtual Desktop supports cloud-only identities when using [Azure AD-joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+
+>[!NOTE]
+>You can also assign hybrid identities to Azure Virtual Desktop Application groups that host Session hosts of join type Azure AD joined.
 
 ### Third-party identity providers
 

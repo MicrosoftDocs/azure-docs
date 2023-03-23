@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN (preview) volume from 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
@@ -88,7 +88,10 @@ Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $resourceGroupName -El
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
+# First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
+virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $resourceGroupName --query 'length(networkAcls.virtualNetworkRules)'
+
+az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
 ```
 ---
 
@@ -119,7 +122,7 @@ Install Multipath I/O, enable multipath support for iSCSI devices, and set a def
 
 ```powershell
 # Install Multipath-IO
-Add-WindowsFeature -Name 'Multipath-IO'
+Add-WindowsFeature -Name 'Multipath-IO'
 
 # Verify if the installation was successful
 Get-WindowsFeature -Name 'Multipath-IO'
@@ -165,22 +168,22 @@ To script multi-session configurations, use two files. An XML configuration file
 The following example shows you how to format your XML file for the script, for each volume, create a new `<Target>` section:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Targets>
-  <Target>
-     <Iqn>Volume 1 Storage Target Iqn</Iqn>
-     <Hostname>Volume 1 Storage Target Portal Hostname</Hostname>
-     <Port>Volume 1 Storage Target Portal Port</Port>
-     <NumSessions>Number of sessions</NumSessions>
-     <EnableMultipath>true</EnableMultipath>
-  </Target>
-  <Target>
-     <Iqn>Volume 2 Storage Target Iqn</Iqn>
-     <Hostname>Volume 2 Storage Target Portal Hostname</Hostname>
-     <Port>Volume 2 Storage Target Portal Port</Port>
-     <NumSessions>Number of sessions</NumSessions>
-     <EnableMultipath>true</EnableMultipath>
-  </Target>
+  <Target>
+     <Iqn>Volume 1 Storage Target Iqn</Iqn>
+     <Hostname>Volume 1 Storage Target Portal Hostname</Hostname>
+     <Port>Volume 1 Storage Target Portal Port</Port>
+     <NumSessions>Number of sessions</NumSessions>
+     <EnableMultipath>true</EnableMultipath>
+  </Target>
+  <Target>
+     <Iqn>Volume 2 Storage Target Iqn</Iqn>
+     <Hostname>Volume 2 Storage Target Portal Hostname</Hostname>
+     <Port>Volume 2 Storage Target Portal Port</Port>
+     <NumSessions>Number of sessions</NumSessions>
+     <EnableMultipath>true</EnableMultipath>
+  </Target>
 </Targets>
 ```
 
@@ -188,39 +191,39 @@ Use the following script to create the connections, to run the script use `.\Log
 
 ```
 param(
-  [string] $TargetConfigPath
+  [string] $TargetConfigPath
 )
-$TargetConfig = New-Object XML
+$TargetConfig = New-Object XML
 $TargetConfig.Load($TargetConfigPath)
-foreach ($Target in $TargetConfig.Targets.Target)
+foreach ($Target in $TargetConfig.Targets.Target)
 {
-  $TargetIqn = $Target.Iqn
-  $TargetHostname = $Target.Hostname
-  $TargetPort = $Target.Port
-  $NumSessions = $Target.NumSessions
-  $succeeded = 1
-  iscsicli AddTarget $TargetIqn * $TargetHostname $TargetPort * 0 * * * * * * * * * 0
-  while ($succeeded -le $NumSessions)
-  {
-    Write-Host "Logging session ${succeeded}/${NumSessions} into ${TargetIqn}"
-    $LoginOptions = '*'
-    if ($Target.EnableMultipath)
-    {
-        Write-Host "Enabled Multipath"
-        $LoginOptions = '0x00000002'
-    }
-    # PersistentLoginTarget will not establish login to the target until after the system is rebooted.
-    # Use LoginTarget if the target is needed before rebooting. Using just LoginTarget will not persist the
-    # session(s).
-    iscsicli PersistentLoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
-    #iscsicli LoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
-    if ($LASTEXITCODE -eq 0)
-    {
-        $succeeded += 1
-    }
-    Start-Sleep -s 1
-    Write-Host ""
-  }
+  $TargetIqn = $Target.Iqn
+  $TargetHostname = $Target.Hostname
+  $TargetPort = $Target.Port
+  $NumSessions = $Target.NumSessions
+  $succeeded = 1
+  iscsicli AddTarget $TargetIqn * $TargetHostname $TargetPort * 0 * * * * * * * * * 0
+  while ($succeeded -le $NumSessions)
+  {
+    Write-Host "Logging session ${succeeded}/${NumSessions} into ${TargetIqn}"
+    $LoginOptions = '*'
+    if ($Target.EnableMultipath)
+    {
+        Write-Host "Enabled Multipath"
+        $LoginOptions = '0x00000002'
+    }
+    # PersistentLoginTarget will not establish login to the target until after the system is rebooted.
+    # Use LoginTarget if the target is needed before rebooting. Using just LoginTarget will not persist the
+    # session(s).
+    iscsicli PersistentLoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
+    #iscsicli LoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
+    if ($LASTEXITCODE -eq 0)
+    {
+        $succeeded += 1
+    }
+    Start-Sleep -s 1
+    Write-Host ""
+  }
 }
 ```
 

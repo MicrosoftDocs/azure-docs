@@ -25,8 +25,8 @@ In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) applica
 You can set up a new Nuxt project using `npx nuxi init nuxt-app`. Instead of using a new project, this tutorial uses an existing repository set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web Apps.
 
 1. Create a new repository under your GitHub account from a template repository.
-1. Go to [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
-1. Name the repository **nuxtjs-starter**.
+1. Go to [http://github.com/staticwebdev/nuxt-3-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxt-3-starter/generate)
+1. Name the repository **nuxt-3-starter**.
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash
@@ -143,7 +143,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxt-3-starter/actions
 
 ### Synchronize changes
 
-When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. Return to the terminal and run the following command to pull the commit containing the new file.
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. Return to the terminal and run the following command `git pull origin main` to pull the commit containing the new file.
 
 ## Configure dynamic routes
 
@@ -186,7 +186,7 @@ If the page is a dynamic page, for example `_id.vue`, it won't have enough infor
 
 Make changes to the app by updating the code and pushing it to GitHub. GitHub Actions automatically builds and deploys the app.
 
-For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://v3.nuxtjs.org/guide/deploy/providers/azure/).
+For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://nitro.unjs.io/deploy/providers/azure).
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)

@@ -104,11 +104,14 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
    > the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
    > provide a start date and time for when you want the first recurrence to run.
    >
+   > If you deploy a disabled Consumption workflow that has a Recurrence trigger using an ARM template, the trigger 
+   > instantly fires when you enable the workflow unless you set the **Start time** parameter before deployment.
+   >
    > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, 
    > those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to 
    > factors such as latency during storage calls. To make sure that your logic app doesn't miss a recurrence, especially when 
    > the frequency is in days or longer, try the following options:
-   >
+   > 
    > * Provide a start date and time for the recurrence and the specific times to run subsequent recurrences. You can use the 
    > properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
    >

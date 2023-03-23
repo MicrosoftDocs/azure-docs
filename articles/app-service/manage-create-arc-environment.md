@@ -248,8 +248,8 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-settings "customConfigMap=${namespace}/kube-environment-config" \
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -274,8 +274,8 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-settings "customConfigMap=${namespace}/kube-environment-config" `
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" `
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" `
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" `
+        --config-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
     ---

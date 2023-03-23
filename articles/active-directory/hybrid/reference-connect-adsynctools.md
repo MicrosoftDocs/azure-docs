@@ -5,7 +5,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
@@ -669,7 +669,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 #### -Credential
-Azure AD Global Admin Credential
+Azure AD Global Administrator Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -967,7 +967,7 @@ Import-ADSyncToolsSourceAnchor -OutputFile '.\AllSyncUsers.csv'
 ```
 #### EXAMPLE 2
 ```
-Another example of how to use this cmdlet
+Import-ADSyncToolsSourceAnchor -OutputFile '.\AllSyncUsers.csv' -IncludeSyncUsersFromRecycleBin
 ```
 ### PARAMETERS
 #### -Output
@@ -1013,8 +1013,8 @@ New-ADSyncToolsSqlConnection -Server SQLserver01.Contoso.com -Port 49823 | Invok
 #### EXAMPLE 2
 ```
 $sqlConn = New-ADSyncToolsSqlConnection -Server SQLserver01.Contoso.com -Port 49823
-```
 Invoke-ADSyncToolsSqlQuery -SqlConnection $sqlConn -Query 'SELECT *, database_id FROM sys.databases'
+```
 ### PARAMETERS
 #### -SqlConnection
 SQL Connection
@@ -1071,7 +1071,7 @@ Remove-ADSyncToolsAadObject -SourceAnchor '2epFRNMCPUqhysJL3SWL1A==' -SyncObject
 ```
 ### PARAMETERS
 #### -Credential
-Azure AD Global Admin Credential
+Azure AD Global Administrator Credential
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -1167,15 +1167,15 @@ Each certificate will be backed up to a separated filename: ObjectClass_ObjectGU
 The script will also create a log file in CSV format showing all the users with certificates that either are valid or expired including the actual action taken (Skipped/Exported/Deleted).
 ### EXAMPLES
 #### EXAMPLE 1
-```
 Check all users in target OU - Expired Certificates will be copied to separated files and no certificates will be removed
 ```
 Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Users,OU=Corp,DC=Contoso,DC=com" -ObjectClass user
-#### EXAMPLE 2
 ```
+#### EXAMPLE 2
 Delete Expired Certs from all Computer objects in target OU - Expired Certificates will be copied to files and removed from AD
 ```
 Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computer -BackupOnly $false
+```
 ### PARAMETERS
 #### -TargetOU
 Target OU to lookup for AD objects
@@ -1473,16 +1473,16 @@ Creates a trace file '.\ADimportTrace_yyyyMMddHHmmss.log' on the current folder.
 To use -ADConnectorXML, go to the Synchronization Service Manager, right-click your AD Connector and select "Export Connector..."
 ### EXAMPLES
 #### EXAMPLE 1
-```
 Trace Active Directory Import for user objects by providing an AD Connector XML file
 ```
 Trace-ADSyncToolsADImport -DC 'DC1.contoso.com' -RootDN 'DC=Contoso,DC=com' -Filter '(&(objectClass=user))' -ADConnectorXML .\ADConnector.xml
-#### EXAMPLE 2
 ```
+#### EXAMPLE 2
 Trace Active Directory Import for all objects by providing the Active Directory watermark (cookie) and AD Connector credential
 ```
 $creds = Get-Credential
 Trace-ADSyncToolsADImport -DC 'DC1.contoso.com' -RootDN 'DC=Contoso,DC=com' -Credential $creds -ADwatermark "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
+```
 ### PARAMETERS
 #### -DC
 Target Domain Controller
@@ -1665,11 +1665,11 @@ Note: ConsistencyGuid Report must be imported with Tab delimiter
 ### EXAMPLES
 #### EXAMPLE 1
 ```
-Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsSourceAnchor -Output .\AllSyncUsersTEST-Result2 -WhatIf
+Import-Csv .\AllSyncUsers-Report.csv -Delimiter "`t"| Update-ADSyncToolsSourceAnchor -Output .\AllSyncUsersTEST-Result2 -WhatIf
 ```
 #### EXAMPLE 2
 ```
-Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsSourceAnchor -Output .\AllSyncUsersTEST-Result2
+Import-Csv .\AllSyncUsers-Report.csv -Delimiter "`t"| Update-ADSyncToolsSourceAnchor -Output .\AllSyncUsersTEST-Result2
 ```
 ### PARAMETERS
 #### -DistinguishedName

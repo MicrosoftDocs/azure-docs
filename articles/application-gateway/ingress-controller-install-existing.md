@@ -299,7 +299,7 @@ appgw:
 Apply the Helm changes:
   1. Ensure the `AzureIngressProhibitedTarget` CRD is installed with:
       ```bash
-      kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/ae695ef9bd05c8b708cedf6ff545595d0b7022dc/crds/AzureIngressProhibitedTarget.yaml
+      kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/7b55ad194e7582c47589eb9e78615042e00babf3/crds/AzureIngressProhibitedTarget-v1-CRD-v1.yaml
       ```
   2. Update Helm:
       ```bash

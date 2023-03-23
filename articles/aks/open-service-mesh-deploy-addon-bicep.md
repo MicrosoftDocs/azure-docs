@@ -1,7 +1,6 @@
 ---
 title: Deploy the Open Service Mesh add-on by using Bicep
 description: Use a Bicep template to deploy the Open Service Mesh (OSM) add-on to Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 9/20/2021
 ms.author: pgibson
@@ -13,8 +12,8 @@ This article shows you how to deploy the Open Service Mesh (OSM) add-on to Azure
 
 > [!IMPORTANT]
 > Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM:
-> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.0* of OSM.
-> - If your cluster is running a version of Kubernetes between 1.23.5 and 1.24.0, the OSM add-on installs version *1.1.1* of OSM.
+> - If your cluster is running Kubernetes version 1.24.0 or greater, the OSM add-on installs version *1.2.3* of OSM.
+> - If your cluster is running a version of Kubernetes between 1.23.5 and 1.24.0, the OSM add-on installs version *1.1.3* of OSM.
 > - If your cluster is running a version of Kubernetes below 1.23.5, the OSM add-on installs version *1.0.0* of OSM.
 
 [Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language that uses declarative syntax to deploy Azure resources. You can use Bicep in place of creating [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to deploy your infrastructure-as-code Azure resources.

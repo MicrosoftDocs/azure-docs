@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services Preview - Seismic store sdutil tutorial #Required; page title is displayed in search results. Include the brand.
+title: Microsoft Azure Data Manager for Energy Preview - Seismic store sdutil tutorial #Required; page title is displayed in search results. Include the brand.
 description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store. #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
@@ -13,7 +13,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Seismic store sdutil
 
-Sdutil is a command line python utility tool designed to easily interact with seismic store. The seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider by managing generic datasets as multi-independent objects. This provides a generic, reliable, and better performing solution to handle data in cloud storage.
+Sdutil is a command line Python utility tool designed to easily interact with seismic store. The seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider by managing generic datasets as multi-independent objects. This provides a generic, reliable, and better performing solution to handle data in cloud storage.
 
 **Sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
 
@@ -27,7 +27,7 @@ Windows
 
 - [64-bit Python 3.8.3](https://www.python.org/ftp/python/3.8.3/python-3.8.3-amd64.exe)
 - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-- [Linux Subsystem Ubuntu](https://learn.microsoft.com/windows/wsl/install)
+- [Linux Subsystem Ubuntu](/windows/wsl/install)
 
 Linux
 
@@ -301,11 +301,11 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
   ./scripts/changelog-generator.sh
 ```
 
-## Usage for Microsoft Energy Data Services
+## Usage for Azure Data Manager for Energy Preview
 
-Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your MEDS instance.
+Azure Data Manager for Energy Preview instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your Azure Data Manager for Energy instance.
 
-1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
+1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 
 2. Run below commands to sign in, list, upload and download files in the seismic store.
 

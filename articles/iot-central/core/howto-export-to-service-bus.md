@@ -2,8 +2,8 @@
 title: Export data to Service Bus IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Service Bus
 services: iot-central
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -100,7 +100,7 @@ az role assignment create --assignee $PI --role "Azure Service Bus Data Sender" 
 az role assignment list --assignee $PI --all -o table
 
 echo "Host name: $SBNS.servicebus.windows.net"
-echo "Queue: $CN"
+echo "Queue: $SBQ"
 ```
 
 To further secure your queue or topic and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
@@ -128,6 +128,8 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 [!INCLUDE [iot-central-data-export-device-lifecycle](../../../includes/iot-central-data-export-device-lifecycle.md)]
 
 [!INCLUDE [iot-central-data-export-device-template](../../../includes/iot-central-data-export-device-template.md)]
+
+[!INCLUDE [iot-central-data-export-audit-logs](../../../includes/iot-central-data-export-audit-logs.md)]
 
 For Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 

@@ -95,8 +95,6 @@ Now that you've deployed an IoT hub using a PowerShell cmdlet, explore more arti
 
 Develop for IoT Hub:
 
-* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
-
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 Explore the capabilities of IoT Hub:

@@ -4,13 +4,16 @@ description: Learn how to add managed disks to an Azure disk pool or disable iSC
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Manage an Azure disk pool (preview)
+
+> [!IMPORTANT]
+> Disk pools are being retired soon. If you're looking for an alternative solution, see either [Azure Elastic SAN (preview)](../storage/elastic-san/elastic-san-introduction.md) or [Azure NetApp Files](../aks/azure-netapp-files.md).
 
 This article covers how to add a managed disk to an Azure disk pool (preview) and how to disable iSCSI support on a disk that has been added to a disk pool.
 
@@ -46,7 +49,7 @@ Now that you've attached your disk and enabled the LUN, you must create and atta
 
 ### Prerequisites
 
-Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true) of the Azure PowerShell module.
+Install [version 6.1.0 or newer](/powershell/module/az.diskpool/) of the Azure PowerShell module.
 
 Install the disk pool module using the following command:
 

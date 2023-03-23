@@ -2,7 +2,7 @@
 title: Azure Application Insights for JavaScript web apps
 description: Get page view and session counts, web client data, and single-page applications and track usage patterns. Detect exceptions and performance issues in JavaScript webpages.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/15/2022
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Find out about the performance and usage of your webpage or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures. You also get user and session counts. All this telemetry can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. By inserting trace calls in your JavaScript code, you can track how the different features of your webpage application are used.
 
-Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
+Application Insights can be used with any webpages by adding a short piece of JavaScript. Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](opentelemetry-enable.md?tabs=java) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 ## Add the JavaScript SDK
 
@@ -90,7 +90,7 @@ This version of the snippet detects and reports failures when the SDK is loaded 
 - Missing telemetry on how your users are using your site.
 - Missing JavaScript errors that could potentially be blocking your users from successfully using your site.
 
-For information on this exception, see the [SDK load failure](javascript-sdk-load-failure.md) troubleshooting page.
+For information on this exception, see the [SDK load failure](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting) troubleshooting page.
 
 Reporting of this failure as an exception to the portal doesn't use the configuration option ```disableExceptionTracking``` from the Application Insights configuration. For this reason, if this failure occurs, it will always be reported by the snippet, even when `window.onerror` support is disabled.
 
@@ -204,7 +204,7 @@ Most configuration fields are named so that they can default to false. All field
 | disableFlush&#8203;OnBeforeUnload | If true, flush method won't be called when `onBeforeUnload` event triggers. | boolean<br/> false |
 | enableSessionStorageBuffer | If true, the buffer with all unsent telemetry is stored in session storage. The buffer is restored on page load. | boolean<br />true |
 | cookieCfg | Defaults to cookie usage enabled. For full defaults, see [ICookieCfgConfig](#icookiemgrconfig) settings. | [ICookieCfgConfig](#icookiemgrconfig)<br>(Since 2.6.0)<br/>undefined |
-| ~~isCookieUseDisabled~~<br>disableCookiesUsage | If true, the SDK won't store or read any data from cookies. Disables the User and Session cookies and renders the usage blades and experiences useless. `isCookieUseDisable` is deprecated in favor of `disableCookiesUsage`. When both are provided, `disableCookiesUsage` takes precedence.<br>(Since v2.6.0) And if `cookieCfg.enabled` is also defined, it will take precedence over these values. Cookie usage can be re-enabled after initialization via `core.getCookieMgr().setEnabled(true)`. | Alias for [`cookieCfg.enabled`](#icookiemgrconfig)<br>false |
+| ~~isCookieUseDisabled~~<br>disableCookiesUsage | If true, the SDK won't store or read any data from cookies. Disables the User and Session cookies and renders the usage panes and experiences useless. `isCookieUseDisable` is deprecated in favor of `disableCookiesUsage`. When both are provided, `disableCookiesUsage` takes precedence.<br>(Since v2.6.0) And if `cookieCfg.enabled` is also defined, it will take precedence over these values. Cookie usage can be re-enabled after initialization via `core.getCookieMgr().setEnabled(true)`. | Alias for [`cookieCfg.enabled`](#icookiemgrconfig)<br>false |
 | cookieDomain | Custom cookie domain. This option is helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined, it will take precedence over this value. | Alias for [`cookieCfg.domain`](#icookiemgrconfig)<br>null |
 | cookiePath | Custom cookie path. This option is helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it will take precedence over this value. | Alias for [`cookieCfg.path`](#icookiemgrconfig)<br>(Since 2.6.0)<br/>null |
 | isRetryDisabled | If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected). | boolean<br/>false |
@@ -305,7 +305,7 @@ const appInsights = new ApplicationInsights({ config: { // Application Insights 
 ---
 
 > [!NOTE]
-> There are two distributed tracing modes/protocols: AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+> There are two distributed tracing modes/protocols: AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt in to W3C mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ### Route tracking
 
@@ -317,10 +317,10 @@ For single-page applications, reference plug-in documentation for guidance speci
 
 | Plug-ins |
 |---------------|
-| [React](javascript-react-plugin.md#enable-correlation)|
-| [React Native](javascript-react-native-plugin.md#enable-correlation)|
-| [Angular](javascript-angular-plugin.md#enable-correlation)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
+| [React](javascript-framework-extensions.md#enable-correlation)|
+| [React Native](javascript-framework-extensions.md#enable-correlation)|
+| [Angular](javascript-framework-extensions.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-feature-extensions.md#enable-correlation)|
 
 ### Advanced correlation
 
@@ -368,10 +368,10 @@ When you use an npm-based configuration, a location must be determined to store 
 
 | Extensions |
 |---------------|
-| [React](javascript-react-plugin.md)|
-| [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md)|
-| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
+| [React](javascript-framework-extensions.md)|
+| [React Native](javascript-framework-extensions.md)|
+| [Angular](javascript-framework-extensions.md)|
+| [Click Analytics Auto-collection](javascript-feature-extensions.md)|
 
 ## Explore browser/client-side data
 
@@ -533,4 +533,4 @@ If the SDK reports correlation recursively, enable the configuration setting of 
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
-* [Troubleshoot SDK load failure](javascript-sdk-load-failure.md)
+* [Troubleshoot SDK load failure](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting)

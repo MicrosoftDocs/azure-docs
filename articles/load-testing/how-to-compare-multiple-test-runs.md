@@ -6,22 +6,19 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 02/16/2022
+ms.date: 01/18/2023
 ms.topic: how-to
 ms.custom: contperf-fy22q3
 ---
 
-# Identify performance regressions by comparing test runs in Azure Load Testing Preview
+# Identify performance regressions by comparing test runs in Azure Load Testing
 
-In this article, you'll learn how you can identify performance regressions by comparing test runs in the Azure Load Testing Preview dashboard. The dashboard overlays the client-side and server-side metric graphs for each run, which allows you to quickly analyze performance issues.
+In this article, you'll learn how you can identify performance regressions by comparing test runs in the Azure Load Testing dashboard. The dashboard overlays the client-side and server-side metric graphs for each run, which allows you to quickly analyze performance issues.
 
 You can compare load test runs for the following scenarios:
 
 - [Identify performance regressions](#identify-performance-regressions) between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
 - [Identify which application component is responsible](#identify-the-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -105,5 +102,5 @@ When there's a performance issue, you can use the server-side metrics to analyze
 ## Next steps
 
 - Learn more about [exporting the load test results for reporting](./how-to-export-test-results.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).
+- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).
 - Learn more about [configuring automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

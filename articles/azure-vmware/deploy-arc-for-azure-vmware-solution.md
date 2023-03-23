@@ -15,7 +15,7 @@ In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once 
 Before you begin checking off the prerequisites, verify the following actions have been done:
  
 - You deployed an Azure VMware Solution private cluster. 
-- You have a connection to the Azure VMware Solution private cloud through your on-prem environment or your native Azure Virtual Network. 
+- You have a connection to the Azure VMware Solution private cloud through your on-premises environment or your native Azure Virtual Network. 
 - There should be an isolated NSX-T Data Center segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center segment doesn't exist, one will be created.
 
 ## Prerequisites 
@@ -35,7 +35,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 > [!NOTE]
 > Only the default port of 443 is supported. If you use a different port, Appliance VM creation will fail. 
 
-At this point, you should have already deployed an Azure VMware Solution private cloud. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
+At this point, you should have already deployed an Azure VMware Solution private cloud. You need to have a connection from your on-premises environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
 For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](./tutorial-network-checklist.md)
 
@@ -93,21 +93,18 @@ Use the following steps to guide you through the process to onboard in Arc for A
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
     - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the k8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You may choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM`
 
     **Json example**
     ```json
     { 
       "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
       "resourceGroup": "test-rg", 
-      "applianceControlPlaneIpAddress": "10.14.10.10", 
       "privateCloud": "test-pc", 
       "isStatic": true, 
       "staticIpNetworkDetails": { 
        "networkForApplianceVM": "arc-segment", 
-       "networkCIDRForApplianceVM": "10.14.10.1/24", 
-       "k8sNodeIPPoolStart": "10.14.10.20", 
-       "k8sNodeIPPoolEnd": "10.14.10.30", 
-       "gatewayIPAddress": "10.14.10.1" 
+       "networkCIDRForApplianceVM": "10.14.10.1/28" 
       } 
     } 
     ```
@@ -159,7 +156,6 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
     - Log analytics
-    - Update management
     - Azure policy guest configuration
 
  **Azure VMware Solution private cloud with Azure Arc**
@@ -182,29 +178,29 @@ After your Azure VMware Solution vCenter resources have been enabled for access 
 
 This section will demonstrate how to use custom roles to manage granular access to VMware vSphere resources through Azure.
 
-#### Arc-enabled VMware vSphere custom roles
+#### Arc-enabled VMware vSphere built-in roles
 
-Three custom roles are provided to meet your Role-based access control (RBAC) requirements. These roles can be applied to a whole subscription, resource group, or a single resource.
+There are three built-in roles to meet your Role-based access control (RBAC) requirements. You can apply these roles to a whole subscription, resource group, or a single resource.
 
-- Azure Arc VMware vSphere Administrator role
-- Azure Arc VMware vSphere Private Cloud User role
-- Azure Arc VMware vSphere VM Contributor role
+**Azure Arc VMware Administrator role** - is used by administrators
 
-The first role is for an Administrator. The other two roles apply to anyone who needs to deploy or manage a VM.
+**Azure Arc VMware Private Cloud User role** - is used by anyone who needs to deploy and manage VMs
+
+**Azure Arc VMware VM Contributor role** - is used by anyone who needs to deploy and manage VMs
 
 **Azure Arc Azure VMware Solution Administrator role**
 
-This custom role gives the user permission to conduct all possible operations for the `Microsoft.ConnectedVMwarevSphere` resource provider. This role should be assigned to users or groups who are administrators that manage Azure Arc-enabled Azure VMware Solution deployment.
+This role provides permissions to perform all possible operations for the Microsoft.ConnectedVMwarevSphere resource provider. Assign this role to users or groups that are administrators managing Azure Arc enabled VMware vSphere deployment.
 
 **Azure Arc Azure VMware Solution Private Cloud User role**
 
-This custom role gives the user permission to use the Arc-enabled Azure VMware Solutions vSphere resources that have been made accessible through Azure. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
+This role gives the user permission to use the Arc-enabled Azure VMware Solutions vSphere resources that have been made accessible through Azure. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
 
 We recommend assigning this role at the individual resource pool (host or cluster), virtual network, or template that you want the user to deploy VMs with. 
 
 **Azure Arc Azure VMware Solution VM Contributor role**
 
-This custom role gives the user permission to perform all VMware VM operations. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
+This role gives the user permission to perform all VMware VM operations. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
 
 We recommend assigning this role at the subscription level or resource group you want the user to deploy VMs with.
 
@@ -310,19 +306,19 @@ When the extension installation steps are completed, they trigger deployment and
 
 ## Change Arc appliance credential
 
-Use the following guide to change your Arc appliance credential once you've changed your SDDC credentials.
+When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store.
 
-Use the **`Set Credential`** command to update the provider credentials for appliance resource. When **cloudadmin** credentials are updated, use the following steps to update the credentials in the appliance store.
-
-1. Log into the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
+1. Log in to the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
 1. Run the following command for Windows-based jumpbox VM.
     
     `./.temp/.env/Scripts/activate`
 1. Run the following command.
 
-    `az arcappliance setcredential vmware --kubeconfig kubeconfig`
+    `az arcappliance update-infracredentials vmware --kubeconfig <kubeconfig file>`
 
-1. Run the onboard command again. See step 3 in the [Process to onboard]() in Arc for Azure VMware Preview. 
+1. Run the following command
+
+`az connectedvmware vcenter connect --debug --resource-group {resource-group} --name {vcenter-name-in-azure} --location {vcenter-location-in-azure} --custom-location {custom-location-name} --fqdn {vcenter-ip} --port {vcenter-port} --username cloudadmin@vsphere.local --password {vcenter-password}`
     
 > [!NOTE]
 > Customers need to ensure kubeconfig and SSH keys remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 
@@ -348,7 +344,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
-1. Delete the resource bridge ARM resource.
+1. Delete the resource bridge Azure Resource Manager resource.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Download the latest version of the Azure VMware Solution onboarding script.
@@ -365,7 +361,7 @@ Use the following steps to uninstall extensions from the portal.
 >[!NOTE]
 >**Steps 2-5** must be performed for all the VMs that have VM extensions installed.
 
-1. Log into your Azure VMware Solution private cloud. 
+1. Log in to your Azure VMware Solution private cloud. 
 1. Select **Virtual machines** in **Private cloud**, found in the left navigation under “Arc-enabled VMware resources”.
 1. Search and select the virtual machine where you have **Guest management** enabled.
 1. Select **Extensions**.
@@ -405,9 +401,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**Is Arc supported in all the Azure VMware Solution regions?**
+**Region support for Azure VMware Solution**
  
-Arc is supported in EastUS and WestEU regions however we are working to extend the regional support.
+Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
 
 **How does support work?**
 
@@ -423,7 +419,7 @@ Yes
 
 **Is DHCP support available?**
 
-DHCP support is not available to customers at this time, we only support static IP.
+DHCP support isn't available to customers at this time, we only support static IP.
 
 >[!NOTE]
 > This is Azure VMware Solution 2.0 only. It's not available for Azure VMware Solution by Cloudsimple.

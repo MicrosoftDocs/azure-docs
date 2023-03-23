@@ -5,10 +5,27 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 11/04/2022
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
+
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
+> Logic Apps and provide the same capabilities plus more.
+>
+> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
+>
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 For scenarios where Consumption logic app resources and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is an environment that uses dedicated storage and other resources that are kept separate from the "global" multi-tenant Azure Logic Apps. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 

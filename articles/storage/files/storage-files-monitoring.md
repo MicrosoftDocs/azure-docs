@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Files | Microsoft Docs
+title: Monitoring Azure Files
 description: Learn how to monitor the performance and availability of Azure Files. Monitor Azure Files data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
@@ -8,6 +8,7 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 10/06/2022
 ms.author: normesta
+ms.devlang: csharp
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
@@ -75,7 +76,7 @@ For general destination limitations, see [Destination limitations](../../azure-m
 
   If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automating Azure Blob Storage access tiers](../blobs/lifecycle-management-overview.md).
 
-  If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](/azure/azure-monitor/logs/data-retention-archive).
+  If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Analyzing metrics
 
@@ -298,15 +299,15 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing logs
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](../../azure-monitor/essentials/resource-logs.md).
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). The schema for Azure Files resource logs is found in [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md). The schema for Azure Files resource logs is found in [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 
 ### Log authenticated requests
@@ -322,7 +323,7 @@ Requests made by the Azure Files service itself, such as log creation or deletio
 
 ### Sample Kusto queries
 
-If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure Files. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
@@ -492,8 +493,6 @@ The following table lists some example scenarios to monitor and the proper metri
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
-- [Planning for an Azure Files deployment](./storage-files-planning.md)
-- [How to deploy Azure Files](./storage-how-to-create-file-share.md)
-- [Troubleshoot Azure Files on Windows](./storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files on Linux](./storage-troubleshoot-linux-file-connection-problems.md)
-
+- [Planning for an Azure Files deployment](storage-files-planning.md)
+- [How to deploy Azure Files](storage-how-to-create-file-share.md)
+- [Troubleshoot Azure Files](files-troubleshoot.md)

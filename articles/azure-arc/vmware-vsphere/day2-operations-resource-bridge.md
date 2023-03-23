@@ -57,11 +57,11 @@ To upgrade to the latest version of the resource bridge, perform the following s
 
 6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
-## Updating the vSphere account credentials
+## Updating the vSphere account credentials (using a new password or a new vSphere account after onboarding)
 
 Azure Arc-enabled VMware vSphere uses the vSphere account credentials you provided during the onboarding to communicate with your vCenter server. These credentials are only persisted locally on the Arc resource bridge VM.
 
-As part of your security practices, you might need to rotate credentials for your vCenter accounts. As credentials are rotated, you must also update the credentials provided to Azure Arc to ensure the functioning of Azure Arc-enabled VMware services.
+As part of your security practices, you might need to rotate credentials for your vCenter accounts. As credentials are rotated, you must also update the credentials provided to Azure Arc to ensure the functioning of Azure Arc-enabled VMware services. You can also use the same steps in case you need to use a different vSphere account after onboarding. You must ensure the new account also has all the [required vSphere permissions](support-matrix-for-arc-enabled-vmware-vsphere.md#required-vsphere-account-privileges).
 
 There are two different sets of credentials stored on the Arc resource bridge. You can use the same account credentials for both.
 

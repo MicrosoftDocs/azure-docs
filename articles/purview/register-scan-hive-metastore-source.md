@@ -32,7 +32,6 @@ When scanning Hive metastore source, Microsoft Purview supports:
    - Databases
    - Tables including the columns, foreign keys, unique constraints, and storage description
    - Views including the columns and storage description
-   - Processes
 
 - Fetching static lineage on assets relationships among tables and views.
 

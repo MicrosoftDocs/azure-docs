@@ -3,7 +3,7 @@ author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 05/25/2022
+ms.date: 11/29/2022
 ms.author: eur
 ---
 

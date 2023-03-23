@@ -1,8 +1,8 @@
 ---
 title: "Azure Synapse Analytics security white paper: Threat detection"
 description: Audit, protect, and monitor Azure Synapse Analytics.
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -41,7 +41,7 @@ Alert notifications include details of the incident, and recommendations on how 
 
 ## Vulnerability assessment
 
-[SQL vulnerability assessment](/azure/azure-sql/database/sql-vulnerability-assessment) is part of the Microsoft Defender for SQL offering. It continually monitors the data warehouse, ensuring that databases are always maintained at a high level of security and that organizational policies are met. It provides a comprehensive security report along with actionable remediation steps for each issue found, making it easy to proactively manage database security stature even if you're not a security expert.
+[SQL vulnerability assessment](/sql/relational-databases/security/sql-vulnerability-assessment) is part of the Microsoft Defender for SQL offering. It continually monitors the data warehouse, ensuring that databases are always maintained at a high level of security and that organizational policies are met. It provides a comprehensive security report along with actionable remediation steps for each issue found, making it easy to proactively manage database security stature even if you're not a security expert.
 
 > [!NOTE]
 > SQL vulnerability assessment applies to Azure Synapse and dedicated SQL pool (formerly SQL DW). It doesn't apply to serverless SQL pool or Apache Spark pool.

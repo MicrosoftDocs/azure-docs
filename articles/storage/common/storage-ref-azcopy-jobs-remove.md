@@ -1,5 +1,5 @@
 ---
-title: azcopy jobs remove | Microsoft Docs
+title: azcopy jobs remove
 description: This article provides reference information for the azcopy jobs remove command.
 author: normesta
 ms.service: storage

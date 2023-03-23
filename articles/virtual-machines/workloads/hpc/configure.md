@@ -4,7 +4,7 @@ description: Learn about configuring and optimizing the InfiniBand enabled H-ser
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 03/04/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -36,8 +36,8 @@ It is also recommended to create [custom VM images](../../linux/tutorial-custom-
 ### VM sizes supported by the HPC VM images
 
 #### InfiniBand OFED support
-The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. These VM images only support ConnextX-5 and newer InfiniBand cards. This implies the following VM size support matrix for the InfiniBand OFED in these HPC VM images:
-- [H-series](../../sizes-hpc.md): HB, HC, HBv2, HBv3
+The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. ConnectX-3 Pro InfiniBand cards require MOFED 4.9 LTS version. These VM images only support ConnextX-5 and newer InfiniBand cards. This implies the following VM size support matrix for the InfiniBand OFED in these HPC VM images:
+- [H-series](../../sizes-hpc.md): HB, HC, HBv2, HBv3, HBv4
 - [N-series](../../sizes-gpu.md): NDv2, NDv4
 
 #### GPU driver support
@@ -52,14 +52,14 @@ All of the VM sizes in the N-series support [Gen 2 VMs](../../generation-2.md), 
 ### CentOS-HPC VM images
 
 #### SR-IOV enabled VMs
-For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
+For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
 - The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
    ```
-- Scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
-- Additionally, details on what's included in the CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+- Scripts used in the creation of the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+- Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
 
 > [!NOTE] 
 > Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
@@ -72,12 +72,6 @@ For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances)
 >- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
 >- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
 >- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
-
-#### Non SR-IOV enabled VMs
-For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC version 6.5 or a later version, up to 7.4 in the Marketplace are suitable. As an example, for [H16-series VMs](../../h-series.md), versions 7.1 to 7.4 are recommended. These VM images come pre-loaded with the Network Direct drivers for RDMA and Intel MPI version 5.1.
-
-> [!NOTE]
-> On these CentOS-based HPC images for non-SR-IOV enabled VMs, kernel updates are disabled in the **yum** configuration file. This is because the NetworkDirect Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
 
 ### Ubuntu-HPC VM images
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
@@ -166,6 +160,6 @@ Optionally, the WALinuxAgent may be disabled as a pre-job step and enabled back 
 
 - Learn more about [enabling InfiniBand](enable-infiniband.md) on the InfiniBand-enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
 - Learn more about installing and running various [supported MPI libraries](setup-mpi.md) on the VMs.
-- Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
+- Review the [HBv3-series overview](../../hbv3-series-overview.md) and [HC-series overview](../../hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/09/2022
+ms.date: 02/20/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -140,4 +140,4 @@ For more information about workflows, see these articles:
 - [Workflows in Microsoft Purview](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
-
+- [Self-service access policies](concept-self-service-data-access-policy.md)

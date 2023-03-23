@@ -154,7 +154,7 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my application is using the dedicated gateway
 
-Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you won't see an error message, but the `DedicatedGatewayRequests` will be zero.
+Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you won't see an error message, but the `DedicatedGatewayRequests` will be zero. If your application uses direct mode with your dedicated gateway connection string, you may still see a small number of `DedicatedGatewayRequests`.
 
 ### I can’t tell if my requests are hitting the integrated cache
 

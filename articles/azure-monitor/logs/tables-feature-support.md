@@ -10,6 +10,8 @@ ms.date: 07/10/2022
 
 The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [transformations](../essentials/data-collection-transformations.md).
 
+> [!NOTE]
+> We are in a process of adding support for more tables. Please check this article regularly. 
 
 | Table | Limitations |
 |:---|:---|

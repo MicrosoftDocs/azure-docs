@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 10/18/2022
+ms.date: 02/16/2023
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -15,7 +15,7 @@ Azure Managed Grafana delivers the native Grafana functionality in the highest p
 
 ## Current limitations
 
-Managed Grafana has the following known limitations:
+Azure Managed Grafana has the following known limitations:
 
 * All users must have accounts in an Azure Active Directory. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
@@ -30,6 +30,8 @@ Managed Grafana has the following known limitations:
 * Some Data plane APIs require Grafana Server Admin permissions and can't be called by users. This includes the [Admin API](https://grafana.com/docs/grafana/latest/developers/http_api/admin/), the [User API](https://grafana.com/docs/grafana/latest/developers/http_api/user/#user-api) and the [Admin Organizations API](https://grafana.com/docs/grafana/latest/developers/http_api/org/#admin-organizations-api).
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
+
+* Reporting is currently not supported.
 
 ## Next steps
 

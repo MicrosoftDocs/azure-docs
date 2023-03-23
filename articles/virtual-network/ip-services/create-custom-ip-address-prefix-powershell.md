@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
 ---
+
 # Create a custom IPv4 address prefix using Azure PowerShell
 
 A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
@@ -26,7 +27,7 @@ The steps in this article detail the process to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-- Ensure your Az.Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
+- Ensure your Az.Network module is 5.1.1 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
 - A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
@@ -41,7 +42,12 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
+* The address range must be owned by you and registered under your name with the one of the 5 major Regional Internet Registries:
+      * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
+      * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
+      * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
+      * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
+      * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
@@ -70,7 +76,7 @@ The following steps show the steps required to prepare sample customer range (1.
 > Execute the following commands in PowerShell with OpenSSL installed.  
 
     
-1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
+1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
 
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
     
@@ -89,7 +95,9 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
-    * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
+    * [AFRINIC](https://afrinic.net/support/my-afrinic-net) - edit the “Remarks” of the inetnum record using MyAFRINIC.
+    
+    * For ranges from LACNIC registry, create a support ticket with Microsoft.
      
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 

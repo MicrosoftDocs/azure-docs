@@ -49,6 +49,8 @@ items:
           href: ./hdinsight-overview-versioning.md
         - name: HDInsight versions
           href: ./hdinsight-component-versioning.md
+        - name: HDInsight version 5.1
+          href: ./hdinsight-51-component-versioning.md
         - name: HDInsight version 5.0
           href: ./hdinsight-50-component-versioning.md
         - name: HDInsight version 4.0
@@ -106,6 +108,10 @@ items:
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
       - name: Create clusters using REST API
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
+      - name: Subscribe to HDInsight release notes GitHub repo
+        href: ./subscribe-to-hdi-release-notes-repo.md
+      - name: View the image version of Azure HDInsight cluster
+        href: ./view-hindsight-cluster-image-version.md  
       - name: Cluster creation errors
         href: ./create-cluster-error-dictionary.md
         title: 
@@ -179,6 +185,8 @@ items:
       items:
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
+      - name: Disable auto logout from Ambari Web UI
+        href: ./ambari-web-ui-auto-logout.md   
       - name: Optimize with Apache Ambari
         items:
         - name: Optimize clusters
@@ -309,8 +317,6 @@ items:
     items:
     - name: Releases
       items:
-      - name: Ubuntu 18.04 update
-        href: ./hdinsight-ubuntu-1804-qa.md
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
       - name: Release notes
@@ -657,6 +663,8 @@ items:
       href: ./kafka/apache-kafka-streams-api.md
     - name: Use Apache Spark structured streaming
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Connect Kafka cluster with VM in different VNet
+      href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
     - name: Migrate Kafka workloads to 4.0
@@ -695,8 +703,12 @@ items:
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: SSL Encryption and Authentication
+      - name: Secure Spark and Kafka streaming integration scenario
+        href: ./kafka/secure-spark-kafka-streaming-integration-scenario.md
+      - name: SSL Encryption and Authentication for Non ESP Kafka cluster
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
+      - name: SSL Encryption and Authentication for ESP Kafka cluster
+        href: ./kafka/apache-esp-kafka-ssl-encryption-authentication.md  
       - name: Kafka MirrorMaker 2.0 guide
         href: ./kafka/kafka-mirrormaker-2-0-guide.md  
     - name: Troubleshoot

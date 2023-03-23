@@ -5,19 +5,19 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 01/24/2023
 ms.author: kendownie
+ms.custom: engagement-fy23
+recommendations: false
 ---
 
-# Part four: mount a file share from a domain-joined VM
+# Mount an Azure file share
 
-Before you begin this article, make sure you complete the previous article, [configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
+Before you begin this article, make sure you've read [configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can access an Azure file share from a domain-joined VM. Share-level role assignment can take some time to take effect.
+The process described in this article verifies that your SMB file share and access permissions are set up correctly and that you can access an Azure file share from a domain-joined VM. Remember that share-level role assignment can take some time to take effect.
 
-Sign in to the client by using the credentials that you granted permissions to, as shown in the following image.
-
-![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+Sign in to the client using the credentials of the identity that you granted permissions to.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -33,7 +33,7 @@ Before you can mount the Azure file share, make sure you've gone through the fol
 - If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you've disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions on how to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Azure AD or AD credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Your client must have line of sight to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you'll need to enable VPN to reach AD DS for authentication.
 
-## Mount the file share
+## Mount the file share from a domain-joined VM
 
 Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
@@ -49,12 +49,37 @@ if ($connectTestResult.TcpTestSucceeded) {
 }
 ```
 
-If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.
+You can also use the `net-use` command from a Windows prompt to mount the file share. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
 
-If mounting your file share succeeded, then you've successfully enabled and configured on-premises AD DS authentication for your Azure file share.
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
+```
+
+If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure file shares with AD credentials](files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials).
+
+## Mount the file share from a non-domain-joined VM
+
+Non-domain-joined VMs can access Azure file shares if they have line-of-sight to the domain controllers. The user accessing the file share must have an identity and credentials in the AD domain.
+
+To mount a file share from a non-domain-joined VM, the user must either:
+
+- Provide explicit credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the AD domain and **username** is the identity’s user name, or
+- Use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name.
+
+Using one of these approaches will allow the client to contact the domain controller to request and receive Kerberos tickets.
+
+For example:
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
+```
+
+or
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
+```
 
 ## Next steps
 
-If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, continue to the next article for instructions on updating your password:
-
-[Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)
+If the identity you created in AD DS to represent the storage account is in a domain or OU that enforces password rotation, you might need to [update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md).

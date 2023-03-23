@@ -5,6 +5,8 @@ items:
   items:
     - name: About Azure Managed Grafana
       href: overview.md
+    - name: What's new
+      href: concept-whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -27,22 +29,32 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Set up authentication and permissions
+  - name: Configure authentication and permissions
     href: how-to-authentication-permissions.md
   - name: Configure data sources
     href: how-to-data-source-plugins-managed-identity.md
   - name: Modify access permissions to Azure Monitor
     href: how-to-permissions.md
-  - name: Share a Managed Grafana instance
+  - name: Create a dashboard
+    href: how-to-create-dashboard.md
+  - name: Share an Azure Managed Grafana instance
     href: how-to-share-grafana-workspace.md
-  - name: Monitor a Managed Grafana instance
+  - name: Configure SMTP settings
+    href: how-to-smtp-settings.md
+  - name: Monitor Azure Managed Grafana
     href: how-to-monitor-managed-grafana-workspace.md
+  - name: Use service accounts
+    href: how-to-service-accounts.md
   - name: Create and manage API keys
     href: how-to-create-api-keys.md
   - name: Enable zone redundancy
     href: how-to-enable-zone-redundancy.md
+  - name: Set up private access
+    href: how-to-set-up-private-access.md 
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
+  - name: Enable Grafana Enterprise
+    href: how-to-grafana-enterprise.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md
   - name: Troubleshoot common issues
@@ -67,3 +79,5 @@ items:
     href: https://aka.ms/managed-grafana/q-n-a
   - name: Feature request
     href: https://aka.ms/managed-grafana/feature-request
+  - name: Support
+    href: find-help-open-support-ticket.md

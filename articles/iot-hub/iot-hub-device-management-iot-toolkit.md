@@ -13,7 +13,7 @@ ms.author: junhan
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-In this article, you learn how to use Azure IoT Tools for Visual Studio Code with various management options on your development machine. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
+In this article, you learn how to use Azure IoT Tools for Visual Studio Code with various management options on your development machine. [Azure IoT Hub for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -35,7 +35,7 @@ Device twins are JSON documents that store device state information (metadata, c
 * An active Azure subscription.
 * An Azure IoT hub under your subscription.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy this URL and paste it into a browser window:`vscode:extension/vsciot-vscode.azure-iot-tools`.
+* [Azure IoT Hub for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or copy this URL and paste it into a browser window:`vscode:extension/vsciot-vscode.azure-iot-toolkit`.
 
 ## Sign in to access your IoT hub
 
@@ -86,6 +86,6 @@ To send a message from your IoT hub to your device, follow these steps:
 
 ## Next steps
 
-You've learned how to use Azure IoT Tools extension for Visual Studio Code with various management options.
+You've learned how to use Azure IoT Hub for Visual Studio Code with various management options.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -7,5 +7,5 @@ ms.author: bobazile
 ms.subservice: pstn
 ---
 > [!IMPORTANT]
-> For Dynamics 365 Omnichannel customers, Microsoft provides GA level of support for all the direct routing related scenarios.
-> To learn more about Dynamics Omnichannel voice, see [Introduction to the voice channel](/dynamics365/customer-service/voice-channel).
+> For customers using voice channel in Dynamics 365 Customer Service Enterprise, Microsoft provides GA level of support for all the direct routing related scenarios.
+> To learn more about voice channel, see [Introduction to the voice channel](/dynamics365/customer-service/voice-channel).

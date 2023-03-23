@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: Juliako
   ms.author: juliako
-  ms.date: 09/06/2022 #Required; mm/dd/yyyy format.
+  ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -42,8 +42,6 @@ landingContent:
         links: 
           - text: Sign up and upload a video
             url: video-indexer-get-started.md 
-          - text: Invite users
-            url: invite-users.md
       - linkListType: how-to-guide
         links:
           - text: Create an ARM-based account
@@ -63,8 +61,18 @@ landingContent:
       - linkListType: sample
         links:
           - text: Code samples
-            url: https://github.com/Azure-Samples/media-services-video-indexer               
-
+            url: https://github.com/Azure-Samples/media-services-video-indexer  
+  
+# Card
+  - title: Responsible use of AI
+    linkLists:        
+      - linkListType: concept
+        links:
+        - text: Limited access features
+          url: limited-access-features.md   
+        - text: Transparency note
+          url: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+  
 # Card
   - title: Customize content models
     linkLists:        

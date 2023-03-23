@@ -2,7 +2,7 @@
 title: Xamarin Android code configuration and troubleshooting (MSAL.NET)
 description: Learn about considerations for using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: Dickson-Mwendia
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2020
-ms.author: dmwendia
-ms.reviewer: saeeda
+ms.author: henrymbugua
+ms.reviewer: saeeda, Dickson-Mwendia
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about special requirements for using Xamarin Android and MSAL.NET.
 ---
@@ -75,7 +75,7 @@ protected override void OnActivityResult(int requestCode,
 To support System WebView, the *AndroidManifest.xml* file should contain the following values:
 
 ```xml
-<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize" android:exported="true">
   <intent-filter>
     <action android:name="android.intent.action.VIEW" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -96,7 +96,7 @@ Alternatively, [create the activity in code](/xamarin/android/platform/android-m
 Here's an example of a class that represents the values of the XML file:
 
 ```csharp
-  [Activity]
+  [Activity(Exported = true)]
   [IntentFilter(new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataHost = "auth",

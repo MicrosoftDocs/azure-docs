@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 01/18/2023
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -83,6 +83,10 @@ The below table lists minimum and recommended values for the container host. You
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
+
+The LUIS container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/language` repository and is named `luis`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/language/luis`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/language/luis/tags).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/language/luis` repository:
 
@@ -265,8 +269,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 |Package type|HTTP verb|Route|Query parameters|
 |--|--|--|--|
-|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?` `/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?` `/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 The query parameters configure how and what is returned in the query response:
 
