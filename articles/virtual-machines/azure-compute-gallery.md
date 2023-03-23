@@ -6,8 +6,8 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 02/14/2023
-ms.reviewer: cynthn
+ms.date: 03/22/2023
+ms.reviewer: cynthn, mattmcinnes
 
 ---
 
