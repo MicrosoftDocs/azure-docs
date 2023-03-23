@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 03/27/2023
 ---
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -75,7 +75,7 @@ Mature versions of ACID transaction processing and LLAP
 1. Advanced optimizations – Upgrade in CBO
 1. Automatic Query cache. The Property used to enable query caching is `hive.query.results.cache.enabled`. You need to set this property to true. Hive stores the query result cache in `/tmp/hive/__resultcache__/.` By default, Hive allocates 2 GB for the query result cache. You can change this setting by configuring the following parameter in bytes `hive.query.results.cache.max.size`.
 
-   For more information, [Benefits of migrating to Azure HDInsight 4.0.](./benefits-of-migrating-to-hdinsight-40.md)
+   For more information, [Benefits of migrating to Azure HDInsight 4.0.](../benefits-of-migrating-to-hdinsight-40.md)
 
 1. Materialized view rewrites. 
    
@@ -130,7 +130,7 @@ Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by
 
 ## Location Changes
 
-After the upgrade, the location of managed tables or partitions doesnt change under any one of the following conditions:
+After the upgrade, the location of managed tables or partitions doesn't change under any one of the following conditions:
 
 1. The old table or partition directory wasn't in its default location /apps/hive/warehouse before the upgrade.
 1. The old table or partition is in a different file system than the new warehouse directory.
@@ -144,7 +144,7 @@ Following Scenario's are present for location changes
 
 **Scenario 1**
 
-If the table is a managed table in HDInsight-3.x and if it's present in the location `/apps/hive/warehouse` and converted as external table in HDInsight-4.x, then the location is the same `/apps/hive/warehouse` in HDInsight 4.x as well. It does'nt change any location. After this step, if you're performing alter table command to convert it as managed (acid) table at that time present in the same location `/apps/hive/warehouse`.
+If the table is a managed table in HDInsight-3.x and if it's present in the location `/apps/hive/warehouse` and converted as external table in HDInsight-4.x, then the location is the same `/apps/hive/warehouse` in HDInsight 4.x as well. It doesn't change any location. After this step, if you're performing alter table command to convert it as managed (acid) table at that time present in the same location `/apps/hive/warehouse`.
 
 **Scenario 2**
 
@@ -424,7 +424,7 @@ Download these two files from the link. And copy these files to one of the head 
 1. Create a directory called "schemacompare" under "/tmp" directory.
 1. Put the "schemacompare_final.py" and "test.csv" into the folder "/tmp/schemacompare". Do "ls -ltrh /tmp/schemacompare/" and verify whether the files are present.
 1. To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete.
-The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After updating the details in the "return.csv", it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
+The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After you update the details in the "return.csv", it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
     Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing:
     ```
@@ -453,7 +453,7 @@ The above script automatically connects to your backend DB and fetches the detai
     PARTITIONS;
     ('difference', [])
     ```
-    From this output, you can find the column names, that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
+    From this output you can find the column names, that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
