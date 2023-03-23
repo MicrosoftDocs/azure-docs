@@ -404,6 +404,9 @@
     - name: Share components, environments, and models
       displayName: collaborate share
       href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+    - name: Share data assets
+      displayName: collaborate share
+      href: how-to-share-data-across-workspaces-with-registries.md
     - name: Understand resources and assets
       href: concept-azure-machine-learning-v2.md
     - name: Search for assets

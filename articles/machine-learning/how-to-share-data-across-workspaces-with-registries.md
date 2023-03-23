@@ -6,80 +6,78 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: kritifaujdar
-author: KritiFaujdar
+author: fkriti
 ms.reviewer: larryfr
 ms.date: 03/21/2023
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, sdkv2
 ---
 
 # Share data across workspaces with registries (preview)
 
-Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components,environments and data.
-
-
-## Key scenario addressed by data sharing using Azure Machine Learning registry 
-
-You may want to have data shared across multiple teams or projects or workspaces in a central location. Such data do not have sensitive access controls and can be broadly used in the organization. 
-
-Examples include: 
-* A team wants to share a public dataset that is pre-processed and ready to use in experiments. 
-* Your organization has acquired a particular dataset for a project from an external vendor and wants to make it available all teams working on the same project. 
-* Teams want to share data assets across workspaces in different regions.
-
-In this scenario, you can create a data asset in registry or share an existing data asset from workspace to a registry. This data asset can be used across mulitple workspaces.
-
-## Scenarios NOT addressed by data sharing using Azure Machine Learning registry
-
-* Sharing sensitive data that needs fine grained access control. You cannot create a data asset in Registry to share with a small subset of users/workspaces while the Registry has access to many other users in the org. 
-
-* Sharing data that is available in existing storage that must not be copied or is too large or too expensive to be copied. Whenever data assets are created in Registry a copy of data is ingested into the Registry storage so that it can be replicated.
-
-## Data asset types supported by Azure Machine Learning registry
-
-> [!NOTE]
-> Make sure to check out the **canonical scenarios** below when deciding if you want to use uri_file, uri_folder or mltable for your use case.
-
-You can create three data asset types:
-
-| Type        | V2 API           | 	Canonical Scenarios  |
-| :------------- |:-------------| :-----|
-| **File:**  Reference a single file | uri_file | Read/write a single file - the file can have any format. |
-|**Folder:** Reference a single folder   | uri_folder      |   You must read/write a folder of parquet/CSV files into Pandas/Spark. Deep-learning with images, text, audio, video files located in a folder. |
-| **Table:** Reference a data table | mltable      |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data. |
-
-## Paths supported by Azure Machine Learning registry
-
-When you create a data asset, you must specify a **path** parameter that points to the data location. Supported paths include:
-
-| Location        | Example  | 	
-| :------------- |:-------------| 
-| A path on your local computer | A path on your local computer |
-
-In this article, you'll learn how to:
+Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, environments and data. In this article, you learn how to:
 
 * Create a data asset in the registry.
 * Share an existing data asset from workspace to registry
 * Use the data asset from registry as input to a model training job in a workspace.
 
-
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+### Key scenario addressed by data sharing using Azure Machine Learning registry 
+
+You may want to have data shared across multiple teams, projects, or workspaces in a central location. Such data doesn't have sensitive access controls and can be broadly used in the organization. 
+
+Examples include: 
+* A team wants to share a public dataset that is preprocessed and ready to use in experiments. 
+* Your organization has acquired a particular dataset for a project from an external vendor and wants to make it available to all teams working on a project. 
+* A team wants to share data assets across workspaces in different regions.
+
+In these scenarios, you can create a data asset in a registry or share an existing data asset from a workspace to a registry. This data asset can then be used across multiple workspaces.
+
+### Scenarios NOT addressed by data sharing using Azure Machine Learning registry
+
+* Sharing sensitive data that requires fine grained access control. You can't create a data asset in a registry to share with a small subset of users/workspaces while the registry is accessible by many other users in the org. 
+
+* Sharing data that is available in existing storage that must not be copied or is too large or too expensive to be copied. Whenever data assets are created in a registry, a copy of data is ingested into the registry storage so that it can be replicated.
+
+### Data asset types supported by Azure Machine Learning registry
+
+> [!TIP]
+> Check out the following **canonical scenarios** when deciding if you want to use `uri_file`, `uri_folder`, or `mltable` for your scenario.
+
+You can create three data asset types:
+
+| Type        | V2 API           |     Canonical scenario  |
+| :------------- |:-------------| :-----|
+| **File:**  Reference a single file | `uri_file` | Read/write a single file - the file can have any format. |
+|**Folder:** Reference a single folder   | `uri_folder`      |   You must read/write a directory of parquet/CSV files into Pandas/Spark. Deep-learning with images, text, audio, video files located in a directory. |
+| **Table:** Reference a data table | `mltable`      |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data. |
+
+### Paths supported by Azure Machine Learning registry
+
+When you create a data asset, you must specify a **path** parameter that points to the data location. Supported paths include:
+
+| Location        | Example  |     
+| :------------- |:-------------| 
+| A path on your local computer | A path on your local computer |
+
+
+
 
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-- Familiarity with [Azure Machine Learning registries](https://learn.microsoft.com/en-us/azure/machine-learning/concept-machine-learning-registries-mlops) and [Data concepts in Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/concept-data).
-
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+- Familiarity with [Azure Machine Learning registries](concept-machine-learning-registries-mlops.md) and [Data concepts in Azure Machine Learning](concept-data.md).
 
 - An Azure Machine Learning registry (preview) to share data. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
 
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
-
     > [!IMPORTANT]
-    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure Machine Learning registry
+    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure Machine Learning registry.
+
+- The *environment* and *component* created from the [How to share models, components, and environments](how-to-share-models-pipelines-across-workspaces-with-registries.md) article.
 
 - The Azure CLI and the `ml` extension __or__ the Azure Machine Learning Python SDK v2:
 
@@ -131,7 +129,7 @@ cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 
 # [Python SDK](#tab/python)
 
-For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, is available in the `sdk/python/assets/assets-in-registry` folder. All the sample YAML files  model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the notebook if you'd like to step through a notebook to try out the code in this document.
+For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook is available in the `sdk/python/assets/assets-in-registry` directory. All the sample YAML files  model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the notebook if you'd like to step through a notebook to try out the code in this document.
 
 ---
 
@@ -140,7 +138,7 @@ For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [
 > [!TIP]
 > This step is only needed when using the Python SDK.
 
-Create a client connection to both the Azure Machine Learning workspace and registry:
+Create a client connection to both the Azure Machine Learning workspace and registry. In the following example, replace the `<...>` placeholder values with the values appropriate for your configuration. For example, your Azure subscription ID, workspace name, registry name, etc.:
 
 ```python
 ml_client_workspace = MLClient( credential=credential,
@@ -157,14 +155,14 @@ print(ml_client_registry)
 
 ## Create data in registry  
 
-We will create a data asset in this step and use the same as an input to the job further in this article.
+The data asset created in this step is used later in this article when submitting a training job.
 
 # [Azure CLI](#tab/cli)
 
 > [!TIP]
 > The same CLI command `az ml data create` can be used to create data in a workspace or registry. Running the command with `--workspace-name` command creates the data in a workspace whereas running the command with `--registry-name` creates the data in the registry.
 
-If you've cloned the examples repo and are in the folder `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`, you should be able to see a folder `data_transformed`. We will use folder as source of data. Create a YAML file `data-registry.yml` is shown below:
+The data source is located in the [examples repository](https://github.com/Azure/azureml-examples) that you cloned earlier. Under the local clone, go to the following directory path: `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. In this directory, create a YAML file named `data-registry.yml` and use the following YAML as the contents of the file:
 
 ```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -175,7 +173,9 @@ type: uri_folder
 path: data_transformed/
 ```
 
-Create the data using the `az ml data create` as follows
+The `path` value points to the `data_transformed` subdirectory, which contains the data that is shared using the registry.
+
+To create the data in the registry, use the `az ml data create`. In the following examples, replace `<registry-name>` with the name of your registry.
 
 ```azurecli 
 az ml data create --file data-registry.yml --registry-name <registry-name>
@@ -190,9 +190,9 @@ az ml data create --file data-registry.yml --registry-name <registry-name> --set
 ```
 
 > [!TIP]
-> `version=$(date +%s)` works only in Linux. Replace `$version` with a random number if this does not work.
+> If the `version=$(date +%s)` command doesn't set the `$version` variable in your environment, replace `$version` with a random number.
 
-Note down the `name` and `version` of the data from the output of the `az ml data create` command and use them with `az ml data show` commands as follows.
+Save the `name` and `version` of the data from the output of the `az ml data create` command and use them with `az ml data show` command to view details for the asset.
 
 ```azurecli
 az ml data show --name transformed-nyc-taxt-data --version 1 --registry-name <registry-name>
@@ -209,7 +209,7 @@ az ml data show --name transformed-nyc-taxt-data --version 1 --registry-name <re
 > The same `MLClient.environmentsdata.create_or_update()` can be used to create data in either a workspace or a registry depending on the target it has been initialized with. Since you work wth both workspace and registry in this document, you have initialized `ml_client_workspace` and `ml_client_registry` to work with workspace and registry respectively. 
 
 
-The source data folder `data_transformed` is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression/`. Initialize the data object and create the data.
+The source data directory `data_transformed` is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression/`. Initialize the data object and create the data.
 
 ```python
 my_path = "./data_transformed/"
@@ -232,20 +232,21 @@ You can also use `ml_client_registry.data.list()` to list all data assets in the
  
 ## Create an environment and component in registry
 
-Follow the steps [in this article](how-to-share-models-pipelines-across-workspaces-with-registries.md) to create an environment and component in the registry. We will use these in the training job in next section. Alternatively, you can use an environment and component from the workspace.
+To create an environment and component in the registry, use the steps in the [How to share models, components, and environments](how-to-share-models-pipelines-across-workspaces-with-registries.md) article. The environment and component are used in the training job in next section. 
+
+> [!TIP]
+> You can use an environment and component from the workspace instead of using ones from the registry.
 
 ## Run a pipeline job in a workspace using component from registry
 
-When running a pipeline job that uses a component and data from a registry, the _compute_ resources are local to the workspace. For more information on running jobs, see the following articles:
+When running a pipeline job that uses a component and data from a registry, the *compute* resources are local to the workspace. In the following example, the job uses the Scikit Learn training component and the data asset created in the previous sections to train a model.
 
-* [Running jobs (CLI)](./how-to-train-cli.md)
-* [Running jobs (SDK)](./how-to-train-sdk.md)
-* [Pipeline jobs with components (CLI)](./how-to-create-component-pipelines-cli.md)
-* [Pipeline jobs with components (SDK)](./how-to-create-component-pipeline-python.md)
+> [!NOTE]
+> The key aspect is that this pipeline is going to run in a workspace using training data that isn't in the specific workspace. The data is in a registry that can be used with any workspace in your organization. You can run this training job in any workspace you have access to without having worry about making the training data available in that workspace. 
 
 # [Azure CLI](#tab/cli)
 
-We'll run a pipeline job with the Scikit Learn training component and data asset created in the previous sections to train a model. Check that you are in the folder `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Edit the `component` section in under the `train_job` section of the `single-job-pipeline.yml` file to refer to the training component and `path` under `training_data` section to refer to data asset created in the previous sections.  The resulting `single-job-pipeline.yml` is shown below.
+Verify that you are in the `cli/jobs/pipelines-with-components/nyc_taxi_data_regression` directory. Edit the `component` section in under the `train_job` section of the `single-job-pipeline.yml` file to refer to the training component and `path` under `training_data` section to refer to data asset created in the previous sections. The following example shows what the `single-job-pipeline.yml` looks like after editing. Replace the `<registry_name>` with the name for your registry:
 
 ```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
@@ -268,8 +269,6 @@ jobs:
       test_data: 
 ```  
 
-The key aspect is that this pipeline is going to run in a workspace using training data that isn't in the specific workspace. The data is in a registry that can be used with any workspace in your organization. You can run this training job in any workspace you have access to without having worry about making the training data available in that workspace. 
-
 > [!WARNING]
 > * Before running the pipeline job, confirm that the workspace in which you will run the job is in a Azure region that is supported by the registry in which you created the data.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or edit the `compute` field under `jobs.train_job.compute` with the name of your compute.
@@ -283,12 +282,13 @@ az ml job create --file single-job-pipeline.yml
 > [!TIP]
 > If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml job create` to work.
 
+For more information on running jobs, see the following articles:
+
+* [Running jobs (CLI)](./how-to-train-cli.md)
+* [Pipeline jobs with components (CLI)](./how-to-create-component-pipelines-cli.md)
 
 # [Python SDK](#tab/python)
 
-You'll run a pipeline job with the Scikit Learn training component and data asset created in the previous section to train a model. Construct the pipeline using the component and data created in the previous steps. 
-
-The key aspect is that this pipeline is going to run in a workspace using training data that isn't in the specific workspace. The data is in a registry that can be used with any workspace in your organization. You can run this training job in any workspace you have access to without having worry about making the training data available in that workspace. 
 
 ```Python
 # get the data asset
@@ -328,15 +328,20 @@ pipeline_job
 
 Since the component used in the training job is shared through a registry, you can submit the job to any workspace that you have access to in your organization, even across different subscriptions. For example, if you have `dev-workspace`, `test-workspace` and `prod-workspace`, you can connect to those workspaces and resubmit the job.
 
+For more information on running jobs, see the following articles:
+
+* [Running jobs (SDK)](./how-to-train-sdk.md)
+* [Pipeline jobs with components (SDK)](./how-to-create-component-pipeline-python.md)
+
 ---
 
 ### Share data from workspace to registry 
 
-In this workflow, you'll learn an existing data asset from workspace to registry. 
+The following steps show how to share an existing data asset from a workspace to a registry. 
 
 # [Azure CLI](#tab/cli)
 
-We will first create a data asset in workspace. Make sure that you are in `cli/assets/data` folder. There is a YAML file `local-folder.yml` which we will use to create a data asset in workspace. Data is available in `cli/assets/data/sample-data` folder. Here is what it looks like:
+First, create a data asset in the workspace. Make sure that you are in the `cli/assets/data` directory. The `local-folder.yml` located in this directory is used to create a data asset in the workspace. The data specified in this file is available in the `cli/assets/data/sample-data` directory. The following YAML is the contents of the `local-folder.yml` file:
 
 ```YAML
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -346,25 +351,23 @@ type: uri_folder
 path: sample-data/
 ```
 
-Execute below command to create data asset in workspace.
+To create the data asset in the workspace, use the following command:
 
 ```azurecli
 az ml data create -f local-folder.yml
 ```
 
+For more information on creating data assets in a workspace, see [How to create data assets](how-to-create-data-assets.md).  
 
-Follow [this article]((how-to-create-data-assets.md)) to learn more about creating a data asset in workspace.  
-
-The data asset created in workspace can be shared to a registry and it can be used in multiple workspaces from there. You can also change the name and version when sharing the data from workspace to registry.
+The data asset created in the workspace can be shared to a registry. From the registry, it can be used in multiple workspaces. You can also change the name and version when sharing the data from workspace to registry.
 
 ```azurecli
 az ml data share --name local-folder-example-titanic --version 1 --registry-name <registry-name> --share-with-name <new-name> --share-with-version <new-version>
 ```
 
-
 # [Python SDK](#tab/python)
 
-We will first create a data asset in workspace. Make sure that you are in `sdk/assets/data` folder. Data is available in `sdk/assets/data/sample-data` folder.
+First, create a data asset in the workspace. Make sure that you are in `sdk/assets/data` directory. The data is available in the `sdk/assets/data/sample-data` directory.
 
 ```python
 my_path = "./sample-data/"

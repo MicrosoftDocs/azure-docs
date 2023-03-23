@@ -5,15 +5,15 @@ description: Learn how practice cross-workspace MLOps and collaborate across tea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: mabables
-author: ManojBableshwar
+ms.author: kritifaujdar
+author: fkriti
 ms.reviewer: larryfr
 ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022, devx-track-azurecli
 ---
 
-# Share models, components and environments across workspaces with registries (preview)
+# Share models, components, and environments across workspaces with registries (preview)
 
 Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
@@ -692,6 +692,7 @@ ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
+* [How to share data assets using registries](how-to-share-data-across-workspaces-with-registries.md)
 * [How to create and manage registries](how-to-manage-registries.md)
 * [How to manage environments](how-to-manage-environments-v2.md)
 * [How to train models](how-to-train-cli.md)
