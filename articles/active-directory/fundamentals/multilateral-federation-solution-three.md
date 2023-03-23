@@ -38,7 +38,7 @@ The following are some of the advantages of using this solution:
 
 The following are some of the trade-offs of using this solution:
 
-* **Higher complexity and security risk** - With on-premises footprint, there may be higher complexity to the environment and extra security risks. There may also be increased overhead and fees associated with managing these on-premises components.
+* **Higher complexity and security risk** - With an on-premises footprint, there may be higher complexity to the environment and extra security risks. There may also be increased overhead and fees associated with managing these on-premises components.
 
 * **Suboptimal authentication experiences** - For multilateral federation and CAS apps, there's no cloud-based authentication mechanism and there might be multiple redirects.
 
