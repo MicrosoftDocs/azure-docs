@@ -42,6 +42,8 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 
 ## Configuring data sensitivity settings
 
+Here are the permissions and requirements for [customizing sensitivity settings](data-sensitivity-settings.md).
+
 **Action** | **Requirements**
 --- | ---
 Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator

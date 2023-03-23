@@ -14,29 +14,31 @@ After [discovering resources with sensitive data](data-security-posture-enable.m
 
 - **Attack paths**: When sensitive data discovery is enabled in the Defender Cloud Security Posture Management (CSPM) plan, you can use attack paths to discover risk of data breaches. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
 - **Security Explorer**: When sensitive data discovery is enabled in the Defender CSPM plan, you can use Cloud Security Explorer to find sensitive data insights. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
-- **Security alerts**: When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and explore ongoing threats to sensitive data stores by applying sensitivity filters, and monitoring security alerts.
+- **Security alerts**: When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and explore ongoing threats to sensitive data stores by applying sensitivity filters Security Alerts settings.
 
 ## Explore risks through attack paths
 
-View attacks path for sensitive data as follows.
+View predefined attack paths to discover data breach risks, and get remediation recommendations, as follows:
+
 
 1. In Defender for Cloud, open **Recommendations** > **Attack paths**.
 1. Review attack paths related to sensitive data.
 1. To view sensitive information detected in data resources, select the resource name > **Insights**.Then, expand the **Contain sensitive data** insight.
 1. For risk mitigation steps, open **Active Recommendations**.
 
-Attack paths for sensitive data include:
+Other examples of attack paths for sensitive data include:
+
 - "Internet exposed Azure Storage container with sensitive data is publicly accessible"
 - "VM has high severity vulnerabilities and read permission to a data store with sensitive data"
 - "Internet exposed AWS S3 Bucket with sensitive data is publicly accessible"
-- "Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data"
+- "Private AWS S3 bucket that replicates data to the internet is exposed and publicly accessible"
 
 [Review](attack-path-reference.md) a full list of attack paths.
 
 
 ## Explore risks with Cloud Security Explorer
 
-View cloud security graph insights for sensitive data as follows.
+Explore data risks and exposure in cloud security graph insights using a query template, or by defining a manual query.
 
 1. In Defender for Cloud, open **Cloud Security Explorer**.
 1. Select a query template, or build your own query.
@@ -46,7 +48,7 @@ View cloud security graph insights for sensitive data as follows.
 
 ## Explore sensitive data security alerts
 
-When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize the alerts and recommendations that are related to resources that have sensitive information types and labels assigned to them. [Learn more](defender-for-storage-data-sensitivity.md)
+When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and focus on alerts the alerts that affect resources with sensitive data. [Learn more](defender-for-storage-data-sensitivity.md)
 
 ## Next steps
 
