@@ -43,8 +43,6 @@ The steps you'll take are:
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
     * Or, open **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
 
-1. If you already completed the earlier training tutorial, [Train a model](tutorial-train-model.md), you can skip to the next prerequisite.
-
 1. View your VM quota and ensure you have enough quota available to create online deployments. In this tutorial, you will need at least 8 cores of `STANDARD_DS3_v2` and 12 cores of `STANDARD_F4s_v2`. To view your VM quota usage and request quota increases, see [Manage resource quotas](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
