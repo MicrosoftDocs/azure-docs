@@ -19,6 +19,9 @@ Token protection (sometimes referred to as token binding in the industry) attemp
 
 Token protection creates a cryptographically secure tie between the token and the device (client secret) it's issued to. Without the client secret, the bound token is useless. When a user registers a Windows 10 or newer device in Azure AD, their primary identity is [bound to the device](../devices/concept-primary-refresh-token.md#how-is-the-prt-protected). This connection means that any issued sign-in token is tied to the device significantly reducing the chance of theft and replay attacks.
 
+> [!IMPORTANT]
+> Token protection is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 With this preview, we're giving you the ability to create a Conditional Access policy to require token protection for sign-in tokens for specific services. We support token protection for sign-in tokens in Conditional Access for desktop applications accessing Exchange Online and SharePoint Online on Windows devices.
 
 :::image type="content" source="media/concept-token-protection/complete-policy-components-session.png" alt-text="Screenshot showing a Conditional Access policy requiring token protection as the session control":::
