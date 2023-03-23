@@ -29,7 +29,7 @@ The following chart captures a typical lifecycle path for a Synapse runtime for 
 | Preview | 3 months* | Microsoft Azure Preview terms apply. See here for details: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/?cdn=disable) |
 | Generally Available (GA) | 12 months* | Generally available (GA) runtimes are open to all eligible customers and are ready for production use. <br/> A GA runtime may not be elected to move into an LTS stage at Microsoft discretion. |
 | Long Term Support (LTS) | 12 months* | Long term support (LTS) runtimes are open to all eligible customers and are ready for production use, but customers are encouraged to expedite validation and workload migration to latest GA runtimes. |
-| End of Life announced (EOLA) | 12 months* for GA or LTS runtimes.<br/>1 month* for Preview runtimes. | Prior to the end of a given runtime's lifecycle, we aim to provide 12 months notice to customers as an exit ramp to migrate workloads to a GA runtime. |
+| End of Life announced (EOLA) | 12 months* for GA or LTS runtimes.<br/>1 month* for Preview runtimes. | Prior to the end of a given runtime's lifecycle, we aim to provide 12 months' notice by publishing the End-of-Life Announcement (EOLA) date in the [Azure Synapse Runtimes page](./apache-spark-version-support.md) and 6 months' email notice to customers as an exit ramp to migrate their workloads to a GA runtime. |
 | End of Life (EOL) | - | At this stage, the runtime is retired and no longer supported. |
 
 
@@ -68,11 +68,12 @@ Prior to the end of the runtime lifecycle at any stage, an end of life announcem
 
 Support SLAs are applicable for EOL announced runtimes, but all customers must migrate to a GA stage runtime no later than the EOL date.
 
-Existing pools will work as expected, but __no new Synapse Spark pools of such a version can be created, as the runtime version will not be listed on Azure Synapse Studio, Synapse API, or Azure Portal.__ 
+Existing Synapse Spark pools will function as expected, and new pools of the same version can be created. The runtime version will be listed on Azure Synapse Studio, Synapse API, or Azure Portal. At the same time, we strongly recommend migrating your workloads to the latest General Availability (GA) runtimes.
 
-If necessary due to outstanding security issues, runtime usage, or other factors, Microsoft may expedite moving a runtime into the final EOL stage at any time, at Microsoft's discretion.
+If necessary due to outstanding security issues, runtime usage, or other factors, **Microsoft may expedite moving a runtime into the final EOL stage at any time, at Microsoft's discretion.**
 
-### End of life and retirement
-As of the applicable EOL date, runtimes are considered retired.
-* Existing Spark Pools definitions and metadata will still exist in the workspace for a defined period, yet __all pipelines, jobs and notebooks will not be able to execute__. 
-* Spark Pools definitions will be deleted from the Synapse workspace in 90 days after the applicable EOL date.
+### End of life date and retirement
+As of the applicable EOL date, runtimes are considered retired and deprecated.
+* It is not possible to create new Spark pools of the retirement version through Azure Synapse Studio, Synapse API, or Azure Portal.
+* The retirement runtime version will not be available on Azure Synapse Studio, Synapse API, or Azure Portal.
+* Spark Pools definitions and associated metadata will remain in the Synapse workspace for a defined period after the applicable End-of-Life (EOL) date; **however, all pipelines, jobs and notebooks will no longer be able to execute.**
