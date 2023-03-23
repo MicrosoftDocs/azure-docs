@@ -145,7 +145,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
              nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
            my_tensor_board:
              job_service_type: tensor_board
-             logDir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
+             log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
              nodes: all
            my_jupyter_lab:
              job_service_type: jupyter_lab
