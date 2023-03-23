@@ -11171,5 +11171,10 @@
       "redirect_url": "/azure/active-directory-domain-services/concepts-forest-trust",
       "redirect_document_id": false
     }
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/create-resource-forest-powershell.md",
+      "redirect_url": "/azure/active-directory-domain-services/create-forest-trust-powershell",
+      "redirect_document_id": false
+    }
   ]
 }
