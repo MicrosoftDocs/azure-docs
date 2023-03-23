@@ -27,14 +27,6 @@ After you complete this quickstart, you'll have a lab that you can connect to an
 
 [!INCLUDE [Create Azure resources](./includes/lab-services-prerequisite-lab-plan.md)]
 
-## Create a lab plan
-
-In Azure Lab Services, a lab plan serves as a collection of configurations and settings that apply to all the labs created from it.
-
-Follow these steps to create a lab plan from the Azure portal:
-
-[!INCLUDE [Create a lab plan](./includes/lab-services-tutorial-create-lab-plan.md)]
-
 ## Create a lab
 
 A lab contains the configuration and settings for creating lab VMs. All lab VMs within a lab are identical. You use the Azure Lab Services website to create a lab in the lab plan.
