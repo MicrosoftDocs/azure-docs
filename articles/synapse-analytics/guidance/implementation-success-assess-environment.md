@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Assess environment"
 description: "Learn how to assess your environment to help evaluate the solution design and make informed technology decisions to implement Azure Synapse Analytics."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.date: 05/31/2022
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-The first step when implementing Azure Synapse Analytics is to assessment your environment. An assessment provides you with the opportunity to gather all the available information about your existing environment, environmental requirements, project requirements, constraints, timelines, and pain points. This information will form the basis of later evaluations and checkpoint activities. It will prove invaluable when it comes time to validate and compare against the project solution as it's planned, designed, and developed. We recommend that you dedicate a good amount of time to gather all the information and be sure to have necessary discussions with relevant groups. Relevant groups can include project stakeholders, business users, solution designers, and subject matter experts (SMEs) of the existing solution and environment.
+The first step when implementing Azure Synapse Analytics is to conduct an assessment of your environment. An assessment provides you with the opportunity to gather all the available information about your existing environment, environmental requirements, project requirements, constraints, timelines, and pain points. This information will form the basis of later evaluations and checkpoint activities. It will prove invaluable when it comes time to validate and compare against the project solution as it's planned, designed, and developed. We recommend that you dedicate a good amount of time to gather all the information and be sure to have necessary discussions with relevant groups. Relevant groups can include project stakeholders, business users, solution designers, and subject matter experts (SMEs) of the existing solution and environment.
 
 The assessment will become a guide to help you evaluate the solution design and make informed technology recommendations to implement Azure Synapse.
 
@@ -260,7 +260,7 @@ For the serverless SQL pool assessment, evaluate the following points.
 - Identify the number of queries that will be sent to the serverless SQL pool and the result set size of each query.
 
 > [!TIP]
-> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
+> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
 
 ### Spark pool assessment
 
@@ -296,7 +296,7 @@ For the Spark pool assessment, evaluate the following points.
 - Identify whether cluster customization is required.
 
 > [!TIP]
-> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
+> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/training/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
 
 ## Next steps
 

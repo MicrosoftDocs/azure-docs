@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 04/24/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 zone_pivot_groups: programming-languages-speech-services

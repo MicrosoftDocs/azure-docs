@@ -4,6 +4,7 @@ description: Upload Azure Arc-enabled data services metrics to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -13,7 +14,7 @@ ms.topic: how-to
 
 # Upload metrics to Azure Monitor
 
-Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL server resources in Azure.
 
 With Azure Arc data services, you can optionally upload your metrics to Azure Monitor so you can aggregate and analyze metrics, raise alerts, send notifications, or trigger automated actions. 
 
@@ -155,7 +156,7 @@ echo %SPN_AUTHORITY%
 
 ### Upload metrics to Azure Monitor
 
-To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
+To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run, the following CLI commands:
 
  
 1. Export all metrics to the specified file:

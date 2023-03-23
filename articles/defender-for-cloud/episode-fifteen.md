@@ -3,7 +3,7 @@ title: Remediate security recommendations with governance
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the new governance feature in Defender for Cloud, and how to drive security posture improvement.
 ms.topic: reference
-ms.date: 07/14/2022
+ms.date: 01/24/2023
 ---
 
 # Remediate security recommendations with governance
@@ -44,4 +44,4 @@ ms.date: 07/14/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Servers integration with Microsoft Defender for Endpoint](episode-sixteen.md)

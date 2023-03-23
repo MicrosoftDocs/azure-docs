@@ -7,8 +7,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: migreene
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # How to connect using Secure Shell (SSH) and sign on to an Azure virtual machine running Windows
 
@@ -26,7 +25,7 @@ The examples below use variables. You can set variables in your environment as f
 | Bash/ZSH | myResourceGroup='resGroup10'
 | PowerShell | $myResourceGroup='resGroup10'
 
-## Install SSH
+## Enable SSH
 
 First, you will need to enable SSH in your Windows machine.
 
@@ -114,7 +113,7 @@ Set-AzVMExtension -ResourceGroupName $myResourceGroup -VMName $myVM -Name 'OpenS
   "properties": {
     "publisher": "Microsoft.Azure.OpenSSH",
     "type": "WindowsOpenSSH",
-    "typeHandlerVersion": "3.0",
+    "typeHandlerVersion": "3.0"
   }
 }
 ```
@@ -287,4 +286,4 @@ az ssh vm  -g $myResourceGroup -n $myVM --local-user $myUsername -- -L 3389:loca
 
 
 ## Next steps
-Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a Linux VM](../linux/copy-files-to-linux-vm-using-scp.md). The same steps will also work for Windows machines.
+Learn how to transfer files to an existing VM, see [Use SCP to move files to and from a VM](../copy-files-to-vm-using-scp.md).

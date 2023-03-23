@@ -3,12 +3,12 @@ title: SAP SuccessFactors attribute reference for Azure Active Directory
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: chmutali
 ---

@@ -1,10 +1,10 @@
 ---
-title: Bulk upload to add or create members of a group - Azure Active Directory | Microsoft Docs
-description: Add group members in bulk in the Azure Active Directory admin center. 
+title: Bulk upload to add or create members of a group
+description: Add group members in bulk in the Azure portal. 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
 ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory

@@ -1,16 +1,16 @@
 ---
-title: How to manage stale devices in Azure AD | Microsoft Docs
+title: How to manage stale devices in Azure AD
 description: Learn how to remove stale devices from your database of registered devices in Azure Active Directory.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 09/27/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: spunukol
 
 #Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
@@ -63,6 +63,9 @@ You have two options to retrieve the value of the activity timestamp:
 
 To efficiently clean up stale devices in your environment, you should define a related policy. This policy helps you to ensure that you capture all considerations that are related to stale devices. The following sections provide you with examples for common policy considerations. 
 
+> [!CAUTION]
+> If your organization uses BitLocker drive encryption, you should ensure that BitLocker recovery keys are either backed up or no longer needed before deleting devices. Failure to do this may cause loss of data.
+
 ### Cleanup account
 
 To update a device in Azure AD, you need an account that has one of the following roles assigned:
@@ -83,11 +86,11 @@ It isn't advisable to immediately delete a device that appears to be stale becau
 
 ### MDM-controlled devices
 
-If your device is under control of Intune or any other MDM solution, retire the device in the management system before disabling or deleting it. For more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
+If your device is under control of Intune or any other MDM solution, retire the device in the management system before disabling or deleting it. For more information, see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
 ### System-managed devices
 
-Don't delete system-managed devices. These devices are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `Get-AzureADDevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These devices are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned.
 
 ### Hybrid Azure AD joined devices
 

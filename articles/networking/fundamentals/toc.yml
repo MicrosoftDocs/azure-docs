@@ -99,7 +99,7 @@
   - name: Network monitoring
     items:
     - name: Monitor your network with Azure Monitor
-      href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Monitor and repair network health
       href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json 
 - name: How-to guides
@@ -153,7 +153,7 @@
     - name: Monitor communications between Azure resources
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Monitor Network Insights
-      href:  ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Troubleshooting
     items: 
     - name: Troubleshoot Microsoft.Network Failed provisioning state

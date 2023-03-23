@@ -5,9 +5,9 @@ author: bdeforeest
 ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to
 ---
 
 # Associate a virtual machine scale set with flexible orchestration to a Capacity Reservation group

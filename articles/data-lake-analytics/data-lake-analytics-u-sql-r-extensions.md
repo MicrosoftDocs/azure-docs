@@ -2,18 +2,20 @@
 title: Extend U-SQL scripts with R in Azure Data Lake Analytics
 description: Learn how to run R code in U-SQL scripts using Azure Data Lake Analytics. Embed R code inline or reference from files. 
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/20/2017
+ms.date: 01/27/2023
 ---
 # Extend U-SQL scripts with R code in Azure Data Lake Analytics
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 The following example illustrates the basic steps for deploying R code:
 
 * Use the `REFERENCE ASSEMBLY` statement to enable R extensions for the U-SQL Script.
 * Use the `REDUCE` operation to partition the input data on a key.
 * The R extensions for U-SQL include a built-in reducer (`Extension.R.Reducer`) that runs R code on each vertex assigned to the reducer.
-* Usage of dedicated named data frames called `inputFromUSQL` and `outputToUSQL` respectively to pass data between U-SQL and R. Input and output DataFrame identifier names are fixed (that is, users cannot change these predefined names of input and output DataFrame identifiers).
+* Usage of dedicated named data frames called `inputFromUSQL` and `outputToUSQL` respectively to pass data between U-SQL and R. Input and output DataFrame identifier names are fixed (that is, users can't change these predefined names of input and output DataFrame identifiers).
 
 ## Embedding R code in the U-SQL script
 
@@ -84,21 +86,21 @@ DECLARE @PartitionCount int = 10;
 ### Datatypes
 
 * String and numeric columns from U-SQL are converted as-is between R DataFrame and U-SQL [supported types: `double`, `string`, `bool`, `integer`, `byte`].
-* The `Factor` datatype is not supported in U-SQL.
+* The `Factor` datatype isn't supported in U-SQL.
 * `byte[]` must be serialized as a base64-encoded `string`.
 * U-SQL strings can be converted to factors in R code, once U-SQL create R input dataframe or by setting the reducer parameter `stringsAsFactors: true`.
 
 ### Schemas
 
-* U-SQL datasets cannot have duplicate column names.
+* U-SQL datasets can't have duplicate column names.
 * U-SQL datasets column names must be strings.
 * Column names must be the same in U-SQL and R scripts.
-* Readonly column cannot be part of the output dataframe. Because readonly columns are automatically injected back in the U-SQL table if it is a part of output schema of UDO.
+* Readonly column can't be part of the output dataframe. Because readonly columns are automatically injected back in the U-SQL table if it's a part of output schema of UDO.
 
 ### Functional limitations
 
 * The R Engine can't be instantiated twice in the same process.
-* Currently, U-SQL does not support Combiner UDOs for prediction using partitioned models generated using Reducer UDOs. Users can declare the partitioned models as resource and use them in their R Script (see sample code `ExtR_PredictUsingLMRawStringReducer.usql`)
+* Currently, U-SQL doesn't support Combiner UDOs for prediction using partitioned models generated using Reducer UDOs. Users can declare the partitioned models as resource and use them in their R Script (see sample code `ExtR_PredictUsingLMRawStringReducer.usql`)
 
 ### R Versions
 
@@ -158,7 +160,7 @@ XML
 
 ### Input and Output size limitations
 
-Every vertex has a limited amount of memory assigned to it. Because the input and output DataFrames must exist in memory in the R code, the total size for the input and output cannot exceed 500 MB.
+Every vertex has a limited amount of memory assigned to it. Because the input and output DataFrames must exist in memory in the R code, the total size for the input and output can't exceed 500 MB.
 
 ### Sample code
 
@@ -166,7 +168,7 @@ More sample code is available in your Data Lake Store account after you install 
 
 ## Deploying Custom R modules with U-SQL
 
-First, create an R custom module and zip it and then upload the zipped R custom module file to your ADL store. In the example, we will upload magittr_1.5.zip to the root of the default ADLS account for the ADLA account we are using. Once you upload the module to ADL store, declare it as use DEPLOY RESOURCE to make it available in your U-SQL script and call `install.packages` to install it.
+First, create an R custom module and zip it and then upload the zipped R custom module file to your ADL store. In the example, we'll upload magittr_1.5.zip to the root of the default ADLS account for the ADLA account we're using. Once you upload the module to ADL store, declare it as use DEPLOY RESOURCE to make it available in your U-SQL script and call `install.packages` to install it.
 
 ```usql
 REFERENCE ASSEMBLY [ExtR];

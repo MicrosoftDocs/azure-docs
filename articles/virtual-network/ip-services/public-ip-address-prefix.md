@@ -9,7 +9,6 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: allensu
-
 ---
 
 # Public IP address prefix
@@ -64,7 +63,7 @@ Resource|Scenario|Steps|
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 - IPv6 is supported on basic public IPs with **dynamic** allocation only. Dynamic allocation means the IPv6 address will change if you delete and redeploy your resource in Azure. 
 - Standard IPv6 public IPs support static (reserved) allocation. 
-- Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.  
+- Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.
 
 ## Pricing
  

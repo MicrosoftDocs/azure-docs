@@ -116,7 +116,7 @@ The examples in this section use the following domain name and IP address:
 
 The following steps are optional. You need to perform the steps only if you use user mapping at the NFS client: 
 
-1. Complete all steps described in the [RHEL 8 configuration if you are using NFSv4.1 Kerberos encryption](#rhel8_nfsv41_kerberos) section.   
+1. Complete all steps described in the [RHEL 8 configuration if you are using NFSv4.1 Kerberos encryption](#rhel8_nfsv41_kerberos) section.  
 
 2. Add a static DNS record in your /etc/hosts file to use fully qualified domain name (FQDN) for your AD, instead of using the IP address in SSSD configuration file:  
 

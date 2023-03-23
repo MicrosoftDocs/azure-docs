@@ -4,10 +4,11 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 07/07/2022
+ms.date: 01/03/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI
@@ -19,12 +20,27 @@ This article explains how to either upload a VHD from your local machine to an A
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
 
-## Secure uploads with Azure AD (preview)
+## Secure uploads with Azure AD
 
-> [!IMPORTANT]
-> If Azure AD is being used to enforce upload restrictions, you must use the Azure PowerShell module's [Add-AzVHD command](../windows/disks-upload-vhd-to-managed-disk-powershell.md#secure-uploads-with-azure-ad-preview) to upload a disk. Azure CLI doesn't currently support uploading a disk if Azure AD is being used to enforce upload restrictions.
+If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
 
-If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is currently in preview. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Azure AD for uploading.
+### Prerequisites
+- [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+### Restrictions
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
+
+### Assign RBAC role
+
+To access managed disks secured with Azure AD, the requesting user must have either the [Data Operator for Managed Disks](../../role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
+
+- **Microsoft.Compute/disks/download/action**
+- **Microsoft.Compute/disks/upload/action**
+- **Microsoft.Compute/snapshots/download/action**
+- **Microsoft.Compute/snapshots/upload/action**
+
+For detailed steps on assigning a role, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md). To create or update a custom role, see [Create or update Azure custom roles using Azure CLI](../../role-based-access-control/custom-roles-cli.md).
+
 
 ## Get started
 
@@ -65,6 +81,16 @@ az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra disks are not supported for now.
+
+### (Optional) Grant access to the disk
+
+If you're using Azure AD to secure uploads, you'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-cli.md) to grant access to the disk and generate a writeable SAS.
+
+```azurecli
+az role assignment create --assignee "{assignee}" \
+--role "{Data Operator for Managed Disks}" \
+--scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{diskName}"
+```
 
 ### Generate writeable SAS
 

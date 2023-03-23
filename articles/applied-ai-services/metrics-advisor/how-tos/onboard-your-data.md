@@ -1,12 +1,12 @@
 ---
 title: Onboard your data feed to Metrics Advisor
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: How to get started with onboarding your data feeds to Metrics Advisor.
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: mbullwin
@@ -126,7 +126,7 @@ Consider the following scenarios:
 
 * *"I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by {some string}."*
 
-    Some data sources such as Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Advisor provides the roll up option to automatically generate a data cube during ingestion.
+    Some data sources such as Azure Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Advisor provides the roll up option to automatically generate a data cube during ingestion.
     This option means you need Metrics Advisor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Advisor. This won't change any data in your data source.
     For example, suppose you have a set of time series which stands for Sales metrics with the dimension (Country, Region). For a given timestamp, it might look like the following:
 

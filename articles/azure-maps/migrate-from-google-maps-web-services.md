@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 06/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -51,7 +51,7 @@ The following service APIs aren't currently available in Azure Maps:
 - Geolocation - Azure Maps does have a service called Geolocation, but it provides IP Address to location information, but does not currently support cell tower or WiFi triangulation.
 - Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
 - Map URLs
-- Nearest Roads - This is achievable using the Web SDK as shown [here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), but not available as a service currently.
+- Nearest Roads - This is achievable using the Web SDK as shown [here](https://samples.azuremaps.com/?sample=basic-snap-to-road-logic), but not available as a service currently.
 - Static street view
 
 Azure Maps has several other REST web services that may be of interest:
@@ -61,9 +61,13 @@ Azure Maps has several other REST web services that may be of interest:
 
 ## Prerequisites
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+If you don't have an Azure subscription, create a [free account] before you begin.
+
+* An [Azure Maps account]
+* A [subscription key]
+
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Geocoding addresses
 
@@ -473,7 +477,7 @@ In addition to this API, Azure Maps provides many time zone APIs. These APIs con
 
 Azure Maps provides client libraries for the following programming languages:
 
-* JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [documentation](how-to-use-services-module.md) \| [npm package](https://www.npmjs.com/package/azure-maps-rest)
 
 These Open-source client libraries are for other programming languages:
 
@@ -489,3 +493,8 @@ Learn more about Azure Maps REST services:
 
 > [!div class="nextstepaction"]
 > [Best practices for search](how-to-use-best-practices-for-search.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[free account]: https://azure.microsoft.com/free/
+[manage authentication in Azure Maps]: how-to-manage-authentication.md

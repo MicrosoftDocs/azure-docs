@@ -1,0 +1,54 @@
+### YamlMime:Landing
+
+title: Mobile apps authentication documentation
+summary: >
+  Choose your target language to learn how to sign in users and access web APIs in your mobile apps with
+  our quickstarts, how-to guides and samples.
+
+metadata:
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Configure ready apps quickly"
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Android (Java and Kotlin)
+            url: configure-authentication-sample-android-app.md
+          - text: iOS (Swift)
+            url: configure-authentication-sample-ios-app.md
+
+  - title: "Build your own app"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Android (Java and Kotlin)
+            url: enable-authentication-android-app.md
+          - text: iOS (Swift)
+            url: enable-authentication-ios-app.md
+
+  - title: "Configuration options"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Android (Java and Kotlin)
+            url: enable-authentication-android-app-options.md
+          - text: iOS (Swift)
+            url: enable-authentication-ios-app-options.md
+
+  - title: "Samples"
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: iOS (Objective-C )
+            url: https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth
+          - text: Xamarin native  
+            url: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native

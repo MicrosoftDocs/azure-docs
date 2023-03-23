@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Advanced multistage attack detection in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
 > Some Fusion detections (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -65,9 +63,9 @@ When the Fusion engine's correlations result in the detection of an emerging thr
 Microsoft Sentinel's Fusion engine generates an incident when it detects multiple alerts of different types from the following data sources, and determines that they may be related to ransomware activity:
 
 - [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
-- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
-- [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
+- [Microsoft Defender for Endpoint](./data-connectors/microsoft-defender-for-endpoint.md)
+- [Microsoft Defender for Identity connector](./data-connectors/microsoft-defender-for-identity.md)
+- [Microsoft Defender for Cloud Apps](./data-connectors/microsoft-defender-for-cloud-apps.md)
 - [Microsoft Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.

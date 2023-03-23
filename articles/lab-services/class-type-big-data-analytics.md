@@ -5,7 +5,7 @@ author: nicolela
 ms.topic: how-to
 ms.date: 03/08/2022
 ms.custom: devdivchpfy22
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform
@@ -27,7 +27,7 @@ To set up this lab, you need an Azure subscription to get started. If you don't 
 
 ### Lab plan settings
 
-Once you've an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+Once you've an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 

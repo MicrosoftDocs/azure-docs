@@ -11,12 +11,11 @@ Private links enable you to access Azure services over a private endpoint in you
 Private link provides the following security benefits:
 
 * **Private Access** - users can manage resources from a private network via a private endpoint.
-* **Data exfiltration** - users are denied access to resources not included in the scope.
 
 > [!NOTE]
 > Azure Kubernetes Service (AKS) currently doesn't support the ARM private endpoint implementation.
 >
-> Azure Bastion doesn't support private DNS zones, which are a recommended configuration for your private endpoint. Enabling a private DNS zone will cause your Bastion instance to stop working.
+> Azure Bastion doesn't support private links. It is recommended to use a private DNS zone for your resource management private link private endpoint configuration, but due to the overlap with the management.azure.com name, your Bastion instance will stop working. For more information, view [Azure Bastion FAQ](../articles/bastion/bastion-faq.md#dns).
 
 ## Understand architecture
 

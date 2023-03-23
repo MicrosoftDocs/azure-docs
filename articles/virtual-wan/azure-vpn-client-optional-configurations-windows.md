@@ -1,17 +1,17 @@
 ---
-title: 'Azure VPN Client optional configuration steps: OpenVPN protocol - Windows'
+title: 'Azure VPN Client optional configuration steps: OpenVPN protocol'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the Azure VPN Client optional configuration parameters for P2S OpenVPN connections.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 07/20/2022
 ms.author: cherylmc
 
 ---
-# Configure Azure VPN Client optional settings - OpenVPN protocol - Windows
+# Configure Azure VPN Client optional settings - OpenVPN protocol
 
-This article helps you configure optional settings for an Azure VPN Client installed on a Windows computer.
+This article helps you configure optional settings for the Azure VPN Client.
 
 * For information about installing the Azure VPN Client, see [Configure the Azure VPN client - Windows](openvpn-azure-ad-client.md).
 
@@ -102,9 +102,9 @@ Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<d
 
 ### <a name="forced-tunneling"></a>Direct all traffic to the VPN tunnel (forced tunneling)
 
-You can include 0/0 if you're using the Azure VPN Client version 2.1900:39.0 or higher. Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
+You can include 0/0 if you're using the Azure VPN Client version 2.1900:39.0 or higher.
 
-For more information about configuring forced tunneling, including additional configuration options, see [How to configure forced tunneling](how-to-forced-tunnel.md).
+Modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**. For more information about forced tunneling, see [Configure forced tunneling](how-to-forced-tunnel.md).
 
 ```xml
 <azvpnprofile>
@@ -137,49 +137,6 @@ Modify the downloaded profile xml file and add the **\<excluderoutes>\<route>\<d
 </clientconfig>
 </azvpnprofile>
 ```
-
-## Certificates
-
-This section applies to certificate authentication clients.
-
-### <a name="multi-cert"></a>Specify multiple certificates
-
-If you have 2 hubs for your virtual WAN that are each configured for P2S User VPN and use the same VPN configuration, and that configuration is configured to use multiple certificates, you can now configure the VPN clients for multiple certificates. This means that if one certificate can't be used for any reason, the other certificate can still be used for authentication. Previously, you couldn't configure the client with the settings for both certificates.
-
-You can configure multiple certificate support on the client side by either using the Azure VPN Client interface (version 2.1963.44.0 or higher), or by modifying the xml profile to include multiple certificate tags.
-
-You need to first download the User VPN profile in order to obtain the necessary settings. Go to the **Virtual WAN -> User VPN configurations** page. Select the User VPN configuration used by both hubs, then select **Download virtual WAN user VPN profile** to download the global user VPN profile (rather than the hub profile). The files you download contain the root end certificates.
-
-* To configure multiple certificates directly in the Azure VPN Client, specify multiple certificates when you add a VPN connection.
-
-* To configure the Azure VPN client using the profile xml file, modify the xml file to include multiple certificates, then import the file either directly in the Azure VPN client, or from the command line.
-
-   ```xml
-     </protocolconfig>
-     <serverlist>
-       <ServerEntry>
-         <displayname
-           i:nil="true" />
-         <fqdn>wan.kycyz81dpw483xnf3fg62v24f.vpn.azure.com</fqdn>
-       </ServerEntry>
-     </serverlist>
-     <servervalidation>
-       <cert>
-         <hash>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436</hash>
-         <issuer
-           i:nil="true" />
-       </cert>
-       <cert>
-         <hash>59470697201baejC4B2D7D66D40C6DD2FB19C5436</hash>
-         <issuer
-           i:nil="true" />
-       </cert>
-       <cert>
-         <hash>cab20a7f63f00f2bae76202gdfe36db3a03a9cb9</hash>
-         <issuer
-           i:nil="true" />
-       </cert>
-   ```
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Azure AD SSO for Splunk Enterprise and Splunk Cloud | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Azure AD SSO for Splunk Enterprise and Splunk Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Azure AD SSO for Splunk Enterprise and Splunk Cloud.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Azure AD SSO for Splunk Enterprise and Splunk Cloud
+# Tutorial: Azure AD SSO integration with Azure AD SSO for Splunk Enterprise and Splunk Cloud
 
 In this tutorial, you'll learn how to integrate Azure AD SSO for Splunk Enterprise and Splunk Cloud with Azure Active Directory (Azure AD). When you integrate Azure AD SSO for Splunk Enterprise and Splunk Cloud with Azure AD, you can:
 
@@ -43,6 +43,8 @@ To configure the integration of Azure AD SSO for Splunk Enterprise and Splunk Cl
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Azure AD SSO for Splunk Enterprise and Splunk Cloud** in the search box.
 1. Select **Azure AD SSO for Splunk Enterprise and Splunk Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Azure AD SSO for Splunk Enterprise and Splunk Cloud
 
@@ -111,7 +113,49 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Azure AD SSO for Splunk Enterprise and Splunk Cloud SSO
 
-  To configure single sign-on on **Azure AD SSO for Splunk Enterprise and Splunk Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Azure AD SSO for Splunk Enterprise and Splunk Cloud support team](https://www.splunk.com/en_us/about-splunk/contact-us.html). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to the Splunk Enterprise and Splunk Cloud website as an administrator.
+
+1. Go to the **Settings > Access Controls** menu option.
+
+1. Click on the **Authentication method** link. Click on the **SAML** radio button
+
+1. Click on the **Configure Splunk to use SAML** link below the SAML radio button.
+
+    ![Screenshot that shows Configure Splunk to use SAML.](./media/splunk-enterprise-and-splunk-cloud-tutorial/configure-splunk.png)
+
+1. Perform the following steps in the **SAML Configuration** section:
+
+    ![Screenshot that shows Configure Splunk to SAML configuration.](./media/splunk-enterprise-and-splunk-cloud-tutorial/sso-configuration.png)
+
+    a. Click on the **Select File** button to upload the **Federation Metadata XML** file, which you have downloaded from Azure portal.
+
+    b. In the **Entity ID** field, enter the **Identifier** value, which you have copied from the Azure portal.
+
+    c. Check the **Verify SAML response** checkbox.This will be a requirement moving forward in Splunk Cloud for security best practices, so please make sure this is checked.
+
+1. Scroll down within the configuration dialogue and click on the **Alias** section. Enter the following values in each attribute:
+
+    a. **Role alias**: `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
+
+    b.**RealName alias**: `http://schemas.microsoft.com/identity/claims/displayname`
+
+    c. **Mail alias**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+    ![Screenshot that shows role mapping.](./media/splunk-enterprise-and-splunk-cloud-tutorial/role-alias.png)
+
+1. Scroll down to the **Advanced Settings** section and perform the following steps:
+
+    ![Screenshot that shows Advanced Settings.](./media/splunk-enterprise-and-splunk-cloud-tutorial/advanced-settings.png)
+
+    a. Click the **Name Id Format** and select **Email Address** from the dropdown.
+
+    b. In the **Fully qualified domain name or IP of the load balancer** text box, enter the value as: `https://<acme>.splunkcloud.com`.
+
+    c. Set **Redirect port – load balancer port** to `0(zero)` and click **Save**.
+
+1. Click on the green **New Group** button in the upper right hand corner of the SAML Groups configuration screen in Splunk.
+
+1. In the **Create new SAML Group** configuration dialogue, paste in the first Object ID into the **Group Name** field. Then choose one or more **Splunk Roles** that you wish to map to users that are assigned to that group from the **Available Item(s)** box; the items you choose will populate over into the **Selected Item(s)** box. Click the green **Save** button once finished.
 
 ### Create Azure AD SSO for Splunk Enterprise and Splunk Cloud test user
 

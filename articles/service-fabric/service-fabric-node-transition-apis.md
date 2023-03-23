@@ -1,9 +1,12 @@
 ---
 title: Start and stop cluster nodes
 description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
-ms.topic: conceptual
-ms.date: 6/12/2017
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Replacing the Start Node and Stop Node APIs with the Node Transition API
@@ -18,7 +21,7 @@ As described earlier, a *stopped* Service Fabric node is a node intentionally ta
 
 In addition, some errors returned by these APIs are not as descriptive as they could be.  For example, invoking the Stop Node API on an already *stopped* node will return the error *InvalidAddress*.  This experience could be improved.
 
-Also, the duration a node is stopped for is "infinite" until the Start Node API is invoked.  We've found this can cause problems and may be error-prone.  For example, we've seen problems where a user invoked the Stop Node API on a node and then forgot about it.  Later, it was unclear if the node was *down* or *stopped*.
+Also, the duration a node remains stopped for is "infinite" until the Start Node API is invoked.  We've found this can cause problems and may be error-prone.  For example, we've seen problems where a user invoked the Stop Node API on a node and then forgot about it.  Later, it was unclear if the node was *down* or *stopped*.
 
 
 ## Introducing the Node Transition APIs
@@ -27,7 +30,7 @@ We've addressed these issues above in a new set of APIs.  The new Node Transitio
 
 **Usage**
 
-If the Node Transition API does not throw an exception when invoked, then the system has accepted the asynchronous operation, and will execute it.  A successful call does not imply the operation is finished yet.  To get information about the current state of the operation, call the Node Transition Progress API (managed: [GetNodeTransitionProgressAsync()][gntp]) with the guid used when invoking Node Transition API for this operation.  The Node Transition Progress API returns an NodeTransitionProgress object.  This object's State property specifies the current state of the operation.  If the state is "Running", then the operation is executing.  If it is Completed, the operation finished without error.  If it is Faulted, there was a problem executing the operation.  The Result property's Exception property will indicate what the issue was.  See [TestCommandProgressState Enum](/dotnet/api/system.fabric.testcommandprogressstate) for more information about the State property, and the "Sample Usage" section below for code examples.
+If the Node Transition API does not throw an exception when invoked, then the system has accepted the asynchronous operation, and will execute it.  A successful call does not imply the operation is finished yet.  To get information about the current state of the operation, call the Node Transition Progress API (managed: [GetNodeTransitionProgressAsync()][gntp]) with the guid used when invoking Node Transition API for this operation.  The Node Transition Progress API returns a NodeTransitionProgress object.  This object's State property specifies the current state of the operation.  If the state is "Running", then the operation is executing.  If it is Completed, the operation finished without error.  If it is Faulted, there was a problem executing the operation.  The Result property's Exception property will indicate what the issue was.  See [TestCommandProgressState Enum](/dotnet/api/system.fabric.testcommandprogressstate) for more information about the State property, and the "Sample Usage" section below for code examples.
 
 **Differentiating between a stopped node and a down node**
 If a node is *stopped* using the Node Transition API, the output of a node query (managed: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) will show that this node has an *IsStopped* property value of true.  Note this is different from the value of the *NodeStatus* property, which will say *Down*.  If the *NodeStatus* property has a value of *Down*, but *IsStopped* is false, then the node was not stopped using the Node Transition API, and is *Down* due to some other reason.  If the *IsStopped* property is true, and the *NodeStatus* property is *Down*, then it was stopped using the Node Transition API.

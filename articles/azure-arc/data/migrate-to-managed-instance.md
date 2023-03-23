@@ -3,7 +3,7 @@ title: Migrate a database from SQL Server to Azure Arc-enabled SQL Managed Insta
 description: Migrate database from SQL Server to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -155,10 +155,10 @@ Example:
 Copy the backup file from the local storage to the sql pod in the cluster.
 
 ```console
-kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
+kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name> -c arc-sqlmi
 
 #Example:
-kubectl cp C:\Backupfiles\test.bak sqlinstance1-0:var/opt/mssql/data/test.bak -n arc
+kubectl cp C:\Backupfiles\test.bak sqlinstance1-0:var/opt/mssql/data/test.bak -n arc -c arc-sqlmi
 ```
 
 ### Step 3: Restore the database
@@ -189,4 +189,4 @@ GO
 
 [Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
-[Already created a Data Controller? Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

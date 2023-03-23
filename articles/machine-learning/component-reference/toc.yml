@@ -1,5 +1,7 @@
 - name: Designer algorithms & components
   href: component-reference.md
+- name: Switch to Designer v2 documentation
+  href: ../component-reference-v2/component-reference-v2.md
 - name: Data input and output
   items:
   - name: Import Data

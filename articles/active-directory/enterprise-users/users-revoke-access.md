@@ -1,14 +1,14 @@
 ---
-title: Revoke user access in an emergency in Azure Active Directory | Microsoft Docs
+title: Revoke user access in an emergency in Azure Active Directory
 description: How to revoke all access for a user in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-author: curtand
-ms.author: curtand
-manager: karenhoran
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
 ms.reviewer: krbain
 ms.date: 06/24/2022
 ms.custom: it-pro

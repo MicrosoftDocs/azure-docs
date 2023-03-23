@@ -1,13 +1,14 @@
 ---
 title: Reliable Services notifications 
 description: Conceptual documentation for Service Fabric Reliable Services notifications for Reliable State Manager and Reliable Dictionary
-author: mcoskun
-
-ms.topic: conceptual
-ms.date: 6/29/2017
-ms.author: mcoskun
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 
 Two types of objects support notifications: *Reliable State Manager* and *Reliable Dictionary*.
@@ -17,8 +18,8 @@ Common reasons for using notifications are:
 * Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in Reliable Dictionary.
 * Sending monitoring data, such as the number of users added in the last hour.
 
-Notifications are fired as part of applying operations. 
-Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations.
+Notifications are fired as a part of applying operations. On a primary replica, operations are applied after quorum acknowledgment as a part of `transaction.CommitAsync()` or `this.StateManager.GetOrAddAsync()`. On secondary replicas, operations are applied at replication queue data processing. Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations. Otherwise, it could negatively impact transaction processing time as well as replica build-ups.
+
 
 ## Reliable State Manager notifications
 Reliable State Manager provides notifications for the following events:
@@ -211,7 +212,7 @@ Here are some things to keep in mind:
 * Because notifications are fired as part of the applying operations, clients see only notifications for locally committed operations. And because operations are guaranteed only to be locally committed (in other words, logged), they might or might not be undone in the future.
 * On the redo path, a single notification is fired for each applied operation. This means that if transaction T1 includes Create(X), Delete(X), and Create(X), you'll get one notification for the creation of X, one for the deletion, and one for the creation again, in that order.
 * For transactions that contain multiple operations, operations are applied in the order in which they were received on the primary replica from the user.
-* As part of processing false progress, some operations might be undone. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
+* As part of processing false progress, some operations might be undone on secondary replicas. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
 
 ## Next steps
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)

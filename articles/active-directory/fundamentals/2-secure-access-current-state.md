@@ -1,6 +1,6 @@
 ---
-title: Discover the current state of external collaboration with Azure Active Directory 
-description: Learn methods to discover the current state of your collaboration.
+title: Discover the current state of external collaboration in your organization
+description: Discover the current state of an organization's collaboration with audit logs, reporting, allowlist, blocklist, and more.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/23/2023
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -17,70 +17,99 @@ ms.collection: M365-identity-device-management
 
 # Discover the current state of external collaboration in your organization
 
-Before discovering the current state of your external collaboration, you should [determine your desired security posture](1-secure-access-posture.md). You'll consider your organization’s needs for centralized vs. delegated control, and any relevant governance, regulatory, and compliance targets.
+Before you learn about the current state of your external collaboration, determine a security posture. Consider centralized vs. delegated control, also governance, regulatory, and compliance targets.
 
-Individuals in your organization are probably already collaborating with users from other organizations. Collaboration can be through features in productivity applications like Microsoft 365, by emailing, or by otherwise sharing resources with external users. The pillars of your governance plan will form as you discover:
+Learn more: [Determine your security posture for external access with Azure Active Directory](1-secure-access-posture.md)
 
-* The users who are initiating external collaboration.
-* The external users and organizations you're collaborating with.
-* The access being granted to external users.
+Users in your organization likely collaborate with users from other organizations. Collaboration occurs with productivity applications like Microsoft 365, by email, or sharing resources with external users. These scenarios include users:
 
-## Users initiating external collaboration
+* Initiating external collaboration
+* Collaborating with external users and organizations
+* Granting access to external users
 
-The users initiating external collaboration best understand the applications most relevant for external collaboration, and when that access should end. Understanding these users can help you determine who should be delegated permission to inviting external users, create access packages, and complete access reviews.
+## Before you begin
 
-To find users who are currently collaborating, review the [Microsoft 365 audit log for sharing and access request activities](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#sharing-and-access-request-activities). You can also review the [Azure AD audit log for details on who invited B2B](../external-identities/auditing-and-reporting.md) users to your directory.
+This article is number 2 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series.
 
-## Find current collaboration partners
+## Determine who initiates external collaboration
 
-External users may be [Azure AD B2B users](../external-identities/what-is-b2b.md) (preferable) with partner-managed credentials, or external users with locally provisioned credentials. These users are typically (but not always) marked with a UserType of Guest. You can enumerate guest users through the [Microsoft Graph API](/graph/api/user-list?tabs=http), [PowerShell](/graph/api/user-list?tabs=http), or the [Azure portal](../enterprise-users/users-bulk-download.md).
+Generally, users seeking external collaboration know the applications to use, and when access ends. Therefore, determine users with delegated permissions to invite external users, create access packages, and complete access reviews.
 
-There are also tools specifically designed to identify existing Azure AD B2B collaboration such as identifying external Azure AD tenants, and which external users are accessing what applications. These tools include a [PowerShell module](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity) and an [Azure Monitor workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).  
+To find collaborating users:
 
-### Use email domains and companyName property
+* Microsoft 365 [Audit log activities](/microsoft-365/compliance/audit-log-activities?view=o365-worldwide&preserve-view=true) - search for events and discover activities audited in Microsoft 365
+* [Auditing and reporting a B2B collaboration user](../external-identities/auditing-and-reporting.md) - verify guest user access, and see records of system and user activities
 
-External organizations can be determined by the domain names of external user email addresses. If consumer identity providers such as Google are supported, this may not be possible. In this case we recommend that you write the companyName attribute to clearly identify the user’s external organization.
+## Enumerate guest users and organizations
 
-### Use allow or blocklists
+External users might be Azure AD B2B users with partner-managed credentials, or external users with locally provisioned credentials. Typically, these users are the Guest UserType. To learn about inviting guests users and sharing resources, see [B2B collaboration overview](../external-identities/what-is-b2b.md).
 
-Consider whether your organization wants to allow collaboration with only specific organizations. Alternatively, consider if your organization wants to block collaboration with specific organizations. At the tenant level, there is an [allow or blocklist](../external-identities/allow-deny-list.md), which can be used to control overall B2B invitations and redemptions regardless of source (such as Microsoft Teams, Microsoft SharePoint, or the Azure portal).
+You can enumerate guest users with:
 
-If you’re using entitlement management, you can also scope access packages to a subset of your partners by using the Specific connected organizations setting as shown below.
+* [Microsoft Graph API](/graph/api/user-list?tabs=http)
+* [PowerShell](/graph/api/user-list?tabs=http)
+* [Azure portal](../enterprise-users/users-bulk-download.md)
 
-![Screenshot of allowlisting or blocklisting in creating a new access package.](media/secure-external-access/2-new-access-package.png)
+Use the following tools to identify Azure AD B2B collaboration, external Azure AD tenants, and users accessing applications:
 
-## Find access being granted to external users
+* PowerShell module, [Get MsIdCrossTenantAccessActivity](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity)
+* [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)
 
-Once you have an inventory of external users and organizations, you can determine the access granted to these users using the Microsoft Graph API to determine Azure AD [group membership](/graph/api/resources/groups-overview) or [direct application assignment](/graph/api/resources/approleassignment) in Azure AD.
+### Discover email domains and companyName property
 
-### Enumerate application-specific permissions
+You can determine external organizations with the domain names of external user email addresses. This discovery might not be possible with consumer identity providers. We recommend you write the companyName attribute to identify external organizations.
 
-You may also be able to perform application-specific permission enumeration. For example, you can programmatically generate a permission report for SharePoint Online by using [this script](https://gallery.technet.microsoft.com/office/SharePoint-Online-c9ec4f64).
+### Use allowlist, blocklist, and entitlement management
 
-Specifically investigate access to all of your business-sensitive and business-critical apps so that you are fully aware of any external access.
+Use the allowlist or blocklist to enable your organization to collaborate with, or block, organizations at the tenant level. Control B2B invitations and redemptions regardless of source (such as Microsoft Teams, SharePoint, or the Azure portal). 
 
-### Detect ad hoc sharing
+See, [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md)
 
-If your email and network plans enable it, you can investigate content being shared through email or through unauthorized software as a service (SaaS) apps. [Microsoft 365 Data Loss Protection](/microsoft-365/compliance/data-loss-prevention-policies) helps you identify, prevent, and monitor the accidental sharing of sensitive information across your Microsoft 365 infrastructure. [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) can help you identify the use of unauthorized SaaS apps in your environment.
+If you use entitlement management, you can confine access packages to a subset of partners with the **Specific connected organizations** option, under New access packages, in Identity Governance.
+
+   ![Screenshot of settings and options under Identity Governance, New access package.](media/secure-external-access/2-new-access-package.png)
+
+## Determine external user access
+
+With an inventory of external users and organizations, determine the access to grant to the users. You can use the Microsoft Graph API to determine Azure AD group membership or application assignment.
+
+* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph%2Fcontext&view=graph-rest-1.0&preserve-view=true)
+* [Applications API overview](/graph/applications-concept-overview?view=graph-rest-1.0&preserve-view=true)
+
+### Enumerate application permissions
+
+Investigate access to your sensitive apps for awareness about external access. See, [Grant or revoke API permissions programmatically](/graph/permissions-grant-via-msgraph?view=graph-rest-1.0&tabs=http&pivots=grant-application-permissions&preserve-view=true).
+
+### Detect informal sharing
+
+If your email and network plans are enabled, you can investigate content sharing through email or unauthorized software as a service (SaaS) apps. 
+
+* Identify, prevent, and monitor accidental sharing
+  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true )
+* Identify unauthorized apps
+  * [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 
 ## Next steps
 
-See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
-2. [Discover your current state](2-secure-access-current-state.md) (You are here.)
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md) (You're here)
 
-3. [Create a governance plan](3-secure-access-plan.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Use groups for security](4-secure-access-groups.md)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
 
-5. [Transition to Azure AD B2B](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
-6. [Secure access with Entitlement Management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-7. [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Secure access with Sensitivity labels](8-secure-access-sensitivity-labels.md)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure access to Microsoft Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+

@@ -1,12 +1,12 @@
 ---
 title: Enable diagnostic logging in the DICOM service - Azure Health Data Services
 description: This article explains how to enable diagnostic logging in the DICOM service.
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 03/02/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # Enable Diagnostic Logging in the DICOM service

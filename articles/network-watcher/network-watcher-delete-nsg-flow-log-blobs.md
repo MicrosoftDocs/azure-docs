@@ -1,19 +1,14 @@
 ---
-title: Delete storage blobs for network security group flow logs in Azure Network Watcher | Microsoft Docs
+title: Delete storage blobs for network security group flow logs in Azure Network Watcher
 description: This article explains how to delete the network security group flow log storage blobs that are outside their retention policy period in Azure Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: damendo
-manager: 
-editor: 
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo 
+ms.author: halkazwini
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Delete network security group flow log storage blobs in Network Watcher

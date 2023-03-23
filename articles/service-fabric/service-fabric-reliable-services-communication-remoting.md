@@ -1,10 +1,14 @@
 ---
 title: Service remoting by using C# in Service Fabric
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
-ms.topic: conceptual
-ms.date: 06/03/2022
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Service remoting in C# with Reliable Services
 
 > [!div class="op_single_selector"]
@@ -309,9 +313,7 @@ Follow these steps:
 To upgrade from V1 to V2 (interface compatible, known as V2_1), two-step upgrades are required. Follow the steps in this sequence.
 
 > [!NOTE]
-> When upgrading from V1 to V2, ensure the `Remoting` namespace is updated to use V2. Example: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
->
->
+> When upgrading from V1 to V2, ensure the `Remoting` namespace is updated to use V2. Example: `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
 
 1. Upgrade the V1 service to V2_1 service by using the following attribute.
 This change makes sure that the service is listening on the V1 and the V2_1 listener.

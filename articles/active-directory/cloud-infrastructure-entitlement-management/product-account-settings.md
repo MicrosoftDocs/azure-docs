@@ -2,12 +2,13 @@
 title: View personal and organization information in Permissions Management
 description: How to view personal and organization information in the Account settings dashboard in Permissions Management.
 services: active-directory
-manager: rkarlin
-ms.service: ciem
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.topic: overview
-author: kenwith
+author: jenniferf-skc
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View personal and organization information

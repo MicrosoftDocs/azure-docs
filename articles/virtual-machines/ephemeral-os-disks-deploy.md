@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv
 ms.subservice: disks 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # How to deploy Ephemeral OS disks for Azure VMs
@@ -132,7 +132,7 @@ You can reimage a Virtual Machine instance with ephemeral OS disk using REST API
 
 ```
 POST https://management.azure.com/subscriptions/{sub-
-id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2019-12-01" 
+id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?api-version=2019-12-01" 
 ```
 
 ## PowerShell

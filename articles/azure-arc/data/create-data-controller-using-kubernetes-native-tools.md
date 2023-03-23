@@ -22,6 +22,8 @@ Creating the data controller has the following high level steps:
 
 > [!NOTE]
 > For simplicity, the steps below assume that you are a Kubernetes cluster administrator. For production deployments or more secure environments, it is recommended to follow the security best practices of "least privilege" when deploying the data controller by granting only specific permissions to users and service accounts involved in the deployment process. 
+>
+> See the topic [Operate Arc-enabled data services with least privileges](least-privilege.md) for detailed instructions.
 
 
 ## Prerequisites
@@ -40,10 +42,10 @@ Save a copy of [bootstrapper-unified.yaml](https://raw.githubusercontent.com/mic
 
 > [!IMPORTANT]
 > The bootstrapper-unified.yaml template file defaults to pulling the bootstrapper container image from the Microsoft Container Registry (MCR). If your environment can't directly access the Microsoft Container Registry, you can do the following:
-- Follow the steps to [pull the container images from the Microsoft Container Registry and push them to a private container registry](offline-deployment.md).
-- [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) named `arc-private-registry` for your private container registry.
-- Change the image URL for the bootstrapper image in the bootstrap.yaml file.
-- Replace `arc-private-registry` in the bootstrap.yaml file if a different name was used for the image pull secret.
+> - Follow the steps to [pull the container images from the Microsoft Container Registry and push them to a private container registry](offline-deployment.md).
+> - [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) named `arc-private-registry` for your private container registry.
+> - Change the image URL for the bootstrapper image in the bootstrap.yaml file.
+> - Replace `arc-private-registry` in the bootstrap.yaml file if a different name was used for the image pull secret.
 
 Run the following command to create the namespace and bootstrapper service with the edited file.
 
@@ -170,4 +172,4 @@ If you encounter any troubles with creation, please see the [troubleshooting gui
 ## Next steps
 
 - [Create a SQL managed instance using Kubernetes-native tools](./create-sql-managed-instance-using-kubernetes-native-tools.md)
-- [Create a PostgreSQL Hyperscale server group using Kubernetes-native tools](./create-postgresql-hyperscale-server-group-kubernetes-native-tools.md)
+- [Create a PostgreSQL server using Kubernetes-native tools](./create-postgresql-server-kubernetes-native-tools.md)

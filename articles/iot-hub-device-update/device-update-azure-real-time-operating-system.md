@@ -1,24 +1,16 @@
 ---
 title: Device Update for Azure RTOS | Microsoft Docs
 description: Get started with Device Update for Azure RTOS.
-author: ValOlson
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 3/18/2021
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Tutorial: Device Update for Azure IoT Hub using Azure RTOS
+# Device Update for Azure IoT Hub using Azure RTOS
 
-This tutorial shows you how to create the Device Update for Azure IoT Hub agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get-started guides to learn how to configure, build, and deploy over-the-air updates to the devices.
-
-In this tutorial, you'll learn how to:
-> [!div class="checklist"]
-> * Get started.
-> * Tag your device.
-> * Create a device group.
-> * Deploy an image update.
-> * Monitor the update deployment.
+This article shows you how to create the Device Update for Azure IoT Hub agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get-started guides to learn how to configure, build, and deploy over-the-air updates to the devices.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -44,37 +36,32 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 1. Keep the device application running from the previous step.
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. On the left pane, under **IoT Devices**, find your IoT device and go to the device twin.
+1. On the left pane, select **Devices**. Find your IoT device and go to the device twin.
 1. In the device twin, delete any existing Device Update tag values by setting them to null.
 1. Add a new Device Update tag value to the root JSON object, as shown:
-    
+
     ```JSON
         "tags": {
                 "ADUGroup": "<CustomTagValue>"
                 }
     ```
 
-## Create an update group
+## View device groups
+
+Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device belongs to only one group, but groups can have multiple subgroups to sort different device classes.
 
 1. Go to the **Groups and Deployments** tab at the top of the page.
 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-1. Select **Add group** to create a new group.
-
-   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows a device group addition." lightbox="media/create-update-group/add-group.png":::
-
-1. Select an **IoT Hub** tag and **Device class** from the list. Then select **Create group**.
-
-   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot that shows tag selection." lightbox="media/create-update-group/select-tag.png":::
-
-1. After the group is created, you see that the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
+1. View the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
 
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
+1. You should see a device group that contains the simulated device you set up in this tutorial along with any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
 
-[Learn more](create-update-group.md) about how to add tags and create update groups.
+For more information about tags and groups, see [Manage device groups](create-update-group.md).
+
 
 ## Deploy new firmware
 
@@ -118,10 +105,6 @@ Learn more about [Azure RTOS](/azure/rtos/).
 1. Select **Refresh** to view the latest status details.
 
 You've now completed a successful end-to-end image update by using Device Update for IoT Hub on an Azure RTOS embedded device.
-
-## Clean up resources
-
-When no longer needed, clean up your device update account, instance, IoT hub, and IoT device.
 
 ## Next steps
 

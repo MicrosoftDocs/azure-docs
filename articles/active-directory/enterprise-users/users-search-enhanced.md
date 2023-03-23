@@ -1,18 +1,17 @@
 ---
-title: User management enhancements - Azure Active Directory | Microsoft Docs
+title: User management enhancements
 description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 

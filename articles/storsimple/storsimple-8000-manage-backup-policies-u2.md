@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/15/2021
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service in Azure portal to manage backup policies
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 
 ## Overview

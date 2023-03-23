@@ -6,8 +6,9 @@ description: Skillsets are where you author an AI enrichment pipeline in Azure C
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/13/2022
+ms.date: 07/14/2022
 ---
 
 # Skillset concepts in Azure Cognitive Search
@@ -129,13 +130,13 @@ An enriched document exists for the duration of skillset execution, but can be [
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
-The initial content is metadata and the *root node* (`document\content`). The root node is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
+The initial content is metadata and the *root node* (`document/content`). The root node is usually a whole document or a normalized image that is extracted from a data source during document cracking. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
 |Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
+|Azure Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
 As skills execute, output is added to the enrichment tree as new nodes. If skill execution is over the entire document, nodes are added at the first level under the root.
 

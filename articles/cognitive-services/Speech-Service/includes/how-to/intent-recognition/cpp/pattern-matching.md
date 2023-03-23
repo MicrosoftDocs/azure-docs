@@ -55,7 +55,7 @@ You need to associate some patterns with a `PatternMatchingModel` and apply it t
 We will start by creating a `PatternMatchingModel` and adding a few intents to it. A PatternMatchingIntent is a struct so we will just use the in-line syntax.
 
 > [!Note]
-> We can add multiple patterns to an `Intent`.
+> We can add multiple patterns to a `PatternMatchingIntent`.
 
 ```cpp
 auto model = PatternMatchingModel::FromId("myNewModel");

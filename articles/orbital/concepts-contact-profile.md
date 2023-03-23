@@ -1,13 +1,13 @@
 ---
-title: Ground station contact profile - Azure Orbital GSaaS
+title: Ground station contact profile - Azure Orbital
 description: Learn more about the contact profile object, including how to create, modify, and delete the profile.
 author: hrshelar
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
-ms.date: 06/21/2022
+ms.date: 07/13/2022
 ms.author: hrshelar
-#Customer intent: As a satellite operator or user, I want to understand how to use the contact profile so that I can take passes using the GSaaS service.
+#Customer intent: As a satellite operator or user, I want to understand how to use the contact profile so that I can take passes using the Azure Orbital Ground Station (AOGS) service.
 ---
 
 # Ground station contact profile
@@ -22,7 +22,7 @@ See [how to configure a contact profile](contact-profile.md) for the full list o
 
 ## Prerequisites 
 
-- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Orbital GSaaS integration.](prepare-network.md)
+- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Azure Orbital Ground Station integration.](prepare-network.md)
 
 ## Creating a contact profile 
 
@@ -38,9 +38,9 @@ At the moment autotrack is disabled and autotracking options are not applied.
 
 ## Understanding links and channels
 
-A whole band, unique in direction, and unique in polarity is called a link. Channels, which are children under links, specify center frequency, bandwidth, and endpoints. Typically there's only one channel per link but some applications require multiple channels per link. Refer to the Ground Station manual for a full list of supported bands and antenna capabilities.
+A whole band, unique in direction, and unique in polarity is called a link. Channels, which are children under links, specify center frequency, bandwidth, and endpoints. Typically there's only one channel per link but some applications require multiple channels per link. 
 
-You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. You can give a name to each link and channel to keep track of these properties.
+You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. You can give a name to each link and channel to keep track of these properties and each channel has a modem associated with it. Follow the steps in [how to setup software modem](modem-chain.md) to understand the options.
 
 Look at the example below to see how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink.  
 
@@ -114,24 +114,6 @@ Look at the example below to see how to specify an RHCP channel and an LHCP chan
 }
 ```
 
-
-## Applying modems or bring your own
-
-We recommend taking advantage of Orbital's GSaaS software modem functionality if possible. This modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream per channel. We have a library of modems that will be available in the marketplace for you to utilize. If there is no modem that can be used with your application then utilize the virtual RF delivery feature to bring your own modem.
-
-There are 4 parameters related to modem configurations. The table below shows you how to configure these parameters.
-
-| Parameter                 | Options                                                                     |
-|---------------------------|-----------------------------------------------------------------------------|
-| modulationConfiguration   | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem |
-| demodulationConfiguration | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem |
-| encodingConfiguration     | Null (not used)                                                             |
-| decodingConfiguration     | Null (not used)                                                             |
-
-Use the same modem config file in uplink and downlink channels for full-duplex communications in the same band.
-
-The modem config should be a JSON escaped raw save file from a software modem. Please see the marketplace for modem options.
-
 ## Modifying or deleting a contact profile
 
 You can modify or delete the contact profile via the Portal or through the API.
@@ -142,6 +124,7 @@ When you onboard a third party network, you'll receive a token that identifies y
 
 ## Next steps
 
-- [Quickstart: Schedule a contact](schedule-contact.md)
-- [How to: Update the Spacecraft TLE](update-tle.md)
+- [Schedule a contact](schedule-contact.md)
+- [Configure the RF chain](modem-chain.md)
+- [Update the Spacecraft TLE](update-tle.md)
 

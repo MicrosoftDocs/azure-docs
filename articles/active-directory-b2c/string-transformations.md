@@ -171,7 +171,7 @@ Determines whether one string claim is equal to another. The result is a new boo
 | InputClaim | inputClaim1 | string | First claim type, which is to be compared. |
 | InputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
+| InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of CompareClaims
@@ -186,7 +186,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
   </InputClaims>
   <InputParameters>
     <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
-    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="SameEmailAddress" TransformationClaimType="outputClaim" />
@@ -864,7 +864,7 @@ Checks whether the provided phone number is valid, based on phone number regular
   </InputClaims>
   <InputParameters>
     <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
-    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Phone" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="iPhone" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
@@ -1062,7 +1062,7 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
 | InputParameter | length | int | The number of characters in the substring. |
-| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+| OutputClaim | outputClaim | string | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
 ### Example of StringSubstring
 

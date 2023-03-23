@@ -78,7 +78,7 @@ To create an app in an ASE:
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you also scale the App Service plan and all the apps in that same plan.
 
-When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. If you do several scale operations in sequence, the first infrastructure scale request is acted on and the others are queued. When the first scale operation finishes, the other infrastructure requests all operate together. And when the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation because it requests additional hardware.
+When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. If you do several scale operations in sequence, the first infrastructure scale request is acted on and the others are queued. When the first scale operation finishes, the other infrastructure requests all operate together. And when the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation because it requests additional hardware. A scale operation usually takes 30-60 minutes to complete.
 
 In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there's no such buffer, and resources are allocated based on need.
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cherylmc #Required; your GitHub user alias, with correct capitalization.
   ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
-  ms.date: 05/23/2022
+  ms.date: 08/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -38,9 +38,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure VPN Gateway
-            url: /learn/modules/intro-to-azure-vpn-gateway/
+            url: /training/modules/intro-to-azure-vpn-gateway/
           - text: Connect your on-premises network to Azure with VPN Gateway
-            url: /learn/modules/connect-on-premises-network-with-vpn-gateway/
+            url: /training/modules/connect-on-premises-network-with-vpn-gateway/
   # Card
   - title: Get started
     linkLists:
@@ -118,6 +118,18 @@ landingContent:
             url: vpn-gateway-modify-local-network-gateway-portal.md
 
   # Card
+  - title: Learn about VPN Gateway architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Virtual network peering and VPN gateways
+            url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering/
+      - linkListType: concept
+        links:
+          - text: Troubleshoot a hybrid VPN connection
+            url: /azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn/
+
+  # Card
   - title: Security and monitoring
     linkLists:
       - linkListType: concept
@@ -127,7 +139,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts
-            url: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+            url: monitor-vpn-gateway.md
             
   # Card
   - title: Reference

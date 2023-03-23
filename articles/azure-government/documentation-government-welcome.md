@@ -23,7 +23,7 @@ The following video provides a good introduction to Azure Government:
 
 </br>
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Enable-government-missions-in-the-cloud-with-Azure-Government/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Enable-government-missions-in-the-cloud-with-Azure-Government/player]
 
 ## Compare Azure Government and global Azure
 

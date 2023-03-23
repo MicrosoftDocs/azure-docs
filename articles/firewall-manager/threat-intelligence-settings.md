@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
-ms.date: 06/09/2022
+ms.date: 10/17/2022
 ms.author: victorh
 ---
 
@@ -59,18 +59,7 @@ The following log excerpt shows a triggered rule for outbound traffic to a malic
 
 ## Testing
 
-- **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, the following FQDNs have been created to trigger an alert. Use the following FQDNs  for your outbound tests:
-<br><br>
-
-   - `documentos-001.brazilsouth.cloudapp.azure.com`
-   - `itaucardiupp.centralus.cloudapp.azure.com`
-   - `azure-c.online`
-   - `www.azureadsec.com`
-   - `azurein360.co`
-
-   > [!NOTE]
-   > These FQDNs are subject to change, so they are not guaranteed to always work. Any changes will be documented here.
-
+- **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, a test FQDN has been created that triggers an alert. Use `testmaliciousdomain.eastus.cloudapp.azure.com` for your outbound tests.
 
 - **Inbound testing** - You can expect to see alerts on incoming traffic if DNAT rules are configured on the firewall. This is true even if only specific sources are allowed on the DNAT rule and traffic is otherwise denied. Azure Firewall doesn't alert on all known port scanners; only on scanners that are known to also engage in malicious activity.
 

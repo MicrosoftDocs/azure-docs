@@ -3,7 +3,7 @@ title: Enable Profiler for Azure Service Fabric applications
 description: Profile live Azure Service Fabric apps with Application Insights
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 06/23/2022
+ms.date: 07/15/2022
 ---
 
 # Enable Profiler for Azure Service Fabric applications
@@ -66,12 +66,15 @@ Redeploy your application once you've enabled Application Insights.
 
 ## Generate traffic and view Profiler traces
 
-1. Launch an [availability test](../app/monitor-web-app-availability.md) to generate traffic to your application. 
+1. Launch an [availability test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) to generate traffic to your application. 
 1. Wait 10 to 15 minutes for traces to be sent to the Application Insights instance.
 1. View the [Profiler traces](./profiler-overview.md) via the Application Insights instance the Azure portal.
 
 ## Next steps
 
-For help with troubleshooting Profiler issues, see [Profiler troubleshooting](./profiler-troubleshooting.md).
+Learn how to...
+> [!div class="nextstepaction"]
+> [Generate load and view Profiler traces](./profiler-data.md)
+
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]

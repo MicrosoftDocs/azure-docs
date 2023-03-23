@@ -2,9 +2,13 @@
 title: Install Service Fabric standalone client
 description: In this tutorial, learn how to install the Service Fabric standalone client on the cluster.
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Install and create Service Fabric cluster
 
 Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS or Azure and install an application into it.

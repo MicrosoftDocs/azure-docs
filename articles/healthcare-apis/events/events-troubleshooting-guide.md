@@ -15,20 +15,24 @@ This article provides guides and resources to troubleshoot Events.
 
 > [!IMPORTANT]
 >
-> Fast Healthcare Interoperability Resources (FHIR&#174;) resource change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource changes or when the feature is turned off.
+> Fast Healthcare Interoperability Resources (FHIR&#174;) resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
 ## Events resources for troubleshooting
 
 > [!IMPORTANT]
-> Events currently supports only the following FHIR resource operations:
+> Events currently supports only the following operations:
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
 > - **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 >
-> - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
+> - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully. 
+>
+> - **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
+> 
+> - **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 > 
 > For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
@@ -53,7 +57,7 @@ Use this resource to learn how to export Event Grid system topics diagnostic log
 
 ## Contacting support
 
-If you have a technical question about Events or if you have a support related issue, see [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and complete the required fields under the **Problem description** tab. For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
+If you have a technical question about Events or if you have a support related issue, see [Create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and complete the required fields under the **Problem description** tab. For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
 
 ## Next steps
 To learn about frequently asked questions (FAQs) about Events, see

@@ -17,16 +17,12 @@ With this capability, you:
 - Are unable to view connection logs. 
 - Have a limit of 128 000 concurrent connections.  
 
-## Prerequisites
-- Azure Solution VMware private cloud
-- DNS Server configured on the NSX-T Datacenter
-
 ## Reference architecture
-The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.     
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
+The architecture shows Internet access outbound from your Azure VMware Solution private cloud using an Azure VMware Solution Managed SNAT Service.     
 
-## Configure Outbound Internet access using Managed SNAT in the Azure portal 
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the SNAT Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-snat-expanded.png":::
 
+## Configure Outbound Internet access using Managed SNAT in the Azure port
 1. Log in to the Azure portal and then search for and select **Azure VMware Solution**. 
 2.	Select the Azure VMware Solution private cloud.    
 1. In the left navigation, under **Workload Networking**, select **Internet Connectivity**.   

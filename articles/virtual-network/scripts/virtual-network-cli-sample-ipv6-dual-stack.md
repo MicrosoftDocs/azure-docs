@@ -3,14 +3,13 @@ title: Azure CLI script sample - Configure IPv6 frontend
 titlesuffix: Azure Virtual Network
 description: Use an Azure CLI script sample to configure IPv6 endpoints and deploy a dual stack (IPv4 + IPv6) application in Azure.
 services: virtual-network
-documentationcenter: na
-author: mbender-ms
+author: asudbring
 manager: twooley
 ms.service: virtual-network
-ms.topic: article
+ms.topic: sample
 ms.workload: infrastructure-services
 ms.date: 02/03/2022
-ms.author: mbender 
+ms.author: allensu 
 ms.custom: devx-track-azurecli
 ---
 
@@ -20,7 +19,7 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application in A
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

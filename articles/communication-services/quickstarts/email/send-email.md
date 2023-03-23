@@ -10,7 +10,7 @@ ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: private_preview, event-tier1-build-2022
-zone_pivot_groups: acs-js-csharp
+zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 
 # Quickstart: How to send an email using Azure Communication Service
@@ -19,12 +19,24 @@ zone_pivot_groups: acs-js-csharp
 
 In this quick start, you'll learn about how to send email using our Email SDKs.
 
+::: zone pivot="platform-azcli"
+[!INCLUDE [Send email with Azure CLI](./includes/send-email-az-cli.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send Email with JavaScript client library](./includes/send-email-js.md)]
+[!INCLUDE [Send Email with JavaScript SDK](./includes/send-email-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Send email with Java SDK](./includes/send-email-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Send Email with Python SDK](./includes/send-email-python.md)]
 ::: zone-end
 
 ## Troubleshooting

@@ -12,16 +12,21 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates.
 ---
 
-# Tutorial: Using OpenSSL to create test certificates
+# Tutorial: Use OpenSSL to create test certificates
 
-Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy or using self-signed certificates is adequate for testing IoT hub device authentication. The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.
+For production environments, we recommend that you purchase an X.509 CA certificate from a public root certificate authority (CA). However, creating your own test certificate hierarchy is adequate for testing IoT Hub device authentication. For more information about getting an X.509 CA certificate from a public root CA, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
+
+The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certificate authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This example is presented for demonstration purposes only.
+
+>[!NOTE]
+>Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT hub. The scripts are included with the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The scripts are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. You must use your own best practices for certificate creation and lifetime management in a production environment. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Step 1 - Create the root CA directory structure
 
-Create a directory structure for the certification authority.
+Create a directory structure for the certificate authority.
 
 * The *certs* directory stores new certificates.
-* The *db* directory is used for the certificate database.
+* The *db* directory stores the certificate database.
 * The *private* directory stores the CA private key.
 
 ```bash
@@ -112,7 +117,7 @@ First, generate a private key and the certificate signing request (CSR) in the *
   openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
 ```
 
-Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the `ca_ext` configuration file extensions on the command line. These indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.
+Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the `ca_ext` configuration file extensions on the command line. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.
 
 ```bash
   openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
@@ -203,7 +208,7 @@ subjectKeyIdentifier     = hash
 
 ## Step 6 - Create a subordinate CA
 
-This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
+This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and a subordinate CA issues client certificates.
 
 From the *subca* directory, use the configuration file to generate a private key and a certificate signing request (CSR).
 
@@ -332,7 +337,7 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+Go to [Tutorial: Test certificate authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
 
 ```bash
 openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx

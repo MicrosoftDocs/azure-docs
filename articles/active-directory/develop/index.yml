@@ -13,10 +13,10 @@ metadata:
    Use Azure Active Directory (Azure AD) with OAuth 2.0 and OpenID Connect (OIDC) to protect the apps and web APIs you build. Learn how to sign in users and
    manage their access through our quickstarts, tutorials, code samples, and API reference documentation.
 
-  author: mmacy
+  author: Dickson-Mwendia
   manager: CelesteDG
-  ms.author: marsma
-  ms.date: 04/01/2022
+  ms.author: dmwendia
+  ms.date: 11/11/2022
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: hub-page
@@ -27,20 +27,29 @@ metadata:
 highlightedContent:
   items:
     - title: What is the Microsoft identity platform?
-      itemType: overview # controls the icon image and super-title text
+      itemType: overview
       url: v2-overview.md
     - title: Authentication & authorization basics
       url: authentication-vs-authorization.md
       itemType: concept
-#    - title: OAuth 2.0 and OpenID Connect (OIDC)
-#      url: active-directory-v2-protocols.md
-#      itemType: concept
     - title: App types and authentication flows
       url: authentication-flows-app-scenarios.md
       itemType: concept
     - title: Code samples
       url: sample-v2-code.md
       itemType: sample
+    - title: What's new in docs
+      url: whats-new-docs.md
+      itemType: whats-new
+    - title: OAuth 2.0 and OpenID Connect (OIDC)
+      url: active-directory-v2-protocols.md
+      itemType: concept
+    - title: Migrate apps to MSAL
+      url: msal-migration.md
+      itemType: concept
+    - title: Register an application
+      url: quickstart-register-app.md
+      itemType: quickstart
 ## BAND 1 - HIGHLIGHTED CONTENT END ##########################################################################################################################
 
 
@@ -88,7 +97,7 @@ productDirectory:
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
   title: Get started
-  summary: Quick access to documentation for adding core IAM features to your applications and guidance on the best practices for keeping your apps secure and available.
+  summary: Quick access to guidance on adding core IAM features to your applications and best practices for keeping your apps secure and available.
   items:
     ## CARD 1 ######################
     - title: Sign in users
@@ -199,10 +208,10 @@ additionalContent:
       ## CARD 2 ######################
       - title: Connect to Microsoft Graph
         summary: >
-          Programmatic access to organizational, user, and application data stored in Microsoft Graph. Call the Microsoft Graph API from your application to
+          Programmatic access to organizational, user, and application data stored in Azure Active Directory. Call Microsoft Graph from your application to
           create and manage Azure AD users and groups, get and modify your users' data like their profiles, calendars, email, and more.
         links:
-        - url: microsoft-graph-intro.md
+        - url: /graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
           text: Microsoft Graph API documentation
       ## CARD 3 ######################
       - title: Manage and market your apps

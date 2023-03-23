@@ -1,10 +1,10 @@
 ---
-title: Configure managed identities on virtual machine scale sets using PowerShell - Azure AD
+title: Configure managed identities on virtual machine scale sets using PowerShell
 description: Step-by-step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi

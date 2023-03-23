@@ -1,9 +1,9 @@
 ---
 title: Use IoT Plug and Play models in a solution | Microsoft Docs
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
-author: arunmannengal-zz
-ms.author: arunmann
-ms.date: 07/23/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
@@ -13,11 +13,11 @@ services: iot-develop
 
 This article describes how, in an IoT solution, you can identify model ID of an IoT Plug and Play device and then retrieve its model definition.
 
-There are two broad categories of an IoT solution:
+There are two broad categories of IoT solution:
 
-- A *purpose-built solution* works with a known set of models for the IoT Plug and Play devices that will connect to the solution. You use these models when you develop the solution.
+- A *purpose-built solution* works with a known set of models for the IoT Plug and Play devices that connect to the solution. You use these models when you develop the solution.
 
-- A *model-driven* solution can work with the model of any IoT Plug and Play device. Building a model-driven solution is more complex, but the benefit is that your solution works with any devices that may be added in the future. A model-driven IoT solution retrieves a model and uses it to determine the telemetry, properties, and commands the device implements.
+- A *model-driven solution* works with the model of any IoT Plug and Play device. Building a model-driven solution is more complex, but the benefit is that your solution works with any devices that are added in the future. A model-driven IoT solution retrieves a model and uses it to determine the telemetry, properties, and commands the device implements.
 
 To use an IoT Plug and Play model, an IoT solution:
 
@@ -116,11 +116,11 @@ Solutions can use the [model repository](concepts-model-repository.md) to retrie
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository. For more information, see [Device model Repository](concepts-model-repository.md).
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Device model repository](concepts-model-repository.md).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](tutorial-service.md).
+1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](tutorial-service.md).
 
 ### Custom store
 
@@ -130,9 +130,9 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Retrieve the model definition using the model ID from your custom store.
 
-1. Using the model definition of the connected device, you can enumerate the capabilities of the device. 
+1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](tutorial-service.md).  
+1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](tutorial-service.md).  
 
 ## Next steps
 
@@ -140,4 +140,4 @@ Now that you've learned how to integrate IoT Plug and Play models in an IoT solu
 
 - [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

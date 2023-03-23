@@ -28,7 +28,7 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 ## Configure WMI domain scanning
 
-Before you can configure a WEM scan from your sensor, you need to configure WMI domain scanning on the Windows machine you'll be scanning. <!--where are these procedures being performed?-->
+Before you can configure a WEM scan from your sensor, you need to configure WMI domain scanning on the Windows machine you'll be scanning. 
 
 This procedure describes how to configure WMI scanning using a Group Policy Object (GPO), updating your firewall settings, defining permissions for your WMI namespace, and defining a local group.
 

@@ -9,10 +9,6 @@ manager: femila
 ---
 # Set up diagnostics for autoscale in Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Autoscale is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Diagnostics lets you monitor potential issues and fix them before they interfere with your autoscale scaling plan.
 
 Currently, you can either send diagnostic logs for autoscale to an Azure Storage account or consume logs with the Events hub. If you're using an Azure Storage account, make sure it's in the same region as your scaling plan. Learn more about diagnostic settings at [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md). For more information about resource log data ingestion time, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).

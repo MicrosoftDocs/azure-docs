@@ -23,7 +23,7 @@ Azure Key Vault is a cloud service that provides a secure store for secrets. You
 To create a service connection and store secrets in Key Vault with Service Connector, you need:
 
 * Basic knowledge of [using Service Connector](.\quickstart-portal-app-service-connection.md)
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An app hosted on App Service. If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md)
 * An Azure Key Vault. If you don't have one, [create an Azure Key Vault](../key-vault\general\quick-create-portal.md)
 * Another target service instance supported by Service Connector. In this tutorial, you'll use [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)
@@ -117,7 +117,7 @@ Now you can create a service connection to another target service and directly s
 1. Select **Secrets** in the Key Vault left ToC, and select the blob storage secret name.
 
   > [!TIP]
-  > Don't have permission to list secrets? Refer to [troubleshooting](../key-vault/general/troubleshooting-access-issues.md#i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error).
+  > Don't have permission to list secrets? Refer to [troubleshooting](../key-vault/general/troubleshooting-access-issues.md#im-not-able-to-list-or-get-secretskeyscertificate-im-seeing-a-something-went-wrong-error).
 
 4. Select a version ID from the Current Version list.
 

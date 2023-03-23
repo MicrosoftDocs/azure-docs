@@ -6,21 +6,19 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 07/11/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage Snowflake in Microsoft Purview (Preview)
+# Connect to and manage Snowflake in Microsoft Purview
 
 This article outlines how to register Snowflake, and how to authenticate and interact with Snowflake in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) | No|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes](#lineage) | No|
 
 When scanning Snowflake source, Microsoft Purview supports:
 
@@ -207,6 +205,10 @@ To create and run a new scan, follow these steps:
 
 1. Select **Continue**.
 
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline. Check the [Classification](apply-classifications.md) article to learn more.
+    > [!NOTE] 
+    > If you are using Self-hosted runtime then you will need to upgrade to version 5.26.404.1 or higher to use Snowflake classification. You can find the latest version of Microsoft Integration runtime [here](https://www.microsoft.com/download/details.aspx?id=39717).
+
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 
 1. Review your scan and select **Save and Run**.
@@ -225,7 +227,7 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
         
 ## Troubleshooting tips
 
-- Check your account identifer in the source registration step. Don't include `https://` part at the front.
+- Check your account identifier in the source registration step. Don't include `https://` part at the front.
 - Make sure the warehouse name and database name are in capital case on the scan setup page.
 - Check your key vault. Make sure there are no typos in the password.
 - Check the credential you set up in Microsoft Purview. The user you specify must have a default role with the necessary access rights to both the warehouse and the database you're trying to scan. See [Required permissions for scan](#required-permissions-for-scan). USE `DESCRIBE USER;` to verify the default role of the user you've specified for Microsoft Purview.

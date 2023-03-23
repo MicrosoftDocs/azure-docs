@@ -2,11 +2,11 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: conceptual
-ms.date: 12/22/2021
+ms.date: 12/22/2022
 ms.reviewer: dapatil
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Backup cloud and on-premises workloads to cloud
@@ -161,7 +161,7 @@ While scheduling your backup policy, consider the following points:
 
 ### Retention considerations
 
-* Short-term retention can be "minutes" or "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
+* Short-term retention can be "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
 
 * Long-term retention:
 
@@ -212,8 +212,7 @@ To help you protect your backup data and meet the security needs of your busines
   - In terms of the scope of the access,
 
     - _User2_ can access only the Resources of Subscription1, and User3 can access only the Resources of Subscription2. 
-    - _User4_ is a Backup Operator. It has the permission to enable backup, trigger on-demand backup, trigger 
-    - Restores, along with the capabilities of a Backup Reader. However, in this scenario, its scope is limited only to Subscription2. 
+    - _User4_ is a Backup Operator. It has the permission to enable backup, trigger on-demand backup, trigger restores, along with the capabilities of a Backup Reader. However, in this scenario, its scope is limited only to Subscription2. 
     - _User1_ is a Backup Contributor. It has the permission to create vaults, create/modify/delete backup policies, and stop backups, along with the capabilities of a Backup Operator. However, in this scenario, its scope is limited only to _Subscription1_.
 
 - Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore.
@@ -240,7 +239,7 @@ With soft-delete, if a user deletes the backup (of a VM, SQL Server database, Az
 
 Any administrator that has the privileged access to your backup data has the potential to cause irreparable damage to the system. A rogue admin can delete all your business-critical data or even turn off all the security measures that may leave your system vulnerable to cyber-attacks.
 
-Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user-authorization.md) feature to protect you from such rouge administrator attacks. Multi-user authorization helps protect against a rogue administrator performing destructive operations (that is, disabling soft-delete), by ensuring that every privileged/destructive operation is done only after getting approval from a security administrator. 
+Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user-authorization.md) feature to protect you from such rogue administrator attacks. Multi-user authorization helps protect against a rogue administrator performing destructive operations (that is, disabling soft-delete), by ensuring that every privileged/destructive operation is done only after getting approval from a security administrator. 
 
 ### Ransomware Protection
 
@@ -292,9 +291,9 @@ Governance in Azure is primarily implemented with [Azure Policy](../governance/p
 
 - Whenever new infrastructure is provisioned and new VMs are created, as a backup admin,  you need to ensure their protection. You can easily configure backups for one or two VMs. But it becomes complex when you need to configure hundreds or even thousands of VMs at scale. To simplify the process of configuring backups, Azure Backup provides you a set of built-in Azure Policies to govern your backup estate.  
 
-- **Central Policy**: If your organization has a central backup team that manages backups across application teams, you can use this policy to configure backup to an existing central Recovery Services vault in the same subscription and location as that of the VMs. You can choose to include/exclude VMs that contain a certain tag from the policy scope. 
+- **Auto-enable backup on VMs using Policy (Central backup team model)**: If your organization has a central backup team that manages backups across application teams, you can use this policy to configure backup to an existing central Recovery Services vault in the same subscription and location as that of the VMs. You can choose to include/exclude VMs that contain a certain tag from the policy scope. [Learn more](backup-azure-auto-enable-backup.md#policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location).
 
-- **App Policy**: If you organize applications in dedicated resource groups and want to have them backed-up by the same vault, use this policy to automatically manage this action. You can choose to include/exclude VMs that contain a certain tag from the policy scope. 
+- **Auto-enable backup on VMs using Policy (where backup owned by application teams)**: If you organize applications in dedicated resource groups and want to have them backed-up by the same vault, use this policy to automatically manage this action. You can choose to include/exclude VMs that contain a certain tag from the policy scope. [Learn more](backup-azure-auto-enable-backup.md#policy-3---configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy).
 
 - **Monitoring Policy**: To generate the Backup Reports for your resources,  enable the diagnostic settings when you create a new vault. Often, adding a diagnostic setting manually per vault can be a cumbersome task. So, you can utilize an Azure built-in policy that configures the diagnostics settings at scale to all vaults in each subscription or resource group, with Log Analytics as the destination. 
 
@@ -368,7 +367,7 @@ You can configure such critical alerts and route them to any preferred notificat
 
 #### Automatic Retry of Failed Backup Jobs
 
-Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions3 or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need tp invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
+Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need to invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
 You can achieve this by retrieving relevant backup data via Azure Resource Graph (ARG) and combine it with corrective [PowerShell/CLI procedure](/azure/architecture/framework/resiliency/auto-retry). 
 
 Watch the following video to learn how to re-trigger backup for all failed jobs (across vaults, subscriptions, tenants) using ARG and PowerShell.

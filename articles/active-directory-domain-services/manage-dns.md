@@ -2,14 +2,14 @@
 title: Manage DNS for Azure AD Domain Services | Microsoft Docs
 description: Learn how to install the DNS Server Tools to manage DNS and create conditional forwarders for an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 01/29/2023
 ms.author: justinha
 
 ---

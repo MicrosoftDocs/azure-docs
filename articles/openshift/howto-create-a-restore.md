@@ -4,8 +4,8 @@ description: Learn how to create a restore of your Azure Red Hat OpenShift clust
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 #Customer intent: As an operator, I need to create an Azure Red Hat OpenShift cluster application restore
@@ -83,4 +83,4 @@ In this article, an Azure Red Hat OpenShift 4 cluster application was restored. 
 
 Advance to the next article to learn about Azure Red Hat OpenShift 4 supported resources.
 
-* [Azure Red Hat OpenShift v4 supported resources](supported-resources.md)
+* [Azure Red Hat OpenShift v4 supported resources](support-policies-v4.md#supported-virtual-machine-sizes)

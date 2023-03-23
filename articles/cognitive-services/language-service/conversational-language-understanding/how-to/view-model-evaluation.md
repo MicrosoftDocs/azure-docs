@@ -33,16 +33,24 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ### [Language studio](#tab/Language-studio)
 
-> [!Note]
-> The results here are for the machine learning entity component only.
-
-In the **view model details** page, you'll be able to see all your models, with their current training status, and the date they were last trained.
-
 [!INCLUDE [Model performance](../includes/language-studio/model-performance.md)]
 
 ### [REST APIs](#tab/REST-APIs)
 
 [!INCLUDE [Evaluate model](../includes/rest-api/model-evaluation.md)]
+
+---
+
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../includes/rest-api/load-export-model.md)]
 
 ---
 

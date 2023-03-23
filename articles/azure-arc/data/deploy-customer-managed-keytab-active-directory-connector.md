@@ -3,19 +3,17 @@ title: Tutorial – Deploy Active Directory (AD) Connector in customer-managed k
 description: Tutorial to deploy a customer-managed keytab Active Directory (AD) connector
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 04/05/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
 # Tutorial – Deploy Active Directory (AD) connector in customer-managed keytab mode
 
 This article explains how to deploy Active Directory (AD) connector in customer-managed keytab mode. The connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instance.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Active Directory connector in customer-managed keytab mode
 

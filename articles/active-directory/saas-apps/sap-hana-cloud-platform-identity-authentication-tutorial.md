@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Cloud Identity Services | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP Cloud Identity Services'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud Identity Services.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -20,6 +20,9 @@ In this tutorial, you'll learn how to integrate SAP Cloud Identity Services with
 * Control in Azure AD who has access to SAP Cloud Identity Services.
 * Enable your users to be automatically signed-in to SAP Cloud Identity Services with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
+
+> [!TIP]
+> Follow the recommendations and best-practice guide "[Using Azure Active Directory to secure access to SAP platforms and applications](../fundamentals/scenario-azure-first-sap-identity-integration.md)" to operationalize the setup.
 
 ## Prerequisites
 
@@ -65,6 +68,8 @@ To configure the integration of SAP Cloud Identity Services into Azure AD, you n
 1. In the **Add from the gallery** section, type **SAP Cloud Identity Services** in the search box.
 1. Select **SAP Cloud Identity Services** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD SSO for SAP Cloud Identity Services
 
@@ -98,7 +103,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact the [SAP Cloud Identity Services Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get these values. If you don't understand Identifier value, read the SAP Cloud Identity Services documentation about [Tenant SAML 2.0 configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact the [SAP Cloud Identity Services Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) to get these values. If you don't understand Identifier value, read the SAP Cloud Identity Services documentation about [Tenant SAML 2.0 configuration](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/e81a19b0067f4646982d7200a8dab3ca.html).
+
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP**-initiated mode:
 
@@ -212,3 +218,5 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 ## Next steps
 
 Once you configure the SAP Cloud Identity Services you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+
+Consult the [recommendations and best-practice guide](../fundamentals/scenario-azure-first-sap-identity-integration.md) to operationalize the setup.

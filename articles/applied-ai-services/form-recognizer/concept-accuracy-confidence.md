@@ -7,11 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
-# Interpret and improve accuracy and confidence for custom models
+# Accuracy and confidence scores for custom models
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 > [!NOTE]
 >
@@ -36,7 +40,7 @@ Form Recognizer analysis results return an estimated confidence for predicted wo
 
 Field confidence indicates an estimated probability between 0 and 1 that the prediction is correct.  For example, a confidence value of 0.95 (95%) indicates that the prediction is likely correct 19 out of 20 times.  For scenarios where accuracy is critical, confidence may be used to determine whether to automatically accept the prediction or flag it for human review.
 
-Confidence scores comprise of 2 components, the field level confidence score and the text extraction confidence score. In addition to the field confidence of position and span, the text extraction confidence in the ```pages``` section of the response is the model's confidence in the text extraction (OCR) process. The two confidence scores should be combined to generate a overall confidence score.
+Confidence scores have two data points: the field level confidence score and the text extraction confidence score. In addition to the field confidence of position and span, the text extraction confidence in the ```pages``` section of the response is the model's confidence in the text extraction (OCR) process. The two confidence scores should be combined to generate one overall confidence score.
 
 **Form Recognizer Studio** </br>
 **Analyzed invoice prebuilt-invoice model**
@@ -64,7 +68,7 @@ The accuracy of your model is affected by variances in the visual structure of y
 
 * Separate visually distinct document types to train different models.
   * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.
-  * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](compose-custom-models.md#create-a-composed-model) the different variations into a single model.
+  * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) the different variations into a single model.
 
 * Make sure that you don't have any extraneous labels.
 

@@ -42,10 +42,16 @@
       href: ./afds/waf-front-door-create-portal.md
 - name: Samples
   items:
-  - name: Azure PowerShell
-    href: ./ag/powershell-samples.md
-  - name: Resource Manager templates
-    href: ./ag/resource-manager-template-samples.md  
+  - name: Application Gateway
+    items:
+    - name: Azure PowerShell
+      href: ./ag/powershell-samples.md
+    - name: Resource Manager templates
+      href: ./ag/resource-manager-template-samples.md  
+  - name: Front Door
+    items:
+    - name: Resource Manager templates
+      href: ./afds/resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Application Gateway
@@ -66,6 +72,8 @@
       href: ./ag/bot-protection-overview.md
     - name: WAF engine
       href: ./ag/waf-engine.md
+    - name: Best practices
+      href: ./ag/best-practices.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
@@ -80,8 +88,12 @@
       href: ./afds/waf-front-door-exclusion.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
+    - name: Rate limiting
+      href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
+    - name: Best practices
+      href: ./afds/waf-front-door-best-practices.md
     - name: FAQ
       href: ./afds/waf-faq.yml
   - name: Security
@@ -134,12 +146,14 @@
       href: ./afds/waf-front-door-custom-rules-powershell.md
     - name: Configure bot protection
       href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: Configure exclusion lists
+      href: ./afds/waf-front-door-exclusion-configure.md
     - name: Configure custom response code
       href: ./afds/waf-front-door-configure-custom-response-code.md
     - name: Configure IP restrictions
       href: ./afds/waf-front-door-configure-ip-restriction.md
-    - name: Configure rate limit - PowerShell
-      href: ./afds/waf-front-door-rate-limit-powershell.md
+    - name: Configure rate limit
+      href: ./afds/waf-front-door-rate-limit-configure.md
     - name: Configure a geo-filtering WAF policy
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
     - name: Monitoring and logging

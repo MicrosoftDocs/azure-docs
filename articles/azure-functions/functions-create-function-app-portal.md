@@ -48,6 +48,15 @@ Next, create a function in the new function app.
 1. Under **Template details** use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
+    
+    >[!NOTE] 
+    > When your function app has [private endpoints](functions-create-vnet.md) enabled, you must add the following [CORS origins](security-concepts.md?#restrict-cors-access).
+    >
+    >- `https://functions-next.azure.com`
+    >- `https://functions-staging.azure.com`
+    >- `https://functions.azure.com`
+    >- `https://portal.azure.com`
+
 
 ## Test the function
 

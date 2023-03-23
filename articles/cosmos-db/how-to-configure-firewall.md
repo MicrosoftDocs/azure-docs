@@ -1,26 +1,26 @@
 ---
 title: Configure an IP firewall for your Azure Cosmos DB account
-description: Learn how to configure IP access control policies for firewall support on Azure Cosmos accounts.
+description: Learn how to configure IP access control policies for firewall support on Azure Cosmos DB accounts.
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/18/2022
-ms.author: thweiss
-author: ThomasWeiss 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.author: sidandrews
+author: seesharprun 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Configure IP firewall in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-To secure the data stored in your account, Azure Cosmos DB supports a secret based authorization model that utilizes a strong Hash-based Message Authentication Code (HMAC). Additionally, Azure Cosmos DB supports IP-based access controls for inbound firewall support. This model is similar to the firewall rules of a traditional database system and provides an additional level of security to your account. With firewalls, you can configure your Azure Cosmos account to be accessible only from an approved set of machines and/or cloud services. Access to data stored in your Azure Cosmos database from these approved sets of machines and services will still require the caller to present a valid authorization token.
+To secure the data stored in your account, Azure Cosmos DB supports a secret based authorization model that utilizes a strong Hash-based Message Authentication Code (HMAC). Additionally, Azure Cosmos DB supports IP-based access controls for inbound firewall support. This model is similar to the firewall rules of a traditional database system and provides an additional level of security to your account. With firewalls, you can configure your Azure Cosmos DB account to be accessible only from an approved set of machines and/or cloud services. Access to data stored in your Azure Cosmos DB database from these approved sets of machines and services will still require the caller to present a valid authorization token.
 
 ## <a id="ip-access-control-overview"></a>IP access control
 
-By default, your Azure Cosmos account is accessible from internet, as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR (Classless Inter-Domain Routing) form to be included as the allowed list of client IPs to access a given Azure Cosmos account. Once this configuration is applied, any requests originating from machines outside this allowed list receive 403 (Forbidden) response. When using IP firewall, it is recommended to allow Azure portal to access your account. Access is required to allow use of data explorer as well as to retrieve metrics for your account that show up on the Azure portal. When using data explorer, in addition to allowing Azure portal to access your account, you also need to update your firewall settings to add your current IP address to the firewall rules. Note that firewall changes may take up to 15 minutes to propagate and the firewall may exhibit an inconsistent behavior during this period.
+By default, your Azure Cosmos DB account is accessible from internet, as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR (Classless Inter-Domain Routing) form to be included as the allowed list of client IPs to access a given Azure Cosmos DB account. Once this configuration is applied, any requests originating from machines outside this allowed list receive 403 (Forbidden) response. When using IP firewall, it is recommended to allow Azure portal to access your account. Access is required to allow use of data explorer as well as to retrieve metrics for your account that show up on the Azure portal. When using data explorer, in addition to allowing Azure portal to access your account, you also need to update your firewall settings to add your current IP address to the firewall rules. Note that firewall changes may take up to 15 minutes to propagate and the firewall may exhibit an inconsistent behavior during this period.
 
 You can combine IP-based firewall with subnet and VNET access control. By combining them, you can limit access to any source that has a public IP and/or from a specific subnet within VNET. To learn more about using subnet and VNET-based access control see [Access Azure Cosmos DB resources from virtual networks](./how-to-configure-vnet-service-endpoint.md).
 
-To summarize, authorization token is always required to access an Azure Cosmos account. If IP firewall and VNET Access Control List (ACLs) are not set up, the Azure Cosmos account can be accessed with the authorization token. After the IP firewall or VNET ACLs or both are set up on the Azure Cosmos account, only requests originating from the sources you have specified (and with the authorization token) get valid responses. 
+To summarize, authorization token is always required to access an Azure Cosmos DB account. If IP firewall and VNET Access Control List (ACLs) are not set up, the Azure Cosmos DB account can be accessed with the authorization token. After the IP firewall or VNET ACLs or both are set up on the Azure Cosmos DB account, only requests originating from the sources you have specified (and with the authorization token) get valid responses. 
 
 You can secure the data stored in your Azure Cosmos DB account by using IP firewalls. Azure Cosmos DB supports IP-based access controls for inbound firewall support. You can set an IP firewall on the Azure Cosmos DB account by using one of the following ways:
 
@@ -45,7 +45,6 @@ When you enable an IP access control policy programmatically, you need to add th
 
 |Region|IP address|
 |------|----------|
-|Germany|51.4.229.218|
 |China|139.217.8.252|
 |US Gov|52.244.48.71|
 |All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
@@ -87,7 +86,7 @@ When you scale out your cloud service by adding role instances, those new instan
 
 ### Requests from virtual machines
 
-You can also use [virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to host middle-tier services by using Azure Cosmos DB. To configure your Cosmos DB account such that it allows access from virtual machines, you must configure the public IP address of the virtual machine and/or virtual machine scale set as one of the allowed IP addresses for your Azure Cosmos DB account by [configuring the IP access control policy](#configure-ip-policy).
+You can also use [virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to host middle-tier services by using Azure Cosmos DB. To configure your Azure Cosmos DB account such that it allows access from virtual machines, you must configure the public IP address of the virtual machine and/or virtual machine scale set as one of the allowed IP addresses for your Azure Cosmos DB account by [configuring the IP access control policy](#configure-ip-policy).
 
 You can retrieve IP addresses for virtual machines in the Azure portal, as shown in the following screenshot:
 
@@ -107,7 +106,7 @@ To automate the list, please see [Use the Service Tag Discovery API](../virtual-
 
 ## <a id="configure-ip-firewall-arm"></a>Configure an IP firewall by using a Resource Manager template
 
-To configure access control to your Azure Cosmos DB account, make sure that the Resource Manager template specifies the **ipRules** property with an array of allowed IP ranges. If configuring IP Firewall to an already deployed Cosmos account, ensure the `locations` array matches what is currently deployed. You cannot simultaneously modify the `locations` array and other properties. For more information and samples of Azure Resource Manager templates for Azure Cosmos DB see, [Azure Resource Manager templates for Azure Cosmos DB](./templates-samples-sql.md)
+To configure access control to your Azure Cosmos DB account, make sure that the Resource Manager template specifies the **ipRules** property with an array of allowed IP ranges. If configuring IP Firewall to an already deployed Azure Cosmos DB account, ensure the `locations` array matches what is currently deployed. You cannot simultaneously modify the `locations` array and other properties. For more information and samples of Azure Resource Manager templates for Azure Cosmos DB see, [Azure Resource Manager templates for Azure Cosmos DB](./nosql/samples-resource-manager-templates.md)
 
 > [!IMPORTANT]
 > The **ipRules** property has been introduced with API version 2020-04-01. Previous versions exposed an **ipRangeFilter** property instead, which is a list of comma-separated IP addresses.
@@ -168,7 +167,7 @@ Here's the same example for any API version prior to 2020-04-01:
 The following command shows how to create an Azure Cosmos DB account with IP access control:
 
 ```azurecli-interactive
-# Create a Cosmos DB account with default values and IP Firewall enabled
+# Create an Azure Cosmos DB account with default values and IP Firewall enabled
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 ipRangeFilter='192.168.221.17,183.240.196.255,40.76.54.131'
@@ -187,7 +186,7 @@ az cosmosdb create \
 The following script shows how to create an Azure Cosmos DB account with IP access control:
 
 ```azurepowershell-interactive
-# Create a Cosmos DB account with default values and IP Firewall enabled
+# Create an Azure Cosmos DB account with default values and IP Firewall enabled
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $ipRules = @("192.168.221.17","183.240.196.255","40.76.54.131")
@@ -223,7 +222,7 @@ When you access Azure Cosmos DB resources by using SDKs from machines that are n
 
 ### Source IPs in blocked requests
 
-Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md).
+Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](./monitor.md).
 
 ### Requests from a subnet with a service endpoint for Azure Cosmos DB enabled
 
@@ -231,7 +230,7 @@ Requests from a subnet in a virtual network that has a service endpoint for Azur
 
 ### Private IP addresses in list of allowed addresses
 
-Creating or updating an Azure Cosmos account with a list of allowed addresses containing private IP addresses will fail. Make sure that no private IP address is specified in the list.
+Creating or updating an Azure Cosmos DB account with a list of allowed addresses containing private IP addresses will fail. Make sure that no private IP address is specified in the list.
 
 ## Next steps
 

@@ -2,9 +2,8 @@
 title: Troubleshoot Apache Spark in Azure HDInsight
 description: Get answers to common questions about working with Apache Spark and Azure HDInsight.
 ms.service: hdinsight
-ms.reviewer: jasonh 
 ms.topic: troubleshooting
-ms.date: 08/22/2019
+ms.date: 03/20/2023
 ms.custom: seodec18
 ---
 
@@ -16,7 +15,7 @@ Learn about the top issues and their resolutions when working with Apache Spark 
 
 Spark configuration values can be tuned help avoid an Apache Spark application `OutofMemoryError` exception. The following steps show default Spark configuration values in Azure HDInsight:
 
-1. Log in to Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen displays an overview dashboard. There are slight cosmetic differences between HDInsight 3.6 and 4.0.
+1. Log in to Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen displays an overview dashboard. There are slight cosmetic differences between HDInsight 4.0.
 
 1. Navigate to **Spark2** > **Configs**.
 
@@ -38,11 +37,11 @@ Spark configuration values can be tuned help avoid an Apache Spark application `
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png" alt-text="Enter a note about the changes you made" border="true":::
 
-    You are notified if any configurations need attention. Note the items, and then select **Proceed Anyway**.
+    You're notified if any configurations need attention. Note the items, and then select **Proceed Anyway**.
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png" alt-text="Select Proceed Anyway" border="true":::
 
-1. Whenever a configuration is saved, you are prompted to restart the service. Select **Restart**.
+1. Whenever a configuration is saved, you're prompted to restart the service. Select **Restart**.
 
     :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png" alt-text="Select restart" border="true":::
 
@@ -90,7 +89,7 @@ Launch spark-shell by using a command similar to the following. Change the actua
 spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
 ```
 
-### Additional reading
+### Extra reading
 
 [Apache Spark job submission on HDInsight clusters](/archive/blogs/azuredatalake/spark-job-submission-on-hdinsight-101)
 

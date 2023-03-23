@@ -14,7 +14,7 @@ Use the Azure CLI commands described here to manage your log analytics workspace
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-[!INCLUDE [Prepare your Azure CLI environment](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare your Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a workspace for Monitor Logs
 
@@ -54,7 +54,7 @@ For more information about tables, see [Data structure](./log-analytics-workspac
 
 ## Delete a table
 
-You can delete [Custom Log](custom-logs-overview.md), [Search Results](search-jobs.md) and [Restored Logs](restore.md) tables.
+You can delete [Custom Log](logs-ingestion-api-overview.md), [Search Results](search-jobs.md) and [Restored Logs](restore.md) tables.
 
 To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
 

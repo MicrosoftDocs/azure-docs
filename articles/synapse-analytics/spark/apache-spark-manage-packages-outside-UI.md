@@ -4,12 +4,13 @@ description: Learn how to manage packages using Azure PowerShell cmdlets or REST
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 02/23/2023
 ms.author: shuaijunye
 ms.subservice: spark
+ms.custom: devx-track-azurepowershell
 ---
 
-# Manage packages outside Synapse Analytics Studio UIs 
+# Automate the library management process through Azure PowerShell cmdlets and REST APIs
 
 You may want to manage your libraries for your serverless Apache Spark pools without going into the Synapse Analytics UI pages. For example, you may find that:
 
@@ -21,20 +22,21 @@ In this article, we'll provide a general guide to help you managing libraries th
 ## Manage packages through Azure PowerShell cmdlets
 
 ### Add new libraries
-1. [New-AzSynapseWorkspacePackage](https://docs.microsoft.com/powershell/module/az.synapse/new-azsynapseworkspacepackage) command can be used to **upload new libraries to workspace**.
+
+1. [New-AzSynapseWorkspacePackage](/powershell/module/az.synapse/new-azsynapseworkspacepackage) command can be used to **upload new libraries to workspace**.
 
     ```powershell
     New-AzSynapseWorkspacePackage -WorkspaceName ContosoWorkspace -Package ".\ContosoPackage.whl"
     ```
 
-2. The combination of [New-AzSynapseWorkspacePackage](https://docs.microsoft.com/powershell/module/az.synapse/new-azsynapseworkspacepackage) and [Update-AzSynapseSparkPool](https://docs.microsoft.com/powershell/module/az.synapse/update-azsynapsesparkpool) commands can be used to **upload new libraries to workspace** and **attach the library to a Spark pool**.
+2. The combination of [New-AzSynapseWorkspacePackage](/powershell/module/az.synapse/new-azsynapseworkspacepackage) and [Update-AzSynapseSparkPool](/powershell/module/az.synapse/update-azsynapsesparkpool) commands can be used to **upload new libraries to workspace** and **attach the library to a Spark pool**.
 
     ```powershell
     $package = New-AzSynapseWorkspacePackage -WorkspaceName ContosoWorkspace -Package ".\ContosoPackage.whl"
     Update-AzSynapseSparkPool -WorkspaceName ContosoWorkspace -Name ContosoSparkPool -PackageAction Add -Package $package
     ```
 
-3. If you want to attach an **existing workspace library** to your Spark pool, please refer to the command combination of [Get-AzSynapseWorkspacePackage](https://docs.microsoft.com/powershell/module/az.synapse/get-azsynapseworkspacepackage) and [Update-AzSynapseSparkPool](https://docs.microsoft.com/powershell/module/az.synapse/update-azsynapsesparkpool).
+3. If you want to attach an **existing workspace library** to your Spark pool, please refer to the command combination of [Get-AzSynapseWorkspacePackage](/powershell/module/az.synapse/get-azsynapseworkspacepackage) and [Update-AzSynapseSparkPool](/powershell/module/az.synapse/update-azsynapsesparkpool).
 
     ```powershell
     $packages = Get-AzSynapseWorkspacePackage -WorkspaceName ContosoWorkspace
@@ -42,30 +44,32 @@ In this article, we'll provide a general guide to help you managing libraries th
     ```
 
 ### Remove libraries
-1. In order to **remove a installed package** from your Spark pool, please refer to the command combination of [Get-AzSynapseWorkspacePackage](https://docs.microsoft.com/powershell/module/az.synapse/get-azsynapseworkspacepackage) and [Update-AzSynapseSparkPool](https://docs.microsoft.com/powershell/module/az.synapse/update-azsynapsesparkpool).
+
+1. In order to **remove a installed package** from your Spark pool, please refer to the command combination of [Get-AzSynapseWorkspacePackage](/powershell/module/az.synapse/get-azsynapseworkspacepackage) and [Update-AzSynapseSparkPool](/powershell/module/az.synapse/update-azsynapsesparkpool).
 
     ```powershell
     $package = Get-AzSynapseWorkspacePackage -WorkspaceName ContosoWorkspace -Name ContosoPackage
     Update-AzSynapseSparkPool -WorkspaceName ContosoWorkspace -Name ContosoSparkPool -PackageAction Remove -Package $package
     ```
 
-2. You can also retrieve a Spark pool and **remove all attached workspace libraries** from the pool by calling [Get-AzSynapseSparkPool](https://docs.microsoft.com/powershell/module/az.synapse/get-azsynapsesparkpool) and [Update-AzSynapseSparkPool](https://docs.microsoft.com/powershell/module/az.synapse/update-azsynapsesparkpool) commands. 
+2. You can also retrieve a Spark pool and **remove all attached workspace libraries** from the pool by calling [Get-AzSynapseSparkPool](/powershell/module/az.synapse/get-azsynapsesparkpool) and [Update-AzSynapseSparkPool](/powershell/module/az.synapse/update-azsynapsesparkpool) commands.
+
     ```powershell
     $pool = Get-AzSynapseSparkPool -ResourceGroupName ContosoResourceGroup -WorkspaceName ContosoWorkspace -Name ContosoSparkPool
     $pool | Update-AzSynapseSparkPool -PackageAction Remove -Package $pool.WorkspacePackages
     ```
 
-For more Azure PowerShell cmdlets capabilities, please refer to [Azure PowerShell cmdlets for Azure Synapse Analytics](https://docs.microsoft.com/powershell/module/az.synapse).
-
+For more Azure PowerShell cmdlets capabilities, please refer to [Azure PowerShell cmdlets for Azure Synapse Analytics](/powershell/module/az.synapse).
 
 ## Manage packages through REST APIs
 
 ### Manage the workspace packages
-With the ability of REST APIs, you can add/delete packages or list all uploaded files of your workspace. See the full supported APIs, please refer to [Overview of workspace library APIs](https://docs.microsoft.com/rest/api/synapse/data-plane/library).
 
+With the ability of REST APIs, you can add/delete packages or list all uploaded files of your workspace. See the full supported APIs, please refer to [Overview of workspace library APIs](/rest/api/synapse/data-plane/library).
 
 ### Manage the Spark pool packages
-You can leverage the [Spark pool REST API](https://docs.microsoft.com/rest/api/synapse/big-data-pools/create-or-update) to attach or remove your custom or open source libraries to your Spark pools. 
+
+You can leverage the [Spark pool REST API](/rest/api/synapse/big-data-pools/create-or-update) to attach or remove your custom or open source libraries to your Spark pools. 
 
 1. For custom libraries, please specify the list of custom files as the **customLibraries** property in request body. 
 
@@ -91,6 +95,6 @@ You can leverage the [Spark pool REST API](https://docs.microsoft.com/rest/api/s
     ```
 
 ## Next steps
+
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
 - Manage Spark pool level packages through Synapse Studio portal: [Python package management on Notebook Session](./apache-spark-manage-session-packages.md#session-scoped-python-packages)
-

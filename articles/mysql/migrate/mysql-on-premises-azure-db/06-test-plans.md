@@ -56,7 +56,7 @@ WHERE TABLE_SCHEMA = '{SchemaName}';
 
 Execute the `count(*)` SQL statement against every table to get an accurate count of rows. Running this command can take a large amount of time on large tables. The following script generates a set of SQL statements that can be executed to get the exact counts:
 
-```
+```sql
 SELECT CONCAT( 
     'SELECT "', 
     table_name, 

@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Create a repository
 
-This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app to deploy to Azure Static Web Apps.
 
 # [No Framework](#tab/vanilla-javascript)
 

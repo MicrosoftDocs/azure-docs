@@ -28,6 +28,8 @@ items:
     href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: Spring
+    href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
 - name: Samples
   items:
   - name: Key Vault Code Samples
@@ -60,6 +62,10 @@ items:
   items:
   - name: Frequently asked questions
     href: faq.yml
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -68,6 +74,8 @@ items:
     href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
   - name: Java
     href: /java/api/overview/azure/keyvault
+  - name: Spring
+    href: /azure/developer/java/spring-framework/spring-cloud-azure-appendix#azure-key-vault-certificates-properties
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
@@ -83,8 +91,8 @@ items:
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

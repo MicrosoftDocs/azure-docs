@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur'
 description: Learn how to configure SSO between Azure Active Directory and Concur.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -20,6 +20,12 @@ In this tutorial, you'll learn how to integrate Concur with Azure Active Directo
 * Control in Azure AD who has access to Concur.
 * Enable your users to be automatically signed-in to Concur with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
+
+> [!NOTE]
+> The guidance provided in this article does not cover the new **Manage Single Sign-On** offering that is available from SAP Concur as of mid 2019.
+> This new self-service SSO offering relies on **IdP initiated** sign-in which the current gallery app does not allow, due to the **Sign on URL** not being optional.
+> The **Sign on URL** must be empty for IdP initiated sign-in via MyApps portal to work as intended.
+> For these reason you must start out with a custom non-galleryp application to set up SSO when using the **Manage Single Sign-On** feature in SAP Concur.
 
 ## Prerequisites
 
@@ -46,6 +52,8 @@ To configure the integration of Concur into Azure AD, you need to add Concur fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Concur** in the search box.
 1. Select **Concur** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Concur
 

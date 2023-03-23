@@ -3,7 +3,7 @@ title: Create a SQL Managed Instance using Kubernetes tools
 description: Deploy Azure Arc-enabled SQL Managed Instance using Kubernetes tools.
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

@@ -11,7 +11,9 @@ tags: connectors
 
 # Delay running the next action in Azure Logic Apps
 
-To have your logic app wait an amount of time before running the next action, you can add the built-in **Delay - Schedule** action before an action in your logic app's workflow. Or, you can add the built-in **Delay until - Schedule** action to wait until a specific date and time before running the next action. For more information about the built-in Schedule actions and triggers, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+To have your logic app wait an amount of time before running the next action, you can add the built-in **Delay** action before an action in your logic app's workflow. Or, you can add the built-in **Delay until** action to wait until a specific date and time before running the next action. For more information about the built-in Schedule actions and triggers, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 * **Delay**: Wait for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months, before the next action runs.
 
@@ -27,7 +29,7 @@ Here are some example ways to use these actions:
 
 * An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). Before you can use an action, your logic app must first start with a trigger. You can use any trigger you want and add other actions before you add a delay action. This topic uses an Office 365 Outlook trigger. If you're new to logic apps, learn [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). Before you can use an action, your logic app must first start with a trigger. You can use any trigger you want and add other actions before you add a delay action. This topic uses an Office 365 Outlook trigger.
 
 <a name="add-delay"></a>
 
@@ -82,5 +84,5 @@ Here are some example ways to use these actions:
 
 ## Next steps
 
-* [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

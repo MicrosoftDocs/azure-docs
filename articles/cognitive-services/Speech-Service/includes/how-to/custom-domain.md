@@ -2,6 +2,7 @@
 author: rhurey
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 06/18/2021
 ms.author: rhurey
@@ -120,7 +121,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This section requires the latest version of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -174,7 +175,7 @@ Set the custom domain name to the selected resource. Replace the sample paramete
 > [!CAUTION]
 > After successful execution of the following command, you'll create a custom domain name for your Speech resource. Remember that this name *cannot* be changed.
 
-```azurecli
+```azurecli-interactive
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 

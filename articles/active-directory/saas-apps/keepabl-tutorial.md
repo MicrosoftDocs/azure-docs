@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/29/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -48,6 +48,8 @@ To configure the integration of Keepabl into Azure AD, you need to add Keepabl f
 1. In the **Add from the gallery** section, type **Keepabl** in the search box.
 1. Select **Keepabl** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Keepabl
 
 Configure and test Azure AD SSO with Keepabl using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Keepabl.
@@ -76,12 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** textbox, type a value using the following pattern:
     `keepabl_microsoft_azure_<OrganizationID>`
 
-    b. In the **Reply URL** text box, type one of the following URLs:
-
-    | **Reply URL** |
-    |---------|
-    | `https://app.keepabl.com/users/saml/auth` |
-    | `https://keepabl.herokuapp.com/users/saml/auth` |
+    b. In the **Reply URL** text box, type the URL: `https://app.keepabl.com/users/saml/auth`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in SP initiated mode:
 

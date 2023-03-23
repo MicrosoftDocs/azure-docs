@@ -2,17 +2,17 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/28/2022
+ms.date: 02/02/2023
 ms.author: alkohli
 ---
 
 To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub resource via the Azure portal.
 
-1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**, and select **IoT Edge**.
+1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**, and select **Kubernetes for Azure Stack Edge**.
 
    ![Get started with compute](./media/azure-stack-edge-gateway-configure-compute/configure-compute-1.png)
 
-2. In **Enable IoT Edge service**, select **Add**.
+2. In **Get started with Kubernetes service**, select **Add**.
 
    ![Configure compute](./media/azure-stack-edge-gateway-configure-compute/configure-compute-2.png)
 
@@ -29,13 +29,9 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
 
 4. When you finish the settings, select **Review + Create**. Review the settings for your IoT Hub resource, and select **Create**.
 
-   Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the IoT Edge service is now running.
+   Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the Kubernetes service is now running.
 
    ![Get started with compute 3](./media/azure-stack-edge-gateway-configure-compute/configure-compute-4.png)
-
-5. To confirm the Edge compute role has been configured, go to **IoT Edge > Properties**.
-
-   ![Get started with compute 4](./media/azure-stack-edge-gateway-configure-compute/configure-compute-5.png)
 
    When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
 

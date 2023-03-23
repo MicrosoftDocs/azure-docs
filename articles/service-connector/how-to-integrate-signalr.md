@@ -1,11 +1,11 @@
 ---
 title: Integrate Azure SignalR Service with Service Connector
 description: Integrate Azure SignalR Service into your application with Service Connector. Learn about authentication types and client types of Azure SignalR Service.
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 6/13/2022
+ms.date: 08/11/2022
 ms.custom:
 - ignite-fall-2021
 - kr2b-contr-experiment
@@ -23,9 +23,23 @@ This article shows the supported authentication types and client types of Azure 
 
 ## Supported authentication types and client types
 
-| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string  | Service principal |
+Supported authentication and clients for App Service and Container Apps:
+
+### [Azure App Service](#tab/app-service)
+
+| Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
 |-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
 | .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+### [Azure Container Apps](#tab/container-apps)
+
+| Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
+---
 
 ## Default environment variable names or application properties
 

@@ -241,7 +241,7 @@ Add the following templates under the templates folder. These templates extend t
     
     {% block metadata %}
     {% if config.get("B2C_RESET_PASSWORD_AUTHORITY") and "AADB2C90118" in result.get("error_description") %}
-    <!-- See also https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies#linking-user-flows -->
+    <!-- See also https://learn.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#linking-user-flows -->
     <meta http-equiv="refresh"
       content='0;{{_build_auth_code_flow(authority=config["B2C_RESET_PASSWORD_AUTHORITY"])["auth_uri"]}}'>
     {% endif %}
@@ -416,7 +416,7 @@ if __name__ == "__main__":
 
 ## Step 6: Run your web app
 
-In the Terminal, run the app by entering the following command, which runs the Flask development server. The development server looks for `app.py` by default. Then, open your browser and navigate to the web app URL: <http://localhost:5000>.
+In the Terminal, run the app by entering the following command, which runs the Flask development server. The development server looks for `app.py` by default. Then, open your browser and navigate to the web app URL: `http://localhost:5000`.
 
 # [Linux](#tab/linux)    
 

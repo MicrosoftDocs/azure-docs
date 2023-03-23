@@ -6,8 +6,8 @@ ms.service:  synapse-analytics
 ms.topic: overview 
 ms.subservice: metadata
 ms.date: 10/13/2021
-author: jasonwhowell
-ms.author: jasonh
+author: juluczni
+ms.author: juluczni
 ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
 ---
@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Apache Spark pools and serverless SQL pool.
 
-Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet or CSV as the storage format. Table names will be converted to lower case and need to be queried using the lower case name. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
+Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet, Delta, or CSV as the storage format. Table names will be converted to lower case and need to be queried using the lower case name. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
 The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in serverless SQL pool. [Exposing a Spark table in SQL](#expose-a-spark-table-in-sql) provides more detail on the table synchronization.
 
@@ -43,17 +43,17 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
 
   Spark also provides ways to create external tables over existing data, either by providing the `LOCATION` option or using the Hive format. Such external tables can be over a variety of data formats, including Parquet.
 
-Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet or CSV format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
+Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet, DELTA, or CSV format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
 
 > [!NOTE] 
-> Currently, only Parquet and CSV formats are synced to serverless SQL pool. A Spark delta table metadata will not sync to the SQL engine, even though Delta table uses Parquet as the snapshot's storage format. External tables from Spark are currently not synchronizing into dedicated SQL pool databases.
+> Currently, only Parquet and CSV formats are fully supported in serverless SQL pool. Spark Delta tables are also available in the serverless SQL pool, but this feature is in **public preview**. External tables created in Spark are not available in dedicated SQL pool databases.
 
 ### Share Spark tables
 
 The shareable managed and external Spark tables exposed in the SQL engine as external tables with the following properties:
 
 - The SQL external table's data source is the data source representing the Spark table's location folder.
-- The SQL external table's file format is Parquet or CSV.
+- The SQL external table's file format is Parquet, Delta, or CSV.
 - The SQL external table's access credential is pass-through.
 
 Since all Spark table names are valid SQL table names and all Spark column names are valid SQL column names, the Spark table and column names will be used for the SQL external table.
@@ -78,7 +78,7 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8`. See [JSON Data](/sql/relational-databases/json/json-data-sql-server).|
 
 >[!NOTE]
->Database level collation is `Latin1_General_100_CI_AS_SC_UTF8`.
+> Database level collation is `Latin1_General_100_CI_AS_SC_UTF8`.
 
 ## Security model
 
@@ -112,7 +112,7 @@ This command creates the table `myparquettable` in the database `mytestdb`. Tabl
 Verify that `myparquettable` is included in the results.
 
 >[!NOTE]
->A table that is not using Parquet or CSV as its storage format will not be synchronized.
+> A table that is not using Delta, Parquet or CSV as its storage format will not be synchronized.
 
 Next, insert some values into the table from Spark, for example with the following C# Spark statements in a C# notebook:
 

@@ -7,7 +7,7 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 01/30/2023
 
 ---
 # Understanding OData collection filters in Azure Cognitive Search

@@ -3,6 +3,7 @@ title: Azure Event Hubs output binding for Azure Functions
 description: Learn to write messages to Azure Event Hubs streams using Azure Functions.
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
+ms.custom: ignite-2022
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -41,16 +42,23 @@ The following example shows how to use the `IAsyncCollector` interface to send a
 [FunctionName("EH2EH")]
 public static async Task Run(
     [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
-    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<EventData> outputEvents,
     ILogger log)
 {
     foreach (EventData eventData in events)
     {
-        // do some processing:
-        var myProcessedEvent = DoSomething(eventData);
-
-        // then send the message
-        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+        // Do some processing:
+        string newEventBody = DoSomething(eventData);
+        
+        // Queue the message to be sent in the background by adding it to the collector.
+        // If only the event is passed, an Event Hub partition to be be assigned via
+        // round-robin for each batch.
+        await outputEvents.AddAsync(new EventData(newEventBody));
+        
+        // If your scenario requires that certain events are grouped together in an
+        // Event Hub partition, you can specify a partition key.  Events added with 
+        // the same key will always be assigned to the same partition.        
+        await outputEvents.AddAsync(new EventData(newEventBody), "sample-key");
     }
 }
 ```
@@ -210,13 +218,13 @@ public String sendTime(
  }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where T is a POJO or any native Java type.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type.
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -310,7 +318,7 @@ In-process C# class library functions supports the following types:
 
 This version of [EventData](/dotnet/api/azure.messaging.eventhubs.eventdata) drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).
 
-Send messages by using a method parameter such as `out string paramName`. To write multiple messages, you can use `ICollector<string>` or `IAsyncCollector<string>` in place of `out string`.
+Send messages by using a method parameter such as `out string paramName`. To write multiple messages, you can use `ICollector<EventData>` or `IAsyncCollector<EventData>` in place of `out string`.  Partition keys may only be used with `IAsyncCollector<EventData>`.
 
 # [Extension v3.x+](#tab/extensionv3/in-process)
 

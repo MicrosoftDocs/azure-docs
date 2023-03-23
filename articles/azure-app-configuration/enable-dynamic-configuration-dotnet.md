@@ -2,13 +2,13 @@
 title: '.NET Framework Tutorial: dynamic configuration in Azure App Configuration'
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Framework apps using Azure App Configuration. 
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/24/2020
-ms.author: alkemper
+ms.author: malev
 
 #Customer intent: I want to dynamically update my .NET Framework app to use the latest configuration data in App Configuration.
 ---

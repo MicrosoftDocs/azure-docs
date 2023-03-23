@@ -1,8 +1,8 @@
 ---
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
-ms.service: container-service
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/25/2020
 ms.author: jpalma
 ---
@@ -14,6 +14,8 @@ AKS supports upgrading the images on a node so you're up to date with the newest
 For more information about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases).
 
 For information on upgrading the Kubernetes version for your cluster, see [Upgrade an AKS cluster][upgrade-cluster].
+
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
 
 > [!NOTE]
 > The AKS cluster must use virtual machine scale sets for the nodes.
@@ -75,6 +77,9 @@ az aks upgrade \
 
 During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
 
+>[!NOTE]
+> This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
+
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
@@ -103,6 +108,9 @@ az aks nodepool upgrade \
 
 During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
 
+>[!NOTE]
+> This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
+
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
@@ -125,12 +133,11 @@ If you'd like to increase the speed of upgrades, use the `--max-surge` value to 
 The following command sets the max surge value for performing a node image upgrade:
 
 ```azurecli
-az aks nodepool upgrade \
+az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --max-surge 33% \
-    --node-image-only \
     --no-wait
 ```
 
@@ -156,6 +163,9 @@ az aks nodepool show \
 - [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
 
+<!-- LINKS - external -->
+[kubernetes-json-path]: https://kubernetes.io/docs/reference/kubectl/jsonpath/
+
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
 [github-schedule]: node-upgrade-github-actions.md
@@ -163,3 +173,4 @@ az aks nodepool show \
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[auto-upgrade-node-image]: auto-upgrade-node-image.md

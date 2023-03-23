@@ -10,7 +10,7 @@ ms.date: 06/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
@@ -20,9 +20,6 @@ ms.collection: M365-identity-device-management
 To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (Azure AD) authentication. You can now use Azure AD as a core authentication platform and a certificate authority to SSH into a Linux VM by using Azure AD and OpenSSH certificate-based authentication. This functionality allows organizations to manage access to VMs with Azure role-based access control (RBAC) and Conditional Access policies. 
 
 This article shows you how to create and configure a Linux VM and log in with Azure AD by using OpenSSH certificate-based authentication.
-
-> [!IMPORTANT]
-> This capability is now generally available. The previous version that made use of device code flow was [deprecated on August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section [Migrate from the previous (preview) version](#migrate-from-the-previous-preview-version).
 
 There are many security benefits of using Azure AD with OpenSSH certificate-based authentication to log in to Linux VMs in Azure. They include:
 
@@ -46,7 +43,7 @@ The following Linux distributions are currently supported for deployments in a s
 | CentOS | CentOS 7, CentOS 8 |
 | Debian | Debian 9, Debian 10, Debian 11 |
 | openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
-| RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
+| RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.9, RHEL 8.3+ |
 | SUSE Linux Enterprise Server (SLES) | SLES 12, SLES 15.1+ |
 | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 22.04 |
 
@@ -110,7 +107,7 @@ Ensure that your client meets the following requirements:
 - TCP connectivity from the client to either the public or private IP address of the VM. (ProxyCommand or SSH forwarding to a machine with connectivity also works.)
 
 > [!IMPORTANT]
-> SSH clients based on PuTTY don't support OpenSSH certificates and can't be used to log in with Azure AD OpenSSH certificate-based authentication.
+> SSH clients based on PuTTY now supports OpenSSH certificates and can be used to log in with Azure AD OpenSSH certificate-based authentication.
 
 ## Enable Azure AD login for a Linux VM in Azure
 
@@ -191,7 +188,7 @@ There are two ways to configure role assignments for a VM:
 - Azure Cloud Shell experience
 
 > [!NOTE]
-> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) per subscription.
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#limits) per subscription.
 
 ### Azure AD portal
 
@@ -276,7 +273,7 @@ Another way to verify it is via Graph PowerShell:
 
 1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
 1. Enter the command `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`.
-1. Sign in with a Global Admin account.
+1. Sign in with a Global Administrator account.
 1. Consent to the prompt that asks for your permission.
 1. Enter the command `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Linux VM Sign-In"'`.
    
@@ -443,7 +440,7 @@ If you get a message that says the token couldn't be retrieved from the local ca
 
 ### Access denied: Azure role not assigned
 
-If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
+If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#limits).
 
 ### Problems deleting the old (AADLoginForLinux) extension
 

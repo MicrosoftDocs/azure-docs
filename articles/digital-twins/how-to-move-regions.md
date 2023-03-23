@@ -102,9 +102,8 @@ These views confirm that your models, twins, and graph were reuploaded to the ne
 
 If you have endpoints or routes in your original instance, you'll need to recreate them in your new instance. Otherwise, if you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#relink-connected-resources).
 
-Otherwise, follow the steps in [Manage endpoints and routes](how-to-manage-routes.md) using the new instance. Keep these pointers in mind:
-
-* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the [Prerequisites section](how-to-manage-routes.md#prerequisite-create-endpoint-resources) in the endpoint instructions. You just need to recreate the endpoint on the Azure Digital Twins instance.
+Otherwise, follow the steps in [Create endpoints](how-to-create-endpoints.md) and then [Create routes and filters](how-to-create-routes.md). Keep these pointers in mind:
+* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. You just need to recreate the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
 * Remember to add any required filters to the routes you create.
 
@@ -145,7 +144,7 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can delete the original instance.
 
-You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
+You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#control-plane-apis).
 
 To delete the instance by using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and go to your original Azure Digital Twins instance by searching for the name in the portal search bar.
 

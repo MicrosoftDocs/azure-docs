@@ -3,7 +3,7 @@ title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
@@ -41,7 +41,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](../
 
 ## Assign roles to groups, not users
 
-To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of role assignments per subscription](troubleshooting.md#azure-role-assignments-limit).
+To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
 ## Assign roles using the unique role ID instead of the role name
 

@@ -22,11 +22,6 @@ In this tutorial, you learn how to:
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
 
-> [!IMPORTANT]
-> Gateway Azure Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -82,7 +77,7 @@ A virtual network is needed for the resources that are in the backend pool of th
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 

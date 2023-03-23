@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Visitly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Visitly for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Visitly.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/30/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -20,7 +20,6 @@ The objective of this tutorial is to demonstrate the steps you perform in Visitl
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD user provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for preview features, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

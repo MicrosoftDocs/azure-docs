@@ -41,6 +41,8 @@ ms.date: 06/03/2020
     |`YOUR-AUTHORING-ENDPOINT`| Your authoring URL endpoint. For example, `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. You set your resource name when you created the resource.|
 
     Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
+    
+    [!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
 
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 

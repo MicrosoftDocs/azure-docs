@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 12/12/2022
 # Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.
 ---
 # Tutorial: Check data source readiness at scale

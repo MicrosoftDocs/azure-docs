@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/20/2018
+ms.date: 09/01/2022
 ---
 
 # Handle content types in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Various content types can flow through a logic app, 
 for example, JSON, XML, flat files, and binary data. 

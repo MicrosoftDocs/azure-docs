@@ -7,7 +7,7 @@ ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-In a C# project, the bindings are defined as binding attributes on the function method. Specific definitions depend on whether your app runs in-process (C# class library) or in an isolated process.
+In a C# project, the bindings are defined as binding attributes on the function method. Specific definitions depend on whether your app runs in-process (C# class library) or in an isolated worker process.
 
 # [In-process](#tab/in-process)
 

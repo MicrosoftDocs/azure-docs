@@ -1,5 +1,5 @@
 ---
-title: Assign a managed identity to an application role using PowerShell - Azure AD
+title: Assign a managed identity to an application role using PowerShell
 description: Step-by-step instructions for assigning a managed identity access to another application's role, using PowerShell.
 services: active-directory
 documentationcenter: 
@@ -76,18 +76,25 @@ In this article, you learn how to assign a managed identity to an application ro
     > [!NOTE]
     > Display names for applications are not unique, so you should verify that you obtain the correct application's service principal.
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role like this:
+1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
 
-    ```json
+    ```http
+    PATCH /applications/{id}/
+
     {
-        "allowedMemberTypes": [
-            "Application"
-        ],
-        "displayName": "Read data from MyApi",
-        "id": "0566419e-bb95-4d9d-a4f8-ed9a0f147fa6",
-        "isEnabled": true,
-        "description": "Allow the application to read data as itself.",
-        "value": "MyApi.Read.All"
+        "appRoles": [
+            {
+                "allowedMemberTypes": [
+                    "User",
+                    "Application"
+                ],
+                "description": "Read reports",
+                "id": "1e250995-3081-451e-866c-0f6efef9c638",
+                "displayName": "Report reader",
+                "isEnabled": true,
+                "value": "report.read"
+            }
+        ]
     }
     ```
 
@@ -150,7 +157,7 @@ Connect-AzureAD -TenantId $tenantID
 
 # Look up the details about the server app's service principal and app role.
 $serverServicePrincipal = (Get-AzureADServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
-$serverServicePrincipalObjectId = $serverServicePrincipal.Id
+$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
 $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
 
 # Assign the managed identity access to the app role.
@@ -187,7 +194,7 @@ Connect-MgGraph -TenantId $tenantId -Scopes 'Application.Read.All','Application.
 
 # Look up the details about the server app's service principal and app role.
 $serverServicePrincipal = (Get-MgServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
-$serverServicePrincipalObjectId = $serverServicePrincipal.Id
+$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
 $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
 
 # Assign the managed identity access to the app role.

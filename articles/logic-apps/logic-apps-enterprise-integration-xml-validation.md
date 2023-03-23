@@ -7,10 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 08/20/2022
 ---
 
 # Validate XML in workflows with Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In enterprise integration business-to-business (B2B) scenarios, the trading partners in an agreement often have to make sure that the messages they exchange are valid before any data processing can start. Your logic app workflow can validate XML messages and documents by using the **XML Validation** action and a predefined [schema](logic-apps-enterprise-integration-schemas.md).
 
@@ -30,13 +32,13 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation*** action.
 
-  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires the following items:
+  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account requires the following items:
 
     * The [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content.
 
     * A [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas in your integration account. Instead, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences), you don't store schemas in your integration account. Instead, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
 
     You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 

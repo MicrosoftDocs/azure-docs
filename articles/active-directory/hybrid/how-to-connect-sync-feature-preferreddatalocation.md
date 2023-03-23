@@ -4,8 +4,9 @@ description: Describes how to put your Microsoft 365 user resources close to the
 author: billmath
 ms.service: active-directory
 ms.workload: identity
+manager: amycolannino
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

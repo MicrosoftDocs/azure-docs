@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 07/04/2022
+ms.date: 03/02/2023
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,46 +15,45 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
-## June 2022
+## February 2023
 
 ### Updated articles
 
-- [Protect against consent phishing](protect-against-consent-phishing.md)
-- [Request to publish your application in the Azure AD application gallery](v2-howto-app-gallery-listing.md)
-
-## May 2022
-
-### New articles
-
-- [My Apps portal overview](myapps-overview.md)
-
-### Updated articles
-
-- [Tutorial: Configure Datawiza with Azure AD for secure hybrid access](datawiza-with-azure-ad.md)
-- [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
-- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
-- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
-
-## March 2022
-
-### New articles
-
-- [Overview of admin consent workflow](admin-consent-workflow-overview.md)
-- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
-
-### Updated articles
-
-- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-- [Integrate F5 BIG-IP with Azure AD](f5-aad-integration.md)
+[Manage custom security attributes for an application (Preview)](custom-security-attributes-apps.md)
 - [Manage app consent policies](manage-app-consent-policies.md)
-- [Plan Azure AD My Apps configuration](my-apps-deployment-plan.md)
-- [Quickstart: View enterprise applications](view-applications-portal.md)
-- [Review admin consent requests](review-admin-consent-requests.md)
-- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP SSO](f5-big-ip-ldap-header-easybutton.md)
-- [Tutorial: Configure F5’s BIG-IP Easy Button for header-based SSO](f5-big-ip-headers-easy-button.md)
-- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO](f5-big-ip-kerberos-easy-button.md)
-- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
-- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE](f5-big-ip-oracle-jde-easy-button.md)
-- [Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
-- [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
+- [Configure permission classifications](configure-permission-classifications.md)
+- [Disable user sign-in for an application](disable-user-sign-in-portal.md)
+- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
+
+## January 2023
+
+### New articles
+
+- [Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
+
+### Updated articles
+
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Assign enterprise application owners](assign-app-owners.md)
+- [Configure enterprise application properties](add-application-portal-configure.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](datawiza-with-azure-ad.md)
+- [Secure hybrid access: Protect legacy apps with Azure Active Directory](secure-hybrid-access.md)
+- [Create an enterprise application from a multi-tenant application in Azure Active Directory](create-service-principal-cross-tenant.md)
+- [Configure sign-in behavior using Home Realm Discovery](configure-authentication-for-federated-users-portal.md)
+- [Secure hybrid access with Azure Active Directory partner integrations](secure-hybrid-access-integrations.md)
+
+## December 2022
+
+### Updated articles
+
+- [Grant consent on behalf of a single user by using PowerShell](grant-consent-single-user.md)
+- [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
+- [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md)
+- [Deploy F5 BIG-IP Virtual Edition VM in Azure](f5-bigip-deployment-guide.md)
+- [End-user experiences for applications](end-user-experiences.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on](f5-big-ip-ldap-header-easybutton.md)

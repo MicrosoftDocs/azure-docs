@@ -11,11 +11,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Deactivate and delete a StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 
@@ -23,7 +25,7 @@ This article describes how to deactivate and delete a StorSimple device that is 
 
 Deactivation severs the connection between the device and the corresponding StorSimple Device Manager service. You may wish to take a StorSimple device out of service (for example, if you are replacing or upgrading your device or if you are no longer using StorSimple). If so, you need to deactivate the device before you can delete it.
 
-When you deactivate a device, any data that was stored locally on the device is no longer accessible. Only the data associated with the device that was stored in the cloud can be recovered.
+When you deactivate a device, any data that was stored locally on the device is no longer accessible. Only the data associated with the device that was stored in the cloud can be recovered. When you deactivate a device, any data that was stored locally on the device is no longer accessible. Only the data associated with the device that was stored in the cloud can be recovered. After you have deactivated the device, if you would like to keep it, go to [Keep my StorSimple 8000 series appliance](storsimple-8000-migration-from-8000-options.md#q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance---beyond-the-end-of-life-date).
 
 > [!WARNING]
 > Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Device Manager service unless it is reset to factory defaults.
@@ -116,4 +118,4 @@ After the cloud appliance is deactivated, you can delete it from the list of dev
 * To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * For technical assistance, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * To learn more about how to use the StorSimple Device Manager service, go to [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-
+* After you have deactivated the device, if you would like to keep it, go to [Keep my StorSimple 8000 series appliance](storsimple-8000-migration-from-8000-options.md#q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance---beyond-the-end-of-life-date).

@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 08/29/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -91,7 +91,7 @@ Metadata adjustments are captured in a complex type created for each image. You 
 
    + `"generateNormalizedImages"` to generate an array of normalized images as part of document cracking.
 
-   + `"generateNormalizedImagePerPage"` (applies to PDF only) to generate an array of normalized images where each page in the PDF is rendered to one output image. For non-PDF files, the behavior of this parameter is same as if you had set "generateNormalizedImages".
+   + `"generateNormalizedImagePerPage"` (applies to PDF only) to generate an array of normalized images where each page in the PDF is rendered to one output image. For non-PDF files, the behavior of this parameter is similar as if you had set "generateNormalizedImages". However, note that setting "generateNormalizedImagePerPage" can make indexing operation less performant by design (especially for big documents) since several images would have to be generated.
 
 1. Optionally, adjust the width or height of the generated normalized images:
 

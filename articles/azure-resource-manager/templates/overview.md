@@ -9,7 +9,7 @@ ms.date: 05/26/2022
 
 With the move to the cloud, many teams have adopted agile development methods. These teams iterate quickly. They need to repeatedly deploy their solutions to the cloud, and know their infrastructure is in a reliable state. As infrastructure has become part of the iterative process, the division between operations and development has disappeared. Teams need to manage infrastructure and application code through a unified process.
 
-To meet these challenges, you can automate deployments and use the practice of infrastructure as code. In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like application code, you store the infrastructure code in a source repository and version it. Any one on your team can run the code and deploy similar environments.
+To meet these challenges, you can automate deployments and use the practice of infrastructure as code. In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like application code, you store the infrastructure code in a source repository and version it. Anyone on your team can run the code and deploy similar environments.
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
@@ -18,7 +18,7 @@ To implement infrastructure as code for your Azure solutions, use Azure Resource
 
 To learn about how you can get started with ARM templates, see the following video.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 
@@ -146,7 +146,7 @@ This approach means you can safely share templates that meet your organization's
 ## Next steps
 
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
-* To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+* To learn about ARM templates through a guided set of Learn modules, see [Deploy and manage resources in Azure by using ARM templates](/training/paths/deploy-manage-resource-manager-templates/).
 * For information about the properties in template files, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](quickstart-create-templates-use-the-portal.md).
 * For answers to common questions, see [Frequently asked questions about ARM templates](./frequently-asked-questions.yml).

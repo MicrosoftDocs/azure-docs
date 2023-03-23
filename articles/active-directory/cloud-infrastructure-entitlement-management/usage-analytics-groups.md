@@ -2,13 +2,14 @@
 title: View analytic information about groups in Permissions Management
 description: How to view analytic information about groups in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View analytic information about groups
@@ -34,7 +35,7 @@ When you select **Groups**, the **Usage Analytics** dashboard provides a high-le
 
     - **Authorization System Type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
     - **Authorization System**: Select from a **List** of accounts and **Folders**.
-    - **Group Type**: Select **All**, **ED**, or **Local**.
+    - **Group Type**: Select **All**, **ED** (enterprise directory), or **Local**.
     - **Group Activity Status**: Select **All**, **Active**, or **Inactive**.
     - **Tasks Type**: Select **All**, **High Risk Tasks**, or **Delete Tasks**
     - **Search**: Enter group name to find specific group.
@@ -48,7 +49,7 @@ The **Groups** table displays the results of your query:
 
 - **Group Name**: Provides the name of the group.
     - To view details about the group, select the down arrow.
-- A **Group Type** icon displays to the left of the group name to describe the type of group (**ED** or **Local**).
+- A **Group Type** icon displays to the left of the group name to describe the type of group (**ED** (enterprise directory) or **Local**).
 - The **Domain/Account** name.
 - The **Permission Creep Index (PCI)**: Provides the following information:
     - **Index**: A numeric value assigned to the PCI.
@@ -105,7 +106,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Group Type** dropdown, select the type of user: **All**, **ED**, or **Local**.
+1. From the **Group Type** dropdown, select the type of user: **All**, **ED** (enterprise directory), or **Local**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset Filter** to discard your changes.

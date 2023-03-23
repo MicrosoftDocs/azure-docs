@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure AD roles documentation - Azure AD
+title: Azure AD roles documentation
 summary: Azure AD role-based access control manages access to Azure AD resources. Create custom roles, assign roles that use administrative units to restrict scope of control, assign application access to groups or users, manage eligibility with Privileged Identity Management (PIM), or delegate permissions to distribute identity management tasks. 
 
 
@@ -10,7 +10,7 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: roles
-  manager: karenhoran
+  manager: amycolannino
   ms.topic: landing-page
   ms.date: 12/17/2021
   author: rolyon

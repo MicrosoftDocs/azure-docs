@@ -3,7 +3,7 @@ title: Configure Azure Arc-enabled SQL managed instance
 description: Configure Azure Arc-enabled SQL managed instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

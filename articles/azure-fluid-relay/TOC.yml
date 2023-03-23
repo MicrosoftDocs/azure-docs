@@ -48,6 +48,8 @@
       href: how-tos/validate-document-creator.md
     - name: 'How to: Recover Container data'
       href: how-tos/container-recovery.md
+    - name: 'How to: Use audience features in the Fluid Framework'
+      href: how-tos/use-audience-in-fluid.md
 - name: Reference
   items:
     - name: Service limits

@@ -58,7 +58,7 @@ When you transfer billing ownership of your subscription to an account in anothe
 
 ## Transfer Visual Studio and Partner Network subscriptions
 
-Visual Studio and Microsoft Partner Network subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit isn't available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on September 9 and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every ninth day of the month.
+Visual Studio and Microsoft Cloud Partner Program subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit isn't available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on September 9 and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every ninth day of the month.
 
 ## Next steps after accepting billing ownership
 
@@ -94,7 +94,7 @@ Use the following troubleshooting information if you're having trouble transferr
 
 It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Azure Active Directory. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing and paying bills. The subscription could go into a past-due state. Eventually, the subscription could get disabled because of non-payment. Ultimately, the subscription could get deleted, affecting every service that runs on the subscription.
 
-When a subscription no longer has a valid billing account owner, Azure sends an email to other Billing account owners, Service Administrators (if any), Co-Administrators (if any), and Subscription Owners informing them of the situation and provides them with a link to accept billing ownership of the subscription. Any one of the users can select the link to accept billing ownership. For more information about billing roles, see [Billing Roles](understand-mca-roles.md) and [Classic Roles and Azure RBAC Roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+When a subscription no longer has a valid billing account owner, Azure sends an email to other Billing account owners, Service Administrators (if any), Co-Administrators (if any), and Subscription Owners informing them of the situation and provides them with a link to accept billing ownership of the subscription. Any one of the users can select the link to accept billing ownership. For more information about billing roles, see [Billing Roles](understand-mca-roles.md) and [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Here's an example of what the email looks like.
 

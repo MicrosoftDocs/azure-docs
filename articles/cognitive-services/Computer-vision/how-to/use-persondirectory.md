@@ -1,5 +1,5 @@
 ---
-title: "Example: Use the PersonDirectory structure - Face"
+title: "Example: Use the PersonDirectory data structure - Face"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the PersonDirectory data structure to store face and person data at greater capacity and with other new features.
 services: cognitive-services
@@ -9,29 +9,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 07/20/2022
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 ---
 
-# Use the PersonDirectory structure (preview)
+# Use the PersonDirectory data structure (preview)
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-To perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure in Public Preview that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory.
+To perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. **PersonDirectory** is a data structure in Public Preview that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Follow this guide to learn how to do basic tasks with **PersonDirectory**.
+
+## Advantages of PersonDirectory
 
 Currently, the Face API offers the **LargePersonGroup** structure, which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.
 
-Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically.
+Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train API calls after adding faces to a **Person** object&mdash;the update process happens automatically.
 
 ## Prerequisites
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* Once you have your Azure subscription, [create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, [create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below.
   * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Add Persons to the PersonDirectory
+
 **Persons** are the base enrollment units in the **PersonDirectory**. Once you add a **Person** to the directory, you can add up to 248 face images to that **Person**, per recognition model. Then you can identify faces against them using varying scopes.
 
 ### Create the Person
@@ -174,7 +177,7 @@ When the operation for the face addition finishes, the data will be ready for in
 
 If you've used a **PersonGroup** before, take note of two major differences: 
 * Each **Person** inside a **DynamicPersonGroup** is a reference to the actual **Person** in the **PersonDirectory**, meaning that it's not necessary to recreate a **Person** in each group.
-* As mentioned in previous sections, there is no need to make Train calls, as the face data is processed at the Directory level automatically.
+* As mentioned in previous sections, there's no need to make Train calls, as the face data is processed at the Directory level automatically.
 
 ### Create the group
 
@@ -205,7 +208,7 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-This process is immediate and there is no need to wait for any asynchronous operations to succeed.
+This process is immediate and there's no need to wait for any asynchronous operations to succeed.
 
 Alternatively, you can create it with a set of **Person** IDs to contain those references from the beginning by providing the set in the _AddPersonIds_ argument:
 

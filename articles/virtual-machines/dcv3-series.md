@@ -18,7 +18,7 @@ The DCsv3 and DCdsv3-series Azure Virtual Machines help protect the confidential
 
 These machines are powered by the latest 3rd Generation Intel&reg; Xeon Scalable processors, and use Intel&reg; Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores). Encrypted Memory (EPC) has increased 1500x to 256 GB. Regular Memory has increased 12x to 384 GB. All these changes substantially improve the performance and unlock new entirely new scenarios. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores). Encrypted Memory (EPC) has increased 1500x to 256 GB. Regular Memory has increased 12x to 384 GB. All these changes substantially improve the performance and unlock entirely new scenarios. 
 
 > [!NOTE]
 > Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
@@ -37,13 +37,13 @@ DCsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only)
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported 
 - [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not supported
-- [Trusted Launch](trusted-launch.md): Not supported
+- [Trusted Launch](trusted-launch.md): Supported
 - [Dedicated Host](dedicated-hosts.md): Not supported
 
 
 ## DCsv3-series
 
-| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
+| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GiB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
 | Standard_DC1s_v3 | 1              | 8           | Remote Storage Only    | 4              | 2     |  4                 |
 | Standard_DC2s_v3 | 2              | 16          | Remote Storage Only    | 8              | 2     |  8                 |
@@ -56,7 +56,7 @@ DCsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 
 ## DCdsv3-series
 
-| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
+| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GiB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
 | Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | 2     |  4                 |
 | Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | 2     |  8                 |

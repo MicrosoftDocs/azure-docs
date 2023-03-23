@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: site-recovery
-author: rayne-wiselman
+author: ankitaduttaMSFT
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
 ms.date: 07/08/2020
-ms.author: raynew
+ms.author: ankitadutta
 ms.custom: include file
 ---
 

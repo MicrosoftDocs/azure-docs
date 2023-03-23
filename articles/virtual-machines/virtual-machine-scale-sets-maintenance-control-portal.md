@@ -1,19 +1,18 @@
 ---
-title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure portal
-description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and Azure portal.
+title: Maintenance control for OS image upgrades on Azure Virtual Machine Scale Sets using Azure portal
+description: Learn how to control when automatic OS image upgrades are rolled out to your Azure Virtual Machine Scale Sets using Maintenance control and Azure portal.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 06/01/2021
+ms.date: 11/22/2022
 ms.author: jushiman 
-ms.custom: devx-track-azurepowershell
-#pmcontact: shants
+#pmcontact: PPHILLIPS
 ---
 
-# Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure portal
+# Maintenance control for OS image upgrades on Azure Virtual Machine Scale Sets using Azure portal
 
-Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure portal options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+Maintenance control lets you decide when to apply automatic guest OS image upgrades to your Virtual Machine Scale Sets. This topic covers the Azure portal options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure Virtual Machine Scale Sets](virtual-machine-scale-sets-maintenance-control.md).
 
 
 ## Create a maintenance configuration
@@ -56,7 +55,7 @@ On the details page of the maintenance configuration, select **Assignments** and
 
 ![Screenshot showing how to assign a resource](media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Select the virtual machine scale set resources that you want the maintenance configuration assigned to and select **Ok**.  
+Select the Virtual Machine Scale Set resources that you want the maintenance configuration assigned to and select **Ok**.  
 
 
 ## Next steps

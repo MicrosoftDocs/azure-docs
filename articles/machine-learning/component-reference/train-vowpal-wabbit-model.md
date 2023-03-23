@@ -65,9 +65,9 @@ The data can be read from two kinds of datasets, file dataset or tabular dataset
     - **VW** represents the internal format used by  Vowpal Wabbit . See the [Vowpal Wabbit wiki page](https://github.com/JohnLangford/vowpal_wabbit/wiki/Input-format) for details. 
     - **SVMLight** is a format used by some other machine learning tools. 
 
-6. **Output readable model file**: select the option if you want the component to save the readable model to the run records. This argument corresponds to the `--readable_model` parameter in the VW command line.  
+6. **Output readable model file**: select the option if you want the component to save the readable model to the job records. This argument corresponds to the `--readable_model` parameter in the VW command line.  
 
-7. **Output inverted hash file**: select the option if you want the component to save the inverted hashing function to one file in the run records. This argument corresponds to the `--invert_hash` parameter in the VW command line.  
+7. **Output inverted hash file**: select the option if you want the component to save the inverted hashing function to one file in the job records. This argument corresponds to the `--invert_hash` parameter in the VW command line.  
 
 8. Submit the pipeline.
 
@@ -83,7 +83,7 @@ Vowpal Wabbit supports incremental training by adding new data to an existing mo
 2. Connect the previously trained model to the **Pre-trained Vowpal Wabbit Model** input port of the component.
 3. Connect the new training data to the **Training data** input port of the component.
 4. In the parameters pane of **Train Vowpal Wabbit Model**, specify the format of the new training data, and also the training data file name if the input dataset is a directory.
-5. Select the **Output readable model file** and **Output inverted hash file** options if the corresponding files need to be saved in the run records.
+5. Select the **Output readable model file** and **Output inverted hash file** options if the corresponding files need to be saved in the job records.
 
 6. Submit the pipeline.  
 7. Select the component and select **Register dataset** under **Outputs+logs** tab in the right pane, to preserve the updated model in your Azure Machine Learning workspace.  If you don't specify a new name, the updated model overwrites the existing saved model.
