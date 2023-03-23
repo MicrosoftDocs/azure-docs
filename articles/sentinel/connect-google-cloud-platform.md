@@ -5,14 +5,14 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.author: lwainstein
-#Customer intent: As a security operator, I want to ingest GCP audit log data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in my multi-cloud environment.
+#Customer intent: As a security operator, I want to ingest GCP audit log data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in my multicloud environment.
 ---
 
 # Stream Google Cloud Platform audit logs with the GCP Pub/Sub Audit Logs connector
 
-Organizations are increasingly moving to multi-cloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
+Organizations are increasingly moving to multicloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
 
-This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multi-cloud environment.
+This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multicloud environment.
 
 With the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
 
@@ -45,7 +45,7 @@ You can set up the GCP environment in one of two ways:
 
 ### Create GCP resources via the Terraform API
 
-1. Open [GCP CloudShell](https://cloud.google.com/shell/).
+1. Open [GCP Cloud Shell](https://cloud.google.com/shell/).
 1. Open the editor and type: 
     
     ```    
@@ -108,8 +108,6 @@ You can set up the GCP environment in one of two ways:
 1. In the **Configuration** area, select **Add new**. 
 1. Type the resource parameters you created when you [created the GCP resources](#create-gcp-resources-via-the-terraform-api). Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
 
-TBD - screenshot
-
 ## Verify that the GCP data is in the Microsoft Sentinel environment 
 
 1. To ensure that the GCP logs were successfully ingested into Microsoft Sentinel, run the following query 30 minutes after you finish to [set up the connector](#set-up-the-gcp-pubsub-audit-logs-connector-in-microsoft-sentinel). 
@@ -123,7 +121,7 @@ TBD - screenshot
 
 ### Set up the GCP environment manually via the GCP portal
 
-This section shows you how to manually set up the GCP environment. Alternatively, you can set up the environment [via the Terraform API](#create-gcp-resources-via-the-terraform-api). If you already set up the environment via the API, skip this section.
+This section shows you how to set up the GCP environment manually. Alternatively, you can set up the environment [via the Terraform API](#create-gcp-resources-via-the-terraform-api). If you already set up the environment via the API, skip this section.
 
 #### Create the role 
 
@@ -133,7 +131,7 @@ This section shows you how to manually set up the GCP environment. Alternatively
 1. Filter the permissions by the **Pub/Sub Subscriber** and **Pub/Sub Viewer** roles, and select **pubsub.subscriptions.consume** and **pubsub.subscriptions.get** permissions. 
 1. To confirm, select **ADD**. 
 
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-role.png" alt-text="Screenshot of adding permissions when adding a GCP role." lightbox="media/connect-google-cloud-platform/gcp-create-role.png":::
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-role.png" alt-text="Screenshot of adding permissions when adding a GCP role.":::
 
 1. To create the role, select **Create**. 
 
@@ -154,32 +152,32 @@ This section shows you how to manually set up the GCP environment. Alternatively
 
 1. Make sure that **Enable pool** is selected. 
 
-    TBD - screenshot
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-identity-pool.png" alt-text="Screenshot of creating the identity pool as part of creating the GCP workload identity federation.":::
 
 1. To add a provider to the pool:
     - Select **OIDC** 
     - Type the **Issuer (URL)**: \https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d    
     - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*. 
 
-        TBD - screenshot
+        :::image type="content" source="media/connect-google-cloud-platform/gcp-add-provider-pool.png" alt-text="Screenshot of adding the provider to the pool when creating the GCP workload identity federation.":::
 
-        TBD - screenshot 
+        :::image type="content" source="media/connect-google-cloud-platform/gcp-add-provider-pool-audiences.png" alt-text="Screenshot of adding the provider pool audiences when creating the GCP workload identity federation.":::
 
 #### Configure the provider attributes 
     
 1. Under **OIDC 1**, select **assertion.sub**.  
 
-    TBD - screenshot
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-configure-provider-attributes.png" alt-text="Screenshot of configuring the GCP provider attributes.":::    
  
 1. Select **Continue** and **Save**. 
 1. In the **Workload Identity Pools** main page, select the created pool. 
 1. Select **Grant access**, select the [service account you created previously](#create-the-service-account), and select **All identities in the pool** as the principals. 
 
-    TBD - screenshot
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-grant-access.png" alt-text="Screenshot of granting access to the GCP service account.":::
 
 1. Confirm that the connected service account is displayed. 
 
-    TBD - screenshot
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-connected-service-account.png" alt-text="Screenshot of viewing the connected GCP service accounts.":::
 
 #### Create a topic 
 
@@ -193,7 +191,7 @@ This section shows you how to manually set up the GCP environment. Alternatively
 1. Select **Create sink** and fill in the relevant details.
 1. Under **Sink destination**, select **Cloud Pub/Sub topic** and select [the topic you created previously](#create-a-topic). 
 
-    TBD - screenshot
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-sink-destination.png" alt-text="Screenshot of defining the GCP sink destination.":::
 
 1. If needed, filter the logs by selecting specific logs to include. Otherwise, all logs are sent. 
 1. Select **Create sink**.  
@@ -203,7 +201,7 @@ This section shows you how to manually set up the GCP environment. Alternatively
 > 1. Select the organization under **Project**. 
 > 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.  
 
-    TBD - screenshot
+:::image type="content" source="media/connect-google-cloud-platform/gcp-choose-logs.png" alt-text="Screenshot of choosing which GCP logs to include in the sink.":::
  
 #### Verify that GCP can receive incoming messages 
 
