@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 03/23/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -59,7 +59,7 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 ### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.
-Learn how to [create custom recommendations and standards](creating-custom-recommendations.md)
+This feature is part of the Defender CSPM (Cloud Security Posture Management) plan. Learn how to [create custom recommendations and standards](creating-custom-recommendations.md)
 
 ### Some regulatory compliance standards are now available in government clouds
 

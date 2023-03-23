@@ -4,7 +4,7 @@ description: This article explains how to create custom recommendations in Micro
 ms.topic: how-to
 ms.author: alizabernstein
 author: alizabernstein
-ms.date: 03/22/2022
+ms.date: 03/23/2022
 ---
 # Create custom recommendations and security standards in Microsoft Defender for Cloud
 
@@ -49,12 +49,9 @@ There are three types of resources to create and manage custom recommendations:
 
     :::image type="content" source="./media/create-custom-recommendations/fill-info-recommendation.png" alt-text="Screenshot showing where to fill in description details of recommendation." lightbox="./media/create-custom-recommendations/fill-info-recommendation.png":::
 
-1. Write a KQL query that will define the recommendation logic. You can write the query in the “recommendation query” text box or use the query editor and then copy and paste the query from the editor. 
+1. Write a KQL query that will define the recommendation logic. You can write the query in the “recommendation query” text box or [use the query editor](#create-new-queries-using-the-query-editor).
     
     :::image type="content" source="./media/create-custom-recommendations/open-query-editor.png" alt-text="Screenshot showing where to open the query editor." lightbox="./media/create-custom-recommendations/open-query-editor.png":::
-
-   > [!TIP]
-   > If you’d like to create a new query, click the ‘open   query editor’ button. The editor will contain data on all the native APIs we support, to assist in constructing the queries. The data will appear in the same structure as contracted in the API.  
 
 1. Click Next and review the recommendations details. 
     
@@ -75,10 +72,16 @@ There are three types of resources to create and manage custom recommendations:
     :::image type="content" source="./media/create-custom-recommendations/select-add-standard.png" alt-text="Screenshot showing where to select Add and then Standard." lightbox="./media/create-custom-recommendations/select-add-standard.png":::
 
 1. Fill in a name and description and select the recommendation you want to be included in this standard.
+    
     :::image type="content" source="./media/create-custom-recommendations/fill-name-description.png" alt-text="Screenshot showing where to fill in your custom recommendation's name and description." lightbox="./media/create-custom-recommendations/fill-name-description.png":::
 
 1. Select Save; the new standard will now be assigned to the account/project you’ve created it in. You can assign the same standard to other accounts / projects that you have Contributor and up access to. 
 
+## Create new queries using the query editor
+
+ To create a new query using the query editor, click the ‘open query editor’ button. The editor will contain data on all the native APIs we support, to assist in building the queries. The data will appear in the same structure as in the API.  
+
+:::image type="content" source="./media/create-custom-recommendations/query-editor.png" alt-text="Screenshot showing how to use the query editor." lightbox="./media/create-custom-recommendations/query-editor.png":::
 
 ## Next steps
 
