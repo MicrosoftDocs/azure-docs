@@ -229,7 +229,7 @@ Rerun the first request to monitor the provisioning state as it transitions from
 
 See [Manage with the Azure CLI](search-manage-azure-cli.md) for instructions on getting started.
 
-First, use [az-search-shared-private-link-resource list](/azure/search/shared-private-link-resource?view=azure-cli-latest#az-search-shared-private-link-resource-list&preserve-view=true) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+First, use [az-search-shared-private-link-resource list](/cli/azure/search/shared-private-link-resource) to review any existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
 ```azurecli
 az search shared-private-link-resource list --service-name {{your-search-service-name}} --resource-group {{your-search-service-resource-group}}
