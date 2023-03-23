@@ -32,7 +32,7 @@ This command also calls the `validate` command to check the configuration files.
 
 ## az arcappliance validate
 
-The `validate` command checks the configuration files for a valid schema, cloud and core validations (such as management machine connectivity to required URLs), network settings, and proxy settings. It also performs tests on identity privileges and role assignments, network configuration, load balancer configuration and content delivery network connectivity.
+The `validate` command checks the configuration files for a valid schema, cloud and core validations (such as management machine connectivity to [required URLs](network-requirements.md)), network settings, and proxy settings. It also performs tests on identity privileges and role assignments, network configuration, load balancer configuration and content delivery network connectivity.
 
 ## az arcappliance prepare
 
