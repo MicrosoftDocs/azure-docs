@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/01/2021
+ms.date: 03/23/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ---
@@ -37,9 +37,9 @@ Many organizations have Software as a Service (SaaS) or custom line-of-business 
 
 ## Types of apps to migrate
 
-Migrating all your application authentication to Azure AD is optimal, as it gives you a single control plane for identity and access management.
+Migrating all your application authentication to Azure AD is recommended, as it gives you a single control plane for identity and access management.
 
-Your applications may use modern or legacy protocols for authentication. When you plan your migration to Azure AD, consider migrating the apps that use modern authentication protocols (such as SAML and Open ID Connect) first. These apps can be reconfigured to authenticate with Azure AD either via a built-in connector from the Azure App Gallery, or by registering the application in Azure AD. Apps that use older protocols can be integrated using Application Proxy.
+Your applications may use modern or legacy protocols for authentication. When you plan your migration to Azure AD, consider migrating the apps that use modern authentication protocols (such as SAML and Open ID Connect) first. These apps can be reconfigured to authenticate with Azure AD either via a built-in connector from the Azure App Gallery, or by registering the custom application in Azure AD. Apps that use older protocols can be integrated using [Application Proxy](../app-proxy/what-is-application-proxy.md) or any of our [Secure Hybrid Access (SHA) partners](secure-hybrid-access-integrations.md).
 
 For more information, see:
 
@@ -50,7 +50,7 @@ For more information, see:
 
 ### The migration process
 
-During the process of moving your app authentication to Azure AD, test your apps and configuration. We recommend that you continue to use existing test environments for migration testing when you move to the production environment. If a test environment isn't currently available, you can set one up using [Azure App Service](https://azure.microsoft.com/services/app-service/) or [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines/search/?OCID=AID2000128_SEM_lHAVAxZC&MarinID=lHAVAxZC_79233574796345_azure%20virtual%20machines_be_c__1267736956991399_kwd-79233582895903%3Aloc-190&lnkd=Bing_Azure_Brand&msclkid=df6ac75ba7b612854c4299397f6ab5b0&ef_id=XmAptQAAAJXRb3S4%3A20200306231230%3As&dclid=CjkKEQiAhojzBRDg5ZfomsvdiaABEiQABCU7XjfdCUtsl-Abe1RAtAT35kOyI5YKzpxRD6eJS2NM97zw_wcB), depending on the architecture of the application.
+During the process of moving your app authentication to Azure AD, test your apps and configuration. We recommend that you continue to use existing test environments for migration testing before you move to the production environment. If a test environment isn't currently available, you can set one up using [Azure App Service](https://azure.microsoft.com/services/app-service/) or [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines/search/?OCID=AID2000128_SEM_lHAVAxZC&MarinID=lHAVAxZC_79233574796345_azure%20virtual%20machines_be_c__1267736956991399_kwd-79233582895903%3Aloc-190&lnkd=Bing_Azure_Brand&msclkid=df6ac75ba7b612854c4299397f6ab5b0&ef_id=XmAptQAAAJXRb3S4%3A20200306231230%3As&dclid=CjkKEQiAhojzBRDg5ZfomsvdiaABEiQABCU7XjfdCUtsl-Abe1RAtAT35kOyI5YKzpxRD6eJS2NM97zw_wcB), depending on the architecture of the application.
 
 You may choose to set up a separate test Azure AD tenant on which to develop your app configurations.
 
@@ -84,9 +84,9 @@ Update the configuration of your production app to point to your production Azur
 
 ### Line of business apps
 
-Your line-of-business apps are those that your organization developed or those that are a standard packaged product. Examples include apps built on Windows Identity Foundation and SharePoint apps (not SharePoint Online).
+Your line-of-business apps are those that your organization developed or those that are a standard packaged product.
 
-Line-of-business apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](add-application-portal.md) on the enterprise applications page in the [Azure portal](https://portal.azure.com/).
+Line-of-business apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](add-application-portal.md) on the enterprise applications page in the [Entra portal](https://entra.microsoft.com/#home).
 
 ## SAML-based single sign-on
 
@@ -100,7 +100,7 @@ Many SaaS applications have an [application-specific tutorial](../saas-apps/tuto
 
   ![app tutorial](media/migrate-adfs-apps-to-azure/app-tutorial.png)
 
-Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, may require additional configuration in Azure AD and/or Azure AD Connect. For information about supported claims mappings, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](../develop/active-directory-claims-mapping.md).
+Some apps can be migrated easily. Apps with more complex requirements, such as custom claims, may require additional configuration in Azure AD and/or [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md). For information about supported claims mappings, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](../develop/active-directory-claims-mapping.md).
 
 Keep in mind the following limitations when mapping attributes:
 
@@ -132,6 +132,14 @@ For information about Azure AD SAML token encryption and how to configure it, se
 > [!NOTE]
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
+### SAML request signature verification (preview) 
+ 
+This functionality validates the signature of signed authentication requests. An App Admin enables and disables the enforcement of signed requests and uploads the public keys that should be used to do the validation. For more information, see [How to enfore signed SAML authentication requests](howto-enforce-signed-saml-authentication.md).
+
+### Custom claims providers (preview)  
+
+To migrate data from legacy systems such as ADFS or data stores such as LDAP your apps will be dependent on certain data in the tokens because of which full migration is difficult. You can use custom claims providers to add claims into the token. For more information, see [Custom claims provider overview](../develop/custom-claims-provider-overview.md).  
+
 ### Apps and configurations that can be moved today
 
 Apps that you can move easily today include SAML 2.0 apps that use the standard set of configuration elements and claims. These standard items are:
@@ -146,7 +154,7 @@ Apps that you can move easily today include SAML 2.0 apps that use the standard 
 The following require additional configuration steps to migrate to Azure AD:
 
 * Custom authorization or multi-factor authentication (MFA) rules in AD FS. You configure them using the [Azure AD Conditional Access](../conditional-access/overview.md) feature.
-* Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Azure portal interface.
+* Apps with multiple Reply URL endpoints. You configure them in Azure AD using PowerShell or the Entra portal interface.
 * WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You can configure them manually using PowerShell. You can also add a pre-integrated generic template for SharePoint and SAML 1.1 applications from the gallery. We support the SAML 2.0 protocol.
 * Complex claims issuance transforms rules. For information about supported claims mappings, see:
   * [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
@@ -162,19 +170,6 @@ Apps that require the following protocol capabilities can't be migrated today:
 
 * Support for the WS-Trust ActAs pattern
 * SAML artifact resolution
-* Signature verification of signed SAML requests
-‎
-  > [!Note]
-  > Signed requests are accepted, but the signature isn't verified.
-
-  ‎Given that Azure AD only returns the token to endpoints preconfigured in the application, signature verification probably isn't required in most cases.
-
-#### Claims in token capabilities
-
-Apps that require the following claims in token capabilities can't be migrated today.
-
-* Claims from attribute stores other than the Azure AD directory, unless that data is synced to Azure AD. For more information, see the [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview).
-* Issuance of directory multiple-value attributes. For example, we can't issue a multivalued claim for proxy addresses at this time.
 
 ## Map app settings from AD FS to Azure AD
 
@@ -380,7 +375,7 @@ For more information, see [Prerequisites for using Group attributes synchronized
 
 ### Set up user self-provisioning
 
-Some SaaS applications support the ability to self-provision users when they first sign in to the application. In Azure AD, app provisioning refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need to access. Users that are migrated already have an account in the SaaS application. Any new users added after the migration need to be provisioned. Test [SaaS app provisioning](../app-provisioning/user-provisioning.md) once the application is migrated.
+Some SaaS applications support the ability to Just-in-Time (JIT) provision users when they first sign in to the application. In Azure AD, app provisioning refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need to access. Users that are migrated already have an account in the SaaS application. Any new users added after the migration need to be provisioned. Test [SaaS app provisioning](../app-provisioning/user-provisioning.md) once the application is migrated.
 
 ### Sync external users in Azure AD
 
