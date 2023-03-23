@@ -16,7 +16,7 @@ This article provides an overview of a new prerequisite for scheduled patching i
 
 Currently, for all Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you are configuring from Azure portal and **AutomaticByPlatform** if you are using the REST API. The limitation experienced here is that when you disassociate a VM from a schedule, at times, unexpectedly, the VM is rebooted as the existing prerequisite for schedule patching - patch orchestration mode is set to **Azure-orchestrated**. Therefore, when the patch mode is set and there is no schedule attached to the VM, it is auto-patched.
 
->![NOTE]
+>[!NOTE]
 > For Azure-Arc enabled machines, there are no prerequisites needed to enable scheduled patching.
 
 ## New prerequisite
@@ -30,7 +30,7 @@ The patch mode enables the following two VM properties on your behalf after rece
 > - This is applicable only for Azure machines and the changes can be implemented only from the Azure portal by updating the patch mode to *Azure orchestrated with user managed schedules(Preview)*. If you are using other programmatic methods such as  REST API/PowerShell/CLI, we recommend that you enable both the properties separately using the REST API calls/REST commands/cmdlets.
 
 > [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before April 30, 2023. If you fail to update the patch mode before April 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](#update-prerequisites-for-scheduled-patching).
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before April 30, 2023. If you fail to update the patch mode before April 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
 
 ## Enable the prerequisite to schedule patch for Azure VMs
 
