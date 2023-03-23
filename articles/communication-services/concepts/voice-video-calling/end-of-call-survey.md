@@ -73,7 +73,7 @@ The API allows applications to gather data points that describe user perceived r
 
 
 
-## API Capabilities
+## Survey Capabilities
 
 
 
@@ -90,7 +90,7 @@ The API allows applications to gather data points that describe user perceived r
 
 -	***Note:** A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
-### API Tags by Value
+### Additional survey tags
 | API Values | Optional Tags |
 | ----------- | ----------- |
 |  Overall Call  |       |
@@ -149,10 +149,10 @@ TODO – are there any privacy things to note?
 
 
 
-## View Survey Data:
+## Store and view survey data:
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md)
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md)
 
 	
 
@@ -196,10 +196,11 @@ Do we need to provide data example? Or is that somewhere else?
 
 
 
-### Export survey results
+### Export survey data
 
 If you want to export your survey data, you can instead choose to send the log data of your surveys to Event Hubs, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Again, select the “CALL DIAGNOSTICS???” data source when choosing category details. Then, choose “Stream to an event hub” as your destination detail.
 
+You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: **Tutorial Link**
 
 
 ## Debug support?
@@ -219,10 +220,10 @@ If you want to export your survey data, you can instead choose to send the log d
 -	How long does it take for survey data to be available in Azure?
 
 ## Next Steps
+-	Learn how to use the End of Call Survey, see **ADD LINK**
 
+-	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
--	To learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
-
--	To create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
 
 
