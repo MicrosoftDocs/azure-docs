@@ -395,7 +395,7 @@ Use the **View session** link for your session to confirm the APM receives expec
 
 If no BIG-IP error page appears, the issue might relate to the back-end request, or BIG-IP and application SSO.
 
-1. Navigate to **Access Policy > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Active Sessions**.
 3. Select the link for your active session.
 
