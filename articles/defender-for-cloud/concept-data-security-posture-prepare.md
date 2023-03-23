@@ -25,8 +25,6 @@ Sensitive data discovery is available in the Defender CSPM and Defender for Stor
 
 The table summarizes support for data-aware posture management.
 
-- , but it can’t discover data that’s encrypted with a Customer Key.
-
 **Support** | **Details**
 --- | ---
 What Azure data resources can I scan? | Azure storage accounts v1, v2<br/><br/> Azure Data Lake Storage Gen1/Gen2<br/><br/>Accounts are supported behind private networks but not behind private endpoints.<br/><br/>  Defender for Cloud can discover data encrypted by KMB or a customer-managed key. <br/><br/>Page blobs aren't scanned.
@@ -42,7 +40,10 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 
 - It takes up to 24 hours to see the results for a first scan.
 - Refreshed results for a subscription that's previously been scanned take up to 48 hours.
-- New Azure storage accounts and new AWS S3 buckets in a scanned subscription are automatically scanned the next time that scanning occurs.
+- A new Azure storage account that's added to an already scanned subscription will be scanned within 24 hours or less.
+- A new AWS S3 storage account that's added to an already scanned AWS account will be scanned within 48 hours or less.
+
+New S3 bucket being added to an already scanned AWS account will be scanned by up to 48 hours.
 
 
 ## Configuring data sensitivity settings
