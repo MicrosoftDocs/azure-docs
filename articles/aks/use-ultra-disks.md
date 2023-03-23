@@ -10,6 +10,8 @@ ms.date: 3/23/2023
 
 [Azure ultra disks][ultra-disk-overview] offer high throughput, high IOPS, and consistent low latency disk storage for your stateful applications. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your agent nodes. Ultra disks are suited for data-intensive workloads.
 
+This article describes how to configure a new or existing AKS cluster to use Azure ultra disks.
+
 ## Before you begin
 
 This feature can only be set at cluster creation or when creating a node pool.

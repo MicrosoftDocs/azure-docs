@@ -10,6 +10,8 @@ ms.date: 3/22/2023
 
 [Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offer IO-intense enterprise workloads a consistent sub-millisecond disk latency and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
 
+This article describes how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks.
+
 ## Before you begin
 
 This feature can only be set at cluster creation or node pool creation time.
