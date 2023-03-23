@@ -18,6 +18,10 @@ metadata:
 landingContent:  
   - title: Get started with Azure Cosmos DB for MongoDB vCore
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: introduction.md
       - linkListType: quickstart
         links:
           - text: Create resources - Azure portal
