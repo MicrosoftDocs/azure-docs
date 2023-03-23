@@ -573,6 +573,8 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
+>To publish a community gallery, you'll need to [set up preview features in your Azure subscription](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users. 
+>
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
 ## Reporting issues with a public image 

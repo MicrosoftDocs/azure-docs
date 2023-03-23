@@ -23,7 +23,8 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). It will take up to 10 business days after submitting the form to approve the feature. Creating VMs from the community gallery is open to all Azure users.
+> To publish a community gallery, you'll need to [set up preview features in your Azure subscription](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users. 
+> <!-- Get Preview Subscription name from Sandeep to include here -->
 > 
 > During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
 > 
