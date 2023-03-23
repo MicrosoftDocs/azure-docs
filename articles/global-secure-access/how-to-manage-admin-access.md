@@ -25,7 +25,7 @@ Certain Active Directory roles are required to manage Global Secure Access. In p
 By default, the following existing Active Directory admin roles have access to Global Secure Access.
 * Global Administrator: Have full permissions in Global Secure Access. They can add admins (only global admin), add policies, profiles, and settings.
 * Applications Administrator – can manage all the aspects of app discovery, including app onboarding and app connector management.
-* Conditional Access Administrator – can link/unlink filtering policies to CA policies.
+* Conditional Access Administrator – can link/unlink filtering policies to Conditional Access policies.
 * Compliance Administrator - Can manage Enterprise DLP settings (but can't push configuration changes).
 * Global Reader: Has full read-only access to all aspects of Global Secure Access. Can't change any settings or take any actions. No access to logs.
 
@@ -43,9 +43,9 @@ For example:
 |----------|-----------|------------|
 |Enriched Microsoft 365|Logs |        |
 |Enable Quick Access|Private Access   |Application Administrator, Global Administrator |
-|Associating Conditional Access policies with network filtering policies|Common (CA) |Conditional Access Administrator, Security Administrator, Global Administrator|
-|Set the target resource type to *Network Access (Preview)* and select the appropriate traffic profile in Conditional Access policies| Common (CA)|Conditional Access Administrator, Security Administrator, Global Administrator|
-|Enable use of NaaS service in Conditional Access’ (CA Signaling) | Common (CA) | Conditional Access Administrator, Security Administrator, Global Administrator|
+|Associating Conditional Access policies with network filtering policies|Common (Conditional Access) |Conditional Access Administrator, Security Administrator, Global Administrator|
+|Set the target resource type to *Network Access (Preview)* and select the appropriate traffic profile in Conditional Access policies| Common (Conditional Access)|Conditional Access Administrator, Security Administrator, Global Administrator|
+|Enable use of NaaS service in Conditional Access’ (Conditional Access Signaling) | Common (Conditional Access) | Conditional Access Administrator, Security Administrator, Global Administrator|
  
 
 ## Admin activity auditing
