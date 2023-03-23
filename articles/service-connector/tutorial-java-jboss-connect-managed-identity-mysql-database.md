@@ -129,10 +129,16 @@ az extension add --name serviceconnector-passwordless --upgrade
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
+Install the Service Connector passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
 
 ```azurecli-interactive
-CONFIGURATIONS=az webapp connection create mysql-flexible \
+CONFIGURATIONS=$(az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
     --target-resource-group $RESOURCE_GROUP \
@@ -140,7 +146,7 @@ CONFIGURATIONS=az webapp connection create mysql-flexible \
     --database $DATABASE_NAME \
     --system-identity \
     --client-type java \
-    --query configurations
+    --query configurations)
 ```
 
 This command creates a connection between your web app and your MySQL server, and manages authentication through a system-assigned managed identity.
