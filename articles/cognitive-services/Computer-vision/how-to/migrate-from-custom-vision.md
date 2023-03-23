@@ -70,7 +70,7 @@ custom_vision_project_id = ''
 
 ## Run the migration
 
-When you run the migration code, the Custom Vision training images will be saved to a `{project_name}_{project_id}/images` folder in your specified azure blob storage container, and the COCO file will be saved to `{project_name}_{project_id}/train.json` in that same container. Both tagged and untagged images will be exported, including any **Negative**-tagged images.
+When you run the migration code, the Custom Vision training images will be saved to a `{project_name}_{project_id}/images` folder in your specified Azure blob storage container, and the COCO file will be saved to `{project_name}_{project_id}/train.json` in that same container. Both tagged and untagged images will be exported, including any **Negative**-tagged images.
 
 > [!IMPORTANT]
 > Image Analysis Model Customization does not currently support **multilabel** classification training, buy you can still export data from a Custom Vision multilabel classification project. 
