@@ -500,7 +500,7 @@ items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
   - name: Azure IoT services
