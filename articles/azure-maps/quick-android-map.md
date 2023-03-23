@@ -49,16 +49,16 @@ Create a new Azure Maps account using the following steps:
 
     :::image type="content" source="./media/shared/create-account.png" alt-text="A screenshot that shows the Create Maps account pane in the Azure portal.":::
 
-## Get the primary key for your account
+## Get the subscription key for your account
 
-Once your Azure Maps account is successfully created, retrieve the primary key that enables you to query the Maps APIs.
+Once your Azure Maps account is successfully created, retrieve the subscription key that enables you to query the Maps APIs.
 
 1. Open your Azure Maps account in the portal.
 2. In the left pane, select **Authentication**.
 3. Copy the **Primary Key** and save it locally to use later in this tutorial.
 
 >[!NOTE]
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
+> For security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
 :::image type="content" source="./media/quick-android-map/get-key.png" alt-text="A screenshot showing the Azure Maps Primary key in the Azure portal.":::
 
