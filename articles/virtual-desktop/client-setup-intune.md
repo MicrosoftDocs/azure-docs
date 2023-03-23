@@ -9,28 +9,25 @@ manager: femila
 ---
 # Install the Remote Desktop client on a per-user basis
 
-Intro text briefly explaining what this feature is and why it's important.
+You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the virtual machines of all users by default, and updates are controlled by the admin. Per-user installation gives users the choice of whether they want to install the client themselves and also gives them control over when to apply updates.
+
+Per-system is the default way to install the client. However, if you're deploying Azure Virtual Desktop with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you'll need to use the per-user method instead.
 
 ## Prerequisites
 
-Intro text.
+In order to install the Remote Desktop client on a per-user basis, you'll need the following things:
 
-- Requirements
-- you must fulfill
-- before performing this setup
-- go here
+- An Azure Virtual Desktop deployment
+- Your machine must be joined to an Azure Active Directory deployment
+- 
 
 ## Install the Remote Desktop client
-
-You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the virtual machines of all users by default, and updates are controlled by the admin. Per-user installation gives users the choice of whether they want to install the client themselves and also gives them control over when to apply updates.
-
-<!---Why would users want to install it on a per-user basis instead of a per-system basis?--->
 
 To install the client on a per-user basis:
 
 #### InTune (#tabs/intune)
 
-Create a new folder containing the Remote Desktop client and an install.bat batch file with the following content 
+1. Create a new folder containing the Remote Desktop client and an install.bat batch file with the following content:
 
 ```batch
 cd "%~dp0"
@@ -39,66 +36,75 @@ msiexec /i RemoteDesktop_x64.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1
 ```
 <!--create the folder where?--->
 
-Note: The RemoteDesktop_x64.msi installer name should match the MSI contained in the folder.  
+>[!NOTE]
+>The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.  
 
-Use the Microsoft Win32 Content Prep Tool to convert the folder into an .intunewin file ready to deploy to your clients.  
+1. Follow the directions in [Prepare Win32 app content for upload](/mem/intune/apps/apps-win32-prepare) to convert the folder into an .itunewin file.
 
-In the Microsoft Intune admin center, go to Apps > All apps and select Add. 
+1. Open the **Microsoft Intune admin center**, then go to **Apps** > **All apps** and select **Add**. 
 
-Select Windows app (Win32) as the app type. Upload the .intunewin file prepared earlier, and complete the desired App information such as Description and Publisher.
+1. For the app type, select **Windows app (Win32)**.
 
-<!---upload it where?-->
+1. Upload your .intunewin file, then fill out the required app information fields.
 
-In the Program tab, select the install.bat file as the installer, and use the MSI product code for the Uninstall command.  
+1. In the Program tab, select the install.bat file as the installer, and use the MSI product code for the Uninstall command.
 
-For Install behaviour, ensure that User is selected. 
+1. Toggle the **Install behavior** to **User**.
 
 <!---image--->
 
-In the Detection rules tab, use the MSI product code for detection and complete the wizard with any further required configuration.  
+1. In the **Detection rules** tab, enter the MSI product code.
 
-You can now deploy this app to users or devices, and the Remote Desktop client should be installed per-user on the system.  
+1. Follow the rest of the prompts until you complete the workflow.
 
-<!--How do I deploy it? Why?-->
+1. Follow the instructions in [Assign apps to groups with Microsoft Intune](/mem/intune/apps/apps-deploy) to deploy the client app to your users.
 
 #### Configuration Manager (#tabs/configmanager)
 
-Create a new folder in your package share containing the Remote Desktop client  and an install.bat batch file with the following content 
+1. Create a new folder in your package share.
 
-<!--What is a package share? Where is it?--->
+1. In this new folder, add the Remote Desktop client application and an install.bat batch file with the following content:
 
 ```batch
 msiexec /i RemoteDesktop_x64.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1 
 ```
 
-Note: The RemoteDesktop_x64.msi installer name should match the MSI contained in the folder.  
+>[!NOTE]
+>The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.
 
-In Configuration Manager, go to Software Library > Application Management > Applications  
+1. Open the **Configuration Manager** and go to **Software Library** > **Application Management** > **Applications**.
 
-Create a new application, and set the settings to Manually specify the application information 
-
-<!--image-->
-
-Complete the General Information and Software Center settings with those appropriate for your organization.  
-
-In the Deployment Types tab, click Add to create a new deployment type.  
-
-Select Script Installer as the type, and select Next.  
-
-Provide the content location to the folder created previously, then enter the install.bat file as the installation program. Use the MSI product ID as the uninstall program.
+2. Follow the directions in [Manually specify application information](/mem/configmgr/apps/deploy-use/create-applications#bkmk_manual-app) to create a new application with manually specified information.
 
 <!--image-->
 
-Use the same MSI product ID for the detection method  
+1. Enter the variables that apply to your organization into the **General Information** and **Software Center settings** fields.  
+
+1. In the Deployment Types tab, select the **Add** button.  
+
+1. Select **Script Installer** as the deployment type, then select **Next**.
+
+1. Enter the location of the folder you created in step 1 for the **Content location** field.
+
+1. Enter the path of the install.bat file in the **Installation program** field.
+
+1. Enter the MSI product ID into the **Uninstall program** field.
 
 <!--image-->
 
-In the User Experience step, ensure the installation behaviour is configured as Install for user. This is required for the per-user app install to occur correctly.  
+1. Next, enter the same MSI product ID you used in the previous step into the **Detection program** field.
 
-Now complete the wizard with additional desired settings, distribute and deploy the application to your user or computer collections.
+<!--image-->
 
-<!---Which setting? How do you distribute/deploy?--->
+1. For User Experience, toggle the installation behavior to **Install for user**.
+
+1. Follow the rest of the prompts until you've finished the workflow.
+
+1. Once you're finished, follow the instructions in [Deploy applications with Configuration Manager](/mem/configmgr/apps/deploy-use/deploy-applications) to deploy the client app to your users.
 
 ---
 
 ## Next steps
+
+- To learn how to install the client on a per-system basis, see []().
+- See []() to learn how to start using the Remote Desktop client.
