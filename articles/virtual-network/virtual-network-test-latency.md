@@ -7,7 +7,7 @@ manager: Marina Lipshteyn
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/21/2023
+ms.date: 03/23/2023
 ms.author: allensu
 ---
 
@@ -17,31 +17,31 @@ This article describes how to test network latency between Azure virtual machine
 
 For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol [TCP] and User Datagram Protocol [UDP] traffic. Most applications use these protocols, and they have the greatest effect on application performance.
 
-Many other common network latency test tools, such as Ping, don't measure the type of network traffic that's used in real workloads. Most of these tools use Internet Control Message Protocol (ICMP), which most applications don't use and which can be treated differently from application traffic. These test results might not apply to workloads that use TCP and UDP.
+Many other common network latency test tools, such as Ping, don't measure the type of network traffic that's used in real workloads. These tools use Internet Control Message Protocol (ICMP), which most applications don't use, and which can be treated differently from application traffic. These test results might not apply to workloads that use TCP and UDP.
 
 Tools like Latte or SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP or other packet types that aren't used by applications and don't affect application performance.
 
-## Network latency testing process and best practices
+## Network latency test process
 
 Latte or SockPerf use the following approach to measure network latency between two physical or virtual computers:
 
 1. Create a two-way communications channel between the computers by alternately designating one as sender and one as receiver.
 1. Send and receive packets in both directions and measure the round-trip time (RTT).
 
-### Optimal VM configuration
+## Optimal VM configuration for latency
 
 To optimize network latency, observe the following recommendations when you create your VMs:
 
 - Use the latest version of Windows or Linux.
-- Enable Accelerated Networking for increased performance.
-- Deploy VMs within an [Azure proximity placement group](../virtual-machines/co-location.md).
+- Enable [Accelerated Networking](accelerated-networking-overview.md) for increased performance.
+- Deploy VMs within an [Azure proximity placement group](/azure/virtual-machines/co-location).
 - Create larger VMs for better performance.
 
-### Recommended testing process
+### Latency testing best practices
 
-Use the following process to test and analyze network latency results:
+Use the following process to test network latency and analyze results:
 
-1. Use network latency measurements to establish a benchmark for network latency between deployed VMs. Take a network latency baseline measurement as soon as you complete VM deployment, configuration, and optimizations.
+1. As soon as you complete VM deployment, configuration, and optimizations, take baseline measurements to establish a benchmark for network latency between deployed VMs.
 
 1. Test the effect on network latency of any changes to:
    - Operating system (OS) or network stack software, including configuration changes.
@@ -49,12 +49,18 @@ Use the following process to test and analyze network latency results:
    - VM properties, such as Accelerated Networking or size changes.
    - The virtual network, such as routing or filtering changes.
 
-1. Always compare new test results to the baseline or to the last test result after controlled changes.
+1. Always compare new test results to the baseline or to the last test results before controlled changes.
 
 1. Repeat tests whenever you observe or deploy changes.
 
 - 
 ## Test VMs with Latte or SockPerf
+
+Use the following procedures to install and test network latency with [Latte](https://github.com/mellanox/sockperf) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
+
+# [Windows](#tab/windows)
+
+### Install Latte and configure VMs
 
 1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe) into a separate folder on your computer, such as *c:\\tools*.
 
@@ -64,7 +70,9 @@ Use the following process to test and analyze network latency results:
    netsh advfirewall firewall add rule program=<path>latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
    ```
 
-1. Start *latte.exe* from the Windows command line, not from PowerShell. Replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
+### Test latency between VMs
+
+1. On the receiver VM, start *latte.exe* from the Windows command line, not from PowerShell. Run the following command, replacing the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
    ```cmd
    latte -a <receiver IP address>:<port> -i <iterations>
@@ -75,29 +83,25 @@ Use the following process to test and analyze network latency results:
 
    For a VM with an IP address of `10.0.0.4`, the command might look like:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
 
-1. On the *sender* VM, start *latte.exe* from the command line. The command is the same as on the receiver, except with `-c` added to indicate that this is the *client*, or sender.
+1. On the *sender* VM, start *latte.exe* from the command line. Run the same command as on the receiver, except with `-c` added to indicate that this is the *client*, or sender. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
    ```cmd
    latte -c -a <receiver IP address>:<port> -i <iterations>
 ```
 
-   Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values, for example:
+   For example:
    
    `latte -c -a 10.0.0.4:5005 -i 65100`
 
 1. Wait for the results. Depending on how far apart the VMs are, the test could take a few minutes to finish. Consider starting with fewer iterations to test for success before running longer tests.
 
-## Test VMs that are running Linux
+# [Linux](#tab/linux)
 
-To test VMs that are running Linux, use [SockPerf](https://github.com/mellanox/sockperf).
+### Prepare VMs
 
-### Install SockPerf on the VMs
+On both the *sender* and *receiver* Linux VMs, run the following commands to prepare SockPerf on the VMs, depending on your Linux distro.
 
-On the Linux VMs, both *sender* and *receiver*, run the following commands to prepare SockPerf on the VMs. Commands are provided for the major distros.
-
-#### For Red Hat Enterprise Linux (RHEL)/CentOS
-
-Run the following commands:
+# [Red Hat Enterprise Linux (RHEL) / CentOS](#tab/linux/rhel)
 
 ```bash
 #RHEL/CentOS - Install Git and other helpful tools
@@ -110,9 +114,7 @@ Run the following commands:
     sudo yum install -y libtool
 ```
 
-#### For Ubuntu
-
-Run the following commands:
+# [Ubuntu](#tab/linux/ubuntu)
 
 ```bash
 #Ubuntu - Install Git and other helpful tools
@@ -125,8 +127,9 @@ Run the following commands:
     sudo apt update
     sudo apt upgrade
 ```
+---
 
-#### For all distros
+### Copy, compile, and install SockPerf
 
 Copy, compile, and install SockPerf according to the following steps:
 
@@ -139,7 +142,7 @@ cd sockperf/
 ./autogen.sh
 ./configure --prefix=
 
-#make is slower, may take several minutes
+#make is slow, may take several minutes
 make
 
 #make install is fast
@@ -148,33 +151,31 @@ sudo make install
 
 ### Run SockPerf on the VMs
 
-After the SockPerf installation is complete, the VMs are ready to run the latency tests. 
+1. After the SockPerf installation is complete, start SockPerf on the *receiver* VM. Any available port number is fine. The following example uses port `12345`. Replace the example IP address `10.0.0.4` with your own value.
 
-First, start SockPerf on the *receiver*.
+   ```bash
+   #Server/Receiver for IP 10.0.0.4:
+   sudo sockperf sr --tcp -i 10.0.0.4 -p 12345
+   ```
 
-Any available port number is fine. In this example, we use port 12345:
+1. Now that the server is listening, on the *sender* or client computer, start sending packets to the server on the listening port, in this case `12345`.
 
-```bash
-#Server/Receiver - assumes server's IP is 10.0.0.4:
-sudo sockperf sr --tcp -i 10.0.0.4 -p 12345
-```
+   - The `-t` option sets testing time in seconds. About 100 seconds is long enough to return representative results.
+   - The `-m` denotes message size in bytes. A 350-byte message size is typical for an average packet. You can adjust the size higher or lower to more accurately represent your VM's workloads.
 
-Now that the server is listening, the client can begin sending packets to the server on the port on which it is listening (in this case, 12345).
+   ```bash
+   #Client/Sender for IP 10.0.0.4:
+   sockperf ping-pong -i 10.0.0.4 --tcp -m 350 -t 101 -p 12345 --full-rtt
+   ```
 
-About 100 seconds is long enough to return representative results, as shown in the following example:
+1. Wait for the results. Depending on how far apart the VMs are, the number of iterations varies. To test for success before you run longer tests, consider starting with shorter tests of about 5 seconds.
 
-```bash
-#Client/Sender - assumes server's IP is 10.0.0.4:
-sockperf ping-pong -i 10.0.0.4 --tcp -m 350 -t 101 -p 12345  --full-rtt
-```
-
-Wait for the results. Depending on how far apart the VMs are, the number of iterations will vary. To test for success before you run longer tests, consider starting with shorter tests of about 5 seconds.
-
-This SockPerf example uses a 350-byte message size, which is typical for an average packet. You can adjust the size higher or lower to achieve results that more accurately represent the workload that's running on your VMs.
-
+---
 
 ## Next steps
-* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md).
-* Learn how to [Optimize networking for VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Read about [how bandwidth is allocated to virtual machines](../virtual-network/virtual-machine-network-throughput.md).
-* For more information, see [Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
+
+- Reduce latency with an [Azure proximity placement group](/azure/virtual-machines/co-location).
+- [Optimize network throughput for Azure virtual machines](virtual-network-optimize-network-bandwidth.md).
+- Allocate [virtual machine network bandwidth](virtual-machine-network-throughput.md).
+- [Test bandwidth and throughput](virtual-network-bandwidth-testing.md).
+- For more information about Azure virtual networking, see [Azure Virtual Network FAQ](virtual-networks-faq.md).
