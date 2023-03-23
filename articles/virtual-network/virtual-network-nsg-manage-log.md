@@ -40,7 +40,7 @@ You can use the [Azure portal](#azure-portal), [Azure PowerShell](#azure-powersh
 
    :::image type="content" source="./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png" alt-text="Screenshot shows the diagnostic settings for an NSG with Add diagnostic setting highlighted." lightbox="./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png":::
 
-1. In **Diagnostics settings**, enter a name, such as *myNsgDiagnostics*.
+1. In **Diagnostic setting**, enter a name, such as *myNsgDiagnostic*.
 1. For **Logs**, select **allLogs** or select individual categories of logs. For more information about each category, see [Log categories](#log-categories).
 1. Under **Destination details**, select one or more destinations:
 
@@ -61,7 +61,7 @@ You can use the [Azure portal](#azure-portal), [Azure PowerShell](#azure-powersh
 
 You can run the commands that in this section in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account.
 
-If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you run PowerShell locally, you also need to run the `Connect-AzAccount` cmdlet to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you run PowerShell locally, you also need to run the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount.md) cmdlet to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
 To enable resource logging, you need the ID of an existing NSG. If you don't have an existing NSG, create one by using the [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) cmdlet.
 

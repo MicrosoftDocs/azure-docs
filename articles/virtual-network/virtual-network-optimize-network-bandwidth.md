@@ -1,5 +1,5 @@
 ---
-title: Optimize VM network throughput
+title: Optimize Azure VM network throughput
 description: Optimize network throughput for Microsoft Azure Windows and Linux virtual machines, including major distributions such as Ubuntu, CentOS, and Red Hat.
 services: virtual-network
 author: asudbring
@@ -14,7 +14,7 @@ ms.author: allensu
 
 # Optimize network throughput for Azure virtual machines
 
-Azure virtual machines (VM) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
+Azure Virtual Machines (VMs) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
 
 ## Windows virtual machines
 
@@ -137,7 +137,7 @@ In order to get the optimizations, we recommend that you create a virtual machin
 "Version": "latest"
 ```
 
-Both new and existing VMs can benefit from installing the latest Linux Integration Services (LIS). The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
+Both new and existing VMs can benefit from installing the latest LIS. The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
 wget https://aka.ms/lis
