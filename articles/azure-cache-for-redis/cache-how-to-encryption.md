@@ -83,11 +83,11 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option. 
 
-   :::image type="content" source="media/cache-how-to-encryption/cache-use-key-encryption.png" alt-text="Screenshot of ":::
+   :::image type="content" source="media/cache-how-to-encryption/cache-use-key-encryption.png" alt-text="Screenshot of the advanced settings with customer-managed key encryption checked and in a red box.":::
 
 1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identitiesd) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
 
-    :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-user-assigned.png" alt-text="Screenshot of":::
+    :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-user-assigned.png" alt-text="Screenshot showing user managed identity in the working pane.":::
 
 1. Select your chosen user assigned managed identity, and then choose the key input method to use. 
 
@@ -98,15 +98,16 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
-   :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-version.png" alt-text="Screenshot of ":::
-1. When you have entered all the information for your cache, select **Create**.
+   :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-version.png" alt-text="Screenshot showing the select identity and key fields completed.":::
+
+1. When you have entered all the information for your cache, select **Review + create**.
 
 ### Add CMK encryption to an existing Enterprise cache
 
-1. Go to the **Encryption** in the Resource menu of your cache instance. If CMK is already set up, you see the key information here.
+1. Go to the **Encryption** in the Resource menu of your cache instance. If CMK is already set up, you see the key information. 
 
-1. To change CMK settings, select **Change encryption settings** 
-   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-use.png" alt-text="Screenshot of":::
+1. If you haven't set up or t change CMK settings, select **Change encryption settings** 
+   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-use.png" alt-text="Screenshot encryption selected in the Resource menu for an Enterprise tier cache.":::
 
 1. Select **Use a customer-managed key** to see your configuration options. 
 
@@ -117,10 +118,10 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
     > [!NOTE]
-    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
+    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
-   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="screenshot of":::
+   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="Screenshot ":::
 
 ## Next Steps
 
