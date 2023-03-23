@@ -25,8 +25,6 @@ Developers can rest easy knowing that they have access to one unified support te
 
 Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional high availability (HA), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, cost savings are passed on to you in the form of a reduced per-hour cost.
 
-:::image type="content" source="media/introduction/cluster-tiers.png" alt-text="Screenshot of several cluster tier options.":::
-
 Here are the current tiers for the service:
 
 | Cluster tier | Base storage | RAM | vCPUs |
