@@ -5,8 +5,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.date: 03/23/2023
-ms.author: asudbring
-
+ms.author: allensu
 ---
 # Azure PowerShell Samples for networking
 
