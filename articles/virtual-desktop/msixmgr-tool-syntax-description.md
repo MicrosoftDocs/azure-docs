@@ -7,7 +7,7 @@ title:       MSIXMGR Tool Paramters
 description: this article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
 author:      fiza-microsoft # GitHub alias
 ms.author:   fizaazmi # Microsoft alias
-ms.prod:     msix
+ms.prod:     MSIX #ms.prod
 ms.topic:    concept-article
 ms.date:     03/21/2023
 ---
@@ -19,7 +19,7 @@ This article contains an overview of the command-line syntax to help you underst
 
 ## Prerequisites:
 
-- [Requirements](/learn.microsoft.com/en-us/azure/virtual-desktop/app-attach-msixmgr#requirements)  
+- [Requirements](/https://learn.microsoft.com/en-us/azure/virtual-desktop/app-attach-msixmgr#requirements)   
 - [MSIX App Attach](/azure/virtual-desktop/app-attach-azure-portal)  
 - [Using the MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
 
@@ -126,6 +126,7 @@ Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/c
 |Display Help at the command prompt|`msixmgr.exe -?`|
 
 
-- [Next steps](/azure/virtual-desktop/app-attach-msixmgr%23next-steps:~:text=To%20learn%20how%20to%20set%20up%20app%20attach%2C%20check%20out%20these%20articles%3A)
+##Next Steps
+Learn more about MSIX app attach at [What is MSIX app attach?](/ https://learn.microsoft.com/azure/virtual-desktop/what-is-app-attach) 
 
 
