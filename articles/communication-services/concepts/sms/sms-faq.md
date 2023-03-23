@@ -7,7 +7,7 @@ manager: sundraman
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 3/20/2023
+ms.date: 3/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms

@@ -15,7 +15,7 @@ ms.subservice: sms
 
 # Toll-Free Verification Filling Guidelines
 
-In this document, we review the guidelines on filling out an application to verify your toll-free number. For detailed process and timelines toll-free verification process, check the [toll-free verification FAQ](./sms-faq#toll-free-verification.md). The toll-free verification application consists of 5 sections:  
+In this document, we review the guidelines on filling out an application to verify your toll-free number. For detailed process and timelines toll-free verification process, check the [toll-free verification FAQ](./sms-faq.md#toll-free-verification). The toll-free verification application consists of 5 sections:  
 
 - Application Type  
 - Company Details  
@@ -46,22 +46,22 @@ You need to describe the program for which the toll-free number is used to send 
 
 ### Opt-in 
 
-The general rule of thumb for opt-in are:  
-- Making sure the opt-in flow is thoroughly detailed.  
+The general rule of thumb for opt in are:  
+- Making sure the opt in flow is thoroughly detailed.  
 - Consumer consent should be collected by the direct (first) party sending the messages. If you're a 3rd party helping the direct party sending messages  
 - Ensure there is explicitly stated consent disclaimer language at the time of collection. (that is, when the phone number is collected there should be a disclosure about opting-in to messaging). 
-- If your message has Marketing/Promotional content, then it must be optional for customers to opt-in  
+- If your message has Marketing/Promotional content, then it must be optional for customers to opt in  
 
- Here are some tips on how to show the proof of your opt-in workflow:
+ Here are some tips on how to show the proof of your opt in workflow:
 
 ### Opt-in URL
 
-|Type of Opt-In| Tips|
+|Type of Opt In| Tips|
 |--------------|-----|
 |Website       | Screenshots of the web form where the end customer adds a phone number and agrees to receive SMS messages. This screenshot should explicitly state the consent disclaimer language at the time of collection|
-|Keyword or QR Code Opt-in| Image or screenshot of where the customer discovers the keyword/ QR Code in order to opt-in to these messages|
-|Verbal/IVR opt-in|Provide a screenshot record of opt-in via verbal in the your database/ CRM to show how the opt-in data is stored. (that is, a check box on their CRM saying that the customer opted in and the date) OR an audio recording of the IVR flow.|
-|Point of Sale | Most POS opt-ins are done on a screen/tablet. You could provide screenshots for those. If they're verbal POS opt-ins, you cannot send promotional messaging as promotional messaging requires express written consent. For verbal POS opt-ins of informational traffic, a CRM screenshot would be fine.|
+|Keyword or QR Code Opt in| Image or screenshot of where the customer discovers the keyword/ QR Code in order to opt in to these messages|
+|Verbal/IVR opt in|Provide a screenshot record of opt in via verbal in the your database/ CRM to show how the opt in data is stored. (that is, a check box on their CRM saying that the customer opted in and the date) OR an audio recording of the IVR flow.|
+|Point of Sale | Most POS opt ins are done on a screen/tablet. You could provide screenshots for those. If they're verbal POS opt ins, you cannot send promotional messaging as promotional messaging requires express written consent. For verbal POS opt ins of informational traffic, a CRM screenshot would be fine.|
 |2FA/OTP| Provide a screenshot of the process to receive the initial text.|
 |Paper form | Upload the form and make sure it includes XXXX. |
 
@@ -87,5 +87,5 @@ Message senders are required to disclose all the types/categories of messages wi
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [SMS FAQ](./sms-faq#toll-free-verification.md)
+- Familiarize yourself with the [SMS FAQ](./sms-faq.md#toll-free-verification)
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)

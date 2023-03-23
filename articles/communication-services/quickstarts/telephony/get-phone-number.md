@@ -65,7 +65,7 @@ In this quickstart you learned how to:
 > [Send an SMS](../sms/send.md)
 > 
 > [!div class="nextstepaction"]
-> [Toll-free verification](../../concepts/sms/sms-faq#toll-free-verification.md)
+> [Toll-free verification](../../concepts/sms/sms-faq.md#toll-free-verification)
 
 > [!div class="nextstepaction"]
 > [Get started with calling](../voice-video-calling/getting-started-with-calling.md)
