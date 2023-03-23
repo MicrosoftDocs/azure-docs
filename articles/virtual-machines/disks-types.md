@@ -89,11 +89,13 @@ It's possible for a performance resize operation to fail because of a lack of pe
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
-If you would like to start using ultra disks, see the article on [using Azure ultra disks](disks-enable-ultra-ssd.md).
+If you would like to start using ultra disks, see the article on [using Azure Ultra Disks](disks-enable-ultra-ssd.md).
 
 ## Premium SSD v2
 
-Azure Premium SSD v2 is designed for IO-intense enterprise workloads that require consistent sub-millisecond disk latencies and high IOPS and throughput at a low cost. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs. For example, a transaction-intensive database workload may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS during peak hours. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
+Premium SSD v2 offers higher performance than Premium SSDs while generally being less costly than Ultra Disks. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. 
+
+Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
 
 ### Differences between Premium SSD and Premium SSD v2
 
