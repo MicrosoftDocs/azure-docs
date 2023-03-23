@@ -380,7 +380,7 @@ If any error occurs during the provisioning of the snapshot, the `error` propert
     "id": "{name}",
     "status": "Failed",
     "error": {
-      "code": "Throttled",
+      "code": "QuotaExceeded",
       "message": "The allotted quota for snapshot creation has been surpassed."
     }
 }
