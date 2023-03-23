@@ -6,7 +6,7 @@ ms.date: 03/21/2023
 ---
 
 # Sample code to send data to Azure Monitor using Logs ingestion API
-This article provides sample code using the [Logs ingestion API](logs-ingestion-api-overview.md). Each sample requires the following to be created before the code is run. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a complete walkthrough of creating these components configured to support each of these samples.
+This article provides sample code using the [Logs ingestion API](logs-ingestion-api-overview.md). Each sample requires the following components to be created before the code is run. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a complete walkthrough of creating these components configured to support each of these samples.
 
 
 - Custom table in a Log Analytics workspace
