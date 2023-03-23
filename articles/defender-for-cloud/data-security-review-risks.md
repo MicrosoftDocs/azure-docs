@@ -51,7 +51,7 @@ Explore data risks and exposure in cloud security graph insights using a query t
 
 ## Explore sensitive data security alerts
 
-When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and focus on alerts the alerts that affect resources with sensitive data. [Learn more](defender-for-storage-data-sensitivity.md)
+When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and focus on alerts the alerts that affect resources with sensitive data. [Learn more](defender-for-storage-data-sensitivity.md) about monitoring data security alerts in Defender for Storage.
 
 ## Next steps
 

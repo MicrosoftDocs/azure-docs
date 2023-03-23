@@ -57,6 +57,11 @@ GetBucketLocation, GetObject, ListBucket, GetBucketPublicAccessBlock
 - Check that your SCP policy allows calls to the us-east-1 AWS Region, which is the default 
 region for API calls.
 
+## Enable data-aware monitoring in Defender for Storage
+
+Sensitive data threat detection is enabled by default when the sensitive data discovery component is enabled in the Defender for Storage plan. [Learn more](defender-for-storage-data-sensitivity.md)
+
+
 ## Next steps
 
 [Review the security risks in your data](data-security-review-risks.md)
