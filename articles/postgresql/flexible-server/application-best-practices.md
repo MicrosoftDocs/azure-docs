@@ -1,18 +1,18 @@
 ---
-title: App development best practices - Azure Database for PostgreSQL single server
-description: Learn about best practices for building an app by using Azure Database for PostgreSQL single server.
+title: App development best practices - Azure Database for PostgreSQL flexible server
+description: Learn about best practices for building an app by using Azure Database for PostgreSQL flexible server.
 ms.service: postgresql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
-author: sunilagarwal
-ms.author: sunila
+author: assaff
+ms.author: assaff
 ms.reviewer: ""
-ms.date: 06/24/2022
+ms.date: 03/22/2023
 ---
 
-# Best practices for building an application with Azure Database for PostgreSQL single server
+# Best practices for building an application with Azure Database for PostgreSQL flexible server
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Here are some best practices to help you build a cloud-ready application by using Azure Database for PostgreSQL. These best practices can reduce development time for your app.
 
@@ -27,10 +27,10 @@ Make sure all your dependencies are in the same region when deploying your appli
 Configure your PostgreSQL server to be [secure](./concepts-security.md) and not accessible publicly. Use one of these options to secure your server:
 
 - [Firewall rules](./concepts-firewall-rules.md)
-- [Virtual networks](./concepts-data-access-and-security-vnet.md)
-- [Azure Private Link](./concepts-data-access-and-security-private-link.md)
+- [Virtual networks](./concepts-networking.md)
+- [Private Networking](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/private-networking-patterns-in-azure-database-for-postgres/ba-p/3007149)
 
-For security, you must always connect to your PostgreSQL server over SSL and configure your PostgreSQL server and your application to use TLS 1.2. See [How to configure SSL/TLS](./concepts-ssl-connection-security.md).
+For security, you must always connect to your PostgreSQL server over SSL and configure your PostgreSQL server and your application to use TLS 1.2. See [How to connect SSL/TLS](./how-to-connect-tls-ssl.md).
 
 
 ### Use environment variables for connection information
@@ -93,7 +93,7 @@ You can optimize your server with autovacuum on an Azure Database for PostgreSQL
 - Larger suboptimal indexes.
 - Increased I/O.
 
-Learn more about [how to optimize with autovacuum](how-to-optimize-autovacuum.md).
+Learn more about [how to optimize with autovacuum](how-to-autovacuum-tuning.md).
 
 ### Use pg_stats_statements
 
@@ -105,7 +105,7 @@ The [Query Store](./concepts-query-store.md) feature in Azure Database for Postg
 
 ### Optimize bulk inserts and use transient data
 
-If you have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables. It provides atomicity and durability, by default. Atomicity, consistency, isolation, and durability make up the ACID properties. See [how to optimize bulk inserts](how-to-optimize-bulk-inserts.md).
+If you have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables. It provides atomicity and durability, by default. Atomicity, consistency, isolation, and durability make up the ACID properties. See [how to optimize bulk inserts](how-to-bulk-load-data.md).
 
 ## Next Steps
 
