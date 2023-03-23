@@ -23,8 +23,9 @@ This article shows how to deploy large CPU and memory applications in Azure Spri
 
 ## Prerequisites
 
-- An Azure Spring Apps service instance.
-- [The Azure CLI](/cli/azure/install-azure-cli).
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure Spring Apps service instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](/azure/spring-apps/quickstart-provision-service-instance).
+- The [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
 
 ## Create a large CPU and memory application
 
@@ -42,7 +43,7 @@ Use the following steps to create a large CPU and memory application using the A
 
 1. Select  **Create**.
 
-   :::image type="content" source="media/how-to-create-large-application/create-large-application.png" lightbox="media/how-to-create-large-application/create-large-application.png" alt-text="Screenshot of the Azure portal Create App page in Azure Spring Apps showing configuration settings for a new app.":::
+   :::image type="content" source="media/how-to-enterprise-large-cpu-memory-applications/create-large-application.png" lightbox="media/how-to-enterprise-large-cpu-memory-applications/create-large-application.png" alt-text="Screenshot of the Azure portal Create App page in Azure Spring Apps showing configuration settings for a new app.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -71,7 +72,7 @@ Use the following steps to scale up or down a large CPU and memory application.
 
 1. Select the preferred **vCpu** and **Memory** values.
 
-   :::image type="content" source="media/how-to-create-large-application/scale-large-application.png" lightbox="media/how-to-create-large-application/scale-large-application.png" alt-text="Screenshot of Azure portal Configuration page showing how to scale large app.":::
+   :::image type="content" source="media/how-to-enterprise-large-cpu-memory-applications/scale-large-application.png" lightbox="media/how-to-enterprise-large-cpu-memory-applications/scale-large-application.png" alt-text="Screenshot of Azure portal Configuration page showing how to scale large app.":::
 
 1. Select **Save**.
 

@@ -27,16 +27,17 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-To complete this tutorial, you first need to:
+If you don't have an Azure subscription, create a [free account] before you begin.
 
-1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account).
-2. Get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+* An [Azure Maps account]
+* A [subscription key]
 
-For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
-> [!Note]
+> [!NOTE]
 > The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
 
 ## Load the required modules and frameworks
@@ -192,3 +193,8 @@ To learn more about Azure Notebooks, see
 
 > [!div class="nextstepaction"]
 > [Azure Notebooks](https://notebooks.azure.com)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[free account]: https://azure.microsoft.com/free/
+[manage authentication in Azure Maps]: how-to-manage-authentication.md

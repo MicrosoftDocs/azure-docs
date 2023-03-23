@@ -27,9 +27,13 @@ This tutorial shows how to set up an account with Azure Maps, then use the Maps 
 <a id="createaccount"></a>
 <a id="getkey"></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+If you don't have an Azure subscription, create a [free account] before you begin.
+
+* An [Azure Maps account]
+* A [subscription key]
+
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 <a id="createmap"></a>
 
@@ -94,7 +98,7 @@ The Map Control API is a convenient client library. This API allows you to easil
     var map = new atlas.Map("myMap", {
 	    view: 'Auto',
 
-        // Add your Azure Maps primary subscription key. https://aka.ms/am-primaryKey
+        // Add your Azure Maps subscription key. https://aka.ms/am-primaryKey
         authOptions: {
             authType: 'subscriptionKey',
             subscriptionKey: '<Your Azure Maps Key>'
@@ -265,3 +269,8 @@ The next tutorial demonstrates how to display a route between two locations.
 
 > [!div class="nextstepaction"]
 > [Route to a destination](./tutorial-route-location.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[free account]: https://azure.microsoft.com/free/
+[manage authentication in Azure Maps]: how-to-manage-authentication.md
