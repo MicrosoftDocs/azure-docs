@@ -23,13 +23,13 @@ There are three types of resources to create and manage custom recommendations:
     1. Recommendation logic in KQL. 
     1. The standard it belongs to. 
 1.  **Standard** – defines a set of recommendations. 
-1.  **Standard assignment** – defines the scope which the standard evaluates (for example, specific AWS accounts). 
+1.  **Standard assignment** – defines the scope that the standard evaluates (for example, specific AWS accounts). 
 
 ## Prerequisites
 
 |Aspect|Details|
 |----|:----|
-|Required/Preferred Environmental Requirements| This private preview includes only AWS and GCP recommendations. <br> Please note that this feature is going to be part of the CSPM premium bundle in the future. |
+|Required/Preferred Environmental Requirements| This private preview includes only AWS and GCP recommendations. <br> This feature is going to be part of the CSPM premium bundle in the future. |
 | Required Roles & Permissions | Subscription Owner / Contributor |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
@@ -45,15 +45,15 @@ There are three types of resources to create and manage custom recommendations:
 
     :::image type="content" source="./media/create-custom-recommendations/select-create-recommendation.png" alt-text="Screenshot showing where to select Create and then Recommendation." lightbox="./media/create-custom-recommendations/select-create-recommendation.png":::
 
-1. Fill in the recommendation details (e.g., name, severity) and select the standard/s you’d like to add this recommendation to. 
+1. Fill in the recommendation details (for example: name, severity) and select the standard/s you’d like to add this recommendation to. 
 
     :::image type="content" source="./media/create-custom-recommendations/fill-info-recommendation.png" alt-text="Screenshot showing where to fill in description details of recommendation." lightbox="./media/create-custom-recommendations/fill-info-recommendation.png":::
 
-1. Write a KQL query that will define the recommendation logic. You can write the query in the “recommendation query” text box or [use the query editor](#create-new-queries-using-the-query-editor).
+1. Write a KQL query that defines the recommendation logic. You can write the query in the “recommendation query” text box or [use the query editor](#create-new-queries-using-the-query-editor).
     
     :::image type="content" source="./media/create-custom-recommendations/open-query-editor.png" alt-text="Screenshot showing where to open the query editor." lightbox="./media/create-custom-recommendations/open-query-editor.png":::
 
-1. Click Next and review the recommendations details. 
+1. Select Next and review the recommendations details. 
     
     :::image type="content" source="./media/create-custom-recommendations/review-recommendation.png" alt-text="Screenshot showing where to review the recommendation details." lightbox="./media/create-custom-recommendations/review-recommendation.png":::
 
@@ -79,7 +79,7 @@ There are three types of resources to create and manage custom recommendations:
 
 ## Create new queries using the query editor
 
- To create a new query using the query editor, click the ‘open query editor’ button. The editor will contain data on all the native APIs we support, to assist in building the queries. The data will appear in the same structure as in the API.  
+ To create a new query using the query editor, select the ‘open query editor’ button. The editor will contain data on all the native APIs we support to help build the queries. The data appears in the same structure as in the API.  
 
 :::image type="content" source="./media/create-custom-recommendations/query-editor.png" alt-text="Screenshot showing how to use the query editor." lightbox="./media/create-custom-recommendations/query-editor.png":::
 
