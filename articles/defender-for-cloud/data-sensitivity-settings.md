@@ -37,10 +37,15 @@ Import as follows:
 1. Log into Microsoft Purview.
 1. Select **Agree** for the consent notice to share your sensitivity labels with Defender for Cloud.
 
+Note that:
+
+- Imported labels appear in Defender for Cloud in the order rank that's set in Microsoft Purview.
+- The two sensitivity labels that are set to highest priority in Microsoft Purview are turned on by default in Defender for Cloud.
+
+
 ## Customize sensitive data categories/types
 
 To customize sensitive data type settings that appear in Defender for Cloud
-
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
@@ -58,9 +63,6 @@ To customize sensitive data type settings that appear in Defender for Cloud
 
 If you're using Microsoft Purview labels, you can set a threshold to determine the minimum confidence level for a label to be marked as sensitive in Defender for Cloud.
 
-When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization. Any resources with this minimum label or higher are presumed to contain sensitive data. For example, if you select **Confidential** as minimum, then **Highly Confidential** is also considered sensitive. **General**, **Public**, and **Non-Business** aren't.
-
-To set the threshold for sensitive data labels:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
@@ -71,5 +73,13 @@ To set the threshold for sensitive data labels:
 
 :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Graphic showing data sensitivity threshold.":::
 
+Note that:
+
+- When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization.
+- Any resources with this minimum label or higher are presumed to contain sensitive data.
+- For example, if you select **Confidential** as minimum, then **Highly Confidential** is also considered sensitive. **General**, **Public**, and **Non-Business** aren't.
+- The labels are evaluated per-file and are stored as metadata in Defender for cloud. Defender for Cloud doesn’t move or modify files.
+
 ## Next steps
-TODO: Add your next steps
+
+[Review risks](data-security-review-risks.md) to sensitive data

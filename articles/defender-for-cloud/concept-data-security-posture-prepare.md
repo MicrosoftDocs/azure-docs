@@ -27,7 +27,7 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Gen2<br/><br/> AWS S3 buckets
+What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Storage Gen2<br/><br/> AWS S3 buckets
 What permissions do I need for scanning? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
@@ -47,16 +47,9 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 **Action** | **Requirements**
 --- | ---
 Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator
-Add custom information types from Microsoft Purview | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
-Add sensitivity labels from Microsoft Purview | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/> The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect. Scope should include Items and Schematized data assets and autolabeling rules.<br/><br/>
+[Add custom information types from Microsoft Purview](data-sensitivity-settings.md) | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
+[Add sensitivity labels from Microsoft Purview](data-sensitivity-settings.md) | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/> The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect. Scope should include Items and Schematized data assets and autolabeling rules.<br/><br/>
 [Learn more](/microsoft-365/compliance/create-sensitivity-labels) about sensitivity labels in Microsoft Purview.
-
-Note that:
-
-- The labels appear in Defender for Cloud in the order rank that's set in Microsoft Purview.
-- The two sensitivity labels that are set to highest priority in Microsoft Purview are turned on by default in Defender for Cloud. 
-- When you select a label in Defender for Cloud, any labels ranked above that label are turned on automatically.
-- The labels are evaluated per-file and are stored as metadata in Defender for cloud. Defender for Cloud doesn’t move or modify files.
 
 ## Discovery and scanning
 
