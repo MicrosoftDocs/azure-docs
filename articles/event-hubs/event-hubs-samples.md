@@ -2,7 +2,7 @@
 title: Samples - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of samples for Azure Event Hubs that are on GitHub.  
 ms.topic: article
-ms.date: 07/05/2022 
+ms.date: 03/21/2023 
 
 ---
 
@@ -14,6 +14,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 | Version | Samples location |
 | ------- | ---------------- | 
 | Azure.Messaging.EventHubs version 5 (latest) | [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs Processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
+| Azure.ResourceManager.EventHubs | [Management samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.ResourceManager.EventHubs/samples) | 
 | Microsoft.Azure.EventHubs version 4 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
 | Samples in the Azure Samples repository | [GitHub location](https://github.com/orgs/Azure-Samples/repositories?q=event-hubs&type=all&language=c%23) |
 

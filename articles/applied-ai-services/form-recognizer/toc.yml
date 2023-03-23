@@ -61,7 +61,7 @@ items:
     - name: Build a custom extraction model
       displayName: tables, labels, ocr, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
-    - name: 🆕 Build a custom classifier model (preview)
+    - name: 🆕 Build a custom classification model (preview)
       displayName: custom, classifier, splitter
       href: how-to-guides/build-a-custom-classifier.md
     - name: Compose custom extraction models
@@ -189,7 +189,7 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-neural.md
-    - name: 🆕 Custom classifier model (preview)
+    - name: 🆕 Custom classification model (preview)
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
     - name: Custom labels

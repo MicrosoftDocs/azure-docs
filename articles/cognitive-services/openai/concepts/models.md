@@ -215,7 +215,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 ### Embeddings Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- | --- | --- |
-| text-embedding-ada-002 | No | Yes | East US, South Central US, West Europe | N/A |8,192 | Sep 2021 |
+| text-embedding-ada-002 | No | Yes | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 | text-similarity-ada-001 | No | Yes | East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001 | No | Yes | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | No | Yes | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
