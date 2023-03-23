@@ -27,10 +27,10 @@ This example is a standard perimeter network (also known as DMZ) scenario with a
 
 The following table shows some of the pros and cons between NSGs and firewall virtual appliances.
 
-| Pros | Cons |
+| Pros | Cons | 
 | --- | --- |
-| **NSG** | No cost. <br/>Integrated into Azure role based access. <br/>Rules can be created in Azure Resource Manager templates. | Complexity could vary in larger environments. |
-| **Firewall** | Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure role based access. |
+| **NSG** | No cost. <br/>Integrated into Azure role based access. <br/>Rules can be created in Azure Resource Manager templates. </br> Complexity could vary in larger environments. |
+| **Firewall** | Full control over data plane. <br/> Central management through firewall console. |Cost of firewall appliance. <br/> Not integrated with Azure role based access. |
 
 The following solution uses firewall virtual appliances to implement a perimeter network (DMZ)/protected network scenario.
 
