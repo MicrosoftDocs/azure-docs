@@ -31,10 +31,10 @@ You enter supported Hive CLI commands by invoking Beeline using the hive keyword
 
 :::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URL output." border="true":::
 
-Using Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, includes:
+Use Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, includes:
 
 1. Instead of maintaining the entire Hive code base, you can maintain only the JDBC client.
-1. Startup overhead is lower using Beeline because the entire Hive code base isn't involved.
+1. Startup overhead is lower by using Beeline because the entire Hive code base isn't involved.
 
 You can also execute the hive script, which is under the directory “/usr/bin”, which invokes a beeline connection using JDBC URL.
 
@@ -130,7 +130,7 @@ Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by
 
 ## Location Changes
 
-After the upgrade, the location of managed tables or partitions does not change under any one of the following conditions:
+After the upgrade, the location of managed tables or partitions doesnt change under any one of the following conditions:
 
 1. The old table or partition directory wasn't in its default location /apps/hive/warehouse before the upgrade.
 1. The old table or partition is in a different file system than the new warehouse directory.
@@ -144,7 +144,7 @@ Following Scenario's are present for location changes
 
 **Scenario 1**
 
-If the table is a managed table in HDInsight-3.x and if it's present in the location `/apps/hive/warehouse` and converted as external table in HDInsight-4.x then the location is the same `/apps/hive/warehouse` in HDInsight 4.x as well. It does'nt change any location. After this step, if you're performing alter table command to convert it as managed (acid) table at that time present in the same location `/apps/hive/warehouse`.
+If the table is a managed table in HDInsight-3.x and if it's present in the location `/apps/hive/warehouse` and converted as external table in HDInsight-4.x, then the location is the same `/apps/hive/warehouse` in HDInsight 4.x as well. It does'nt change any location. After this step, if you're performing alter table command to convert it as managed (acid) table at that time present in the same location `/apps/hive/warehouse`.
 
 **Scenario 2**
 
@@ -169,11 +169,11 @@ To convert external table (non-ACID) to Managed (ACID) table, you've to
 
 1. Convert external table to managed and acid equals to true using the following command:
 alter table `<table name> set TBLPROPERTIES ('EXTERNAL'='false', 'transactional'='true');`
-1. If you try to execute the following command for external table, you gets the below error.
+1. If you try to execute the following command for external table, you get the below error.
 
 **Scenario 1**
 
-Consider table rt is external table (non-ACID). If the table is non-ORC table.
+Consider table rt is external table (non-ACID). If the table is non-ORC table,
 
 ```
 alter table rt set TBLPROPERTIES ('transactional'='true');
@@ -189,7 +189,7 @@ ERROR:
 Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. work.rt can't be declared transactional because it's an external table (state=08S01,code=1)
 ```
 
-This error is occurring because the table rt is external table and you cannot convert external table to ACID.
+This error is occurring because the table rt is external table and you can't convert external table to ACID.
 
 **Scenario 3**
 
@@ -232,7 +232,7 @@ Hive has changed table creation in the following ways
     You need to change queries that use db.table references to prevent Hive from interpreting the entire db.table string as the table name.
     Hive 3.x rejects `db.table` in SQL queries. A dot (.) isn't allowed in table names. You enclose the database name and the table name in backticks.
     Find a table having the problematic table reference.
-    `math.students` which, appears in a CREATE TABLE statement.
+    `math.students` that appears in a CREATE TABLE statement.
     Enclose the database name and the table name in backticks.
      `CREATE TABLE `math`.`students` (name VARCHAR(64), age INT, gpa DECIMAL(3,2));`
 
@@ -259,7 +259,7 @@ Hive has changed table creation in the following ways
     In HDInsight 3.x hive.metastore.disallow.incompatible.col.type.changes is false by default to allow changes to incompatible column types. For example, you can change a STRING column to a column of an incompatible type, such as MAP<STRING, STRING>. No error occurs.
 
     **After Upgrade**
-    The hive.metastore.disallow.incompatible.col.type.changes is true by default. Hive prevents changes to incompatible column types. Compatible column type changes, such as INT, STRING, BIGINT,aren't blocked.
+    The hive.metastore.disallow.incompatible.col.type.changes is true by default. Hive prevents changes to incompatible column types. Compatible column type changes, such as INT, STRING, BIGINT, aren't blocked.
     
     **Action Required**
     Change applications to disallow incompatible column type changes to prevent possible data corruption.
@@ -286,16 +286,18 @@ Hive has changed table creation in the following ways
 As per https://issues.apache.org/jira/browse/HIVE-12063 and https://issues.apache.org/jira/browse/HIVE-24389, the idea is retained the scale and precision instead of running a wrapper in decimal columns. This is the default behavior from Hive 2.
 To fix this issue, you can follow the below option.
 
-    1. Modify the datatype at source level to adjust the precision as col1(decimal(38,0)). This provides the result as 38 without trailing zero's. But if you insert the data as 35.0005 then it's .0005 and provides only the value as 38
+    1. Modify the datatype at source level to adjust the precision as col1(decimal(38,0)). This value provides the result as 38 without trailing zero's. But if you insert the data as 35.0005 then it's .0005 and provides only the value as 38
     1.Remove the trailing zeros for the columns with issue and then cast to string,
         1. Use  select TRIM(cast(<column_name> AS STRING))+0 FROM <table_name>;
         1. Use regex.
 
 1. Hive query fails with "Unsupported SubQuery Expression" when we use UNIX_TIMESTAMP in the query.
-    For example:
+    For example,
     If we run a query, then it will throw an "Unsupported SubQuery Expression"
+    ```
     select * from
-    (SELECT col_1 from table1 where col_2 >= unix_timestamp('2020-03-07','yyyy-MM-dd')) ;
+    (SELECT col_1 from table1 where col_2 >= unix_timestamp('2020-03-07','yyyy-MM-dd'));
+    ```
     The root case of this issue is that the current hive codebase is throwing an exception which parsing the UNIX_TIMESTAMP because there's no precision mapping in HiveTypeSystemImpl.java code for the precision of UNIX_TIMESTAMP which Calcite recognizes as BIGINT.
     But the below query works fine
     `select * from (SELECT col_1 from table1 where col_2 >= 1);`
@@ -310,7 +312,7 @@ Make sure to follow these steps after completing the migration.
 **Table Sanity**
 1. Recreate tables in Hive 3.1 using CTAS or IOW to change table type instead of changing table properties.
 1. Keep doAs as false for all the clusters.
-1. Ensure managed table/data ownership is with “hive” user. This steps should take care of it. 
+1. Ensure managed table/data ownership is with “hive” user. This step should take care of it. 
 1. Use managed ACID tables if table format is ORC and managed non-ACID for non-ORC types. 
 1. Regenerate stats on recreated tables as migration would have caused incorrect stats.
 
@@ -330,7 +332,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive query gives the incorrect result. Even the select count(*) query gives the incorrect result.
 
     **Cause**
-    The property “hive.compute.query.using.stats” is set to true by default. If we set it to true then it uses the stats, which is stored in metastore to execute the query. Incase if the stats aren't up to date, then it results in incorrect results.
+    The property “hive.compute.query.using.stats” is set to true by default. If we set it to true then it uses the stats, which is stored in metastore to execute the query. If the stats aren't up to date, then it results in incorrect results.
 
     **Resolution**
     collect the stats for the managed tables using `alter table <table_name> compute statics;` command at the table level and column level. Reference link - https://cwiki.apache.org/confluence/display/hive/statsdev#StatsDev-TableandPartitionStatistics
@@ -339,7 +341,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive queries are taking long time to execute.
 
     **Cause**
-    If the query has a join condition then hive creates a plan whether to use map join or merge join based on the table size and join condition. If one of the tables contains a small size then it loads that table in the memory and performs the join operation. This way the query execution is faster when compared to the merge join.
+    If the query has a join condition then hive creates a plan whether to use map join or merge join based on the table size and join condition. If one of the tables contains a small size, then it loads that table in the memory and performs the join operation. This way the query execution is faster when compared to the merge join.
 
     **Resolution**
     Make sure to set the property "hive.auto.convert.join=true" which is the default value. Setting it to false uses the merge join and may result in poor performance.
@@ -355,7 +357,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     MB).
     
 
-    Incase if you face any issue related to OOM by setting the property `hive.auto.convert.join` to true then it's advisable to set it to false only for that particular query at the session level and not at the cluster level. This issue might occur if the stats are wrong and hive decides to use map join based on the stats.
+     If you face any issue related to OOM by setting the property `hive.auto.convert.join` to true then it's advisable to set it to false only for that particular query at the session level and not at the cluster level. This issue might occur if the stats are wrong and hive decides to use map join based on the stats.
 
 1. **Issue**
     Hive query gives the incorrect result if the query has a join condition and the tables involved has null or empty values.
@@ -373,7 +375,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Sometime Tez produce bad runtime plans whenever there are same joins multiple time with map-joins.
 
     **Resolution**
-    There's a chance of getting incorrect results when we set `hive.merge.nway.joins` to false. Try setting it to true only for the query, which got affected. This helps query with multiple joins on the same condition, merge joins together into a single join operator. This is useful if large shuffle joins to avoid a reshuffle phase.
+    There's a chance of getting incorrect results when we set `hive.merge.nway.joins` to false. Try setting it to true only for the query, which got affected. This helps query with multiple joins on the same condition, merge joins together into a single join operator. This method is useful if large shuffle joins to avoid a reshuffle phase.
 
 1. **Issue**'
     There's an increase in time of the query execution day by day when compared to the earlier runs.
@@ -421,10 +423,10 @@ Download these two files from the link. And copy these files to one of the head 
 **Steps to execute the script**
 1. Create a directory called "schemacompare" under "/tmp" directory.
 1. Put the "schemacompare_final.py" and "test.csv" into the folder "/tmp/schemacompare". Do "ls -ltrh /tmp/schemacompare/" and verify whether the files are present.
-1. To execute the Python script, use the command "python schemacompare_final.py". This scripts starts executing the script and it takes less than five minitues to complete.
-The above script automatically connects to your backend DB and fetches the details from each and every table, which hive uses and update the details in the new csv file called "return.csv". After updating the details in the "return.csv" it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
+1. To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete.
+The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After updating the details in the "return.csv", it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
-    Once after executing the script you can see the following lines, which indicates that the details are fetched for the tables and the script is in progressing:
+    Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing:
     ```
     KEY_CONSTRAINTS
     Details Fetched
@@ -451,12 +453,12 @@ The above script automatically connects to your backend DB and fetches the detai
     PARTITIONS;
     ('difference', [])
     ```
-    With this, you can find the column names, that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
+    From this output, you can find the column names, that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
 
-    If the column is missing then you can add the column as mentioned in the TSG:
+    If the column is missing, then you can add the column as mentioned in the TSG:
     https://supportability.visualstudio.com/AzureHDinsight/_wiki/wikis/AzureHDinsight/785541/Hive-Query-Fails-with-Invalid-column-name-'BIT_VECTOR'-error
 
     This step avoids the query failures, which fail with "Invalid column name" once after the migration.
