@@ -154,7 +154,7 @@ Clustering is enabled  **New Azure Cache for Redis** from in the working pane du
 
     You can have up to 10 shards in the cluster. After selecting **Enable**, slide the slider or type a number between 1 and 10 for **Shard count** and select **OK**.
 
-    Each shard is a primary/replica cache pair managed by Azure, and the total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier.
+    Each shard is a primary/replica cache pair managed by Azure. The total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier.
 
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Clustering toggle selected.":::
 
@@ -207,10 +207,9 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 >
 
 > [!NOTE]
-> Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command, so for minimal impact, consider running this operation during non-peak hours. During the migration process, you see a spike in server load. Scaling a cluster is a long running process and the amount of time taken depends on the number of keys and size of the values associated with those keys.
+> Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command. For minimal impact, consider running this operation during non-peak hours. During the migration process, you see a spike in server load. Scaling a cluster is a long running process and the amount of time taken depends on the number of keys and size of the values associated with those keys.
 >
 >
-
 
 ---
 
