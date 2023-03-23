@@ -2,8 +2,7 @@
 title: Create Custom Recommendations in Microsoft Defender for Cloud
 description: This article explains how to create custom recommendations in Microsoft Defender for Cloud to secure your environment based on your organization’s internal needs and requirements.
 ms.topic: how-to
-ms.author: alizabernstein
-author: alizabernstein
+author: AlizaBernstein
 ms.date: 03/23/2022
 ---
 # Create custom recommendations and security standards in Microsoft Defender for Cloud
