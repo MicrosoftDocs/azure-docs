@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/22/2023
+ms.date: 03/23/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -281,9 +281,9 @@ The **Application Pool** tab has services behind a BIG-IP, a pool with one or mo
 
    ![Screenshot of options and selections for Pool Properties](./media/f5-big-ip-oracle/application-pool.png)
 
-4. Under **Access Gate Pool** confirm the **Access Gate Subpath**. 
-5. For **Pool Servers** select and enter an **IP Address/Node Name** and **Port** for the servers hosting Oracle EBS.
-6. Select **HTTPS**.
+5. Under **Access Gate Pool** confirm the **Access Gate Subpath**. 
+6. For **Pool Servers** select and enter an **IP Address/Node Name** and **Port** for the servers hosting Oracle EBS.
+7. Select **HTTPS**.
 
    ![Screenshot of options and entries for Access Gate Pool.](./media/f5-big-ip-oracle/accessgate-pool.png)
 
@@ -295,33 +295,44 @@ The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization h
 2. For **Header Operation**, select **replace**.
 3. For **Header Name**, enter **USER_NAME**.
 4. For **Header Value**, enter **%{session.sso.token.last.username}**.
+5. For **Header Operation**, select **replace**.
+6. For **Header Name**, enter **USER_ORCLGUID**.
+7. For **Header Value**, enter **%{session.ldap.last.attr.orclguid}**.
 
-* **Header Operation** replace
-* **Header Name** USER_ORCLGUID
-* **Header Value** %{session.ldap.last.attr.orclguid}
+   ![ Screenshot of entries and selections for Header Operation, Header Name, and Header Value.](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
-   ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
-
->[!NOTE] 
->APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure
+   >[!NOTE] 
+   >APM session variables in curly brackets are case-sensitive.
 
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to [F5's docs](https://support.f5.com/csp/article/K18390492) for details on these settings.
+Use BIG-IPs Session Management to define conditions for user session termination or continuation. 
 
-What isn’t covered here however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
+To learn more, got to support.f5.com for [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492)
 
-Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
+Single Log-Out (SLO) functionality ensures sessions between the IdP, BIG-IP, and the user agent, terminate when users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the Logout URL with the APM SLO endpoint. Thus, IdP-initiated sign out, from the My Apps portal, terminate the session between the BIG-IP and a client.
 
-If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
+See, Microsoft [My Apps](https://myapplications.microsoft.com/)
 
-If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+The SAML federation metadata for the published application is imported from the tenant. This action provides the APM with the SAML sign out endpoint for Azure AD. Then, SP-initiated sign out terminates the client and Azure AD session. Ensure the APM knows when a user signs out.
 
-## Summary
+If you use the BIG-IP webtop portal to access published applications, a sign-out is processed by the APM to call the Azure AD sign-out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions terminatation. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign-out endpoint. Find the SAML sign-out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
-This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
+If you can't change the app, have the BIG-IP listen for the application sign-out call and trigger SLO. 
 
-## Next steps
+Learn more:
+
+* [PeopleSoft SLO Logout](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
+* Go to support.f5.com for: 
+  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145
+  * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
+
+## Deploy
+
+1. Select **Deploy** to commit settings.
+2. Verify the application appears in the tenant Enterprise applications list.
+
+## Test
 
 From a browser, connect to the **Oracle EBS application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
 
