@@ -108,7 +108,7 @@ The API allows applications to gather data points that describe user perceived r
 TODO – add details on implementation
 
 ## Best Practices
-Here are our recommended API survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
+Here are our recommended survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
 
 **Question 1:** How did the users perceive their overall call quality experience?
 We recommend you start the survey by only asking about the participants’ overall quality. If you separate the first and second questions, it helps to only collect responses to Audio, Video, and Screen Share issues if a survey participant indicates they experienced call quality issues. 
