@@ -20,6 +20,7 @@ This article applies to API version 2022-11-01-preview.
 - List multiple
 - Create
 - Archive/Recover
+- List key-values
 
 ## Prerequisites
 
