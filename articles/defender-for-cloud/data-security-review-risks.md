@@ -10,38 +10,45 @@ ms.custom: template-how-to-pattern
 ---
 # Explore risks to sensitive data
 
-After [discovering resources with sensitive data](data-security-posture-enable.md), Microsoft Defender for Cloud lets you explore risks to sensitive data.
+After [discovering resources with sensitive data](data-security-posture-enable.md), Microsoft Defender for Cloud lets you explore sensitive data risk for those resources in a number of ways:
 
 - **Attack paths**: When sensitive data discovery is enabled in the Defender Cloud Security Posture Management (CSPM) plan, you can use attack paths to discover risk of data breaches. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
-- **Security Explorer**: When sensitive data discovery is enabled in the Defender CSPM plan, you can use Cloud Security Explorer to find sensitive data insights . [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
-- **Security alerts**: When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and explore ongoing threats to sensitive data stories by applying sensitivity filters.
+- **Security Explorer**: When sensitive data discovery is enabled in the Defender CSPM plan, you can use Cloud Security Explorer to find sensitive data insights. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
+- **Security alerts**: When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and explore ongoing threats to sensitive data stores by applying sensitivity filters, and monitoring security alerts.
 
-## Discover sensitive resources through attack paths
+## Explore risks through attack paths
 
-1. To open attack paths, in Defender for Cloud, go to **Recommendations** > **Attack paths**.
-1. Review attack paths related to sensitive data. For example, for the attack path “Internet exposed Azure Storage container with sensitive data is publicly accessible”:
+View attacks path for sensitive data as follows.
 
-    1. To see the sensitive information types detected in the Azure storage container, click on the container name in the graph > **Insights**. Expand the **Contain sensitive data** insight.
-    1. For help on mitigating the risk of the storage account container exposed to the internet with public access, open **Recommendations**.
+1. In Defender for Cloud, open **Recommendations** > **Attack paths**.
+1. Review attack paths related to sensitive data.
+1. To view sensitive information detected in data resources, select the resource name > **Insights**.Then, expand the **Contain sensitive data** insight.
+1. For risk mitigation steps, open **Active Recommendations**.
 
-Other attack paths include:
+Attack paths for sensitive data include:
+- "Internet exposed Azure Storage container with sensitive data is publicly accessible"
+- "VM has high severity vulnerabilities and read permission to a data store with sensitive data"
+- "Internet exposed AWS S3 Bucket with sensitive data is publicly accessible"
+- "Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data"
 
-- “VM has high severity vulnerabilities and read permission to a data store with sensitive data”
-- “Internet exposed AWS S3 Bucket with sensitive data is publicly accessible”
-- “Internet exposed EC2 instance has high severity vulnerabilities and read permission to a S3 bucket with sensitive data”
+[Review](attack-path-reference.md) a full list of attack paths.
 
-Learn more about [attack paths](concept-attack-path.md).
 
-## Discover sensitive resources using Cloud Security Explorer 
+## Explore risks with Cloud Security Explorer
+
+View cloud security graph insights for sensitive data as follows.
 
 1. In Defender for Cloud, open **Cloud Security Explorer**.
 1. Select a query template, or build your own query.
 
-Learn more about [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
+[Review](resource-graph-samples.md) some sample queries.
 
-## Discover security alerts about sensitive data
 
-When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize the alerts and recommendations that are related to resources with sensitivity labels and sensitive information types.
+## Explore sensitive data security alerts
+
+When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize the alerts and recommendations that are related to resources that have sensitive information types and labels assigned to them. [Learn more](defender-for-storage-data-sensitivity.md)
 
 ## Next steps
 
+- Learn more about [attack paths](concept-attack-path.md).
+- Learn more about [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
