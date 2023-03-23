@@ -112,7 +112,7 @@ No matter how many entity drawings are in the exterior layer, the [resulting fac
 - Resulting level feature must be at least 4 square meters.
 - Resulting level feature must not be greater 400,000 square meters.
 
-If the layer contains multiple overlapping PolyLines, They're dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
+If the layer contains multiple overlapping PolyLines, they're dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
 You can see an example of the Exterior layer as the outline layer in the [sample drawing package].
 
