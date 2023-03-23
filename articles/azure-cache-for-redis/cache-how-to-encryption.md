@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 03/24/2023
 ms.author: franlanglois
 
 ---
@@ -83,28 +83,30 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option. 
 
-  <!-- **[FRAN] we will need a screenshot here** -->
+   :::image type="content" source="media/cache-how-to-encryption/cache-use-key-encryption.png" alt-text="Screenshot of ":::
 
 1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identitiesd) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+
+    :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-user-assigned.png" alt-text="Screenshot of":::
 
 1. Select your chosen user assigned managed identity, and then choose the key input method to use. 
 
 1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
-> [!NOTE]
-> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
+    > [!NOTE]
+    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
-  <!-- **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot** -->
+   :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-version.png" alt-text="Screenshot of ":::
+1. When you have entered all the information for your cache, select **Create**.
 
 ### Add CMK encryption to an existing Enterprise cache
 
 1. Go to the **Encryption** in the Resource menu of your cache instance. If CMK is already set up, you see the key information here.
 
 1. To change CMK settings, select **Change encryption settings** 
-
-  <!-- **FRAN -- need a screenshot here** -->
+   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-use.png" alt-text="Screenshot of":::
 
 1. Select **Use a customer-managed key** to see your configuration options. 
 
@@ -114,12 +116,11 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
-> [!NOTE]
-> For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
+    > [!NOTE]
+    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Valut instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
-
-  <!-- **[FRAN] Need a screen shot for the above steps--can probably all be in one screenshot** -->
+   :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="screenshot of":::
 
 ## Next Steps
 
