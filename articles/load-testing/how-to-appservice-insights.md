@@ -1,12 +1,12 @@
 ---
-title: Get load test insights from App Service diagnostics
+title: Load test apps on Azure App Service
 titleSuffix: Azure Load Testing
-description: 'Learn how to get detailed application performance insights from App Service diagnostics and Azure Load Testing.'
+description: 'Learn how to run a load test with Azure Load Testing for an Azure App Service web app. Monitor application metrics to identify application issues.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 10/24/2022
+ms.date: 03/23/2023
 ms.topic: how-to
 
 ---
