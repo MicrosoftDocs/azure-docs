@@ -131,13 +131,13 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. Create a document key field ("key": true), but allow the indexer to populate it automatically. 
+1. Create a document key field ("key": true), but allow the indexer to populate it automatically. A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `1` and RowKey is `1_123`, then the key value is `11_123`. If the partition key is null, just the row key is used.
 
-   A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `1` and RowKey is `1_123`, then the key value is `11_123`. If the partition key is null, just the row key is used.
+   If you're using the Import data wizard to create the index, the portal infers a "Key" field for the search index and uses implicit field mapping to connect the source and destination fields. You don't have to add the field yourself, and you don't need to set up a field mapping.
 
-   To use implicit field mapping, name the document key field "Key" in the search index definition.
+   If you're using the REST APIs and you want implicit field mappings, create and name the document key field "Key" in the search index definition as shown in the previous step (`{ "name": "Key", "type": "Edm.String", "key": true, "searchable": false }`).
 
-   Alternatively, you can use a different name in the index, but you'll need to create an explicit field mapping in the indexer definition, where the source field name is "Key":
+   If you don't want a field named "Key" in your search index, add an explicit field mapping in the indexer definition with the field name you want, setting the source field to "Key":
 
    ```json
     "fieldMappings" : [
