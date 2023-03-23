@@ -1,7 +1,7 @@
 ---
 title: Raise hand states
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to send raise hand state.
+description: Use Azure Communication Services SDKs to send raised hand state.
 author: rzdor
 ms.author: ruslanzdor
 ms.service: azure-communication-services
@@ -42,6 +42,9 @@ During an active call, you may want to send or receive states from other users. 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Manage Video Calls Windows](./includes/raise-hand/raise-hand-windows.md)]
 ::: zone-end
+
+Additional resources
+For more information about using the Raise Hand feature in Teams calls and meetings, see the [Microsoft Teams documentation] (https://support.microsoft.com/en-us/office/raise-your-hand-in-a-teams-meeting-bb2dd8e1-e6bd-43a6-85cf-30822667b372).
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
