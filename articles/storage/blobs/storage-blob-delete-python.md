@@ -60,53 +60,6 @@ The following code example gets the latest version of a deleted blob, and restor
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_restore_blob_version":::
 
-## Restore soft-deleted blobs and directories (hierarchical namespace)
-
-> [!IMPORTANT]
-> This section applies only to accounts that have a hierarchical namespace.
-
-1. Install version `12.4.0` or greater of the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/). This command installs the latest version of the Azure Data Lake Storage client library for Python.
-
-   ```
-   pip install azure-storage-file-datalake
-   ```
-
-2. Add these import statements to the top of your code file.
-
-   ```python
-   import os, uuid, sys
-   from azure.storage.filedatalake import DataLakeServiceClient
-   from azure.storage.filedatalake import FileSystemClient
-   ```
-
-3. The following code deletes a directory, and then restores a soft-deleted directory.
-
-   The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Authorize access and connect to data resources](data-lake-storage-directory-file-acl-python.md#authorize-access-and-connect-to-data-resources).
-
-    ```python
-    def restoreDirectory():
-
-        try:
-            global file_system_client
-
-            file_system_client = service_client.create_file_system(file_system="my-file-system")
-
-            directory_path = 'my-directory'
-            directory_client = file_system_client.create_directory(directory_path)
-            resp = directory_client.delete_directory()
-
-            restored_directory_client = file_system_client.undelete_path(directory_client, resp['deletion_id'])
-            props = restored_directory_client.get_directory_properties()
-
-            print(props)
-
-        except Exception as e:
-            print(e)
-
-    ```
-
-   If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted items.
-
 ## Resources
 
 To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client library for Python, see the following resources.
