@@ -179,7 +179,8 @@ Now you can add external Azure AD groups from the **Groups** tab of your API Man
 1. Under **Developer portal** in the side menu, select **Groups**.
 1. Select the **Add Azure AD group** button.
 
-   !["Screenshot showing Add Azure AD group button.](./media/api-management-howto-aad/api-management-with-aad008.png)
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad008.png" alt-text="Screenshot showing Add Azure AD group button in the portal.":::
+
 1. Select the **Tenant** from the drop-down. 
 1. Search for and select the group that you want to add.
 1. Press the **Select** button.
@@ -193,7 +194,7 @@ Users from the configured Azure AD instance can now:
 * View and subscribe to any groups for which they have visibility.
 
 > [!NOTE]
-> Learn more about the difference between **Delegated** and **Application** permissions types     in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
+> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 
