@@ -1601,6 +1601,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/publish-portal.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+          "redirect_document_id": false
+      },
+        {
             "source_path_from_root": "/articles/managed-applications/publish-service-catalog-app.md",
             "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
             "redirect_document_id": false
