@@ -383,6 +383,14 @@ groups:
     title: Maven command
   - id: create-option-vscode
     title: Visual Studio Code
+- id: functions-nodejs-model
+  title: Node.js Programming model
+  prompt: Choose a programming model
+  pivots:
+  - id: nodejs-model-v4
+    title: v4
+  - id: nodejs-model-v3
+    title: v3
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
