@@ -178,6 +178,10 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 ::: zone pivot="python-mode-decorators" 
 
+> [!NOTE]
+> Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) is not currently supported when trying out the Python V2 programming model with Durable Functions, so you will need to manage your extensions manually.
+> To do this, remove the `extensionBundle` section of your `host.json` as described [here](../functions-run-local.md#install-extensions) and run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow you to try out the new experience.
+
 To create a basic Durable Functions app using these 3 function types, replace the contents of `function_app.py` with the following Python code.
 
 ```Python
