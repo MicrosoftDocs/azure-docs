@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ---
 
-# Toll-Free Verification Filling Guidelines
+# Toll-Free Verification Guidelines
 
 In this document, we review the guidelines on filling out an application to verify your toll-free number. For detailed process and timelines toll-free verification process, check the [toll-free verification FAQ](./sms-faq.md#toll-free-verification). The toll-free verification application consists of 5 sections:  
 

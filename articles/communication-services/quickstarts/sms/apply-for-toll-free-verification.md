@@ -18,8 +18,8 @@ Get started with reliable SMS service using toll-free numbers by submitting a to
 
 ## Prerequisites
 - [An active Communication Services resource.](../create-communication-resource.md)
-- Toll-free number 
- 
+- [An SMS-enabled toll-free number](../telephony/get-phone-number.md)
+  
 ### What is toll free verification?
 The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](../../concepts/sms/messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks. For detailed process and timelines toll-free verification process check the [toll-free verification FAQ](../../concepts/sms/sms-faq.md#toll-free-verification).
 
@@ -72,6 +72,9 @@ This program brief is automatically sent to the toll-free messaging aggregator f
 
 > [!div class="nextstepaction"]
 > [Check guidelines for filling a toll-free verification application](../../concepts/sms/toll-free-verification-guidelines.md)
+
+> [!div class="nextstepaction"]
+> [Send an SMS](../sms/send.md)
 
 The following documents may be interesting to you:
 
