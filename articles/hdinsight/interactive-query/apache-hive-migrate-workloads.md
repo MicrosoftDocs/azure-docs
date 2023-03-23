@@ -293,7 +293,7 @@ To fix this issue, you can follow the below option.
 
 1. Hive query fails with "Unsupported SubQuery Expression" when we use UNIX_TIMESTAMP in the query.
     For example,
-    If we run a query, then it will throw an "Unsupported SubQuery Expression"
+    If we run a query, then it throws an error "Unsupported SubQuery Expression"
     ```
     select * from
     (SELECT col_1 from table1 where col_2 >= unix_timestamp('2020-03-07','yyyy-MM-dd'));
@@ -332,7 +332,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Hive query gives the incorrect result. Even the select count(*) query gives the incorrect result.
 
     **Cause**
-    The property “hive.compute.query.using.stats” is set to true by default. If we set it to true then it uses the stats, which is stored in metastore to execute the query. If the stats aren't up to date, then it results in incorrect results.
+    The property “hive.compute.query.using.stats” is set to true by default. If we set it to true, then it uses the stats, which is stored in metastore to execute the query. If the stats aren't up to date, then it results in incorrect results.
 
     **Resolution**
     collect the stats for the managed tables using `alter table <table_name> compute statics;` command at the table level and column level. Reference link - https://cwiki.apache.org/confluence/display/hive/statsdev#StatsDev-TableandPartitionStatistics
@@ -453,7 +453,7 @@ The above script automatically connects to your backend DB and fetches the detai
     PARTITIONS;
     ('difference', [])
     ```
-    From this output you can find the column names, that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
+    From this output, you can find the column names that is missing or incorrect and you can run the below query in your backend DB to verify once if the column is missing or not
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
