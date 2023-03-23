@@ -55,13 +55,10 @@ You can create three data asset types:
 
 ### Paths supported by Azure Machine Learning registry
 
-When you create a data asset, you must specify a **path** parameter that points to the data location. Supported paths include:
+When you create a data asset, you must specify a **path** parameter that points to the data location. Currently, the only supported paths are to locations on your local computer.
 
-| Location        | Example  |     
-| :------------- |:-------------| 
-| A path on your local computer | A path on your local computer |
-
-
+> [!TIP]
+> "Local" means the local storage for the computer you are using. For example, if you're using a laptop, the local drive. If an Azure Machine Learning compute instance, the "local" drive of the compute instance.
 
 
 ## Prerequisites
