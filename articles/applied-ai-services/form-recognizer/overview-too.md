@@ -417,6 +417,8 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ::: moniker range="form-recog-3.0.0"
 
+* [Choose a Form Recognizer model](choose-the-best.md)
+
 * Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
