@@ -39,7 +39,7 @@ The change data capture feature of the analytical store is available through the
 
 ### [Azure Data Factory](#tab/azure-data-factory)
 
-1. [Create an Azure Data Factory](../data-factory/quickstart-create-data-factory.md), if you do not already have one.
+1. [Create an Azure Data Factory](../data-factory/quickstart-create-data-factory.md), if you don't already have one.
 
     > [!TIP]
     > If possible, create the data factory in the same region where your Azure Cosmos DB account resides. Ideally, this would be the same region where your sink resource resides.
@@ -50,7 +50,7 @@ The change data capture feature of the analytical store is available through the
 
 ### [Azure Synapse Analytics](#tab/azure-synapse-analytics)
 
-1. [Create an Azure Synapse workspace](../synapse-analytics/quickstart-create-workspace.md), if you do not already have one.
+1. [Create an Azure Synapse workspace](../synapse-analytics/quickstart-create-workspace.md), if you don't already have one.
 
     > [!TIP]
     > If possible, create the workspace in the same region where your Azure Cosmos DB account resides. Ideally, this would be the same region where your sink resource resides.
@@ -65,7 +65,7 @@ TODO
 
 1. TODO
 
-## Configure sink settings for update and delete opertions
+## Configure sink settings for update and delete operations
 
 TODO
 
