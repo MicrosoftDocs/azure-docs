@@ -53,6 +53,7 @@ az vm create \
     --resource-group myResourceGroupVM \
     --name myVM \
     --image SLES \
+    --public-ip-sku Standard \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
