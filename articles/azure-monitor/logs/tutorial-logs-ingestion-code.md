@@ -23,7 +23,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 > [!NOTE]
 > This sample requires PowerShell v7.0 or later.
 
-1. Run the following PowerShell command, which adds a required assembly for the script.
+1. Run the following sample PowerShell command, which adds a required assembly for the script.
 
     ```powershell
     Add-Type -AssemblyName System.Web
@@ -103,7 +103,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
 
 ## [Python](#tab/python)
 
-The following script uses the [Azure Monitor Ingestion client library for Python](/python/api/overview/azure/monitor-ingestion-readme).
+The following sample code uses the [Azure Monitor Ingestion client library for Python](/python/api/overview/azure/monitor-ingestion-readme).
 
 > [!NOTE]
 > This sample requires Python 3.7 or later.
@@ -197,7 +197,13 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     npm install --save @azure/identity
     ```
 
-3. Replace the parameter values with the values for your application, DCE, and DCR.. You might also want to replace the sample data with your own.
+3. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential`.
+
+   - AZURE_TENANT_ID
+   - AZURE_CLIENT_ID
+   - AZURE_CLIENT_SECRET
+
+3. Replace the variables in the following sample code with values from your DCE, and DCR. Use *Custom-MyTableRawData* for the `data_stream_name` to match the DCR in the tutorial. You might also want to replace the sample data with your own.
 
     ```javascript
     const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
@@ -246,7 +252,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     });
     ```
 
-3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
+3. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
 
 ## [Java](#tab/java)
 The following sample code uses the [Azure Monitor Ingestion client library for Java](/java/api/overview/azure/monitor-ingestion-readme).
@@ -275,7 +281,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
    - AZURE_CLIENT_ID
    - AZURE_CLIENT_SECRET
 
-4. Replace the variables in the following sample code with values from your DCE, and DCR. You may also want to replace the sample data with your own.
+4. Replace the variables in the following sample code with values from your DCE, and DCR. Use *Custom-MyTableRawData* for the `<data-stream-name>` to match the DCR in the tutorial. You may also want to replace the sample data with your own.
 
     ```java
     public static void main(String[] args) { 
@@ -310,7 +316,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
             }); 
             
         try { 
-            client.upload("<data-collection-rule-id>", "Custom-MyTableRawData", dataList); 
+            client.upload("<data-collection-rule-id>", "<data-stream-name>", dataList); 
             System.out.println("Logs uploaded successfully"); 
         } catch (LogsUploadException exception) { 
             System.out.println("Failed to upload logs "); 
@@ -336,8 +342,13 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     dotnet add package Azure.Monitor.Ingestion
     ```
 
+3. Create the following environment variables with values for your Azure AD application. These values are used by `DefaultAzureCredential`.
 
-2. Replace the variables with values from your DCE, and DCR. You may also want to replace the sample data with your own.
+   - AZURE_TENANT_ID
+   - AZURE_CLIENT_ID
+   - AZURE_CLIENT_SECRET
+
+2. Replace the variables in the following sample code with values from your DCE, and DCR. Use *Custom-MyTableRawData* for the `data_stream_name` to match the DCR in the tutorial. You may also want to replace the sample data with your own.
 
     
 
@@ -345,7 +356,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     // Initialize variables
     var endpoint = new Uri("<data_collection_endpoint_uri>");
     var ruleId = "<data_collection_rule_id>";
-    var streamName = "Custom-MyTableRawData";
+    var streamName = "<data_stream_name>";
     
     // Create credential and client
     var credential = new DefaultAzureCredential();
@@ -388,7 +399,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
     ```
 
-3. After you execute the script, the data should arrive in your Log Analytics workspace within a few minutes.
+3. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
 
 
 

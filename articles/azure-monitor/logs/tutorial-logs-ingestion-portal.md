@@ -325,6 +325,9 @@ Allow at least 30 minutes for the configuration to take effect. You might also e
 
 1. From Log Analytics, query your newly created table to verify that data arrived and that it's transformed properly.
 
+## Troubleshooting
+See the [Troubleshooting](tutorial-logs-ingestion-code.md#troubleshooting) section of the sample code article if your code doesn't work as expected.
+
 ## Sample data
 You can use the following sample data for the tutorial. Alternatively, you can use your own data if you have your own Apache access logs.
 
