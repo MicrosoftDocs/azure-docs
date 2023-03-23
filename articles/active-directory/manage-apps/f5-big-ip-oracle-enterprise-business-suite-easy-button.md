@@ -334,51 +334,82 @@ Learn more:
 
 ## Test
 
-From a browser, connect to the **Oracle EBS application’s external URL** or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+1. From a browser, connect to the Oracle EBS application external URL, or select the application icon in the [My Apps](https://myapps.microsoft.com/). 
+2. Authenticate to Azure AD
+3. You’re redirected to the BIG-IP virtual server for the application and signed in by SSO.
 
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+For increased security, block direct application access, thereby enforcing a path through the BIG-IP.
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+Sometimes, the Guided Configuration templates lack flexibility for requirements. 
 
-You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+Learn more: [Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md). 
 
-![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+Alternatively, in BIG-IP disable the Guided Configuration strict management mode to manually change configurations. Most configurations are automated by wizard templates.
 
-At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+1. Navigate to **Access > Guided Configuration**.
+2. On the right end of the row for your application configuration, select the **padlock** icon. 
 
-> [!NOTE] 
-> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+   ![Screenshot of the padlock icon](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+
+After you disable strict mode, you can't make changes with the wizard. However, BIG-IP objects associated with the published app instance are unlocked for management.
+
+   > [!NOTE] 
+   > If you re-enable strict mode, new configurations overwrite settings performed without the Guided Configuration. We recommend the advanced configuration method for production services.
 
 ## Troubleshooting
 
-Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
+Use the following instruction to help troubleshoot issues.
 
-1. Navigate to **Access Policy > Overview > Event Logs > Settings**
+### Increase log verbosity
 
-2. Select the row for your published application then **Edit > Access System Logs**
+Use BIG-IP logging to isolate issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Increase the log verbosity level.
 
-3. Select **Debug** from the SSO list then **OK**
+1. Navigate to **Access Policy > Overview > Event Logs**.
+2. Select **Settings**.
+3. Select the row for your published application.
+4. Select **Edit > Access System Logs**.
+5. From the SSO list, select **Debug**.
+6. Select **OK**.
+7. Reproduce this issue.
+8. Inspect the logs. 
 
-Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+Revert the settings changes because verbose mode generates excessive data. 
 
-If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+### BIG-IP error message
 
-1. Navigate to **Access > Overview > Access reports**
+If a BIG-IP error appears after Azure AD preauthentication, the issue might relate to Azure AD and BIG-IP SSO.
 
-2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+1. Navigate to **Access > Overview.
+2. Select **Access reports**.
+3. Run the report for the last hour.
+4. Review the logs for clues. 
 
-If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+Use the **View session** link for your session to confirm the APM receives expected Azure AD claims.
 
-1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+### No BIG-IP error message
 
-2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source
+If no BIG-IP error page appears, the issue might relate to the back-end request, or BIG-IP and application SSO.
 
-See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+1. Navigate to **Access Policy > Overview.
+2. Select **Active Sessions**.
+3. Select the link for your active session.
 
-The following command from a bash shell validates the APM service account used for LDAP queries and can successfully authenticate and query a user object:
+Use the **View Variables** link to investigate SSO issues, particularly if the BIG-IP APM doesn't obtain correct attributes from Azure AD, or another source.
+
+Learn more:
+
+* Go to devcentral.f5.com for [APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107)
+* Go to techdocs.f5.com for [Manual Chapter: Session Variables](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html)
+
+### Validate the APM service account
+
+Use the following bash shell command to validate the APM service account for LDAP queries. The command authenticates and queries user objects.
 
 ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=oraclef5,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
 
-For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this [F5 knowledge article on LDAP Query](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-authentication-methods/ldap-query.html).
+Learn more:
+
+* Go to support.f5.com for [K11072: Configuring LDAP remote authentication for AD](https://support.f5.com/csp/article/K11072) 
+* Go to techdocs.f5.com for [Manual Chapter: LDAP Query](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-authentication-methods/ldap-query.html).
