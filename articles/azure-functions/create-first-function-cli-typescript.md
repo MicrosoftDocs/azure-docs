@@ -194,7 +194,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
     Toward the end of the output, the following should appear:
 
-    ![Terminal window output when running function locally](./media/functions-create-first-azure-function-azure-cli/functions-test-local-terminal.png)
+    ![Screenshot of terminal window output when running function locally.](./media/functions-create-first-azure-function-azure-cli/functions-test-local-terminal.png)
 
     >[!NOTE]
     > If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
@@ -226,6 +226,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    
     ---
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
