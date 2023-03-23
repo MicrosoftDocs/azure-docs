@@ -43,6 +43,6 @@ Most of our customers rely on ubiquitous tools and applications from Microsoft. 
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-Follow the quickstart guide to quickly deploy Microsoft Energy Data Service in your Azure subscription
+Follow the quickstart guide to quickly deploy Azure Data Manager for Energy Preview in your Azure subscription
 > [!div class="nextstepaction"]
 > [Quickstart: Create Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)

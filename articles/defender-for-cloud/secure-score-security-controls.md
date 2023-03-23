@@ -1,11 +1,11 @@
 ---
-title: Security posture for Microsoft Defender for Cloud
+title: Secure score
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: conceptual
-ms.date: 01/15/2023
+ms.date: 03/05/2023
 ---
 
-# Security posture for Microsoft Defender for Cloud
+# Secure score
 
 ## Overview of secure score
 
@@ -118,7 +118,7 @@ We recommend every organization carefully reviews their assigned Azure Policy in
 > [!TIP]
 > For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md).
 
-Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
+Even though Defender for Cloud's default security initiative, the Azure Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 

@@ -36,7 +36,7 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 
 - Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet or connections to STUN and TURN servers. To reduce the number of ports required, you can [limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
 
-   RDP Shortpath doesn't support Symmetric NAT. For more information you can use to configure firewalls and Network Security Groups, see [Network configurations for RDP Shortpath](rdp-shortpath.md?tabs=public-networks#network-configuration).
+   If your environment uses Symmetric NAT, then you can use an indirect connection with TURN. For more information you can use to configure firewalls and Network Security Groups, see [Network configurations for RDP Shortpath](rdp-shortpath.md?tabs=public-networks#network-configuration).
 
 - Check your client can connect to the STUN and TURN endpoints and verify that basic UDP functionality works by running the executable `avdnettest.exe`. For steps of how to do this, see [Verifying STUN/TURN server connectivity and NAT type](troubleshoot-rdp-shortpath.md#verifying-stunturn-server-connectivity-and-nat-type).
 
@@ -141,7 +141,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 To configure managed Windows clients using Intune:
 
-1. Sign in to the [Endpoint Manager admin center](https://endpoint.microsoft.com/).
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
 1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, using Administrative templates.
 
@@ -322,7 +322,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 To configure managed Windows clients using Intune:
 
-1. Sign in to the [Endpoint Manager admin center](https://endpoint.microsoft.com/).
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
 1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, using Administrative templates.
 

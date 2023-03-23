@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lean | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Lean'
 description: Learn how to configure single sign-on between Azure Active Directory and Lean.
 services: active-directory
 author: jeevansd

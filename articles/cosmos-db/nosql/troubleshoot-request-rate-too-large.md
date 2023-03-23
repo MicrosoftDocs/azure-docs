@@ -35,6 +35,11 @@ There are different error messages that correspond to different types of 429 exc
 ## Request rate is large
 This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you're using manual throughput, this occurs when you've consumed more RU/s than the manual throughput provisioned. If you're using autoscale, this occurs when you've consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you'll see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you'll see 429 responses when you consume more than 4000 request units in a single second.
 
+> [!TIP]
+> All operations are charged based on the number of resources they consume. These charges are measured in request units. These charges include requests that do not complete successfully due to application errors such as `400`, `412`, `449`, etc. While looking at throttling or usage, it is a good idea to investigate if some pattern has changed in your usage which would result in an increase of these operations. Specifically, check for tags `412` or `449` (actual conflict).
+>
+> For more information about provisioned throughput, see [provisioned throughput in Azure Cosmos DB](../set-throughput.md).
+
 ### Step 1: Check the metrics to determine the percentage of requests with 429 error
 Seeing 429 error messages doesn't necessarily mean there's a problem with your database or container. A small percentage of 429 responses is normal whether you're using manual or autoscale throughput, and is a sign that you're maximizing the RU/s you've provisioned.
 

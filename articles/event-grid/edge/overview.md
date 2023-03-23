@@ -82,6 +82,6 @@ Report any issues with using Event Grid on IoT Edge at [https://github.com/Azure
 
 * [Publish, subscribe to events locally](pub-sub-events-webhook-local.md)
 * [Publish, subscribe to events in cloud](pub-sub-events-webhook-cloud.md)
-* [Forward events to Event Grid cloud](forward-events-event-grid-cloud.md)
+* [Forward events to Event Grid cloud](forward-events-cloud.md)
 * [Forward events to IoTHub](forward-events-iothub.md)
 * [React to Blob Storage events locally](react-blob-storage-events-locally.md)

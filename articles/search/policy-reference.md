@@ -5,7 +5,7 @@ ms.date: 02/21/2023
 ms.topic: reference
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Cognitive Search

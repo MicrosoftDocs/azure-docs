@@ -32,7 +32,7 @@ items:
   items:
   - name: MS-TDS overview
     displayName: SQL, ADO.NET, JDBC, ODBC
-    href: /azure/data-explorer/kusto/api/tds/index?context=/azure/synapse-analytics/context/context
+    href: /azure/data-explorer/kusto/api/#ms-tds?context=/azure/synapse-analytics/context/context
   - name: T-SQL
     href: /azure/data-explorer/kusto/api/tds/t-sql?context=/azure/synapse-analytics/context/context
   - name: KQL over TDS

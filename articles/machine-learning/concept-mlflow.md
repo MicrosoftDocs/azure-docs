@@ -107,7 +107,7 @@ The following table shows which operations are supported by each of the tools av
 | Track and log metrics, parameters, and models | **&check;** | | |
 | Retrieve metrics, parameters, and models | **&check;** | <sup>1</sup> | **&check;** |
 | Submit training jobs | **&check;** <sup>2</sup> | **&check;** | **&check;** |
-| Submit training jobs with Azure Machine learning data assets |  | **&check;** | **&check;** |
+| Submit training jobs with Azure Machine Learning data assets |  | **&check;** | **&check;** |
 | Submit training jobs with machine learning pipelines | | **&check;** | **&check;** |
 | Manage experiments and runs | **&check;** | **&check;** | **&check;** |
 | Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |

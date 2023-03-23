@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: seo-lt-2019
 ms.date: 02/28/2023
 ---
 
@@ -64,6 +64,9 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 - For **Data Store**, select **Azure Blob Storage**.  
 - For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime** (not your self-hosted IR), so we can ignore it and use your Azure-SSIS IR instead to fetch access credentials for your Azure Blob Storage.
 - For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, **Managed Identity**, or **User-Assigned Managed Identity**.  
+
+>[!TIP]
+>If your data factory instance is Git-enabled, a linked service without key authentication will not be immediately published, which means you cannot save the integration runtime that depends on the linked service in your feature-branch. Authenticating with account key or SAS URI will immediately publish the linked service.
 
 >[!TIP]
 >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).

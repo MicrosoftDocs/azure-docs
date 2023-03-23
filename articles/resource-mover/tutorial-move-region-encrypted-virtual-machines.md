@@ -7,7 +7,7 @@ ms.service: resource-mover
 ms.topic: tutorial
 ms.date: 02/10/2023
 ms.author: ankitadutta
-ms.custom: mvc engagement-fy23
+ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 ---
 

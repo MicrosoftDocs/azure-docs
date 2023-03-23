@@ -1,5 +1,5 @@
 ---
-title: Configure group claims for applications by using Azure Active Directory | Microsoft Docs
+title: Configure group claims for applications by using Azure Active Directory
 description: Get information on how to configure group claims for use with Azure AD.
 services: active-directory
 documentationcenter: ''

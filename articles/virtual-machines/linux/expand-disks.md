@@ -33,6 +33,9 @@ Filesystem                Type      Size  Used Avail Use% Mounted on
 <truncated>
 /dev/sdd1                 ext4       32G   30G  727M  98% /opt/db/data
 /dev/sde1                 ext4       32G   49M   30G   1% /opt/db/log
+
+ > [!NOTE]
+    > If you are using an ext3 file system, you can use the resize2fs command instead`.
 ```
 
 Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and is located on the `/dev/sdd1` partition.  The output of `df` will show the device path regardless of whether the disk is mounted by device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This will be important later.

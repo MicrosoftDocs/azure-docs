@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.custom: vs-azure, devx-track-azurepowershell
+ms.custom: vs-azure
 ms.date: 10/22/2021
 ---
 

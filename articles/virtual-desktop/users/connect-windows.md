@@ -42,6 +42,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
 
 Once you've downloaded the Remote Desktop client, you'll need to install it by following these steps:
 
+> [!TIP]
+> If you want to deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. For more information, see [Enterprise deployment](client-features-windows.md#enterprise-deployment).
+
 1. Run the installer by double-clicking the file you downloaded.
 
 1. On the welcome screen, select **Next**.

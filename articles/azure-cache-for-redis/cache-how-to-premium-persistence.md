@@ -6,7 +6,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 03/24/2023
+
 
 ---
 # Configure data persistence for an Azure Cache for Redis instance
@@ -224,6 +225,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 - [How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 - [Will having firewall exceptions on the storage account affect persistence](#will-having-firewall-exceptions-on-the-storage-account-affect-persistence)
+- [How do I check if soft delete is enabled on my storage account?](#how-do-i-check-if-soft-delete-is-enabled-on-my-storage-account)
 
 ### RDB persistence
 
@@ -343,6 +345,10 @@ Using managed identity adds the cache instance to the [trusted services list](..
 ### Can I have AOF persistence enabled if I have more than one replica?
 
 With the Premium tier, you can't use Append-only File (AOF) persistence with multiple replicas. In the Enterprise and Enterprise Flash tiers, replica architecture is more complicated, but AOF persistence is supported when Enterprise caches are used in zone redundant deployment.  
+
+### How do I check if soft delete is enabled on my storage account?
+
+Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*.
 
 ## Next steps
 

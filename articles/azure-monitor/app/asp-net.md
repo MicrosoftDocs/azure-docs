@@ -2,7 +2,7 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ms.devlang: csharp
 ms.custom: contperf-fy21q1
 ---
@@ -376,6 +376,12 @@ There's a known issue in the current version of Visual Studio 2019: storing the 
 [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).
 
 For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
+
+## Release Notes
+
+For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
 
 ## Next steps
 

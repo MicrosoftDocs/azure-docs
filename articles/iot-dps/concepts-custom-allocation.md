@@ -1,12 +1,13 @@
 ---
-title: Using custom allocation policies with Azure IoT Hub Device Provisioning Service
-description: Understand custom allocation policies with the Azure IoT Hub Device Provisioning Service (DPS)
+title: Using custom allocation policies with Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Understand how custom allocation policies enable provisioning to multiple IoT hubs with the Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
+
 ms.author: kgremban
 ms.date: 09/09/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 

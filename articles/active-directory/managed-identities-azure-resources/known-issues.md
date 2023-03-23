@@ -1,5 +1,5 @@
 ---
-title: Known issues with managed identities - Azure Active Directory
+title: Known issues with managed identities
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 

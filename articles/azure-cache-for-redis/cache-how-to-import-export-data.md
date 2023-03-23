@@ -4,13 +4,17 @@ description: Learn how to import and export data to and from blob storage with y
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 03/24/2023
 ms.author: franlanglois
 
 ---
 # Import and Export data in Azure Cache for Redis
 
+
 _Import and Export_ is an Azure Cache for Redis data management operation. You import data into your cache instance or export data from a cache instance using an  Azure Cache for Redis Database (RDB) snapshot. The snapshots are imported or exported using a blob in an Azure Storage Account.
+=======
+Import/Export is an Azure Cache for Redis data management operation. It allows you to import data into a cache instance or export data from a cache instance. You import and export an Azure Cache for Redis Database (RDB) snapshot from a cache to a blob in an Azure Storage Account. Import/Export is supported in the Premium, Enterprise, and Enterprise Flash tiers.
+main
 
 - **Export** - you can export your Azure Cache for Redis RDB snapshots to a Page Blob (Premium tier) or Block Blob (Enterprise tiers).
 - **Import** - you can import your Azure Cache for Redis RDB snapshots from either a Page Blob or a Block Blob.
@@ -91,6 +95,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
    > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
    > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
    > - Export is not supported by Blob storage accounts at this time.
+   > - If your cache data export to Firewall-enabled storage accounts fails, refer to [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
    >
    > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
@@ -125,10 +130,11 @@ This section contains frequently asked questions about the Import/Export feature
 - [Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 - [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
 - [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+- [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
 
 ### Which tiers support Import/Export?
 
-Import and Export are available only in the _Premium_, _Enterprise_, and _Enterprise Flash_ tiers.
+The _import_ and _export_ features are available only in the _Premium_, _Enterprise_, and _Enterprise Flash_ tiers.
 
 ### Can I import data from any Redis server?
 
@@ -205,6 +211,12 @@ To resolve this error, start the import or export operation before 15 minutes ha
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
 
 Export works only with RDB files stored as page blobs. Other blob types aren't currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). If you're using an access key to authenticate a storage account, having firewall exceptions on the storage account tends to cause the import/export process to fail.
+
+### How to export if I have firewall enabled on my storage account?
+
+For firewall enabled storage accounts, we need to check “Allow Azure services on the trusted services list to access this storage account” then, use managed identity (System/User assigned) and provision Storage Blob Data Contributor RBAC role for that object ID.
+
+More information here - [Managed identity for storage accounts - Azure Cache for Redis](cache-managed-identity.md)
 
 ## Next steps
 
