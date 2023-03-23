@@ -31,9 +31,8 @@ The start of a machine learning project typically involves exploratory data anal
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
 1. Open or create a notebook in your workspace:
-    * [!INCLUDE [clone](includes/prereq-clone-notebook.md)]
-    * Create [a new notebook](quickstart-create-resources.md#create-a-new-notebook), if you want to copy/paste code into cells.
-    * Or, open **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio. Then select **Clone** to add the notebook to your **Files**. [!INCLUDE [find samples](includes/prereq-find-samples.md)]
+    * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
+    * Or, open **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 

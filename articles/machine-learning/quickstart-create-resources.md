@@ -85,7 +85,7 @@ Review the parts of the studio on the left-hand navigation bar:
 
 ## Learn from sample notebooks
 
-Use the sample notebooks available in studio to help you learn about how to train and deploy models.  To find these samples:
+Use the sample notebooks available in studio to help you learn about how to train and deploy models. They're referenced in many of the other articles and tutorials.
 
 1. On the left navigation, select **Notebooks**.
 1. At the top, select **Samples**.
@@ -98,7 +98,9 @@ Use the sample notebooks available in studio to help you learn about how to trai
 
 ## Create a new notebook
 
-When you clone a notebook from **Samples**, a copy is added to your files and you can start running or modifying it.  To create a new, empty notebook:
+When you clone a notebook from **Samples**, a copy is added to your files and you can start running or modifying it.  Many of the tutorials will mirror these sample notebooks.  
+
+But you could also create a new, empty notebook, then copy/paste code from a tutorial into the notebook.  To do so:
 
 1. Still in the **Notebooks** section, select **Files** to go back to your files,
 1. Select **+** to add files.

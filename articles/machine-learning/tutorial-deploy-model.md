@@ -39,8 +39,8 @@ The steps you'll take are:
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
 1. Open or create a notebook in your workspace:
-    * [!INCLUDE [clone](includes/prereq-clone-notebook.md)]
-    * Or, open **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. [!INCLUDE [find samples](includes/prereq-find-samples.md)]
+    * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
+    * Or, open **tutorials/get-started-notebooks/deploy-model.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
 
 1. If you already completed the earlier training tutorial, [Train a model](tutorial-train-model.md), you can skip to the next prerequisite.
 
