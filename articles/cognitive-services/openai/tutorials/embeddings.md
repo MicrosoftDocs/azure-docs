@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Install Azure OpenAI and other dependent Python libraries.
 > * Download the BillSum dataset and prepare it for analysis.
 > * Create environment variables for your resources endpoint and API key.
-> * Use the text-embedding-ada-002 model
+> * Use the **text-embedding-ada-002** model
 > * Use [cosine similarity](../concepts/understand-embeddings.md) to rank search results.
 
 ## Prerequisites
@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 * Access granted to Azure OpenAI in the desired Azure subscription
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
-* The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn,pandas, tiktoken.
+* The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, pandas, tiktoken.
 * [Jupyter Notebooks](https://jupyter.org/)
-* An Azure OpenAI resource with the text-embedding-ada-002 models deployed. This models is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
+* An Azure OpenAI resource with the text-embedding-ada-002 models deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
 
@@ -109,11 +109,11 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ---
 
-After setting the environment variables you may need to close and reopen Jupyter notebooks or whatever IDE you are using in order for the environment variables to be accessible. While we strongly recommend using Jupyter Notebooks, if for some reason you cannot you will need to modify any code that is returning a pandas dataframe by using `print(dataframe_name)` rather than just calling the `dataframe_name` directly as is often done at the end of a code block.
+After setting the environment variables, you may need to close and reopen Jupyter notebooks or whatever IDE you're using in order for the environment variables to be accessible. While we strongly recommend using Jupyter Notebooks, if for some reason you cannot you'll need to modify any code that is returning a pandas dataframe by using `print(dataframe_name)` rather than just calling the `dataframe_name` directly as is often done at the end of a code block.
 
 Run the following code in your preferred Python IDE:
 
-If you wish to view the Jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb).
+<!--If you wish to view the Jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb).-->
 
 ## Import libraries and list models
 
