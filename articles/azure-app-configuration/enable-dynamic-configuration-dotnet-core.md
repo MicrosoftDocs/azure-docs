@@ -140,6 +140,19 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
     > [!NOTE]
     > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
+## Troubleshooting
+
+You can use refresh logs to identify errors and debug your application. For information on how to enable these logs, follow the instructions for [Azure SDK logging](/dotnet/azure/sdk/logging).
+
+- Logs will be output to the console at different log levels.
+
+    | Log Level | Description |
+    |---|---|
+    | Information | Updates to values stored in the configuration. |
+    | Debug | Updates to key-values in the App Configuration store. |
+    | Warning | Indicates errors that occurred during refresh. |
+- The logging category will be `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`.
+
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]

@@ -226,9 +226,28 @@ The configuration refresh is triggered by the incoming requests to your web app.
     | TestApp:Settings:Message | Data from Azure App Configuration - now with live updates! |
     | TestApp:Settings:Sentinel | 2 |
 
+
+
 1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+
+## Troubleshooting
+
+You can use refresh logs to identify errors and debug your application.
+
+- Logging will be enabled automatically as long as `services.AddAzureAppConfiguration()` is invoked in your `ConfigureServices` method. No code changes are needed.  
+- Logs will be output to the console at different log levels.
+
+    | Log Level | Description |
+    |---|---|
+    | Information | Updates to values stored in the configuration. |
+    | Debug | Updates to key-values in the App Configuration store. |
+    | Warning | Indicates errors that occurred during refresh. |
+- The logging category will be `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`.
+
+For more information on how to utilize these logs, follow the configuration instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging). 
+Logs can alternatively be enabled and configured through [Azure SDK logging](/dotnet/azure/sdk/logging).
 
 ## Clean up resources
 
