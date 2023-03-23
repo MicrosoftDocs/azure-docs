@@ -133,12 +133,14 @@ Azure Machine Learning kubernetes online endpoints have limits described in the 
 | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
 | Number of endpoints per cluster | 20 |
 | Number of deployments per cluster | 200 |
 | Number of deployments per endpoint | 20 |
 | Max request time-out at endpoint level  | 300 seconds |
 
-
+The sum of kubernetes online endpoints and managed online endpoints under each subscription cannot exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription cannot exceed 200.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
