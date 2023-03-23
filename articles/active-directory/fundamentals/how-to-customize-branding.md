@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS.
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
 > [!NOTE]
 > Instructions for the legacy company branding customization process can be found in the **[Customize branding](customize-branding.md)** article.<br><br>The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -48,6 +48,20 @@ The **Global Administrator** role is required to customize company branding.
 
 **Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
 
+The branding elements are called out in the following example. Text descriptions are provided following the image.
+
+![Screenshot of the sign-in page, with each of the company branding elements highlighted.](media/how-to-customize-branding/company-branding-map.png)
+
+1. **Favicon**: Small icon that appears on the left side of the browser tab.
+1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
+1. **Background image** and **page background color**: The entire space behind the sign-in box.
+1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
+1. **Username hint and text**: The text that appears before a user enters their information.
+1. **Sign-in page text**: Additional text you can below the username field.
+1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
+1. **Template**: The layout of the page and sign-in boxes.
+1. **Footer**: Text in the lower-right corner of the page where you can add Terms of use or privacy information.
+
 ### User experience
 
 When customizing the sign-in pages that users see when accessing your organization's tenant-specific applications, there are some user experience scenarios you may need to consider.
@@ -64,6 +78,11 @@ In the following examples replace the contoso.com with your own tenant name, or 
 - For SharePoint online `https://contoso.sharepoint.com`
 - For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
+
+> [!NOTE]
+> The settings to manage the 'Stay signed in?' prompt can now be found in the User settings area of Azure AD. Go to **Azure AD** > **Users** > **User settings**.
+<br><br>
+For more information on the 'Stay signed in?' prompt, see [How to manage user profile information](how-to-manage-user-profile-info.md#learn-about-the-stay-signed-in-prompt).
 
 ## How to navigate the company branding process
 
@@ -115,7 +134,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
     
     Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links don't have to be related to privacy and cookies.
 
-- **Show 'Terms of Use'**: This option is also elected by default and displays the [Microsoft 'Terms of Use'](https://www.microsoft.com/servicesagreement/) link.
+- **Show 'Terms of Use'**: This option is also selected by default and displays the [Microsoft 'Terms of Use'](https://www.microsoft.com/servicesagreement/) link.
 
     Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links don't have to be related to your terms of use.
 
