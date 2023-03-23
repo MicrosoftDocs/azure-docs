@@ -88,7 +88,7 @@ When you use the Azure Health Insights container, the data contained in your API
 ### Run the container locally 
 
 > [!IMPORTANT]
-> The docker run command can only be used of the cancer-profiling model, to use the clinical-matching model, you should use the docker compose command. see [Example Docker compose file](#example-Docker-compose-file)
+> The docker run command can only be used of the cancer-profiling model, to use the clinical-matching model, you should use the docker compose command. see Example Docker compose file.
 
 To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:
 
