@@ -40,9 +40,7 @@ Many universities are also adopting the Microsoft 365 suite of productivity and 
 
 * Enhanced reporting and monitoring
 
-Azure AD doesn't natively support multilateral federation.
-
-This content describes a typical research university architecture and three solutions for federating authentication and access between universities. In these scenarios, non-Microsoft products are mentioned for illustrative purposes only and represent the broader class of product. For example, Shibboleth is used as an example of a federation provider.
+Because Azure AD doesn't natively support multilateral federation, this content describes three solutions for federating authentication and access between universities with typical research university architecture. In these scenarios, non-Microsoft products are mentioned for illustrative purposes only and represent the broader class of product. For example, Shibboleth is used as an example of a federation provider.
 
 ## Next steps
 
