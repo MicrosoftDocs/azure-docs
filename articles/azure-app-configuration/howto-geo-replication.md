@@ -138,7 +138,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
+Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
 
 **Connect with AAD**
 

@@ -18,7 +18,7 @@ ms.author: avgupta
 # Back up App Configuration stores automatically
 
 > [!IMPORTANT]
-> Azure App Configuration added [geo-replication](./concept-geo-replication.md) support recently. You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. You can also leverage App Configuration provider libraries in your applications for [automatic failover](./howto-geo-replication.md#use-replicas). The geo-replication feature is currently under preview. It will be the recommended solution for high availability when the feature is generally available.
+> Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. You can also leverage App Configuration provider libraries in your applications for [automatic failover](./howto-geo-replication.md#use-replicas). Utilizing geo-replication is the recommended solution for high availability.
 
 In this article, you'll learn how to set up an automatic backup of key-values from a primary Azure App Configuration store to a secondary store. The automatic backup uses the integration of Azure Event Grid with App Configuration.
 
