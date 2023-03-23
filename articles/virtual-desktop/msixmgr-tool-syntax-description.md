@@ -125,7 +125,7 @@ Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/c
 |Display Help at the command prompt|`msixmgr.exe -?`|
 
 
-##Next Steps
+## Next Steps
 Learn more about MSIX app attach at [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach) 
 
 
