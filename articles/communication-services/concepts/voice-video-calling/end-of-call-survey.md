@@ -23,7 +23,7 @@ ms.subservice: calling
  
 
 > [!NOTE] 
-> User-facing diagnostics is currently supported only for our JavaScript / Web SDK.
+> End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
 
 The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your **WebJS SDK? Only** calling solution. 
