@@ -219,15 +219,6 @@ Content-Type: application/problem+json; charset=utf-8
     GET /kv?key=abc*&label=v1,v2&api-version={api-version}
     ```
 
-### List snapshot key-values
-
-Use the ```snapshot``` filter when listing key-values.
-
-
-```http
-GET /kv?snapshot={snapshotName}&api-version={api-version}
-```
-
 ## Request specific fields
 
 Use the optional `$select` query string parameter and provide a comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.

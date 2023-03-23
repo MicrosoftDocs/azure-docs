@@ -249,9 +249,17 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 ## Create snapshot
 
-- Required: ``{name}``, ```filters```, ```filters[<index>].key```
-  - At least one filter is required.
-- Optional: ```tags```, ```filters[<index>].label```, ```composition_type```
+**parameters**
+
+| Property Name            | Required | Default value |
+|--------------------------|----------|---------------|
+| name                     | yes      | n/a           |
+| filters                  | yes      | n/a           |
+| filters[\<index\>].key   | yes      | n/a           |
+| filters[\<index\>].label | no       | null          |
+| tags                     | no       | {}            |
+| composition_type         | no       | all           |
+| retention_period         | no       | 2592000       |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
@@ -503,4 +511,16 @@ HTTP/1.1 412 PreconditionFailed
 
 ## List snapshot key-values
 
-Reference the [snapshot key-value section](./rest-api-key-value.md#list-snapshot-key-values) in the key-value document.
+Required: ``{name}``, ``{api-version}``
+
+```http
+GET /kv?snapshot={name}&api-version={api-version}
+```
+
+### Request specific fields
+
+Use the optional `$select` query string parameter and provide a comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
+
+```http
+GET /kv?snapshot={name}&$select=key,value&api-version={api-version} HTTP/1.1
+```
