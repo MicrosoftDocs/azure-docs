@@ -65,7 +65,7 @@ Setting up a machine learning pipeline typically involves all or some of these t
 
 This table compares the advantages and limitations of the three using machine learning pipeline implementation approaches:
 
-||Integrated notebook|External machine learning pipeline|Hybrid pipeline<br>(Integrated notebook, external model training)|
+||Integrated environment|External machine learning pipeline|Hybrid pipeline<br>(Scoring in an integrated environment, external model training)|
 |-|-|-|-|
 |**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
 |**Uses other Azure services**|Optional: You can integrate a notebook with Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>**Scoring**: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
@@ -73,19 +73,54 @@ This table compares the advantages and limitations of the three using machine le
 |**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which are possible to overcome by splitting query execution into chunks.|Cost of export and storage, increased latency due to export.|**Training**: Cost of export and training. |
 | |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Supports several GBs of data, or a few million records. |
 
+### Implement the steps in the machine learning lifecycle
 
-### Limitations of KQL machine learning capabilities
+### Explore data
 
-- Implementing custom machine learning models 
-- Built-in templated queries - The [MSTICPY Python library](https://msticpy.readthedocs.io/latest/getting_started/msticpyconfig.html) features built-in templated queries that invoke native KQL functions. 
+Azure Monitor offers a set of tools for exploring and preparing data for analytics and machine learning. The quickest ways to get started with data exploration is using:
 
-### Data Exploration 
+- [Log Analytics](../logs/log-analytics-tutorial.md) - Provides a rich set of tools for exploring and visualizing data in the Azure portal.
+- [Notebooks](../logs/jupyter-notebook-ml-azure-monitor-logs.md#integrate-your-log-analytics-workspace-with-your-notebook) - Run KQL queries on data in Azure Monitor Logs and visualize data using various libraries.
 
-Azure Monitor offers a set of different tools to explore data and prepare it for analytics and/or machine learning. One of the quickest ways to get started with data exploration is using Log Analytics Tool or using notebooks running
+To analyze logs outside of Azure Monitor, [export data out of your Log Analytics workspace](../logs/logs-data-export.md) and set up the environment in the service you choose. For an example of how to explore logs outside of Azure Monitor, see [How to analyze data exported from Log Analytics data using Synapse](https://techcommunity.microsoft.com/t5/azure-observability-blog/how-to-analyze-data-exported-from-log-analytics-data-using/ba-p/2547888).
 
+### Build and training models
+
+Machine learning training is a long and iterative process, which usually involves retrieving and cleaning the training data, engineer features, experimenting with various models, and tuning parameters until you find a model that's sufficiently accurate and robust. 
+
+**Examples:**
+
+- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#prepare-data-for-model-training)
+- [Train machine learning models with Apache Spark in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib)
+- [Train a model in Python with automated machine learning in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-azure-machine-learning-tutorial)
+
+### Deploy and score machine learning models 
+
+Scoring is the process of applying a machine learning model on new data to get predictions. Scoring usually needs to be done at scale with minimal latency, processing large sets of new records.  
+
+**Examples:**
+
+- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data).
+- [Score machine learning models with PREDICT in serverless Apache Spark pools](/azure/synapse-analytics/machine-learning/tutorial-score-model-predict-spark-pool).
+- [Deploy machine learning models to Azure](/azure/machine-learning/v1/how-to-deploy-and-where?tabs=azcli)
+
+### Get insights from scored data on schedule
+
+To run your notebook on schedule, you can follow below steps:
+
+1. You can run a notebook as a step in Azure Machine Learning Pipeline using NotebookRunnerStep
+2. Schedule machine learning pipeline
+
+### Converting Azure Monitor data to corresponding data type
+
+Different tools/libraries use different formats of data.
+
+You may need convert Azure Monitor data to appropriate format, pending on tool/library used and on way you chose to access Azure Monitor data.
+Received message. Here is the text converted to markdown: ``` # Data Exploration If you wish to analyze logs outside Azure Monitor – see How to analyze data exported from Log Anal
 
 
 Machine learning libraries example:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure Machine Learning SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
+
 ## Next steps
 
 - [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
