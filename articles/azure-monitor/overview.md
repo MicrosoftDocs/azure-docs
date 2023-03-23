@@ -133,7 +133,20 @@ The Azure portal is a web-based, unified console that provides an alternative to
 
 Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration. Insights are large, scalable, curated visualizations. 
 
+PNG WITH TRANSPARENT PADDING
 :::image type="content" source="media/overview/insights.png"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-large-in-overview-context.png":::
+
+PNG WITHOUT PADDING
+:::image type="content" source="media/overview/insights-no-padding.png"  alt-text="3Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-large-in-overview-context.png":::
+
+PNG SHRUNK SO RIGHT SIZE
+:::image type="content" source="media/overview/insights-shrink-for-size.png"  alt-text="4Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-large-in-overview-context.png":::
+
+SVG
+:::image type="content" source="media/overview/insights-no-scaling.svg"  alt-text="4Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-no-scaling.svg":::
+
+EXAMPLE TRANSPARENT LIGHT BOX
+See Data sources. 
 
 The following table describes some of the larger insights:
 
