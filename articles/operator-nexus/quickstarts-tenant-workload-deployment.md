@@ -1,7 +1,7 @@
 ---
 title: How to deploy tenant workloads
 description: Learn the steps for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
-author: dramasamymsft #Required; your GitHub user alias, with correct capitalization.
+author: dramasamy #Required; your GitHub user alias, with correct capitalization.
 ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
