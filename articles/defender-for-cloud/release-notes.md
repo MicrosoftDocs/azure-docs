@@ -19,11 +19,11 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## March 2023
 
 Updates in March include:
-- [Data-aware security posture is now in preview](data-aware-security-posture-preview)
+- [Data-aware security posture is now in preview](#data-aware-security-posture-preview)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
-- 
+
 
 ### Data-aware security posture (preview)
 
