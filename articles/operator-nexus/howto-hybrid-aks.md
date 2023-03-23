@@ -15,7 +15,7 @@ This document shows how to manage an AKS-Hybrid cluster that you use for CNF wor
 
 ## Before you begin
 
-You'll need:
+You need:
 
 1. You should have created an [AKS-Hybrid Cluster](./quickstarts-tenant-workload-deployment.md#section-k-how-to-create-aks-hybrid-cluster-for-deploying-cnf-workloads)
 2. <`YourAKS-HybridClusterName`>: the name of your previously created AKS-Hybrid cluster
@@ -66,7 +66,7 @@ To delete the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
       --subscription "<YourSubscription>"
 ```
 
-## Add nod epool command
+## Add node pool command
 
 To add a node pool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 ```azurecli
