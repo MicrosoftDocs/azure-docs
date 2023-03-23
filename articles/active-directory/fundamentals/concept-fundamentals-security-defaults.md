@@ -23,7 +23,7 @@ Microsoft is making security defaults available to everyone, because managing se
 
 Security defaults make it easier to help protect your organization from these identity-related attacks with preconfigured security settings:
 
-- [Requiring all users to register for Azure AD Multifactor Authentication](#require-all-users-to-register-for-azure-ad-multi-factor-authentication).
+- [Requiring all users to register for Azure AD Multifactor Authentication](#require-all-users-to-register-for-azure-ad-multifactor-authentication).
 - [Requiring administrators to do multifactor authentication](#require-administrators-to-do-multifactor-authentication).
 - [Requiring users to do multifactor authentication when necessary](#require-users-to-do-multifactor-authentication-when-necessary).
 - [Blocking legacy authentication protocols](#block-legacy-authentication-protocols).
