@@ -35,7 +35,7 @@ Typically, when using Trial Matcher in **patient centric** the service user prov
 ### Gradual matching
 Trial Matcher can be used to match patients with known structured medical information, or it can be used to collect the required medical information during the qualification process, which is known as Gradual matching. 
 
-Gradual matching can be utilized through any client application. One common implementation is by leveraging the [Azure Health Bot](/azure/health-bot/) to create a conversational mechanism for collecting information and qualifying patients. Information about integrating the Azure Health Bot with Trial Matcher can be found [here](azure-healthbot-integration.md).
+Gradual matching can be utilized through any client application. One common implementation is by leveraging the [Azure Health Bot](/azure/health-bot/) to create a conversational mechanism for collecting information and qualifying patients.
 
 When performing gradual matching, the response of each call to the Trial Matcher includes the needed [clinical info](patient-info.md) – health information derived from the subset of clinical trials found that is required to qualify the patient. This information should be captured from the user (e.g. by generating a question and waiting for user input) and sent back to the Trial Matcher in the following request, to perform a more accurate qualification.
 

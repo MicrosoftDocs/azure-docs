@@ -3,7 +3,7 @@ title: How to use Azure Health Insights containers
 titleSuffix: Azure Health Insights
 description: Learn how to use our Azure Health Insights models on premises using Docker containers.
 services: azure-health-insights
-author: behoorne
+author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: how-to
@@ -23,13 +23,13 @@ You must meet the following prerequisites before using Azure Health Insights con
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
-* A [Language resource ](.https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+* A [Language resource ](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 ## Host computer requirements and recommendations
 The host is an x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
 
-* [Azure Kubernetes Service](../articles/aks/index.yml).
-* [Azure Container Instances](../articles/container-instances/index.yml).
+* [Azure Kubernetes Service](../../articles/aks/index.yml).
+* [Azure Container Instances](../../articles/container-instances/index.yml).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 
@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-na
 ## Run the container with `docker run`
 
 Once the container is on the host computer, use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
-
+container-
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
@@ -80,15 +80,15 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 There are multiple ways you can install and run the Azure Health Insights containers. 
 
 - Use the Azure portal to create a Azure Health Insights resource, and use Docker to get your container.
-- Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](blob/main/articles/docker/index.yml).
-- Use PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
+- Use an Azure VM with Docker to run the container. 
+- Use PowerShell and Azure CLI scripts to automate resource deployment and container conffiguration.
 
 When you use the Azure Health Insights container, the data contained in your API requests and responses is not visible to Microsoft, and is **not** used for training the model applied to your data. 
 
 ### Run the container locally 
 
 > [!IMPORTANT]
-> The docker run command can only be used of the cancer-profiling model, to use the clinical-matching model, you should use the docker compose command. see [Example Docker compose file](#Example-Docker-compose-file)
+> The docker run command can only be used of the cancer-profiling model, to use the clinical-matching model, you should use the docker compose command. see [Example Docker compose file](#example-Docker-compose-file)
 
 To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:
 
@@ -189,13 +189,6 @@ There are several ways to validate that the container is running. Locate the *Ex
 | `http://localhost:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
 
-### Structure the API request for the container
-
-You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
-
-[!INCLUDE [Use APIs in container](../includes/container-request.md)]
-
-
 ## Stop the container
 
 To shut down the container, in the command-line environment where the container is running, select `Ctrl+C`.
@@ -203,7 +196,7 @@ To shut down the container, in the command-line environment where the container 
 
 ## Troubleshooting
 
-If you run the container with an output [mount](configure-containers.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 ## Billing
 
@@ -219,7 +212,7 @@ The container needs the billing argument values to run. These values allow the c
 
 ### Billing arguments
 
-The [docker run]("https://docs.docker.com/engine/reference/commandline/run/") command will start the container when all three of the following options are provided with valid values:
+The [docker run](https://docs.docker.com/engine/reference/commandline/run/) command will start the container when all three of the following options are provided with valid values:
 
 | Option | Description |
 |--------|-------------|

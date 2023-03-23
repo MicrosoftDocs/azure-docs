@@ -3,7 +3,7 @@ title: Configure Azure Health Insights containers
 titleSuffix: Azure Health Insights
 description: Azure Health Insights containers uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: azure-health-insights
-author: behoorne
+author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: how-to
@@ -57,7 +57,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](use-containers.md#gather-required-parameters).
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](use-containers.md).
 
 ## Eula setting
 
