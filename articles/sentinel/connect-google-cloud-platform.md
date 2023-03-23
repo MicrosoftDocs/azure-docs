@@ -32,16 +32,16 @@ Before you begin, verify that you have:
 
 - The Microsoft Sentinel solution enabled. 
 - A defined Microsoft Sentinel workspace.
-- A GCP environment collecting GCP Audit Logs. 
+- A GCP environment collecting GCP audit logs. 
 - The Microsoft Sentinel Contributor role.
 - Access to edit and create resources in the GCP project. 
 
-### Set up GCP environment
+## Set up GCP environment
 
 You can set up the GCP environment in one of two ways:
 
 - [Create GCP resources via the Terraform API](#create-gcp-resources-via-the-terraform-api): Terraform provides an API for the Identity and Access Management (IAM) that creates the resources: The topic, a subscription for the topic, a workload identity pool, a workload identity provider, a service account, and a role.  
-- [Set up GCP environment manually](#) via the GCP console
+- [Set up GCP environment manually](#) via the GCP console.
 
 ### Create GCP resources via the Terraform API
 
@@ -65,8 +65,8 @@ You can set up the GCP environment in one of two ways:
     ```
 
 1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). 
-1. When asked if a workload Identity Pool has already been created for Azure, type **yes** or **no**.  
-1. When asked if you want to create the resources listed, type **yes**.
+1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.  
+1. When asked if you want to create the resources listed, type *yes*.
 1. Save the resources parameters for later use. 	
 1. In a new folder, copy the Terraform `GCPAuditLogsSetup` script into a new file, and save it as a .tf file:
 
@@ -91,7 +91,7 @@ You can set up the GCP environment in one of two ways:
     terraform apply -var="organization-id= {organizationId} "					 
     ```
 
-1. Type **yes**. 						 
+1. Type *yes*. 						 
 
 1. Save the resource parameters for later use.  
 
@@ -119,11 +119,11 @@ TBD - screenshot
    | take 10 
     ```
 
-1. Enable the [health feature](enable-monitoring) for data connectors. 
+1. Enable the [health feature](enable-monitoring.md) for data connectors. 
 
 ### Set up the GCP environment manually via the GCP portal
 
-Alternatively, you can set up the environment [via the Terraform API](#create-gcp-resources-via-the-terraform-api).
+This section shows you how to manually set up the GCP environment. Alternatively, you can set up the environment [via the Terraform API](#create-gcp-resources-via-the-terraform-api). If you already set up the environment via the API, skip this section.
 
 #### Create the role 
 
@@ -133,7 +133,7 @@ Alternatively, you can set up the environment [via the Terraform API](#create-gc
 1. Filter the permissions by the **Pub/Sub Subscriber** and **Pub/Sub Viewer** roles, and select **pubsub.subscriptions.consume** and **pubsub.subscriptions.get** permissions. 
 1. To confirm, select **ADD**. 
 
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-role.png" alt-text="Screenshot of adding permissions when adding a GCP role.":::
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-role.png" alt-text="Screenshot of adding permissions when adding a GCP role." lightbox="media/connect-google-cloud-platform/gcp-create-role.png":::
 
 1. To create the role, select **Create**. 
 
@@ -198,17 +198,17 @@ Alternatively, you can set up the environment [via the Terraform API](#create-gc
 1. If needed, filter the logs by selecting specific logs to include. Otherwise, all logs are sent. 
 1. Select **Create sink**.  
 
-    > [!NOTE]
-    > To ingest logs for the entire organization: 
-    > 1. Select the organization under **Project**. 
-    > 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.  
+> [!NOTE]
+> To ingest logs for the entire organization: 
+> 1. Select the organization under **Project**. 
+> 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.  
 
     TBD - screenshot
  
 #### Verify that GCP can receive incoming messages 
 
 1. In the GCP console, navigate to **Subscriptions**.
-1. Select **Messages**, and select **PULL** button to initiate a manual pull. 
+1. Select **Messages**, and select **PULL** to initiate a manual pull. 
 1. Check the incoming messages.  
 
 ## Next steps
