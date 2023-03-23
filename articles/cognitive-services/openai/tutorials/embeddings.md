@@ -230,6 +230,8 @@ df_bills
 Next we'll perform some light data cleaning by removing redundant whitespace and cleaning up the punctuation to prepare the data for tokenization.
 
 ```python
+pd.options.mode.chained_assignment = None #https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#evaluation-order-matters
+
 # s is input text
 def normalize_text(s, sep_token = " \n "):
     s = re.sub(r'\s+',  ' ', s).strip()
@@ -242,17 +244,14 @@ def normalize_text(s, sep_token = " \n "):
     
     return s
 
-df_bills_copy= df_bills.copy() # temp copy to avoid undefined behavior during lambda
-df_bills_copy['text']= df_bills["text"].apply(lambda x : normalize_text(x))
-df_bills= df_bills_copy
+df_bills['text']= df_bills["text"].apply(lambda x : normalize_text(x))
 ```
 
 Now we need to remove any bills that are too long for the token limit (8192 tokens).
 
 ```python
 tokenizer = tiktoken.get_encoding("cl100k_base")
-df_bills_copy['n_tokens'] = df_bills["text"].apply(lambda x: len(tokenizer.encode(x)))
-df_bills = df_bills_copy
+df_bills['n_tokens'] = df_bills["text"].apply(lambda x: len(tokenizer.encode(x)))
 df_bills = df_bills[df_bills.n_tokens<8192]
 len(df_bills)
 ```
@@ -263,8 +262,8 @@ len(df_bills)
 20
 ```
 
- > [!Note]
- > In this case all bills are under the embedding model input token limit, but you can use the technique above to remove entries that would otherwise cause embedding to fail. When faced with content that exceeds the embedding limit, you can also chunk the content into smaller pieces and then embed those one at a time.
+>[!NOTE]
+>In this case all bills are under the embedding model input token limit, but you can use the technique above to remove entries that would otherwise cause embedding to fail. When faced with content that exceeds the embedding limit, you can also chunk the content into smaller pieces and then embed those one at a time.
 
 We'll once again examine **df_bills**.
 
@@ -351,11 +350,10 @@ len(decode)
 1466
 ```
 
-Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers which will be accessible via vector search. These embeddings can be stored locally or in an Azure Database. As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
+Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an Azure Database. As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
 
 ```python
-df_bills_copy['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) #engine should be set to the deployment name you chose when you deployed the ada-002 model
-df_bills = df_bills_copy  
+df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the ada-002 model
 ```
 
 ```python
