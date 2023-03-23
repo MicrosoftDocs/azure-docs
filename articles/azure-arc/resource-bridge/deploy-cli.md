@@ -17,7 +17,7 @@ ms.topic: overview
 
 This topic provides an overview of the [Azure CLI commands](/cli/azure/arcappliance) that are used to manage Arc resource bridge (preview) deployment, in the order in which they are typically used for deployment.
 
-## az arcappliance createconfig
+## `az arcappliance createconfig`
 
 This command creates the configuration files used by Arc resource bridge. Credentials that are provided during `createconfig`, such as vCenter credentials for VMware vSphere, are stored in a configuration file and locally within Arc resource bridge. These credentials should be a separate user account used only by Arc resource bridge, with permission to view, create, delete, and manage on-premises resources. If the credentials change, then the credentials on the resource bridge should be updated.
 
@@ -30,27 +30,27 @@ This command also calls the `validate` command to check the configuration files.
 > [!NOTE]
 > Azure Stack HCI and Hybrid AKS use different commands to create the Arc resource bridge configuration files.
 
-## az arcappliance validate
+## `az arcappliance validate`
 
-The `validate` command checks the configuration files for a valid schema, cloud and core validations (such as management machine connectivity to required URLs), network settings, and proxy settings. It also performs tests on identity privileges and role assignments, network configuration, load balancer configuration and content delivery network connectivity.
+The `validate` command checks the configuration files for a valid schema, cloud and core validations (such as management machine connectivity to [required URLs](network-requirements.md)), network settings, and proxy settings. It also performs tests on identity privileges and role assignments, network configuration, load balancer configuration and content delivery network connectivity.
 
-## az arcappliance prepare
+## `az arcappliance prepare`
 
 This command downloads the OS images from Microsoft that are used to deploy the on-premises appliance VM. Once downloaded, the images are then uploaded to the local cloud image gallery to prepare for the creation of the appliance VM.
 
 This command takes about 10-30+ minutes to complete, depending on the network speed. Allow the command to complete before continuing with the deployment.
 
-## az arcappliance deploy
+## `az arcappliance deploy`
 
 The `deploy` command deploys an on-premises instance of Arc resource bridge as an appliance VM, bootstrapped to be a Kubernetes management cluster. This command gets all necessary pods and agents within the Kubernetes cluster into a running state. Once the appliance VM is up, the kubeconfig file is generated.
 
-## az arcappliance create
+## `az arcappliance create`
 
 This command creates Arc resource bridge in Azure as an ARM resource, then establishes the connection between the ARM resource and on-premises appliance VM.
 
 Once the `create` command initiates the connection, it will return in the terminal, even though the connection between the ARM resource and on-premises appliance VM is not yet complete. The resource bridge needs about 5 minutes to establish the connection between the ARM resource and the on-premises VM.
 
-## az arcappliance show
+## `az arcappliance show`
 
 The `show` command gets the status of the Arc resource bridge and ARM resource information. It can be used to check the progress of the connection between the ARM resource and on-premises appliance VM.
 
@@ -62,7 +62,7 @@ While the Arc resource bridge is connecting the ARM resource to the on-premises 
 
 Successful Arc resource bridge creation results in `ProvisioningState = Succeeded` and `Status = Running`.
 
-## az arcappliance delete
+## `az arcappliance delete`
 
 This command deletes the appliance VM and Azure resources. It doesn't clean up the OS image, which remains in the on-premises cloud gallery.
 
