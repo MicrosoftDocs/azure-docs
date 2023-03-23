@@ -61,7 +61,7 @@ Use the following procedures to install and test network latency with [Latte](ht
 
 ### Install Latte and configure VMs
 
-1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe) into a separate folder on your computer, such as *c:\\tools*.
+1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe) to both VMs, into a separate folder such as *c:\\tools*.
 
 1. On the *receiver* VM, create a Windows Defender Firewall `allow` rule to allow the Latte traffic to arrive through Windows Defender Firewall. It's easiest to allow the *latte.exe* program by name rather than to allow specific inbound TCP ports. In the command, replace the `<path>` placeholder with the path you downloaded *latte.exe* to, such as *c:\\tools\\*.
 
@@ -86,7 +86,7 @@ Use the following procedures to install and test network latency with [Latte](ht
 
    ```cmd
    latte -c -a <receiver IP address>:<port> -i <iterations>
-```
+   ```
 
    For example:
    
@@ -126,6 +126,7 @@ On both the *sender* and *receiver* Linux VMs, run the following commands to pre
     sudo apt update
     sudo apt upgrade
 ```
+
 ---
 
 ### Copy, compile, and install SockPerf
