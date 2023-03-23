@@ -2,8 +2,8 @@
 title: Add a bubble layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps iOS SDK to add and customize bubble layers for this purpose.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
