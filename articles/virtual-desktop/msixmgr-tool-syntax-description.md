@@ -19,13 +19,12 @@ This article contains an overview of the command-line syntax to help you underst
 
 ## Prerequisites:
 
-- [Requirements](/https://learn.microsoft.com/en-us/azure/virtual-desktop/app-attach-msixmgr#requirements)   
+- [Requirements](/azure/virtual-desktop/app-attach-msixmgr#requirements)   
 - [MSIX App Attach](/azure/virtual-desktop/app-attach-azure-portal)  
 - [Using the MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
 
+
 ## Syntax
-
-
 
   
 **-AddPackage or -p**
@@ -127,6 +126,6 @@ Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/c
 
 
 ##Next Steps
-Learn more about MSIX app attach at [What is MSIX app attach?](/ https://learn.microsoft.com/azure/virtual-desktop/what-is-app-attach) 
+Learn more about MSIX app attach at [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach) 
 
 
