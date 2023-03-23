@@ -152,8 +152,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
              nodes: all
            my_ssh:
             job_service_type: ssh
-            properties:
-              sshPublicKeys: <paste the entire pub key content>
+            ssh_public_keys: <paste the entire pub key content>
             nodes: all
    ```
 
