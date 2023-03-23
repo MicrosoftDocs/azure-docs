@@ -10,4 +10,4 @@ ms.author: sgilley
 ms.custom: include file
 ---
 
-([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
+([See where to find **Samples**](../quickstart-create-resources.md#learn-from-sample-notebooks).)

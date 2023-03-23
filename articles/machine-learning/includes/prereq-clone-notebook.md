@@ -10,4 +10,4 @@ ms.author: sgilley
 ms.custom: include file
 ---
 
-Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](quickstart-create-resources.md#learn-from-sample-notebooks).)
+Then select **Clone** to add the notebook to your **Files**. ([See where to find **Samples**](../quickstart-create-resources.md#learn-from-sample-notebooks).)
