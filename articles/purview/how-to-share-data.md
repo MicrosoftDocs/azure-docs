@@ -46,7 +46,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     Set-AzContext -SubscriptionId [Your Azure subscription ID]
     ```
     ```azurepowershell
-    Register-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"​
+    Register-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"
     ```
     ```azurepowershell
     Get-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"   
@@ -54,7 +54,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
      In addition, to use data share for storage accounts in East US, East US2, North Europe, Southcentral US, West Central US, West Europe, West US, West US2: 
 
     ```azurepowershell
-    Register-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"​
+    Register-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"
     ```
     ```azurepowershell
     Get-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"   
