@@ -33,13 +33,10 @@ The following code snippet defines a function triggered from Azure Blob Storage:
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="BlobTrigger1")
-@app.blob_trigger(arg_name="myblob", 
-                  path="PATH/TO/BLOB",
-                  connection="CONNECTION_SETTING")
+@app.blob_trigger(arg_name="myblob", path="samples-workitems/{name}",
+                  connection="AzureWebJobsStorage")
 def test_function(myblob: func.InputStream):
    logging.info(f"Python blob trigger function processed blob \n"
                 f"Name: {myblob.name}\n"
@@ -51,14 +48,12 @@ def test_function(myblob: func.InputStream):
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="BlobInput1")
 @app.route(route="file")
 @app.blob_input(arg_name="inputblob",
-                path="PATH/TO/BLOB",
-                connection="CONNECTION_SETTING")
+                path="sample-workitems/{name}",
+                connection="AzureWebJobsStorage")
 def test(req: func.HttpRequest, inputblob: bytes) -> func.HttpResponse:
     logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     return inputblob
@@ -69,17 +64,15 @@ def test(req: func.HttpRequest, inputblob: bytes) -> func.HttpResponse:
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="BlobOutput1")
 @app.route(route="file")
 @app.blob_input(arg_name="inputblob",
-                path="PATH/TO/BLOB",
-                connection="CONNECTION_SETTING")
+                path="sample-workitems/test.txt",
+                connection="AzureWebJobsStorage")
 @app.blob_output(arg_name="outputblob",
-                 path="PATH/TO/BLOB",
-                 connection="CONNECTION_SETTING")
+                path="newblob/test.txt",
+                connection="AzureWebJobsStorage")
 def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
     logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     outputblob.set(inputblob)
@@ -93,14 +86,9 @@ The following code snippet defines a function triggered from an Azure Cosmos DB 
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="CosmosDBTrigger1")
-@app.cosmos_db_trigger(arg_name="documents", 
-                       database_name="DB_NAME", 
-                       collection_name="COLLECTION_NAME", 
-                       connection_string_setting="CONNECTION_SETTING",
+@app.cosmos_db_trigger(arg_name="documents", database_name="<DB_NAME>", collection_name="<COLLECTION_NAME>", connection_string_setting=""AzureWebJobsStorage"",
  lease_collection_name="leases", create_lease_collection_if_not_exists="true")
 def test_function(documents: func.DocumentList) -> str:
     if documents:
@@ -112,14 +100,12 @@ def test_function(documents: func.DocumentList) -> str:
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.route()
-@app.cosmos_db_input(arg_name="documents",
-                     database_name="DB_NAME",
-                     collection_name="COLLECTION_NAME",
-                     connection_string_setting="CONNECTION_SETTING")
+@app.cosmos_db_input(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    connection_string_setting="CONNECTION_SETTING")
 def cosmosdb_input(req: func.HttpRequest, documents: func.DocumentList) -> str:
     return func.HttpResponse(documents[0].to_json())
 ```
@@ -129,15 +115,12 @@ def cosmosdb_input(req: func.HttpRequest, documents: func.DocumentList) -> str:
 ```python
 import logging
 import azure.functions as func
-
-app = func.FunctionApp()
-
 @app.route()
-@app.cosmos_db_output(arg_name="documents", 
-                      database_name="DB_NAME",
-                      collection_name="COLLECTION_NAME",
-                      create_if_not_exists=True,
-                      connection_string_setting="CONNECTION_SETTING")
+@app.cosmos_db_output(
+    arg_name="documents", database_name="<DB_NAME>",
+    collection_name="<COLLECTION_NAME>",
+    create_if_not_exists=True,
+    connection_string_setting="CONNECTION_SETTING")
 def main(req: func.HttpRequest, documents: func.Out[func.Document]) -> func.HttpResponse:
     request_body = req.get_body()
     documents.set(func.Document.from_json(request_body))
@@ -151,13 +134,10 @@ The following code snippet defines a function triggered from an event hub instan
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="EventHubTrigger1")
-@app.event_hub_message_trigger(arg_name="myhub", 
-                               event_hub_name="EVENT_HUB_NAME",
-                               connection="CONNECTION_SETTING") 
+@app.event_hub_message_trigger(arg_name="myhub", event_hub_name="samples-workitems",
+                               connection=""CONNECTION_SETTING"") 
 def test_function(myhub: func.EventHubEvent):
     logging.info('Python EventHub trigger processed an event: %s',
                 myhub.get_body().decode('utf-8'))
@@ -168,13 +148,11 @@ def test_function(myhub: func.EventHubEvent):
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="eventhub_output")
 @app.route(route="eventhub_output")
 @app.event_hub_output(arg_name="event",
-                      event_hub_name="EVENT_HUB_NAME",
+                      event_hub_name="samples-workitems",
                       connection="CONNECTION_SETTING")
 def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
     body = req.get_body()
@@ -192,16 +170,25 @@ The following code snippet defines an HTTP triggered function:
 ```python
 import azure.functions as func
 import logging
-
 app = func.FunctionApp(auth_level=func.AuthLevel.ANONYMOUS)
-
 @app.function_name(name="HttpTrigger1")
 @app.route(route="hello")
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-    return func.HttpResponse(
-        "This HTTP triggered function executed successfully.",
-        status_code=200
+     logging.info('Python HTTP trigger function processed a request.')
+     name = req.params.get('name')
+     if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+     if name:
+        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+     else:
+        return func.HttpResponse(
+             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             status_code=200
         )
 ```
 
@@ -210,13 +197,10 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="QueueTrigger1")
-@app.queue_trigger(arg_name="msg", 
-                   queue_name="QUEUE_NAME",
-                   connection="CONNECTION_SETTING")  
+@app.queue_trigger(arg_name="msg", queue_name="python-queue-items",
+                   connection=""AzureWebJobsStorage"")  
 def test_function(msg: func.QueueMessage):
     logging.info('Python EventHub trigger processed an event: %s',
                  msg.get_body().decode('utf-8'))
@@ -227,14 +211,10 @@ def test_function(msg: func.QueueMessage):
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="QueueOutput1")
 @app.route(route="message")
-@app.queue_output(arg_name="msg", 
-                  queue_name="QUEUE_NAME", 
-                  connection="CONNECTION_SETTING")
+@app.queue_output(arg_name="msg", queue_name="python-queue-items", connection="AzureWebJobsStorage")
 def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('name')
     msg.set(input_msg)
@@ -248,13 +228,9 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="ServiceBusQueueTrigger1")
-@app.service_bus_queue_trigger(arg_name="msg", 
-                               queue_name="QUEUE_NAME", 
-                               connection="CONNECTION_SETTING")
+@app.service_bus_queue_trigger(arg_name="msg", queue_name="myinputqueue", connection="CONNECTION_SETTING")
 def test_function(msg: func.ServiceBusMessage):
     logging.info('Python ServiceBus queue trigger processed message: %s',
                  msg.get_body().decode('utf-8'))
@@ -265,14 +241,9 @@ def test_function(msg: func.ServiceBusMessage):
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="ServiceBusTopicTrigger1")
-@app.service_bus_topic_trigger(arg_name="message", 
-                               topic_name="TOPIC_NAME", 
-                               connection="CONNECTION_SETTING", 
-                               subscription_name="SUBSCRIPTION_NAME")
+@app.service_bus_topic_trigger(arg_name="message", topic_name="mytopic", connection="CONNECTION_SETTING", subscription_name="testsub")
 def test_function(message: func.ServiceBusMessage):
     message_body = message.get_body().decode("utf-8")
     logging.info("Python ServiceBus topic trigger processed message.")
@@ -284,13 +255,12 @@ def test_function(message: func.ServiceBusMessage):
 ```python
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.route(route="put_message")
-@app.service_bus_topic_output(arg_name="message",
-                              connection="CONNECTION_SETTING",
-                              topic_name="TOPIC_NAME")
+@app.service_bus_topic_output(
+    arg_name="message",
+    connection="CONNECTION_SETTING",
+    topic_name="mytopic")
 def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
     message.set(input_msg)
@@ -303,13 +273,10 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 import datetime
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
-
 @app.function_name(name="mytimer")
-@app.schedule(schedule="0 */5 * * * *", 
-              arg_name="mytimer",
-              run_on_startup=True) 
+@app.schedule(schedule="0 */5 * * * *", arg_name="mytimer", run_on_startup=True,
+              use_monitor=False) 
 def test_function(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
         tzinfo=datetime.timezone.utc).isoformat()
