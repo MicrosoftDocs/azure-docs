@@ -185,130 +185,120 @@ Use Service Provider settings for the properties of the SAML SP instance of the 
 
 ### Azure AD
 
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **Oracle E-Business Suite > Add**.
+Easy Button has application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. The following screenshot is the Oracle E-Business Suite option under Azure Configuration
 
-![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
+1. Select **Oracle E-Business Suite**.
+2. Select **Add**.
+
+   ![Screenshot of the Oracle E-Business Suite option under Azure Configuration.](./media/f5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on [MyApps portal](https://myapplications.microsoft.com/)
-
-2. In the **Sign On URL (optional)** enter the public FQDN of the EBS application being secured, along with the default path for the Oracle EBS homepage
+1. Enter a **Display Name** for the app BIG-IP creates in your Azure AD tenant, and the icon on the MyApps portal.
+2. In **Sign On URL (optional)**, enter the EBS application public FQDN.
+3. Enter the default path for the Oracle EBS homepage.
 
     ![Screenshot for Azure configuration add display info](./media/f5-big-ip-oracle/azure-configuration-add-display-info.png)
 
-3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
+3. Next to the **Signing Key** and **Signing Certificate**, select the **refresh** icon.
+4. Locate the certificate you imported.
+5. In **Signing Key Passphrase**, enter the certificate password.
+6. (Optional) Enable **Signing Option**. This ensures BIG-IP accepts tokens and claims signed by Azure AD.
 
-4. Enter the certificate’s password in **Signing Key Passphrase**
+    ![Screenshot of options and entries for Signing Key, Signing Certificate, and Signing Key Passphrase.](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-5. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
+7. For **User And User Groups**, add a user or group for testing, otherwise all access is denied. Users and user groups are dynamically queried from the Azure AD tenant and authorize access to the application. 
 
-    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
-
-6. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
-
-    ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+    ![Screenshot of the Add option under User And User Groups.](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
-When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.
+When a user authenticates, Azure AD issues a SAML token with default claims and attributes identifying the user. The **User Attributes & Claims** tab has default claims to issue for the new application. Use this area to configure more claims. If needed, add Azure AD attributes, however the Oracle EBS scenario requires the default attributes.
 
-   ![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
-
-You can include additional Azure AD attributes if necessary, but the Oracle EBS scenario only requires the default attributes.
+   ![Screenshot of options and entries for User Attributes and Claims.](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
 
 #### Additional User Attributes
 
-The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.
+The **Additional User Attributes** tab supports distributed systems that require attributes stored in directories for session augmentation. Attributes fetched from an LDAP source are injected as more SSO headers to control access based on roles, partner ID, etc.
 
-1. Enable the **Advanced Settings** option
+1. Enable the **Advanced Settings** option.
+2. Check the **LDAP Attributes** check box.
+3. In **Choose Authentication Server**, select **Create New**.
+4. Depending on your setup, select **Use pool** or **Direct** server connection mode. This provides the target LDAP service server address. For a single LDAP server, select **Direct**.
+5. For **Service Port**, enter **3060** (Default), **3161** (Secure), or another port for the Oracle LDAP service.
+6. Enter a **Base Search DN**. Use the distinguished name (DN) to search for groups in a directory.
+7. For **Admin DN** enter the account distinguished name APM uses to authenticate LDAP queries.
+8. For **Admin Password**, enter the password.
 
-2. Check the **LDAP Attributes** check box
+   ![Screenshot of options and entries for Additional User Attributes.](./media/f5-big-ip-oracle/additional-user-attributes.png)
 
-3. Select **Create New** in **Choose Authentication Server**
-
-4. Select **Use pool** or **Direct** server connection mode depending on your setup. This provides the **Server Address** of the target LDAP service. If using a single LDAP server, select **Direct**.
-
-5. Enter **Service Port** as 3060 (Default), 3161 (Secure), or any other port your Oracle LDAP service operates on
-
-6. Enter the **Base Search DN** (distinguished name) from which to search. This search DN is used to search groups across a whole directory.
-
-7. Set the **Admin DN** to the exact distinguished name for the account the APM will use to authenticate for LDAP queries, along with its password
-
-   ![Screenshot for additional user attributes](./media/f5-big-ip-oracle/additional-user-attributes.png)
-
-8. Leave all default **LDAP Schema Attributes**
+9. Leave the default **LDAP Schema Attributes**.
 
    ![Screenshot for LDAP schema attributes](./media/f5-big-ip-oracle/ldap-schema-attributes.png)
 
-9. Under **LDAP Query Properties**, set the **Search Dn** to the base node of the LDAP server from which to search for user objects 
+10. Under **LDAP Query Properties**, for **Search Dn** enter the LDAP server base node for user object search.
+11. For **Required Attributes**, enter the user object attribute name to be returned from the LDAP directory. For EBS, the default is **orclguid**.
 
-10. Add the name of the user object attribute that must be returned from the LDAP directory. For EBS, the default is **orclguid**
-
-    ![Screenshot for LDAP query properties.png](./media/f5-big-ip-oracle/ldap-query-properties.png)
+    ![Screenshot of entries and options for LDAP Query Properties](./media/f5-big-ip-oracle/ldap-query-properties.png)
 
 #### Conditional Access Policy
 
-Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies control access based on device, application, location, and risk signals. Policies are enforced after Azure AD preauthentication. The Available Policies view has Conditional Access policies with no user actions. The Selected Policies view has policies for cloud apps. You can't deselect these policies or move them to Available Policies because they're enforced at the tenant level.
 
-The **Available Policies** view, by default, will list all Conditional Access policies that do not include user-based actions.
+To select a policy for the application to be published:
 
-The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
-
-To select a policy to be applied to the application being published:
-
-1. Select the desired policy in the **Available Policies** list
-
-2. Select the right arrow and move it to the **Selected Policies** list
-
-   The selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the policy is not enforced.
-
-   ![Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+1. In **Available Policies**, select a policy.
+2. Select the **right arrow** and move it to **Selected Policies**.
 
 > [!NOTE]
-> The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+> The **Include** or **Exclude** option is selected for some policies. If both options are checked, the policy is unenforced.
+
+   ![Screenshot of the Exclude option selected for four polices.](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+
+> [!NOTE]
+> The policy list appears when you select the **Conditional Access Policy** tab. Use the **Refresh** button for the wizard to query your tenant. Refresh appears for deployed applications.
 
 ### Virtual Server Properties
 
-A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
+A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for application client requests. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Then, traffic is directed according to policy.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
+1. Enter a **Destination Address**, an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS that enables clients to resolve the external URL, of the BIG-IP published application, to the IP. Use a test computer localhost DNS for testing.
+3. For **Service Port**, enter **443**, and select **HTTPS**.
+4. Select **Enable Redirect Port**.
+5. For **Redirect Port**, enter **80**, and select **HTTP**. This action redirects incoming HTTP client traffic to HTTPS.
+6. Select the **Client SSL Profile** you created, or leave the default for testing. Client SSL Profile enables the virtual server for HTTPS. Client connections are encrypted over TLS. 
 
-2. Enter **Service Port** as *443* for HTTPS
-
-3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
-
-4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
-
-   ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+   ![Screenshot of options and selections for Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
-The **Application Pool tab** details the services behind a BIG-IP, represented as a pool containing one or more application servers.
+The **Application Pool** tab has services behind a BIG-IP, a pool with one or more application servers.
 
-1. Choose from **Select a Pool**. Create a new pool or select an existing one
+1. From **Select a Pool**, select **Create New**, or select another option.
+2. For **Load Balancing Method**, select **Round Robin**.
+3. Under **Pool Servers**, select and enter an **IP Address/Node Name** and **Port** for the servers hosting Oracle EBS.
+4. Select **HTTPS**.
 
-2. Choose the **Load Balancing Method** as *Round Robin*
+   ![Screenshot of options and selections for Pool Properties](./media/f5-big-ip-oracle/application-pool.png)
 
-3. For **Pool Servers** select an existing node or specify an IP and port for the servers hosting the Oracle EBS application.
+4. Under **Access Gate Pool** confirm the **Access Gate Subpath**. 
+5. For **Pool Servers** select and enter an **IP Address/Node Name** and **Port** for the servers hosting Oracle EBS.
+6. Select **HTTPS**.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
-
-4. The **Access Gate Pool** specifies the servers Oracle EBS uses for mapping an SSO authenticated user to an Oracle E-Business Suite session. Update **Pool Servers** with the IP and port for of the Oracle application servers hosting the application
-
-   ![Screenshot for AccessGate pool](./media/f5-big-ip-oracle/accessgate-pool.png)
+   ![Screenshot of options and entries for Access Gate Pool.](./media/f5-big-ip-oracle/accessgate-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
-The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. As the Oracle EBS application expects headers, enable **HTTP Headers** and enter the following properties.
+The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. The Oracle EBS application expects headers, enable HTTP headers.
 
-* **Header Operation:** replace
-* **Header Name:** USER_NAME
-* **Header Value:** %{session.sso.token.last.username}
+1. On **Single Sign-On & HTTP Headers**, select **HTTP Headers**.
+2. For **Header Operation**, select **replace**.
+3. For **Header Name**, enter **USER_NAME**.
+4. For **Header Value**, enter **%{session.sso.token.last.username}**.
 
-* **Header Operation:** replace
-* **Header Name:** USER_ORCLGUID
-* **Header Value:** %{session.ldap.last.attr.orclguid}
+* **Header Operation** replace
+* **Header Name** USER_ORCLGUID
+* **Header Value** %{session.ldap.last.attr.orclguid}
 
    ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
