@@ -891,13 +891,13 @@
           items:
             - name: How to work with Batch endpoints
               href: how-to-use-batch-endpoint.md
-            - name: Create jobs and input data for batch endpoints
+            - name: Create jobs and input data to batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
             - name: Deploy models
               items:
                 - name: Batch scoring with batch endpoints
                   href: how-to-use-batch-model-deployments.md
-                - name: Author scoring scripts for batch scoring
+                - name: Author scoring scripts
                   href: how-to-batch-scoring-script.md
                 - name: Customize outputs in batch jobs
                   href: how-to-deploy-model-custom-output.md
@@ -907,18 +907,16 @@
                   href: how-to-image-processing-batch.md
                 - name: Text processing with batch deployments
                   href: how-to-nlp-processing-batch.md
-            - name: Deploy components
+            - name: Deploy pipeline components (Preview)
               items:
                 - name: Deploy pipelines with batch endpoints
                   href: how-to-use-batch-pipeline-deployments.md
-                - name: Create batch endpoints from jobs
-                  href: how-to-use-batch-pipeline-from-job.md
                 - name: Operationalize a training pipeline on batch endpoints
                   href: how-to-use-batch-training-pipeline.md
                 - name: Operationalize a scoring pipeline on batch endpoints
                   href: how-to-use-batch-scoring-pipeline.md
-                - name: Deploy pipelines on Spark compute (Preview)
-                  href: how-to-use-batch-scoring-spark.md
+                - name: Create batch endpoints from pipeline jobs
+                  href: how-to-use-batch-pipeline-from-job.md
             - name: Security
               items:
                 - name: Authorization on batch endpoints
@@ -935,7 +933,7 @@
                   href: how-to-use-batch-azure-data-factory.md
                 - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
-                - name: Use REST to deploy a model as batch endpoints
+                - name: Use REST with batch endpoints
                   href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
