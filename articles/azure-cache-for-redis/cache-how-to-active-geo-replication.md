@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 03/23/2023
 ms.author: franlanglois
 
 ---
@@ -25,7 +25,7 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 |--------- |:------------------:|:----------:|:---------:|
 |Available | No          | No       |  Yes  |
 
-<!-- What do you think of this table?  -->
+
 |Tier	| Available|
 |:---|:---:|
 |Basic, Standard	| No |
@@ -146,7 +146,6 @@ As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabas
 Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane. 
 
 :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
-<!-- **FRAN--need a screenshot picture here** -->
 
 > [!IMPORTANT]
 > Be careful when using the **Flush Caches** feature. Selecting the button removes all data from the current cache and from ALL linked caches in the geo-replication group. 

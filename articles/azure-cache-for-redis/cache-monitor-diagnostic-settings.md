@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
-ms.date: 03/28/2023
+ms.date: 03/23/2023
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -110,7 +110,6 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring** section on the left. Then, select **Add diagnostic setting**.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-auditing.png" alt-text="Screenshot of Diagnostic settings - Auditing selected in the Resource menu.":::
-  <!-- **FRAN--need a new picture here** -->
 
 1. In the **Diagnostic Setting - Auditing** pane, select **Connection events** from **Categories**.
 
@@ -118,7 +117,6 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
-    <!-- **FRAN--need a new picture here** -->
 
     
 ---
