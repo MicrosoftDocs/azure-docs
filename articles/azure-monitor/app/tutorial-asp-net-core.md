@@ -4,7 +4,7 @@ description: Application Insights SDK tutorial to monitor ASP.NET Core web appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2022
+ms.date: 03/22/2023
 ms.reviewer: casocha
 ---
 
