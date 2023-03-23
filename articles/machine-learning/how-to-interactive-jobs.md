@@ -84,27 +84,20 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
         environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
         compute="<name-of-compute>",
         services={
-          "My_jupyterlab": JobService(
-            job_service_type="jupyter_lab",
+          "My_jupyterlab": JupyterLabJobService(
             nodes="all" # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
           ),
-          "My_vscode": JobService(
-            job_service_type="vs_code",
+          "My_vscode": VsCodeJobService(
             nodes="all"
           ),
-          "My_tensorboard": JobService(
-            job_service_type="tensor_board",
+          "My_tensorboard": TensorBoardJobService(
             nodes="all",
-            properties={
-                "logDir": "output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
+            logDir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
             }          
           ),
-          "My_ssh": JobService(
-            job_service_type="ssh",
-            sshPublicKeys="<add-public-key>",
+          "My_ssh": SshJobService(
+            ssh_Public_Keys="<add-public-key>",
             nodes="all"
-            properties={
-                "sshPublicKeys":"<add-public-key>"
             }    
           ),
         }
@@ -131,43 +124,43 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 
 # [Azure CLI](#tab/azurecli)
 
-1. 1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
+1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
    ```dotnetcli
-       code: src 
-       command: 
-         python train.py 
-         # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
-       environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
-       compute: azureml:<your compute name>
-       services:
-           my_vs_code:
-             job_service_type: vs_code
-             nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
-           my_tensor_board:
-             job_service_type: tensor_board
-             log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
-             nodes: all
-           my_jupyter_lab:
-             job_service_type: jupyter_lab
-             nodes: all
-           my_ssh:
-            job_service_type: ssh
-            ssh_public_keys: <paste the entire pub key content>
-            nodes: all
-   ```
+   code: src 
+   command: 
+     python train.py 
+     # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
+   environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
+   compute: azureml:<your compute name>
+   services:
+       my_vs_code:
+         job_service_type: vs_code
+         nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
+       my_tensor_board:
+        job_service_type: tensor_board
+         log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
+         nodes: all
+       my_jupyter_lab:
+         job_service_type: jupyter_lab
+         nodes: all
+       my_ssh:
+         job_service_type: ssh
+         ssh_public_keys: <paste the entire pub key content>
+         nodes: all
+   	```
 
-       The `services` section specifies the training applications you want to interact with.  
+      The `services` section specifies the training applications you want to interact with.  
 
-       You can put `sleep <specific time>` at the end of the command to specify the amount of time you want to reserve the compute resource. The format follows: 
-   * sleep 1s
-   * sleep 1m
-   * sleep 1h
-   * sleep 1d
+      You can put `sleep <specific time>` at the end of the command to specify the amount of time you want to reserve the compute resource. The format follows: 
+   	* sleep 1s
+   	* sleep 1m
+   	* sleep 1h
+   	* sleep 1d
 
-       You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+      You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
  
-       > [!NOTE]
-    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+      > [!NOTE]
+    	> If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id> `to submit your training job. For more details on running a job via CLIv2, check out this [article](./how-to-train-model.md). 
 
