@@ -27,8 +27,8 @@ Private Endpoints can be created using the Azure portal, PowerShell, or the Azur
 ### Approval process for a private endpoint
 Once the network admin creates the private endpoint, the Data Manager for Agriculture admin can manage the private endpoint connection to Data Manager for Agriculture resource.
 
-1. Navigate to the Data Manager for Agriculture resource in Azure portal. Select the Networking tab in the left pane, this will show a list of all Private Endpoint Connections and Corresponding Private Endpoint created
-  :::image type="content" source="./media/how-to-set-up-private-links/pec-adma.png" alt-text="Screenshot showing list of private endpoint connections in Azure portal.":::
+1. Navigate to the Data Manager for Agriculture resource in Azure portal. Select the Networking tab in the left pane, this will show a list of all Private Endpoint Connections and Corresponding Private Endpoint created.
+  :::image type="content" source="./media/how-to-set-up-private-links/pec-data-manager-agriculture.png" alt-text="Screenshot showing list of private endpoint connections in Azure portal.":::
 
 2. Select an individual private endpoint connection from the list.
   :::image type="content" source="./media/how-to-set-up-private-links/pec-select.png" alt-text="Screenshot showing how to select a private endpoint.":::
