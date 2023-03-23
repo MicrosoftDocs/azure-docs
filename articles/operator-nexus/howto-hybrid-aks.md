@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Interact with AKS-Hybrid Cluster"
 description: Learn how to manage (view, list, update, delete) AKS-Hybrid clusters.
-author: pvapheas
-ms.author: pvapheas
+author: dramasamy
+ms.author: dramasamy
 ms.service: azure 
 ms.topic: how-to
 ms.date: 02/02/2023
@@ -66,9 +66,9 @@ To delete the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
       --subscription "<YourSubscription>"
 ```
 
-## Add nodepool command
+## Add nod epool command
 
-To add a nodepool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
+To add a node pool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 ```azurecli
     az hybridaks nodepool add \
       --name <name of the nodepool> \
@@ -80,9 +80,9 @@ To add a nodepool to the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
       --zones <comma separated list of availability zones>
 ```
 
-## Delete nodepool command
+## Delete node pool command
 
-To delete a nodepool from the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
+To delete a node pool from the AKS-Hybrid cluster named `YourAKS-HybridClustername`:
 
 ```azurecli
     az hybridaks nodepool delete \
