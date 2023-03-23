@@ -31,7 +31,7 @@ The following are some of the advantages of using this solution:
 * **Provides cloud authentication for all apps** - All apps
     authenticate through Azure AD.
 
-* **Ease of execution**--This solution provides short-term
+* **Ease of execution** - This solution provides short-term
     ease-of-execution for universities that are already using
     Shibboleth.
 
