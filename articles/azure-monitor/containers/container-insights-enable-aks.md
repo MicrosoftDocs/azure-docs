@@ -449,7 +449,7 @@ Use the following procedure if you're not using managed identity authentication.
 ## Limitations
 
 - Enabling managed identity authentication (preview) isn't currently supported by using Terraform or Azure Policy.
-- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-name\>-\<cluster-region\>*. Currently, this name can't be modified.
+- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
 ## Next steps
 

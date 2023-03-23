@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/17/2023
+ms.date: 3/20/2023
 ---
 
 # Known issues: Azure VMware Solution
@@ -16,8 +16,8 @@ Refer to the table below to find details about resolution dates or possible work
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
 | [VMSA-2021-002 ESXiArgs](https://www.vmware.com/security/advisories/VMSA-2021-0002.html) OpenSLP vulnerability publicized in February 2023  | 2021  | [Disable OpenSLP service](https://kb.vmware.com/s/article/76372)  | February 2021 - Resolved in [ESXi 7.0 U3c](concepts-private-clouds-clusters.md#vmware-software-versions) |
+| After my private cloud NSX-T Data Center upgrade to version [3.2.2](https://docs.vmware.com/en/VMware-NSX/3.2.2/rn/vmware-nsxt-data-center-322-release-notes/index.html), the NSX-T Manager **DNS Forwarder Upstream Server Timeout** alarm is raised | February 2023  | [Enable private cloud internet Access](concepts-design-public-internet-access.md), alarm is raised because NSX-T Manager cannot access the configured CloudFlare DNS server.  | February 2023 |
 
-In this article, you learned about the currently known issues with the Azure VMware Solution. For more information about the Azure VMware Solution, see:
+In this article, you learned about the current known issues with the Azure VMware Solution.
 
->[!div class="nextstepaction"]
->[About Azure VMware Solution](introduction.md)
+For more information, see [About Azure VMware Solution](introduction.md).

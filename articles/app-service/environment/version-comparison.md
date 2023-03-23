@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 3/16/2023
+ms.date: 3/20/2023
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -52,14 +52,6 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 |Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
 |Scaling operations     |Blocks other scaling operations         |Blocks other scaling operations         |Doesn't block other scale operations         |
 
-### Pricing
-
-App Service Environment v3 is often cheaper than previous versions due to the removal of the stamp fee and larger instance sizes. For information and example scenarios on how migrating to App Service Environment v3 can affect your costs, see the [migration pricing samples](migrate.md#pricing) and [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
-
-|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
-|---------|---------|---------|---------|
-|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and the Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
-
 ### Certificates and domains
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
@@ -73,6 +65,22 @@ App Service Environment v3 is often cheaper than previous versions due to the re
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |Perform a backup and restore operation on a storage account behind a firewall    |Yes         |Yes         |No         |
+
+### Logging and monitoring
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Application logging to storage account over virtual network    |Yes         |Yes         |No. The recommendation is to use [diagnostics logging](../overview-diagnostics.md) instead. If you need to use a firewall for the logging storage account, the storage account must be in a different region and use the outbound public addresses of the App Service Environment in the rules. For more information, see [networking considerations](../troubleshoot-diagnostic-logs.md#networking-considerations).       |
+|Azure Policy integration|Yes |Yes |Yes |
+|Azure Advisor integration|Yes |Yes |Yes |
+
+### Pricing
+
+App Service Environment v3 is often cheaper than previous versions due to the removal of the stamp fee and larger instance sizes. For information and example scenarios on how migrating to App Service Environment v3 can affect your costs, see the [migration pricing samples](migrate.md#pricing) and [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and the Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
 
 ## Frequently asked questions
 
