@@ -220,7 +220,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
 >
 
-> [!IMPORTANT]
+> [!CAution]
 > The Enterprise and Enterprise Flash tiers do not yet support _scale down_ or _scale in_ operations.
 >
 <!-- Should this actually be !CAUTION -->
@@ -228,26 +228,27 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 ### Scale using the Azure portal
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
-
-    :::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
-<!-- **Fran, need a new screenshot here** -->
-
-1. To scale up, choose a different pricing tier from the drop-down and then choose **Save**.
     
-    :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
-    <!-- **Fran, need a new screenshot here** -->
+   :::image type="content" source="media/cache-how-to-scale/cache-enterprise-scale.png" alt-text="Screenshot showing Scale selected in the Resource menu for an Enterprise cache.":::
+
+1. To scale up, choose a different **Cache type** and then choose **Save**. 
+   > [!IMPORTANT]
+   > You can only scale up at this time. You cannot scale down.
+
+   :::image type="content" source="media/cache-how-to-scale/cache-enterprise-scale-up.png" alt-text="Screenshot showing the Enterprise tiers in the working pane.":::
 
 1. To scale out, increase the **Capacity** slider. Capacity increases in increments of two. This number reflects how many underlying Redis Enterprise nodes are being added. This number is always a multiple of two to reflect nodes being added for both primary and replica shards. 
+   > [!IMPORTANT]
+   > You can only scale out, increasing capacity, at this time. You cannot scale in.
 
-:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
-<!-- **Fran, need a new screenshot here** -->
+    :::image type="content" source="media/cache-how-to-scale/cache-enterprise-capacity.png" alt-text="Screenshot showing Capacity in the working pane a red box around it.":::
 
-While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
+1. While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
-:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
-<!-- **Fran, need a new screenshot here** -->
+    :::image type="content" source="media/cache-how-to-scale/cache-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache.":::
+    
 
-When scaling is complete, the status changes from **Scaling** to **Running**.
+1. When scaling is complete, the status changes from **Scaling** to **Running**.
 
 
 ### Scale using PowerShell
