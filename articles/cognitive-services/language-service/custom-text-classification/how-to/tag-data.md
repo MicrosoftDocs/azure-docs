@@ -74,7 +74,7 @@ Use the following steps to label your data:
     
     ---
 
-    You can also use the [auto labelling feature](use-autolabeling.md) to ensure complete labeling.
+    You can also use the [auto labeling feature](use-autolabeling.md) to ensure complete labeling.
 
 6. In the right side pane under the **Labels** pivot you can find all the classes in your project and the count of labeled instances per each.
 
