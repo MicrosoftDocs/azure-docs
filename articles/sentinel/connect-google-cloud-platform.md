@@ -8,7 +8,7 @@ ms.author: lwainstein
 #Customer intent: As a security operator, I want to ingest GCP audit log data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in my multi-cloud environment.
 ---
 
-# Stream Google Cloud Platform audit logs with the GCP Pub/Sub Connector
+# Stream Google Cloud Platform audit logs with the GCP Pub/Sub Audit Logs connector
 
 Organizations are increasingly moving to multi-cloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
 
