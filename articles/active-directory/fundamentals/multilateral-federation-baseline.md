@@ -62,16 +62,18 @@ We present three different solutions, designed to solve these challenges, while 
 
 These three solutions are presented in order from most preferred to least preferred. Each satisfies requirements but introduces tradeoff decisions expected in a complex architecture. Based on your requirements and starting point, select the one that best suits your environment. A decision tree is provided to help aid in this decision.
 
+
 ## Next steps
 
-See these additional multilateral federation articles:
+See these related multilateral federation articles:
 
 [Multilateral federation introduction](multilateral-federation-introduction.md)
 
-[Multilateral federation solution one](multilateral-federation-solution-one.md)
+[Multilateral federation solution one - Azure AD with Cirrus Bridge](multilateral-federation-solution-one.md)
 
-[Multilateral federation solution two](multilateral-federation-solution-two.md)
+[Multilateral federation solution two - Azure AD to Shibboleth as SP Proxy](multilateral-federation-solution-two.md)
 
-[Multilateral federation solution three](multilateral-federation-solution-three.md)
+[Multilateral federation solution three - Azure AD with ADFS and Shibboleth](multilateral-federation-solution-three.md)
 
 [Multilateral federation decision tree](multilateral-federation-decision-tree.md)
+
