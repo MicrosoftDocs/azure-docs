@@ -41,7 +41,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 ### Other Requirements
 
-| Windows | Linux (x64)|
+| Windows | Linux |
 |---|---|
 | Windows PowerShell 5.1 (download WMF 5.1). PowerShell Core isn't supported.| Linux Hardening must not be enabled.  |
 | .NET Framework 4.6.2 or later. |            |
