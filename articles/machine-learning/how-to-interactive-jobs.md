@@ -31,7 +31,7 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 - To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
-- To use SSH, you will need an SSH key pair. You can use the `ssh-keygen -f "<filepath>"` command to generate a public and private key pair.
+- To use SSH, you need an SSH key pair. You can use the `ssh-keygen -f "<filepath>"` command to generate a public and private key pair.
    
 ## Interact with your job container
 
@@ -177,6 +177,12 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
+
+
+
+
+
+
 
 
 
