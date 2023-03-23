@@ -23,7 +23,8 @@ ms.date: 02/16/2023
     1. From the left menu, select **Preview features** under *Settings*.
     1. Select **AllowDataSharing** and *Register*. 
     1. Refresh the *Preview features* screen to verify the *State* is **Registered**. It could take 15 minutes to 1 hour for registration to complete. 
-
+    1. In addition, to use data share for storage accounts in East US, East US2, North Europe, Southcentral US, West Central US, West Europe, West US, West US2: Select AllowDataSharingInHeroRegion and Register
+    
     For more information, see [Register preview feature](../../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
     # [PowerShell](#tab/powershell)
@@ -36,7 +37,15 @@ ms.date: 02/16/2023
     ```azurepowershell
     Get-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"   
     ```
-    The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see [Register preview feature](../../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
+     In addition, to use data share for storage accounts in East US, East US2, North Europe, Southcentral US, West Central US, West Europe, West US, West US2: 
+
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"
+    ```
+    ```azurepowershell
+    Get-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"   
+    ```
+The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see [Register preview feature](../../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
 [!INCLUDE [share-storage-configuration](share-storage-configuration.md)]
 
