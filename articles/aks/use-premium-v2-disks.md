@@ -8,7 +8,7 @@ ms.date: 3/22/2023
 
 # Use Azure Premium SSD v2 disks on Azure Kubernetes Service
 
-[Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offers IO-intense enterprise workloads a consistent sub-millisecond disk latency and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
+[Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offer IO-intense enterprise workloads a consistent sub-millisecond disk latency and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
 
 ## Before you begin
 
@@ -19,11 +19,11 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Limitations
 
-- Azure Premium SSD v2 disks has certain limitations that you need to be aware of. For a complete list, see [Premium SSD v2 limitations][premium-v2-limitations].
+- Azure Premium SSD v2 disks have certain limitations that you need to be aware of. For a complete list, see [Premium SSD v2 limitations][premium-v2-limitations].
 
 ## Create a new cluster
 
-Before creating an AKS cluster that is able to leverage Azure Premium SSD v2 disks, you need to [create a Premium SSD v2 disk][create-premium-v2-disk] in an availability zone following their deployment steps. Then create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disk to it using the following command.  
+Before creating an AKS cluster that is able to use Azure Premium SSD v2 disks, you need to [create a Premium SSD v2 disk][create-premium-v2-disk] in an availability zone following their deployment steps. Then create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disk to it using the following command.  
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 
@@ -47,7 +47,7 @@ To use Premium SSD v2 disks in a deployment or stateful set, you can use a [stor
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-In this example, we'll create a storage class that references Premium SSD v2 disks. Create a file named `azure-pv2-disk-sc.yaml`, and copy in the following manifest.
+In this example, you create a storage class that references Premium SSD v2 disks. Create a file named `azure-pv2-disk-sc.yaml`, and copy in the following manifest.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -179,7 +179,7 @@ Events:
 
 ## Using Azure tags
 
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+For more information on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
