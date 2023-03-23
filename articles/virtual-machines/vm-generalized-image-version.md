@@ -575,6 +575,18 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 >
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
+## Reporting issues with a public image 
+Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+
+### Reporting images through the Azure Portal:
+Selecting a community image will show several "Report" options. You can report the whole image, or report a specific version if previous versions were unaffected by the issue you encountered.
+:::image type="content" source="media\shared-image-galleries\report-options.png"" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
+
+### Reporting images externally:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+
+- Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
+
 
 ### [CLI](#tab/cli3)
 
