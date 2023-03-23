@@ -1457,6 +1457,18 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-quickstart-new
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 - id: openai-chat
   title: API Options
   prompt: Chat API options
