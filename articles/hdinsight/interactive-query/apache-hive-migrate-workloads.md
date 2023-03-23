@@ -45,7 +45,7 @@ A thin client architecture facilitates securing data in
 1. Session state, internal data structures, passwords, and so on, reside on the client instead of the server.
 2. The small number of daemons required to execute queries simplifies monitoring and debugging.
 
-HiveServer enforces whitelist and blacklist settings that you can change using `SET` commands. Using the blacklist, you can restrict memory configuration to prevent HiveServer instability. You can configure multiple HiveServer instances with different whitelists and blacklists to establish different levels of stability.
+HiveServer enforces allowlist and blocklist settings that you can change using `SET` commands. Using the blocklist, you can restrict memory configuration to prevent HiveServer instability. You can configure multiple HiveServer instances with different whitelists and blacklists to establish different levels of stability.
 
 ### Hive Metastore changes
 
@@ -112,11 +112,18 @@ Storage formats are a factor in upgrade changes to table types. Hive 2.x and 3.x
 
 The following table compares Hive table types and ACID operations before an upgrade from HDInsight 3.x and after an upgrade to HDInsight 4.x. The ownership of the Hive table file is a factor in determining table types and ACID operations after the upgrade
 
-HDInsight 3.x and HDInsight-4.x Table Type Comparison
+### HDInsight 3.x and HDInsight 4.x Table Type Comparison
 
-|Add|tabe|here|
-|--|--|--
-
+|**HDInsight 3.x**| | | |**HDInsight 4.x** | |
+|-|-|-|-|-|-|
+|**Table Type**	|**ACID v1**	|**Format**	|**Owner (user) of Hive Table File**	|**Table Type**|**ACID v2**|
+|External	|No	|Native or non-native|	Hive or non-Hive	|External	|No|
+|Managed	|Yes	|ORC	|Hive or non-Hive|	Managed, updatable	|Yes|
+|Managed	|No	|ORC	|Hive|	Managed, updatable	|Yes|
+| | |		|non-Hive	|External, with data delete |NO|
+|Managed	|No	|Native (but non-ORC)|	Hive	|Managed, insert only	|Yes|
+| | | 		|non-Hive	|External, with data delete	|No|
+|Managed	|No	|Non-native|	Hive or non-Hive|	External, with data delete|	No|
 
 
 ## Hive Impersonation
