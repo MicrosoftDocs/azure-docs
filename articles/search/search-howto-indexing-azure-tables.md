@@ -30,7 +30,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Define the data source
 
-The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is an independent resource that can be used by multiple indexers.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition:
 
@@ -61,7 +61,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 1. Set "container" to the name of the table.
 
-1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is null, the indexer executes a full table scan, which can result in poor performance if the tables are large.
+1. Optionally, set "query" to a filter on PartitionKey. Setting this property is a best practice that improves performance. If "query" is null, the indexer executes a full table scan, which can result in poor performance if the tables are large.
 
 A data source definition can also include [soft deletion policies](search-howto-index-changed-deleted-blobs.md), if you want the indexer to delete a search document when the source document is flagged for deletion.
 
@@ -112,7 +112,7 @@ To avoid a full scan, you can use table partitions to narrow the scope of each i
 
   + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
 
-  + With this approach, if you need to trigger a complete reindexing, you need to reset the data source query in addition to resetting the indexer. 
+  + With this approach, if you need to trigger a full reindex, reset the data source query in addition to [resetting the indexer](search-howto-run-reset-indexers.md). 
 
 ## Add search fields to an index
 
@@ -135,7 +135,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    If you're using the Import data wizard to create the index, the portal infers a "Key" field for the search index and uses implicit field mapping to connect the source and destination fields. You don't have to add the field yourself, and you don't need to set up a field mapping.
 
-   If you're using the REST APIs and you want implicit field mappings, create and name the document key field "Key" in the search index definition as shown in the previous step (`{ "name": "Key", "type": "Edm.String", "key": true, "searchable": false }`).
+   If you're using the REST APIs and you want implicit field mappings, create and name the document key field "Key" in the search index definition as shown in the previous step (`{ "name": "Key", "type": "Edm.String", "key": true, "searchable": false }`). The indexer populates the Key field automatically.
 
    If you don't want a field named "Key" in your search index, add an explicit field mapping in the indexer definition with the field name you want, setting the source field to "Key":
 
@@ -181,9 +181,18 @@ Once you have an index and data source, you're ready to create the indexer. Inde
     }
     ```
 
-1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index. The Target field is the name of the field in the search index.
 
-See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+   ```json
+    "fieldMappings" : [
+      {
+        "sourceFieldName" : "Description",
+        "targetFieldName" : "HotelDescription"
+      }
+   ]
+   ```
+
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
 An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
