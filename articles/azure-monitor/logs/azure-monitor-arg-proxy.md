@@ -52,6 +52,6 @@ union customEvents, CL1 | take 10
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
-* [Azure Resource Graph Overview](../governance/resource-graph/overview.md)
+* [Azure Resource Graph Overview](../../governance/resource-graph/overview.md)
 * [Query data in Azure Monitor by using Azure Data Explorer](/azure/data-explorer/query-monitor-data)
 * [Perform cross-resource log queries in Azure Monitor](../logs/cross-workspace-query.md)
