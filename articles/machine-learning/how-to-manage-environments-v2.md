@@ -136,9 +136,6 @@ ml_client.environments.create_or_update(env_docker_image)
 
 Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile (not larger than 1MB) and any other files needed to build the image.
 
-> [!NOTE]
-> Uploading a Dockerfile larger than 1MB is currently unsupported.
-
 # [Azure CLI](#tab/cli)
 
 The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
