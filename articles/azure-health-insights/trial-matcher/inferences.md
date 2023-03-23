@@ -14,9 +14,9 @@ ms.author: behoorne
 
 # Trial Matcher inference information
 
-The conclusion of the Trial Matcher decision support model is a list of inferences made regarding the patient. For each trial that was queried for the patient, the model will return and indication of whether the patient appears eligible or ineligible for the trial. If the model concluded the patient is ineligible for a trial, it will also provide a piece of evidence to support its conclusion (unless the ```evidence``` flag was set to false). 
+The result of the Trial Matcher decision support model includes a list of inferences made regarding the patient. For each trial that was queried for the patient, the model returns an indication of whether the patient appears eligible or ineligible for the trial. If the model concluded the patient is ineligible for a trial, it also provides a piece of evidence to support its conclusion (unless the ```evidence``` flag was set to false). 
 
-## Example conclusion payload
+## Example model result
 ```json
 "inferences":[
    {
@@ -39,7 +39,7 @@ The conclusion of the Trial Matcher decision support model is a list of inferenc
 
 ## Next steps
 
-To get better insights into the request and responses, you can read more on following pages:
+To get better insights into the request and responses, read more on the following pages:
 
 >[!div class="nextstepaction"]
-> [Model Configuration](model-configuration.md) 
+> [Model configuration](model-configuration.md) 
