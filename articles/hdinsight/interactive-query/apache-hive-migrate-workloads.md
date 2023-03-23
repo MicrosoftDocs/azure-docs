@@ -45,7 +45,7 @@ A thin client architecture facilitates securing data in
 1. Session state, internal data structures, passwords, and so on, reside on the client instead of the server.
 2. The small number of daemons required to execute queries simplifies monitoring and debugging.
 
-HiveServer enforces allowlist and blocklist settings that you can change using `SET` commands. Using the blocklist, you can restrict memory configuration to prevent HiveServer instability. You can configure multiple HiveServer instances with different whitelists and blacklists to establish different levels of stability.
+HiveServer enforces allowlist and blocklist settings that you can change using `SET` commands. Using the blocklist, you can restrict memory configuration to prevent Hive Server instability. You can configure multiple HiveServer instances with different whitelists and blacklists to establish different levels of stability.
 
 ### Hive Metastore changes
 
