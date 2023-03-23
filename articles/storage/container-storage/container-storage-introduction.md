@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage, a service built natively fo
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 03/23/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
@@ -17,19 +17,25 @@ ms.custom: references_regions
 > This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Container Storage is a cloud-based volume management offering built natively for containers. It integrates volume management and deployment with Kubernetes, allowing customers to dynamically and automatically provision persistent volumes so they can focus on running workloads instead of managing storage.
-
-This public preview only supports Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters with the following storage types:
-
-- [Azure managed disks](../../virtual-machines/managed-disks-overview.md)
-- Storage area network (SAN)
-- Local disk volumes
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing customers to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
 To get started using Azure Container Storage, see [Quickstart: Use Azure Container Storage with AKS](container-storage-aks-quickstart.md).
 
+## Supported storage types
+
+Azure Container Storage utilizes existing Azure storage offerings for actual storage and offers a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
+
+Azure Container Storage Preview only supports Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters with the following block storage types:
+
+- **[Azure managed disks](../../virtual-machines/managed-disks-overview.md):** Azure Premium v2 and v1 Disks are supported.
+
+- **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md):** Application volumes are created within SAN Volume Groups and are attached directly to nodes through the iSCSI protocol. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
+
+- **Local (ephemeral) disk volumes:** Any local storage device (either SSD or NVMe) available on the AKS nodes is supported.
+
 ## Regional availability
 
-The Azure Container Storage Preview is only available in the following Azure regions:
+Azure Container Storage Preview is only available in the following Azure regions:
 
 - East US
 - West Europe
@@ -45,12 +51,14 @@ You can use Azure Container Storage to:
 
 * **Simplify volume management with Kubernetes:** By providing volume orchestration via the Kubernetes control plane, Azure Container Storage makes it easy to deploy and manage volumes within Kubernetes - without the need to move back and forth between different control planes.
 
-* **Reduce total cost of ownership (TCO):** Improve cost efficiency by packing and mounting a large number of storage volumes per node. Increase disk utilization for stateful workloads, enabling dynamic sharing of resources provisioned on the Azure Container Storage pool across all deployed persistent volumes.
+* **Reduce total cost of ownership (TCO):** Improve cost efficiency by packing and mounting a large number of storage volumes per node. Increase disk utilization for stateful workloads, enabling dynamic sharing of resources provisioned on the Azure Container Storage pool across all deployed persistent volumes. Dynamically scale storage resources based on demand.
 
 ## Key benefits
-* **Rapid scale up and scale out:** Start small and deploy resources as needed while making sure that applications aren't starved or disrupted during initialization or in production. Azure Container Storage enables sub-second volume creation using thin provisioning, making it easy to scale up or out.
+* **Rapid scale up and scale out without downtime:** Azure Container Storage uses thin provisioning to create volumes in less than a second. You can start small and deploy resources as needed while making sure your applications aren't starved or disrupted, either during initialization or in production.
 
-* **Maximize stateful workload performance:** Azure Container Storage enables superior read performance by leveraging local caches where possible. It also provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
+* **Improved performance for stateful workloads:** Azure Container Storage enables superior read performance by leveraging local caches. It also provides near-disk write performance by using NVMe-oF over RDMA. This allows customers to cost-effectively meet performance requirements for various container workloads including tier 1 I/O intensive, general purpose, throughput sensitive, and dev/test. Accelerate the attach/detach time of persistent volumes and minimize pod failover time.
+
+* **Kubernetes-native volume orchestration:** You can create storage pools and persistent volumes, capture snapshots, and manage the entire lifecycle of volumes using `kubectl` commands without switching between toolsets for different control plane operations.
 
 ## Glossary 
 It's helpful to understand some key terms relating to Azure Container Storage and Kubernetes:
