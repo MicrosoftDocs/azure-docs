@@ -29,7 +29,7 @@ There are three types of resources to create and manage custom recommendations:
 
 |Aspect|Details|
 |----|:----|
-|Required/Preferred Environmental Requirements| This private preview includes only AWS and GCP recommendations. <br> This feature is going to be part of the CSPM premium bundle in the future. |
+|Required/Preferred Environmental Requirements| This preview includes only AWS and GCP recommendations. <br> This feature is part of the Defender CSPM bundle in the future. |
 | Required Roles & Permissions | Subscription Owner / Contributor |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
@@ -79,13 +79,31 @@ There are three types of resources to create and manage custom recommendations:
 
 ## Create new queries using the query editor
 
- To create a new query using the query editor, select the ‘open query editor’ button. The editor will contain data on all the native APIs we support to help build the queries. The data appears in the same structure as in the API.  
+In the query editor you have the ability to run your queries over your raw data (native API calls).
+To create a new query using the query editor, select the ‘open query editor’ button. The editor will contain data on all the native APIs we support to help build the queries. The data appears in the same structure as in the API.  You can view the results of your query in the Results pane. The [**How to**](#steps-for-building-a-query) tab gives you step by step instructions for building your query.
 
 :::image type="content" source="./media/create-custom-recommendations/query-editor.png" alt-text="Screenshot showing how to use the query editor." lightbox="./media/create-custom-recommendations/query-editor.png":::
 
+### Steps for building a query
+
+- The first row of the query should include the environment and resource type. For example: | where Environment == 'AWS' and Identifiers.Type == 'ec2.instance’
+- The query must contain an “iff” statement that defines the healthy or unhealthy conditions. Use this template and edit only the “condition”: "| extend HealthStatus = iff(condition, 'UNHEALTHY','HEALTHY')".
+- The last row should return all the original columns: “| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus”.
+
+    >[!Note]
+    >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of Record filed using a dot notation. <br>
+    For example: | extend EncryptionType = Record.Encryption.Type.
+
+#### Additional instructions
+
+- No need to filter records by Timespan. The assessment service filters the most recent records on each run.
+- No need to filter by resource ARN, unless intended. The assessment service will run the query on assigned resources.
+- If a specific scope is filtered in the assessment query (for example: specific account ID), it will apply on all resources assigned to this query.
+- Currently it is not possible to create one recommendation for multiple environments.
+
 ## Next steps
 
-Read these docs to learn and understand more on Kusto queries:   
+You can use the following links to learn more about Kusto queries:
 
 - [KQL Quick Reference](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference) 
 - [Kusto Query Language (KQL) overview](https://docs.microsoft.com/azure/data-explorer/kusto/query/)

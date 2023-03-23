@@ -59,7 +59,7 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 ### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.
-This feature is part of the Defender CSPM (Cloud Security Posture Management) plan. Learn how to [create custom recommendations and standards](creating-custom-recommendations.md)
+This feature is part of the Defender CSPM (Cloud Security Posture Management) plan. Learn how to [create custom recommendations and standards](creating-custom-recommendations.md).
 
 ### Some regulatory compliance standards are now available in government clouds
 
