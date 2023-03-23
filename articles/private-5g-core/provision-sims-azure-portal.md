@@ -24,19 +24,19 @@ ms.custom: template-how-to
 
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
 
-  - Importing a JSON file containing values for one or more SIM resources. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
+  - Importing one or more JSON files containing values for up to 500 SIM resources each. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
 
 - Decide on the SIM group to which you want to add your SIMs. You can create a new SIM group when provisioning your SIMs, or you can choose an existing SIM group. See [Manage SIM groups - Azure portal](manage-sim-groups.md) for information on viewing your existing SIM groups.
 
   - If you're manually entering provisioning values, you'll add each SIM to a SIM group individually.
 
-  - If you're using a JSON file, all SIMs in the same JSON file will be added to the same SIM group.
+  - If you're using one or more JSON files, all SIMs in the same JSON file will be added to the same SIM group.
 
 - For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
 
   - If you're manually entering provisioning values, you'll need the name of the SIM policy.
 
-  - If you're using a JSON file, you'll need the full resource ID of the SIM policy. You can collect this by navigating to the SIM Policy resource, selecting **JSON View** and copying the contents of the **Resource ID** field.
+  - If you're using one or more JSON files, you'll need the full resource ID of the SIM policy. You can collect this by navigating to the SIM Policy resource, selecting **JSON View** and copying the contents of the **Resource ID** field.
 
 ## Collect the required information for your SIMs
 
@@ -56,7 +56,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 
 You only need to complete this step if all of the following apply:
 
-- You're using a JSON file to provision your SIMs.
+- You're using one or more JSON files to provision your SIMs.
 - You've configured static IP address allocation for your packet core instance(s).
 - You want to assign static IP addresses to the SIMs during SIM provisioning.
 
@@ -70,11 +70,14 @@ Each IP address must come from the pool you assigned for static IP address alloc
 | The network slice that the SIM will use. | Not applicable. | `staticIpConfiguration.sliceId` |
 | The static IP address to assign to the SIM.  | Not applicable. | `staticIpConfiguration.staticIpAddress` |
 
-## Create the JSON file
+## Create one or more JSON files
 
-Only carry out this step if you decided in [Prerequisites](#prerequisites) to use a JSON file to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
+Only carry out this step if you decided in [Prerequisites](#prerequisites) to use JSON files to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
 
-Prepare the JSON file using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The example file below shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`).
+Prepare one or more JSON files using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The example file below shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`).
+
+> [!IMPORTANT]
+> Bulk SIM provisioning is limited to 500 SIMs. If you want to provision more that 500 SIMs, you must create multiple JSON files with no more than 500 SIMs in any one file and repeat the provisioning process for each JSON file.
 
 If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter for that SIM. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
 
@@ -166,17 +169,19 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 
 In this step, you'll provision SIMs using a JSON file.
 
-1. In **Add SIMs** on the right, select **Browse** and then select the JSON file you created in [Create the JSON file](#create-the-json-file).
-1. Set the **SIM group** field to an existing SIM group, or select **Create new** to create a new one. 
+1. In **Add SIMs** on the right, select **Browse** and then select one of the JSON files you created in [Create one or more JSON files](#create-one-or-more-json-files).
+1. Set the **SIM group** field to an existing SIM group, or select **Create new** to create a new one.
 1. Select **Add**. If the **Add** button is greyed out, check your JSON file to confirm that it's correctly formatted.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
 
     :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal. It shows a completed deployment of SIM resources through a J S O N file and the Go to resource group button.":::
 
 1. Select the **SIM Group** resource to which you added your SIMs.
-1. Check the list of SIMs to ensure your new SIMs are present and provisioned correctly. 
+1. Check the list of SIMs to ensure your new SIMs are present and provisioned correctly.
 
     :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/provision-sims-azure-portal/sims-list.png":::
+
+1. If you are provisioning more than 500 SIMs, repeat this process for each JSON file.
 
 ## Next steps
 
