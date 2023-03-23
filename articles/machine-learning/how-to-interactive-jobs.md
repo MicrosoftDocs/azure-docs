@@ -27,7 +27,7 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 
 ## Prerequisites
 - Review [getting started with training on Azure Machine Learning](./how-to-train-model.md).
-- To use this feature in Azure Machine Learning Studio, enable the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
+- To use this feature in Azure Machine Learning studio, enable the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 - To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
@@ -38,7 +38,7 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 By specifying interactive applications at job creation, you can connect directly to the container on the compute node where your job is running. Once you have access to the job container, you can test or debug your job in the exact same environment where it would run. You can also use VS Code to attach to the running process and debug as you would locally. 
 
 ### Enable during job submission
-# [Azure Machine Learning Studio](#tab/ui)
+# [Azure Machine Learning studio](#tab/ui)
 1. Create a new job from the left navigation pane in the studio portal.
 
 
@@ -164,7 +164,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 
 ---
 ### Connect to endpoints
-# [Azure Machine Learning Studio](#tab/ui)
+# [Azure Machine Learning studio](#tab/ui)
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
