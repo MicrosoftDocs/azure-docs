@@ -50,7 +50,7 @@ The **Global Administrator** role is required to customize company branding.
 
 The branding elements are called out in the following example. Text descriptions are provided following the image.
 
-![Screenshot of the sign-in page, with each of the company branding elements highlighted.](media/how-to-customize-branding/company-branding-map.png)
+:::image type="content" source="media/how-to-customize-branding/company-branding-map.png" alt-text="Screenshot of the sign-in page, with each of the company branding elements highlighted." lightbox="media/how-to-customize-branding/company-branding-map-large.png":::
 
 1. **Favicon**: Small icon that appears on the left side of the browser tab.
 1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
