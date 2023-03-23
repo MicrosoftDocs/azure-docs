@@ -28,6 +28,14 @@ In this article, you will learn how to implement Microsoft Teams spotlight capab
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
 ::: zone-end
+|                                    | Organizer | Presenter | Attendee |
+|----------------------------------------------|--------|--------|
+| startSpotlight | ✔️ | ✔️  | ❌ |
+| startParticipantsSpotlight | ✔️ | ✔️ | ❌ |
+| stopSpotlight | ✔️ | ✔️ | ✔️ |
+| stopParticipantsSpotlight | ✔️ | ✔️ | ❌ |
+| stopAllSpotlight |  ✔️ | ✔️ | ❌ |
+| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
