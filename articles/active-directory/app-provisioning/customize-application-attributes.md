@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Customize Azure Active Directory attribute mappings in Application Provisioning
-description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
+description: Learn about attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning. Learn what attributes are and how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
 manager: amycolannino
