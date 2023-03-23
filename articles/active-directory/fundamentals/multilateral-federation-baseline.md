@@ -22,7 +22,7 @@ Microsoft frequently speaks with research universities that operate in hybrid en
 
 Applications drive much of the need for different authentication protocols and different identity management mechanisms (IdM).
 
-In research university environments, research apps often drive IdM requirements. A federation provider, such as Shibboleth, might be used as a primary identity provider (IdP). If this is the case, often Azure AD is configured to federate with Shibboleth. If Microsoft 365 apps are also in use, Azure AD enables you to configure integration.
+In research university environments, research apps often drive IdM requirements. A federation provider, such as Shibboleth, might be used as a primary identity provider (IdP). If this is the case, Azure AD is often configured to federate with Shibboleth. If Microsoft 365 apps are also in use, Azure AD enables you to configure integration.
 
 Applications used in research universities operate in various portions of the overall IT footprint:
 
@@ -30,7 +30,7 @@ Applications used in research universities operate in various portions of the ov
 
 * Library applications provide access to electronic journals and other e-content providers.
 
-* Some applications use legacy authentication protocols such as Central Authentication Service (CAS) to provide single sign-on capability.
+* Some applications use legacy authentication protocols such as Central Authentication Service (CAS) to enable single sign-on.
 
 * Student and faculty applications often use multiple authentication mechanisms. For example, some are integrated with Shibboleth or other federation providers, while others are integrated with Azure AD.
 
@@ -46,7 +46,7 @@ Applications used in research universities operate in various portions of the ov
 
 Often, baseline architectures evolve over time, introducing complexity and rigidness to the design and ability to update. Some of the challenges with using the baseline architecture include:
 
-* **Hard to react to new requirements** - Having a complex environment makes it hard to quickly adapt and keep up with the most recent regulations and requirements. For example, if you have apps in lots of different locations and these apps are all connected in different ways with different IDMs, you run into the problem of where to locate multi-factor authentication (MFA) services and how to enforce MFA. Higher education also experiences fragmented service ownership. The people responsible for key services such as enterprise resource planning (ERP), learning management system (LMS), division, and department solutions might resist efforts to change or modify the systems they operate.
+* **Hard to react to new requirements** - Having a complex environment makes it hard to quickly adapt and keep up with the most recent regulations and requirements. For example, if you have apps in lots of different locations and these apps are all connected in different ways with different IdMs, you run into the problem of where to locate multi-factor authentication (MFA) services and how to enforce MFA. Higher education also experiences fragmented service ownership. The people responsible for key services such as enterprise resource planning (ERP), learning management system (LMS), division, and department solutions might resist efforts to change or modify the systems they operate.
 
 * **Can't take advantage of all Microsoft 365 capabilities for all apps** (Intune, Conditional Access, passwordless, etc.) - Many universities want to move towards the cloud and leverage their existing investments in Azure AD. However, with a different federation provider as their primary IdP, universities can't take advantage of all the Microsoft 365 capabilities for the rest of their apps.
 
