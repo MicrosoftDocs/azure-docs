@@ -139,7 +139,7 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
 **Suggested solutions:**
 
-- Connect a VM primary network interface virtual switch without enabling accelerated networking.
+- Connect the VM primary network interface to a virtual switch without enabling accelerated networking.
 
 - On an Azure Stack Edge Pro 1 device, virtual switches created on Port 1 to Port 4 do not enable accelerated networking. On Port 5 or Port 6, virtual switches will enable accelerated networking by default. 
 
