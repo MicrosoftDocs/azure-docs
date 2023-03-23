@@ -66,7 +66,7 @@ To view the static private IP address information for the VM created with the pr
 
 Under **IP addresses**, select **Dynamic** to the right of **IP address assignment**, select **Save**, and then select **Yes**, as shown in the following picture:
 
-:::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure07.png" alt-text="Alt text here.":::
+:::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure07.png" alt-text="Screenshot that shows how to remove the static private IP address from a VM by selecting Dynamic to the right of the IP address assignment label.":::
 
 ## How to add a static private IP address to an existing VM
 
