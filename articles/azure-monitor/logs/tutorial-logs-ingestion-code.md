@@ -198,7 +198,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     async function main() {
       const logsIngestionEndpoint = process.env.LOGS_INGESTION_ENDPOINT || "logs_ingestion_endpoint";
       const ruleId = process.env.DATA_COLLECTION_RULE_ID || "data_collection_rule_id";
-      const streamName = process.env.STREAM_NAME || "data_stream_name";
+      const streamName = "Custom-MyTableRawData";
       const credential = new DefaultAzureCredential();
       const client = new LogsIngestionClient(logsIngestionEndpoint, credential);
       const logs = [
