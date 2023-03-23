@@ -1,17 +1,17 @@
 ---
-title: Optimize query stats collection - Azure Database for PostgreSQL - Single Server
-description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL - Single Server
+title: Optimize query stats collection - Azure Database for PostgreSQL - flexible Server
+description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL - flexible Server
 ms.service: postgresql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: dianas
-author: dianaputnam
-ms.date: 06/24/2022
+ms.author: assaff
+author: assaff
+ms.date: 03/23/2023
 ---
 
-# Optimize query statistics collection on an Azure Database for PostgreSQL - Single Server
+# Optimize query statistics collection on an Azure Database for PostgreSQL - flexible Server
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how to optimize query statistics collection on an Azure Database for PostgreSQL server.
 
@@ -25,11 +25,8 @@ Some customer workloads have seen up to a 50 percent performance improvement whe
 
 To set `pg_stat_statements.track = NONE`:
 
-- In the Azure portal, go to the [PostgreSQL resource management page and select the server parameters blade](how-to-configure-server-parameters-using-portal.md).
-
-  :::image type="content" source="./media/how-to-optimize-query-stats-collection/postgresql-stats-statements-portal.png" alt-text="PostgreSQL server parameter blade":::
-
-- Use the [Azure CLI](how-to-configure-server-parameters-using-cli.md) az postgres server configuration set to `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
+- In the Azure portal, go to the [PostgreSQL resource management page and select the server parameters blade](concepts-server-parameters.md).
+- Use the [Azure CLI](connect-azure-cli.md) az postgres server configuration set to `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
 ## Use the Query Store
 
@@ -37,7 +34,7 @@ The [Query Store](concepts-query-store.md) feature in Azure Database for Postgre
 
 ## Next steps
 
-Consider setting `pg_stat_statements.track = NONE` in the [Azure portal](how-to-configure-server-parameters-using-portal.md) or by using the [Azure CLI](how-to-configure-server-parameters-using-cli.md).
+Consider setting `pg_stat_statements.track = NONE` in the [Azure portal](concepts-server-parameters.md) or by using the [Azure CLI](connect-azure-cli.md).
 
 For more information, see:
 

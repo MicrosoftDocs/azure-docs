@@ -2,8 +2,8 @@
 title: Use your smartphone as an Azure IoT device
 description: A how-to guide that shows you how to turn your smartphone into an IoT device by using the Azure IoT Plug and Play app.
 author: dominicbetts
-ms.service: iot-fundamentals
-services: iot-fundamentals
+ms.service: iot
+services: iot
 ms.topic: how-to
 ms.date: 08/24/2022
 ms.author: dobett

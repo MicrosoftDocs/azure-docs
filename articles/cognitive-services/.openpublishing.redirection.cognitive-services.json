@@ -6,6 +6,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-classification/how-to/use-autotagging.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/use-autolabeling",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/use-autotagging.md",
+            "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/use-autolabeling",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
             "redirect_document_id": true
