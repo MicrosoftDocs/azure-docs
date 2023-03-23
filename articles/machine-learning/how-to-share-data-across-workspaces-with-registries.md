@@ -379,7 +379,8 @@ my_data = Data(path=my_path,
 ml_client_workspace.data.create_or_update(my_data)
 
 ```
-Follow [this article]((how-to-create-data-assets.md)) to learn more about creating a data asset in workspace.  
+
+For more information on creating data assets in a workspace, see [How to create data assets](how-to-create-data-assets.md).  
 
 The data asset created in workspace can be shared to a registry and it can be used in multiple workspaces from there. You can also change the name and version when sharing the data from workspace to registry.
 
