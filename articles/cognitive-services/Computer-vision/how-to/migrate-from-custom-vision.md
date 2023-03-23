@@ -15,7 +15,7 @@ ms.author: pafarley
 
 You can migrate an existing Azure Custom Vision project to the new Image Analysis 4.0 system. [Custom Vision](../../custom-vision-service/overview.md) is a model customization service that existed before Image Analysis 4.0.
 
-This guide uses a Python script to take all of the training data from an existing Custom Vision project (images and their label data) and convert it to a COCO file. You can then import the COCO file into Vision Studio to train a custom model. See [Create and train a custom model](model-customization.md) and go to the section on importing a COCO file&mdash;you can follow the guide from there to the end.
+This guide uses Python code to take all of the training data from an existing Custom Vision project (images and their label data) and convert it to a COCO file. You can then import the COCO file into Vision Studio to train a custom model. See [Create and train a custom model](model-customization.md) and go to the section on importing a COCO file&mdash;you can follow the guide from there to the end.
 
 ## Prerequisites
 
@@ -23,6 +23,71 @@ This guide uses a Python script to take all of the training data from an existin
 * [Python 3.x](https://www.python.org/)
 * A Custom Vision resource where an existing project is stored.
 * An Azure Storage resource - [Create one](../../../storage/common/storage-account-create.md?tabs=azure-portal)
+
+#### [Jupyter Notebook](#tab/notebook)
+
+This notebook exports your image data and annotations from the workspace of a Custom Vision Service project to your own COCO file in a storage blob, ready for training with Image Analysis Model Customization. You can run the code in this section using a custom Python script, or you can download and run the [Notebook](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/export_cvs_data_to_blob_storage.ipynb) on a compatible platform.
+
+<!-- nbstart https://raw.githubusercontent.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/main/docs/export_cvs_data_to_blob_storage.ipynb -->
+
+> [!TIP]
+> Contents of _export_cvs_data_to_blob_storage.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/export_cvs_data_to_blob_storage.ipynb)**.
+
+
+## Install the python samples package
+
+Run the following command to install the required python samples package:
+
+```python
+pip install cognitive-service-vision-model-customization-python-samples
+```
+
+## Authentication
+
+Next, provide the credentials of your Custom Vision project and your blob storage container. 
+
+You need to fill in the correct parameter values. You need the following information:
+
+- The name of the Azure Storage account you want to use with your new custom model project
+- The key for that storage account
+- The name of the container you want to use in that storage account
+- Your Custom Vision training key
+- Your Custom Vision endpoint URL
+- The project ID of your Custom Vision project
+
+The Azure Storage credentials can be found on that resource's page in the Azure portal. The Custom Vision credentials can be found in the Custom Vision project settings page on the [Custom Vision web portal](https://customvision.ai).
+
+
+```python
+azure_storage_account_name = ''
+azure_storage_account_key = ''
+azure_storage_container_name = ''
+
+custom_vision_training_key = ''
+custom_vision_endpoint = ''
+custom_vision_project_id = ''
+```
+
+## Run the migration
+
+When you run the migration code, the Custom Vision training images will be saved to a `{project_name}_{project_id}/images` folder in your specified Azure blob storage container, and the COCO file will be saved to `{project_name}_{project_id}/train.json` in that same container. Both tagged and untagged images will be exported, including any **Negative**-tagged images.
+
+> [!IMPORTANT]
+> Image Analysis Model Customization does not currently support **multilabel** classification training, buy you can still export data from a Custom Vision multilabel classification project. 
+
+```python
+from cognitive_service_vision_model_customization_python_samples import export_data
+import logging
+logging.getLogger().setLevel(logging.INFO) 
+logging.getLogger('azure.core.pipeline.policies.http_logging_policy').setLevel(logging.WARNING)
+
+n_process = 8
+export_data(azure_storage_account_name, azure_storage_account_key, azure_storage_container_name, custom_vision_endpoint, custom_vision_training_key, custom_vision_project_id, n_process)
+```
+
+<!-- nbend -->
+
+#### [Python](#tab/python)
 
 ## Install libraries
 
@@ -253,9 +318,11 @@ You need to fill in the correct parameter values. You need the following informa
 - The key for that storage account
 - The name of the container you want to use in that storage account
 
+---
+
 ## Use COCO file in a new project
 
-The script generates a COCO file and uploads it to the blob storage location you specified. You can now import it to your model customization project. See [Create and train a custom model](model-customization.md) and go to the section on selecting a COCO file&mdash;you can follow the guide from there to the end.
+The script generates a COCO file and uploads it to the blob storage location you specified. You can now import it to your Model Customization project. See [Create and train a custom model](model-customization.md) and go to the section on selecting/importing a COCO file&mdash;you can follow the guide from there to the end.
 
 ## Next steps
 
