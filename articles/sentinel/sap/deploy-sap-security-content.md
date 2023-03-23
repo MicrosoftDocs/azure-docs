@@ -11,7 +11,7 @@ ms.date: 03/23/2023
 
 This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel solution for SAP® applications.
 
-Learn about [working with the solution across multiple workspaces](cross-workspace.md) (PREVIEW), or [define multiple workspaces](#multi-workspace). 
+Learn about [working with the solution across multiple workspaces](cross-workspace.md) (PREVIEW), or [define multiple workspaces](#deploy-sap-security-content). 
 
 ## Deployment milestones
 
@@ -50,31 +50,21 @@ To deploy SAP solution security content, do the following:
 
 1. To open the SAP solution page, select **Microsoft Sentinel solution for SAP® applications**.
 
-    :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel solution for SAP® applications' solution pane." lightbox="media/deploy-sap-security-content/sap-solution.png":::
+    :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel solution for SAP® applications' solution pane.":::
 
 1. To launch the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription and resource group.
 
-1. For the **Deployment target workspace**, select the Log Analytics workspace (the one used by Microsoft Sentinel) where you want to deploy the solution. 
+1. For the **Deployment target workspace**, select the Log Analytics workspace (the one used by Microsoft Sentinel) where you want to deploy the solution. <a id="multi-workspace"></a>
 
-<a id="multi-workspace"></a>
-
-1. If you want to [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](cross-workspace.md) (PREVIEW), do one of the following: 
-
-    - [If you want the SOC and SAP data to reside in separate workspaces](cross-workspace.md#scenario-1-sap-and-soc-data-reside-in-separate-workspaces): 
-        1. Select **Some of the data is on a different workspace**.
-        1. Under **Configure the workspace where the SOC data resides in**, select the SOC subscription and workspace. 
-        1. Under **Configure the workspace where the SAP data resides in**, select the SAP subscription and workspace.
+1. If you want to [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](cross-workspace.md) (PREVIEW), do one of the following, select **Some of the data is on a different workspace**.
+    1. Under **Configure the workspace where the SOC data resides in**, select the SOC subscription and workspace. 
+    1. Under **Configure the workspace where the SAP data resides in**, select the SAP subscription and workspace.
 
         For example:
 
-        :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot of how to configure the Microsoft Sentinel solution for SAP® applications to work across multiple workspaces." lightbox="media/deploy-sap-security-content/sap-multi-workspace.png":::
+        :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot of how to configure the Microsoft Sentinel solution for SAP® applications to work across multiple workspaces.":::
 
-    - [If you want the SOC and SAP data to be kept on the same workspace](cross-workspace.md#scenario-2-sap-data-is-kept-in-the-soc-workspace): 
-        - If the SAP team doesn't have permissions to the SAP workspace, under **Subscription** and **Resource group**, select the SAP workspace. Do not select **Some of the data is on a different workspace**. 
-        - If the SAP team has permissions to the SAP workspace:
-            1. Select **Some of the data is on a different workspace**.
-            1. Under **Configure the workspace where the SOC data resides in**, select the SOC subscription and workspace. 
-            1. Under **Configure the workspace where the SAP data resides in**, select the SAP subscription and workspace.
+    If you want the SOC and SAP data to be kept on the same workspace, review [this scenario](cross-workspace.md#scenario-2-sap-data-is-kept-in-the-soc-workspace).      
 
 1. Select **Next** to cycle through the **Data Connectors**, **Analytics**, and **Workbooks** tabs, where you can learn about the components that will be deployed with this solution.
 

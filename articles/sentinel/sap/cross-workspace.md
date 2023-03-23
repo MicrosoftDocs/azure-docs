@@ -11,7 +11,7 @@ ms.date: 03/22/2023
 
 When you set up your Microsoft Sentinel workspace, there are [multiple architecture options](../design-your-workspace-architecture.md#decision-tree) and considerations. Considering geography, regulation, access control, and other factors, you may choose to have multiple Sentinel workspaces in your organization. 
 
-This article discusses working with Microsoft Sentinel solution for SAP® applications across multiple workspaces in different scenarios.
+This article discusses working with the Microsoft Sentinel solution for SAP® applications across multiple workspaces in different scenarios.
 
 The Microsoft Sentinel solution for SAP® applications natively supports a cross-workspace architecture to allow improved flexibility for: 
 
@@ -21,9 +21,9 @@ The Microsoft Sentinel solution for SAP® applications natively supports a cross
 - Insufficient role-based access control (RBAC) in a single workspace
 
 > [!IMPORTANT]
-> The cross-workspace architecture and querying is currently in PREVIEW. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Working with multiple workspaces is currently in PREVIEW. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can define multiple workspaces when you [deploy the SAP security content](deploy-sap-security-content.md#multi-workspace).  
+You can define multiple workspaces when you [deploy the SAP security content](deploy-sap-security-content.md#deploy-sap-security-content).  
 
 ## Collaboration between the SOC and SAP teams in your organization
 
@@ -33,16 +33,16 @@ Your organization's SAP team has technical knowledge that's critical to successf
 
 As part of this collaboration, there are two possible scenarios, depending on your organization's needs:
 
-1. **The SAP data and the SOC data reside in separate workspaces**. Both teams can see the SAP data, using [cross-workspace queries](#scenario-1-sap-and-soc-data-reside-in-separate-workspaces) 
+1. **The SAP data and the SOC data reside in separate workspaces**. Both teams can see the SAP data, using [cross-workspace queries](#scenario-1-sap-and-soc-data-reside-in-separate-workspaces).
 1. **The SAP data is kept in the SOC workspace**, and SAP team can query the data using [resource context queries](#scenario-2-sap-data-is-kept-in-the-soc-workspace). 
 
 ## Scenario 1: SAP and SOC data reside in separate workspaces 
 
-In this scenario, the SAP and SOC teams have separate Microsoft Sentinel workspaces. When your organization deploys the Microsoft Sentinel solution for SAP® applications, each team specifies its SAP workspace under **Instance details** > **Configure the workspace where the SAP data resides**. 
-
-You define multiple workspaces when you [deploy the SAP security content](deploy-sap-security-content.md#multi-workspace).
+In this scenario, the SAP and SOC teams have separate Microsoft Sentinel workspaces. 
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-separate.png" alt-text="Diagram of working with the Microsoft Sentinel solution for SAP® applications in separate workspaces for the SAP and SOC data." border="false":::
+
+When your organization [deploys the Microsoft Sentinel solution for SAP® applications](deploy-sap-security-content.md#deploy-sap-security-content), each team specifies its SAP workspace. 
 
 A common practice is to provide some or all of the SOC team members with the **Sentinel Reader** role on the SAP workspace. 
 
@@ -69,8 +69,6 @@ This table maps out the access of data and features for the SAP and SOC teams in
 ## Scenario 2: SAP data is kept in the SOC workspace 
 
 In this scenario, you want to keep all of the data in one workspace. You can do this using Log Analytics to [manage access to data by resource](../resource-context-rbac.md). You can also associate SAP resources with an Azure resource ID by specifying the required `azure_resource_id` field in the connector configuration section on the data collector used to ingest data from the SAP system into Microsoft Sentinel. 
-
-You can define multiple workspaces when you [deploy the SAP security content](deploy-sap-security-content.md#multi-workspace).
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-combined.png" alt-text="Diagram of working with the Microsoft Sentinel solution for SAP® applications using the same workspace for the SAP and SOC data." border="false":::
 
