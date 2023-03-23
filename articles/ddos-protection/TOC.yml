@@ -36,22 +36,28 @@
     href: telemetry.md
 - name: Concepts
   items:
-  - name: Types of attacks
-    href: types-of-attacks.md
-  - name: Fundamental best practices
-    href: fundamental-best-practices.md
   - name: Azure DDoS Protection features
     href: ddos-protection-features.md
-  - name: Components of a DDoS response strategy
-    href: ddos-response-strategy.md
   - name: Reference architectures
     href: ddos-protection-reference-architectures.md
-  - name: Business continuity
-    href: ddos-disaster-recovery-guidance.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
   - name: Monitoring Azure DDoS Protection 
     href: monitor-ddos-protection-reference.md
+  - name: Business continuity
+    href: ddos-disaster-recovery-guidance.md
+  - name: Fundamental best practices
+    href: fundamental-best-practices.md
+  - name: Components of a DDoS response strategy
+    href: ddos-response-strategy.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
+  - name: Types of attacks
+    href: types-of-attacks.md
+  - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
+    href: inline-protection-glb.md
+  - name: Onboard partners
+    href: ddos-protection-partner-onboarding.md
+  - name: Manage permissions and restrictions
+    href: manage-permissions.md   
 - name: How-to guides
   items:
     - name: Configure Monitoring and Logging
@@ -62,7 +68,7 @@
           href: alerts.md  
         - name: Configure diagnostic logging alerts
           href: ddos-diagnostic-alert-templates.md
-        - name: Configure DDoS diagnostic logging
+        - name: Configure diagnostic logging
           href: diagnostic-logging.md    
     - name: View Monitoring and Logging
       items: 
@@ -72,14 +78,8 @@
           href: ddos-view-diagnostic-logs.md
     - name: Test with simulation partners
       href: test-through-simulations.md
-    - name: Manage permissions and restrictions
-      href: manage-permissions.md
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
-    - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
-      href: inline-protection-glb.md
-    - name: Onboard partners
-      href: ddos-protection-partner-onboarding.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
