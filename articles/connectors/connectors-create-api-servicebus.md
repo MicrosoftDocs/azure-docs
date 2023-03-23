@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 03/23/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -82,6 +82,8 @@ When you create a Consumption logic app workflow, you can select the **Correlate
 ### Large message support
 
 Large message support is available only for Standard workflows when you use the Service Bus built-in connector operations. For example, you can receive and large messages using the built-in triggers and actions respectively.
+
+With the Service Bus managed connector, there is a maximum message size of 1 MB even if using a premium tier Service Bus namespace. 
 
 ### Increase timeout for receiving and sending messages
 
