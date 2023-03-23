@@ -21,7 +21,7 @@ Before you get started, make sure you're familiar with app management and **sing
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [What is single sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
-There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app's user objects. Some apps manage other types of objects along with Users, such as Groups.
+There's a preconfigured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app's user objects. Some apps manage other types of objects along with Users, such as Groups.
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.
 
@@ -103,7 +103,7 @@ The attributes provisioned as part of Group objects can be customized in the sam
 
 ## Editing the list of supported attributes
 
-The user attributes supported for a given application are pre-configured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application.
+The user attributes supported for a given application are preconfigured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application.
 
 However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. To enter their definitions into the Azure portal, select the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen, and then select **Edit attribute list for** your app.
 
@@ -139,7 +139,7 @@ When you're editing the list of supported attributes, the following properties a
 - **Multi-value?** - Whether the attribute supports multiple values.
 - **Exact case?** - Whether the attributes values are evaluated in a case-sensitive way.
 - **API Expression** - Don't use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
-- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are pre-configured and currently can't be edited using the Azure portal, but can be edited using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and currently can't be edited using the Azure portal, but can be edited using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
