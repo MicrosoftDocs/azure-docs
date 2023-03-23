@@ -1,6 +1,6 @@
 ---
-title: App development best practices - Azure Database for PostgreSQL
-description: Learn about best practices for building an app by using Azure Database for PostgreSQL.
+title: App development best practices - Azure Database for PostgreSQL flexible server
+description: Learn about best practices for building an app by using Azure Database for PostgreSQL flexible server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.reviewer: ""
 ms.date: 03/22/2023
 ---
 
-# Best practices for building an application with Azure Database for PostgreSQL
+# Best practices for building an application with Azure Database for PostgreSQL flexible server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
