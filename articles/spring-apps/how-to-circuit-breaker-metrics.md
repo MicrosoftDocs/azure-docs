@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.
+This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature, you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.
 
 We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) to show how it works.
 
@@ -80,7 +80,7 @@ Use the following procedure to build and deploy the sample applications.
 >
 > * The customer code must use the API of `CircuitBreakerFactory`, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
-> * The following 2 dependencies have conflicts with resilient4j packages above.  Be sure the customer does not include them.
+> * The following two dependencies have conflicts with resilient4j packages.  Be sure the customer does not include them.
 >
 >   ```xml
 >   <dependency>
@@ -108,25 +108,25 @@ Use the following procedure to build and deploy the sample applications.
 
    :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
 
-1. Select **Metrics** in the navigation pane. The Metrics page provides dropdown menus and options from which you will define the charts in this procedure. For all charts, set the **Metric Namespace**, to **azure.applicationinsights**.
+1. Select **Metrics** in the navigation pane. The Metrics page provides dropdown menus and options from which you'll define the charts in this procedure. For all charts, set the **Metric Namespace**, to **azure.applicationinsights**.
 
    :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page, with Metrics highlighted in the navigation pane, and with azure-applicationinsights highlighted in the Metric Namespace dropdown menu." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
 
 1. For the first chart, select **resilience4j_circuitbreaker_buffered_calls** for the **Metric** with the **Aggregation** set to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuitbreaker buffered calls metric and averaged." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/buffered-calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuit breaker buffered calls metric and averaged." lightbox="media/how-to-circuit-breaker-metrics/buffered-calls.png":::
 
 1. For the next chart, select **resilience4j_circuitbreaker_calls** for the **Metric** with the **Aggregation** set to **Avg**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuitbreaker calls metric and averaged." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuit breaker calls metric and averaged." lightbox="media/how-to-circuit-breaker-metrics/calls.png":::
 
-1. Select **resilience4j_circuitbreaker_calls** for the **Metric** with the **Aggregation** set to **Avg**. Select **Add filter** and for the name select **createNewAccount**.
+1. Select **resilience4j_circuitbreaker_calls** for the **Metric** with the **Aggregation** set to **Avg**. Select **Add filter** and for the name select **Delay**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuitbreaker calls metric, averaged, and with a filter applied." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-filter.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuit breaker calls metric, averaged, and with a filter applied." lightbox="media/how-to-circuit-breaker-metrics/calls-filter.png":::
 
 1. Select **resilience4j_circuitbreaker_calls** for the **Metric** with the **Aggregation** set to **Avg**. Select **Apply splitting** and then select **kind**.
 
-   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuitbreaker calls metric, averaged, and with Apply splitting applied." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
+   :::image type="content" source="media/how-to-circuit-breaker-metrics/calls-splitting.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page showing a chart of the circuit breaker calls metric, averaged, and with Apply splitting applied." lightbox="media/how-to-circuit-breaker-metrics/calls-splitting.png":::
 
 1. For the last chart, select **resilience4j_circuitbreaker_calls** for the **Metric** with the **Aggregation** set to **Avg**. Select **Add metric** and select **resilience4j_circuitbreaker_buffered_calls** for the **Metric** with the **Aggregation** set to **Avg**. Repeat to add the metric **resilience4j_circuitbreaker_slow_calls** with the **Aggregation** set to **Avg**.
 
