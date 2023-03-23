@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Create a client using the Azure Web PubSub client SDK (preview)
 
-Get started with the Azure Web PubSub client SDK for Python or JavaScript to create a pub-sub client 
+Get started with the Azure Web PubSub client SDK for .NET or JavaScript to create a Web PubSub client 
 that: 
 
 * connects to a Web PubSub service instance
@@ -93,7 +93,7 @@ Install the Azure Web PubSub client SDK for the language you're using.
 
 The SDK is available as an [npm module](https://www.npmjs.com/package/@azure/web-pubsub-client).
 
-OPen a terminal winder and install the Web PubSub client SDK using the following command.
+Open a terminal window and install the Web PubSub client SDK using the following command.
 
 ```bash
 npm install @azure/web-pubsub-client
@@ -128,7 +128,7 @@ Note that the The SDK is available as a [NuGet packet](https://www.nuget.org/pac
 
 ### Create and connect to the Web PubSub service
 
-This code example creates a Web PubSub client that connects to the Web PubSub service instance.  A client uses a Client Access URL to connect and authenticate with the service. It's best practice to not hard code the Client Access in your code.  
+This code example creates a Web PubSub client that connects to the Web PubSub service instance.  A client uses a Client Access URL to connect and authenticate with the service. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand.  
 
 For this example, you can use the Client Access URL you generated in the portal.
 
@@ -157,7 +157,7 @@ Edit the `Program.cs` file and add following code:
 ```csharp
 using Azure.Messaging.WebPubSub.Clients;
 // Client Access URL from Azure portal
-var clientURL = args[0]; \
+var clientURL = args[0];
 // Instantiates the client object. 
 var client = new WebPubSubClient(new Uri(clientURL));
 ```
