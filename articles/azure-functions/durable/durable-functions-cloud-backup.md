@@ -130,7 +130,7 @@ The function uses the `readdirp` module (version 2.x) to recursively read the di
 
 Here is the implementation of the `getFileList` activity function:
 
-:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,7,36-48":::
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,3,7,36-48":::
 
 The function uses the `readdirp` module (version `3.x`) to recursively read the directory structure.
 
