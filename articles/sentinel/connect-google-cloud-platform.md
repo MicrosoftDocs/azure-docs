@@ -64,7 +64,7 @@ You can set up the GCP environment in one of two ways:
     terraform apply 
     ```
 
-1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant). 
+1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). 
 1. When asked if a workload Identity Pool has already been created for Azure, type **yes** or **no**.  
 1. When asked if you want to create the resources listed, type **yes**.
 1. Save the resources parameters for later use. 	
@@ -119,7 +119,7 @@ TBD - screenshot
    | take 10 
     ```
 
-1. Enable the [health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) for data connectors. 
+1. Enable the [health feature](enable-monitoring) for data connectors. 
 
 ### Set up the GCP environment manually via the GCP portal
 
@@ -133,7 +133,7 @@ Alternatively, you can set up the environment [via the Terraform API](#create-gc
 1. Filter the permissions by the **Pub/Sub Subscriber** and **Pub/Sub Viewer** roles, and select **pubsub.subscriptions.consume** and **pubsub.subscriptions.get** permissions. 
 1. To confirm, select **ADD**. 
 
-    TBD - screenshot
+    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-role.png" alt-text="Screenshot of adding permissions when adding a GCP role.":::
 
 1. To create the role, select **Create**. 
 
@@ -158,7 +158,7 @@ Alternatively, you can set up the environment [via the Terraform API](#create-gc
 
 1. To add a provider to the pool:
     - Select **OIDC** 
-    - Type the **Issuer (URL)**: *https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d* 
+    - Type the **Issuer (URL)**: \https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d    
     - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*. 
 
         TBD - screenshot
