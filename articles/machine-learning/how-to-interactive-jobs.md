@@ -31,8 +31,8 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 - To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
-
-
+- To use SSH, you will need an SSH key pair. You can use the `ssh-keygen -f "<filepath>"` command to generate a public and private key pair.
+   
 ## Interact with your job container
 
 By specifying interactive applications at job creation, you can connect directly to the container on the compute node where your job is running. Once you have access to the job container, you can test or debug your job in the exact same environment where it would run. You can also use VS Code to attach to the running process and debug as you would locally. 
@@ -133,27 +133,27 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 
 1. 1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
    ```dotnetcli
-   code: src 
-   command: 
-     python train.py 
-     # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
-   environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
-   compute: azureml:<your compute name>
-   services:
-       my_vs_code:
-         job_service_type: vs_code
-         nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
-       my_tensor_board:
-         job_service_type: tensor_board
-         log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
-         nodes: all
-       my_jupyter_lab:
-         job_service_type: jupyter_lab
-         nodes: all
-       my_ssh:
-        job_service_type: ssh
-        ssh_public_keys: <paste the entire pub key content>
-        nodes: all
+       code: src 
+       command: 
+         python train.py 
+         # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
+       environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
+       compute: azureml:<your compute name>
+       services:
+           my_vs_code:
+             job_service_type: vs_code
+             nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
+           my_tensor_board:
+             job_service_type: tensor_board
+             log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
+             nodes: all
+           my_jupyter_lab:
+             job_service_type: jupyter_lab
+             nodes: all
+           my_ssh:
+            job_service_type: ssh
+            ssh_public_keys: <paste the entire pub key content>
+            nodes: all
    ```
 
        The `services` section specifies the training applications you want to interact with.  
@@ -177,6 +177,8 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
+
+
 
 
 
