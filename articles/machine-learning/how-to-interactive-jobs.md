@@ -77,48 +77,48 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 
    Note that you have to import the `JobService` class from the `azure.ai.ml.entities` package to configure interactive services via the SDKv2. 
 
-    ```python
-    command_job = command(...
-        code="./src",  # local path where the code is stored
-        command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
-        environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
-        compute="<name-of-compute>",
-        services={
-          "My_jupyterlab": JupyterLabJobService(
-            nodes="all" # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
-          ),
-          "My_vscode": VsCodeJobService(
-            nodes="all"
-          ),
-          "My_tensorboard": TensorBoardJobService(
-            nodes="all",
-            log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
-            }          
-          ),
-          "My_ssh": SshJobService(
-            ssh_Public_Keys="<add-public-key>",
-            nodes="all"
-            }    
-          ),
-        }
-    )
+   ```python
+   command_job = command(...
+       code="./src",  # local path where the code is stored
+       command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
+       environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
+       compute="<name-of-compute>",
+       services={
+         "My_jupyterlab": JupyterLabJobService(
+           nodes="all" # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
+         ),
+         "My_vscode": VsCodeJobService(
+           nodes="all"
+         ),
+         "My_tensorboard": TensorBoardJobService(
+           nodes="all",
+           log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
+           }          
+         ),
+         "My_ssh": SshJobService(
+           ssh_Public_Keys="<add-public-key>",
+           nodes="all"
+           }    
+         ),
+       }
+   )
+   
+   # submit the command
+   returned_job = ml_client.jobs.create_or_update(command_job)
+   ```
 
-    # submit the command
-    returned_job = ml_client.jobs.create_or_update(command_job)
-    ```
+   The `services` section specifies the training applications you want to interact with.  
 
-    The `services` section specifies the training applications you want to interact with.  
+   You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
+   * sleep 1s
+   * sleep 1m
+   * sleep 1h
+   * sleep 1d
 
-    You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
-    * sleep 1s
-    * sleep 1m
-    * sleep 1h
-    * sleep 1d
-
-    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
-    
-    > [!NOTE]
-    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+   You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+   
+   > [!NOTE]
+   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Submit your training job. For more details on how to train with the Python SDKv2, check out this [article](./how-to-train-model.md).
 
@@ -170,15 +170,6 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
-
-
-
-
-
-
-
-
-
 
 
 Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
