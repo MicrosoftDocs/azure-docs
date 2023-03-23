@@ -139,10 +139,10 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 You can send diagnostics data to the following options:
 
-- [Log Analytics workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
-- [Azure Event Hubs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs#send-to-azure-event-hubs)
-- [Azure Storage](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
-- [Azure Monitor partner integrations](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs#azure-monitor-partner-integrations)
+- [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
+- [Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+- [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- [Azure Monitor partner integrations](../azure-monitor/essentials/resource-logs.md#azure-monitor-partner-integrations)
 
 ## Log categories
 
