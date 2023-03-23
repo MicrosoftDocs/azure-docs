@@ -94,9 +94,5 @@ You can keep your resources for the next guide. If no longer needed, delete the 
 
 ## Next steps
 
-In this article, you learned how to configure diagnostic logging alerts through Azure Monitor.
-
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
-
-> [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+* [Test through simulations](test-through-simulations.md)
+* [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md)
