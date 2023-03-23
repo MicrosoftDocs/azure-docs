@@ -38,7 +38,7 @@ Follow these steps to access the **Mappings** feature of user provisioning:
 
    ![Use Mappings to view and edit user attributes](./media/customize-application-attributes/21.png)
 
-1. Select a **Mappings** configuration to open the related **Attribute Mapping** screen. Some attribute-mappings are required by a SaaS application to function correctly. For required attributes, the **Delete** feature is unavailable.
+1. Select a **Mappings** configuration to open the related **Attribute Mapping** screen. SaaS applications require certain attribute-mappings to function correctly. For required attributes, the **Delete** feature is unavailable.
 
    ![Use Attribute Mapping to configure attribute mappings for apps](./media/customize-application-attributes/22.png)
 
