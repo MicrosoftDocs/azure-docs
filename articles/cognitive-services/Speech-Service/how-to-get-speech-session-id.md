@@ -29,7 +29,7 @@ To get the Session ID, when using SDK you need to:
 1. Enable application logging.
 1. Find the Session ID inside the log.
 
-If you use JavaScript, you need to use the method described in [this section](#get-session-id-using-javascript).
+If you use Speech SDK for JavaScript, get the Session ID as described in [this section](#get-session-id-using-javascript).
 
 If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details in [this section](#get-session-id-using-speech-cli).
 
