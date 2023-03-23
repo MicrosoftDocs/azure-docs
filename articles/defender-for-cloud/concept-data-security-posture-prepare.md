@@ -27,7 +27,9 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Note that we don't scan page blobs.<br/><br/Itsv, .txt., xml, .parquet, .avro, .orc.
+What data resources can I scan? | Azure storage accounts v1, v2, including accounts in private networks.<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Note that we don't scan page blobs.
+What permissions do I need for scanning? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
+What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
 What AWS regions are supported? | Asia Pacific (Tokyo); Asia Pacific (Singapore); Asia Pacific (Sydney); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon).<br/><br/> Scanning is done locally in the region.
 Do I need to install an agent? | No, scanning is agentless.
