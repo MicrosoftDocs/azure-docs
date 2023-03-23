@@ -70,7 +70,7 @@ During manual database deployment, follow these steps to minimize downtime or re
 - Deploy your application changes and make sure the application is now using the new database that has the latest updates.
 - Keep the old production database so that you can roll back the changes. You can then evaluate to either delete the old production database or export it on Azure Storage if needed.
 
->  [!NOTE]
+> [!NOTE]
 > If the application is like an e-commerce app and you can't put it in read-only state, deploy the changes directly on the production database after making a backup. Theses change should occur during off-peak hours with low traffic to the app to minimize the impact, because some users might experience failed requests. Make sure your application code also handles any failed requests.
 
 ## Database schema and queries
