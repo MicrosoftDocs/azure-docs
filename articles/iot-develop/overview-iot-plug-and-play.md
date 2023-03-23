@@ -45,7 +45,7 @@ As a solution builder, you can use [IoT Central](../iot-central/core/overview-io
 
 The web UI in IoT Central lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. IoT Plug and Play devices connect directly to an IoT Central application. Here you can use customizable dashboards to monitor and control your devices. You can also use device templates in the IoT Central web UI to create and edit DTDL models.
 
-IoT Hub - a managed cloud service - acts as a message hub for secure, bi-directional communication between your IoT application and your devices. When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the DTDL model.
+IoT Hub - a managed cloud service - acts as a message hub for secure, bi-directional communication between your IoT application and your devices. When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](../iot/howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the DTDL model.
 
 If you have existing sensors attached to a Windows or Linux gateway, you can use [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md), to connect these sensors and create IoT Plug and Play devices without the need to write device software/firmware (for [supported protocols](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
 
