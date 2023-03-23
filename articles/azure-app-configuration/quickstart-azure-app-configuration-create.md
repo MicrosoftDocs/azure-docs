@@ -110,7 +110,7 @@ az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value cente
     | Enable feature flag | Box is checked. | Check this box to make the new feature flag active as soon as the flag has been created. |
     | Feature flag name   | *featureA*      | The feature flag name is the unique ID of the flag, and the name that should be used when referencing the flag in code. |
 
-1. Select **Apply**.    
+1. Leave all other fields with their default values and select **Apply**.    
 
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-feature-flag.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a feature flag.":::
 
