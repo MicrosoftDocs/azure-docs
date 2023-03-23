@@ -42,7 +42,6 @@ You should have the following information already:
 - VLAN/subnet info for each of the layer 3 network(s)
 - Which network(s) would need to talk to each other (remember to put VLANs/subnets that needs to
   talk to each other into the same L3 Isolation Domain)
-- VLAN/subnet info for your `defaultcninetwork` for AKS-Hybrid cluster
 - BGP peering and network policies information for your L3 Isolation Domain(s)
 - VLANs for all your layer 2 network(s)
 - VLANs for all your trunked network(s)
