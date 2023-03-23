@@ -11,20 +11,19 @@ ms.custom: template-how-to-pattern
 
 # Enable data-aware security posture
 
-To help you protect against data breaches, you can enable [data-aware security posture](data-security-posture-enable.md) in Microsoft Defender for Cloud.
+This article describes how to enable [data-aware security posture](data-security-posture-enable.md) in Microsoft Defender for Cloud.
 
 ## Before you start
 
 - Before you enable data-aware security posture, [review support and prerequisites](concept-data-security-posture-prepare.md).
-- When you enable Defender CSPM or Defender for Storage, the **Sensitive data discovery** extension is automatically enabled for the plans. You can disable this setting if you don't want to use data-aware security posture, but we recommend that use the feature to get the most value from Defender for Cloud.
-- Sensitive data is identified based on the data sensitivity settings. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
-- It takes up to 24 hours to see the results of a first scan.
+- When you enable Defender CSPM or Defender for Storage plans, the sensitive data discovery extension is automatically enabled. You can disable this setting if you don't want to use data-aware security posture, but we recommend that use the feature to get the most value from Defender for Cloud.
+- Sensitive data is identified based on the data sensitivity settings in Defender for Clouod. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
+- It takes up to 24 hours to see the results of a first scan after enabling the feature.
 
 ## Enable in Defender CSPM (Azure)
 
-To enable data-aware security posture for Azure subscriptions, follow these steps:
+Follow these steps to enable data-aware security posture. Don't forget to review [required permissions](concept-data-security-posture-prepare.md#whats-supported) before you start.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
 1. Select the relevant Azure subscription.
 1. For the Defender for CSPM plan, select the **On** status.
@@ -32,26 +31,25 @@ To enable data-aware security posture for Azure subscriptions, follow these step
     If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Sensitive data discovery** component is set to **On** status.
 
 ## Enable in Defender CSPM (AWS)
- 
-Defender for Cloud uses a cloud connector to connect to AWS accounts. To enable data-aware security posture for AWS accounts you need to change the Defender CSPM settings in the AWS connector and implement the changes in AWS with a CloudFormation template. [Review requirements](concept-data-security-posture-prepare.md#scanning-aws-storage).
+
+### Before you start
+
+- Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#scanning-aws-storage) for AWS scanning, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
+- Check that there's no policy that blocks the connection to your Amazon S3 buckets.
 
 ### Check for blocking policies
 
-1. Verify that there is no policy that blocks the connection to your Amazon S3 buckets.
-    - Make sure that the S3 bucket policy doesn't block the connection as follows:
-        1. In AWS, navigate to your S3 bucket, and then select the **Permissions** tab > Bucket policy.
-        2. Check the policy details to make sure that it doesn't block the connection from the MDC scanner service running in the Microsoft account in AWS.
-    - Make sure that there's no SCP policy that blocks the connection to the S3 bucket. For 
+- Make sure that the S3 bucket policy doesn't block the connection. In the AWS S3 bucket, select the **Permissions** tab > Bucket policy. Check the policy details to make sure the MDC scanner service running in the Microsoft account in AWS isn't blocked.
+- Make sure that there's no SCP policy that blocks the connection to the S3 bucket. For 
 example, your SCP policy might block read API calls to the AWS Region where your S3 
 bucket is hosted.
-    - Check that these required API calls are allowed by your SCP policy: AssumeRole, 
+- Check that these required API calls are allowed by your SCP policy: AssumeRole, 
 GetBucketLocation, GetObject, ListBucket, GetBucketPublicAccessBlock
-    - Check that your SCP policy allows calls to the us-east-1 AWS Region, which is the default 
+- Check that your SCP policy allows calls to the us-east-1 AWS Region, which is the default 
 region for API calls.
 
 ### Enable data-aware security posture
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
 1. Select the relevant AWS account.
 1. For the Defender CSPM plan, select the **On** status.
