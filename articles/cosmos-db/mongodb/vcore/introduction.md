@@ -23,13 +23,19 @@ Developers can rest easy knowing that they have access to one unified support te
 
 ## Low total cost of ownership (TCO)
 
-Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional high availability (HA), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, we pass the **50% savings** on to you. The image below is an example of the pricing for a cluster with HA enabled and disabled.
+Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional high availability (HA), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, cost savings are passed on to you in the form of a reduced per-hour cost.
 
-:::image type="content" source="media/introduction/cluster-tiers.png" alt-text="Screenshot of several cluster tier options.":::
+Here are the current tiers for the service:
 
-*East US region
+| Cluster tier | Base storage | RAM | vCPUs |
+| --- | --- | --- | --- |
+| M30 | 128 GB | 8 GB | 2 |
+| M40 | 128 GB | 16 GB | 4 |
+| M50 | 128 GB | 32 GB | 8 |
+| M60 | 128 GB | 64 GB | 16 |
+| M80 | 128 GB | 128 GB | 32 |
 
-Azure Cosmos DB for MongoDB vCore is organized into easy to understand cluster tiers based on vCPUs, RAM, and attached storage, making it easy to lift and shift your existing workloads or build new applications.
+Azure Cosmos DB for MongoDB vCore is organized into easy to understand cluster tiers based on vCPUs, RAM, and attached storage. These tiers make it easy to lift and shift your existing workloads or build new applications.
 
 ## Flexibility for developers
 
