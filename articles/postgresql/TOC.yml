@@ -542,6 +542,8 @@
           displayName: logical decoding, logical replication
     - name: App Development
       items: 
+        - name: Best practices
+          href: flexible-server/application-best-practices.md
         - name: Connection resilience
           href: flexible-server/concepts-connectivity.md
     - name: Azure Advisor recommendations
@@ -566,6 +568,12 @@
       - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
+      - name: Troubleshoot connections 
+        href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+        displayName: Troubleshoot connections
+      - name: Optimize query statistics
+        href: flexible-server/how-to-optimize-query-stats-collection.md
+        displayName: Optimize query statistics
       - name: Best practices for bulk data upload 
         href: flexible-server/how-to-bulk-load-data.md
         displayName: Best practices for bulk data upload
