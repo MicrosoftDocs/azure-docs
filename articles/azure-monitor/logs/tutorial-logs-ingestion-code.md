@@ -349,13 +349,11 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 
 2. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
 
-    
-
     ```csharp
     // Initialize variables
-    var endpoint = new Uri("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com";);
-    var ruleId = "dcr-00000000000000000000000000000000";
-    var streamName = "Custom-MyTableRawData";
+    var endpoint = new Uri("<data_collection_endpoint_uri>");
+    var ruleId = "<data_collection_rule_id>";
+    var streamName = "<stream_name>";
     
     // Create credential and client
     var credential = new DefaultAzureCredential();
@@ -395,7 +393,44 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
         });
     
     // Upload logs
-    Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
+    try
+    {
+        Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Upload failed with Exception " + ex.Message);
+    }
+    
+    // Logs can also be uploaded in a List
+    var entries = new List<Object>();
+    for (int i = 0; i < 10; i++)
+    {
+        entries.Add(
+            new {
+                Time = recordingNow,
+                Computer = "Computer" + i.ToString(),
+                AdditionalContext = i
+            }
+        );
+    }
+    
+    // Make the request
+    LogsUploadOptions options = new LogsUploadOptions();
+    bool isTriggered = false;
+    options.UploadFailed += Options_UploadFailed;
+    await client.UploadAsync(TestEnvironment.DCRImmutableId, TestEnvironment.StreamName, entries, options).ConfigureAwait(false);
+    
+    Task Options_UploadFailed(LogsUploadFailedEventArgs e)
+    {
+        isTriggered = true;
+        Console.WriteLine(e.Exception);
+        foreach (var log in e.FailedLogs)
+        {
+            Console.WriteLine(log);
+        }
+        return Task.CompletedTask;
+    }
     ```
 
 3. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
