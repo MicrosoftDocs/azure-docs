@@ -251,15 +251,15 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 **parameters**
 
-| Property Name            | Required | Default value |
-|--------------------------|----------|---------------|
-| name                     | yes      | n/a           |
-| filters                  | yes      | n/a           |
-| filters[\<index\>].key   | yes      | n/a           |
-| filters[\<index\>].label | no       | null          |
-| tags                     | no       | {}            |
-| composition_type         | no       | all           |
-| retention_period         | no       | 2592000       |
+| Property Name            | Required | Default value                                    |
+|--------------------------|----------|--------------------------------------------------|
+| name                     | yes      | n/a                                              |
+| filters                  | yes      | n/a                                              |
+| filters[\<index\>].key   | yes      | n/a                                              |
+| tags                     | no       | {}                                               |
+| filters[\<index\>].label | no       | null                                             |
+| composition_type         | no       | all                                              |
+| retention_period         | no       | 2592000 (standard sku) <br/> 604,800 (free sku) |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
@@ -278,7 +278,8 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json
     "tag1": "value1",
     "tag2": "value2",
   },
-  "composition_type": "group_by_key"  // optional
+  "composition_type": "group_by_key",  // optional
+  "retention_period": 2592000          // optional
 }
 ```
 
@@ -311,7 +312,7 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
     "t1": "value1",
     "t2": "value2"
   },
-  "retention_period": 7776000,
+  "retention_period": 2592000,
   "expires": null
 }
 ```
