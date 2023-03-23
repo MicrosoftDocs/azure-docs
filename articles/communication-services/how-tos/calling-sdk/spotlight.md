@@ -25,17 +25,19 @@ In this article, you will learn how to implement Microsoft Teams spotlight capab
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+Communication Services or Microsoft 365 users can call the spotlight APIs based on role type 
+|                                    | Organizer | Presenter | Attendee |
+|----------------------------------------------|--------|--------|
+| startSpotlight | ✔️ | ✔️  |  |
+| startParticipantsSpotlight | ✔️ | ✔️ |  |
+| stopSpotlight | ✔️ | ✔️ | ✔️ |
+| stopParticipantsSpotlight | ✔️ | ✔️ |  |
+| stopAllSpotlight |  ✔️ | ✔️ |  |
+| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
 ::: zone-end
-|                                    | Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|
-| startSpotlight | ✔️ | ✔️  | ❌ |
-| startParticipantsSpotlight | ✔️ | ✔️ | ❌ |
-| stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopParticipantsSpotlight | ✔️ | ✔️ | ❌ |
-| stopAllSpotlight |  ✔️ | ✔️ | ❌ |
-| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
