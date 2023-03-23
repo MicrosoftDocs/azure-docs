@@ -50,9 +50,9 @@ You need:
 - the `custom location` resource ID of your Operator Nexus cluster
 
 ## AKS-Hybrid availability zone
-`--zones` option in `az hybridaks create` or `az hybridaks nodepool add` can be used to distribute the AKS-Hybrid clusters across different zones for better fault tolerance and performance. By specifying the --zones option when creating a AKS-Hybrid cluster, you can ensure that the cluster is scheduled onto a nodes in a specific rack or distributed evenly across multiple racks for better resource utilization and fault tolerance.
+`--zones` option in `az hybridaks create` or `az hybridaks nodepool add` can be used to distribute the AKS-Hybrid clusters across different zones for better fault tolerance and performance. When creating an AKS-Hybrid cluster, you can use the `--zones` option to schedule the cluster onto specific racks or distribute it evenly across multiple racks, improving resource utilization and fault tolerance.
 
-In case you don't specify a zone while creating a AKS-Hybrid cluster through the --zones option, Operator Nexus platform will automatically implement a default anti-affinity rule. This anti-affinity rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it is a best-effort approach and cannot guarantee it.
+If you do not specify a zone when creating an AKS-Hybrid cluster through the `--zones` option, the Operator Nexus platform automatically implements a default anti-affinity rule. This anti-affinity rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't guarantee it.
 
 To obtain the list of available zones in the given Operator Nexus instance, you can use the following command.
 
