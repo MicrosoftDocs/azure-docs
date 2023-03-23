@@ -87,7 +87,7 @@ Ensure to add the *Python* file to the PATH environment variable and restart the
 
 **Python 2.x, Python 3.x upto 3.8**
 
-To run Python 2.x and Python 3.x runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. For more information, see [Installing Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
+To run Python 2.x and Python 3.x runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker.
 Ensure to add the *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **PowerShell 7.2**
