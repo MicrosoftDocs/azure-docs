@@ -294,8 +294,6 @@
               href: ../periodic-backup-request-data-restore.md
             - name: Management
               href: ../periodic-backup-management.md
-            - name: Permissions
-              href: ../periodic-backup-permissions.md
     - name: Global distribution
       items:
         - name: Global distribution overview

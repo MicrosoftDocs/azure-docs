@@ -17,19 +17,15 @@ ms.custom: ignite-2022
 
 With Azure Cosmos DB API for NoSQL accounts, you can also maintain your own backups by using one of the following approaches:
 
-- Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically to a storage solution of your choice.
-
-- Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for full backups or for incremental changes, and store it in your own storage.
-
 ## Azure Data Factory
 
-TODO
+Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically to a storage solution of your choice.
 
 ## Azure Cosmos DB change feed
 
-TODO
+Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for full backups or for incremental changes, and store it in your own storage.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Required permissions to manage retention or restoration](periodic-backup-permissions.md)
+- Learn more about [periodic backup and restore](periodic-backup-restore-introduction.md)
+- Learn more about [continuous backup](continuous-backup-restore-introduction.md)

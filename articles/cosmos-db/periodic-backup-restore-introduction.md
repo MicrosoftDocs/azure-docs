@@ -43,6 +43,10 @@ Two backups are provided free and extra backups are charged according to the reg
 
 For example, consider a scenario where Backup Retention is configured to **240 hrs** (or **10 days**) and Backup Interval is configured to **24 hours**. This configuration implies that there are **10** copies of the backup data. If you have **1 TB** of data in an Azure region, the cost for backup storage in a given month would be: `0.12 * 1000 * 8`
 
+## Required permissions to manage retention or restoration
+
+Principals who are part of the role [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), owner, or contributor are allowed to request a restore or change the retention period.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
