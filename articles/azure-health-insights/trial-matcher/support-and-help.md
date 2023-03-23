@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # Trial Matcher support and help options
 
-Are you just starting to explore the functionality of the OncoPhenotype model? Perhaps you're implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
+Are you just starting to explore the functionality of the Trial Matcher model? Perhaps you're implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for the Trial Matcher model.
 
 ## Create an Azure support request
 
@@ -27,10 +27,3 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 ## Post a question on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
-
-If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Trial Matcher overview](overview.md)

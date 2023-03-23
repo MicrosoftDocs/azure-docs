@@ -14,11 +14,8 @@ ms.author: behoorne
 
 # Trial Matcher frequently asked questions
 
-Find answers to commonly asked questions about the Trial matcher, part of the Azure Health Insights Service.
+You’ll find answers to commonly asked questions about Trial Matcher, part of the Azure Health Insights service, in this article
 
 ## Is there a workaround for patients whose clinical documents exceed the # characters limit?
 Unfortunately, we don't support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.
 
-## Limits and quotas
-For the public preview, you can select the F0 (free) sku. 
-The Official prices will be released after public preview 

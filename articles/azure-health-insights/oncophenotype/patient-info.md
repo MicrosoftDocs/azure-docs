@@ -12,14 +12,16 @@ ms.author: behoorne
 ---
 
 
-# OncoPhenotype Patient Info
+# OncoPhenotype patient info
 
 The OncoPhenotype currently can receive patient information in the form of ```Unstructured clinical notes```.
 The payload should contain a ```patients``` section with one or more objects where the ```data``` property contains one or more JSON object of ```kind``` "note". 
                       
 
-## Example payload
-An example can be seen below
+## Example request
+
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model will check for a cancer case but not include the evidence. 
+In this example the OncoPhenotype model receives patient information in the form of Unstructured clinical notes
 
 
 ```json
@@ -53,7 +55,7 @@ An example can be seen below
 
 ## Next steps
 
-To get started using the OncoPhenotype model, you can 
+To get started using the OncoPhenotype model:
 
 >[!div class="nextstepaction"]
-> [deploy the service via the portal](../deploy-portal.md) 
+> [Deploy the service via the portal](../deploy-portal.md) 

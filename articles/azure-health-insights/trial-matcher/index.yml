@@ -40,8 +40,6 @@ landingContent:
         links:
           - text: Using the Portal
             url: get-started.md   
-          - text: Integrate with Azure Health Bot
-            url: azure-healthbot-integration.md
   - title: Help and feedback
     linkLists:
       - linkListType: reference

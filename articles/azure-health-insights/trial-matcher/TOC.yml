@@ -15,8 +15,6 @@ items:
   items:
      - name: Use the Trial Matcher
        href: get-started.md
-     - name: Integrate with Azure Health Bot
-       href: azure-healthbot-integration.md
 - name: Responsible use of AI
   expanded: true
   items:

@@ -14,8 +14,7 @@ ms.author: behoorne
 
 # OncoPhenotype frequently asked questions
 
-Find answers to commonly asked questions about the OncoPhenotype model, part of the Azure Health Insights Service.
-
+You’ll find answers to commonly asked questions about OncoPhenotype, part of the Azure Health Insights service, in this article
 
 ## What does inference value ```None``` mean?
 ```None``` implies that the model couldn't find enough relevant information to make a meaningful prediction.
@@ -40,5 +39,4 @@ Yes, for clinical/pathologic TNM categories. For tumor site and histology, the v
 
 
 ## Is there a workaround for patients whose clinical documents exceed the # characters limit?
-
 Unfortunately, we don't support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.

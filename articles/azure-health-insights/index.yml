@@ -61,5 +61,3 @@ landingContent:
         links:
           - text: Get started
             url: trial-matcher/get-started.md
-          - text: Integrate with Azure Health Bot
-            url: trial-matcher/azure-healthbot-integration.md

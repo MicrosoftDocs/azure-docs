@@ -18,8 +18,9 @@ An AI system includes not only the technology, but also the people who use it, t
 
 Microsoft's Transparency Notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. They are also part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai). 
 
-## Example use cases for the OncoPhenotype
-**USE CASE** | **DESCRIPTION** 
+## Example use cases for the Trial Matcher
+
+**Use case** | **Description** 
 -------------|----------------
 Assisted annotation and curation | Support solutions for clinical data annotation and curation. For example: to support clinical coding, digitization of data that was manually created, automation of registry reporting.
 Decision support | Enable solutions that provide information that can assist a human in their work or support a decision made by a human.        
