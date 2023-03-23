@@ -23,6 +23,44 @@ Azure Load Testing collects detailed resource metrics across your Azure app comp
 - An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 - An Azure App Service workload that you're running a load test against and that you've added to the app components to monitor during the load test.
 
+## Create a load test for an app on Azure App Service
+
+- Quick test
+- Upload a JMeter script (e.g. multiple requests, authenticated requests, configurable test)
+
+## Monitor application metrics
+
+- server-side metrics
+    - Add application component (App Service Plan, App Service)
+    - Default metrics added
+    - You can select additional metrics
+    - Link to server-side metrics docs
+
+- App Service Diagnostics
+    - What is?
+    - How to access
+    - Link to App Service Diagnostics docs
+
+## Parameterize your test for deployment slots
+
+- Requires a JMeter script
+- Deployment slots -> different endpoint
+- Avoid hard-coding 
+- Use env vars to pass deployment slot and make URL configurable in JMeter script
+- Also use for other configuration parameters (e.g. number of virtual users, ramp-up time, and so on.)
+
+## Authenticated endpoints
+
+- Use shared secrets or certificates
+- Pass secrets into the JMeter script (store in Azure Key Vault or in CI/CD secrets store)
+- Azure AD authentication config: https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad
+- Blogpost
+
+## Next steps
+
+    - Configure high-scale load
+    - Configure CI/CD
+
 ## Use App Service diagnostics for your load test
 
 Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
