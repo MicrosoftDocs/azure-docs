@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 03/23/2023
 # Customer intent: As an identity and security admin, I want to set up Azure Active Directory Conditional Access for Microsoft Purview, for secure access.
 ---
 
