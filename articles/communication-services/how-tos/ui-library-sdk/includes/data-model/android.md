@@ -39,20 +39,24 @@ To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParti
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val CallCompositeParticipantViewData participantViewData = CallCompositeParticipantViewData()
+val participantViewData: CallCompositeParticipantViewData = CallCompositeParticipantViewData()
     .setAvatarBitmap((Bitmap) avatarBitmap)
     .setScaleType((ImageView.ScaleType) scaleType)
-    .setDisplayName((String) displayName);
+    .setDisplayName((String) displayName)
 
+<<<<<<< HEAD
 val CallCompositeNavigationBarViewData navigationBarViewData = CallCompositeNavigationBarViewData()
+=======
+val setupScreenViewData: CallCompositeSetupScreenViewData = CallCompositeSetupScreenViewData()
+>>>>>>> ef3071d236b6 (Correcting data model code sample for android)
     .setTitle((String) title)
-    .setSubtitle((String) subTitle);
+    .setSubtitle((String) subTitle)
 
-val CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
+val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
     .setParticipantViewData(participantViewData)
-    .setNavigationBarViewData(navigationBarViewData);
+    .setNavigationBarViewData(navigationBarViewData)
 
-callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
+callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
 
 #### [Java](#tab/java)
