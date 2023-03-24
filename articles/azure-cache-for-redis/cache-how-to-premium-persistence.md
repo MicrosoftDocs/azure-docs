@@ -189,13 +189,13 @@ az redis update --name MyRedisCache --resource-group MyResourceGroup --set "redi
 
 ### [Using Azure CLI (Enterprise tier)](#tab/enterprise)
 
-The [az redisenterprise create](/cli/azure/redienterprise.md#az-redisenterprise-create) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` parameters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
+The [az redisenterprise create](/cli/azure/redienterprise#az-redisenterprise-create) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` parameters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
 
 ```azurecli
 az redisenterprise create --cluster-name "cache1" --resource-group "rg1" --location "East US" --sku "Enterprise_E10" --persistence rdb-enabled=true rdb-frequency="1h" 
 ```
 
-Existing caches can be updated using the [az redisenterprise update](/cli/azure/redienterprise.md#az-redisenterprise-database-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
+Existing caches can be updated using the [az redisenterprise update](/cli/azure/redienterprised#az-redisenterprise-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
 
 ```azurecli
 az redisenterprise database update --cluster-name "cache1" --resource-group "rg1" --persistence rdb-enabled=true rdb-frequency="12h" 
@@ -303,8 +303,9 @@ Use a second storage account for AOF persistence when you think you've higher th
 
 ### Does AOF persistence affect throughput, latency, or performance of my cache?
 
-AOF persistence can affect throughput by about 15% to 20% when the cache is below maximum load (CPU and Server Load both under 90%). There shouldn't be latency issues when the cache is within these limits. However, the cache does reach these limits sooner with AOF enabled.
-<!-- This is super confusing. -->
+AOF persistence does affect throughput. AOF runs on both the primary and replica process, therefore you see both higher CPU and Server Load for a cache with AOF persistence, than for a cache with an identical workload without AOF persistence. AOF offers the best consistency with the data in memory because as each write and delete is persisted right away. The trade-off is that AOF is more compute intensive.
+
+As long as CPU and Server Load are both less than 90%, the penalty on throughput is not generally problematic. Above 90% CPU and Server Load, the penalty can get much higher. Persistence runs on the primary and replica process, increasing the load on the node in use, and putting persistence on the critical path of data. If persistence to storage is slow, then overall writes/deletes are also slow, also known as latency.
 
 ### How can I remove the second storage account?
 
