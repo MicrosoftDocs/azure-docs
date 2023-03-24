@@ -1,9 +1,8 @@
 ---
 title: Device development introduction
-titleSuffix: Azure IoT
 description: An overview of Azure IoT device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
-ms.service: iot-fundamentals
-services: iot-fundamentals
+ms.service: iot
+services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
@@ -44,7 +43,7 @@ Examples of specialized hardware and operating systems include:
 
 [Windows for IoT](/windows/iot/product-family/windows-iot) is an embedded version of Windows for MPUs with cloud connectivity that lets you create secure devices with easy provisioning and management.
 
-[Azure RTOS](/rtos/overview-rtos) is a real time operating system for IoT and edge devices powered by MCUs. Azure RTOS is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
+[Azure RTOS](/azure/rtos/overview-rtos) is a real time operating system for IoT and edge devices powered by MCUs. Azure RTOS is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
 [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
@@ -134,7 +133,7 @@ The following table lists some of the available IoT development tools:
 | --- | --- |
 | [Azure IoT Hub (VS Code extension)](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) | This VS Code extension lets you manage your IoT Hub resources and devices from within VS Code. |
 | [Azure IoT explorer](howto-use-iot-explorer.md) | This cross-platform tool lets you manage your IoT Hub resources and devices from a desktop application. |
-| [Azure IoT extension for Azure CLI](https://learn.microsoft.com/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
+| [Azure IoT extension for Azure CLI](/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
 
 ## Next steps
 

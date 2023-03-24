@@ -1,9 +1,8 @@
 ---
 title: Device management and control
-titleSuffix: Azure IoT
 description: An overview of device management and control options in an Azure IoT solution including device updates.
-ms.service: iot-fundamentals
-services: iot-fundamentals
+ms.service: iot
+services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
@@ -92,7 +91,7 @@ The [Device Update for IoT Hub](../iot-hub-device-update/understand-device-updat
 
 During the lifecycle of your IoT solution, you may need to roll over the keys used to authenticate devices. For example, you may need to roll over your keys if you suspect that a key has been compromised or if a certificate expires:
 
-- [Roll over the keys used to authenticate devices in IoT Hub and DPS](../iot-dps/how-to-roll-certificates.md#roll-x509-device-certificates)
+- [Roll over the keys used to authenticate devices in IoT Hub and DPS](../iot-dps/how-to-roll-certificates.md)
 - [Roll over the keys used to authenticate devices in IoT Central](../iot-central/core/how-to-connect-devices-x509.md#roll-x509-device-certificates)
 
 ## Device monitoring

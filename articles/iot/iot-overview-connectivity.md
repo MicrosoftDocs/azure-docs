@@ -1,9 +1,8 @@
 ---
 title: Device infrastructure and connectivity
-titleSuffix: Azure IoT
 description: An overview of device infrastructure and connectivity in an Azure IoT solution, including gateways and protocols such as MQTT and OPC-UA.
-ms.service: iot-fundamentals
-services: iot-fundamentals
+ms.service: iot
+services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
@@ -51,7 +50,7 @@ A device can establish a secure connection to an IoT hub:
 - Directly, in which case you must provide the device with a connection string that includes the hostname.
 - Indirectly by using DPS, in which case the device connects to a well-known DPS endpoint to retrieve the connection string for the IoT hub it's assigned to.
 
-The advantage of using DPS is that you don't need to configure all of your devices with connection-strings that are specific to your IoT hub. Instead, you configure your devices to connect to a well-known, common DPS endpoint where they discover their connection details. To learn more, see [Device Provisioning Service](/iot-dps/about-iot-dps.md).
+The advantage of using DPS is that you don't need to configure all of your devices with connection-strings that are specific to your IoT hub. Instead, you configure your devices to connect to a well-known, common DPS endpoint where they discover their connection details. To learn more, see [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ## Device connection strings
 
@@ -118,7 +117,7 @@ Field gateways (sometimes referred to as edge gateways) are typically deployed o
 - Filter, compress, or aggregate telemetry before it's sent to the cloud.
 - Run logic at the edge to remove the latency associated with running logic on behalf of devices in the cloud. For example, detecting a spike in temperature and opening a valve in response.
 
-You can use Azure IoT Edge to deploy a field gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage field gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/iot-edge-what-is-azure-iot-edge.md)
+You can use Azure IoT Edge to deploy a field gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage field gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 An IoT Edge device can maintain a [persistent connection](#persistent-connections) to an IoT hub. The gateway forwards device telemetry to IoT Central. This option enables command and control of the downstream devices connected to the IoT Edge device.
 
