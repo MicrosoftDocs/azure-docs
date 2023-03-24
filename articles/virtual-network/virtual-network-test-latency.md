@@ -94,7 +94,7 @@ Run *latte.exe* from the Windows command line, not from PowerShell.
 
 ### Prepare VMs
 
-On both the *sender* and *receiver* Linux VMs, run the following commands to prepare SockPerf, depending on your Linux distro.
+On both the *sender* and *receiver* Linux VMs, run the following commands to prepare for SockPerf, depending on your Linux distro.
 
 - Red Hat Enterprise Linux (RHEL) or CentOS:
 
