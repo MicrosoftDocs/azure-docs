@@ -33,7 +33,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 ## Azure CLI commands used in this article
 
 - [az mobile-network create](/cli/azure/mobile-network#az-mobile-network-create)
-- [az mobile-network site](/cli/azure/mobile-network/site)
+- [az mobile-network site create](/cli/azure/mobile-network/site-create)
 - [az mobile-network pccp create](/cli/azure/mobile-network/pccp#az-mobile-network-pccp-create)
 - [az mobile-network pcdp create](/cli/azure/mobile-network/pcdp#az-mobile-network-pcdp-create)
 - [az mobile-network data-network create](/cli/azure/mobile-network/data-network#az-mobile-network-data-network-create)
@@ -74,11 +74,7 @@ Use `az mobile-network site` to create a new **Site** resource. The example comm
 | RESOURCEGROUP   | Enter the name of the resource group. |
 
 ```azurecli
-az mobile-network create --mobile-network-name MOBILENETWORK -n SITE -g RESOURCEGROUP --identifier "{mcc:001,mnc:01}"
-```
-
-```azurecli
-
+az mobile-network site create --mobile-network-name MOBILENETWORK -n SITE -g RESOURCEGROUP --identifier "{mcc:001,mnc:01}"
 ```
 
 ### Create a Packet Core Control Plane resource
