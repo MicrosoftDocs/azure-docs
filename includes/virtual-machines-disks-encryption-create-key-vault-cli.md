@@ -34,7 +34,7 @@ az keyvault create -n $keyVaultName \
 -g $rgName \
 -l $location \
 --enable-purge-protection true 
-                    
+
 az keyvault key create --vault-name $keyVaultName \
 -n $keyName \
 --protection software
