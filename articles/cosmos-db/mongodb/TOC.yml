@@ -71,7 +71,7 @@
         - name: Deleting data
           href: tutorial-delete.md
         - name: Create Jupyter notebooks
-          href: ../nosql/tutorial-create-notebook.md    
+          href: ../nosql/tutorial-create-notebook.md
         - name: KQL transformations for workspace data
           href: ../tutorial-log-transformation.md
     - name: Samples
@@ -206,10 +206,12 @@
                   href: ../audit-restore-continuous.md
             - name: Periodic backup
               items:
-                - name: Configure periodic backup
+                - name: Introduction
                   href: ../periodic-backup-restore-introduction.md
-                - name: Update backup storage redundancy
-                  href: ../periodic-backup-update-storage-redundancy.md
+                - name: Storage redundancy
+                  href: ../periodic-backup-storage-redundancy.md
+                - name: Request data restore
+                  href: ../periodic-backup-request-data-restore.md
         - name: Global distribution
           items:
             - name: Global distribution overview
@@ -471,9 +473,9 @@
               href: ../synapse-link-power-bi.md
             - name: Configure custom partitioning
               href: ../configure-custom-partitioning.md
-        - name: Manage back up and restore
+        - name: Back up and restore
           items:
-            - name: Manage continuous backup
+            - name: Continuous backup
               items:
                 - name: Permissions and roles - Continuous backup
                   href: ../continuous-backup-restore-permissions.md
@@ -485,6 +487,12 @@
                   href: ../restore-account-continuous-backup.md
                 - name: Migrate to continuous backup
                   href: ../migrate-continuous-backup.md
+            - name: Periodic backup
+              items:
+                - name: Update storage redundancy
+                  href: ../periodic-backup-update-storage-redundancy.md
+                - name: Modify interval retention
+                  href: ../periodic-backup-modify-interval-retention.md
         - name: Security
           items:
             - name: Configure role-based access control for API for MongoDB
