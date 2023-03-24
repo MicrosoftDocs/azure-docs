@@ -9,18 +9,18 @@ ms.reviewer: aul
 
 # View metrics in real time
 
-With Container insights Live Data (preview), you can visualize metrics about node and pod state in a cluster in real time. The feature emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this insight.
+With Container insights Live Data, you can visualize metrics about node and pod state in a cluster in real time. The feature emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this insight.
 
 This article provides a detailed overview and helps you understand how to use this feature.
 
 >[!NOTE]
 >Azure Kubernetes Service (AKS) clusters enabled as [private clusters](https://azure.microsoft.com/updates/aks-private-cluster/) aren't supported with this feature. This feature relies on directly accessing the Kubernetes API through a proxy server from your browser. Enabling networking security to block the Kubernetes API from this proxy will block this traffic.
 
-For help with setting up or troubleshooting the Live Data (preview) feature, review the [setup guide](container-insights-livedata-setup.md).
+For help with setting up or troubleshooting the Live Data feature, review the [setup guide](container-insights-livedata-setup.md).
 
 ## How it works
 
-The Live Data (preview) feature directly accesses the Kubernetes API. For more information about the authentication model, see [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
+The Live Data feature directly accesses the Kubernetes API. For more information about the authentication model, see [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 This feature performs a polling operation against the metrics endpoints including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`. The interval is every five seconds by default. This data is cached in your browser and charted in four performance charts included in Container insights. Each subsequent poll is charted into a rolling five-minute visualization window. To see the charts, select **Go Live (preview)** and then select the **Cluster** tab.
 

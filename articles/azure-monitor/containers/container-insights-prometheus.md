@@ -176,7 +176,7 @@ Errors related to applying configuration changes are also available for review. 
 
 - From an agent pod logs using the same `kubectl logs` command.
 
-- From Live Data (preview). Live Data (preview) logs show errors similar to the following example:
+- From Live Data. Live Data logs show errors similar to the following example:
 
     ```
     2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
