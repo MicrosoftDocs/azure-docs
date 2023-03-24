@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 03/24/2023
 ms.subservice: blobs
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
