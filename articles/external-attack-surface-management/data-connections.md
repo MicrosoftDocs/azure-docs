@@ -124,3 +124,4 @@ To edit or delete a data connection:
    •	**Delete**: this option deletes the data connection. 
    
 
+
