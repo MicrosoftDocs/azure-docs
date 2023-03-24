@@ -17,39 +17,35 @@ This article describes how to test network latency between Azure virtual machine
 
 For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. Most applications use these protocols, and they have the greatest effect on application performance.
 
-Many other common network latency test tools, such as Ping, don't measure the type of network traffic that's used in real workloads. These tools use Internet Control Message Protocol (ICMP), which most applications don't use, and which can be treated differently from application traffic. These test results might not apply to workloads that use TCP and UDP.
+Many other common network latency test tools, such as Ping, don't measure TCP or UDP traffic. Tools like Ping use Internet Control Message Protocol (ICMP), which can be treated differently from application traffic. ICMP test results don't directly apply to workloads that use TCP and UDP.
 
-Tools like Latte or SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP or other packet types that aren't used by applications and don't affect application performance.
+Latte and SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP or other packet types that applications don't use and that don't affect application performance.
 
-## Network latency test process
-
-Latte or SockPerf use the following approach to measure network latency between two physical or virtual computers:
+Latte and SockPerf use the following approach to measure network latency between two physical or virtual computers:
 
 1. Create a two-way communications channel between the computers by designating one as sender and one as receiver.
 1. Send and receive packets in both directions and measure the round-trip time (RTT).
 
-## VM configuration for optimum latency
+## Tips and best practices for optimizing network latency
 
-To optimize VMs for network latency, observe the following recommendations when you create your VMs:
+To optimize VMs for network latency, observe the following recommendations when you create the VMs:
 
 - Use the latest version of Windows or Linux.
 - Enable [Accelerated Networking](accelerated-networking-overview.md) for increased performance.
 - Deploy VMs within an [Azure proximity placement group](/azure/virtual-machines/co-location).
 - Create larger VMs for better performance.
 
-### Latency testing best practices
+Use the following best practices to test and analyze network latency:
 
-Use the following process to test network latency and analyze results:
+1. As soon as you finish deploying, configuring, and optimizing network VMs, take baseline network latency measurements between deployed VMs to establish benchmarks.
 
-1. As soon as you complete VM deployment, configuration, and optimizations, take baseline measurements to establish a benchmark for network latency between deployed VMs.
-
-1. Test the effect on network latency of any changes to:
+1. Test the effects of any of the following changes on network latency:
    - Operating system (OS) or network stack software, including configuration changes.
    - VM deployment method, such as deploying to an availability zone or proximity placement group (PPG).
    - VM properties, such as Accelerated Networking or size changes.
-   - The virtual network, such as routing or filtering changes.
+   - Virtual network configuration, such as routing or filtering changes.
 
-1. Always compare new test results to the baseline or to the last test results before controlled changes.
+1. Always compare new test results to the baseline or to the lasest test results before the controlled changes.
 
 1. Repeat tests whenever you observe or deploy changes.
 
@@ -63,7 +59,7 @@ Use the following procedures to install and test network latency with [Latte](ht
 
 1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe) to both VMs, into a separate folder such as *c:\\tools*.
 
-1. On the *receiver* VM, create a Windows Defender Firewall `allow` rule to allow the Latte traffic to arrive through Windows Defender Firewall. It's easiest to allow the *latte.exe* program by name rather than to allow specific inbound TCP ports. In the command, replace the `<path>` placeholder with the path you downloaded *latte.exe* to, such as *c:\\tools\\*.
+1. On the *receiver* VM, create a Windows Defender Firewall `allow` rule to allow the Latte traffic to arrive. It's easier to allow the *latte.exe* program by name than to allow specific inbound TCP ports. In the command, replace the `<path>` placeholder with the path you downloaded *latte.exe* to, such as *c:\\tools\\*.
 
    ```cmd
    netsh advfirewall firewall add rule program=<path>latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
@@ -98,9 +94,9 @@ Use the following procedures to install and test network latency with [Latte](ht
 
 ### Prepare VMs
 
-On both the *sender* and *receiver* Linux VMs, run the following commands to prepare SockPerf on the VMs, depending on your Linux distro.
+On both the *sender* and *receiver* Linux VMs, run the following commands to prepare SockPerf, depending on your Linux distro.
 
-# [Red Hat Enterprise Linux (RHEL) / CentOS](#tab/linux/rhel)
+#### Red Hat Enterprise Linux (RHEL) or CentOS
 
 ```bash
 #RHEL/CentOS - Install Git and other helpful tools
@@ -113,7 +109,7 @@ On both the *sender* and *receiver* Linux VMs, run the following commands to pre
     sudo yum install -y libtool
 ```
 
-# [Ubuntu](#tab/linux/ubuntu)
+#### Ubuntu
 
 ```bash
 #Ubuntu - Install Git and other helpful tools
@@ -127,11 +123,9 @@ On both the *sender* and *receiver* Linux VMs, run the following commands to pre
     sudo apt upgrade
 ```
 
----
-
 ### Copy, compile, and install SockPerf
 
-Copy, compile, and install SockPerf according to the following steps:
+Copy, compile, and install SockPerf by running the following commands:
 
 ```bash
 #Bash - all distros
@@ -151,7 +145,7 @@ sudo make install
 
 ### Run SockPerf on the VMs
 
-1. After the SockPerf installation is complete, start SockPerf on the *receiver* VM. Any available port number is fine. The following example uses port `12345`. Replace the example IP address `10.0.0.4` with your own value.
+1. After the SockPerf installation is complete, start SockPerf on the *receiver* VM. Any available port number is fine. The following example uses port `12345`. Replace the example IP address `10.0.0.4` with the IP address of your receiver VM.
 
    ```bash
    #Server/Receiver for IP 10.0.0.4:
