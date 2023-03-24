@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 03/17/2023
 ms.author: greglin
 ---
 
@@ -102,9 +102,14 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 
 ## Connection draining
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates. This setting is enabled via the backend http setting and can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures all deregistering instances of a backend pool don't receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by a user configuration change, and backend instances that are reported as unhealthy as determined by the health probes. The only exception to this are requests bound for deregistering instances, which have been deregistered explicitly, because of gateway-managed session affinity and continues to be proxied to the deregistering instances.
+Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the aplication gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are
+- explicitly removed from the backend pool after a configuration change by a user,
+- reported as unhealthy by the health probes, or
+- removed during a scale-in operation.
 
-For more information, see [Application Gateway Configuration Overview](configuration-http-settings.md#connection-draining).
+The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity.
+
+The connection draining is honored for WebSocket connections as well. For information on time limits, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 

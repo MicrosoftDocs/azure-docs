@@ -1,6 +1,6 @@
 ---
 title: Handle map events in Android maps | Microsoft Azure Maps
-description: Learn which events are Fires when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Android SDK to handle events.
+description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Android SDK to handle events.
 author: sinnypan
 ms.author: sipa
 ms.date: 2/26/2021
@@ -16,7 +16,7 @@ This article shows you how to use the maps events manager.
 
 ## Interact with the map
 
-The map manages all events through its `events` property. The following table lists all of the supported map events.
+The map manages all events through its `events` property. The following table lists the supported map events.
 
 | Event                  | Event handler format | Description |
 |------------------------|----------------------|-------------|
