@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/12/2023
+ms.date: 03/23/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -117,6 +117,9 @@ SELECT * FROM [databaseName].schemaName.tableName
 ## Role definition detail
 This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
+>[!NOTE]
+> The roles below may be expanded in the future to include additional actions that become available as long as they are are consistent with the spirit of the role.
+
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
@@ -132,6 +135,34 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
 ||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
+
+>[!NOTE]
+> The role definition for SQL Performance Monitor will be expanded around April 2023 to include the following actions.
+
+        /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/
+        /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/
+        /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/
+        /Sqlservers/DBCCs/ViewServerPerformanceState/
+        /Sqlservers/Databases/ExtendedEventSessions/
+        /Sqlservers/Databases/ExtendedEventSessions/Options/
+        /Sqlservers/Databases/ExtendedEventSessions/Events/
+        /Sqlservers/Databases/ExtendedEventSessions/Events/
+        /Sqlservers/Databases/ExtendedEventSessions/State/
+        /Sqlservers/Databases/ExtendedEventSessions/State/
+        /Sqlservers/Databases/ExtendedEventSessions/
+        /Sqlservers/Databases/ExtendedEventSessions/Target/
+        /Sqlservers/Databases/ExtendedEventSessions/Target/
+        /Sqlservers/ExtendedEventSessions/
+        /Sqlservers/ExtendedEventSessions/Options/
+        /Sqlservers/ExtendedEventSessions/Events/
+        /Sqlservers/ExtendedEventSessions/Events/
+        /Sqlservers/ExtendedEventSessions/State/
+        /Sqlservers/ExtendedEventSessions/State/
+        /Sqlservers/ExtendedEventSessions/
+        /Sqlservers/ExtendedEventSessions/Target/
+        /Sqlservers/ExtendedEventSessions/Target/
+
+
 
 
 ## Next steps
