@@ -212,7 +212,7 @@ For performance and cost optimization, we highly recommended deploying one or mo
 
 You can use Managed VNet Runtime to scan data sources in a private network, if your Microsoft Purview account is deployed in any of the [supported regions](catalog-managed-vnet.md#supported-regions) and you are planning to scan Any of the supported [Azure data sources](catalog-managed-vnet.md#supported-data-sources). 
 
-Using Managed VNet Runtime helps to minimize the adimistrative overhead of managing the runtime and reduce overall scan duration. 
+Using Managed VNet Runtime helps to minimize the administrative overhead of managing the runtime and reduce overall scan duration. 
 
 To scan any Azure data sources using Managed VNet Runtime, a managed private endpoint must be deployed within Microsoft Purview Managed Virtual Network, even if the data source already has a private network in your Azure subscription. 
 
@@ -245,7 +245,7 @@ For this scenario:
 
 - This option is recommended if you have data sources in both primary and secondary regions and users are connected through the primary region.
 - Deploy a Microsoft Purview account in your secondary region (for example, Australia East).
-- Deploy Microsoft Purview portal private endpoint in the primary region (for example, Australia Southeast) for user access to Microsoft Purview governance portal.
+- Deploy Microsoft Purview governance portal private endpoint in the primary region (for example, Australia Southeast) for user access to Microsoft Purview governance portal.
 - Deploy Microsoft Purview account and ingestion private endpoints in your primary region (for example, Australia southeast) to scan data sources locally in the primary region.
 - Deploy Microsoft Purview account and ingestion private endpoints in your secondary region (for example, Australia East) to scan data sources locally in the secondary region.
 - Deploy [Microsoft Purview self-hosted integration runtime]( manage-integration-runtimes.md) VMs in both primary and secondary regions. This will help to keep data Map scan traffic in the local region and send only metadata to Microsoft Purview Data Map where is configured in your secondary region (for example, Australia East).
