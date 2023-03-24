@@ -59,23 +59,21 @@ Network Performance Monitor for ExpressRoute offers comprehensive ExpressRoute m
 
 * Autodetection of ER circuits associated with your subscription
 
-* Detection of network topology  from on-premises to your cloud applications
+* Detection of network topology from on-premises to your cloud applications
 
-* Capacity planning,  bandwidth utilization analysis
+* Capacity planning, bandwidth utilization analysis
 
 * Monitoring and alerting on both primary and secondary paths
 
 * Monitoring connectivity to Azure services such as Microsoft 365, Dynamics 365, ... over ExpressRoute
 
-* Detect degradation of connectivity to VNets
+* Detect degradation of connectivity to virtual networks
 
 :::image type="content" source="./media/network-monitoring-overview/expressroute-topology-map.png" alt-text="Diagram of geo-map showing traffic across regions.":::
 
 For more information, see the following articles:
 
-* [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-Network Performance Monitor.md)
-
-* [Blog post](https://aka.ms/Network Performance MonitorExRmonitorGA)
+* [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
 
 ## Service Connectivity Monitor
 
@@ -145,7 +143,9 @@ DNS Analytics is built for DNS Administrators, this solution collects, analyzes,
 
 Related links:
 
-* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](/previous-versions/azure/azure-monitor/insights/dns-analytics)
+* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics)
+
+* [Documentation](/previous-versions/azure/azure-monitor/insights/dns-analytics)
 
 ## Miscellaneous
 
