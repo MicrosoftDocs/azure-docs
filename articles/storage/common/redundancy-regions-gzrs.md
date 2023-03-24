@@ -21,9 +21,7 @@ This article lists the regions that support geo-zone-redundant storage (GZRS). F
 
 [!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-gzrs.md)]
 
-## How to produce your own list
-
-Run a PowerShell script similar to the sample below to produce a current list of regions where GZRS is supported for your own subscription:
+ To produce a current list of regions where GZRS is supported for your own subscription, run a PowerShell script similar to the sample below:
 
 ```powershell
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -70,6 +68,38 @@ get-azlocation `
     | sort GeographyGroup,DisplayName `
     | Select-Object GeographyGroup, DisplayName, Location -expandproperty PairedRegion `
     | ft -property @{N='Geography Group';E={$_.GeographyGroup}},@{N='Region Display Name';E={$_.DisplayName}},@{N='Region';E={$_.Location}},@{N='Paired Region';E={$_.Name}}
+```
+
+The output should look similar to the following sample:
+
+```
+Geography Group Region Display Name  Region             Paired Region     
+--------------- -------------------  ------             -------------     
+Africa          South Africa North   southafricanorth   southafricawest   
+Asia Pacific    Australia East       australiaeast      australiasoutheast
+Asia Pacific    Central India        centralindia       southindia        
+Asia Pacific    East Asia            eastasia           southeastasia     
+Asia Pacific    Japan East           japaneast          japanwest         
+Asia Pacific    Korea Central        koreacentral       koreasouth        
+Asia Pacific    Southeast Asia       southeastasia      eastasia          
+Canada          Canada Central       canadacentral      canadaeast        
+Europe          France Central       francecentral      francesouth       
+Europe          Germany West Central germanywestcentral germanynorth      
+Europe          North Europe         northeurope        westeurope        
+Europe          Norway East          norwayeast         norwaywest        
+Europe          Sweden Central       swedencentral      swedensouth       
+Europe          Switzerland North    switzerlandnorth   switzerlandwest   
+Europe          UK South             uksouth            ukwest            
+Europe          West Europe          westeurope         northeurope       
+Middle East     UAE North            uaenorth           uaecentral        
+South America   Brazil South         brazilsouth        southcentralus    
+US              Central US           centralus          eastus2           
+US              East US              eastus             westus            
+US              East US 2            eastus2            centralus         
+US              East US 2 EUAP       eastus2euap        centraluseuap     
+US              South Central US     southcentralus     northcentralus    
+US              West US 2            westus2            westcentralus     
+US              West US 3            westus3            eastus    
 ```
 
 ## See also
