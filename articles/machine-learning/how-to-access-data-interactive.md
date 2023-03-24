@@ -94,20 +94,40 @@ You can also instantiate an Azure Machine Learning filesystem and do filesystem-
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # instantiate file system using following URI
-fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>')
-# 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/' is also accepted
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
 
-fs.ls('datastore/datastorename_0)') # list folders/files in datastore datastorename_0 
-# 'fs.ls('datastore/datastorename_0/)')' is also accepted
+fs.ls() # list folders/files in datastore datastorename
+
 # output example:
-# datastore/datastorename_0/folder1
-# datastore/datastorename_0/folder2
-# datastore/datastorename_0/file1.csv
+# folder1
+# folder2
+# file1.csv
 
 # use an open context
-with fs.open('datastore/datastore_name_0/folder/file1.csv') as f:
+with fs.open('./folder/file1.csv') as f:
     # do some process
     process_file(f)
+```
+
+### Upload files via AzureMachineLearningFileSystem
+
+```python
+from azureml.fsspec import AzureMachineLearningFileSystem
+# instantiate file system using following URI
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
+
+fs.upload(lpath='./data/upload_files/crime-spring.csv', rpath=f'data/fsspec', recursive=False, **{'overwrite': True})
+fs.upload(lpath='./data/upload_folder/', rpath=f'data/fsspec_folder', recursive=True, **{'overwrite': True})
+
+```
+
+### Download files via AzureMachineLearningFileSystem
+```python
+# you can specify recursive as False to download a file
+fs.download(rpath=f'data/fsspec/crime-spring.csv', lpath='./data/download_files/, recursive=False)
+
+# you need to specify recursive as True to download a folder
+fs.download(rpath=f'data/fsspec_folder', lpath=f'./data/download_folder/', recursive=True)
 ```
 
 ### Examples
