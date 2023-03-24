@@ -39,10 +39,9 @@ In addition, resource bridge (preview) requires connectivity to the [Arc-enabled
 
 ## SSL proxy configuration
 
-If using a proxy, Azure Arc resource bridge must be configured for proxy so that it can connect to the Azure services. To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files. Only pass the single proxy certificate. If a certificate bundle is passed then the deployment will fail. Proxy configuration of the management machine isn't configured by the Azure Arc resource bridge.
+If using a proxy, Azure Arc resource bridge must be configured for proxy so that it can connect to the Azure services. To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files. Only pass the single proxy certificate. If a certificate bundle is passed then the deployment will fail. The proxy server endpoint can't be a .local domain. Proxy configuration of the management machine isn't configured by the Azure Arc resource bridge.
 
 There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
-
 
 
 ## Exclusion list for no proxy
@@ -64,3 +63,4 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+

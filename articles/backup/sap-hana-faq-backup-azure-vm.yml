@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/10/2023
+  ms.date: 03/21/2023
   author: jyothisuri
   ms.author: jsuri
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
@@ -188,6 +188,20 @@ sections:
           Can I change the backup performance by editing the "parallel_backup_using_backint" property in SAP HANA "global.ini" file?
         answer: |
           Currently, Azure Backup for SAP HANA accepts *1* as the value of the *parallel_backup_using_backint* property. However, Azure Backup splits that single stream in multiple streams for better performance.
+
+
+      - question: |
+          Does HSR support database instances backup using snapshots?
+
+        answer: |
+          Currently, only Backint-based backups are supported for HSR. Snapshots aren't yet.
+
+      - question: |
+          Do I need to run the instance re-detection only on the server marked "Ready", or also on the one marked "Not Ready"?
+
+        answer: |
+          You need to run the instance re-detection on the server that is marked "Not Ready" to update its status.
+
 
   - name: Restore
     questions:

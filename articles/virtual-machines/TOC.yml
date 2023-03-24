@@ -1481,7 +1481,7 @@
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
-        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
       - name: Create a managed disk from a snapshot
         href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
       - name: Copy a snapshot to the same or different subscription
