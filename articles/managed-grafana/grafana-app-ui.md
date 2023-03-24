@@ -5,12 +5,13 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: reference
-ms.date: 3/31/2022 
+ms.date: 3/23/2022
+ms.custom: engagement-fy23
 --- 
 
-# Grafana UI
+# Grafana user interface
 
-This reference covers the Grafana web application's main UI components, including panels, visualizations, and dashboards. For consistency, it links to the corresponding topics in the Grafana documentation.
+This reference covers the Grafana web application's main UI components, including panels, visualizations, and dashboards. For consistency, this document links to the corresponding topics in the Grafana documentation.
 
 ## Panels
 
@@ -76,4 +77,4 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
+> [How to create a Grafana dashboard](./how-to-create-dashboard.md)
