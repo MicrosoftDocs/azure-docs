@@ -9,7 +9,6 @@ ms.subservice: calling
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-web
 
 #Customer intent: As a developer, I want to learn the capabilities of the local user within a call.
 ---
