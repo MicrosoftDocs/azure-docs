@@ -62,7 +62,7 @@
     href: insights-overview.md
     items:
     - name: Audio effects detection
-      href: audio-effects-detection.md
+      href: audio-effects-detection-overview.md
     - name: Faces detection
       href: face-detection.md
     - name: OCR
