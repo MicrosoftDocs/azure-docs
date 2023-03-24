@@ -45,6 +45,7 @@ $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
    -RuleType MatchRule `
    -MatchCondition $condition `
    -Action Allow
+   -State Enabled
 
 $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Name example2 `
@@ -52,6 +53,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -RuleType MatchRule `
    -MatchCondition $condition `
    -Action Block
+   -State Enabled
 ```
 
 The previous `$BlockRule` maps to the following custom rule in Azure Resource Manager:
@@ -63,6 +65,7 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
         "priority": 2,
         "ruleType": "MatchRule",
         "action": "Block",
+        "state": "Enabled",
         "matchConditions": [
           {
             "matchVariables": [
@@ -95,7 +98,7 @@ The name of the rule.  It appears in the logs.
 
 ### Enable rule [optional]
 
-Turn this rule on/off.
+Turn this rule on/off. Custom rules are enabled by default.
 
 ### Priority [required]
 
