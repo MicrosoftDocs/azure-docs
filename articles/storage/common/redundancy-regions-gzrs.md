@@ -17,7 +17,7 @@ ms.custom: engagement-fy23, references_regions
 
 This article lists the regions that support geo-zone-redundant storage (GZRS). For a list of regions that support zone-redundant storage (ZRS), see [Azure regions that support zone-redundant storage (ZRS)](redundancy-regions-zrs.md).
 
-## Region list
+## GZRS-supported Regions
 
 [!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-gzrs.md)]
 
@@ -96,7 +96,6 @@ South America   Brazil South         brazilsouth        southcentralus
 US              Central US           centralus          eastus2           
 US              East US              eastus             westus            
 US              East US 2            eastus2            centralus         
-US              East US 2 EUAP       eastus2euap        centraluseuap     
 US              South Central US     southcentralus     northcentralus    
 US              West US 2            westus2            westcentralus     
 US              West US 3            westus3            eastus    

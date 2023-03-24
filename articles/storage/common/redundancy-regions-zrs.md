@@ -170,7 +170,6 @@ Europe          West Europe         westeurope     northeurope
 South America   Brazil South        brazilsouth    southcentralus    
 US              East US             eastus         westus            
 US              East US 2           eastus2        centralus         
-US              East US 2 EUAP      eastus2euap    centraluseuap     
 US              South Central US    southcentralus northcentralus    
 US              West US 2           westus2        westcentralus    
 ```

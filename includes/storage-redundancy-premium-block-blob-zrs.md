@@ -6,7 +6,7 @@ ms.date: 03/24/2023
 ms.author: tamram
 ---
 
-Premium block blobs are available in a subset of Azure regions:
+ZRS for Premium block blobs accounts is available in a subset of Azure regions:
 
 - (Asia Pacific) Australia East
 - (Asia Pacific) East Asia
