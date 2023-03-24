@@ -13,6 +13,7 @@ author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # Configure SaaS apps for B2B collaboration
