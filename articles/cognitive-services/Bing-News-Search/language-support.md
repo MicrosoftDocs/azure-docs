@@ -71,7 +71,7 @@ For a list of country/region codes that you may specify in the `cc` query parame
 |Brazil|Portuguese|pt-BR|
 |Russia|Russian|ru-RU|  
 |Sweden|Swedish|sv-SE|  
-|Turkey|Turkish|tr-TR|  
+|Türkiye|Turkish|tr-TR|  
 
 ## Supported markets for news endpoint
 For the `/news` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
@@ -155,7 +155,7 @@ The following are the country/region codes that you may specify in the `cc` quer
 |Sweden|SE|  
 |Switzerland|CH|  
 |Taiwan|TW|  
-|Turkey|TR|  
+|Türkiye|TR|  
 |United Kingdom|GB|  
 |United States|US|
 

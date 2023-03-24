@@ -139,7 +139,7 @@ ms.author: eur
 | `ta-SG` | Tamil (Singapore) | `ta-SG-AnbuNeural` (Male)<br/>`ta-SG-VenbaNeural` (Female) |
 | `te-IN` | Telugu (India) | `te-IN-MohanNeural` (Male)<br/>`te-IN-ShrutiNeural` (Female) |
 | `th-TH` | Thai (Thailand) | `th-TH-AcharaNeural` (Female)<br/>`th-TH-NiwatNeural` (Male)<br/>`th-TH-PremwadeeNeural` (Female) |
-| `tr-TR` | Turkish (Turkey) | `tr-TR-AhmetNeural` (Male)<br/>`tr-TR-EmelNeural` (Female) |
+| `tr-TR` | Turkish (Türkiye) | `tr-TR-AhmetNeural` (Male)<br/>`tr-TR-EmelNeural` (Female) |
 | `uk-UA` | Ukrainian (Ukraine) | `uk-UA-OstapNeural` (Male)<br/>`uk-UA-PolinaNeural` (Female) |
 | `ur-IN` | Urdu (India) | `ur-IN-GulNeural` (Female)<br/>`ur-IN-SalmanNeural` (Male) |
 | `ur-PK` | Urdu (Pakistan) | `ur-PK-AsadNeural` (Male)<br/>`ur-PK-UzmaNeural` (Female) |
