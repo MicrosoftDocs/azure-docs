@@ -85,13 +85,13 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
    :::image type="content" source="media/cache-how-to-encryption/cache-use-key-encryption.png" alt-text="Screenshot of the advanced settings with customer-managed key encryption checked and in a red box.":::
 
-1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
 
     :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-user-assigned.png" alt-text="Screenshot showing user managed identity in the working pane.":::
 
 1. Select your chosen user assigned managed identity, and then choose the key input method to use. 
 
-1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
+1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
     > [!NOTE]
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
@@ -99,6 +99,8 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
    :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-version.png" alt-text="Screenshot showing the select identity and key fields completed.":::
+
+1. If using the **URI** input method, enter the Key Indentifier URI for your chosen key from Azure Key Vault.  
 
 1. When you've entered all the information for your cache, select **Review + create**.
 
@@ -115,13 +117,17 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
 1. Select your chosen user assigned managed identity, and then choose which key input method to use. 
 
-1. If using Azure Key vault, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
+1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache. 
 
     > [!NOTE]
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
    :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="Screenshot showing the select identity and key fields completed for Encryption.":::
+   
+1. If using the **URI** input method, enter the Key Indentifier URI for your chosen key from Azure Key Vault.  
+
+1. Select **Save**
 
 ## Next Steps
 
