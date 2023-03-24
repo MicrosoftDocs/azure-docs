@@ -110,6 +110,20 @@ pip3 install iotedgedev
 >
 > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
 
+Python
+
+Install [Cookiecutter](https://github.com/audreyr/cookiecutter)
+
+```bash
+pip install -U cookiecutter
+```
+
+Node
+
+```bash
+npm i -g yo generator-azure-iot-edge-module
+```
+
 ::: zone-end
 
 ::: zone pivot="iotedge-dev-ext"
