@@ -173,6 +173,9 @@ microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestApproved
 microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestGranted 
 Microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestRemoved
 ``
+
+The following flow diagram shows the entitlement management callout to Logic Apps workflow:
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram.":::
  
 An example of a resume request payload is:
 
@@ -221,9 +224,6 @@ Content-Type: application/json
   }
 }
 ```
-
-The following flow diagram shows the entitlement management callout to Logic Apps workflow:
-:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram.":::
 
 ## Extension end-user experience
 
