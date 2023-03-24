@@ -60,7 +60,7 @@ Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is
 1. Hive updates the data in ABSF or WSAB.
 1. Hive returns query results over a JDBC connection.
 
-If a legacy script or application specifies MapReduce for execution, an exception occurs as follows:
+If a legacy script or application specifies MapReduce for execution, an exception occurs as follows
 
 
 :::image type="content" source="./media/apache-hive-migrate-workloads/map-reducer-exception.png" alt-text="Screenshot showing map reducer exception output." lightbox="./media/apache-hive-migrate-workloads/map-reducer-exception.png":::
@@ -97,9 +97,9 @@ Hive 2.x and 3.x have both transactional(managed) and nontransactional (external
 
 ### Native and non-native storage formats
 
-Storage formats are a factor in upgrade changes to table types. Hive 2.x and 3.x supports the following Hadoop native and non-native storage formats:
+Storage formats are a factor in upgrade changes to table types. Hive 2.x and 3.x supports the following Hadoop native and non-native storage formats
 
-**Native:** Tables with built-in support in Hive, in the following file formats:
+**Native:** Tables with built-in support in Hive, in the following file formats
 * Text
 * Sequence File
 * RC File
@@ -172,10 +172,12 @@ transaction'='true' and 'EXTERNAL'='false
 > [!NOTE]
 > The table must be a ORC table.
 
-To convert external table (non-ACID) to Managed (ACID) table, you've to
+To convert external table (non-ACID) to Managed (ACID) table, 
 
 1. Convert external table to managed and acid equals to true using the following command:
-alter table `<table name> set TBLPROPERTIES ('EXTERNAL'='false', 'transactional'='true');`
+   ```
+   alter table <table name> set TBLPROPERTIES ('EXTERNAL'='false', 'transactional'='true');
+   ```
 1. If you try to execute the following command for external table, you get the below error.
 
 **Scenario 1**
@@ -243,7 +245,7 @@ Hive has changed table creation in the following ways
     Enclose the database name and the table name in backticks.
      `CREATE TABLE `math`.`students` (name VARCHAR(64), age INT, gpa DECIMAL(3,2));`
 
-1. CASTING TIMESTAMPS:
+1. CASTING TIMESTAMPS
     Results of applications that cast numerics to timestamps differ from Hive 2 to Hive 3. Apache Hive changed the behavior of CAST to comply with the SQL Standard, which doesn't associate a time zone with the TIMESTAMP type.
     
     **Before Upgrade**
@@ -259,7 +261,7 @@ Hive has changed table creation in the following ways
     **Action Required**
     Change applications. Don't cast from a numeral to obtain a local time zone. Built-in functions from_utc_timestamp and to_utc_timestamp can be used to mimic behavior before the upgrade.
 
-1. CHECKING COMPATIBILITY OF COLUMN CHANGES:
+1. CHECKING COMPATIBILITY OF COLUMN CHANGES
     A default configuration change can cause applications that change column types to fail.
    
      **Before Upgrade**
@@ -333,7 +335,7 @@ Make sure to follow these steps after completing the migration.
 1. Avoid mixing external and managed ACID tables in join type of queries. In such case, try to convert external to managed non-ACID table through recreation.
 1. In Hive-3, lot of work happened on vectorization, CBO, timestamp with zone etc., which may have product bugs. So, if any query gives wrong results, try disabling vectorization, CBO, map-join etc., to see if that helps.
 
-Other steps to be followed to fix the incorrect results and poor performance after the migration:
+Other steps to be followed to fix the incorrect results and poor performance after the migration
 
 1. **Issue**
     Hive query gives the incorrect result. Even the select count(*) query gives the incorrect result.
@@ -352,7 +354,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 
     **Resolution**
     Make sure to set the property "hive.auto.convert.join=true" which is the default value. Setting it to false uses the merge join and may result in poor performance.
-    Hive decides whether to use map join or not based on following properties, which is set in the cluster:
+    Hive decides whether to use map join or not based on following properties, which is set in the cluster
 
     ```
     set hive.auto.convert.join=true;
@@ -433,7 +435,7 @@ Download these two files from the link. And copy these files to one of the head 
 1. To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete.
 The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After you update the details in the "return.csv", it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
-    Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing:
+    Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing
     ```
     KEY_CONSTRAINTS
     Details Fetched
