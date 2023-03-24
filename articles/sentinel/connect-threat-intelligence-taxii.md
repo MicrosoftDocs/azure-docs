@@ -47,7 +47,7 @@ For more information about how to manage the solution components, see [Discover 
 
 ## Enable the Threat intelligence - TAXII data connector
 
-1. To only configure the TI TAXII data connector, select the **Data connectors** menu, **Open connector page** button.
+1. Select the **Data connectors** menu > **Threat intelligence - TAXII** > **Open connector page** button.
 
 1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 
