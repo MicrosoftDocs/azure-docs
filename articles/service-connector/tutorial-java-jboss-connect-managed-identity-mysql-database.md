@@ -130,10 +130,10 @@ az extension add --name serviceconnector-passwordless --upgrade
 Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
-AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
-AZ_IDENTITY_RESOURCE_ID=$(az identity create \
-    --name $AZ_USER_IDENTITY_NAME \
-    --resource-group $AZ_RESOURCE_GROUP \
+USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
+IDENTITY_RESOURCE_ID=$(az identity create \
+    --name $USER_IDENTITY_NAME \
+    --resource-group $RESOURCE_GROUP \
     --query id \
     --output tsv)
 ```
@@ -152,7 +152,7 @@ CONFIGURATIONS=$(az webapp connection create mysql-flexible \
     --target-resource-group $RESOURCE_GROUP \
     --server $MYSQL_HOST \
     --database $DATABASE_NAME \
-    --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID \
+    --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
     --client-type java \
     --query configurations)
 ```
