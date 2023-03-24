@@ -57,6 +57,8 @@
     href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
+  - name: Strategy to reconnect devices
+    href: concepts-reconnect-devices.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
   - name: IoT device selection list

@@ -22,7 +22,7 @@ The following are the most common reasons that devices disconnect from IoT Hub:
 
 ## Why you need a reconnect strategy
 
-It's important to have a strategy to reconnect devices because there are several scenarios that could negatively affect your solution. 
+It's important to have a strategy to reconnect devices because there are several scenarios where disconnected devices could negatively affect your solution. 
 
 ### Mass reconnection attempts could cause a DDoS
 
