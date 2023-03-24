@@ -417,13 +417,14 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 ## Hive Backend DB schema compare Script
 
 You can run the following script after completing the migration.
-There's a chance of missing few columns in the backend DB, which causes the query failures. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands.As a workaround you can disable the stats by setting the below properties which will not update the stats in the backend DB.
+There's a chance of missing few columns in the backend DB, which causes the query failures. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the following properties, which won't update the stats in the backend DB.
 
 ```
 hive.stats.autogather=false;
 hive.stats.column.autogather=false;
 ```
-To Fix this issue please run below two queries on backend SQL server (Hive metastore DB):
+To Fix this issue run following two queries on backend SQL server (Hive metastore DB):
+
 ```
 ALTER TABLE PART_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
 ALTER TABLE TAB_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
@@ -478,7 +479,7 @@ The above script automatically connects to your backend DB and fetches the detai
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
-    If the column is missing, When you run a insert overwrite command stats are calculated automatically by default. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the below properties which will not update the stats in the backend DB.
+    If the column is missing, and you run a insert overwrite command stat are calculated automatically by default. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the below properties which won't update the stats in the backend DB.
 
     ```
     hive.stats.autogather=false;
