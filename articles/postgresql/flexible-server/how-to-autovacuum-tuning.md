@@ -32,8 +32,8 @@ Autovacuum reads pages looking for dead tuples, and if none are found, autovacuu
 
 The amount of work autovacuum does depends on two parameters: 
 
-- `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go and once the cleanup process is done, the amount of time autovacuum is asleep. 
-- `autovacuum_vacuum_cost_delay` number of milliseconds. 
+- `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go.
+- `autovacuum_vacuum_cost_delay` number of milliseconds that autovacuum is asleep after it has reached the cost limit specified by the `autovacuum_vacuum_cost_limit` parameter.
 
 
 In Postgres versions 9.6, 10 and 11 the default for `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 20 milliseconds.
