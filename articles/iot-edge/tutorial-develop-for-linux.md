@@ -97,6 +97,30 @@ Use the following table to understand your options for developing and deploying 
 | **Linux ARM32** | ![Use Visual Studio Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM64** | ![Use Visual Studio Code for Python modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
 
+Use the following table to understand your options for developing and deploying Java modules:
+
+| Java | Visual Studio Code | Visual Studio 2017/2019 |
+| - | ------------------ | ------------------ |
+| **Linux AMD64** | ![Use Visual Studio Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use Visual Studio Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use Visual Studio Code for Java modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
+
+Use the following table to understand your options for developing and deploying Node.js modules:
+
+| Node.js | Visual Studio Code | Visual Studio 2022 |
+| - | ------------------ | ------------------ |
+| **Linux AMD64** | ![Use Visual Studio Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use Visual Studio Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use Visual Studio Code for Node.js modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
+
+Use the following table to understand your options for developing and deploying C modules using Linux containers:
+
+| C | Visual Studio Code | Visual Studio |
+| - | ------------------ | ------------- |
+| **Linux AMD64** | ![Use Visual Studio Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![Use Visual Studio Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM64** | ![Use Visual Studio Code for C modules on Linux ARM64](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |
+
 ## Install container engine
 
 IoT Edge modules are packaged as containers, so you need a [Docker compatible container management system](support.md#container-engines) on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can develop modules for different types of IoT Edge devices.
@@ -160,7 +184,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 Install tools specific to the language you're developing in:
 
-# [C\# / Azure Functions](#tab/csharp+azfunctions)
+# [C\#](#tab/csharp)
 
 - Install [.NET Core SDK](https://dotnet.microsoft.com/download)
 - Install [C# Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
@@ -169,10 +193,16 @@ Install tools specific to the language you're developing in:
 
 - Install [C/C++ Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
+Installing the Azure IoT C SDK isn't required for this tutorial, but can provide helpful functionality like intellisense and reading program definitions. For installation information, see [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c).
+
 # [Java](#tab/java)
 
-- Install [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+- Install [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+- [Maven](https://maven.apache.org/)
 - Install [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+
+>[!TIP]
+>The Java and Maven installation processes add environment variables to your system. Restart any open Visual Studio Code terminal, PowerShell, or command prompt instances after completing installation. This step ensures that these utilities can recognize the Java and Maven commands going forward.
 
 # [Node.js](#tab/node)
 
@@ -220,12 +250,6 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     
     The solution includes a default C# module named *filtermodule*.
     
-    # [Azure Functions](#tab/azfunctions)
-    
-    ```bash
-    iotedgedev solution init --template csharpfunction
-    ```
-
     # [C](#tab/c)
     
     ```bash
@@ -556,12 +580,386 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 # [C](#tab/c)
 
+1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+
+   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** folder.
+
+   2. Open **modules** > **CModule** > **CMakeLists.txt**. At the top of the file, import the Parson files as a library called **my_parson**.
+
+      ```txt
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
+      ```
+
+   3. Add `my_parson` to the list of libraries in the **target_link_libraries** function of CMakeLists.txt.
+
+   4. Save the **CMakeLists.txt** file.
+
+   5. Open **modules** > **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+
+      ```c
+      #include "parson.h"
+      ```
+
+1. In the **main.c** file, add a global variable called `temperatureThreshold` after the include section. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+
+    ```c
+    static double temperatureThreshold = 25;
+    ```
+
+1. Find the `CreateMessageInstance` function in main.c. Replace the inner if-else statement with the following code that adds a few lines of functionality:
+
+   ```c
+       if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
+       {
+           free(messageInstance);
+           messageInstance = NULL;
+       }
+       else
+       {
+           messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
+           MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
+           if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+           {
+              printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           }
+       }
+   ```
+
+   The new lines of code in the else statement add a new property to the message, which labels the message as an alert. This code labels all messages as alerts, because we'll add functionality that only sends messages to IoT Hub if they report high temperatures.
+
+1. Replace the entire `InputQueue1Callback` function with the following code. This function implements the actual messaging filter. When a message is received, it checks whether the reported temperature exceeds the threshold. If yes, then it forwards the message through its output queue. If not, then it ignores the message.
+
+    ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
+    static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
+    {
+        IOTHUBMESSAGE_DISPOSITION_RESULT result;
+        IOTHUB_CLIENT_RESULT clientResult;
+        IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle = (IOTHUB_MODULE_CLIENT_LL_HANDLE)userContextCallback;
+
+        unsigned const char* messageBody;
+        size_t contentSize;
+
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
+        {
+            messageBody = "<null>";
+        }
+
+        printf("Received Message [%zu]\r\n Data: [%s]\r\n",
+                messagesReceivedByInput1Queue, messageBody);
+
+        // Check if the message reports temperatures higher than the threshold
+        JSON_Value *root_value = json_parse_string(messageBody);
+        JSON_Object *root_object = json_value_get_object(root_value);
+        double temperature;
+        if (json_object_dotget_value(root_object, "machine.temperature") != NULL && (temperature = json_object_dotget_number(root_object, "machine.temperature")) > temperatureThreshold)
+        {
+            printf("Machine temperature %f exceeds threshold %f\r\n", temperature, temperatureThreshold);
+            // This message should be sent to next stop in the pipeline, namely "output1".  What happens at "outpu1" is determined
+            // by the configuration of the Edge routing table setup.
+            MESSAGE_INSTANCE *messageInstance = CreateMessageInstance(message);
+            if (NULL == messageInstance)
+            {
+                result = IOTHUBMESSAGE_ABANDONED;
+            }
+            else
+            {
+                printf("Sending message (%zu) to the next stage in pipeline\n", messagesReceivedByInput1Queue);
+
+                clientResult = IoTHubModuleClient_LL_SendEventToOutputAsync(iotHubModuleClientHandle, messageInstance->messageHandle, "output1", SendConfirmationCallback, (void *)messageInstance);
+                if (clientResult != IOTHUB_CLIENT_OK)
+                {
+                    IoTHubMessage_Destroy(messageInstance->messageHandle);
+                    free(messageInstance);
+                    printf("IoTHubModuleClient_LL_SendEventToOutputAsync failed on sending msg#=%zu, err=%d\n", messagesReceivedByInput1Queue, clientResult);
+                    result = IOTHUBMESSAGE_ABANDONED;
+                }
+                else
+                {
+                    result = IOTHUBMESSAGE_ACCEPTED;
+                }
+            }
+        }
+        else
+        {
+            printf("Not sending message (%zu) to the next stage in pipeline.\r\n", messagesReceivedByInput1Queue);
+            result = IOTHUBMESSAGE_ACCEPTED;
+        }
+
+        messagesReceivedByInput1Queue++;
+        return result;
+    }
+    ```
+
+1. Add a `moduleTwinCallback` function. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
+
+    ```c
+    static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
+    {
+        printf("\r\nTwin callback called with (state=%s, size=%zu):\r\n%s\r\n",
+            MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+        JSON_Value *root_value = json_parse_string(payLoad);
+        JSON_Object *root_object = json_value_get_object(root_value);
+        if (json_object_dotget_value(root_object, "desired.TemperatureThreshold") != NULL) {
+            temperatureThreshold = json_object_dotget_number(root_object, "desired.TemperatureThreshold");
+        }
+        if (json_object_get_value(root_object, "TemperatureThreshold") != NULL) {
+            temperatureThreshold = json_object_get_number(root_object, "TemperatureThreshold");
+        }
+    }
+    ```
+
+1. Find the `SetupCallbacksForModule` function. Replace the function with the following code that adds an **else if** statement to check if the module twin has been updated.
+
+   ```c
+   static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
+   {
+       int ret;
+
+       if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
+           ret = MU_FAILURE;
+       }
+       else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
+           ret = MU_FAILURE;
+       }
+       else
+       {
+           ret = 0;
+       }
+
+       return ret;
+   }
+   ```
+
+1. Save the main.c file.
+
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+
+1. Add the CModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
+
+   ```json
+   "CModule": {
+       "properties.desired":{
+           "TemperatureThreshold":25
+       }
+   }
+   ```
+
+   ![Add CModule twin to deployment template](./media/tutorial-c-module/module-twin.png)
+
+1. Save the **deployment.template.json** file.
 
 # [Java](#tab/java)
+
+1. In the Visual Studio Code explorer, open **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
+
+2. Add the following code at the top of the file to import new referenced classes.
+
+    ```java
+    import java.io.StringReader;
+    import java.util.concurrent.atomic.AtomicLong;
+    import java.util.HashMap;
+    import java.util.Map;
+
+    import javax.json.Json;
+    import javax.json.JsonObject;
+    import javax.json.JsonReader;
+
+    import com.microsoft.azure.sdk.iot.device.DeviceTwin.Pair;
+    import com.microsoft.azure.sdk.iot.device.DeviceTwin.Property;
+    import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
+    ```
+
+3. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value.
+
+    ```java
+    private static final String TEMP_THRESHOLD = "TemperatureThreshold";
+    private static AtomicLong tempThreshold = new AtomicLong(25);
+    ```
+
+4. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
+
+    ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
+        private int counter = 0;
+        @Override
+        public IotHubMessageResult execute(Message msg, Object context) {
+            this.counter += 1;
+
+            String msgString = new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET);
+            System.out.println(
+                   String.format("Received message %d: %s",
+                            this.counter, msgString));
+            if (context instanceof ModuleClient) {
+                try (JsonReader jsonReader = Json.createReader(new StringReader(msgString))) {
+                    final JsonObject msgObject = jsonReader.readObject();
+                    double temperature = msgObject.getJsonObject("machine").getJsonNumber("temperature").doubleValue();
+                    long threshold = App.tempThreshold.get();
+                    if (temperature >= threshold) {
+                        ModuleClient client = (ModuleClient) context;
+                        System.out.println(
+                            String.format("Temperature above threshold %d. Sending message: %s",
+                            threshold, msgString));
+                        client.sendEventAsync(msg, eventCallback, msg, App.OUTPUT_NAME);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return IotHubMessageResult.COMPLETE;
+        }
+    }
+    ```
+
+5. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+            System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+    }
+
+    protected static class OnProperty implements TwinPropertyCallBack {
+        @Override
+        public void TwinPropertyCallBack(Property property, Object context) {
+            if (!property.getIsReported()) {
+                if (property.getKey().equals(App.TEMP_THRESHOLD)) {
+                    try {
+                        long threshold = Math.round((double) property.getValue());
+                        App.tempThreshold.set(threshold);
+                    } catch (Exception e) {
+                        System.out.println("Faile to set TemperatureThread with exception");
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+6. Add the following lines in to **main** method after **client.open()** to subscribe the module twin updates.
+
+    ```java
+    client.startTwin(new DeviceTwinStatusCallBack(), null, new OnProperty(), null);
+    Map<Property, Pair<TwinPropertyCallBack, Object>> onDesiredPropertyChange = new HashMap<Property, Pair<TwinPropertyCallBack, Object>>() {
+        {
+            put(new Property(App.TEMP_THRESHOLD, null), new Pair<TwinPropertyCallBack, Object>(new OnProperty(), null));
+        }
+    };
+    client.subscribeToTwinDesiredProperties(onDesiredPropertyChange);
+    client.getTwin();
+    ```
+
+7. Save the App.java file.
+
+8. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+
+9. Add the **JavaModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
+
+   ```json
+     "JavaModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
+   ```
+
+   ![Add module twin to deployment template](./media/tutorial-java-module/module-twin.png)
+
+10. Save the deployment.template.json file.
 
 
 # [Node.js](#tab/node)
 
+1. In the Visual Studio Code explorer, open **modules** > **NodeModule** > **app.js**.
+
+2. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+
+    ```javascript
+    var temperatureThreshold = 25;
+    ```
+
+3. Replace the entire `PipeMessage` function with the `FilterMessage` function.
+
+    ```javascript
+    // This function filters out messages that report temperatures below the temperature threshold.
+    // It also adds the MessageType property to the message with the value set to Alert.
+    function filterMessage(client, inputName, msg) {
+        client.complete(msg, printResultFor('Receiving message'));
+        if (inputName === 'input1') {
+            var message = msg.getBytes().toString('utf8');
+            var messageBody = JSON.parse(message);
+            if (messageBody && messageBody.machine && messageBody.machine.temperature && messageBody.machine.temperature > temperatureThreshold) {
+                console.log(`Machine temperature ${messageBody.machine.temperature} exceeds threshold ${temperatureThreshold}`);
+                var outputMsg = new Message(message);
+                outputMsg.properties.add('MessageType', 'Alert');
+                client.sendOutputEvent('output1', outputMsg, printResultFor('Sending received message'));
+            }
+        }
+    }
+
+    ```
+
+4. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
+
+    ```javascript
+    client.on('inputMessage', function (inputName, msg) {
+        filterMessage(client, inputName, msg);
+        });
+    ```
+
+5. Copy the following code snippet into the `client.open()` function callback, after `client.on()` inside the `else` statement. This function is invoked when the desired properties are updated.
+
+    ```javascript
+    client.getTwin(function (err, twin) {
+        if (err) {
+            console.error('Error getting twin: ' + err.message);
+        } else {
+            twin.on('properties.desired', function(delta) {
+                if (delta.TemperatureThreshold) {
+                    temperatureThreshold = delta.TemperatureThreshold;
+                }
+            });
+        }
+    });
+    ```
+
+6. Save the app.js file.
+
+7. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+
+8. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
+
+   ```json
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
+   ```
+
+   ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)
+
+9. Save the deployment.template.json file.
 
 # [Python](#tab/python)
 
