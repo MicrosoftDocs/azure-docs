@@ -2,6 +2,44 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: ASM Retirement
+  items:
+  - name: Overview
+    href: asm-retirement.md
+  - name: Migration guides by service
+    items:
+      - name: Azure API Management
+        href: migrate-api-mgt.md
+      - name: Azure App Configuration
+        href: migrate-app-configuration.md
+      - name: Azure App Service Environment
+        href: migrate-app-service-environment.md
+      - name: Azure App Service
+        href: migrate-app-service.md
+      - name: Azure Application Gateway
+        href: migrate-app-gateway-v2.md
+      - name: Azure Functions
+        href: migrate-functions.md
+      - name: Azure Cache for Redis
+        href: migrate-cache-redis.md
+      - name: Azure Cognitive Search
+        href: migrate-search-service.md
+      - name: Azure Container instances
+        href: migrate-container-instances.md
+      - name: Azure Database for MySQL - Flexible Server
+        href: migrate-database-mysql-flex.md
+      - name: Azure Load Balancer 
+        href: migrate-load-balancer.md
+      - name: Azure Log Analytics workspaces
+        href: migrate-monitor-log-analytics.md
+      - name: Azure Recovery Services vault
+        href: migrate-recovery-services-vault.md
+      - name: Azure Storage accounts
+        href: migrate-storage.md
+      - name: Azure Virtual Machines and virtual machine scale sets
+        href: migrate-vm.md
+      - name: Workload - Azure Kubernetes and MySQL
+        href: migrate-workload-aks-mysql.md
 - name: Availability zone support
   items:
   - name: What are Azure availability zones and regions?
