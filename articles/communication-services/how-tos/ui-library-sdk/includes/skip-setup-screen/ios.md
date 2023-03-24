@@ -47,13 +47,15 @@ callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 It is recommended to let the users join a call with microphone and camera permission being granted to use the bypass setup screen feature with camera and microphone default configuration APIs. However, if developers don't handle the permissions of the user, UI Library tries to handle them for you.
 
 Microphone permission is a must have to join a call. If users try to join a call with denied microphone permission, UI Library drops the call in connecting stage and may throw the `microphonePermissionNotGranted` error.
-On the other hand, users are able to join a call even if they deny the camera permission. UI Library disables the camera functionality when camera permission is set as denied. Thus the camera default configuration API doesn't affect the calling experience. User may enjoy default camera configuration API affect once the camera permission is set as granted.
+On the other hand, users are able to join a call even if they deny the camera permission. UI Library disables the camera functionality when camera permission is set as denied. Thus the camera default configuration API doesn't affect the calling experience. User may enjoy default camera configuration API effect once the camera permission is set as granted.
 
 We recommend, developers handle the microphone permission. If user joins the call with camera turned on default, we recommend developers to handle the camera permission as well.
 
 ## Network Error
 
 If network disruption happens or call drops during a call, UI Library exits and may throw `callEndFailed` error. If user doesn't have network connection prior to join a call and tries to join the call with bypass setup screen feature, UI Library exits at call connecting stage and may throw `networkConnectionNotAvailable` error.
+
+It's recommended to join the call by checking network availability to avoid such error.
 
 You can implement closures to act on composite events. The following example shows an error event for a failed composite:
 
