@@ -3,13 +3,13 @@ author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/24/2023
-ms.author: elavarasidc
+ms.author: elavarasid
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 Capabilities feature is an extended feature of the core `Call` API and allows you to obtain the capabilities of the local participant in the current call.
 
-Do I have permission to turn videoOn, do I have permission to turn micOn, do I have permission to share screen are some example of participant capabilities that you can learn from the capabilities property. Learning the capabilities, can help build an user interface that only shows the buttons related to the actions the local user has permission to.
+Do I have permission to turn videoOn, do I have permission to turn micOn, do I have permission to share screen are some example of participant capabilities that you can learn from the capabilities property. Learning the capabilities, can help build a user interface that only shows the buttons related to the actions the local user has permission to.
 
 The feature allows you to register for an event listener, to listen to capability changes.
 
@@ -18,7 +18,7 @@ In order to obtain the capabilities of the localParticipant in a call, you first
 ```js
 const capabilitiesFeature = call.feature(Features.Capabilities);
 ```
-Then, the capabilities of the local participant can be obtained through the capabilities property. This hsa the type of `ParticipantCapabilities` which has the following members:
+Then, the capabilities of the local participant can be obtained through the capabilities property. Capabilities property is of type of `ParticipantCapabilities` with following members:
 
 - `isPresent` is capability present.
 - `reason` capability resolution reasoning.
@@ -26,7 +26,7 @@ Then, the capabilities of the local participant can be obtained through the capa
 ```js
 let capabilities: ParticipantCapabilities = capabilitiesFeature.capabilities;
 ```
-Also, you can subscribe to the `capabilitiesChanged` event to know when the capabilities has changed.
+Also, you can subscribe to the `capabilitiesChanged` event to know when the capabilities have changed.
 
 ```js
 const capabilitiesChangedHandler = () => {
@@ -37,7 +37,7 @@ capabilitiesFeature.on('capabilitiesChanged', capabilitiesChangedHandler);
 ```
 #### Handle the Dominant Speaker's video streams
 
-Your application can use the `Capabilities` feature to get the capabilities of the localParticipant and keep updating UI whenever capabilities change of hte user changes. This can be achieved with the following code example.
+Your application can use the `Capabilities` feature to get the capabilities of the localParticipant and keep updating UI whenever capabilities change. This can be achieved with the following code example.
 
 ```js
   // Capabilities Feature
