@@ -330,7 +330,10 @@ Make sure to follow these steps after completing the migration.
 If multiple clusters share the same storage and HMS DB, then we should enable auto-compaction/compaction threads only in one cluster and disable everywhere else.
 
 Tune Metastore to reduce their CPU usage.
-1. Disable transactional event listeners – Do this only if the hive replication feature is not used.
+1. Disable transactional event listeners. 
+> [!NOTE] 
+> Perform the following steps, only if the hive replication feature not used.
+
    1. From Ambari UI, **remove the value for hive.metastore.transactional.event.listeners**.
    1. Default Value: `org.apache.hive.hcatalog.listener.DbNotificationListener`
    1. New value: `<Empty>` 
@@ -343,15 +346,18 @@ Tune Metastore to reduce their CPU usage.
 1.	Optimize the partition repair feature 
    1.	Disable partition repair - This feature is used to synchronize the partitions of Hive tables in storage location with Hive metastore. You may disable this feature if “msck repair” is used after the data ingestion. 
    1. To disable the feature **add "discover.partitions=false"** under table properties using ALTER TABLE.
-      OR (if the feature cannot be disabled)
+      OR (if the feature can't be disabled)
    1.	Increase the partition repair frequency. 
 
-1. From Ambari UI, increase the value of “metastore.partition.management.task.frequency”  (in seconds). Please note, this change would delay the visibility of some of the partitions ingested into storage.
+1. From Ambari UI, increase the value of “metastore.partition.management.task.frequency”  (in seconds).
+> [!NOTE]
+> This change can delay the visibility of some of the partitions ingested into storage.
+
    1. Default Value: `60`
    1. Proposed value: `3600` 
 1. Advanced Optimizations
 The following options need to be tested in a lower(non-prod) environment before applying tin production.
-   1.	Remove the Materialized view related listener if Materialized view is not used.
+   1.	Remove the Materialized view related listener if Materialized view isn't used.
    1. From Ambari UI, **add a custom property (in custom hive-site.xml) and remove the unwanted background metastore threads**. 
    1. Property name: **metastore.task.threads.remote**
    1. Default Value: `N/A (it uses few class names internally)`
@@ -519,7 +525,7 @@ The above script automatically connects to your backend DB and fetches the detai
     hive.stats.column.autogather=false;
     ```
     
-    To Fix this issue please run below two queries on backend SQL server (Hive metastore DB):
+    To Fix this issue, run the following two queries on backend SQL server (Hive metastore DB):
     
     ```
     ALTER TABLE PART_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
