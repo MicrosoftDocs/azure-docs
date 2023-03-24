@@ -1,0 +1,139 @@
+---
+title: Introduction to Azure Video Indexer audio effects detection transparency note
+titleSuffix: Azure Video Indexer 
+description: An introduction to Azure Video Indexer audio effects detection component responsibly.
+author: Juliako
+ms.author: juliako
+manager: femila
+ms.service: azure-video-indexer
+ms.date: 06/15/2022
+ms.topic: article
+---
+
+# Audio effects detection - transparency note
+
+Audio effects detection is an Azure Video Indexer feature that detects insights on a variety of acoustic events and classifies them into acoustic categories. Audio effect detection can detect and classify different categories such as laughter, crowd reactions, alarms and/or sirens.  
+
+When working on the website, the instances are displayed in the Insights tab. They can also be generated in a categorized list in a JSON file which includes the category ID, type, name, and instances per category together with the specific timeframes and confidence score. 
+
+## Prerequisites  
+
+Review [transparency note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
+
+## General principles 
+
+This transparency note discusses audio effects detection and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature: 
+
+* Will this feature perform well in my scenario? Before deploying audio effects detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
+* Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
+
+## View the insight
+
+To see the instances on the website, do the following: 
+
+1. When uploading the media file, go to Video + Audio Indexing, or go to Audio Only or Video + Audio and select Advanced. 
+1. After the file is uploaded and indexed, go to Insights and scroll to audio effects. 
+
+To display the JSON file, do the following: 
+
+1. Click Download -> Insights (JSON).  
+1. Copy the `audioEffects` element, under `insights`, and paste it into your Online JSON viewer. 
+
+    ```json
+    "audioEffects": [
+      {
+        "id": 1,
+        "type": "Silence",
+        "instances": [
+          {
+            "confidence": 0,
+            "adjustedStart": "0:01:46.243",
+            "adjustedEnd": "0:01:50.434",
+            "start": "0:01:46.243",
+            "end": "0:01:50.434"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "Speech",
+        "instances": [
+          {
+            "confidence": 0,
+            "adjustedStart": "0:00:00",
+            "adjustedEnd": "0:01:43.06",
+            "start": "0:00:00",
+            "end": "0:01:43.06"
+          }
+        ]
+      }
+    ],
+    ```
+
+To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+
+## Audio effects detection components 
+
+During the audio effects detection procedure, audio in a media file is processed, as follows: 
+
+|Component|Definition|
+|---|---|
+|Source file |	The user uploads the source file for indexing. |
+|Segmentation|  	The audio is analyzed, non-speech audio is identified and then split into short overlapping internals. |
+|Classification| 	An AI process analyzes each segment and classifies its contents into event categories such as crowd reaction or laughter. A probability list is then created for each event category according to department-specific rules. |
+|Confidence level|	The estimated confidence level of each audio effect is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
+
+## Example use cases 
+
+- Companies with a large video archive can improve accessibility by offering more context for a hearing- impaired audience by transcription of non-speech effects. 
+- Improved efficiency when creating raw data for content creators. Important moments in promos and trailers such as laughter, crowd reactions, gunshots, or explosions can be identified for example in Media and Entertainment. 
+- Detecting and classifying gunshots, explosions, and glass shattering in a smart-city system or in other public environments that include cameras and microphones to offer fast and accurate detection of violence incidents.  
+
+## Considerations and limitations when choosing a use case 
+
+- Avoid use of very short or low-quality audio, audio effects detection provides probabilistic and partial data on detected non-speech audio events. For accuracy, audio effects detection requires at least 2 seconds of clear non-speech audio. Voice commands or singing are not supported.   
+- Avoid use of audio with very loud background music or music with repetitive and/or linearly scanned frequency, audio effects detection is designed for non-speech audio only and therefore cannot classify events in loud music. Music with repetitive and/or linearly scanned frequency many be incorrectly classified as an alarm or siren. 
+- Carefully consider the methods of usage in law enforcement and similar institutions, to promote more accurate probabilistic data, carefully review the following: 
+
+    - Audio effects can be detected in non-speech segments only. 
+    - The duration of a non-speech section should be at least 2 seconds. 
+    - Low quality audio might impact the detection results.  
+    - Events in loud background music are not classified.  
+    - Music with repetitive and/or linearly scanned frequency might be incorrectly classified as an alarm or siren. 
+    - Knocking on a door or slamming a door might be labelled as a gunshot or explosion. 
+    - Prolonged shouting or sounds of physical human effort might be incorrectly classified. 
+    - A group of people laughing might be classified as both laughter and crowd. 
+    - Natural and non-synthetic gunshot and explosions sounds are supported. 
+
+When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
+
+- Always respect an individual’s right to privacy, and only ingest audio for lawful and justifiable purposes.   
+- Do not purposely disclose inappropriate audio of young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
+- Commit to respecting and promoting human rights in the design and deployment of your analyzed audio.   
+- When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
+- Always seek legal advice when using audio from unknown sources.  
+- Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing audio containing people.  
+- Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.   
+- Fully examine and review the potential of any AI model you are using to understand its capabilities and limitations.  
+
+## Next steps
+
+- [Microsoft Responsible AI principles](https://www.microsoft.com/ai/responsible-ai?activetab=pivot1%3aprimaryr6) 
+- [Microsoft Responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
+- [Microsoft Azure Learning courses on Responsible AI](/training/paths/responsible-ai-business-principles/)
+- [Microsoft Global Human Rights Statement](https://www.microsoft.com/corporate-responsibility/human-rights-statement?activetab=pivot_1:primaryr5)  
+
+### Contact us
+
+`visupport@microsoft.com`  
+
+## Azure Video Indexer insights
+
+- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [OCR](/legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Keywords extraction](/legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Transcription, translation & language identification](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Labels identification](/legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context) 
+- [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Observed people tracking & matched faces](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)

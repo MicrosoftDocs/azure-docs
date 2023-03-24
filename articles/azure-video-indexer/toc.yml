@@ -60,6 +60,25 @@
     displayName: 30-GB upload size limitation, six best practices, world wide web, serverless event-driven platform, Azure Video Indexer, videoUrl optional parameter, upload video API, HTTP 429 response code, byte array file, callBack URL definition, Media Reserved Units, right indexing parameters, file size limitations, Azure description, Azure Functions, upload speed, videoUrl field, HTTP response, code samples, right parameters, upload request, efficient way, high dependency, service reliability, First consideration, Operations&operation, reliable way, Automatic Scaling, price optimization, price reduction, many cases, next retry, POST notification, use case, different parameters, media file, next request, technological constraints, excess money, business needs, many requests, status change, indexing process, storage account, title, Things, scale, topic, date, juliako, videos, archive, article, questions, smart, choice, information, considerations, 2 GB, issues, performance, files, multi-part, network, connectivity, packets, image, first-consideration, path, location, care, rest, api-portal, videoindexer, details, TIP, example, fast, content, August, media-services, concept, MRUs, AMS, result, Respect, system, capabilities, integration, batch, movies, fact, minute, header, throttling, github, master, flow, decisions, uploading
   - name: Insights
     href: insights-overview.md
+    items:
+    - name: Audio effects detection
+      href: audio-effects-detection-transparency-note.md
+    - name: Faces detection
+      href: face-detection-transparency-note?context.md
+    - name: OCR
+      href: ocr-transparency-note.md
+    - name: Keywords extraction
+      href: keywords-transparency-note.md
+    - name: Transcription, translation, language
+      href: transcription-translation-lid-transparency-note.md
+    - name: Labels identification
+      href: labels-identification-transparency-note.md
+    - name: Named entities
+      href: named-entities-transparency-note.md
+    - name: Observed people tracking & matched faces
+      href: observed-matched-people-transparency-note.md
+    - name: Topics inference
+      href: topics-inference-transparency-note.md
     displayName: optical character recognition elements, Azure Video Indexer account, Azure Video Indexer OCR, Azure Video Indexer insights, specific predefined text, Detect textual logo, timestamped transcript lines, Textual logo detection, Audio effects detection, insights output file, detailed JSON output, 30+ AI models, Azure portal, account types, audio content, audio cues, video insights, entire video, ms.topic, rich insights, aggregated view, time ranges, common insights, frame(s, representative frames, aesthetic properties, easier consumption, Faces detection, different appearances, Microsoft" logo, sentimentType` field, single audio-file, other insights, Insights tab, right-top corner, response status, response content, Operations&operation, JSON content, insight type, one insight, brief overview, Named entities, Sixteen speakers, Topics inference, title, description, article, juliako, data, transcripts, OCRs, emotions, details, example, instances, information, audio-effects-detection-transparency-note, Scenes, shots, keyframes, contrast, stableness, navigation, speech, azure-video-indexer, face-detection-transparency, user, word, Labels, entities-transparency, People, ocr-transparency-note, Sentiments, Transcription, translation, language, features, website, videoindexer, Screenshot, indexer-output, Press, artifacts, API
   - name: Post-production insights
     items:
