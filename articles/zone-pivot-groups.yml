@@ -388,7 +388,7 @@ groups:
   prompt: Choose a programming model
   pivots:
   - id: nodejs-model-v4
-    title: v4
+    title: v4 (preview)
   - id: nodejs-model-v3
     title: v3
 ### end azure-functions

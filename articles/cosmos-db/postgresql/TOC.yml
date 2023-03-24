@@ -105,6 +105,8 @@
           href: concepts-maintenance.md
         - name: Burstable compute
           href: concepts-burstable-compute.md
+        - name: Start and stop cluster compute
+          href: concepts-compute-start-stop.md
         - name: Upgrade
           href: concepts-upgrade.md
     - name: Business continuity
@@ -145,6 +147,8 @@
           href: howto-create-users.md
         - name: Schedule maintenance
           href: howto-maintenance.md
+        - name: Start and stop cluster compute
+          href: how-to-start-stop-cluster.md
         - name: Restart cluster
           href: howto-restart.md
         - name: Upgrade cluster
