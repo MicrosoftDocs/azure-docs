@@ -28,7 +28,7 @@ In this article, you'll learn how to use pipeline component in Azure Machine Lea
 - Understand what is [component](concept-ml-pipelines.md) and how to use component in Azure Machine Learning pipeline.
 - Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
 
-## The difference of pipeline job and pipeline component
+## The difference between pipeline job and pipeline component
 
 In general, pipeline component is much similar to pipeline job. They are both consist of group of jobs/component. Here are some main difference you need aware when defining pipeline component:
 
