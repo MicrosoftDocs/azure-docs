@@ -16,10 +16,9 @@ zone_pivot_groups: functions-nodejs-model
 
 Use Visual Studio Code to create a JavaScript function that responds to HTTP requests. Test the code locally, then deploy it to the serverless environment of Azure Functions.
 
->[!NOTE]
->The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](functions-reference-node.md).
+[!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
 
-Use the selector at the top to choose the programming model of your choice for completing this quickstart. Note that completion will incur a small cost of a few USD cents or less in your Azure account.
+Note that completion will incur a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-node.md) of this article.
 
