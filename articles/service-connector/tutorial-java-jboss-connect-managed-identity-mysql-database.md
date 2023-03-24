@@ -154,7 +154,7 @@ Following these steps to prepare data in database and deploy the application.
 1. Open firewall to allow connection from current IP address
 
     ```azurecli
-    # Create a temporary firewall rule to allow connections from current machine to the MySQL server
+    # Create a temporary firewall rule to allow connections from your current machine to the MySQL server
     MY_IP=$(curl http://whatismyip.akamai.com)
     az mysql flexible-server firewall-rule create --resource-group $RESOURCE_GROUP --name $MYSQL_HOST --rule-name AllowCurrentMachineToConnect --start-ip-address ${MY_IP} --end-ip-address ${MY_IP}
     ```
