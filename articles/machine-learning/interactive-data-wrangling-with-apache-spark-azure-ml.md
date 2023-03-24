@@ -61,20 +61,23 @@ A Managed (Automatic) Spark compute is available in Azure Machine Learning Noteb
 The Notebooks UI also provides options for Spark session configuration, for the Managed (Automatic) Spark compute. To configure a Spark session:
 
 1. Select **Configure session** at the bottom of the screen.
-1. Select a version of **Apache Spark** from the dropdown menu.
-1. Select **Instance type** from the dropdown menu. The following instance types are currently supported:
+2. Select a version of **Apache Spark** from the dropdown menu.
+   > [!IMPORTANT]
+   >
+   > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
+3. Select **Instance type** from the dropdown menu. The following instance types are currently supported:
     - `Standard_E4s_v3`
     - `Standard_E8s_v3`
     - `Standard_E16s_v3`
     - `Standard_E32s_v3`
     - `Standard_E64s_v3`
-1. Input a Spark **Session timeout** value, in minutes.
-1. Select the number of **Executors** for the Spark session.
-1. Select **Executor size** from the dropdown menu.
-1. Select **Driver size** from the dropdown menu.
-1. To use a conda file to configure a Spark session, check the **Upload conda file** checkbox. Then, select **Browse**, and choose the conda file with the Spark session configuration you want.
-1. Add **Configuration settings** properties, input values in the **Property** and **Value** textboxes, and select **Add**.
-1. Select **Apply**.
+4. Input a Spark **Session timeout** value, in minutes.
+5. Select the number of **Executors** for the Spark session.
+6. Select **Executor size** from the dropdown menu.
+7. Select **Driver size** from the dropdown menu.
+8. To use a conda file to configure a Spark session, check the **Upload conda file** checkbox. Then, select **Browse**, and choose the conda file with the Spark session configuration you want.
+9. Add **Configuration settings** properties, input values in the **Property** and **Value** textboxes, and select **Add**.
+10. Select **Apply**.
 
     :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/azure-ml-session-configuration.png" alt-text="Screenshot showing the Spark session configuration options.":::
 
