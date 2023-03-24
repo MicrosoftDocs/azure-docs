@@ -30,6 +30,8 @@ diskName=yourDiskName
 
 az account set --subscription $subscriptionId
 
+az group create --resource-group $rgName --location $location
+
 az keyvault create -n $keyVaultName \
 -g $rgName \
 -l $location \
