@@ -8,6 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: cloga
 ms.author: lochen
+ms.reviewer: lagayhar
 ms.date: 03/13/2023
 ms.custom: sdkv2, cliv2, 
 ---
@@ -56,17 +57,17 @@ When reference pipeline component to define child job in pipeline job, just like
 
 The python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component* to check the example.
 
-You can use python function to define pipeline component, much similar like using function to define pipeline job. You can also promote compute of some step as pipeline component inputs.
+You can define a pipeline component using a Python function, which is similar to defining a pipeline job using a function. You can also promote the compute of some step to be used as inputs for the pipeline component.
 
 [!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb?name=pipeline-component)]
 
-Pipeline component can use as step like other component in pipeline job.
+You can use pipeline component as a step like other components in pipeline job.
 
 [!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb?name=pipeline-component-pipeline-job)]
 
 ## Pipeline job with sweep step in studio
 
-You can use az ml component create or ml_client.components.create_or_update to register pipeline component as registered component. After that you can view component in asset library and component list page.
+You can use `az ml component create` or ml_client.components.create_or_update to register pipeline component as a registered component. After that you can view the component in asset library and component list page.
 
 ### Using pipeline component to build pipeline job
 
@@ -78,7 +79,7 @@ After you register the pipeline component, you can drag and drop the pipeline co
 
 After submitted pipeline job, you can go to pipeline job detail page to change pipeline component status, you can also drill down to child component in pipeline component to debug specific component.
 
-:::image type="content" source="./media/how-to-use-pipeline-component/pipeline-component-right-panel.png" alt-text="Screenshot of view pipeline component." lightbox= "./media/how-to-use-pipeline-component/pipeline-component-right-panel.png":::
+:::image type="content" source="./media/how-to-use-pipeline-component/pipeline-component-right-panel.png" alt-text="Screenshot of view pipeline component on the pipeline job detail page." lightbox= "./media/how-to-use-pipeline-component/pipeline-component-right-panel.png":::
 
 ## Sample notebooks
 

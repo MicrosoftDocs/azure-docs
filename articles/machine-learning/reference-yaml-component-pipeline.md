@@ -10,7 +10,7 @@ ms.custom: cliv2
 author: cloga
 ms.author: lochen
 ms.date: 02/28/2023
-ms.reviewer: larryfr
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) pipeline component YAML schema (preview)
