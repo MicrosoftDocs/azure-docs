@@ -210,13 +210,13 @@ Follow these steps to prepare data in a database and deploy the application.
 1. The sample app contains a *pom.xml* file that can generate the WAR file. Run the following command to build the app.
 
     ```bash
-    mvn clean package -DskipTests -f ../pom.xml
+    mvn clean package -DskipTests
     ```
 
 1. Deploy the WAR and the startup script to the app service.
     ```azurecli
-    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path ../target/ROOT.war --type war
-    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path ../src/main/webapp/WEB-INF/createMySQLDataSource.sh --type startup
+    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path target/ROOT.war --type war
+    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path src/main/webapp/WEB-INF/createMySQLDataSource.sh --type startup
     ```
 
 ## View sample web app
