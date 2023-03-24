@@ -21,7 +21,7 @@ You can stop compute on a cluster for as long as you need.
 
 You can perform management operations such as compute or storage scaling, adding a worker node, or updating networking settings only on clusters with started compute. 
 
-If cluster has [high availablity (HA)](./concepts-high-availability.md) enabled, compute start and stop operations would start and stop compute on all primary and standby nodes in the cluster.
+If cluster has [high availability (HA)](./concepts-high-availability.md) enabled, compute start and stop operations would start and stop compute on all primary and standby nodes in the cluster.
 
 You can start and stop compute on the primary cluster and its [read replicas](./concepts-read-replicas.md) independently.
 
