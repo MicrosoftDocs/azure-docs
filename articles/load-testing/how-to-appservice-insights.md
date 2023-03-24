@@ -11,7 +11,7 @@ ms.topic: how-to
 
 ---
 
-# Get performance insights from App Service diagnostics and Azure Load Testing
+# Load test web apps on Azure App Service with Azure Load Testing
 
 Azure Load Testing collects detailed resource metrics across your Azure app components to help identify performance bottlenecks. In this article, you learn how to use App Service Diagnostics to get additional insights when load testing Azure App Service workloads.
 
