@@ -1,5 +1,5 @@
 ---
-title: Azure Video Indexer keywords extraction transparency note 
+title: Azure Video Indexer keywords extraction overview 
 titleSuffix: Azure Video Indexer 
 description: An introduction to Azure Video Indexer keywords extraction component responsibly.
 author: Juliako
@@ -20,7 +20,7 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This Transparency Note discusses Keywords and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature: 
+This article discusses Keywords and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying Keywords Extraction into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
 - Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur. 

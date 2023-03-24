@@ -1,5 +1,5 @@
 ---
-title: Azure Video Indexer observed people tracking & matched faces transparency note 
+title: Azure Video Indexer observed people tracking & matched faces overview 
 titleSuffix: Azure Video Indexer 
 description: An introduction to Azure Video Indexer observed people tracking & matched faces component responsibly.
 author: Juliako
@@ -25,7 +25,7 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This transparency note discusses observed people tracking and matched faces and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
+This article discusses observed people tracking and matched faces and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
 
 - Will this feature perform well in my scenario? Before deploying observed people tracking and matched faces into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
 - Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you'll identify and respond to any errors that may occur.

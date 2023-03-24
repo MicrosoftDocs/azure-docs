@@ -6,9 +6,9 @@ ms.date: 12/01/2022
 ms.author: juliako
 ---
 
-# Azure Video Indexer terminology & concepts
+# Azure Video Indexer terminology & concepts 
 
-This article gives a brief overview of Azure Video Indexer terminology and concepts.
+This article gives a brief overview of Azure Video Indexer terminology and concepts. Also, review [transparency note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 
 ## Artifact files
 
