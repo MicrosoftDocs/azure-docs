@@ -91,7 +91,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman desktop app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
+[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 

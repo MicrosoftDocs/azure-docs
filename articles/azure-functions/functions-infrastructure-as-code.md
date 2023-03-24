@@ -1332,7 +1332,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+          value: '~4'
         }
         {
           name: 'DOCKER_REGISTRY_SERVER_URL'
@@ -1392,7 +1392,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           },
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
+            "value": "~4"
           },
           {
             "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -1552,7 +1552,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+          value: '~4'
         }
         {
           name: 'AzureWebJobsStorage'
@@ -1598,7 +1598,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         "appSettings": [
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
+            "value": "~4"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -1640,7 +1640,7 @@ Considerations for custom deployments:
           appSettings: [
             {
               name: 'FUNCTIONS_EXTENSION_VERSION'
-              value: '~3'
+              value: '~4'
             }
             {
               name: 'Project'
@@ -1660,7 +1660,7 @@ Considerations for custom deployments:
       properties: {
         AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        FUNCTIONS_EXTENSION_VERSION: '~3'
+        FUNCTIONS_EXTENSION_VERSION: '~4'
         FUNCTIONS_WORKER_RUNTIME: 'dotnet'
         Project: 'src'
       }
@@ -1698,7 +1698,7 @@ Considerations for custom deployments:
             "appSettings": [
               {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~3"
+                "value": "~4"
               },
               {
                 "name": "Project",
@@ -1719,7 +1719,7 @@ Considerations for custom deployments:
         "properties": {
           "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~3",
+          "FUNCTIONS_EXTENSION_VERSION": "~4",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         },
