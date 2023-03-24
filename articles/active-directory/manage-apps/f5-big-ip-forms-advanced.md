@@ -80,55 +80,49 @@ You need the following components:
 * A form-based authentication application, or set up an IIS FBA app for testing
   * See, [Forms-based authentication](/troubleshoot/aspnet/forms-based-authentication)
 
-## BIG-IP configuration methods
+## BIG-IP configuration
 
-There are many methods to configure BIG-IP for this scenario, including a template-driven guided configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for more complex scenarios that the guided configuration templates don't cover.
+The configuration in this article is a flexible SHA implemention: manual creation of BIG-IP configuration objects. Use this approach for scenarios the Guided Configuration templates don't cover.
 
-> [!NOTE]
-> You should replace all example strings or values in this article with those for your actual environment.
+   >[!NOTE]
+   >Replace example strings or values with those from your environment.
 
 ## Register F5 BIG-IP in Azure AD
 
-Before BIG-IP can hand off pre-authentication to Azure AD, it must be registered in your tenant. This is the first step in establishing SSO between both entities. It's no different from making any IdP aware of a SAML relying party. In this case, the app that you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
+BIG-IP registration is the first step for SSO between entities. The app you create from the F5 BIG-IP gallery template is the relying party, representing the SAML SP for the BIG-IP published application.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using an account with Application Administrator permissions.
-
-2. From the left pane, select the **Azure Active Directory** service.
-
-3. On the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
-
-4. On the **Enterprise applications** pane, select **New application**.
-
-5. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
-
-   Search for **F5** in the Azure gallery, and select **F5 BIG-IP APM Azure AD integration**.
-
-6. Provide a name for the new application to recognize the instance of the application. Select **Add/Create** to add it to your tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.
+2. In the left pane, select the **Azure Active Directory** service.
+3. In the left menu, select **Enterprise applications**. 
+4. The **All applications** pane opens
+5. The list of applications in your Azure AD tenant appears.
+6. On the **Enterprise applications** pane, select **New application**.
+7. The **Browse Azure AD Gallery** pane opens
+8. Tiles appear for cloud platforms, on-premises applications, and featured applications. **Featured applications** icons indicate support of federated SSO and provisioning. 
+10. In the Azure gallery, search for **F5**.
+11. Select **F5 BIG-IP APM Azure AD integration**.
+12. Enter a **Name** the new application uses to recognize the application instance. 
+13. Select **Add**.
+14. Select **Create**.
 
 ### Enable SSO to F5 BIG-IP
 
-Next, configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP APM requests:
+Configure the BIG-IP registration to fulfill SAML tokens that BIG-IP APM requests.
 
-1. In the **Manage** section of the left menu, select **Single sign-on** to open the **Single sign-on** pane for editing.
+1. In left menu, in the **Manage** section, select **Single sign-on*.
+2. The **Single sign-on** pane appears.
+3. On the **Select a single sign-on method** page, select **SAML**.
+4. Select **No, I'll save later**.
+5. On the **Set up single sign-on with SAML** pane, select the **pen** icon. 
+6. For **Identifier**, replace the value with the BIG-IP published application URL.
+7. For **Reply URL**, replace the value, but retain the path for the application SAML SP endpoint. The SAML flow operates in IdP-initiated mode. Azure AD issues a SAML assertion, then the user is redirected to the BIG-IP endpoint. 
+9. For SP-initiated mode, for **Sign on URL**, enter the application URL.
+10. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the service host header. BIG-IP APM user sessions end when they sign out of Azure AD. 
 
-2. On the **Select a single sign-on method** page, select **SAML** followed by **No, I'll save later** to skip the prompt.
+   ![Screenshot showing a basic SAML configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
 
-3. On the **Set up single sign-on with SAML** pane, select the pen icon to edit **Basic SAML Configuration**. Make these edits:
-
-   1. Replace the predefined **Identifier** value with the full URL for the BIG-IP published application.
-
-   2. Replace the **Reply URL** value but retain the path for the application's SAML SP endpoint. 
-   
-      In this configuration, the SAML flow would operate in IdP-initiated mode. In that mode, Azure AD issues a SAML assertion before the user is redirected to the BIG-IP endpoint for the application. 
-
-   3. To use SP-initiated mode, populate **Sign on URL** with the application URL.
-
-   4. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the host header of the service that's being published. This step ensures that the user's BIG-IP APM session ends after the user is signed out of Azure AD. 
-
-     ![Screenshot showing a basic SAML configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
-
-    > [!NOTE]
-    > From TMOS v16, the SAML SLO endpoint has changed to **/saml/sp/profile/redirect/slo**.
+   > [!NOTE]
+   > From Traffic Management Operating System (TMOS) v16 onward, the SAML SLO endpoint is /saml/sp/profile/redirect/slo.
 
 4. Select **Save** before closing the SAML configuration pane and skip the SSO test prompt.
 
