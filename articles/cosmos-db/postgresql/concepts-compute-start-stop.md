@@ -12,7 +12,7 @@ ms.date: 3/22/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Cosmos DB for PostgreSQL allows to stop compute on all nodes in a cluster. Compute billing is paused when cluster is stopped and continues when computer is started again.
+Azure Cosmos DB for PostgreSQL allows you to stop compute on all nodes in a cluster. Compute billing is paused when cluster is stopped and continues when computer is started again.
 
 > [!NOTE]
 > Billing for provisioned storage on all cluster nodes continues when cluster's compute is stopped.
@@ -23,7 +23,7 @@ You can perform management operations such as compute or storage scaling, adding
 
 If cluster has [high availability (HA)](./concepts-high-availability.md) enabled, compute start and stop operations would start and stop compute on all primary and standby nodes in the cluster.
 
-You can start and stop compute on the primary cluster and its [read replicas](./concepts-read-replicas.md) independently.
+You can start and stop compute on the primary cluster and any of its [read replicas](./concepts-read-replicas.md) independently.
 
 ## Next steps
 

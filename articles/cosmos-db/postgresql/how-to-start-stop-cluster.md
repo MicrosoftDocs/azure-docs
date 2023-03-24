@@ -12,7 +12,7 @@ ms.date: 3/03/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Cosmos DB for PostgreSQL provides an ability to stop and start compute on all nodes in a cluster. 
+Azure Cosmos DB for PostgreSQL allows you to stop and start compute on all nodes in a cluster. 
 
 ## Stop a running cluster
 
