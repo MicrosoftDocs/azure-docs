@@ -3,7 +3,7 @@ title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workl
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity (preview).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/11/2023
+ms.date: 03/14/2023
 ---
 
 # Deploy and configure workload identity (preview) on an Azure Kubernetes Service (AKS) cluster
@@ -66,7 +66,7 @@ Create an AKS cluster using the [az aks create][az-aks-create] command with the 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 
-az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+az aks create -g myResourceGroup -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -80,38 +80,18 @@ To get the OIDC Issuer URL and save it to an environmental variable, run the fol
 export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
-## Create a managed identity and grant permissions to access Azure Key Vault
+## Create a managed identity
 
-This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
+Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-Before proceeding, you need the following information:
+```azurecli
+export SUBSCRIPTION_ID="$(az account show --query id --output tsv)"
+export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
+export RG_NAME="myResourceGroup"
+export LOCATION="eastus"
 
-* Name of the Key Vault
-* Resource group holding the Key Vault
-
-You can retrieve this information using the Azure CLI command: [az keyvault list][az-keyvault-list].
-
-1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
-
-    ```azurecli
-    export SUBSCRIPTION_ID="$(az account show --query id --output tsv)"
-    export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-    export RG_NAME="myResourceGroup"
-    export LOCATION="eastus"
-
-    az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RG_NAME}" --location "${LOCATION}" --subscription "${SUBSCRIPTION_ID}"
-    ```
-
-2. Set an access policy for the managed identity to access secrets in your Key Vault by running the following commands:
-
-    ```azurecli
-    export RG_NAME="myResourceGroup"
-    export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-    export KEYVAULT_NAME="myKeyVault"
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RG_NAME}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -otsv)"
-
-    az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
-    ```
+az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RG_NAME}" --location "${LOCATION}" --subscription "${SUBSCRIPTION_ID}"
+```
 
 ## Create Kubernetes service account
 
@@ -165,6 +145,28 @@ az identity federated-credential create --name myfederatedIdentity --identity-na
 ```azurecli-interactive
 kubectl apply -f <your application>
 ```
+
+## Optional - Grant permissions to access Azure Key Vault
+
+This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
+
+Before proceeding, you need the following information:
+
+* Name of the Key Vault
+* Resource group holding the Key Vault
+
+You can retrieve this information using the Azure CLI command: [az keyvault list][az-keyvault-list].
+
+1. Set an access policy for the managed identity to access secrets in your Key Vault by running the following commands:
+
+    ```azurecli
+    export RG_NAME="myResourceGroup"
+    export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
+    export KEYVAULT_NAME="myKeyVault"
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RG_NAME}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -otsv)"
+
+    az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
+    ```
 
 ## Disable workload identity
 
