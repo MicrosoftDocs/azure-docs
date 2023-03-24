@@ -146,22 +146,21 @@ Then, connect your app to a MySQL database with a system-assigned managed identi
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
 
 ```azurecli-interactive
-CONFIGURATIONS=$(az webapp connection create mysql-flexible \
+az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
     --target-resource-group $RESOURCE_GROUP \
     --server $MYSQL_HOST \
     --database $DATABASE_NAME \
     --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
-    --client-type java \
-    --query configurations)
+    --client-type java
 ```
 
 This Service Connector command will do the following tasks in the background:
 
 - Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
 - Set the Azure Active Directory admin to the current signed-in user.
-- Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above variable `$CONFIGURATIONS`
+- Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above command output
 - Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`
 
   > [!NOTE]
@@ -185,7 +184,7 @@ Follow these steps to prepare data in a database and deploy the application.
 
     ```azurecli
     DATABASE_FQDN=${MYSQL_HOST}.mysql.database.azure.com
-    CURRENT_USER=$(echo ${CONFIGURATIONS} | jq '.[]| select(.name=="AZURE_MYSQL_CONNECTIONSTRING")|.value| split("&user=")[1]')
+    CURRENT_USER=$(az account show --query user.name -o tsv)
     RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
     mysql -h "${DATABASE_FQDN}" --user "${CURRENT_USER}" --enable-cleartext-plugin --password="$RDBMS_ACCESS_TOKEN" < azure/init-db.sql
     ```
