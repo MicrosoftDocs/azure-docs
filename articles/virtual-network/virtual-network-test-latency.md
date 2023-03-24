@@ -100,27 +100,27 @@ On both the *sender* and *receiver* Linux VMs, run the following commands to pre
 
   ```bash
   #RHEL/CentOS - Install Git and other helpful tools
-      sudo yum install gcc -y -q
-      sudo yum install git -y -q
-      sudo yum install gcc-c++ -y
-      sudo yum install ncurses-devel -y
-      sudo yum install -y automake
-      sudo yum install -y autoconf
-      sudo yum install -y libtool
+  sudo yum install gcc -y -q
+  sudo yum install git -y -q
+  sudo yum install gcc-c++ -y
+  sudo yum install ncurses-devel -y
+  sudo yum install -y automake
+  sudo yum install -y autoconf
+  sudo yum install -y libtool
   ```
 
 - Ubuntu:
 
   ```bash
   #Ubuntu - Install Git and other helpful tools
-      sudo apt-get install build-essential -y
-      sudo apt-get install git -y -q
-      sudo apt-get install -y autotools-dev
-      sudo apt-get install -y automake
-      sudo apt-get install -y autoconf
-      sudo apt-get install -y libtool
-      sudo apt update
-      sudo apt upgrade
+  sudo apt-get install build-essential -y
+  sudo apt-get install git -y -q
+  sudo apt-get install -y autotools-dev
+  sudo apt-get install -y automake
+  sudo apt-get install -y autoconf
+  sudo apt-get install -y libtool
+  sudo apt update
+  sudo apt upgrade
   ```
 
 ### Copy, compile, and install SockPerf
