@@ -56,11 +56,11 @@ Use `az mobile-network create` to create a new **Mobile Network** resource. The 
 
 |Placeholder|Value|
 |-|-|
-| MOBILENETWORK   | Enter a name for the private mobile network.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
+| `<MOBILENETWORK>`   | Enter a name for the private mobile network.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```azurecli
-az mobile-network create --location eastus -n MOBILENETWORK -g RESOURCEGROUP --identifier mcc=001 mnc=01
+az mobile-network create --location eastus -n <MOBILENETWORK> -g <RESOURCEGROUP> --identifier mcc=001 mnc=01
 ```
 
 ### Create a Site resource
@@ -69,12 +69,12 @@ Use `az mobile-network site` to create a new **Site** resource. The example comm
 
 |Placeholder|Value|
 |-|-|
-| MOBILENETWORK   | Enter the name of the private mobile network you created.      |
-| SITE   | Enter the name for the site.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
+| `<MOBILENETWORK>`   | Enter the name of the private mobile network you created.      |
+| `<SITE>`   | Enter the name for the site.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```azurecli
-az mobile-network site create --mobile-network-name MOBILENETWORK -n SITE -g RESOURCEGROUP --identifier "{mcc:001,mnc:01}"
+az mobile-network site create --mobile-network-name <MOBILENETWORK> -n <SITE> -g <RESOURCEGROUP>
 ```
 
 ### Create a Packet Core Control Plane resource
@@ -83,12 +83,21 @@ Use `az mobile-network pccp create` to create a new **Packet Core Control Plane*
 
 |Placeholder|Value|
 |-|-|
-| CONTROLPLANE   | Enter the name for the packet core control plane.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
-| SITE   | Enter the name for the site.      |
+| `<MOBILENETWORK>`   | Enter the name for the mobile network.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<CONTROLPLANE>`   | Enter the name for the packet core control plane.      |
+| `<SITE>`   | Enter the name of the site.      |
+
+Obtain the site ID and assign it to a variable.
 
 ```azurecli
-az mobile-network pccp create -n CONTROLPLANE -g RESOURCEGROUP --access-interface "{name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}" --local-diagnostics "{authentication-type:AAD}" --platform "{type:AKS-HCI}" --sites SITE --sku G0
+SITE_ID=$(mobile-network site show --mobile-network-name <MOBILENETWORK> -g <RESOURCEGROUP> -n <SITE> --query "id")
+```
+
+Create the site.
+
+```azurecli
+az mobile-network pccp create -n <CONTROLPLANE> -g <RESOURCEGROUP> --access-interface "{name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}" --local-diagnostics "{authentication-type:AAD}" --platform "{type:AKS-HCI}" --sites "[{id:$SITE_ID}]" --sku G0 --location eastus
 ```
 
 ### Create a Packet Core Data Plane resource
@@ -97,12 +106,12 @@ Use `az mobile-network pcdp create` to create a new **Packet Core Data Plane** r
 
 |Placeholder|Value|
 |-|-|
-| DATAPLANE   | Enter the name for the data plane.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
-| CONTROLPLANE   | Enter the name of the packet core control plane.      |
+| `<DATAPLANE>`   | Enter the name for the data plane.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<CONTROLPLANE>`   | Enter the name of the packet core control plane.      |
 
 ```azurecli
-az mobile-network pcdp create -n DATAPLANE -g RESOURCEGROUP --pccp-name CONTROLPLANE --access-interface "{name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}"
+az mobile-network pcdp create -n <DATAPLANE> -g <RESOURCEGROUP> --pccp-name <CONTROLPLANE> --access-interface name=N3
 ```
 
 ### Create a Data Network
@@ -111,12 +120,12 @@ Use `az mobile-network data-network create` to create a new **Data Network** res
 
 |Placeholder|Value|
 |-|-|
-| DATANETWORK   | Enter the name for the data network.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
-| MOBILENETWORK   | Enter the name of the private mobile network.      |
+| `<DATANETWORK>`   | Enter the name for the data network.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<MOBILENETWORK>`   | Enter the name of the private mobile network.      |
 
 ```azurecli
-az mobile-network data-network create -n DATANETWORK -g RESOURCEGROUP --mobile-network-name MOBILENETWORK
+az mobile-network data-network create -n <DATANETWORK> -g <RESOURCEGROUP> --mobile-network-name <MOBILENETWORK> --location eastus
 ```
 
 ### Create a SIM Group
@@ -126,14 +135,21 @@ Use `` to create a new **SIM Group**. The example command uses the following pla
 
 |Variable|Placeholder|Value|
 |-|-|
-| SIMGROUP   | Enter the name for the sim group.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
+| `<MOBILENETWORK>`   | Enter the name of the private mobile network.      |
+| `<SIMGROUP>`   | Enter the name for the sim group.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+
+Obtain the mobile network ID and assign it to a variable.
 
 ```azurecli
-az mobile-network sim group create -n SIMGROUP -g RESOURCEGROUP --mobile-network "{id:mobile-network-id}"
+NETWORK_ID=$(mobile-network show --mobile-network-name <MOBILENETWORK> -g <RESOURCEGROUP> --query "id")
 ```
 
-Confirm that you want to perform the action by typing <kbd>Y</kbd>.
+Create the SIM group.
+
+```azurecli
+az mobile-network sim group create -n <SIMGROUP> -g <RESOURCEGROUP> --mobile-network "{id:$NETWORK_ID}"
+```
 
 ### Create a Slice
 
@@ -141,12 +157,26 @@ Use `az mobile-network  slice create` to create a new **Slice**. The example com
 
 |Placeholder|Value|
 |-|-|
-| MOBILENETWORK   | Enter the name for the private mobile network.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
-| SLICE   | Enter the name of the slice. |
+| `<MOBILENETWORK>`   | Enter the name for the private mobile network.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SLICE>`   | Enter the name of the slice. |
 
 ```azurecli
-az mobile-network slice create --mobile-network-name MOBILENETWORK -n SLICE -g RESOURCEGROUP --snssai "{sst:1,sd:123abc}"
+az mobile-network slice create --mobile-network-name <MOBILENETWORK> -n <SLICE> -g <RESOURCEGROUP> --snssai "{sst:1,sd:123abc}"
+```
+
+### Create a Service
+
+Use `az mobile-network  service create` to create a new **Service**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
+
+|Placeholder|Value|
+|-|-|
+| `<SERVICE>`   | Enter the name of the service. |
+| `<MOBILENETWORK>`   | Enter the name for the private mobile network.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+
+```azurecli
+az mobile-network service create -n <SERVICE> -g <RESOURCEGROUP> --mobile-network-name <MOBILENETWORK> --pcc-rules "[{ruleName:default-rule,rulePrecedence:10,serviceDataFlowTemplates:[{templateName:IP-to-server,direction:Uplink,protocol:[ip],remoteIpList:[10.3.4.0/24]}]}]" --service-precedence 10
 ```
 
 ### Create a SIM Policy
@@ -155,15 +185,35 @@ Use `az mobile-network sim policy create` to create a new **SIM Policy**. The ex
 
 |Placeholder|Value|
 |-|-|
-| RESOURCEGROUP   | Enter the name of the resource group. |
-| MOBILENETWORK   | Enter the name for the private mobile network.      |
-| SERVICE   | Enter the name of the service. |
-| DATANETWORK   | Enter the name for the data network.      |
-| SLICE   | Enter the name of the slice. |
-| SIMPOLICY | Enter the name for the SIM policy. |
+| `<SLICE>`   | Enter the name of the slice. |
+| `<DATANETWORK>`   | Enter the name of the data network. |
+| `<SERVICE>`   | Enter the name of the service. |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SIMPOLICY>` | Enter the name for the SIM policy. |
+| `<MOBILENETWORK>`   | Enter the name for the private mobile network.      |
+
+Obtain the slice ID and assign it to a variable.
 
 ```azurecli
-az mobile-network sim policy create -g RESOURCEGROUP -n SIMPOLICY --mobile-network-name MOBILENETWORK --default-slice SLICE --slice-config "[{slice:SLICE,defaultDataNetwork:DATANETWORK,dataNetworkConfigurations:[{dataNetwork:DATANETWORK,allowedServices:[SERVICE],sessionAmbr:{uplink:'500 Mbps',downlink:'1 Gbps'}}]}]" --ue-ambr "{uplink:'500 Mbps',downlink:'1 Gbps'}"
+SLICE_ID=$(mobile-network slice show --mobile-network-name <MOBILENETWORK> -g <RESOURCEGROUP> -n <SLICE> --query "id")
+```
+
+Obtain the data network ID and assign it to a variable.
+
+```azurecli
+DATANETWORK_ID=$(mobile-network data-network show -n <DATANETWORK> --mobile-network-name <MOBILENETWORK> -g <RESOURCEGROUP> --query "id")
+```
+
+Obtain the service ID and assign it to a variable.
+
+```azurecli
+SERVICE_ID=$(mobile-network service show -n <SERVICE> --mobile-network-name <MOBILENETWORK> -g <RESOURCEGROUP> --query "id")
+```
+
+Create the SIM policy.
+
+```azurecli
+az mobile-network sim policy create -g <RESOURCEGROUP> -n <SIMPOLICY> --mobile-network-name <MOBILENETWORK> --default-slice '{id:$SLICE_ID}' --slice-config "[{slice:{id:$SLICE_ID},defaultDataNetwork:{id:$DATANETWORK_ID},dataNetworkConfigurations:[{dataNetwork:{id:$DATANETWORK_ID},allowedServices:[{id:$SERVICE_ID}],sessionAmbr:{uplink:'500 Mbps',downlink:'1 Gbps'}}]}]" --ue-ambr "{uplink:'500 Mbps',downlink:'1 Gbps'}" --location eastus
 ```
 
 ### Create a SIM
@@ -172,17 +222,12 @@ Use `` to create a new **SIM**. The example command uses the following placehold
 
 |Placeholder|Value|
 |-|-|
-| SIMGROUP   | Enter the name of the SIM group. |
-| SIM   | Enter the name for the SIM.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
-| MOBILENETWORK   | Enter the name for the private mobile network.      |
-| SERVICE   | Enter the name of the service. |
-| DATANETWORK   | Enter the name for the data network.      |
-| SLICE   | Enter the name of the slice. |
-| SIMPOLICY | Enter the name of the SIM policy. |
+| `<SIMGROUP>`   | Enter the name of the SIM group. |
+| `<SIM> `  | Enter the name for the SIM.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```azurecli
-az mobile-network sim create -g RESOURCEGROUP --sim-group-name SIMGROUP -n SIM --international-msi 0000000000 --operator-key-code 00000000000000000000000000000000 --authentication-key 00000000000000000000000000000000
+az mobile-network sim create -g <RESOURCEGROUP> --sim-group-name <SIMGROUP> -n <SIM> --international-msi 0000000000 --operator-key-code 00000000000000000000000000000000 --authentication-key 00000000000000000000000000000000
 ```
 
 ### Attach the Data Network
@@ -191,15 +236,14 @@ Use `az mobile-network attached-data-network create` to attach the **Data Networ
 
 |Placeholder|Value|
 |-|-|
-| DATANETWORK   | Enter the name for the data network.      |
-| CONTROLPLANE | Enter the name of the packet core control plane.  |
-| DATAPLANE   | Enter the name of the packet core data plane.      |
-| RESOURCEGROUP   | Enter the name of the resource group. |
+| `<DATANETWORK>`   | Enter the name for the data network.      |
+| `<CONTROLPLANE>` | Enter the name of the packet core control plane.  |
+| `<DATAPLANE>`   | Enter the name of the packet core data plane.      |
+| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```azurecli
-az mobile-network attached-data-network create -n DATANETWORK -g RESOURCEGROUP --pccp-name CONTROLPLANE --pcdp-name DATAPLANE --dns-addresses "[1.1.1.1]" --data-interface " {name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}"
+az mobile-network attached-data-network create -n <DATANETWORK> -g <RESOURCEGROUP> --pccp-name <CONTROLPLANE> --pcdp-name <DATAPLANE> --dns-addresses "[1.1.1.1]" --data-interface " {name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}"
 ```
-
 
 ## Clean up resources
 
