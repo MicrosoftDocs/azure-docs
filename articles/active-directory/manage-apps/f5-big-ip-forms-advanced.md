@@ -115,42 +115,45 @@ Configure the BIG-IP registration to fulfill SAML tokens that BIG-IP APM request
 4. Select **No, I'll save later**.
 5. On the **Set up single sign-on with SAML** pane, select the **pen** icon. 
 6. For **Identifier**, replace the value with the BIG-IP published application URL.
-7. For **Reply URL**, replace the value, but retain the path for the application SAML SP endpoint. The SAML flow operates in IdP-initiated mode. Azure AD issues a SAML assertion, then the user is redirected to the BIG-IP endpoint. 
+7. For **Reply URL**, replace the value, but retain the path for the application SAML SP endpoint. With this configuration, SAML flow operates in IdP-initiated mode. Azure AD issues a SAML assertion, then the user is redirected to the BIG-IP endpoint. 
 9. For SP-initiated mode, for **Sign on URL**, enter the application URL.
-10. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the service host header. BIG-IP APM user sessions end when they sign out of Azure AD. 
+10. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the service host header. Then, BIG-IP APM user sessions end when they sign out of Azure AD. 
 
-   ![Screenshot showing a basic SAML configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
+   ![Screenshot of URLs in Basic SAML Configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
 
    > [!NOTE]
-   > From Traffic Management Operating System (TMOS) v16 onward, the SAML SLO endpoint is /saml/sp/profile/redirect/slo.
+   > From Traffic Management Operating System (TMOS) v16 onward, the SAML SLO endpoint is `/saml/sp/profile/redirect/slo`.
 
-4. Select **Save** before closing the SAML configuration pane and skip the SSO test prompt.
+11. Select **Save**.
+12. Close the SAML configuration pane.
+13. Skip the SSO test prompt.
+14. Make a note of the **User Attributes & Claims** section properties. Azure AD issues the properties for BIG-IP APM authentication, and SSO to the back-end application.
+15. On the **SAML Signing Certificate** pane, select **Download**.
+16. The **Federation Metadata XML** file is saved to your computer.
 
-5. Note the properties of the **User Attributes & Claims** section. Azure AD will issue these properties to users for BIG-IP APM authentication and for SSO to the back-end application.
+   ![Screenshot a Download option under SAML Signing Certificate.](./media/f5-big-ip-forms-advanced/saml-certificate.png)
 
-6. On the **SAML Signing Certificate** pane, select **Download** to save the **Federation Metadata XML** file to your computer.
+> [!NOTE]
+> Azure AD SAML signing certificates have a lifespan of three years. 
 
-   ![Screenshot of the 'Federation Metadata XML' download link.](./media/f5-big-ip-forms-advanced/saml-certificate.png)
-
-SAML signing certificates created by Azure AD have a lifespan of three years. For more information, see [Managed certificates for federated single sign-on](./manage-certificates-for-federated-single-sign-on.md).
+Learn more: [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
 
 ### Assign users and groups
 
-By default, Azure AD will issue tokens only for users who have been granted access to an application. To grant specific users and groups access to the application:
+Azure AD issues tokens for users granted access to an application. To grant specific users and groups application access:
 
 1. On the **F5 BIG-IP application's overview** pane, select **Assign Users and groups**.
-
 2. Select **+ Add user/group**.
+3. Select the users and groups you want.
+4. Select **Assign**.   
 
-3. Select users and groups, and then select **Assign** to assign them to your application.   
+## BIG-IP advanced configuration
 
-## BIG-IP Advanced configuration
-
-Now you can proceed with setting up the BIG-IP configurations.
+Use the following instructions to configure BIG-IP.
 
 ### Configure SAML service provider settings
 
-SAML service provider settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication. To configure them:
+SAML SP settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication. To configure them:
 
 1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services**, and then select **Create**.
 
