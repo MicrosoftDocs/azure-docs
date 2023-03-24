@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 03/24/2023
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -83,7 +83,7 @@ You can scale out/in with the following restrictions:
 
 ## How to scale - Basic, Standard, and Premium tiers
 
-### [Scale up and down (Basic, Standard, and Premium)](#tab/basic-standard-premium-up-down)
+### Scale up and down with Basic, Standard, and Premium
 
 #### Scale up and down using the Azure portal
 
@@ -95,21 +95,21 @@ You can scale out/in with the following restrictions:
     
     :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
 
+1. While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
-While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
+    :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
 
-:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
+1.  When scaling is complete, the status changes from **Scaling** to **Running**.
 
-When scaling is complete, the status changes from **Scaling** to **Running**.
-
-> [!NOTE]
-> When you scale a cache up or down using the portal, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling. When you scale down, the reverse happens.
->
-
+ > [!NOTE]
+ > When you scale a cache up or down using the portal, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. 
+ > For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling.
+ > When you scale down, the reverse happens.
+ >
 
 #### Scale up and down using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+<!-- [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] -->
 
 You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `Size`or `Sku` properties are modified. The following example shows how to scale a cache named `myCache` to a 6-GB cache in the same tier.
 
@@ -122,7 +122,6 @@ For more information on scaling with PowerShell, see [To scale an Azure Cache fo
 #### Scale up and down using Azure CLI
 
 To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis#az-redis-update) command. Use the `sku.capcity` property to scale within a tier, for example from a Standard C0 to Standard C1 cache: 
-
 
 ```azurecli
 az redis update --cluster-name myCache --resource-group myGroup --set "sku.capacity"="2"
@@ -140,11 +139,12 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 >
 
-### [Scale out and in (Premium only)](#tab/basic-standard-premium-out-in)
+
+### Scale out and in - Premium only
 
 #### Create a new cache that is scaled out using clustering
 
-Clustering is enabled  **New Azure Cache for Redis** from in the working pane during cache creation.
+Clustering is enabled  **New Azure Cache for Redis** from the working pane during cache creation.
 
 1. Use the [_Create an open-source Redis cache_ quickstart guide](quickstart-create-redis.md) to start creating a new cache using the Azure portal. 
 
@@ -168,7 +168,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 >
 > There are some minor differences required in your client application when clustering is configured. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 >
->
+
 
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
@@ -211,13 +211,9 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 >
 >
 
----
-
 ## How to scale up and out - Enterprise and Enterprise Flash tiers
 
-> [!NOTE]
-> The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
->
+The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
 
 > [!CAUTION]
 > The Enterprise and Enterprise Flash tiers do not yet support _scale down_ or _scale in_ operations.
