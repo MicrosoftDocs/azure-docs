@@ -58,8 +58,7 @@ There are four different mapping types supported:
 
 - **Direct** – the target attribute is populated with the value of an attribute of the linked object in Azure AD.
 - **Constant** – the target attribute is populated with a specific string you specified.
-- **Expression** - the target attribute is populated based on the result of a script-like expression.
-  To learn more about expressions, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
+- **Expression** - the target attribute is populated based on the result of a script-like expression. To learn more about expressions, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it's populated with the Default value that you specify.
 
 Along with these four basic types, custom attribute-mappings support the concept of an optional **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there's not a value in Azure AD or on the target object. The most common configuration is to leave this blank.
