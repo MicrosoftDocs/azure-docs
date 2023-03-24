@@ -19,6 +19,11 @@
             "source_path_from_root": "/articles/load-testing/how-to-find-download-logs.md",
             "redirect_url": "/azure/load-testing/how-to-troubleshoot-failing-test",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-appservice-insights.md",
+            "redirect_url": "/azure/load-testing/concept-load-test-app-service",
+            "redirect_document_id": true
         }
     ]
 }
