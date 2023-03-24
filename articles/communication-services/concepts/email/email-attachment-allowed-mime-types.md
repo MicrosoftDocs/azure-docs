@@ -22,11 +22,11 @@ MIME (Multipurpose Internet Mail Extensions) types are a way of identifying the 
 
 Developers can ensure that the recipient's email client properly formats and interprets the email message by using MIME types, irrespective of the software or platform being used. This information helps to ensure that the email message is delivered correctly and that the recipient can access the content as intended. In addition, using MIME types can also help to improve the security of email communications, as they can be used to indicate whether an email message includes executable content or other potentially harmful elements.
 
-Overall, MIME types are a critical component of email communication, and by using them with Azure Communication Services Email, developers can help ensure that their email messages are delivered correctly and securely.
+To sum up, MIME types are a critical component of email communication, and by using them with Azure Communication Services Email, developers can help ensure that their email messages are delivered correctly and securely.
 
 ## Allowed attachment types
 
-Here's a table listing some of the most commonly accepted file extensions and their corresponding MIME types for email attachments:
+Here's a table listing some of the most common supported file extensions and their corresponding MIME types for email attachments using Azure Communication Services Email:
 
 | File Extension | Description | MIME Type |
 | --- | --- | --- |
@@ -90,7 +90,7 @@ Here's a table listing some of the most commonly accepted file extensions and th
 | .xml | Extensible Markup Language File | `application/xml`, `text/xml` |
 | .zip | ZIP Archive | `application/zip` |
 
-There are many other file extensions and MIME types that can be used for email attachments. However, this list includes some of the most commonly accepted types, and should cover most use cases for sending attachments via email. Additionally, it's important to keep in mind that different email clients and servers may have different limitations or restrictions on file size and types. It's always a good idea to check with the recipient or consult the documentation for the recipient email client being used.
+There are many other file extensions and MIME types that can be used for email attachments. However, this list includes accepted types for sending attachments in our SendMail operation. Additionally, different email clients and servers may have different limitations or restrictions on file size and types that could result in the failure of email delivery. Ensure that the recipient can accept the email attachment or refer to the documentation for the recipient's email providers.
 
 ## Additional information
 
