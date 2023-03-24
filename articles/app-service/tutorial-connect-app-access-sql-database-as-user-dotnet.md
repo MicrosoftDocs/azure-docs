@@ -4,37 +4,38 @@ description: Secure database connectivity with Azure Active Directory authentica
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 03/07/2022
+ms.date: 04/21/2023
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 
-[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides [user authentication](overview-authentication-authorization.md) for your app, which is a turn-key solution for securing access to your app. Paired with the Azure Active Directory authentication provider, you're able to connect to any Azure service by impersonating the signed-in user (also known as the [on-behalf-of flow](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)) as long as the service supports Azure Active Directory authentication. This is a more advanced connectivity approach to [Tutorial: Access data with managed identity](tutorial-connect-msi-sql-database.md) and has the following advantages in enterprise scenarios:
+This tutorial shows you how to enable [built-in authentication](overview-authentication-authorization.md) in an [App Service](overview.md) app using the Azure Active Directory authentication provider, then extend it by connecting it to a back-end Azure SQL Database by impersonating the signed-in user (also known as the [on-behalf-of flow](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)). This is a more advanced connectivity approach to [Tutorial: Access data with managed identity](tutorial-connect-msi-sql-database.md) and has the following advantages in enterprise scenarios:
 
 - Eliminates connection secrets to back-end services, just like the managed identity approach.
-- Gives the back-end service more control over who or how much to grant access to its data and functionality.
-- Lets the app provide tailored data and functionality to the signed-in user.
+- Gives the back-end database (or any other Azure service) more control over who or how much to grant access to its data and functionality.
+- Lets the app tailor its data presentation to the signed-in user.
 
-In this tutorial, you'll add Azure Active Directory authentication to the sample web app you built in one of the following tutorials: 
+In this tutorial, you'll add Azure Active Directory authentication to the sample web app you deployed in one of the following tutorials: 
 
 - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
-When you're finished, your sample app will connect to SQL Database securely on behalf of the signed-in user.
+When you're finished, your sample app will authenticate users connect to SQL Database securely on behalf of the signed-in user.
 
-![Architecture diagram for tutorial scenario.](./media/tutorial-connect-msi-sql-database/architecture.png)
+:::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/architecture.png" alt-text="Architecture diagram for tutorial scenario.":::
 
 > [!NOTE]
 > The steps covered in this tutorial support the following versions:
 > 
-> - .NET Framework 4.8 and above
-> - .NET 6.0 and above
+> - .NET Framework 4.8 and higher
+> - .NET 6.0 and higher
 >
 
 What you will learn:
 
 > [!div class="checklist"]
-> * Enable built-in authentication and authorization
-> * Secure apps against unauthenticated requests
+> * Enable built-in authentication for Azure SQL Database
+> * Disable other authentication options in Azure SQL Database
+> * Enable App Service authentication
 > * Use Azure Active Directory as the identity provider
 > * Access Azure SQL Database on behalf of the signed-in Azure AD user
 
@@ -54,18 +55,18 @@ If you haven't already, follow one of the two tutorials first. Alternatively, yo
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/cloud-shell-try-it-no-header.md)]
 
-## 1. Grant database access to Azure AD user
+## 1. Configure database server with Azure AD authentication
 
-First, enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+First, enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az_ad_user_list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
+    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].id --output tsv)
     ```
 
     > [!TIP]
@@ -75,7 +76,13 @@ First, enable Azure Active Directory authentication to SQL Database by assigning
 1. Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<server-name>* with the server name (without the `.database.windows.net` suffix).
 
     ```azurecli-interactive
-    az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
+    az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id $azureaduser
+    ```
+
+1. Restrict the database server authentication to Active Directory authentication. This step effectively disables SQL authentication.
+
+    ```azurecli-interactive
+    az sql server ad-only-auth enable --resource-group <group-name> --server-name <server-name>
     ```
 
 For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
@@ -86,9 +93,7 @@ You enable authentication with Azure Active Directory as the identity provider. 
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-1. In **Resource groups**, find and select your resource group. In **Overview**, select your app's management page.
-
-    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and an app's management page selected.":::
+1. In **Resource groups**, find and select your resource group, then select your app.
 
 1. In your app's left menu, select **Authentication**, and then select **Add identity provider**.
 
@@ -96,10 +101,10 @@ You enable authentication with Azure Active Directory as the identity provider. 
 
 1. Accept the default settings and select **Add**.
 
-    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
+    :::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/add-aad-provider.png" alt-text="Screenshot showing the add identity provider page.":::
 
 > [!TIP]
-> If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
+> If you run into errors and reconfigure your app's authentication settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
 
 ## 3. Configure user impersonation to SQL Database
 
@@ -113,7 +118,7 @@ Currently, your Azure app connects to SQL Database uses SQL authentication (user
 
 1. In the **Request API permissions** page for Azure SQL Database, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
-    :::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Screenshot of the Request API permissions page showing Delegated permissions, user_impersonation, and the Add permission button selected.":::
+    :::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/select-permission.png" alt-text="Screenshot of the Request API permissions page showing Delegated permissions, user_impersonation, and the Add permission button selected.":::
 
 ## 4. Configure App Service to return a usable access token
 
@@ -136,15 +141,9 @@ The commands effectively add a `loginParameters` property with additional custom
 > [!TIP]
 > To configure the required scopes using a web interface instead, see the Microsoft steps at [Refresh auth tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-
 Your apps are now configured. The app can now generate a token that SQL Database accepts.
 
-## 5. Modify your project
-
-> [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDK. 
-> It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
-> Information about how to migrate to `Azure Identity`can be found here: [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+## 5. Use the access token in your application code
 
 The steps you follow for your project depends on whether you're using [Entity Framework](/ef/ef6/) (default for ASP.NET) or [Entity Framework Core](/ef/core/) (default for ASP.NET Core).
 
@@ -181,21 +180,19 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 > [!NOTE]
 > The code adds the access token supplied by App Service authentication to the connection object.
 > 
-> This code change doesn't work locally. For more information, see [How do I debug locally when using App Service authentication?]().
+> This code change doesn't work locally. For more information, see [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication).
 
 ## 6. Publish your changes
 
-1. In the previous tutorial, you set a connection string in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
+# [ASP.NET](#tab/dotnet)
+
+1.**If you came from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, you set a connection string in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
     ```azurecli-interactive
     az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings MyDbConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
     ```
 
-    All that's left now is to publish your changes to Azure.
-
-# [ASP.NET](#tab/dotnet)
-
-1. **If you came from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, publish your changes in Visual Studio. In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
+1. Publish your changes in Visual Studio. In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
     ![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
@@ -203,12 +200,17 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 
 # [ASP.NET Core](#tab/dotnetcore)
 
-**If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, publish your changes using Git, with the following commands:
+1. **If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, you have a connection string called `defaultConnection` in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
-```bash
-git commit -am "OBO connect flow"
-git push azure main
-```
+    ```azurecli-interactive
+    az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
+    ```
+
+1. You would've made your code changes in your GitHub fork, with Visual Studio Code in the browser. From the left menue, select **Source Control**.
+
+1. Type in a commit message like `OBO connect` and select **Commit**.
+
+    The commit will trigger a deployment to App Service. Wait a few minutes for the deployment to finish.
 
 -----
 
@@ -251,9 +253,9 @@ The most common causes of this error are:
 
 #### How do I debug locally when using App Service authentication?
 
-Because App Service authentication is a feature in Azure, it's not possible for the same code to work in your local environment. Unlike the app running in Azure, your local code isn't connected to an Azure AD app registration. Neither is there any pre-built authentication logic that injects the access token like in App Service. You have a few alternatives:
+Because App Service authentication is a feature in Azure, it's not possible for the same code to work in your local environment. Unlike the app running in Azure, your local code doesn't benefit from the authentication middleware from App Service. You have a few alternatives:
 
-- Connect to SQL Database from your local environment with [`Active Directory Interactive`](https://docs.microsoft.com/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it does connect to the back-end database with the signed-in user, and allows you to test user authorization locally.
+- Connect to SQL Database from your local environment with [`Active Directory Interactive`](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it does connect to the back-end database with the signed-in user, and allows you to test database authorization locally.
 - Manually copy the access token from `https://<app-name>.azurewebsites.net/.auth/me` into your code, in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
 - If you deploy from Visual Studio, use remote debugging of your App Service app.
 
@@ -266,8 +268,9 @@ Your access token expires after some time. For information on how to refresh you
 What you learned:
 
 > [!div class="checklist"]
-> * Enable built-in authentication and authorization
-> * Secure apps against unauthenticated requests
+> * Enable built-in authentication for Azure SQL Database
+> * Disable other authentication options in Azure SQL Database
+> * Enable App Service authentication
 > * Use Azure Active Directory as the identity provider
 > * Access Azure SQL Database on behalf of the signed-in Azure AD user
 
