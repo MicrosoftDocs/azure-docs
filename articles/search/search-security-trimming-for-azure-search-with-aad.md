@@ -65,7 +65,7 @@ This step integrates your application with Azure AD for the purpose of accepting
 
     Microsoft Graph provides an API that allows programmatic access to Azure AD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
 
-1. Select **Grant admin consent for <tenant-name>** to complete the consent process.
+1. Select **Grant admin consent for tenant** to complete the consent process.
 
 ## Create users and groups
 
