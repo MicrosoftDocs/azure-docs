@@ -39,7 +39,7 @@ Connection draining helps you gracefully remove backend pool members during plan
 - removed during scale-in operations, or
 - reported as unhealthy by the health probes.
 
-You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances of a backend pool continue to maintain existing connections, to serve the ongoing requests until the configured timeout value, and don't receive any new requests or connections. This is true for WebSocket connections also.
+You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This is also true for WebSocket connections.
 
 | Configuration Type  | Value |
 | ---------- | ---------- |
