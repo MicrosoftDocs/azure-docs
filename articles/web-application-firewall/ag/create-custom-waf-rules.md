@@ -47,7 +47,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And here is the corresponding JSON:
@@ -60,6 +61,7 @@ And here is the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -106,7 +108,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
@@ -119,6 +122,7 @@ And the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -162,7 +166,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
@@ -175,6 +180,7 @@ And the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -220,7 +226,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Here's the corresponding JSON:
@@ -233,6 +240,7 @@ Here's the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled,
       "matchConditions": [
         {
           "matchVariables": [
@@ -288,7 +296,8 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1, $condition2 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Here's the corresponding JSON:
@@ -301,6 +310,7 @@ Here's the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -369,14 +379,16 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
    -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And the corresponding JSON:
@@ -389,6 +401,7 @@ And the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -410,6 +423,7 @@ And the corresponding JSON:
       "priority": 20,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -456,7 +470,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 Corresponding JSON:
@@ -469,6 +484,7 @@ Corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
@@ -515,7 +531,8 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 And here is the corresponding JSON:
@@ -528,6 +545,7 @@ And here is the corresponding JSON:
       "priority": 2,
       "ruleType": "MatchRule",
       "action": "Block",
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
