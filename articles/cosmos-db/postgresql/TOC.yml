@@ -217,6 +217,8 @@
       href: reference-versions.md
     - name: PostgreSQL extensions
       href: reference-extensions.md
+    - name: Limits and limitations
+      href: reference-limits.md
     - name: Distributed SQL API
       items:
         - name: Overview
@@ -227,8 +229,12 @@
           href: reference-parameters.md
         - name: System tables
           href: reference-metadata.md
-    - name: Limits and limitations
-      href: reference-limits.md
+    - name: REST APIs
+      href: /rest/api/postgresqlhsc/
+    - name: ARM templates
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
+    - name: Bicep
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
 - name: Resources
   items:
     - name: Pricing
