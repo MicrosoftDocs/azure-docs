@@ -206,7 +206,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Sweden                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Switzerland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tajikistan                                          |                 |                 |       ✓      |      ✓     |          ✓         |
-| Turkey                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Türkiye                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkmenistan                                        |                 |                 |              |      ✓     |           ✓        |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |           ✓        |
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
