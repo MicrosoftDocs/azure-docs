@@ -124,5 +124,5 @@ It's advised that you delete the container or database immediately after migrati
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manually managing periodic backups in Azure Cosmos DB](periodic-backup-management.md)
+- Learn more about [periodic backup and restore](periodic-backup-restore-introduction.md)
+- Learn more about [continuous backup](continuous-backup-restore-introduction.md)

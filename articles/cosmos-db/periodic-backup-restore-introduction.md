@@ -47,6 +47,18 @@ For example, consider a scenario where Backup Retention is configured to **240 h
 
 Principals who are part of the role [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), owner, or contributor are allowed to request a restore or change the retention period.
 
+## Manually managing periodic backups in Azure Cosmos DB
+
+With Azure Cosmos DB API for NoSQL accounts, you can also maintain your own backups by using one of the following approaches:
+
+### Azure Data Factory
+
+Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically to a storage solution of your choice.
+
+### Azure Cosmos DB change feed
+
+Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for full backups or for incremental changes, and store it in your own storage.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

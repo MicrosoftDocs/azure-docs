@@ -212,8 +212,6 @@
                   href: ../periodic-backup-storage-redundancy.md
                 - name: Request data restore
                   href: ../periodic-backup-request-data-restore.md
-                - name: Management
-                  href: ../periodic-backup-management.md
         - name: Global distribution
           items:
             - name: Global distribution overview
