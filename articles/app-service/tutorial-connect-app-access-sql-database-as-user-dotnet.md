@@ -14,7 +14,7 @@ This tutorial shows you how to enable [built-in authentication](overview-authent
 - Gives the back-end database (or any other Azure service) more control over who or how much to grant access to its data and functionality.
 - Lets the app tailor its data presentation to the signed-in user.
 
-In this tutorial, you'll add Azure Active Directory authentication to the sample web app you deployed in one of the following tutorials: 
+In this tutorial, you add Azure Active Directory authentication to the sample web app you deployed in one of the following tutorials: 
 
 - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
@@ -85,7 +85,7 @@ First, enable Azure Active Directory authentication to SQL Database by assigning
     az sql server ad-only-auth enable --resource-group <group-name> --server-name <server-name>
     ```
 
-For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
+For more information on adding an Active Directory admin, see [Provision Azure AD admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
 
 ## 2. Enable user authentication for your app
 
@@ -112,7 +112,7 @@ Currently, your Azure app connects to SQL Database uses SQL authentication (user
 
 1. In the **Authentication** page for the app, select your app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **Apis my organization uses**.
+1. Select **Add a permission**, then select **APIs my organization uses**.
 
 1. Type *Azure SQL Database* in the search box and select the result.
 
@@ -132,7 +132,7 @@ authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.
 az webapp auth set --resource-group <group-name> --name <app-name> --body "$authSettings"
 ```
 
-The commands effectively add a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
+The commands effectively add a `loginParameters` property with extra custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 - `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT token that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
@@ -186,7 +186,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 
 # [ASP.NET](#tab/dotnet)
 
-1.**If you came from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, you set a connection string in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
+1. **If you came from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, you set a connection string in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
     ```azurecli-interactive
     az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings MyDbConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
@@ -206,11 +206,11 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
     az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
     ```
 
-1. You would've made your code changes in your GitHub fork, with Visual Studio Code in the browser. From the left menue, select **Source Control**.
+1. You would have made your code changes in your GitHub fork, with Visual Studio Code in the browser. From the left menu, select **Source Control**.
 
 1. Type in a commit message like `OBO connect` and select **Commit**.
 
-    The commit will trigger a deployment to App Service. Wait a few minutes for the deployment to finish.
+    The commit triggers a GitHub Actions deployment to App Service. Wait a few minutes for the deployment to finish.
 
 -----
 
@@ -222,24 +222,25 @@ You should now be able to edit the to-do list as before.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## FAQ
+## Frequently asked questions
 
-- [Why do I get a `Login failed for user '<token-identified principal>'.` error?]()
-- [How do I add other Azure AD users or groups in Azure SQL Database?]()
-- [How do I debug locally when using App Service authentication?]()
+- [Why do I get a `Login failed for user '<token-identified principal>'.` error?](#why-do-i-get-a-login-failed-for-user-token-identified-principal-error)
+- [How do I add other Azure AD users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database)
+- [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
+- [What happens when access tokens expire?](#what-happens-when-access-tokens-expire)
 
 #### Why do I get a `Login failed for user '<token-identified principal>'.` error?
 
 The most common causes of this error are:
 
-- You're running the code locally, and there's no valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. See [How do I debug locally when using App Service authentication?]().
+- You're running the code locally, and there's no valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. See [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication).
 - Azure AD authentication isn't configured on your SQL Database.
-- The signed-in user isn't permitted to connect to the database. See [How do I add other Azure AD users or groups in Azure SQL Database?]().
+- The signed-in user isn't permitted to connect to the database. See [How do I add other Azure AD users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
 
 #### How do I add other Azure AD users or groups in Azure SQL Database?
 
-1. Connect to your database server, such as with [sqlcmd](../azure-sql/database/authentication-aad-configure.md#sqlcmd) or [SSMS](../azure-sql/database/authentication-aad-configure.md#connect-to-the-database-using-ssms-or-ssdt).
-1. [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) in SQL Database documentation.
+1. Connect to your database server, such as with [sqlcmd](/azure/azure-sql/database/authentication-aad-configure#sqlcmd) or [SSMS](/azure/azure-sql/database/authentication-aad-configure#connect-to-the-database-using-ssms-or-ssdt).
+1. [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) in SQL Database documentation.
 
     The following Transact-SQL example adds an Azure AD identity to SQL Server and gives it some database roles:
 
