@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Bypass Setup Screen
 
-The feature enables the option to join a call without passing through the setup screen. It will empower developers to build their communication application using UI Library in a way that users will be able to join a call directly without any users interaction since the call join flow bypasses the setup screen. The capabilities of the setup screen to turn on or off the camera and microphone has been surfaced through API so that developers can use them to set camera and microphone state prior to join a call. 
+The feature enables the option to join a call without passing through the setup screen. It empowers developers to build their communication application using UI Library in a way that users are be able to join a call directly without any user interaction since the call join flow bypasses the setup screen. The capabilities of the setup screen to turn on or off the camera and microphone has been surfaced through API so that developers can use them to set camera and microphone state prior to join a call. 
 
 Learn how to set up the skip setup screen feature correctly in your application.
 
