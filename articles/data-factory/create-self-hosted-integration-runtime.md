@@ -202,8 +202,9 @@ Here are details of the application's actions and arguments:
 |`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 |`-DisableLocalFolderPathValidation`|| Disable security validation to enable access to file system of the local machine.|
 |`-EnableLocalFolderPathValidation`||  Enable security validation to disable access to file system of the local machine. |
-|`-EnableExecuteSsisPackage`|| Enable SSIS package execution on self-hosted IR node.|
-|`-DisableExecuteSsisPackage`|| Disable SSIS package execution on self-hosted IR node.|
+|`-eesp`,<br/>`-EnableExecuteSsisPackage`|| Enable SSIS package execution on self-hosted IR node.|
+|`-desp`,<br/>`-DisableExecuteSsisPackage`|| Disable SSIS package execution on self-hosted IR node.|
+|`-gesp`,<br/>`-GetExecuteSsisPackage`|| Get the value if ExecuteSsisPackage option is enabled on self-hosted IR node.|
 
 ## Install and register a self-hosted IR from Microsoft Download Center
 
