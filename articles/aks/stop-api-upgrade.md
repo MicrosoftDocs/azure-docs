@@ -82,4 +82,4 @@ In this article, you learned how AKS detects deprecated APIs before an update is
 
 <!-- INTERNAL LINKS -->
 [upgrade-cluster]: upgrade-cluster.md
-[planned-maintenance-aks]: planned-mainten
+[planned-maintenance-aks]: planned-maintenance.md
