@@ -19,6 +19,8 @@ This overview introduces the key concepts around developing devices that connect
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
+The following diagram shows a high-level view of the components in a typical IoT solution. This article is focused on the devices and gateway shown in the diagram.
+
 :::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
 In Azure IoT, a device developer writes the code to run on the devices in the solution. This code typically:

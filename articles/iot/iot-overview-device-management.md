@@ -19,6 +19,8 @@ This overview introduces the key concepts around managing and controlling device
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
+The following diagram shows a high-level view of the components in a typical IoT solution. This article is focused on the device management and control components of an IoT solution.
+
 :::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
 In Azure IoT, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
@@ -58,7 +60,7 @@ Before a device can connect to an IoT hub, it must be registered. Device registr
 
 If you think a device has been compromised or isn't functioning correctly, you can disable it in the device registry to prevent it from connecting to the cloud. To allow a device to connect back to a cloud after the issue is resolved, you can re-enable it in the device registry. You can also permanently remove a device from the device registry to completely prevent it from connecting to the cloud.
 
-To lean more, see [Understand the identity registry in your IoT hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+To learn more, see [Understand the identity registry in your IoT hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 IoT Central provides a UI to manage the device registry in the underlying IoT hub. To learn more, see [Add a device (IoT Central)](../iot-central/core/howto-manage-devices-individually.md#add-a-device).
 

@@ -61,8 +61,7 @@ Use the following DPS payload to assign the device to a device template:
 }
 ```
 
-To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
- 
+To learn more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ## Device models
 
