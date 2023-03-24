@@ -15,7 +15,7 @@ ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 
 # Query for a Blob Storage endpoint using the Azure Storage management library
 
-A Blob Storage endpoint forms the base address for all objects within a storage account. Blob Storage supports two types of endpoints:
+A Blob Storage endpoint forms the base address for all objects within a storage account. When you create a storage account, you specify which type of endpoint you want to use. Blob Storage supports two types of endpoints:
  
 - A [standard endpoint](../common/storage-account-overview.md#standard-endpoints) includes the unique storage account name along with a fixed domain name. The format of a standard endpoint is `https://<storage-account>.blob.core.windows.net`.
 - An [Azure DNS zone endpoint (preview)](../common/storage-account-overview.md#azure-dns-zone-endpoints-preview) dynamically selects an Azure DNS zone and assigns it to the storage account when it's created. The format of an Azure DNS Zone endpoint is `https://<storage-account>.z[00-99].blob.storage.azure.net`. 
@@ -199,7 +199,7 @@ Client library information:
 
 ### Register the Storage resource provider with a subscription
 
-A resource provider must be registered with your Azure subscription before you can use it. For this example, the resource provider **Microsoft.Storage** needs to be registered so that your subscription can work with it. 
+A resource provider must be registered with your Azure subscription before you can work with it. This step only needs to be done once per subscription, and only applies if the resource provider **Microsoft.Storage** is not currently registered with your subscription.
 
 You can register the Storage resource provider, or check the registration status, using [Azure portal](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), [Azure CLI](/azure/azure-resource-manager/management/resource-providers-and-types#azure-cli), or [Azure PowerShell](/azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell).
 
