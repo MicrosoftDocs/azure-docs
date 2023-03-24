@@ -148,8 +148,8 @@ You can use refresh logs to identify errors and debug your application. For info
 
     | Log Level | Description |
     |---|---|
-    | Information | Updates to values stored in the configuration. |
     | Debug | Updates to key-values in the App Configuration store. |
+    | Information | Updates to values stored in the configuration. |
     | Warning | Indicates errors that occurred during refresh. |
 - The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`.
 
