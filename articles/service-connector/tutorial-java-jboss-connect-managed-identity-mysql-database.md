@@ -16,7 +16,7 @@ ms.custom: passwordless-java, service-connector
 
 > [!div class="checklist"]
 > * Create a MySQL database.
-> * Deploy the sample app to Azure App Service on Tomcat using WAR packaging.
+> * Deploy a sample Tomcat app to Azure App Service using a WAR package.
 > * Configure a Spring Boot web application to use Azure Active Directory (Azure AD) authentication with MySQL Database.
 > * Connect to MySQL Database with Managed Identity using Service Connector.
 
