@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 03/23/2023
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
@@ -18,7 +18,7 @@ ms.reviewer: alamaral
 
 Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
 
-The AD FS application activity report in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
+The AD FS application activity report in the [Entra portal](https://entra.microsoft.com) lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
 
 * **Discover AD FS applications and scope your migration.** The AD FS application activity report lists all AD FS applications in your organization that have had an active user login in the last 30 days. The report indicates an apps readiness for migration to Azure AD. The report doesn't display Microsoft related relying parties in AD FS such as Office 365. For example, relying parties with name 'urn:federation:MicrosoftOnline'.
 
@@ -40,9 +40,9 @@ The AD FS application activity data is available to users who are assigned any o
 
 ## Discover AD FS applications that can be migrated
 
-The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed.
+The AD FS application activity report is available in the [Entra portal](https://entra.microsoft.com) under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an admin role that has access to AD FS application activity data (global administrator, reports reader, security reader, application administrator, or cloud application administrator).
+1. Sign in to the [Entra portal](https://entra.microsoft.com) with an admin role that has access to AD FS application activity data (global administrator, reports reader, security reader, application administrator, or cloud application administrator).
 
 2. Select **Azure Active Directory**, and then select **Enterprise applications**.
 
