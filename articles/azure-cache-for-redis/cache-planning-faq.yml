@@ -65,13 +65,13 @@ sections:
           * When you enable persistence on a Premium-tier cache, Azure Cache for Redis backs-up your data to an Azure Storage account you own. If the storage account you provide happens to be in another region, or replicates data through [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) to a different region, a copy of your data ends up there.
           The Enterprise and Enterprise Flash tiers use on-disk persistence that is mounted directly to the VMs and does not leave the region. 
           * If you set up [passive geo-replication](cache-how-to-geo-replication.md) on a Premium-tier cache, and your secondary cache is in a different region (as is typical), then your data is replicated to that region.
-          If you set up [active geo-replication]() on an Enterprise or Enterprise Flash tier cache, your data will be replicated to each cache in the geo-replication group. If caches in the geo-replication group reside in other regions (as is typical), then your data is replicated to that region.
+          If you set up [active geo-replication]() on an Enterprise or Enterprise Flash tier cache, your data is replicated to each cache in the geo-replication group. If caches in the geo-replication group reside in other regions (as is typical), then your data is replicated to that region.
           
           >[!NOTE] 
           >The Enterprise Flash tier also stores data on an ephemeral NVMe flash disk. This disk is mounted to the cache instance VM and therefore resides in the same region as the instance. 
           >
           
-          You'll need to explicitly configure Azure Cache for Redis to use these features. You also have complete control over the region that the storage account or secondary cache is located.
+          You need to explicitly configure Azure Cache for Redis to use these features. You also have complete control over the region that the storage account or secondary cache is located.
           
       - question: |
           How am I billed for Azure Cache for Redis?
