@@ -19,18 +19,22 @@ The steps in this article are useful if you want to:
 * Upgrade from the free tier to a basic or standard tier IoT hub.
 * Move an IoT hub to a new region.
 * Export IoT hub state information to have as a backup.
-* Increase the number of partitions for an IoT hub.
+* Increase the number of [partitions](iot-hub-scaling.md#partitions) for an IoT hub.
+* Set up a hub for a development, rather than production, environment.
 
 ## Compare automatic and manual migration steps
 
 The outcome of this article is similar to [How to clone an Azure IoT hub to another region](iot-hub-how-to-clone.md), but with a different process. Before you begin, decide which process is right for your scenario.
 
-* The Azure CLI process:
+* The Azure CLI process (this article):
+
   * Migrates your device registry, your routing and endpoint information, and additional configuration details like IoT Edge deployments or automatic device management configurations.
   * Is easier for migrating small numbers of devices (for example, up to 10,000).
   * Doesn't require an Azure Storage account.
   * Collects connection strings for routing and file upload endpoints and includes them in the ARM template output.
+
 * The manual process:
+
   * Migrates your device registry and your routing and endpoint information. You have to manually recreate additional configuration details in the new IoT hub.
   * Is faster for migrating large numbers of devices (for example, more than 100,000).
   * Uses an Azure Storage account to transfer the device registry.
