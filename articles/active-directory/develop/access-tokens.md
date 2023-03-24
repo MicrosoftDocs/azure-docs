@@ -256,7 +256,7 @@ Next, to determine if the token subject, such as the user (or app itself in the 
 
 For example, use the immutable claim values `tid` and `oid` as a combined key for application data and determining whether a user should be granted access.
 
-The `roles`, `groups` and `wids` claims can also be used to determine if the subject has authorization to perform an operation. For example, an administrator may have permission to write to an API, but not a normal user, or the user may be in a group allowed to do some action.
+The `roles`, `groups` or `wids` claims can also be used to determine if the subject has authorization to perform an operation. For example, an administrator may have permission to write to an API, but not a normal user, or the user may be in a group allowed to do some action.
 
 > [!WARNING]
 > Never use `email` or `upn` claim values to store or determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
