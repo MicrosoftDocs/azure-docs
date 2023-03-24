@@ -22,7 +22,8 @@ We recommend you to build your application such a way that when user tries to jo
 
 To use the feature, pass the boolean value with `bypassSetupScreen` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
 
-##### [Kotlin](#tab/kotlin)
+### [Kotlin](#tab/kotlin)
+
 ```kotlin
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions
 
@@ -32,7 +33,7 @@ val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
 
-##### [Java](#tab/java)
+### [Java](#tab/java)
 ```java
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions;
 
@@ -51,7 +52,8 @@ By default, both `cameraOnByDefault` and `microphoneOnByDefault` are set to fals
 To use camera and microphone default state feature, pass the boolean value with
 `cameraOnByDefault` and `microphoneOnByDefault` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
 
-##### [Kotlin](#tab/kotlin)
+### [Kotlin](#tab/kotlin)
+
 ```kotlin
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions
 
@@ -62,7 +64,8 @@ val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
 
-##### [Java](#tab/java)
+### [Java](#tab/java)
+
 ```java
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions;
 
@@ -94,14 +97,16 @@ The following `error` values might be sent to the error handler:
 - `microphonePermissionNotGranted`
 - `networkConnectionNotAvailable`
 
-##### [Kotlin](#tab/kotlin)
+### [Kotlin](#tab/kotlin)
+
 ```kotlin
 callComposite.addOnErrorEventHandler { callCompositeErrorEvent ->
     println(callCompositeErrorEvent.errorCode)
 }
 ```
 
-##### [Java](#tab/java)
+### [Java](#tab/java)
+
 ```java
 callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
     System.out.println(callCompositeErrorEvent.getErrorCode());
