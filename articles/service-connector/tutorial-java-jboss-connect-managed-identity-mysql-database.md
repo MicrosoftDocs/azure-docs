@@ -147,7 +147,7 @@ This command creates a connection between your web app and your MySQL server, an
 
 ## Deploy the application
 
-Following these steps to prepare data in database and deploy the application.
+Follow these steps to prepare data in a database and deploy the application.
 
 ### Create Database schema
 
