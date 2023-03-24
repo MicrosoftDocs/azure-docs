@@ -34,7 +34,7 @@ In general, pipeline component is similar to pipeline job. They are both consist
 
 Here are some main difference you need aware when defining pipeline component:
 
-- Pipeline component only define the interface of inputs/outputs, which means when define pipeline component your need explicitly define type of inputs/outputs instead of directly assign values to them.
+- Pipeline component only defines the interface of inputs/outputs, which means when defining a pipeline component you need to explicitly define the type of inputs/outputs instead of directly assigning values to them.
 - Pipeline component can not have runtime settings, your can not hard-code compute, data node in pipeline component, you need promote them as pipeline level inputs, and assign values during runtime.
 - Pipeline level settings such as default_datastore, default_compute are also runtime setting, they are also not part of pipeline component definition.
 
