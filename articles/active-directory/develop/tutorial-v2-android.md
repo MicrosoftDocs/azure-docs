@@ -63,7 +63,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
 3. Enter a Name for the application, such as _MSAL Android app_
-4. Save the package name. You will enter it later into the Azure portal.
+4. Save the package name. You'll enter it later into the Azure portal.
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and click **Finish**.
 
@@ -142,12 +142,12 @@ Follow these steps to set up a new project if you don't already have an Android 
    ```
 
    Substitute the package name you registered in the Azure portal for the `android:host=` value.
-   Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL-encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash.
+   Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL-encoded. Ensure that there's a leading `/` at the beginning of your Signature Hash.
 
-   The "Package Name" you will replace the `android:host` value with should look similar to: `com.azuresamples.msalandroidapp`.
-   The "Signature Hash" you will replace your `android:path` value with should look similar to: `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
+   The "Package Name" you'll replace the `android:host` value with should look similar to: `com.azuresamples.msalandroidapp`.
+   The "Signature Hash" you'll replace your `android:path` value with should look similar to: `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
 
-   You will also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: `msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D`. While the Signature Hash is URL-encoded at the end of this value, the Signature Hash should **not** be URL-encoded in your `android:path` value.
+   You'll also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: `msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D`. While the Signature Hash is URL-encoded at the end of this value, the Signature Hash should **not** be URL-encoded in your `android:path` value.
 
 ## Use MSAL
 
@@ -218,7 +218,7 @@ TextView currentUserTextView;
 
 ### onCreate
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, replace the onCreate() method with the following code snippet, which instantiate MSAL using the `SingleAccountPublicClientApplication`:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, replace the onCreate() method with the following code snippet, which instantiates MSAL using the `SingleAccountPublicClientApplication`:
 
 ```java
 @Override
@@ -279,7 +279,7 @@ private void loadAccount() {
 
 ### initializeUI
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `initializeUI()` method, that listens to buttons and call methods or log errors accordingly:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `initializeUI()` method that listens to buttons and call methods or log errors accordingly:
 
 ```java
 private void initializeUI(){
@@ -607,7 +607,7 @@ After you sign in, the app will display the data returned from the Microsoft Gra
 
 ### Consent
 
-The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, you will either need to create your own tenant or receive admin consent.
+The first time any user signs into your app, they'll be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, you'll either need to create your own tenant or receive admin consent.
 
 ## Clean up resources
 
