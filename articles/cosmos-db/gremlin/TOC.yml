@@ -140,7 +140,7 @@
         - name: Azure Synapse Link FAQ
           href: ../synapse-link-frequently-asked-questions.yml
         - name: Analytical store - Overview
-          href: ../analytical-store-introduction.md              
+          href: ../analytical-store-introduction.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -321,7 +321,7 @@
         - name: Use Power BI with Azure Synapse Link
           href: ../synapse-link-power-bi.md
         - name: Configure custom partitioning
-          href: ../configure-custom-partitioning.md    
+          href: ../configure-custom-partitioning.md
     - name: Back up and restore
       items:
         - name: Continuous backup

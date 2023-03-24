@@ -271,7 +271,7 @@
           href: prevent-rate-limiting-errors.md
         - name: Materialized View (Preview)
           items:
-            - name: Overview            
+            - name: Overview
               href: materialized-views.md
             - name: FAQ
               href: materialized-views-faq.yml
