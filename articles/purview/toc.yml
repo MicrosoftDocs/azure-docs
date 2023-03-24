@@ -385,7 +385,7 @@ items:
     items:
     - name: Profisee
       href: how-to-deploy-profisee-purview-integration.md
-  - name: Secure networking
+  - name: Secure your network connections
     items:
     - name: Private endpoints
       items:
