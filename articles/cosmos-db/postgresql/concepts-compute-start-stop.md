@@ -17,7 +17,7 @@ Azure Cosmos DB for PostgreSQL allows to stop compute on all nodes in a cluster.
 > [!NOTE]
 > Billing for provisioned storage on all cluster nodes continues when cluster's compute is stopped.
 
-You can stop compute on a cluser for as long as you need.
+You can stop compute on a cluster for as long as you need.
 
 You can perform management operations such as compute or storage scaling, adding a worker node, or updating networking settings only on clusters with started compute. 
 
