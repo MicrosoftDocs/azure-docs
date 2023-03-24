@@ -94,7 +94,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
 | **[iAdvantage](https://www.scx.sunevision.com/)** | Supported | Supported | Hong Kong2 |
 | **Intelsat** | Supported | Supported | London2, Washington DC2 |
-| **[InterCloud](https://www.intercloud.com/)** |Supported |Supported | Amsterdam, Chicago, Dallas, Frankfurt, Frankfurt2, Geneva, Hong Kong SAR, London, New York, Paris, Sao Paulo, Silicon Valley, Singapore, Tokyo, Washington DC, Zurich |
+| **[InterCloud](https://www.intercloud.com/)** |Supported |Supported | Amsterdam, Chicago, Dallas, Frankfurt, Frankfurt2, Geneva, Hong Kong, London, New York, Paris, Sao Paulo, Silicon Valley, Singapore, Tokyo, Washington DC, Zurich |
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Supported |Supported | Chicago, Dallas, Silicon Valley, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported | Osaka, Tokyo, Tokyo2 |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supported |Supported | Cape Town, Johannesburg, London |
@@ -137,7 +137,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported | Amsterdam, Amsterdam2, Chicago, Dallas, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Mumbai2, Melbourne, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Supported |Supported | Amsterdam, Chicago, Dallas, Denver, Las Vegas, London, Los Angeles2, Miami, New York, Silicon Valley, Toronto, Washington DC |
-| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported | Chicago, Hong Kong SAR, Hong Kong2, London, Singapore, Singapore2, Tokyo2 |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported | Chicago, Hong Kong, Hong Kong2, London, Singapore, Singapore2, Tokyo2 |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Supported | Supported | Auckland |
 | **[Reliance Jio](https://www.jio.com/business/jio-cloud-connect)** | Supported | Supported | Mumbai |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Supported | Supported | Milan |
