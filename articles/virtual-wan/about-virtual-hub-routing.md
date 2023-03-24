@@ -65,7 +65,7 @@ Each connection is associated to one route table. Associating a connection to a 
 
 By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association"lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Diagram shows Association." lightbox="./media/about-virtual-hub-routing/concepts-association.png":::
 
 ### <a name="propagation"></a>Propagation
 
@@ -73,7 +73,7 @@ Connections dynamically propagate routes to a route table. With a VPN connection
 
 A **None route table** is also available for each virtual hub. Propagating to the None route table implies that no routes are required to be propagated from the connection. VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagation":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Diagram shows propagation." lightbox="./media/about-virtual-hub-routing/concepts-propagation.png":::
 
 ### <a name="labels"></a>Labels
 

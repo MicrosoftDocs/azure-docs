@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: managed-grafana 
 ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 3/08/2022 
+ms.date: 02/23/2023 
 ---
 
 # How to modify access permissions to Azure Monitor
