@@ -81,6 +81,8 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
   
+-  Blobs uploaded using SFTP doesn't calculate MD-5 even irrespective of any blob size.
+  
 - Maximum file upload size via the SFTP endpoint is 100 GB. 
 
 - To change the storage account's redundancy/replication settings or initiate account failover, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed. 
