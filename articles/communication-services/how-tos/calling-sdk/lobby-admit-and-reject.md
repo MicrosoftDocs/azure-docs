@@ -33,7 +33,7 @@ To admit, reject or admit all users from the lobby, you can use the `admit`, `re
 You can admit specific user to the Teams meeting from lobby by calling the method `admit` on the object `TeamsCall` or `Call`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input.
 ```js
 const teamsUserIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
-const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
+const userIdentifier = { communicationUserId: '<COMMUNICATION_SERVICES_USER_ID>' };
 const phoneUserIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
 await call.admit(teamsUserIdentifier);
 await call.admit(userIdentifier);
