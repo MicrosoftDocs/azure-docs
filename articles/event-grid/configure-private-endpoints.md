@@ -59,10 +59,10 @@ This section shows you how to enable private network access for an Event Grid to
     1. Select an existing **application security group** or create one and then associate with the private endpoint.
     1. Select **Next: DNS >** button at the bottom of the page. 
 
-        :::image type="content" source="./media/configure-private-endpoints/configuration-page.png" alt-text="Screenshot showing the Networking page of the Creating a private endpoint wizard":::
+        :::image type="content" source="./media/configure-private-endpoints/configuration-page.png" alt-text="Screenshot showing the Networking page of the Creating a private endpoint wizard.":::
 5. On the **DNS** page, select whether you want the private endpoint to be integrated with a **private DNS zone**, and then select **Next: Tags** at the bottom of the page. 
 
-    :::image type="content" source="./media/configure-private-endpoints/dns-zone-page.png" alt-text="Screenshot showing the DNS page of the Creating a private endpoint wizard"::: 
+    :::image type="content" source="./media/configure-private-endpoints/dns-zone-page.png" alt-text="Screenshot showing the DNS page of the Creating a private endpoint wizard."::: 
 1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
