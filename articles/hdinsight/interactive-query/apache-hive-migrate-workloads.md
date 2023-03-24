@@ -327,7 +327,8 @@ Make sure to follow these steps after completing the migration.
 
 **Cluster Health**
 1. If multiple clusters share the same storage and HMS DB, then we should enable auto-compaction/compaction threads only in one cluster and disable everywhere else.
-1. Follow metastore tuning TSG (shared earlier) to reduce their CPU usage.
+1. Follow metastore tuning 
+(shared earlier) to reduce their CPU usage.
 
 **Query Tuning**
 1. Keep default configs of Hive to run the queries as they're tuned for TPC-DS workloads. Need query level tuning only if it fails or running slow. 
@@ -416,9 +417,19 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 ## Hive Backend DB schema compare Script
 
 You can run the following script after completing the migration.
- There's a chance of missing few columns in the backend DB, which causes the query failures as mentioned in the below TSG:
-https://supportability.visualstudio.com/AzureHDinsight/_wiki/wikis/AzureHDinsight/785541/Hive-Query-Fails-with-Invalid-column-name-'BIT_VECTOR'-error
- 
+There's a chance of missing few columns in the backend DB, which causes the query failures. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands.As a workaround you can disable the stats by setting the below properties which will not update the stats in the backend DB.
+
+```
+hive.stats.autogather=false;
+hive.stats.column.autogather=false;
+```
+To Fix this issue please run below two queries on backend SQL server (Hive metastore DB):
+```
+ALTER TABLE PART_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
+ALTER TABLE TAB_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
+```
+This step avoids the query failures, which fail with "Invalid column name" once after the migration.
+
 If the schema upgrade wasn't happened properly, then there's chance that we may hit the above issue. The below script fetches the column name and datatype from customer backend DB and provides the output if there's any missing column or incorrect datatype.
 
 The following path contains the schemacompare_final.py and test.csv file. The script is present in "schemacompare_final.py" file and the file "test.csv" contains all the column name and the datatype for all the tables, which should be present in the hive backend DB.
@@ -467,10 +478,19 @@ The above script automatically connects to your backend DB and fetches the detai
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
+    If the column is missing, When you run a insert overwrite command stats are calculated automatically by default. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the below properties which will not update the stats in the backend DB.
 
-    If the column is missing, then you can add the column as mentioned in the TSG:
-    https://supportability.visualstudio.com/AzureHDinsight/_wiki/wikis/AzureHDinsight/785541/Hive-Query-Fails-with-Invalid-column-name-'BIT_VECTOR'-error
-
+    ```
+    hive.stats.autogather=false;
+    hive.stats.column.autogather=false;
+    ```
+    
+    To Fix this issue please run below two queries on backend SQL server (Hive metastore DB):
+    
+    ```
+    ALTER TABLE PART_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
+    ALTER TABLE TAB_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
+    ```
     This step avoids the query failures, which fail with "Invalid column name" once after the migration.
 
 ## Troubleshooting guide
