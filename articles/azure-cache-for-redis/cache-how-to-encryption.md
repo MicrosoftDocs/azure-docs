@@ -75,6 +75,8 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 - Only RSA keys are supported
 - The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. 
 
+- The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. A recommended built-in role definition with least-privileges needed for this scenario is called [KeyVault Crypto Service Encryption User](/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-user).
+
 ## How to configure CMK encryption on Enterprise caches
 
 ### Use the portal to create a new cache with CMK enabled
