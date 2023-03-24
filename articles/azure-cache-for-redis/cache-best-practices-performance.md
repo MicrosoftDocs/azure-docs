@@ -71,6 +71,19 @@ Pipelined GET requests with 1k payload:
 ```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
 ```
+
+**To test throughput of a Basic, Standard, or Premium tier cache using TLS:**
+Pipelined GET requests with 1k payload:
+```dos
+redis-benchmark -h yourcache.redis.cache.windows.net -p 6380 -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50 -c 50 --tls
+```
+
+**To test throughput of an Enterprise or Enterprise Flash cache without TLS using OSS Cluster Mode:**
+Pipelined GET requests with 1k payload:
+```dos
+redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50 -c 50 --cluster
+```
+
 ## Example performance benchmark data
 
 The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions may be lower.
@@ -110,7 +123,11 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 > [!Important]
 > P5 instances in the China East and China North regions use 20 cores, not 32 cores. 
 
-### Enterprise tier
+### Enterprise tier - Enterprise Cluster Policy
+
+> [!IMPORTANT]
+> The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_.  
+
 | Instance | Size | vCPUs | Network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
 | --- | --- | --- | --- | --- | --- |
 | P1 |   6 GB |  2 | 1,500 | 180,000 | 172,000 |
@@ -119,6 +136,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 | P4 |  53 GB |  8 | 6,000 | 400,000 | 373,000 |
 | P5 | 120 GB | 32 | 6,000 | 400,000 | 373,000 |
 
+### Enterprise tier - OSS Cluster Policy
           
 ## Next steps
 
