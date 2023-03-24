@@ -223,7 +223,7 @@ Perform FBA SSO in client-initiated mode or BIG-IP-initiated mode. Both methods 
 
    ![Screenshot of Start URI, Form Parameter For User Name, and Form Parameter For Password fields.](./media/f5-big-ip-forms-advanced/sso-method-configuration.png)
 
-   ![Screenshot of the sign in page.](./media/f5-big-ip-forms-advanced/contoso-example.png)
+   ![Screenshot of the sign in page with callouts for username field and password field.](./media/f5-big-ip-forms-advanced/contoso-example.png)
 
 To learn more, go to techdocs.f5.com for [Manual Chapter: Single Sign-On Methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449)
 
