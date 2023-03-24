@@ -56,15 +56,15 @@ Use the following steps to build and deploy the sample applications.
 
    ```azurecli
    az spring app deploy \
+       --resource-group ${resource-group-name} \
+       --service ${Azure-Spring-Apps-instance-name} \
        --name resilience4j \
-       --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
-       --service ${Azure-Spring-Apps-instance-name} \
-       --resource-group ${resource-group-name}
+       --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar
    az spring app deploy \
-       --name reactive-resilience4j \
-       --jar-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
+       --resource-group ${resource-group-name} \
        --service ${Azure-Spring-Apps-instance-name} \
-       --resource-group ${resource-group-name}
+       --name reactive-resilience4j \
+       --jar-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1.BUILD-SNAPSHOT.jar
    ```
 
 > [!NOTE]
