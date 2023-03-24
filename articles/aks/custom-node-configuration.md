@@ -33,7 +33,7 @@ The supported Kubelet parameters and accepted values for Linux node pools are li
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. | 
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
-### Windows Kubelet custom configuration
+### Windows Kubelet custom configuration (Preview)
 
 The supported Kubelet parameters and accepted values for Windows node pools are listed below.
 
@@ -210,7 +210,7 @@ For Linux node pools
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
-For Windows node pools
+For Windows node pools (Preview)
 
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./kubeletconfig.json
