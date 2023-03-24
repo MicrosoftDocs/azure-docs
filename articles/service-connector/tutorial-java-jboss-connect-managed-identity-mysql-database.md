@@ -59,7 +59,7 @@ Follow these steps to create an Azure Database for MySQL in your subscription. T
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
+1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Azure AD admin account to perform administrative tasks.
 
     ```azurecli-interactive
     MYSQL_ADMIN_USER=azureuser
