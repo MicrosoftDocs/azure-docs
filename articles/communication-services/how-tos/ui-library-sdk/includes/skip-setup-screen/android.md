@@ -22,7 +22,7 @@ We recommend you to build your application such a way that when user tries to jo
 
 To use the feature, pass the boolean value with `bypassSetupScreen` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](####tab/kotlin)
 
 ```kotlin
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions
@@ -33,7 +33,7 @@ val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
 
-#### [Java](#tab/java)
+#### [Java](####tab/java)
 
 ```java
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions;
