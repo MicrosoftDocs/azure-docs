@@ -85,7 +85,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
    :::image type="content" source="media/cache-how-to-encryption/cache-use-key-encryption.png" alt-text="Screenshot of the advanced settings with customer-managed key encryption checked and in a red box.":::
 
-1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identitiesd) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
 
     :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-user-assigned.png" alt-text="Screenshot showing user managed identity in the working pane.":::
 
