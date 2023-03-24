@@ -89,13 +89,13 @@ ZRS is supported for all Azure Storage services through standard general-purpose
 - Azure Table storage
 - Azure Queue storage
 
-For a list of regions that support zone-redundant storage (ZRS) for standard general-purpose v2 storage accounts, see [Azure regions that support zone-redundant storage (ZRS) - standard](redundancy-regions-zrs.md#standard-storage-accounts).
+For a list of regions that support zone-redundant storage (ZRS) for standard general-purpose v2 storage accounts, see [Azure regions that support zone-redundant storage (ZRS) - standard storage accounts](redundancy-regions-zrs.md#standard-storage-accounts).
 
 #### Premium block blob accounts
 
 ZRS is supported for premium block blobs accounts. For more information about premium block blobs, see [Premium block blob storage accounts](../blobs/storage-blob-block-blob-premium.md).
 
-For a list of regions that support zone-redundant storage (ZRS) for premium block blobs accounts, see [Azure regions that support zone-redundant storage (ZRS) - premium block blob](redundancy-regions-zrs.md#premium-block-blob-accounts).
+For a list of regions that support zone-redundant storage (ZRS) for premium block blobs accounts, see [Azure regions that support zone-redundant storage (ZRS) - premium block blob accounts](redundancy-regions-zrs.md#premium-block-blob-accounts).
 
 #### Premium file share accounts
 
