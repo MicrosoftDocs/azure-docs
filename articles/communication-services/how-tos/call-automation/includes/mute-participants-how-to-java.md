@@ -58,10 +58,11 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 ``` xml 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-communication-callingserver</artifactId>
-  <version>1.0.0-alpha.20220829.1</version>
+  <artifactId>azure-communication-callautomation</artifactId>
+  <version>1.0.0-alpha.20230317.1</version>
 </dependency>
 ```
+
 ## Update App.java with code
 
 In your editor of choice, open App.java file and update it with the code provided in [Update app.java with code](../../../quickstarts/call-automation/callflows-for-customer-interactions.md) section.
@@ -90,30 +91,30 @@ callConnectionAsync.muteParticipantsAsync(target).block();
     "participants": [
       {
         "identifier": {
-          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-a8bd-1000-343a0d0045c3",
+          "rawId": "<ACS_USER_ID>",
           "kind": "communicationUser",
           "communicationUser": {
-            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-a8bd-1000-343a0d0045c3"
+            "id": "<ACS_USER_ID>"
           }
         },
         "isMuted": true
       },
       {
         "identifier": {
-          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_becb5f68-7d55-4b4c-9010-d925a7b100d6",
+          "rawId": "<ACS_USER_ID>",
           "kind": "communicationUser",
           "communicationUser": {
-            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_becb5f68-7d55-4b4c-9010-d925a7b100d6"
+            "id": "<ACS_USER_ID>"
           }
         },
         "isMuted": false
       },
       {
         "identifier": {
-          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-de0e-1000-343a0d0045d0",
+          "rawId": "<ACS_USER_ID>",
           "kind": "communicationUser",
           "communicationUser": {
-            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-de0e-1000-343a0d0045d0"
+            "id": "<ACS_USER_ID>"
           }
         },
         "isMuted": false
