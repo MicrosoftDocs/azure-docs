@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.date: 03/14/2023
 ms.custom: template-how-to
 
-#Customer intent: As a developer, I want to admit/reject users from Teams meeting lobby.
 ---
+[!INCLUDE [Install SDK](../calling-sdk/includes/install-sdk/install-sdk-web.md)]
+Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby. You first need to import `Call` or `TeamsCall` deom the Calling SDK:
 
-# Join a teams meeting
+# Manage participants in Teams meeting Lobby
 
-Here's how to admit/reject participants from regular Microsoft Teams meetings lobby by using Azure Communication Service SDKs.
+In this article you will learn how to admit and reject participants from Microsoft Teams meetings lobby by using Azure Communication Service calling SDKs.
 
 ## Prerequisites
 
@@ -24,7 +25,7 @@ Here's how to admit/reject participants from regular Microsoft Teams meetings lo
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-To admit/reject users from lobby, admitter/rejecter should join the meeting first and should have Organizer, Coorganizer or Presenter meeting role.
+Microsoft 365 or Azure Communication Services users can admit or reject users from lobby, if they are connected to Teams meeting and have Organizer, Co-organizer, or Presenter meeting role.
 [Learn more about meeting roles](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
 
 To admit, reject or admit all users from the lobby, you can use the `admit`, `rejectParticipant` and `admitAll` asynchronous APIs:
