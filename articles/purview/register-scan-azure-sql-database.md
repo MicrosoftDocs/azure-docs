@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 03/17/2023
 ms.custom: template-how-to
 ---
 # Discover and govern Azure SQL Database in Microsoft Purview
@@ -411,14 +411,19 @@ After your data source has the **Data use management** option set to **Enabled**
 
 ![Screenshot that shows the panel for registering a data source for a policy, including areas for name, server name, and data use management.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-configuration-azure-sql-db.md)]
+
 ### Create a policy
 
 To create an access policy for Azure SQL Database, follow these guides:
 
-* [Provision access to system metadata in Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy). Use this guide to apply a DevOps policy on a single SQL database.
-* [Provision access by data owner for Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy). Use this guide to provision access on a single SQL database account in your subscription.
-* [Resource group and subscription access provisioning by data owner](./how-to-policies-data-owner-resource-group.md). Use this guide to provision access on all enabled data sources in a resource group or across an Azure subscription. The prerequisite is that the subscription or resource group must be registered with the **Data use management** option enabled. 
-* [Self-service policies for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md). Use this guide to allow data consumers to request access to data assets by using a self-service workflow.
+* [Provision access to system health, performance and audit information in Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy). Use this guide to apply a DevOps policy on a single SQL database.
+* [Provision read/modify access on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy). Use this guide to provision access on a single SQL database account in your subscription.
+* [Self-service access policies for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md). Use this guide to allow data consumers to request access to data assets by using a self-service workflow.
+
+To create policies that cover all data sources inside a resource group or Azure subscription, see [Discover and govern multiple Azure sources in Microsoft Purview](register-scan-azure-multiple-sources.md#access-policy).
+
+
 
 ## Extract lineage (preview) 
 <a id="lineagepreview"></a>

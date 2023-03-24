@@ -153,7 +153,7 @@ items:
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
+      href: ../iot/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
     - name: Azure IoT services
       items:
         - name: IoT Hub
