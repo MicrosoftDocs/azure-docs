@@ -1,23 +1,23 @@
 ---
-title: Understand the MedTech service device message data transformation - Azure Health Data Services
-description: This article provides an overview of the MedTech service device messaging data transformation into FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
+title: Understand the MedTech service device message data transformation stages - Azure Health Data Services
+description: This article provides an overview of the MedTech service device messaging data transformation stages into FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 03/21/2023
+ms.date: 03/24/2023
 ms.author: jasteppe
 ---
 
-# Understand the MedTech service device message data transformation 
+# Understand the MedTech service device message data transformation stages 
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into FHIR [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence in the [FHIR service](../fhir/overview.md).
 
-The MedTech service device message data processing follows these steps and in this order:
+The MedTech service device message data processing follows these stages and in this order:
 
 * Ingest
 * Normalize - Device mapping applied.
