@@ -260,7 +260,7 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 | tags                     | no       | {}                                                                   |
 | filters[\<index\>].label | no       | null                                                                 |
 | composition_type         | no       | group_by_key                                                         |
-| retention_period         | no       | 2592000 (30 days) (standard tier) <br/> 604,800 (7 days) (free tier) |
+| retention_period         | no       | 2592000 (30 days) (standard tier) <br/> 604800 (7 days) (free tier) |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
