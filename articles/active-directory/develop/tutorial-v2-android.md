@@ -218,7 +218,7 @@ TextView currentUserTextView;
 
 ### onCreate
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, replace the onCreate() method with the following code snippet which instantiate MSAL using the `SingleAccountPublicClientApplication`:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, replace the onCreate() method with the following code snippet, which instantiate MSAL using the `SingleAccountPublicClientApplication`:
 
 ```java
 @Override
@@ -245,7 +245,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### loadAccount
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `loadAccount()` method which monitors status of the current logged in user:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `loadAccount()` method, which monitors status of the current logged in user:
 
 ```java
 //When app comes to the foreground, load existing account to determine if user is signed in
@@ -279,7 +279,7 @@ private void loadAccount() {
 
 ### initializeUI
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `initializeUI()` method that listen to buttons and call methods or log errors accordingly:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `initializeUI()` method, that listens to buttons and call methods or log errors accordingly:
 
 ```java
 private void initializeUI(){
@@ -350,7 +350,7 @@ private void initializeUI(){
 
 ### getAuthInteractiveCallback
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `getAuthInteractiveCallback()` method which is used to acquire token interactively:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `getAuthInteractiveCallback()` method, which is used to acquire token interactively:
 
 ```java
 private AuthenticationCallback getAuthInteractiveCallback() {
@@ -452,7 +452,7 @@ If you would like to model your UI off this tutorial, the following methods prov
 
 #### updateUI
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `updateUI()` method which Enable/disable buttons based on sign-in state and set text.:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `updateUI()` method which enable/disable buttons based on sign-in state and set text:
 
 ```java
 private void updateUI(@Nullable final IAccount account) {
@@ -475,7 +475,7 @@ private void updateUI(@Nullable final IAccount account) {
 
 #### displayError
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayError()` method which logs errors:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayError()` method, which logs errors:
 
 ```java
 private void displayError(@NonNull final Exception exception) {
@@ -485,7 +485,7 @@ private void displayError(@NonNull final Exception exception) {
 
 #### displayGraphResult
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayGraphResult()` method which reads Microsoft Graph response:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayGraphResult()` method, which reads Microsoft Graph response:
 
 ```java
 private void displayGraphResult(@NonNull final JsonObject graphResponse) {
@@ -495,7 +495,7 @@ private void displayGraphResult(@NonNull final JsonObject graphResponse) {
 
 #### performOperationOnSignOut
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `performOperationOnSignOut()` method to update text in UI to reflect sign out:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `performOperationOnSignOut()` method, which update text in UI to reflect sign out:
 
 ```java
 private void performOperationOnSignOut() {
@@ -604,7 +604,6 @@ In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. R
 Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
-PR 4
 
 ### Consent
 
