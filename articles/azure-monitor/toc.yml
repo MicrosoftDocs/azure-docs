@@ -412,6 +412,9 @@ items:
       - name: Query Prometheus metrics in workbooks
         displayName: Prometheus
         href: essentials/prometheus-workbooks.md
+      - name: Query Prometheus using the API and PromQL
+        displayName: Prometheus
+        href: essentials/prometheus-api-promql.md
       - name: Remote-write
         items:
         - name: Overview
@@ -620,12 +623,9 @@ items:
               - name: ASP.NET App Monitoring
                 displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
                 href: app/asp-net.md
-            - name: Non-HTTP and background apps
+            - name: Non-HTTP, console, and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
-            - name: .NET Console
-              displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
-              href: app/console.md
             - name: Advanced ASP.NET SDK topics
               items:
               - name: EventCounters

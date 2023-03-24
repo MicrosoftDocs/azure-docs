@@ -130,13 +130,13 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 
 The API server endpoint has no public IP address. To manage the API server, you'll need to use a VM that has access to the AKS cluster's Azure Virtual Network (VNet). There are several options for establishing network connectivity to the private cluster.
 
-* Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
+* Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster using the [`az vm create`][az-vm-create] command with the `--vnet-name` parameter.
 * Use a VM in a separate network and set up [Virtual network peering][virtual-network-peering].  See the section below for more information on this option.
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
 * Use the [AKS `command invoke` feature][command-invoke].
 * Use a [private endpoint][private-endpoint-service] connection.
 
-Creating a VM in the same VNET as the AKS cluster is the easiest option. Express Route and VPNs add costs and require additional networking complexity. Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
+Creating a VM in the same VNet as the AKS cluster is the easiest option. Express Route and VPNs add costs and require additional networking complexity. Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
 
 ## Virtual network peering
 
@@ -276,3 +276,4 @@ For associated best practices, see [Best practices for network connectivity and 
 [install-azure-cli]: /cli/azure/install-azure-cli
 [private-dns-zone-contributor-role]: ../role-based-access-control/built-in-roles.md#dns-zone-contributor
 [network-contributor-role]: ../role-based-access-control/built-in-roles.md#network-contributor
+[az-vm-create]: /cli/azure/vm#az-vm-create

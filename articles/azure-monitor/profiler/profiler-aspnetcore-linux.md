@@ -22,6 +22,9 @@ In this guide, you'll:
 
 - Install the [latest and greatest .NET Core SDK](https://dotnet.microsoft.com/download/dotnet).
 - Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Review the following samples for context:
+  - [Enable Service Profiler for containerized ASP.NET Core Application (.NET 6)](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/EnableServiceProfilerForContainerAppNet6)
+  - [Application Insights Profiler for Worker Service Example](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/ServiceProfilerInWorkerNet6)
 
 ## Set up the project locally
 
@@ -41,30 +44,31 @@ In this guide, you'll:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`. [Add custom Profiler settings, if applicable](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/Configurations.md).
+
+   For `WebAPI`:
 
     ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
-        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddControllersWithViews();
-    }
+    // Add services to the container.
+    builder.Services.AddApplicationInsightsTelemetry();
+    builder.Services.AddServiceProfiler();
     ```
 
-1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
+   For `Worker`:
 
     ```csharp
-    using System.Threading;
-    ...
-
-    public IActionResult About()
+    IHost host = Host.CreateDefaultBuilder(args)
+        .ConfigureServices(services =>
         {
-            Random r = new Random();
-            int delay = r.Next(5000, 10000);
-            Thread.Sleep(delay);
-            return View();
-        }
+            services.AddApplicationInsightsTelemetryWorkerService();
+            services.AddServiceProfiler();
+            
+            // Assuming Worker is your background service class.
+            services.AddHostedService<Worker>();
+        })
+        .Build();
+    
+    await host.RunAsync();
     ```
 
 1. Save and commit your changes to the local repository:

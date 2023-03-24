@@ -61,8 +61,6 @@ landingContent:
         links:
           - text: Selective disk backup and restore for Azure VMs
             url: selective-disk-backup-restore.md
-          - text: Support for backup of VM with up to 32 disks
-            url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: Enhanced soft delete for Azure Backup (preview)
@@ -73,6 +71,8 @@ landingContent:
             url: ./multi-user-authorization-concept.md?tabs=backup-vault
           - text: Immutable vault
             url: backup-azure-immutable-vault-concept.md
+          - text: Multiple backups per day for Azure VMs
+            url: backup-azure-vms-enhanced-policy.md
           - text: Azure Kubernetes Service backup (preview)
             url: azure-kubernetes-service-backup-overview.md
           - text: Azure Blob vaulted backups (preview)

@@ -46,6 +46,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/console.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/console",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/resource-manager-web-app.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-web-app",
             "redirect_document_id": false
