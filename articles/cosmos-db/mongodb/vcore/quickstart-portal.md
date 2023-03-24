@@ -79,6 +79,9 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
 
+    > [!NOTE]
+    > In many corporate environments, developer machine IPs are hidden due to a VPN. In these cases, it's recommended to start with allowing access to all IPs for connection testing initially before refining the allow-list.
+
 1. Select **Review + create**.
 
 1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the cluster. Wait for the portal page to display **Your deployment is complete** before moving on.
