@@ -83,7 +83,7 @@ The following table describes whether a feature is supported in a standard gener
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
-<sup>3</sup>    Setting the tier of a blob by using the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchial namespace.
+<sup>3</sup>    Setting the tier of a blob by using the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
 
 ## Premium block blob accounts
 
