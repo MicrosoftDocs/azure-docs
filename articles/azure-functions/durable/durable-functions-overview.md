@@ -3,7 +3,7 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/07/2022
+ms.date: 02/13/2023
 ms.author: cgillum
 ms.custom: devdivchpfy22
 ms.reviewer: azfuncdf
@@ -20,17 +20,18 @@ Durable Functions is designed to work with all Azure Functions programming langu
 
 | Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
-| .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process| n/a |
-| JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
+| .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process | n/a |
+| JavaScript/TypeScript (V3 prog. model) | Functions 2.0+ | Node 8+ | 2.x bundles |
+| JavaScript/TypeScript (V4 prog. model) | Functions 4.16.5+ | Node 18+ | 3.15+ bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for Python programmers. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
+> The new programming models for authoring Functions in Python (V2) and Node.js (V4) are currently in preview. Compared to the current models, the new experiences are designed to be more idiomatic and intuitive for Python and JavaScript/TypeScript developers. To learn more, see Azure Functions [Python developer guide](../functions-reference-python.md?pivots=python-mode-decorators) and [Node.js developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
 >
-> In the following code snippets, Python (PM2) denotes programming model V2, the new experience.
+> In the following code snippets, Python (PM2) denotes programming model V2, and JavaScript (PM4) denotes programming model V4, the new experiences.
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -102,7 +103,7 @@ public static async Task<object> Run(
 
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -113,6 +114,28 @@ module.exports = df.orchestrator(function*(context) {
         const y = yield context.df.callActivity("F2", x);
         const z = yield context.df.callActivity("F3", y);
         return    yield context.df.callActivity("F4", z);
+    } catch (error) {
+        // Error handling or compensation goes here.
+    }
+});
+```
+
+You can use the `context.df` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+> [!NOTE]
+> The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("chainingDemo", function* (context) {
+    try {
+        const x = yield context.df.callActivity("F1");
+        const y = yield context.df.callActivity("F2", x);
+        const z = yield context.df.callActivity("F3", y);
+        return yield context.df.callActivity("F4", z);
     } catch (error) {
         // Error handling or compensation goes here.
     }
@@ -269,7 +292,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -294,6 +317,33 @@ module.exports = df.orchestrator(function*(context) {
 The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `context.df.Task.all` API is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("fanOutFanInDemo", function* (context) {
+    const parallelTasks = [];
+
+    // Get a list of N work items to process in parallel.
+    const workBatch = yield context.df.callActivity("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(context.df.callActivity("F2", workBatch[i]));
+    }
+
+    yield context.df.Task.all(parallelTasks);
+
+    // Aggregate all N outputs and send the result to F3.
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield context.df.callActivity("F3", sum);
+});
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `context.df.Task.all` API is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
 
 # [Python](#tab/python)
 
@@ -406,7 +456,7 @@ The async HTTP API pattern addresses the problem of coordinating the state of lo
 
 ![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [TypeScript](quickstart-ts-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
 
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
@@ -435,7 +485,7 @@ Content-Type: application/json
 
 Because the Durable Functions runtime manages state for you, you don't need to implement your own status-tracking mechanism.
 
-The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [orchestration client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
+The Durable Functions extension exposes built-in HTTP APIs that manage long-running orchestrations. You can alternatively implement this pattern yourself by using your own function triggers (such as HTTP, a queue, or Azure Event Hubs) and the [durable client binding](durable-functions-bindings.md#orchestration-client). For example, you might use a queue message to trigger termination. Or, you might use an HTTP trigger that's protected by an Azure Active Directory authentication policy instead of the built-in HTTP APIs that use a generated key for authentication.
 
 For more information, see the [HTTP features](durable-functions-http-features.md) article, which explains how you can expose asynchronous, long-running processes over HTTP using the Durable Functions extension.
 
@@ -510,7 +560,7 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -532,6 +582,36 @@ module.exports = df.orchestrator(function*(context) {
         // Orchestration sleeps until this time.
         const nextCheck = moment.utc(context.df.currentUtcDateTime).add(pollingInterval, 's');
         yield context.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform more work here, or let the orchestration end.
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const { DateTime } = require("luxon");
+
+df.app.orchestration("monitorDemo", function* (context) {
+    const jobId = context.df.getInput();
+    const pollingInterval = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (DateTime.fromJSDate(context.df.currentUtcDateTime) < DateTime.fromJSDate(expiryTime)) {
+        const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform an action when a condition is met.
+            yield context.df.callActivity("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration sleeps until this time.
+        const nextCheck = DateTime.fromJSDate(context.df.currentUtcDateTime).plus({
+            seconds: pollingInterval,
+        });
+        yield context.df.createTimer(nextCheck.toJSDate());
     }
 
     // Perform more work here, or let the orchestration end.
@@ -733,7 +813,7 @@ public static async Task Run(
 
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -746,7 +826,8 @@ module.exports = df.orchestrator(function*(context) {
     const durableTimeout = context.df.createTimer(dueTime.toDate());
 
     const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
-    if (approvalEvent === yield context.df.Task.any([approvalEvent, durableTimeout])) {
+    const winningEvent = yield context.df.Task.any([approvalEvent, durableTimeout]);
+    if (winningEvent === approvalEvent) {
         durableTimeout.cancel();
         yield context.df.callActivity("ProcessApproval", approvalEvent.result);
     } else {
@@ -756,6 +837,32 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const { DateTime } = require("luxon");
+
+df.app.orchestration("humanInteractionDemo", function* (context) {
+    yield context.df.callActivity("RequestApproval");
+
+    const dueTime = DateTime.fromJSDate(context.df.currentUtcDateTime).plus({ hours: 72 });
+    const durableTimeout = context.df.createTimer(dueTime.toJSDate());
+
+    const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
+    const winningEvent = yield context.df.Task.any([approvalEvent, durableTimeout]);
+    if (winningEvent === approvalEvent) {
+        durableTimeout.cancel();
+        yield context.df.callActivity("ProcessApproval", approvalEvent.result);
+    } else {
+        yield context.df.callActivity("Escalate");
+    }
+});
+```
+
+To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
 
 # [Python](#tab/python)
 
@@ -908,7 +1015,7 @@ public static async Task Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -918,6 +1025,20 @@ module.exports = async function (context) {
     const isApproved = true;
     await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
 };
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const { app } = require("@azure/functions");
+
+app.get("raiseEventToOrchestration", async function (request, context) {
+    const instanceId = await request.text();
+    const client = df.getClient(context);
+    const isApproved = true;
+    await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
+});
 ```
 
 # [Python](#tab/python)
@@ -1032,12 +1153,34 @@ public class Counter
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.entity("entityDemo", function (context) {
     const currentValue = context.df.getState(() => 0);
     switch (context.df.operationName) {
         case "add":
@@ -1140,16 +1283,30 @@ public static async Task Run(
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
+const { app } = require("@azure/functions");
 
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+const { app } = require("@azure/functions");
+
+app.get("signalEntityDemo", async function (request, context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await client.signalEntity(entityId, "add", 1);
+});
 ```
 
 # [Python](#tab/python)
@@ -1211,6 +1368,7 @@ You can get started with Durable Functions in under 10 minutes by completing one
 
 * [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
+* [TypeScript using Visual Studio Code](quickstart-ts-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
 * [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
 * [Java using Maven](quickstart-java.md)

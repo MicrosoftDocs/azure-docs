@@ -2,8 +2,8 @@
 title:  Request a core limit increase
 description: Learn how to request a core limit (quota) increase to expand capacity for your labs. 
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+author: ntrogh
+ms.author: nicktrog
 ms.date: 10/06/2022
 ---
 

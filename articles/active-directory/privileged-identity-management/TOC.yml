@@ -14,8 +14,6 @@
     href: pim-roles.md
   - name: Secure privileged access in Azure AD
     href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA and PIM
-    href: pim-how-to-require-mfa.md
 
   - name: Overview dashboards
     href: pim-resource-roles-overview-dashboards.md
