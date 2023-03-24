@@ -133,8 +133,8 @@ Configure the BIG-IP registration to fulfill SAML tokens that BIG-IP APM request
 
    ![Screenshot a Download option under SAML Signing Certificate.](./media/f5-big-ip-forms-advanced/saml-certificate.png)
 
-> [!NOTE]
-> Azure AD SAML signing certificates have a lifespan of three years. 
+   > [!NOTE]
+   > Azure AD SAML signing certificates have a lifespan of three years. 
 
 Learn more: [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
 
@@ -155,157 +155,165 @@ Use the following instructions to configure BIG-IP.
 
 SAML SP settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication. To configure them:
 
-1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services**, and then select **Create**.
+1. Select **Access** > **Federation** > **SAML Service Provider**.
+2. Select **Local SP Services**.
+3. Select **Create**.
 
-   ![Screenshot showing the F5 forms configuration.](./media/f5-big-ip-forms-advanced/f5-forms-configuration.png)
+   ![Screenshot of the Create option on the the SAML Service Provider tab.](./media/f5-big-ip-forms-advanced/f5-forms-configuration.png)
 
-1. On the **Create New SAML SP Service** pane, provide a name and the same entity ID that you defined earlier in Azure AD.
+4. On the **Create New SAML SP Service** pane, for **Name** and **Entity ID**, enter the defined name and entity ID.
 
-   ![Screenshot of the 'Create New SAML SP Service' pane, showing the name and entity ID of the new SAML service provider service.](./media/f5-big-ip-forms-advanced/saml-sp-service.png)
+   ![Screenshot of the Name and Entity ID fields under Create New SAML SP Service.](./media/f5-big-ip-forms-advanced/saml-sp-service.png)
 
-    The values in the **SP Name Settings** section are required only if the entity ID isn't an exact match of the hostname portion of the published URL or, equally, if the entity ID isn't in regular hostname-based URL format. Provide the external scheme and hostname of the application that's being published if the entity ID is *urn:myvacation:contosoonline*.
+   > [!NOTE]
+   > **SP Name Settings** values are required if the entity ID doesn't match the hostname portion of the published URL. Or, values are required if the entity ID isn't in regular hostname-based URL format. 
+
+5. If the entity ID is `urn:myvacation:contosoonline`, enter the application external scheme and hostname.
 
 ### Configure an external IdP connector
 
-A SAML IdP connector defines the settings that are required for the BIG-IP APM to trust Azure AD as its SAML IdP. These settings map the SAML service provider to a SAML IdP, which establishes the federation trust between the APM and Azure AD. To configure the connector:
+A SAML IdP connector defines settings for the BIG-IP APM to trust Azure AD as its SAML IdP. The settings connect the SAML service provider to a SAML IdP, which establishes the federation trust between the APM and Azure AD. 
 
-1. Select the new SAML service provider object, and then select **Bind/UnbBind IdP Connectors**.
+To configure the connector:
 
-   ![Screenshot showing local service provider services and the 'Bind/Unbind IdP Connectors' button.](./media/f5-big-ip-forms-advanced/local-services.png)
+1. Select the new SAML service provider object.
+2. Select **Bind/UnbBind IdP Connectors**.
 
-1. In the **Create New IdP Connector** dropdown list, select **From Metadata**.
+   ![Screenshot of the Bind Unbind IdP Connectors option on the SAML Service Provider tab.](./media/f5-big-ip-forms-advanced/local-services.png)
 
-   ![Screenshot showing the 'From Metadata' option in the 'Create New IdP Connector' dropdown list.](./media/f5-big-ip-forms-advanced/from-metadata.png)
+3. In the **Create New IdP Connector** list, select **From Metadata**.
+
+   ![Screenshot of the From Metadata option in the Create New IdP Connector dropdown list.](./media/f5-big-ip-forms-advanced/from-metadata.png)
   
-1. On the **Create New SAML IdP Connector** pane, browse for the Federation Metadata XML file that you downloaded earlier, and then provide an **Identity Provider Name** for the APM object that will represent the external SAML IdP (for example, *MyVacation\_AzureAD*).
+4. On the **Create New SAML IdP Connector** pane, browse for the Federation Metadata XML file you downloaded.
+5. Enter an **Identity Provider Name** for the APM object that represents the external SAML IdP. For example, MyVacation\_AzureAD.
 
-   ![Screenshot of the 'Create New SAML IdP Connector' pane for creating a new IdP SAML connector.](./media/f5-big-ip-forms-advanced/new-idp-saml-connector.png)
+   ![Screenshot of Select File and Identity Provider name fields on Create New SAML IdP Connector.](./media/f5-big-ip-forms-advanced/new-idp-saml-connector.png)
 
-1. Select **Add New Row** to choose the new **SAML IdP Connector**, and then select **Update**.
+6. Select **Add New Row**.
+7. Select the new **SAML IdP Connector**.
+8. Select **Update**.
   
-   ![Screenshot showing how to add a new row.](./media/f5-big-ip-forms-advanced/add-new-row.png)
+   ![Screenshot of the Update option.](./media/f5-big-ip-forms-advanced/add-new-row.png)
 
-1. Select **OK** to save your settings.
+9. Select **OK**.
 
-   ![Screenshot of the 'Edit SAML IdPs that use this SP' pane.](./media/f5-big-ip-forms-advanced/edit-saml-idp-using-sp.png)
+   ![Screenshot of the Edit SAML IdPs that use this SP dialog.](./media/f5-big-ip-forms-advanced/edit-saml-idp-using-sp.png)
 
-### Configure Forms-based SSO
+### Configure forms-based SSO
 
-In this section, you create an APM SSO object for performing FBA SSO to back-end applications. 
+Create an APM SSO object for FBA SSO to back-end applications. 
 
-You can perform FBA SSO in either client-initiated mode or by the BIG-IP itself. Both methods emulate a user logon by injecting credentials into the username and password tags before auto submitting the form. The flow is almost transparent, except that users have to provide their password once when they access an FBA application. The password is then cached for reuse across other FBA applications.
+Perform FBA SSO in client-initiated mode or BIG-IP-initiated mode. Both methods emulate a user sign on by injecting credentials into the username and password tags. The form is then auto-submitted. Users provide password to access an FBA application. The password is cached and reused for other FBA applications.
 
-This covers the APM approach, which manages SSO directly for the back-end application.
+1. Select **Access** > **Single Sign-on**.
+2. Select **Forms Based**.
+3. Select **Create**.
+4. For **Name**, enter a descriptive name. For example, Contoso\FBA\sso.
+5. For **Use SSO Template**, select **None**.
+6. For **Username Source**, enter the username source to pre-fill the password collection form. The default `session.sso.token.last.username` works well, because it has the signed-in user Azure AD UPN.
+7. For **Password Source**, keep the default `session.sso.token.last.password`, the APM variable BIG-IP uses to cache user passwords. 
 
-Select **Access** > **Single Sign-on** > **Forms Based**, select **Create**, and then provide the following values:
+   ![Screenshot of Name and Use SSO Template options under New SSO Configuration.](./media/f5-big-ip-forms-advanced/new-sso-configuration.png)
 
-|Property | Description |
-|:------|:---------|
-| Name | Use a descriptive name for the configuration, because an SSO APM object can be reused by other published applications. For example, use *Contoso\FBA\sso*.|
-| Use SSO Template | None |
-| Username Source | The preferred username source for pre-filling the password collection form. You can use any APM session variable, but the default *session.sso.token.last.username* tends to work best, because it contains the logged-in users' Azure AD UPN. |
-| Password Source | Keep the default *session.sso.token.last.password*, it's the APM variable that the BIG-IP will use to cache the password that's provided by users. |
-| | |
+8. For **Start URI**, enter the FBA application logon URI. If the request URI matches this URI value, the APM form-based authentication executes SSO
+9. For **Form Action**, leave it blank. Then, the original request URL is used for SSO.
+10. For **Form Parameter for Username**, enter the logon form username field element. Use the browser dev tools to determine the element.
+11. For **Form Parameter for Password**, enter the logon form password field element. Use the browser dev tools to determine the element.
 
-![Screenshot showing a new SSO configuration.](./media/f5-big-ip-forms-advanced/new-sso-configuration.png)
+   ![Screenshot of Start URI, Form Parameter For User Name, and Form Parameter For Password fields.](./media/f5-big-ip-forms-advanced/sso-method-configuration.png)
 
-|Property | Description |
-|:------|:---------|
-| Start URI | The logon URI of your FBA application. The APM form-based authentication executes SSO when the request URI matches this URI value.|
-| Form Actions | Leave this value blank so that the original request URL is used for SSO. |
-| Form Parameter for Username | The element name of your logon form's username field. Use your browser's dev tools to determine this.| 
-| Form Parameter for Password | The element name of your logon form's password field. Use your browser's dev tools to determine this.|
-| | |
+   ![Screenshot of the sign in page.](./media/f5-big-ip-forms-advanced/contoso-example.png)
 
-![Screenshot of the SSO Method Configuration pane.](./media/f5-big-ip-forms-advanced/sso-method-configuration.png)
-
-![Screenshot of the Contoso 'My Vacation logon' webpage.](./media/f5-big-ip-forms-advanced/contoso-example.png)
-
-For more information about configuring an APM for FBA SSO, go to the F5 [Single Sign-On Methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449) site.
+To learn more, go to techdocs.f5.com for [Manual Chapter: Single Sign-On Methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449)
 
 ### Configure an Access profile
 
-An access profile binds many APM elements managing access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
+An access profile binds APM elements that manage access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
 
-1. Select **Access** > **Profiles / Policies** > **Access Profiles (Per-Session Policies)** > **Create**, and then provide the following values:
+1. Select **Access** > **Profiles / Policies**.
+2. Select **Access Profiles (Per-Session Policies)**.
+3. Select **Create**.
+4. Enter a **Name**.
+5. For **Profile Type**, select **All**.
+6. For **SSO Configuration**, select the FBA SSO configuration object you created.
+7. For **Accepted Language**, select at least one language. 
 
-   | Property | Description |
-   |:-----|:-------|
-   | Name | For example, *MyVacation* |
-   |Profile Type | All |
-   | SSO Configuration | The FBA SSO configuration object you just created|
-   |Accepted Language | Add at least one language|
-   | | |
+   ![Screenshot of options and selections on Access Profiles Per Session Policies, New Profile.](./media/f5-big-ip-forms-advanced/create-new-access-profile.png)
 
-   ![Screenshot showing how to create a new access profile.](./media/f5-big-ip-forms-advanced/create-new-access-profile.png)
+8. In the **Per-Session Policy** column, for the profile, select **Edit**.
+9. The APM Visual Policy Editor starts.
 
-1. Modify the session policy to present a logon page with the username pre-filled. To launch the APM Visual Policy Editor, select the **Edit** link next to the per-session profile you just created.
+   ![Screenshot of the Edit option in the Per-Session Policy column.](./media/f5-big-ip-forms-advanced/edit-per-session-policy.png)
 
-   ![Screenshot showing edit per-session policy](./media/f5-big-ip-forms-advanced/edit-per-session-policy.png)
+10. Under **fallback**, select the **+** sign.
 
-1. In the APM Visual Policy Editor, select the **+** sign next to the
-   fallback.
+   ![Screenshot of the APM Visual Policy Editor plus-sign option under fallback.](./media/f5-big-ip-forms-advanced/vpe-launched.png)
 
-   ![Screenshot of the APM Visual Policy Editor showing the plus sign (+) next to the fallback.](./media/f5-big-ip-forms-advanced/vpe-launched.png)
+11. In the pop-up, select **Authentication**.
+12. Select **SAML Auth**.
+13. Select **Add Item**.
 
-1. In the pop-up window, select **Authentication**, select **SAML Auth**, and then select **Add Item**.
+   ![Screenshot of the SAML Auth option.](./media/f5-big-ip-forms-advanced/saml-auth-add-item.png)
 
-   ![Screenshot showing the 'SAML Auth' control selected and the 'Add Items' button.](./media/f5-big-ip-forms-advanced/saml-auth-add-item.png)
-
-1. On the **SAML authentication SP** configuration pane, change the name to **Azure AD Auth** and then, in the **AAA Server** dropdown list, enter the SAML service provider object that you created earlier.
+14. On **SAML authentication SP**, change the **Name** to **Azure AD Auth**
+15. In the **AAA Server** dropdown, enter the SAML service provider object you created.
 
    ![Screenshot showing the Azure AD Authentication server settings.](./media/f5-big-ip-forms-advanced/azure-ad-auth-server.png)
 
-1. Select the **+** sign on the **Successful** branch.
+16. On the **Successful** branch, select the **+** sign.
+17. In the pop-up, select **Authentication**.
+18. Select **Logon Page**
+19. Select **Add Item**.
 
-1. In the pop-up window, select **Authentication**, select **Logon Page**, and then select **Add Item**.
+   ![Screenshot of the Logon Page option on the Logon tab.](./media/f5-big-ip-forms-advanced/logon-page.png)
 
-   ![Screenshot shows logon page settings](./media/f5-big-ip-forms-advanced/logon-page.png)
+20. For **usesrname**, in the **Read Only** column, select **Yes**.
 
-1. In the **Read Only** column for the **username** field, in the dropdown list, select **Yes**.
+   ![Screenshot of the Yes option in the username row on the Properties tab.](./media/f5-big-ip-forms-advanced/set-read-only-as-yes.png)
 
-   ![Screenshot showing the username 'Read Only' option changed to 'Yes'.](./media/f5-big-ip-forms-advanced/set-read-only-as-yes.png)
+21. For the logon page fallback, select the **+** sign. This action adds an SSO credential mapping object.
 
-1. Add an SSO Credential Mapping object by selecting the plus sign (**+**) for the logon page fallback.
+22. In the pop-up, select the **Assignment** tab.
+23. Select **SSO Credential Mapping**.
+24. Select **Add Item**.
 
-1. In the pop-up window, select the **Assignment** tab, select **SSO Credential Mapping**, and then select **Add Item**.
+    ![Screenshot of the SSO Credential Mapping option on the Assignment tab.](./media/f5-big-ip-forms-advanced/sso-credential-mapping.png)
 
-    ![Screenshot showing the 'SSO Credential Mapping' option and its description.](./media/f5-big-ip-forms-advanced/sso-credential-mapping.png)
+25. On **Variable Assign: SSO Credential Mapping**, keep the default settings.
+26. Select **Save**.
 
-1. On the **Variable Assign: SSO Credential Mapping** pane, keep the default settings, and then select **Save**.
+    ![Screenshot of the Save option on the Properties tab.](./media/f5-big-ip-forms-advanced/save-sso-credential-mapping.png)
 
-    ![Screenshot showing the 'Save' button on the 'Variable Assign: SSO Credential Mapping' pane.](./media/f5-big-ip-forms-advanced/save-sso-credential-mapping.png)
+27. In the upper **Deny** box, select the link.
+28. The **Successful** branch changes to **Allow**
+29. Select **Save**.
 
-1. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**, and then select **Save**.
+#### (Optional) configure attribute mappings
 
-      **(Optional) Configure attribute mappings**
+You can add a LogonID_Mapping configuration. Then, the BIG-IP active sessions list has the signed-in user UPN, not a session number. Use this information for analyzing logs or troubleshooting.
 
-      Although it's optional, adding a LogonID_Mapping configuration enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This information is useful when you're analyzing logs or troubleshooting.
+1. For the **SAML Auth Successful** branch, select the **+** sign.
+2. In the pop-up, select **Assignment**.
+3. Select **Variable Assign**.
+4. Select **Add Item**.
 
-1. Select the plus (**+**) symbol for the **SAML Auth Successful** branch.
+   ![Screenshot of the Variable Assign option on the Assignment tab.](./media/f5-big-ip-forms-advanced/variable-assign.png)
 
-1. In the pop-up dialog, select **Assignment** > **Variable Assign** > **Add Item**.
+1. On the **Properties** tab, enter a **Name**. For example, LogonID_Mapping.
+2. Under **Variable Assign**, select **Add new entry**
+3. Select **change**.
 
-   ![Screenshot showing the 'Variable Assign' option and its description.](./media/f5-big-ip-forms-advanced/variable-assign.png)
+   ![Screenshot of the Add new entry option and the change option.](./media/f5-big-ip-forms-advanced/add-new-entry.png)
 
-1. On the **Properties** pane, enter a descriptive name (for example,
-*LogonID_Mapping*) and, under **Variable Assign**, select **Add new entry** > **change**.
+4. For **Custom Variable**, use `session.logon.last.username`.
+5. For Session Variable, user `session.saml.last.identity`.
+6. Select **Finished**.
+7. Select **Save**.
+8. Select **Apply Access Policy**.
+9. Close the Visual Policy Editor.
 
-   ![Screenshot showing the 'Add new entry' field.](./media/f5-big-ip-forms-advanced/add-new-entry.png)
-
-1. Set both variables:
-
-   | Property | Description |
-   |:-----|:-------|
-   | Custom Variable | `session.logon.last.username` |
-   | Session Variable | `session.saml.last.identity`|
-   | | |
-
-1. Select **Finished** > **Save**.
-
-1. Commit those settings by selecting **Apply Access Policy** and then close the Visual Policy Editor.
-
-   ![Screenshot showing the 'Apply Access Policy' pane.](./media/f5-big-ip-forms-advanced/apply-access-policy.png)
+   ![Screenshot of of the access policy on Apply Access Policy.](./media/f5-big-ip-forms-advanced/apply-access-policy.png)
 
 ### Configure a back-end pool
 
