@@ -62,7 +62,7 @@ Data in Blob storage and Azure Files is always protected by customer-managed key
 
 ## Enable customer-managed keys for a storage account
 
-When you configure customer-managed keys, or when you rotate the key, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault or managed HSM. The protection of the root encryption key changes, but the data in your Azure Storage account remains encrypted at all times. There is no additional action required on your part to ensure that your data remains encrypted. Protection by customer-managed keys takes effect immediately.
+When you configure customer-managed keys for a storage account, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault or managed HSM. The protection of the root encryption key changes, but the data in your Azure Storage account remains encrypted at all times. There is no additional action required on your part to ensure that your data remains encrypted. Protection by customer-managed keys takes effect immediately.
 
 You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
@@ -78,14 +78,13 @@ You can configure customer-managed keys with the key vault and storage account i
 
 - [Configure customer-managed keys in an Azure key vault for a new storage account](customer-managed-keys-configure-new-account.md)
 - [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
-- [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)
 
 When you enable customer-managed keys with a key vault in the same tenant, you must specify a managed identity that is to be used to authorize access to the key vault that contains the key. The managed identity may be either a user-assigned or system-assigned managed identity:
 
 - When you configure customer-managed keys at the time that you create a storage account, you must use a user-assigned managed identity.
 - When you configure customer-managed keys on an existing storage account, you can use either a user-assigned managed identity or a system-assigned managed identity.
 
-To learn more about system-assigned versus user-assigned managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+To learn more about system-assigned versus user-assigned managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 ### Customer-managed keys with a key vault in a different tenant
 
@@ -93,6 +92,10 @@ To learn how to configure Azure Storage encryption with customer-managed keys wh
 
 - [Configure cross-tenant customer-managed keys for a new storage account](customer-managed-keys-configure-cross-tenant-new-account.md)
 - [Configure cross-tenant customer-managed keys for an existing storage account](customer-managed-keys-configure-cross-tenant-existing-account.md)
+
+### Customer-managed keys with a managed HSM
+
+You can configure customer-managed keys with an Azure Key Vault Managed HSM for a new or existing account. And you can configure customer-managed keys with a managed HSM that's in the same tenant as the storage account, or in a different tenant. The process for configuring customer-managed keys in a managed HSM is the same as for configuring customer-managed keys in a key vault, but the permissions are slightly different. For more information, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## Update the key version
 
