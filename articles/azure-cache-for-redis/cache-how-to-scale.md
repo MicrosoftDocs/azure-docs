@@ -83,7 +83,7 @@ You can scale out/in with the following restrictions:
 
 ## How to scale - Basic, Standard, and Premium tiers
 
-### Scale up and down with Basic, Standard, and Premium
+### [Scale up and down with Basic, Standard, and Premium](#tab/scale-up-and-down-with-basic-standard-and-premium)
 
 #### Scale up and down using the Azure portal
 
@@ -109,14 +109,13 @@ You can scale out/in with the following restrictions:
 
 #### Scale up and down using PowerShell
 
-<!-- [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] -->
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `Size`or `Sku` properties are modified. The following example shows how to scale a cache named `myCache` to a 6-GB cache in the same tier.
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 6GB
 ```
-
 For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 #### Scale up and down using Azure CLI
@@ -139,8 +138,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 >
 
-
-### Scale out and in - Premium only
+### [Scale out and in - Premium only](#tab/scale-out-and-in---premium-only)
 
 #### Create a new cache that is scaled out using clustering
 
@@ -210,7 +208,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command. For minimal impact, consider running this operation during non-peak hours. During the migration process, you see a spike in server load. Scaling a cluster is a long running process and the amount of time taken depends on the number of keys and size of the values associated with those keys.
 >
 >
-
+---
 ## How to scale up and out - Enterprise and Enterprise Flash tiers
 
 The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
