@@ -78,7 +78,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, input your Alinto Protect Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Alinto Protect. If the connection fails, ensure your Alinto Protect account has Admin permissions and try again.
+1. In the **Admin Credentials** section, input your Alinto Protect Tenant URL as `https://cloud.cleanmail.eu/api/v3/scim2  ` and corresponding Secret Token obtained from Step 2. Click **Test Connection** to ensure Azure AD can connect to Alinto Protect. If the connection fails, ensure your Alinto Protect account has Admin permissions and try again.
 
 	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
