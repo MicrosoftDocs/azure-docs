@@ -27,14 +27,14 @@ By implementing the sponsor feature, you can identify a responsible individual o
 
 ## Sponsor field on the user object
 
-The Sponsor field on the user object refers to the person or a group who invited the guest user to the organization. You can use this field to track who invited the guest user and to help with accountability.
+The **Sponsor** field on the user object refers to the person or a group who invited the guest user to the organization. You can use this field to track who invited the guest user and to help with accountability.
 Being a sponsor doesn't grant administrative powers for the sponsor user or the group, but it can be used for approval processes in Entitlement Management and Access Reviews. You can also use it for custom solutions, but it doesn't provide any other built-in directory powers. 
 
 ## Who can be a sponsor?
 
-If you send an invitation to a guest user, you'll automatically become the sponsor of that guest user. Your name will be added to the Sponsor field on the user object automatically. If you want to add a different sponsor, you can also specify the sponsor user or group when sending an invitation to a guest user.  
+If you send an invitation to a guest user, you'll automatically become the sponsor of that guest user. Your name will be added to the **Sponsor** field on the user object automatically. If you want to add a different sponsor, you can also specify the sponsor user or group when sending an invitation to a guest user.  
 You can also assign multiple people or groups when inviting the guest user. You can assign a maximum of five sponsors to a single guest user.
-When a sponsor leaves the organization, as part of the offboarding process the tenant administrator can change the sponsor field on the user object to a different person or group. With this transition, they can ensure that the guest user's account remains properly tracked and accounted for.
+When a sponsor leaves the organization, as part of the offboarding process the tenant administrator can change the **Sponsor** field on the user object to a different person or group. With this transition, they can ensure that the guest user's account remains properly tracked and accounted for.
 
 ## Other scenarios using the B2B sponsor feature 
 
