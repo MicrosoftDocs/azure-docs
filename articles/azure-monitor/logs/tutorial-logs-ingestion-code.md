@@ -351,9 +351,9 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 
     ```csharp
     // Initialize variables
-    var endpoint = new Uri("<data_collection_endpoint_uri>");
-    var ruleId = "<data_collection_rule_id>";
-    var streamName = "<stream_name>";
+    var endpoint = new Uri("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com");
+    var ruleId = "dcr-00000000000000000000000000000000";
+    var streamName = "Custom-MyTableRawData";
     
     // Create credential and client
     var credential = new DefaultAzureCredential();
