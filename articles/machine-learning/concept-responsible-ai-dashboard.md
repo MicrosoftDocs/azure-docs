@@ -170,6 +170,7 @@ The following people can use the Responsible AI dashboard, and its corresponding
 - The dataset inputs to the Responsible AI dashboard must be pandas DataFrames in Parquet format. NumPy and SciPy sparse data is currently not supported. 
 - The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
+- The Responsible AI dashboard currently doesn't support AutoML MLFlow model.
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 03/20/2023
 ms.devlang: csharp, python
 ms.custom: "seodec18, devx-track-csharp"
 ---
@@ -70,7 +70,7 @@ These images are only supported for use in Azure Batch pools and are geared for 
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
-For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://docker-docs.netlify.app/ee/).
+For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://docs.docker.com/).
 
 Additional considerations for using a custom Linux image:
 
@@ -182,7 +182,7 @@ ImageReference imageReference = new ImageReference(
 ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "https://hub.docker.com",
     userName: "UserName",
-    password: "YourPassword"                
+    password: "YourPassword"
 );
 
 // Specify container configuration, prefetching Docker images
@@ -385,7 +385,6 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## Next steps
 
-- For easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes), see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit.
 - For information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 - Learn how to [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 - Learn more about the [Moby project](https://mobyproject.org/), a framework for creating container-based systems.

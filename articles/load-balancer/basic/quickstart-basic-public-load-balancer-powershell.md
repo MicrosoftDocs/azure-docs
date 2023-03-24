@@ -157,7 +157,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.1.1.0/27'
+    AddressPrefix = '10.1.1.0/26'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 

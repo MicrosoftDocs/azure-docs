@@ -538,12 +538,23 @@ Using the [Azure portal](https://portal.azure.com/):
 6. After the notification, **restart** the server to apply these changes. 
 
 
-You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
+You can now enable pg_hint_plan your Postgres database. Connect to the database and issue the following command:
 ```sql
-CREATE EXTENSION IF NOT EXISTS pg_hint_plan CASCADE;
+CREATE EXTENSION  pg_hint_plan ;
 ```
-> [!TIP]
-> If you see an error, confirm that you [restarted your server](how-to-restart-server-portal.md) after saving shared_preload_libraries. 
+
+## pg_buffercache
+
+`Pg_buffercache` can be used to study the contents of *shared_buffers* . Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*) . This extension can help you in troubleshooting performance issues (caching related performance issues)
+
+This is part of contrib and it is very easy to install this extension.
+
+```sql
+CREATE EXTENSION pg_buffercache;
+```
+
+
+
 
 ## Next steps
 

@@ -60,7 +60,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Resource | If you select **In my directory**, specify the Private Link Service resource for the ILB in your subscription. |
     | ID/alias | If you select **By ID or alias**, specify the resource ID of the Private Link Service resource you want to enable private link to. |
     | Region | Select the region that is the same or closest to your origin. |
-    | Request message | Customize message or choose the default. |
+    | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Then select **Add** and then **Update** to save the origin group settings.
 

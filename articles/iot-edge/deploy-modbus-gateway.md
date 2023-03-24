@@ -16,7 +16,7 @@ ms.author: patricka
 
 If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Azure IoT hub, you can use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol.
 
-![Modbus devices connect to IoT Hub through IoT Edge gateway](./media/deploy-modbus-gateway/diagram.png)
+:::image type="content" source="./media/deploy-modbus-gateway/diagram.png" alt-text="Screenshot of Modbus devices that connect to IoT Hub through IoT Edge gateway.":::
 
 This article covers how to create your own container image for a Modbus module (or you can use a prebuilt sample) and then deploy it to the IoT Edge device that will act as your gateway.
 

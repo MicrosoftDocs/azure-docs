@@ -2,7 +2,6 @@
 title: Create virtual nodes using Azure CLI
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
-services: container-service
 ms.topic: conceptual
 ms.date: 06/25/2022
 ms.custom: references_regions, devx-track-azurecli

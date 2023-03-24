@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure
+ms.custom: devx-track-azurecli
 ms.date: 06/07/2018
 ms.author: cynthn
 ---

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 03/15/2023
 ms.author: cynthn
 ms.custom: portal
 
@@ -114,3 +114,7 @@ Once Sysprep has finished, set the status of the virtual machine to **Generalize
 ```azurepowershell-interactive
 Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
 ```
+
+## Next steps
+
+- Learn more about [Azure Compute Gallery](shared-image-galleries.md).

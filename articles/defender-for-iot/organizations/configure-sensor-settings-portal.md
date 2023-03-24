@@ -23,9 +23,9 @@ To define OT sensor settings, make sure that you have the following:
 
 - **Permissions**:
 
-    - To view settings that others have defined, sign in with a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+    - To view settings that others have defined, sign in with a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
-    - To define or update settings, sign in with [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role.
+    - To define or update settings, sign in with [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
 
     For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
@@ -37,7 +37,7 @@ Define a new setting whenever you want to define a specific configuration for on
 
 **To define a new setting**:
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**.
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**.
 
 1. On the **Sensor settings (Preview)** page, select **+ Add**, and then use the wizard to define the following values for your setting. Select **Next** when you're done with each tab in the wizard to move to the next step.
 
@@ -62,7 +62,7 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 
 **To view the current settings already defined for your subscription**:
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**
 
     The **Sensor settings (Preview)** page shows any settings already defined for your subscriptions, listed by setting type. Expand or collapse each type to view detailed configurations. For example:
 

@@ -113,7 +113,7 @@ Version: 22.2.5.9-r-2121448
 
 #### Update sensor software from CLI
 
-For more information, see [Update your sensors](update-ot-software.md#update-your-sensors).
+For more information, see [Update your sensors](update-ot-software.md#update-ot-sensors).
 
 ### Date, time, and NTP
 #### Show current system date/time

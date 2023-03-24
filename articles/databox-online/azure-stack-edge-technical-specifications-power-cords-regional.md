@@ -1,23 +1,25 @@
 ---
-title: Azure Stack Edge Pro FPGA power cord technical specifications by location
-description: Learn about the technical specifications for your Azure Stack Edge Pro FPGA power cords.
+title: Azure Stack Edge power cord specifications
+description: Learn about the technical specifications for Azure Stack Edge power cords.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/10/2021
+ms.date: 03/09/2023
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro FPGA power cord specifications
+# Azure Stack Edge power cord specifications
 
-Your Azure Stack Edge Pro FPGA device will need a power cord that will vary depending on your Azure region.
+[!INCLUDE [applies-to-gpu-and-pro-fpga-sku](../../includes/azure-stack-edge-applies-to-gpu-pro-fpga-sku.md)]
+
+Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 
 ## Supported power cords
 
-You can use the following table to find the correct cord specifications for your region:
+Use the following table to find the correct cord specifications for your region:
 
 | Country    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
@@ -154,4 +156,4 @@ You can use the following table to find the correct cord specifications for your
 
 ## Next steps
 
-[Azure Stack Edge Pro FPGA technical specifications](./azure-stack-edge-technical-specifications-compliance.md)
+- [Azure Stack Edge Pro GPU technical specifications](./azure-stack-edge-gpu-technical-specifications-compliance.md).

@@ -120,7 +120,7 @@ Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server t
 
 - There is **50 database** limit on metrics with `database name` dimension.
   * On **Burstable** SKU -  this limit is 10 `database name` dimension
-- `database name` dimension limit is applied on OiD column (in other words Order-of-Creation of the database)
+- `database name` dimension limit is applied on OiD column (in other words _Order-of-Creation_ of the database)
 - The `database name` in metrics dimension is **case insensitive**. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and may not show accurate data.
 
 ## Autovacuum metrics
@@ -132,7 +132,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 * To enable these metrics, please turn ON the server parameter `metrics.autovacuum_diagnostics`. 
   * This parameter is dynamic, hence will not require instance restart.
 
-#### Autovacuum metrics
+#### List of Autovacuum metrics
 
 |Display Name                                     |Metric ID                      |Unit |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-----|--------------------------------------------------------------------------------------------------------|------------|---------------|
@@ -153,7 +153,33 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 
 - There is **30 database** limit on metrics with `database name` dimension.
   * On **Burstable** SKU -  this limit is 10 `database name` dimension
-- `database name` dimension limit is applied on OiD column (in other words Order-of-Creation of the database)
+- `database name` dimension limit is applied on OiD column (in other words _Order-of-Creation_ of the database)
+
+## PgBouncer metrics
+
+PgBouncer metrics can be used for monitoring the performance of PgBouncer process, including details for active connections, Idle connections, Total pooled connections, number of connection pools etc. Each metric is emitted at a **30 minute** frequency and has up to **93 days** of history. Customers can configure alerts on the metrics and can also access the new metrics dimensions, to split and filter the metrics data on database name.
+
+#### Enabling PgBouncer metrics
+* PgBouncer metrics are disabled by default.
+* For Pgbouncer metrics to work, both the server parameters `pgbouncer.enabled` and `metrics.pgbouncer_diagnostics` have to be enabled.
+  * These parameters are dynamic, and will not require instance restart.
+
+#### List of PgBouncer metrics
+
+|Display Name                            |Metrics ID                |Unit |Description                                                                          |Dimension   |Default enabled|
+|----------------------------------------|--------------------------|-----|-------------------------------------------------------------------------------------|------------|---------------|
+|**Active client connections** (Preview) |client_connections_active |Count|Connections from clients which are associated with a PostgreSQL connection           |DatabaseName|No             |
+|**Waiting client connections** (Preview)|client_connections_waiting|Count|Connections from clients that are waiting for a PostgreSQL connection to service them|DatabaseName|No             |
+|**Active server connections** (Preview) |server_connections_active |Count|Connections to PostgreSQL that are in use by a client connection                     |DatabaseName|No             |
+|**Idle server connections** (Preview)   |server_connections_idle   |Count|Connections to PostgreSQL that are idle, ready to service a new client connection    |DatabaseName|No             |
+|**Total pooled connections** (Preview)  |total_pooled_connections  |Count|Current number of pooled connections                                                 |DatabaseName|No             |
+|**Number of connection pools** (Preview)|num_pools                 |Count|Total number of connection pools                                                     |DatabaseName|No             |
+
+#### Considerations when using the PgBouncer metrics
+
+- There is **30 database** limit on metrics with `database name` dimension.
+  * On **Burstable** SKU -  this limit is 10 `database name` dimension.
+- `database name` dimension limit is applied on OiD column (in other words _Order-of-Creation_ of the database)
 
 ## Applying filters and splitting on metrics with dimension
 

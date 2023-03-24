@@ -9,6 +9,8 @@
   items:
   - name: Publish application definition
     href: publish-service-catalog-app.md
+  - name: Publish definition with bring your own storage
+    href: publish-service-catalog-bring-your-own-storage.md
   - name: Deploy service catalog app
     href: deploy-service-catalog-quickstart.md
 - name: Tutorials
@@ -55,8 +57,6 @@
       href: existing-vnet-integration.md
     - name: Update managed resources
       href: update-managed-resources.md
-    - name: Use portal to publish application definition
-      href: publish-portal.md
     - name: Use secret from Key Vault
       href: key-vault-access.md
     - name: Deploy with Managed Identity

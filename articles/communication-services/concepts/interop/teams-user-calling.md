@@ -10,7 +10,7 @@ ms.author: tchladek
 ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ---
 # Calling capabilities supported for Teams users in Calling SDK
 
@@ -104,10 +104,11 @@ The following list presents the set of features that are currently available in 
 |                   | Interact with a poll                                                                                                | ❌ |
 |                   | Interact with a Q&A                                                                                                 | ❌ |
 | Accessibility     | Receive closed captions                                                                                             | ❌ |
-| Advanced call routing   | Does start a call and add user operations honor forwarding rules                                              |   ✔️      |
+| Advanced call routing   | Start a call and add user operations honor forwarding rules                                              |   ✔️      |
 |                   | Read and configure call forwarding rules                                                                             |   ❌      |
-|                   | Does start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
+|                   | Start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
 |                   | Read and configure simultaneous ringing                                                                              |   ❌      |
+|                   | Start a call and add user operations honor "Do not disturb" status                                                 |   ✔️      |
 |                   | Placing participant on hold plays music on hold                                                                      |   ❌      |
 |                   | Being placed by Teams user on Teams client on hold plays music on hold                                               |   ✔️      |
 |                   | Park a call                                                                                                          |   ❌      |
@@ -143,7 +144,7 @@ The following list presents the set of features that are currently available in 
 |                   | Honor setting "SIP devices can be used for calls"                                                                    |   ✔️      |
 | DevOps            | [Azure Metrics](../metrics.md)                                                                                   | ✔️ |
 |                   | [Azure Monitor](../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Communication Services Insights](../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |

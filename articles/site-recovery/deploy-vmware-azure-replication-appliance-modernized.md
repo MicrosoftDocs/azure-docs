@@ -231,7 +231,7 @@ If there is any organizational restrictions, you can manually set up the Site Re
 
   **Use the following steps to register the appliance**:
 
-1. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 

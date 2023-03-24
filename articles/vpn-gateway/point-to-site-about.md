@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 02/13/2023
 ms.author: cherylmc
 
 ---

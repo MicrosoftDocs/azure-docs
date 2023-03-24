@@ -45,8 +45,8 @@ You can create rules by using these metrics:
 
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
-- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-by-using-dimensions).
-- You can use [dynamic thresholds](#dynamic-thresholds) driven by machine learning.
+- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions). 
+- You can use [dynamic thresholds](#dynamic-thresholds), which are driven by machine learning. 
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
@@ -55,15 +55,9 @@ The target of the metric alert rule can be:
 
 ### Multiple conditions
 
-When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure VM and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items." When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true. It's resolved when at least one of the conditions is no longer true for three consecutive checks.
+When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
 
-### Narrow the target by using dimensions
-
-Dimensions are name-value pairs that contain more data about the metric value. When you use dimensions, you can filter metrics and monitor specific time-series instead of monitoring the aggregate of all the dimensional values.
-
-For example, the Transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction like GetBlob, DeleteBlob, and PutPage. You can choose to have an alert fired when there's a high number of transactions in any API name, which is the aggregated data. Or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
-
-If you use more than one dimension, the metric alert rule can monitor multiple dimension values from different dimensions of a metric. The alert rule separately monitors all the dimensions value combinations.
+### Narrow the target using Dimensions
 
 For instructions on using dimensions in metric alert rules, see [Monitor multiple time series in a single metric alert rule](alerts-metric-multiple-time-series-single-rule.md).
 
@@ -120,7 +114,7 @@ Dynamic thresholds help you:
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern.
 - Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate).
 
-For instructions on using dynamic thresholds in metric alert rules, see [Dynamic thresholds in metric alerts](alerts-dynamic-thresholds.md).
+See [dynamic thresholds](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
 ## Log alerts
 

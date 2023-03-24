@@ -79,7 +79,7 @@ Available resources:
 > [!TIP]
 > To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](../virtual-machines/sizes.md). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
 
-The following table shows more limits in the platform. Reach out to the AzureML product team through a **technical** support ticket to request an exception.
+The following table shows more limits in the platform. Reach out to the Azure Machine Learning product team through a **technical** support ticket to request an exception.
 
 | **Resource or Action** | **Maximum limit** |
 | --- | --- |

@@ -300,7 +300,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-develop/libraries-sdks.md).
+The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through one of the [service SDKs](concepts-developer-guide-service.md#service-sdks).
 
 ## Digital twin change events
 
@@ -377,4 +377,4 @@ Now that you've learned about digital twins, here are some more resources:
 - [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
 - [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/03/2021
+ms.date: 03/23/2023
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -35,6 +35,7 @@ The following issues are the top causes of VM provisioning timeouts:
 - The default gateway and DNS server couldn't be reached from the guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
 - During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
 - For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file are not correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
+- Primary NIC attached to a SRIOV enabled vSwitch [Learn more](#primary-nic-attached-to-a-sriov-enabled-vswitch)
 
 ### IP assigned to the VM is already in use
 
@@ -132,7 +133,18 @@ To check for some of the most common issues that prevent `cloud init` from runni
    | Enable provisioning             | `Provisioning.Enabled=n`      |
    | Rely on cloud-init to provision | `Provisioning.UseCloudInit=y` |
 
+### Primary NIC attached to a SRIOV enabled vSwitch
 
+**Error description:** The primary network interface attached to a single root I/O virtualization (SRIOV) interface-enabled virtual switch caused network traffic to bypass the hyper-v, so the host could not receive DHCP requests from the VM, resulting in a provisioning timeout.
+
+**Suggested solutions:**
+
+- Connect the VM primary network interface to a virtual switch without enabling accelerated networking.
+
+- On an Azure Stack Edge Pro 1 device, virtual switches created on Port 1 to Port 4 do not enable accelerated networking. On Port 5 or Port 6, virtual switches will enable accelerated networking by default. 
+
+ - On an Azure Stack Edge Pro 2 device, virtual switches created on Port 1 or Port 2 do not enable accelerated networking. On Port 3 or Port 4, virtual switches will enable accelerated networking by default. 
+ 
 ##	Network interface creation issues
 
 This section provides guidance for issues that cause network interface creation to fail during a VM deployment.

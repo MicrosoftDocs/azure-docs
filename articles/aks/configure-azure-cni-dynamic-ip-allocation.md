@@ -1,7 +1,6 @@
 ---
 title: Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)
 description: Learn how to configure Azure CNI (advanced) networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 01/09/2023
 ms.custom: references_regions, devx-track-azurecli

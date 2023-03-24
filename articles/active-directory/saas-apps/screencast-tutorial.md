@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Screencast-O-Matic | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Screencast-O-Matic'
 description: Learn how to configure single sign-on between Azure Active Directory and Screencast-O-Matic.
 services: active-directory
 author: jeevansd

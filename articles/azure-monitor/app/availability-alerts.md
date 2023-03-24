@@ -2,7 +2,7 @@
 title: Set up availability alerts with Application Insights
 description: Learn how to set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 12/20/2022
+ms.date: 03/22/2023
 ms.reviewer: sdash
 
 ---
@@ -67,4 +67,4 @@ See the dedicated [Troubleshooting article](troubleshoot-availability.md).
 ## Next steps
 
 - [Multi-step web tests](availability-multistep.md)
-- [URL ping web tests](monitor-web-app-availability.md)
+- [Availability](availability-overview.md)

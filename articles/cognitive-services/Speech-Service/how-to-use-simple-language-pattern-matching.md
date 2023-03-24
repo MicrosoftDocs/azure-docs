@@ -30,10 +30,9 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 
 ## When to use pattern matching
 
-Use this sample code if: 
-* You're only interested in matching strictly what the user said. These patterns match more aggressively than LUIS.
-* You don't have access to a [LUIS](../LUIS/index.yml) app, but still want intents. 
-* You can't or don't want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
+Use pattern matching if: 
+* You're only interested in matching strictly what the user said. These patterns match more aggressively than [conversational language understanding (CLU)](../language-service/conversational-language-understanding/overview.md).
+* You don't have access to a CLU model, but still want intents. 
 
 For more information, see the [pattern matching overview](./pattern-matching-overview.md).
 

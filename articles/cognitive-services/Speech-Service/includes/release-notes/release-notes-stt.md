@@ -6,6 +6,41 @@ ms.date: 01/09/2023
 ms.author: eur
 ---
 
+### February 2023 release
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 5 additional languages generally available in English (United Kingdom), English (Australia), French (France), Spanish (Spain), and Chinese (Mandarin, Simplified), with other languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+  | Language | Locale (BCP-47) | 
+  |--|--|
+  |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
+  |Chinese (Mandarin, Simplified)|`zh-CN`|
+  |English (Australia)|`en-AU`|
+  |English (India)|`en-IN`<sup>1</sup> |
+  |English (United Kingdom)|`en-GB`|
+  |English (United States)|`en-US`|  
+  |French (Canada)|`fr-CA`<sup>1</sup> | 
+  |French (France)|`fr-FR`|  
+  |German (Germany)|`de-DE`<sup>1</sup>|
+  |Japanese (Japan)|`ja-JP`<sup>1</sup>|
+  |Norwegian (Bokmål, Norway)|`nb-NO`<sup>1</sup>|
+  |Spanish (Mexico)|`es-MX`<sup>1</sup> | 
+  |Spanish (Spain)|`es-ES` | 
+  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
+
+  <sup>1</sup> The language is in public preview for pronunciation assessment.
+
+- Added sample codes showing how to use Pronunciation Assessment in streaming mode in your own application.
+  - **C#**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#:~:text=PronunciationAssessmentWithStream).
+  - **C++**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#:~:text=PronunciationAssessmentWithStream).
+  - **java**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
+  - **javascript**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
+
+#### Custom Speech
+
+Support for audio + human-labeled transcript is added for the `de-AT` locales.
+
 ### January 2023 release
 
 #### Custom Speech

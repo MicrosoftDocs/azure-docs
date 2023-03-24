@@ -2,13 +2,12 @@
 title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
 ms.date: 01/20/2023
-
 #Customer intent: As a cluster operator or developer, I want to use TLS with an ingress controller to handle the flow of incoming traffic and secure my apps using my own certificates or automatically generated certificates.
 ---
 
@@ -445,11 +444,11 @@ In the following example, traffic is routed as such:
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - hello-world-ingress.MY_CUSTOM_DOMAIN
         secretName: tls-secret
       rules:
-     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
         http:
           paths:
           - path: /hello-world-one(/|$)(.*)
@@ -484,11 +483,11 @@ In the following example, traffic is routed as such:
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - hello-world-ingress.MY_CUSTOM_DOMAIN
         secretName: tls-secret
       rules:
-     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
         http:
           paths:
           - path: /static(/|$)(.*)

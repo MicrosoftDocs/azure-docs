@@ -6,6 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 03/31/2022
 ms.author: allensu
@@ -174,6 +175,10 @@ If a custom IP prefix is unable to be fully advertised, it moves to a **Commissi
 ### I’m unable to decommission a custom IP prefix
 
 Before decommissioning a custom IP prefix, ensure it has no public IP prefixes or public IP addresses.
+
+### I’m unable to delete a custom IP prefix
+
+Before deleting a custom IP prefix, it must be in either Deprovisioned or ValidationFailed state.  If your range is in ProvisionFailed state, it must be Deprovsioned before it can be deleted.  If the range is "stuck" in Provisioning or Deprovisioning state for an extended period of time, please contact Microsoft support.
 
 ### How can I migrate a range from one region to another
 

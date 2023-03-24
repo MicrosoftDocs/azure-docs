@@ -1,11 +1,12 @@
 ---
 title: Azure Load Balancer health probes
-description: Learn about the different types of health probes and configuration for Azure Load Balancer
+description: Learn about the different types of health probes and configuration for Azure Load Balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/10/2022
 ms.author: mbender
+ms.custom: template-concept
 ---
 
 # Azure Load Balancer health probes
@@ -150,7 +151,7 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 
 ## Probe source IP address
 
-Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.
+Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  (Note that IPv6 probes use a [link-local address](https://www.wikipedia.org/wiki/Link-local_address) as their source.)
 
 The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default.
 
