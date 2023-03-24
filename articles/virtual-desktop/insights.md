@@ -109,60 +109,32 @@ To set up workspace diagnostics using the resource diagnostic settings section i
 
 ### Session host data settings
 
-To collect information on your Azure Virtual Desktop session hosts, you'll need to install the Log Analytics agent on all session hosts in the host pool, make sure the session hosts are sending to a Log Analytics workspace, and configure your Log Analytics agent settings to collect performance data and Windows Event Logs.
+To collect information on your Azure Virtual Desktop session hosts, you'll need to configure a Data Collection Rule (DCR) to collect performance data and Windows Event Logs, associated the session hosts with the DCR, install the Azure Monitor Agent on all session hosts in host pools from which you would like to collect data, and ensure the session hosts are sending data to a Log Analytics workspace.
 
-The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to. If you have Azure session hosts outside of your Azure Virtual Desktop environment, we recommend having a designated Log Analytics workspace for the Azure Virtual Desktop session hosts. 
+The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to. If you have Azure session hosts outside of your Azure Virtual Desktop environment, we recommend having a designated Log Analytics workspace for the Azure Virtual Desktop session hosts.
 
-To set the Log Analytics workspace where you want to collect session host data: 
+To configure a DCR and select a Log Analytics workspace destination using the configuration workbook:
 
-1. Select the **Session host data settings** tab in the configuration workbook. 
-2. Select the **Log Analytics workspace** you want to send session host data to. 
+1.	Select the Session host data settings tab in the configuration workbook.
+2.	Select the Log Analytics workspace you want to send session host data to.
+3.	If a Data Collection Rule (DCR) has not already been configured, select Create data collection rule to have the configuration workbook automatically configure the DCR.
 
 #### Session hosts
 
-You'll need to install the Log Analytics agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
+You'll need to install the Azure Monitor Agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If the Azure Monitor Agent isn't configured for all the session hosts in the host pool, you'll see a Session hosts section at the top of Session host data settings with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
 
 >[!NOTE]
-> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters). Currently automated deployment is limited to 1000 session hosts or fewer.
+> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Currently automated deployment is limited to 1000 session hosts or fewer.
 
 To set up your remaining session hosts using the configuration workbook:
 
-1. Select **Add hosts to workspace**. 
-2. Refresh the configuration workbook.
+1.	Select the DCR to be used for data collection
+2.	To create the DCR association select Deploy association.
+3.	To deploy the Azure Monitor Agent select Add extension.
+4.	To configure the required [managed identity](../azure-monitor/agents/azure-monitor-agent-manage?#prerequisites) select Add system managed identity
 
 >[!NOTE]
->For larger host pools (> 1000 session hosts), or if there are deployment issues, it is recommended to install the Log Analytics agent at [time of session host creation](../virtual-machines/extensions/oms-windows.md#extension-schema) through the use of an ARM template.
-
-#### Workspace performance counters
-
-You'll need to enable specific performance counters to collect performance information from your session hosts and send it to the Log Analytics workspace.
-
-If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md). You can add and remove performance counters in the same location.
-
-To set up performance counters using the configuration workbook: 
-
-1. Under **Workspace performance counters** in the configuration workbook, check **Configured counters** to see the counters you've already enabled to send to the Log Analytics workspace. Check **Missing counters** to make sure you've enabled all required counters.
-2. If you have missing counters, select **Configure performance counters**.
-3. Select **Apply Config**.
-4. Refresh the configuration workbook.
-5. Make sure all the required counters are enabled by checking the **Missing counters** list. 
-
-#### Configure Windows Event Logs
-
-You'll also need to enable specific Windows Event Logs to collect errors, warnings, and information from the session hosts and send them to the Log Analytics workspace.
-
-If you've already enabled Windows Event Logs and want to remove them, follow the instructions in [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).  You can add and remove Windows Event Logs in the same location.
-
-To set up Windows Event Logs using the configuration workbook:
-
-1. Under **Windows Event Logs configuration**, check **Configured Event Logs** to see the Event Logs you've already enabled to send to the Log Analytics workspace. Check **Missing Event Logs** to make sure you've enabled all Windows Event Logs.
-2. If you have missing Windows Event Logs, select **Configure Events**.
-3. Select **Deploy**.
-4. Refresh the configuration workbook.
-5. Make sure all the required Windows Event Logs are enabled by checking the **Missing Event Logs** list. 
-
->[!NOTE]
->If automatic event deployment fails, select **Open agent configuration** in the configuration workbook to manually add any missing Windows Event Logs. 
+>For larger host pools (> 1000 session hosts), or if there are deployment issues, it is recommended to [install the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage?#install) at time of session host creation through the use of an ARM template.
 
 ## Optional: configure alerts
 
