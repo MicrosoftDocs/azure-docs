@@ -54,30 +54,30 @@ await callConnection.MuteParticipantsAsync(target, "OperationContext").Configure
     "participants": [
       {
         "identifier": {
-          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-a8bd-1000-343a0d0045c3",
+          "rawId": "<ACS_USER_ID>",
           "kind": "communicationUser",
           "communicationUser": {
-            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-a8bd-1000-343a0d0045c3"
+            "id": "<ACS_USER_ID>"
           }
         },
         "isMuted": true
       },
       {
         "identifier": {
-          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_becb5f68-7d55-4b4c-9010-d925a7b100d6",
+          "rawId": "<ACS_USER_ID>",
           "kind": "communicationUser",
           "communicationUser": {
-            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_becb5f68-7d55-4b4c-9010-d925a7b100d6"
+            "id": "<ACS_USER_ID>"
           }
         },
         "isMuted": false
       },
       {
         "identifier": {
-          "rawId": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-de0e-1000-343a0d0045d0",
+          "rawId": "<ACS_USER_ID>",
           "kind": "communicationUser",
           "communicationUser": {
-            "id": "8:acs:0f6adfcd-1795-4f59-b72a-b88ab6721971_00000017-a511-de0e-1000-343a0d0045d0"
+            "id": "<ACS_USER_ID>"
           }
         },
         "isMuted": false
