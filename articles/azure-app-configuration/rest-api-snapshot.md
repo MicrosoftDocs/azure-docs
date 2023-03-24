@@ -252,15 +252,15 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 **parameters**
 
-| Property Name            | Required | Default value                                    |
-|--------------------------|----------|--------------------------------------------------|
-| name                     | yes      | n/a                                              |
-| filters                  | yes      | n/a                                              |
-| filters[\<index\>].key   | yes      | n/a                                              |
-| tags                     | no       | {}                                               |
-| filters[\<index\>].label | no       | null                                             |
-| composition_type         | no       | all                                              |
-| retention_period         | no       | 2592000 (standard sku) <br/> 604,800 (free sku) |
+| Property Name            | Required | Default value                                                        |
+|--------------------------|----------|----------------------------------------------------------------------|
+| name                     | yes      | n/a                                                                  |
+| filters                  | yes      | n/a                                                                  |
+| filters[\<index\>].key   | yes      | n/a                                                                  |
+| tags                     | no       | {}                                                                   |
+| filters[\<index\>].label | no       | null                                                                 |
+| composition_type         | no       | group_by_key                                                         |
+| retention_period         | no       | 2592000 (30 days) (standard tier) <br/> 604,800 (7 days) (free tier) |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
@@ -287,7 +287,7 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 **Responses:**
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 Created
 Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
 Last-Modified: Tue, 05 Dec 2017 02:41:26 GMT
 ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
@@ -346,7 +346,7 @@ The response of a snapshot creation request returns an `Operation-Location` head
 **Responses:**
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 Created
 ...
 Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-version={api-version}
 ```
@@ -518,6 +518,8 @@ Required: ``{name}``, ``{api-version}``
 ```http
 GET /kv?snapshot={name}&api-version={api-version}
 ```
+
+**Note:** Attempting to list the items of a snapshot that is not in the `ready` or `archived` state will result in an empty list response.
 
 ### Request specific fields
 
