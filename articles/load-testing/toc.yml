@@ -27,7 +27,7 @@ items:
     - name: Scenarios
       items:
         - name: Load test web apps on Azure App Service
-          href: how-to-appservice-insights.md
+          href: concept-load-test-app-service.md
 
 - name: How-to guides
   items:
