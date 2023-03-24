@@ -44,7 +44,7 @@ $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Allow
+   -Action Allow `
    -State Enabled
 
 $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -52,7 +52,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
    -State Enabled
 ```
 
