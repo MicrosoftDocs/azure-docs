@@ -15,11 +15,11 @@ ms.author: allensu
 
 This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
-For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. Most applications use these protocols, and they have the greatest effect on application performance.
+For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. Most applications use these protocols, and this traffic has the largest effect on application performance.
 
 Many other common network latency test tools, such as Ping, don't measure TCP or UDP traffic. Tools like Ping use Internet Control Message Protocol (ICMP), which can be treated differently from application traffic. ICMP test results don't directly apply to workloads that use TCP and UDP.
 
-Latte and SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP or other packet types that applications don't use and that don't affect application performance.
+Latte and SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP and other packet types that applications don't use and that don't affect application performance.
 
 Latte and SockPerf use the following approach to measure network latency between two physical or virtual computers:
 
@@ -39,13 +39,13 @@ Use the following best practices to test and analyze network latency:
 
 1. As soon as you finish deploying, configuring, and optimizing network VMs, take baseline network latency measurements between deployed VMs to establish benchmarks.
 
-1. Test the effects of any of the following changes on network latency:
+1. Test the effects on network latency of changing any of the following components:
    - Operating system (OS) or network stack software, including configuration changes.
    - VM deployment method, such as deploying to an availability zone or proximity placement group (PPG).
    - VM properties, such as Accelerated Networking or size changes.
    - Virtual network configuration, such as routing or filtering changes.
 
-1. Always compare new test results to the baseline or to the lasest test results before the controlled changes.
+1. Always compare new test results to the baseline or to the latest test results before controlled changes.
 
 1. Repeat tests whenever you observe or deploy changes.
 
@@ -67,7 +67,9 @@ Use the following procedures to install and test network latency with [Latte](ht
 
 ### Test latency between VMs
 
-1. On the receiver VM, start *latte.exe* from the Windows command line, not from PowerShell. Run the following command, replacing the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
+Run *latte.exe* from the Windows command line, not from PowerShell.
+
+1. On the receiver VM, run the following command, replacing the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
    ```cmd
    latte -a <receiver IP address>:<port> -i <iterations>
@@ -78,7 +80,7 @@ Use the following procedures to install and test network latency with [Latte](ht
 
    For a VM with an IP address of `10.0.0.4`, the command might look like:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
 
-1. On the *sender* VM, start *latte.exe* from the command line. Run the same command as on the receiver, except with `-c` added to indicate the *client* or sender VM. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
+1. On the *sender* VM, run the same command as on the receiver, except with `-c` added to indicate the *client* or sender VM. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
    ```cmd
    latte -c -a <receiver IP address>:<port> -i <iterations>
@@ -96,32 +98,32 @@ Use the following procedures to install and test network latency with [Latte](ht
 
 On both the *sender* and *receiver* Linux VMs, run the following commands to prepare SockPerf, depending on your Linux distro.
 
-#### Red Hat Enterprise Linux (RHEL) or CentOS
+- Red Hat Enterprise Linux (RHEL) or CentOS:
 
-```bash
-#RHEL/CentOS - Install Git and other helpful tools
-    sudo yum install gcc -y -q
-    sudo yum install git -y -q
-    sudo yum install gcc-c++ -y
-    sudo yum install ncurses-devel -y
-    sudo yum install -y automake
-    sudo yum install -y autoconf
-    sudo yum install -y libtool
-```
+  ```bash
+  #RHEL/CentOS - Install Git and other helpful tools
+      sudo yum install gcc -y -q
+      sudo yum install git -y -q
+      sudo yum install gcc-c++ -y
+      sudo yum install ncurses-devel -y
+      sudo yum install -y automake
+      sudo yum install -y autoconf
+      sudo yum install -y libtool
+  ```
 
-#### Ubuntu
+- Ubuntu:
 
-```bash
-#Ubuntu - Install Git and other helpful tools
-    sudo apt-get install build-essential -y
-    sudo apt-get install git -y -q
-    sudo apt-get install -y autotools-dev
-    sudo apt-get install -y automake
-    sudo apt-get install -y autoconf
-    sudo apt-get install -y libtool
-    sudo apt update
-    sudo apt upgrade
-```
+  ```bash
+  #Ubuntu - Install Git and other helpful tools
+      sudo apt-get install build-essential -y
+      sudo apt-get install git -y -q
+      sudo apt-get install -y autotools-dev
+      sudo apt-get install -y automake
+      sudo apt-get install -y autoconf
+      sudo apt-get install -y libtool
+      sudo apt update
+      sudo apt upgrade
+  ```
 
 ### Copy, compile, and install SockPerf
 
@@ -152,17 +154,17 @@ sudo make install
    sudo sockperf sr --tcp -i 10.0.0.4 -p 12345
    ```
 
-1. Now that the server is listening, on the *sender* or client computer, start sending packets to the server on the listening port, in this case `12345`.
-
-   - The `-t` option sets testing time in seconds. About 100 seconds is long enough to return representative results.
-   - The `-m` denotes message size in bytes. A 350-byte message size is typical for an average packet. You can adjust the size higher or lower to more accurately represent your VM's workloads.
+1. Now that the receiver is listening, run the following command on the *sender* or client computer to send packets to the receiver on the listening port, in this case `12345`.
 
    ```bash
    #Client/Sender for IP 10.0.0.4:
    sockperf ping-pong -i 10.0.0.4 --tcp -m 350 -t 101 -p 12345 --full-rtt
    ```
 
-1. Wait for the results. Depending on how far apart the VMs are, the number of iterations varies. To test for success before you run longer tests, consider starting with shorter tests of about 5 seconds.
+   - The `-t` option sets testing time in seconds. About 100 seconds is long enough to return representative results.
+   - The `-m` denotes message size in bytes. A 350-byte message size is typical for an average packet. You can adjust the size to more accurately represent your VM's workloads.
+
+1. Wait for the results. Depending on how far apart the VMs are, the number of iterations varies. To test for success before you run longer tests, consider starting with shorter tests of about five seconds.
 
 ---
 
