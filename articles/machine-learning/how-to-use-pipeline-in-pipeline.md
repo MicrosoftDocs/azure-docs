@@ -30,7 +30,9 @@ In this article, you'll learn how to use pipeline component in Azure Machine Lea
 
 ## The difference between pipeline job and pipeline component
 
-In general, pipeline component is much similar to pipeline job. They are both consist of group of jobs/component. Here are some main difference you need aware when defining pipeline component:
+In general, pipeline component is similar to pipeline job. They are both consist of a group of jobs/components. 
+
+Here are some main difference you need aware when defining pipeline component:
 
 - Pipeline component only define the interface of inputs/outputs, which means when define pipeline component your need explicitly define type of inputs/outputs instead of directly assign values to them.
 - Pipeline component can not have runtime settings, your can not hard-code compute, data node in pipeline component, you need promote them as pipeline level inputs, and assign values during runtime.
