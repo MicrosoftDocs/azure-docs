@@ -30,7 +30,7 @@ This class is held in the `CallCompositeLocalOptions` object that represents opt
 
 #### Setup Screen View Data
 
-`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle is always set to be hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information are not sent up to the server.
+`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle is hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information are not sent up to the server.
 
 #### Usage
 

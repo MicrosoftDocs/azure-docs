@@ -27,7 +27,7 @@ Similarly, for 'SetupScreenViewData', by default, the UI library displays 'Setup
 #### Setup Screen View Data
 
 `SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (also known as Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not required. 
-If `subtitle` is not defined, then it is always set to be hidden. This class is locally stored and its information isn't sent up to the server.
+If `subtitle` is not defined, then it is hidden. This class is locally stored and its information isn't sent up to the server.
 
 #### Usage
 
