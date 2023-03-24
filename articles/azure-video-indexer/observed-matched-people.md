@@ -10,14 +10,14 @@ ms.date: 07/07/2022
 ms.topic: article
 ---
 
-# Observed people tracking & matched faces - transparency note 
+# Observed people tracking & matched faces  
 
 > [!IMPORTANT]
 > Face identification, customization and celebrity recognition features access is limited based on eligibility and usage criteria in order to support our Responsible AI principles. Face identification, customization and celebrity recognition features are only available to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access.
 
 Observed people tracking and matched faces are Azure Video Indexer AI features that automatically detect and match people in media files. Observed people tracking and matched faces can be set to display insights on people, their clothing, and the exact timeframe of their appearance. 
 
-The resulting insights are displayed in a categorized list in the Insights tab and includes a thumbnail of each person and their ID. Clicking the thumbnail of a person displays the matched person (the corresponding face in the People insight). Insights are also generated in a categorized list in a JSON file which includes the thumbnail ID of the person, the percentage of time appearing in the file, Wiki link (if they are a celebrity) and confidence level.  
+The resulting insights are displayed in a categorized list in the Insights tab, the tab includes a thumbnail of each person and their ID. Clicking the thumbnail of a person displays the matched person (the corresponding face in the People insight). Insights are also generated in a categorized list in a JSON file that includes the thumbnail ID of the person, the percentage of time appearing in the file, Wiki link (if they're a celebrity) and confidence level.  
 
 ## Prerequisites  
 
@@ -25,10 +25,10 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This transparency note discusses observed people tracking and matched faces and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature:
+This transparency note discusses observed people tracking and matched faces and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
 
 - Will this feature perform well in my scenario? Before deploying observed people tracking and matched faces into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
-- Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur.
+- Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you'll identify and respond to any errors that may occur.
 
 ## View the insight
 
@@ -43,7 +43,7 @@ To see  the insights in a JSON file, do the following:
 1. Click Download and then Insights (JSON). 
 1. Copy the `observedPeople` text and paste it into your JSON viewer.
 
-     The following section shows observed people and clothing. For the person with id 4 (`"id": 4`) there is also a matching face. 
+     The following section shows observed people and clothing. For the person with id 4 (`"id": 4`) there's also a matching face. 
      
     ```json
     "observedPeople": [
@@ -198,11 +198,11 @@ During the observed people tracking and matched faces procedure, images in a med
 |Detection |	The media file is tracked to detect observed people and their clothing. For example, shirt with long sleeves, dress or long pants. Note that to be detected, the full upper body of the person must appear in the media.|
 |Local grouping	|The identified observed faces are filtered into local groups. If a person is detected more than once, additional observed faces instances are created for this person. |
 |Matching and Classification	|The observed people instances are matched to faces. If there is a known celebrity, the observed person will be given their name. Any number of observed people instances can be matched to the same face.  |
-|Confidence value|	The estimated confidence level of each observed person is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
+|Confidence value|	The estimated confidence level of each observed person is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
-- Tracking a person’s movement for example in law enforcement for more efficiency when analyzing an accident or crime.
+- Tracking a person’s movement, for example,  in law enforcement for more efficiency when analyzing an accident or crime.
 - Improving efficiency by deep searching for matched people in organizational archives for insight on specific celebrities, for example when creating promos and trailers. 
 - Improved efficiency when creating feature stories, for example, searching for people wearing a red shirt in the archives of a football game at a News or Sports agency.
 
@@ -210,22 +210,22 @@ During the observed people tracking and matched faces procedure, images in a med
 
 Below are some considerations to keep in mind when using observed people and matched faces. 
 
-- When uploading a file always use high-quality video content. The recommended maximum frame size is HD and frame rate is 30 FPS. A frame should contain no more than 10 people. When outputting frames from videos to AI models, only send around 2 or 3 frames per second. Processing 10 and more frames might delay the AI result. People and faces in videos recorded by cameras that are high-mounted, down-angled or with a wide field of view (FOV) may have fewer pixels which may result in lower accuracy of the generated insights. 
+- When uploading a file always use high-quality video content. The recommended maximum frame size is HD and frame rate is 30 FPS. A frame should contain no more than 10 people. When outputting frames from videos to AI models, only send around 2 or 3 frames per second. Processing 10 and more frames might delay the AI result. People and faces in videos recorded by cameras that are high-mounted, down-angled or with a wide field of view (FOV) may have fewer pixels that may result in lower accuracy of the generated insights. 
 - Typically, small people or objects under 200 pixels and people who are seated may not be detected. People wearing similar clothes or uniforms might be detected as being the same person and will be given the same ID number. People or objects that are obstructed may not be detected. Tracks of people with front and back poses may be split into different instances. 
-- An observed person must first be detected and appear in the people category before they are matched. Tracks are optimized to handle observed people who frequently appear in the front. Obstructions like overlapping people or faces may cause mismatches between matched people and observed people. Mismatching may occur when different people appear in the same relative spatial position in the frame within a short period. 
+- An observed person must first be detected and appear in the people category before they're matched. Tracks are optimized to handle observed people who frequently appear in the front. Obstructions like overlapping people or faces may cause mismatches between matched people and observed people. Mismatching may occur when different people appear in the same relative spatial position in the frame within a short period. 
 
 When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
-- Do not purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
+- Don't purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
 - Commit to respecting and promoting human rights in the design and deployment of your analyzed media.  
 - When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them. 
 - Always seek legal advice when using media from unknown sources. 
 - Always obtain appropriate legal and professional advice to ensure that your uploaded videos are secured and have adequate controls to preserve the integrity of your content and to prevent unauthorized access.    
 - Provide a feedback channel that allows users and individuals to report issues with the service.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
-- Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.  
-- Fully examine and review the potential of any AI model you are using to understand its capabilities and limitations. 
+- Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.  
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
 
 ## Next steps
 
@@ -242,10 +242,10 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 ## Azure Video Indexer insights
 
-- [Audio effects detection](/legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Keywords extraction](/legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Transcription, translation & language identification](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Labels identification](/legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context) 
-- [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context-video-indexer/context/context)
-- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Audio effects detection](audio-effects-detection.md)
+- [Face detection](face-detection.md)
+- [Keywords extraction](keywords.md)
+- [Transcription, translation & language identification](transcription-translation-lid.md)
+- [Labels identification](labels-identification.md) 
+- [Named entities](named-entities.md)
+- [Topics inference](topics-inference.md)

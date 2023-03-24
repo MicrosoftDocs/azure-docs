@@ -1,7 +1,7 @@
 ---
 title: Azure Video Indexer labels identification transparency note
 titleSuffix: Azure Video Indexer 
-description: This article gives an overview of a Azure Video Indexer labels identification transparency note.
+description: This article gives an overview of an Azure Video Indexer labels identification transparency note.
 author: juliako
 ms.author: juliako
 manager: femila
@@ -10,7 +10,7 @@ ms.date: 06/15/2022
 ms.topic: article
 ---
 
-# Labels identification - transparency note 
+# Labels identification  
 
 Labels identification is an Azure Video Indexer AI feature that identifies visual objects like sunglasses or actions like swimming, appearing in the video footage of a media file. There are many labels identification categories and once extracted, labels identification instances are displayed in the Insights tab and can be translated into over 50 languages. Clicking a Label opens the instance in the media file, click Play Previous or Play Next to see more instances. 
 
@@ -20,14 +20,14 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This Transparency Note discusses labels identification and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature:
+This Transparency Note discusses labels identification and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
 
 - Will this feature perform well in my scenario? Before deploying labels identification into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
 - Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur.
 
 ## View the insight
 
-When working on the website the instances are displayed in the Insights tab. They can also be generated in a categorized list in a JSON file which includes the Labels ID, category, instances together with each label’s specific start and end times and confidence score, as follows: 
+When working on the website the instances are displayed in the Insights tab. They can also be generated in a categorized list in a JSON file that includes the Labels ID, category, instances together with each label’s specific start and end times and confidence score, as follows: 
 
 To display labels identification insights in a JSON file, do the following: 
 
@@ -94,7 +94,7 @@ During the Labels procedure, objects in a media file are processed, as follows:
 |Source	|The user uploads the source file for indexing. |
 |Tagging|	Images are tagged and labelled. For example, door, chair, woman, headphones, jeans. |
 |Filtering and aggregation	|Tags are filtered according to their confidence level and aggregated according to their category.|
-|Confidence level|	The estimated confidence level of each label is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
+|Confidence level|	The estimated confidence level of each label is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
@@ -107,12 +107,12 @@ During the Labels procedure, objects in a media file are processed, as follows:
 
 - Carefully consider the accuracy of the results, to promote more accurate detections, check the quality of the video, low quality video might impact the detected insights. 
 - Carefully consider when using for law enforcement that Labels can potentially not detect parts of the video. To ensure fair and high-quality decisions, combine Labels with human oversight. 
-- Do not use labels identification for decisions that may have serious adverse impacts. Machine learning models can result in undetected or incorrect classification output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it is advisable to include human review of decisions that have the potential for serious impacts on individuals. 
+- Don't use labels identification for decisions that may have serious adverse impacts. Machine learning models can result in undetected or incorrect classification output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it's advisable to include human review of decisions that have the potential for serious impacts on individuals. 
 
 When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
-- Do not purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
+- Don't purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
 - Commit to respecting and promoting human rights in the design and deployment of your analyzed media.  
 - When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them. 
 - Always seek legal advice when using content from unknown sources. 
@@ -120,7 +120,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 - Provide a feedback channel that allows users and individuals to report issues with the service.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
 - Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.  
-- Fully examine and review the potential of any AI model you are using to understand its capabilities and limitations. 
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
 
 ## Next steps
 
@@ -137,11 +137,11 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 ## Azure Video Indexer insights
 
-- [Audio effects detection](/legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [OCR](/legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Keywords extraction](/legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Transcription, Translation & Language identification](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Observed people tracking & matched persons](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Audio effects detection](audio-effects-detection.md)
+- [Face detection](face-detection.md)
+- [OCR](ocr.md)
+- [Keywords extraction](keywords.md)
+- [Transcription, Translation & Language identification](transcription-translation-lid.md)
+- [Named entities](named-entities.md)
+- [Observed people tracking & matched persons](observed-matched-people.md)
+- [Topics inference](topics-inference.md)

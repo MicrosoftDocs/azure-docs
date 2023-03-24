@@ -10,7 +10,7 @@ ms.date: 06/15/2022
 ms.topic: article
 ---
 
-# Named entities extraction - transparency note 
+# Named entities extraction  
 
 Named entities extraction is an Azure Video Indexer AI feature that uses Natural Language Processing (NLP) to extract insights on the locations, people and brands appearing in audio and images in media files. Named entities extraction is automatically used with Transcription and OCR and its insights are based on those extracted during these processes. The resulting insights are displayed in the **Insights** tab and are filtered into locations, people and brand categories. Clicking a named entity, displays its instance in the media file. It also displays a description of the entity and a Find on Bing link of recognizable entities.   
 
@@ -20,10 +20,10 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This Transparency Note discusses named entities and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature:
+This Transparency Note discusses named entities and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
 
 -	Will this feature perform well in my scenario? Before deploying named entities extraction into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
--	Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur.
+-	Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur.
 
 ## View the insight
 
@@ -79,7 +79,7 @@ During the named entities extraction procedure, the media file is processed, as 
 |Text extraction |- The audio file is sent to Speech Services API to extract the transcription.<br/>- Sampled frames are sent to the Computer Vision API to extract OCR. |
 |Analytics	|The insights are then sent to the Text Analytics API to extract the entities. For example, Microsoft, Paris or a person’s name like Paul or Sarah.
 |Processing and consolidation |	The results are then processed. Where applicable, Wikipedia links are added and brands are identified via the Video Indexer built-in and customizable branding lists.
-Confidence value	The estimated confidence level of each named entity is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
+Confidence value	The estimated confidence level of each named entity is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
@@ -91,14 +91,14 @@ Confidence value	The estimated confidence level of each named entity is calculat
 ## Considerations and limitations when choosing a use case 
 
 -	Carefully consider the accuracy of the results, to promote more accurate detections, check the quality of the audio and images, low quality audio and images might impact the detected insights. 
--	Named entities only detects insights in audio and images. Logos in a brand name may not be detected.
+-	Named entities only detect insights in audio and images. Logos in a brand name may not be detected.
 -	Carefully consider that when using for law enforcement named entities may not always detect parts of the audio. To ensure fair and high-quality decisions, combine named entities with human oversight. 
--	Do not use named entities for decisions that may have serious adverse impacts. Machine learning models that extract text can result in undetected or incorrect text output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it is advisable to include human review of decisions that have the potential for serious impacts on individuals. 
+-	Don't use named entities for decisions that may have serious adverse impacts. Machine learning models that extract text can result in undetected or incorrect text output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it's advisable to include human review of decisions that have the potential for serious impacts on individuals. 
 
 When used responsibly and carefully Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
 
 -	Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
--	Do not purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
+-	Don't purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
 -	Commit to respecting and promoting human rights in the design and deployment of your analyzed media.  
 -	When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them. 
 -	Always seek legal advice when using content from unknown sources. 
@@ -106,7 +106,7 @@ When used responsibly and carefully Azure Video Indexer is a valuable tool for m
 -	Provide a feedback channel that allows users and individuals to report issues with the service.  
 -	Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
 -	Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.  
--	Fully examine and review the potential of any AI model you are using to understand its capabilities and limitations. 
+-	Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
 
 ## Next steps
 
@@ -123,10 +123,10 @@ When used responsibly and carefully Azure Video Indexer is a valuable tool for m
 
 ## Azure Video Indexer insights
 
-- [Audio effects detection](/legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Keywords extraction](/legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Transcription, Translation & Language identification](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Labels identification](/legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context) 
-- [Observed people tracking & matched persons](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Audio effects detection](audio-effects-detection.md)
+- [Face detection](face-detection.md)
+- [Keywords extraction](keywords.md)
+- [Transcription, Translation & Language identification](transcription-translation-lid.md)
+- [Labels identification](labels-identification.md) 
+- [Observed people tracking & matched persons](observed-matched-people.md)
+- [Topics inference](topics-inference.md)

@@ -10,14 +10,14 @@ ms.date: 06/15/2022
 ms.topic: article
 ---
 
-# Media transcription, translation and language identification - transparency note 
+# Media transcription, translation and language identification  
 
 Azure Video Indexer transcription, translation and language identification automatically detects, transcribes, and translates the speech in media files into over 50 languages. 
 
 - Azure Video Indexer processes the speech in the audio file to extract the transcription which is then translated into many languages. When selecting to translate into a specific language, both the transcription and the insights like keywords, topics, labels or OCR are translated into the specified language. Transcription can be used as is or be combined with speaker insights which maps and assigns the transcripts into speakers. Multiple speakers can be detected in an audio file. An ID is assigned to each speaker and is displayed under their transcribed speech. 
 -	Azure Video Indexer language identification (LID) automatically recognizes the supported dominant spoken language in the video file. For more information, see [Applying LID](/azure/azure-video-indexer/language-identification-model). 
 -	Azure Video Indexer multi-language identification (MLID) automatically recognizes the spoken languages in different segments in the audio file and sends each segment to be transcribed in the identified languages. At the end of this process, all transcriptions are combined into the same file. For more information, see [Applying MLID](/azure/azure-video-indexer/multi-language-identification-transcription).
-The resulting insights are generated in a categorized list in a JSON file which includes the ID, language, transcribed text, duration and confidence score. 
+The resulting insights are generated in a categorized list in a JSON file that includes the ID, language, transcribed text, duration and confidence score. 
 
 ## Prerequisites  
 
@@ -25,10 +25,10 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This transparency note discusses transcription, translation and language identification and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature:
+This transparency note discusses transcription, translation and language identification and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
 
 - Will this feature perform well in my scenario? Before using transcription, translation and language Identification into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
-- Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur.
+- Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur.
 
 ## View the insight
 
@@ -139,11 +139,11 @@ For more information, see: guidelines and limitations in [language detection and
 
 ## Azure Video Indexer insights
 
-- [Audio effects detection](/legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [OCR](/legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Keywords extraction](/legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Labels identification](/legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context) 
-- [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Observed people tracking & matched faces](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Audio effects detection](audio-effects-detection.md)
+- [Face detection](face-detection.md)
+- [OCR](ocr.md)
+- [Keywords extraction](keywords.md)
+- [Labels identification](labels-identification.md) 
+- [Named entities](named-entities.md)
+- [Observed people tracking & matched faces](observed-matched-people.md)
+- [Topics inference](topics-inference.md)

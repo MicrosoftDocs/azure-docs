@@ -10,7 +10,7 @@ ms.date: 06/15/2022
 ms.topic: article
 ---
 
-# Audio effects detection - transparency note
+# Audio effects detection 
 
 Audio effects detection is an Azure Video Indexer feature that detects insights on a variety of acoustic events and classifies them into acoustic categories. Audio effect detection can detect and classify different categories such as laughter, crowd reactions, alarms and/or sirens.  
 
@@ -129,11 +129,11 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 ## Azure Video Indexer insights
 
-- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [OCR](/legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Keywords extraction](/legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Transcription, translation & language identification](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Labels identification](/legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context) 
-- [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Observed people tracking & matched faces](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Face detection](face-detection.md)
+- [OCR](ocr.md)
+- [Keywords extraction](keywords.md)
+- [Transcription, translation & language identification](transcription-translation-lid.md)
+- [Labels identification](labels-identification.md) 
+- [Named entities](named-entities.md)
+- [Observed people tracking & matched faces](observed-matched-people.md)
+- [Topics inference](topics-inference.md)

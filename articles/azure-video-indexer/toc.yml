@@ -62,23 +62,23 @@
     href: insights-overview.md
     items:
     - name: Audio effects detection
-      href: audio-effects-detection-transparency-note.md
+      href: audio-effects-detection.md
     - name: Faces detection
-      href: face-detection-transparency-note?context.md
+      href: face-detection.md
     - name: OCR
-      href: ocr-transparency-note.md
+      href: ocr.md
     - name: Keywords extraction
-      href: keywords-transparency-note.md
+      href: keywords.md
     - name: Transcription, translation, language
-      href: transcription-translation-lid-transparency-note.md
+      href: transcription-translation-lid.md
     - name: Labels identification
-      href: labels-identification-transparency-note.md
+      href: labels-identification.md
     - name: Named entities
-      href: named-entities-transparency-note.md
+      href: named-entities.md
     - name: Observed people tracking & matched faces
-      href: observed-matched-people-transparency-note.md
+      href: observed-matched-people.md
     - name: Topics inference
-      href: topics-inference-transparency-note.md
+      href: topics-inference.md
     displayName: optical character recognition elements, Azure Video Indexer account, Azure Video Indexer OCR, Azure Video Indexer insights, specific predefined text, Detect textual logo, timestamped transcript lines, Textual logo detection, Audio effects detection, insights output file, detailed JSON output, 30+ AI models, Azure portal, account types, audio content, audio cues, video insights, entire video, ms.topic, rich insights, aggregated view, time ranges, common insights, frame(s, representative frames, aesthetic properties, easier consumption, Faces detection, different appearances, Microsoft" logo, sentimentType` field, single audio-file, other insights, Insights tab, right-top corner, response status, response content, Operations&operation, JSON content, insight type, one insight, brief overview, Named entities, Sixteen speakers, Topics inference, title, description, article, juliako, data, transcripts, OCRs, emotions, details, example, instances, information, audio-effects-detection-transparency-note, Scenes, shots, keyframes, contrast, stableness, navigation, speech, azure-video-indexer, face-detection-transparency, user, word, Labels, entities-transparency, People, ocr-transparency-note, Sentiments, Transcription, translation, language, features, website, videoindexer, Screenshot, indexer-output, Press, artifacts, API
   - name: Post-production insights
     items:

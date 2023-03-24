@@ -10,13 +10,13 @@ ms.date: 06/15/2022
 ms.topic: article
 ---
 
-# Keywords extraction - transparency note 
+# Keywords extraction  
 
 Keywords extraction is an Azure Video Indexer AI feature that automatically detects insights on the different keywords discussed in media files. Keywords extraction can extract insights in both single language and multi-language media files. The total number of extracted keywords and their categories are listed in the Insights tab, where clicking a Keyword and then clicking Play Previous or Play Next jumps to the keyword in the media file.  
 
 ## Prerequisites  
 
-Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
+Review [Transparency Note overview](/legal/azure-video-indexer/transparency-notee?context=/azure/azure-video-indexer/context/context)
 
 ## General principles 
 
@@ -142,11 +142,11 @@ When used responsibly and carefully Keywords is a valuable tool for many industr
 
 ## Azure Video Indexer insights
 
-- [Audio effects detection](/legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Face detection](/legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [OCR](/legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Transcription, Translation & Language identification](/legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Labels identification](/legal/azure-video-indexer/labels-identification-transparency-note?context=/azure/azure-video-indexer/context/context) 
-- [Named entities](/legal/azure-video-indexer/named-entities-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Observed people tracking & matched persons](/legal/azure-video-indexer/observed-matched-people-transparency-note?context=/azure/azure-video-indexer/context/context)
-- [Topics inference](/legal/azure-video-indexer/topics-inference-transparency-note?context=/azure/azure-video-indexer/context/context)
+- [Audio effects detection](audio-effects-detection.md)
+- [Face detection](face-detection.md)
+- [OCR](ocr.md)
+- [Transcription, Translation & Language identification](transcription-translation-lid.md)
+- [Labels identification](labels-identification.md) 
+- [Named entities](named-entities.md)
+- [Observed people tracking & matched persons](observed-matched-people.md)
+- [Topics inference](topics-inference.md)
