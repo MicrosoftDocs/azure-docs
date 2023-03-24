@@ -73,7 +73,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 - [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Purge protection isn't enabled by default.
 - When you use firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](/key-vault/general/network-security).
 - Only RSA keys are supported
-- The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. A recommended built-in role definition with the least priveleges needed for this scenario is called [KeyVault Crypto Service Encryption User](/azure/role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user).
+- The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. A recommended built-in role definition with the least priveleges needed for this scenario is called [KeyVault Crypto Service Encryption User](../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user).
 
 ## How to configure CMK encryption on Enterprise caches
 
