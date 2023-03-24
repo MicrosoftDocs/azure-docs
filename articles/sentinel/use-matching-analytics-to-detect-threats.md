@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to detect threats with Microsoft generated threat intelligence in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 9/26/2022
+ms.date: 03/27/2023
 ms.author: austinmc
 ---
 
