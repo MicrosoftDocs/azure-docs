@@ -11504,6 +11504,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
+            "redirect_url": "/azure/firewall/firewall-diagnostics",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/governance-in-azure.md",
             "redirect_url": "/azure/governance/",
             "redirect_document_id": false
