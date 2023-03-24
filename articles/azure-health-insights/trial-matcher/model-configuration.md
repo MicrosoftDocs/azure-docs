@@ -19,16 +19,16 @@ When you're matching patients to trials, you can define a list of filters to que
 - Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
 
-In the configuration below, the model queries trials that are in recruitment status ```recruiting``` or ```not yet recruiting```.
+In the following configuration, the model queries trials that are in recruitment status ```recruiting``` or ```not yet recruiting```.
 
 ```json
 "recruitmentStatuses": ["recruiting", "notYetRecruiting"]
 ```
 
 
-- Specifying multiple filter categories results in a trial set that is the combiniation of the sets.
-In the case below, only trials for diabetes that are recruiting in Illinois will be queried.
-Leaving a category empty won't limit trials by that category.
+- Specifying multiple filter categories results in a trial set that is the combination of the sets.
+In the following case, only trials for diabetes that are recruiting in Illinois are queried.
+Leaving a category empty will not limit the trials by that category.
 
 ```json
 "registryFilters": [
