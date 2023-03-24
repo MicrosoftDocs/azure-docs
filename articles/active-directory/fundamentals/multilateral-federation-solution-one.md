@@ -38,7 +38,7 @@ The following are some of the advantages of implementing Azure AD with Cirrus br
 
 * **Seamless cloud authentication for all apps**
 
-  * Elimination of all on-premises identity component can lower your operational efforts and potentially reduce security risks.
+  * Elimination of all on-premises identity components can lower your operational effort and potentially reduce security risks.
 
   * You may realize cost savings resulting from not having to host on-premises infrastructure.
 
@@ -77,7 +77,7 @@ The following are some of the trade-offs of using this solution:
 
 * **Limited third-party MFA integration** - You might be limited by the number of integrations available to third-party MFA solutions.
 
-* **One time integration effort required** - To streamline integration, you need to perform a one-time migration of all student and faculty apps to Azure AD and as well as set up the Cirrus Bridge is required.
+* **One time integration effort required** - To streamline integration, you need to perform a one-time migration of all student and faculty apps to Azure AD, as well as set up the Cirrus Bridge.
 
 * **Subscription required for Cirrus Bridge** - An annual subscription is required for the Cirrus Bridge. The subscription fee is based on anticipated annual authentication usage of the bridge.
 
