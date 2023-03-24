@@ -971,8 +971,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.deployment-environments.json",
-  ".openpublishing.redirection.dev-box.json",
   ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
