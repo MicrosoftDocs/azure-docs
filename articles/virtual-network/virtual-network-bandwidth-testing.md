@@ -135,30 +135,32 @@ Run the NTTTCP test for 300 seconds, or five minutes, on both the sender VM and 
 
 To run NTTTCP throughput tests between a Windows VM and a Linux VM, enable no-sync mode by using the `-ns` flag on Windows or the `-N` flag on Linux.
 
-- On the Windows VM, to test with the Windows VM as the receiver, run the following command:
+#### Windows VM
 
-  ```cmd
-  ntttcp -r -m [<number of VM cores> x 2],*,<Linux VM IP address> -t 300
-  ```
-  To test with the Windows VM as the sender, run the following command:
+To test with the Windows VM as the receiver, run the following command:
 
-  ```cmd
-  ntttcp -s -m [<number of VM cores> x 2],*,<Linux VM IP address> -ns -t 300
-  ```
+```cmd
+ntttcp -r -m [<number of VM cores> x 2],*,<Linux VM IP address> -t 300
+```
+To test with the Windows VM as the sender, run the following command:
 
-- On the Linux VM, to test with the Linux VM as the receiver, run the following command:
+```cmd
+ntttcp -s -m [<number of VM cores> x 2],*,<Linux VM IP address> -ns -t 300
+```
 
-  ```bash
-  ntttcp -r -m [<number of VM cores> x 2],*,<Windows VM IP address> -t 300
-  ```
+#### Linux VM
 
-  To test with the Linux VM as the sender, run the following command:
+To test with the Linux VM as the receiver, run the following command:
 
-  ```bash
-  ntttcp -s -m [<number of VM cores> x 2],*,<Windows VM IP address> -N -t 300
-  ```
+```bash
+ntttcp -r -m [<number of VM cores> x 2],*,<Windows VM IP address> -t 300
+```
 
----
+To test with the Linux VM as the sender, run the following command:
+
+```bash
+ntttcp -s -m [<number of VM cores> x 2],*,<Windows VM IP address> -N -t 300
+```
 
 ## Test Cloud Service instances
 

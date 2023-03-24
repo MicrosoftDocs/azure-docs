@@ -17,11 +17,9 @@ This article describes how to test network latency between Azure virtual machine
 
 For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. Most applications use these protocols, and this traffic has the largest effect on application performance.
 
-Many other common network latency test tools, such as Ping, don't measure TCP or UDP traffic. Tools like Ping use Internet Control Message Protocol (ICMP), which can be treated differently from application traffic. ICMP test results don't directly apply to workloads that use TCP and UDP.
+Many other common network latency test tools, such as Ping, don't measure TCP or UDP traffic. Tools like Ping use Internet Control Message Protocol (ICMP), which applications don't use. ICMP traffic can be treated differently from application traffic and doesn't directly affect application performance. ICMP test results don't directly apply to workloads that use TCP and UDP.
 
-Latte and SockPerf measure only TCP or UDP payload delivery times. These tools don't measure ICMP and other packet types that applications don't use and that don't affect application performance.
-
-Latte and SockPerf use the following approach to measure network latency between two physical or virtual computers:
+Latte and SockPerf measure only TCP or UDP payload delivery times. These tools use the following approach to measure network latency between two physical or virtual computers:
 
 1. Create a two-way communications channel between the computers by designating one as sender and one as receiver.
 1. Send and receive packets in both directions and measure the round-trip time (RTT).
