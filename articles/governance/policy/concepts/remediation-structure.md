@@ -8,7 +8,7 @@ author: kenieva-msft
 ---
 # Azure Policy remediation task structure
 
-The Azure Policy remediation task feature is used to bring resources into compliance established from a definition and assignment. Resources that are non-compliant to a [modify](./effects.md#modify) or [deployIfNotExist](./effects.md#deployifnotexists) definition assignment, can be brought into compliance using a remediation task. Remediation tasks deploys the deployIFNotExist template or the modify operations to the selected non-compliant resources using the identity specificed in the assignment. See  [policy assignment structure](./assignment-structure.md#identity). to understand how the identity is define and [remediate non-compliant resources tutorial](../how-to/remediate-resources.md#configure-the-managed-identity) to configure the identity.
+The Azure Policy remediation task feature is used to bring resources into compliance established from a definition and assignment. Resources that are non-compliant to a [modify](./effects.md#modify) or [deployIfNotExist](./effects.md#deployifnotexists) definition assignment, can be brought into compliance using a remediation task. Remediation task deploys the deployIFNotExist template or the modify operations to the selected non-compliant resources using the identity specified in the assignment. See  [policy assignment structure](./assignment-structure.md#identity). to understand how the identity is define and [remediate non-compliant resources tutorial](../how-to/remediate-resources.md#configure-the-managed-identity) to configure the identity.
 
 > [!NOTE]
 > Remediation tasks remediate exisiting resources that are not compliant. Resources that are newly created or updated that are applicable to a deployIfNotExist or modify definition assignment are automatically remediated. 
@@ -23,7 +23,7 @@ You use JavaScript Object Notation (JSON) to create a policy remediation task. T
 - [failure threshold](#failure-threshold)
 - [remediation filters](#remediation-filters)
 - [resource discovery mode](#resource-discovery-mode)
-- [provising state and deployment summary](#provising-state-and-deployment-summary)
+- [provisioning state and deployment summary](#provising-state-and-deployment-summary)
 
 
 For example, the following JSON shows a policy remediation task for policy definition named `requiredTags` a part of
@@ -72,14 +72,14 @@ this property is a _string_. The value must match the value in the initiative de
 
 ## Resource count and parallel deployments
 
-You use **resource count** to  determine how many non-compliant resource to remediate in a given remediation task. The default value is 500, with the maximum number being 50,000. **Parallel deployments**  determines how many of those resources to remediate at the same time. The allowed range is between 1 to 30 with the default value being 10.  
+Use **resource count** to  determine how many non-compliant resources to remediate in a given remediation task. The default value is 500, with the maximum number being 50,000. **Parallel deployments**  determines how many of those resources to remediate at the same time. The allowed range is between 1 to 30 with the default value being 10.  
 
 > [!NOTE]
 > Parallel deployments are the number of deployments within a singular remediation task with a maxmimum of 30. 100 remediation tasks can be ran simultaneously in the tenant.   
 
 ## Failure threshold
 
-An optional property used to specify wheather the remediation task should fail if the percentage of failures exceeds the given threshold. It is a percentage number from 0 to 100. By default, the failure threshold is 100%, meaning that the remediation task will continue to remediate other resources even if resources fail to remediate. 
+An optional property used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. The **failure threshold** is represented as a percentage number from 0 to 100. By default, the failure threshold is 100%, meaning that the remediation task will continues to remediate other resources even if resources fail to remediate. 
 
 ## Remediation filters 
 
@@ -87,11 +87,11 @@ An optional property refines what resources are applicable to the remediation ta
 
 ## Resource discovery mode
 
-This property decides how to discover resources that are eligible for remediation. For a resource to be eligible, it must be non-compliant. By default, this property is set to `ExistingNonCompliant`. It could also be set to `ReEvaluateCompliance` which will trigger a new compliance scan for that assignment and remediate any resources that are found non-compliant.  
+This property decides how to discover resources that are eligible for remediation. For a resource to be eligible, it must be non-compliant. By default, this property is set to `ExistingNonCompliant`. It could also be set to `ReEvaluateCompliance`, which will trigger a new compliance scan for that assignment and remediate any resources that are found non-compliant.  
 
-## Provising state and deployment summary
+## Provisioning state and deployment summary
 
-Once a remediation task is created, **provising state** and **deployment summary** properities will be populated. **Provising state** indicates the status of the remediation task. Allow values are `Running`, `Canceled`, `Cancelling`, `Failed`, `Complete`, or `Succeeded`. **Deployment summary** is an array property indicating the number of deployments along with number of succesful and failed deployments. 
+Once a remediation task is created, **provisioning state** and **deployment summary** properties are populated. **Provisioning state** indicates the status of the remediation task. Allow values are `Running`, `Canceled`, `Cancelling`, `Failed`, `Complete`, or `Succeeded`. **Deployment summary** is an array property indicating the number of deployments along with number of successful and failed deployments. 
 
 Sample of remediation task that completed successfully: 
 
