@@ -78,7 +78,7 @@ Run *latte.exe* from the Windows command line, not from PowerShell.
    - Around 65,000 iterations are enough to return representative results.
    - Any available port number is fine.
 
-   For a VM with an IP address of `10.0.0.4`, the command might look like:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
+   The following example shows the command for a VM with an IP address of `10.0.0.4`:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
 
 1. On the *sender* VM, run the same command as on the receiver, except with `-c` added to indicate the *client* or sender VM. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
@@ -147,7 +147,7 @@ sudo make install
 
 ### Run SockPerf on the VMs
 
-1. After the SockPerf installation is complete, start SockPerf on the *receiver* VM. Any available port number is fine. The following example uses port `12345`. Replace the example IP address `10.0.0.4` with the IP address of your receiver VM.
+1. After the SockPerf installation is complete, start SockPerf on the *receiver* VM. Any available port number is fine. The following example uses port `12345`. Replace the example IP address of `10.0.0.4` with the IP address of your receiver VM.
 
    ```bash
    #Server/Receiver for IP 10.0.0.4:

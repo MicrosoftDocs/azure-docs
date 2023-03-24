@@ -18,12 +18,12 @@ This article describes how to use the free NTTTCP tool from Microsoft to test ne
 
 To test throughput, you need two VMs of the same size to function as *sender* and *receiver*. The two VMs should be in the same [proximity placement group](/azure/virtual-machines/co-location) or [availability set](/azure/virtual-machines/availability-set-overview), so you can use their internal IP addresses and exclude load balancers from the test.
 
-Note the number of cores and the IP addresses for the VMs to use in the following procedures. Both the sender and receiver commands use the receiver's IP address.
+Note the number of VM cores and the receiver VM IP address to use in the commands. Both the sender and receiver commands use the receiver's IP address.
 
 >[!NOTE]
 >Testing by using a virtual IP (VIP) is possible, but is beyond the scope of this article.
 
-## Test throughput between Windows VMs or Linux VMs
+## Test throughput with Windows VMs or Linux VMs
 
 You can test throughput from Windows VMs by using [NTTTCP](https://github.com/microsoft/ntttcp) or from Linux VMs by using [NTTTCP-for-Linux](https://github.com/Microsoft/ntttcp-for-linux).
 
@@ -33,7 +33,7 @@ You can test throughput from Windows VMs by using [NTTTCP](https://github.com/mi
 
 1. On both the sender and receiver VMs, [download the latest version of NTTTCP](https://github.com/microsoft/ntttcp/releases/latest) into a separate folder like *c:\\tools*.
 
-1. On the receiver VM, create a Windows Defender Firewall `allow` rule to allow the NTTTCP traffic to arrive. It's easier to allow *nttcp.exe* by name than to allow specific inbound TCP ports. Run the following command, replacing `c:\tools` with the path you downloaded *ntttcp.exe* to if different.
+1. On the receiver VM, create a Windows Defender Firewall `allow` rule to allow the NTTTCP traffic to arrive. It's easier to allow *nttcp.exe* by name than to allow specific inbound TCP ports. Run the following command, replacing `c:\tools` with your download path for *ntttcp.exe* if different.
 
    ```cmd
    netsh advfirewall firewall add rule program=c:\tools\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
@@ -48,11 +48,11 @@ You can test throughput from Windows VMs by using [NTTTCP](https://github.com/mi
    >Use the preceding commands only to test configuration.
 
    >[!TIP]
-   >When you run the test for the first time to verify setup, use a short test period to get quick feedback. Once you verify the tool is working, extend the test period to 300 seconds for the most accurate results.
+   >When you run the test for the first time to verify setup, use a short test duration to get quick feedback. Once you verify the tool is working, extend the test duration to 300 seconds for the most accurate results.
 
-### Run NTTTCP tests
+### Run throughput tests
 
-Run *ntttcp.exe* from the Windows command line, not from PowerShell. Run the test for 300 seconds, or five minutes, on both the sender and receiver VMs. The sender and receiver must specify the same test duration for the `-t` parameter. Test duration defaults to 60 seconds if you don't specify a time parameter.
+Run *ntttcp.exe* from the Windows command line, not from PowerShell. Run the test for 300 seconds, or five minutes, on both the sender and receiver VMs. The sender and receiver must specify the same test duration for the `-t` parameter.
 
 1. On the receiver VM, run the following command, replacing the `<number of VM cores>`, and `<receiver IP address>` placeholders with your own values.
 
@@ -60,7 +60,7 @@ Run *ntttcp.exe* from the Windows command line, not from PowerShell. Run the tes
    ntttcp -r -m [<number of VM cores> x 2],*,<receiver IP address> -t 300
    ```
 
-   The following example shows an NTTTCP command for a VM with four cores and an IP address of `10.0.0.4`.
+   The following example shows a command for a VM with four cores and an IP address of `10.0.0.4`.
 
    `ntttcp -r -m 8,*,10.0.0.4 -t 300`
 
@@ -114,17 +114,17 @@ To measure throughput from Linux machines, use [NTTTCP-for-Linux](https://github
    make && make install
    ```
 
-### Run NTTTCP tests
+### Run throughput tests
 
 Run the NTTTCP test for 300 seconds, or five minutes, on both the sender VM and the receiver VM. The sender and receiver must specify the same test duration for the `-t` parameter. Test duration defaults to 60 seconds if you don't specify a time parameter.
 
-1. On the receiver VM, run NTTTCP-for-Linux for 300 seconds.
+1. On the receiver VM, run the following command:
 
    ``` bash
    ntttcp -r -t 300
    ```
 
-1. On the sender VM, run NTTTCP-for-Linux for 300 seconds. The following example shows a command for a receiver VM with an IP address of `10.0.0.4`.
+1. On the sender VM, run the following command. This example shows a sender command for a receiver IP address of `10.0.0.4`.
 
    ``` bash
    ntttcp -s10.0.0.4 -t 300
@@ -135,32 +135,28 @@ Run the NTTTCP test for 300 seconds, or five minutes, on both the sender VM and 
 
 To run NTTTCP throughput tests between a Windows VM and a Linux VM, enable no-sync mode by using the `-ns` flag on Windows or the `-N` flag on Linux.
 
-1. Install and configure NTTTCP on the Windows VM and NTTTCP-for-Linux on the Linux VM as instructed in the previous section.
+- On the Windows VM, to test with the Windows VM as the receiver, run the following command:
 
-1. Test throughput from the Windows or Linux VMs as follows:
+  ```cmd
+  ntttcp -r -m [<number of VM cores> x 2],*,<Linux VM IP address> -t 300
+  ```
+  To test with the Windows VM as the sender, run the following command:
 
-   - On the Windows VM, to test with the Windows VM as the receiver, run the following command:
+  ```cmd
+  ntttcp -s -m [<number of VM cores> x 2],*,<Linux VM IP address> -ns -t 300
+  ```
 
-     ```cmd
-     ntttcp -r -m [<number of VM cores> x 2],*,<Linux VM IP address>
-     ```
-   - On the Windows VM, to test with the Windows VM as the sender, run the following command:
+- On the Linux VM, to test with the Linux VM as the receiver, run the following command:
 
-     ```cmd
-     ntttcp -s -m [<number of VM cores> x 2],*,<Linux VM IP address> -ns
-     ```
+  ```bash
+  ntttcp -r -m [<number of VM cores> x 2],*,<Windows VM IP address> -t 300
+  ```
 
-   - On the Linux VM, to test with the Linux VM as the receiver, run the following command:
+  To test with the Linux VM as the sender, run the following command:
 
-     ```bash
-     ntttcp -r -m [<number of VM cores> x 2],*,<Windows VM IP address>
-     ```
-
-   - On the Linux VM, to test with the Linux VM as the sender, run the following command:
-
-     ```bash
-     ntttcp -s -m [<number of VM cores> x 2],*,<Windows VM IP address> -N
-     ```
+  ```bash
+  ntttcp -s -m [<number of VM cores> x 2],*,<Windows VM IP address> -N -t 300
+  ```
 
 ---
 
