@@ -29,7 +29,7 @@ There are currently two models available in Azure Health Insights:
 
 The [Trial Matcher](./trial-matcher/overview.md) model receives patients' data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
 
-The [OncoPhenotype](./oncophenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site** and **histology**.
+The [Onco Phenotype](./oncophenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site** and **histology**.
 
 
 ## Architecture
@@ -47,7 +47,7 @@ Review the following information to learn how to deploy Azure Health Insights an
 > [Deploy Azure Health Insights](deploy-portal.md) 
 
 >[!div class="nextstepaction"]
-> [OncoPhenotype](oncophenotype/overview.md) 
+> [Onco Phenotype](oncophenotype/overview.md) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher//overview.md) 

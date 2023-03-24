@@ -47,7 +47,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 Azure Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They resides within the `azure-cognitive-services/health-insights/` repository and can be found by their model name. 
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
-- OncoPhenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
+- Onco Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/product/azure-cognitive-services/health-insights/<ModelName>/tags`.
 
@@ -118,12 +118,11 @@ This command:
 
 Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
-//TODOOOOOO
 ```bash
 curl -X POST 'http://<serverURL>:5000/health-insights/<model>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 ```
 
-#### Example Docker compose file
+#### Example docker compose file
 
 The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the health-insights containers. This is also the way to run the clinical-matching model.
 

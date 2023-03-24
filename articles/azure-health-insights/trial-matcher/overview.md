@@ -44,7 +44,7 @@ Trial Matcher comes with a template for the [Azure Health Bot](/azure/health-bot
 - Customers can completely customize the Health Bot scenarios and localize the strings into any language.
 Contact the product team to get the Trial Matcher template for the Azure Health Bot.” 
 
-***  Contact the product team above to the contact information.
+> **Contact the product team above to the contact information.**  
 
 
 

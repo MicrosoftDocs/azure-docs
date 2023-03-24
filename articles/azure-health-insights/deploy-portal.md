@@ -26,20 +26,21 @@ To deploy Azure Health Insights, you must register your subscription. Let us kno
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Create a new **Resource group**.
 3. Add a new Cognitive Services account to your Resource group and search for **Azure Health Insights**.
-![Screenshot of how to create the new Azure Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
 
-    or Use this [link](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_healthdecisionsupportpreview&feature.healthdecisionsupportpreview=true#create/Microsoft.CognitiveServicesHealthDecisionSupport) to create a new Cognitive Services account.
+    ![Screenshot of how to create the new Azure Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
+
+    or Use this [link](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_healthinsightspreview&feature.healthinsightspreview=true#create/Microsoft.CognitiveServiceshealthinsights) to create a new Cognitive Services account.
 
 4. Enter the following values:
-- **Resource group**: Select or create your Resource group name.
-- **Region**: Select an Azure location, such as West Europe.
-- **Name**: Enter a Cognitive Services account name.
-- **Pricing tier**: Select your pricing tier.
+    - **Resource group**: Select or create your Resource group name.
+    - **Region**: Select an Azure location, such as West Europe.
+    - **Name**: Enter a Cognitive Services account name.
+    - **Pricing tier**: Select your pricing tier.
 
     ![Screenshot of how to create new Cognitive Services account.](media/oncophenotype/deploy-to-azure/create-health-decision-support.jpg) 
 
 5. Navigate to your newly created service.
-
+    
     ![Screenshot of the Overview of Cognitive Services account.](media/oncophenotype/deploy-to-azure/created-health-decision-support.jpg) 
 
 ## Configure private endpoints
@@ -55,7 +56,7 @@ Once the Cognitive Services account is successfully created, configure private e
 To get started using Azure Health Insights, get started with one of the following models:
 
 >[!div class="nextstepaction"]
-> [OncoPhenotype](oncophenotype/index.yml) 
+> [Onco Phenotype](oncophenotype/index.yml) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher/index.yml) 

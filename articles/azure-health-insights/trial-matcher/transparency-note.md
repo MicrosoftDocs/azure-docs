@@ -29,6 +29,6 @@ Decision support | Enable solutions that provide information that can assist a h
 
 Given the sensitive nature of health-related data, it's important to consider your use cases carefully. In all cases, a human should be making decisions, assisted by the information the system returns and there should be a way to review the source data and correct errors.
 
-Don't use
+## Don't use
   - **Don't use for scenarios that use this service as a medical device, clinical support, or diagnostic tools to be used in the diagnosis, cure, mitigation, treatment or prevention of disease or other conditions without a human intervention.** A qualified medical professional should always do due diligence and verify the source data regarding patient care decisions.
  - **Don't use for scenarios that use personal health information without appropriate consent.** Health information has special protections that may require explicit consent for certain use. Make sure you have appropriate consent to use health data.

@@ -36,7 +36,7 @@ To submit a request to the Trial Matcher, you need to make a POST request to the
 In the example below the patients are matches to the ```Clinicaltrials_gov``` source, for a ```lung cancer``` condition with facility locations for the city ```Orlando```. 
 
 ```http
-POST https://{your-cognitive-service-endpoint}/healthdecisionsupport/trialmatcher/jobs?api-version=2022-01-01-preview
+POST https://{your-cognitive-service-endpoint}/healthinsights/trialmatcher/jobs?api-version=2022-01-01-preview
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 {
@@ -79,14 +79,14 @@ Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 
 
 The response includes the operation-location in the response header. The value looks similar to the following URL:
-```https://eastus.api.cognitive.microsoft.com/healthdecisionsupport/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview```
+```https://eastus.api.cognitive.microsoft.com/healthinsights/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview```
 
 
 ### Example Response
 
 To get the results of the request, make the following GET request to the URL specified in the POST response operation-location header.
 ```http
-GET https://{your-cognitive-service-endpoint}/healthdecisionsupport/trialmatcher/jobs/{job-id}?api-version=2022-01-01-preview
+GET https://{your-cognitive-service-endpoint}/healthinsights/trialmatcher/jobs/{job-id}?api-version=2022-01-01-preview
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 ```
