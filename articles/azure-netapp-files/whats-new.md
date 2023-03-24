@@ -19,6 +19,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
+
 ## March 2023
 
 * [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
