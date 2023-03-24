@@ -42,8 +42,8 @@ Use the following steps to build and deploy the sample applications.
    ```azurecli
    az spring app create \
        --resource-group ${resource-group-name} \
-       --name resilience4j \
        --service ${Azure-Spring-Apps-instance-name} \
+       --name resilience4j \
        --assign-endpoint
    az spring app create \
        --resource-group ${resource-group-name} \
