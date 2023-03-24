@@ -350,6 +350,11 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 2. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
 
     ```csharp
+    using Azure;
+    using Azure.Core;
+    using Azure.Identity;
+    using Azure.Monitor.Ingestion;
+
     // Initialize variables
     var endpoint = new Uri("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com");
     var ruleId = "dcr-00000000000000000000000000000000";
