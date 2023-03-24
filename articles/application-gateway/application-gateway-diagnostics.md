@@ -167,7 +167,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
-|clientResponseTime| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and the first byte sent in the response to the client. |
+|clientResponseTime| Time difference  (in **seconds**) between first byte received from the backend to first byte sent to the client. |
 |timeTaken| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
 |WAFMode| Value can be either Detection or Prevention |
