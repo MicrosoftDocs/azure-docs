@@ -12,7 +12,7 @@ ms.custom: include file
 
 #### [Sync](#tab/sync)
 
-:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
+:::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" range="20":::
 
 #### [Async](#tab/async)
 
