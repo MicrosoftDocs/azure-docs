@@ -43,18 +43,11 @@ The format of the request body for version 2020-08-15 is as follows:
 
 # [Azure PowerShell](#tab/powershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod-Path](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
-Invoke-AzRestMethod
-  -ResourceGroupName resourceGroupName 
-  -Name "machineName" 
-  -ResourceProviderName "Microsoft.HybridCompute" 
-  -ResourceType "machines" 
-  -ApiVersion 2020-08-15-preview
-  -Payload '{      
-      }' 
-  -Method POST
+Invoke-AzRestMethod-Path
+  "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/assessPatches?api-version=2020-08-15-preview" -Payload '{}' -Method POST
 ```
 
 ---
