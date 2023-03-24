@@ -31,7 +31,6 @@ You enter supported Hive CLI commands by invoking Beeline using the Hive keyword
 
 :::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URL output." border="true" lightbox="./media/apache-hive-migrate-workloads/jdbc-url.png":::
 
-
 Use Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, includes:
 
 1. Instead of maintaining the entire Hive code base, you can maintain only the JDBC client.
@@ -331,8 +330,8 @@ If multiple clusters share the same storage and HMS DB, then we should enable au
 
 Tune Metastore to reduce their CPU usage.
 1. Disable transactional event listeners. 
-> [!NOTE] 
-> Perform the following steps, only if the hive replication feature not used.
+   > [!NOTE] 
+   > Perform the following steps, only if the hive replication feature not used.
 
    1. From Ambari UI, **remove the value for hive.metastore.transactional.event.listeners**.
    1. Default Value: `org.apache.hive.hcatalog.listener.DbNotificationListener`
@@ -350,8 +349,8 @@ Tune Metastore to reduce their CPU usage.
    1.	Increase the partition repair frequency. 
 
 1. From Ambari UI, increase the value of “metastore.partition.management.task.frequency”  (in seconds).
-> [!NOTE]
-> This change can delay the visibility of some of the partitions ingested into storage.
+   > [!NOTE]
+   > This change can delay the visibility of some of the partitions ingested into storage.
 
    1. Default Value: `60`
    1. Proposed value: `3600` 
