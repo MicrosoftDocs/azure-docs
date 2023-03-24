@@ -26,6 +26,12 @@ Azure Functions is the data collection engine for Azure Monitor for SAP solution
 
 For more information, see how to [integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 
+## Using Custom DNS for Virtual Network
+
+This section only applies to if you are using Custom DNS for your Virtual Network. Add the IP Address 168.63.129.16 which points to Azure DNS Server. This will resolve the storage account and other resource urls which are required for proper functioning of Azure Monitor for SAP Solutions. see below reference image.
+
+![Custom DNS Setting ]([../../media/setup%20network/adding_custom_dns.png)
+
 ## Configure outbound internet access
 
 > [!IMPORTANT]
