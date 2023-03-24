@@ -22,6 +22,8 @@ By using a pipeline component, the author can focus on developing sub-tasks and 
 
 In this article, you'll learn how to use pipeline component in Azure Machine Learning pipeline.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites 
 
 - Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
