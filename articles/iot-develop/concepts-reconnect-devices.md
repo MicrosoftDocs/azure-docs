@@ -13,7 +13,7 @@ ms.custom: template-concept
 This article describes strategies that developers can use to reconnect devices to Azure IoT Hub.  It explains why devices disconnect and need to reconnect. And it offers a strategy to connect devices whether you use IoT Hub alone, or IoT Hub with Azure IoT Device Provisioning Service (DPS). 
 
 ## What causes disconnections
-The most common reasons that devices disconnect from IoT Hub are the following:
+The following are the most common reasons that devices disconnect from IoT Hub: 
 
 - Expired SAS token or X.509 certificate. The device's SAS token or X.509 authentication certificate expired. 
 - Network interruption. The device's connection to the network is interrupted.
@@ -22,57 +22,74 @@ The most common reasons that devices disconnect from IoT Hub are the following:
 
 ## Why you need a reconnect strategy
 
-It's important to have a strategy to reconnect devices because there are three scenarios that could negatively impact your solution. 
+It's important to have a strategy to reconnect devices because there are several scenarios that could negatively affect your solution. 
 
 ### Mass reconnection attempts could cause a DDoS
 
-For large fleets of devices numbering in the millions, a high number of connection attempts per second causes a condition similar to a distributed denial-of-service attack (DDoS). The issue can potentially extend beyond the tenant that owns the fleet,  and affect the entire scale-unit.  A DDoS could drive a large cost increase for your Azure IoT Hub resources, due to a need to scale out.  A DDoS could also hurt your solution's performance due to resource starvation. In the worse case, a DDoS can  cause service interruption. 
+A high number of connection attempts per second can cause a condition similar to a distributed denial-of-service attack (DDoS). This scenario is relevant for large fleets of devices numbering in the millions. The issue can extend beyond the tenant that owns the fleet, and affect the entire scale-unit. A DDoS could drive a large cost increase for your Azure IoT Hub resources, due to a need to scale out.  A DDoS could also hurt your solution's performance due to resource starvation. In the worse case, a DDoS can cause service interruption. 
 
 ### Hub failure or reconfiguration
 
-Requiring device to be re-provisioned to another Hub - [IoT Hub high availability and disaster recovery](https://learn.microsoft.com/azure/iot-hub/iot-hub-ha-dr).
+After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices will disconnect. For proper failover, devices must reconnect.  To learn more about failover options, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
 
-### Limit re-provisioning to reduce costs
+### Limit reprovisioning to reduce costs
 
-DPS has a per provisioning cost: [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
+After devices disconnect from one IoT hub and reconnect to another, they must be reprovisioned. If you use IoT Hub with DPS, DPS has a per provisioning cost. If you reprovision many devices on DPS, it increases the cost of your IoT solution. To learn more about DPS provisioning costs, see [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
-## Reconnection concepts
+## Reconnection concepts for DPS
 
-1. Backoff with jitter (hub + dps)
-1. Retriaable vs non retriable (DPS only)
+To reconnect devices when you use DPS, it's helpful to understand several background concepts. 
 
-    Non-retriable: 401, Unauthorized or 403, Forbidden or 404, Not Found
+- Backoff with jitter (for IoT Hub with DPS).  For connectivity issues at all layers (TCP, TLS, MQTT), and cases where there's no `retry-after` response sent by the service, you can use an exponential back-off with random jitter function. The `az_iot_retry_calc_delay` function is available in the [azure-iot-common package](https://www.npmjs.com/package/azure-iot-common).
+
+    ```javascript
+    // The previous operation took operation_msec.
+    // The application calculates random_jitter_msec between 0 and max_random_jitter_msec.
+            
+    int32_t delay_msec = az_iot_calculate_retry_delay(operation_msec, attempt, min_retry_delay_msec, max_retry_delay_msec, random_jitter_msec);
+    ```
+    
+- Connections you can retry versus connections you can't (for DPS only). With DPS, some disconnected devices can't reconnect.  Devices that can't reconnect receive the following HTTP responses from the service:
+    - 401
+    - Unauthorized or 403
+    - Forbidden or 404
+    - Not Found
   
-1. Fallback to DPS after 10 retry attempts (DPS only)
+- Fall back to DPS after 10 retry attempts (for DPS only). With DPS, we recommend that you use a `MAX_HUB_RETRY` (with the default set to 10) to handle cases where Microsoft Edge, Azure Stack, or IoT Hub changed the endpoint information.
 
 ## Hub reconnection flow
 
-When disconnected from Hub:
+If you use IoT Hub only without DPS, use the following reconnection strategy.  
 
-1. Utilize exponential backoff with jitter delay
-1. Reconnect to Hub
+When a device fails to connect to IoT Hub:
+
+1. Use an exponential back-off with jitter delay function. 
+1. Reconnect to IoT Hub. 
 
 The following diagram summarizes the reconnection flow:
 
 :::image type="content" source="media/concepts-reconnect-devices/connect-retry-iot-hub.png" alt-text="Diagram of device reconnect flow for IoT Hub." border="false":::
 
 
-## Hub + DPS reconnection flow
+## Hub with DPS reconnection flow
 
-When DPS connection failure:
+If you use IoT Hub with DPS, use the following reconnection strategy.  
 
-1. Utilize expononential backoff with jitter delay
-1. Reprovision to DPS
+When a device fails to connect to DPS: 
+1. Use an exponential back-off with jitter delay function. 
+1. Reprovision the device to DPS. 
 
-When Hub connection failure:
+When a device fails to connect to IoT Hub, you can reconnect based on the following cases. 
 
-1. If it's a retriable error (500)
-    * Utilize expononential backoff with jitter delay
-    * Reconnect to Hub
-1. If it's a retriable error, but reconnect has failure 10 times consecutively
-    * Reprovision to DPS
-1. If its a non-retriable error (401, Unauthorized or 403, Forbidden or 404, Not Found)
-    * Reprovision to DPS
+If it's an error that allows retried connections (HTTP response code 500):
+1. Use an exponential back-off with jitter delay function. 
+1. Reconnect to IoT Hub. 
+
+If it's an error that allows retried connections, but reconnection has failed 10 consecutive times: 
+- Reprovision the device to DPS. 
+
+If it's an error that doesn't allow retries (HTTP responses 401, Unauthorized or 403, Forbidden or 404, Not Found):
+- Reprovision the device to DPS. 
 
 The following diagram summarizes the reconnection flow:
 
