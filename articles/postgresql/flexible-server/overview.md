@@ -16,9 +16,9 @@ ms.custom: mvc, references_regions, ignite-2022
 
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
-- [Single Server](../overview-single-server.md)
 - [Flexible Server](./overview.md) 
-
+- [Single Server](../overview-single-server.md) 
+   
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
 
@@ -89,8 +89,8 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| China East 3 | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: | 
-| China North 3 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| China East 3 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: | 
+| China North 3 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
@@ -166,3 +166,4 @@ In addition, consider the following points of contact as appropriate:
 ## Next steps
 
 Now that you've read an introduction to Azure Database for PostgreSQL flexible server deployment mode, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+

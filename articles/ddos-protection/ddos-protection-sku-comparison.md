@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 01/17/2023
+ms.date: 03/20/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -25,9 +25,6 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
 > [!NOTE]
 > DDoS IP Protection is currently only available in Azure Preview PowerShell.
-
-> [!NOTE]
-> Protecting a public IP resource attached to a Public Load Balancer is not supported for DDoS IP Protection SKU.
 
 ## SKUs
 
@@ -63,5 +60,6 @@ The following table shows features and corresponding SKUs.
 
 ## Next steps
 
-* [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)
 * [Azure DDoS Protection features](ddos-protection-features.md)
+* [Reference architectures](ddos-protection-reference-architectures.md)
+

@@ -375,16 +375,20 @@
           href: dotnet-isolated-in-process-differences.md
     - name: F#
       href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+    - name: Node.js
+      items:
+        - name: JavaScript
+          href: functions-reference-node.md
+        - name: TypeScript
+          href: functions-reference-node.md#typescript
+        - name: Upgrade to model v4.x
+          href: functions-node-upgrade-v4.md
     - name: Java
       href: functions-reference-java.md
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
       href: functions-reference-python.md
-    - name: TypeScript
-      href: functions-reference-node.md#typescript
 - name: How-to guides
   items:
     - name: Develop
