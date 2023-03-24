@@ -24,7 +24,7 @@ Latte and SockPerf measure only TCP or UDP payload delivery times. These tools u
 1. Create a two-way communications channel between the computers by designating one as sender and one as receiver.
 1. Send and receive packets in both directions and measure the round-trip time (RTT).
 
-## Tips and best practices for optimizing network latency
+## Tips and best practices to optimize network latency
 
 To optimize VMs for network latency, observe the following recommendations when you create the VMs:
 
@@ -63,7 +63,7 @@ Use the following procedures to install and test network latency with [Latte](ht
    netsh advfirewall firewall add rule program=<path>latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
    ```
 
-### Test latency between VMs
+### Run Latte on the VMs
 
 Run *latte.exe* from the Windows command line, not from PowerShell.
 
