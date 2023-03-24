@@ -151,7 +151,7 @@ Follow these steps to prepare data in a database and deploy the application.
 
 ### Create Database schema
 
-1. Open firewall to allow connection from current IP address
+1. Open a firewall to allow connection from your current IP address.
 
     ```azurecli
     # Create a temporary firewall rule to allow connections from your current machine to the MySQL server
