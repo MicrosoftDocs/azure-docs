@@ -22,11 +22,51 @@ In this article, you'll learn how to capture logs with Application Insights in .
 
 ## ASP.NET Core applications
 
-To add Application Insights logging to ASP.NET Core applications, use the `Microsoft.Extensions.Logging.ApplicationInsights` NuGet provider package.
+To add Application Insights logging to ASP.NET Core applications:
 
-1. Install the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] NuGet package.
+1. Install the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai].
 
 1. Add `ApplicationInsightsLoggerProvider`:
+
+# [.NET 6.0+](#tab/dotnet6)
+
+```csharp
+using Microsoft.Extensions.Logging.ApplicationInsights;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Logging.AddApplicationInsights(
+        configureTelemetryConfiguration: (config) => 
+            config.ConnectionString = builder.Configuration.GetConnectionString("APPLICATIONINSIGHTS_CONNECTION_STRING"),
+            configureApplicationInsightsLoggerOptions: (options) => { }
+    );
+
+builder.Logging.AddFilter<ApplicationInsightsLoggerProvider>("your-category", LogLevel.Trace);
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+```
 
 # [.NET 5.0](#tab/dotnet5)
 
@@ -72,46 +112,6 @@ namespace WebApplication
 }
 ```
 
-# [.NET 6.0+](#tab/dotnet6)
-
-```csharp
-using Microsoft.Extensions.Logging.ApplicationInsights;
-
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Logging.AddApplicationInsights(
-        configureTelemetryConfiguration: (config) => 
-            config.ConnectionString = builder.Configuration.GetConnectionString("APPLICATIONINSIGHTS_CONNECTION_STRING"),
-            configureApplicationInsightsLoggerOptions: (options) => { }
-    );
-
-builder.Logging.AddFilter<ApplicationInsightsLoggerProvider>("your-category", LogLevel.Trace);
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
-```
-
 ---
 
 With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, `ApplicationInsightsLoggerProvider` will provide them. Logged messages or exceptions will be sent to Application Insights. 
@@ -143,12 +143,50 @@ For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/lo
 
 ## Console application
 
-To add Application Insights logging to console applications, first install the following packages:
+To add Application Insights logging to console applications, first install the following NuGet packages:
 
-* [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] NuGet provider package.
-* [`Microsoft.Extensions.DependencyInjection`][nuget-ai] NuGet provider package.
+* [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai]
+* [`Microsoft.Extensions.DependencyInjection`][nuget-ai]
 
 The following example uses the Microsoft.Extensions.Logging.ApplicationInsights package and demonstrates the default behavior for a console application. The Microsoft.Extensions.Logging.ApplicationInsights package should be used in a console application or whenever you want a bare minimum implementation of Application Insights without the full feature set such as metrics, distributed tracing, sampling, and telemetry initializers.
+
+# [.NET 6.0+](#tab/dotnet6)
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+using var channel = new InMemoryChannel();
+
+try
+{
+    IServiceCollection services = new ServiceCollection();
+    services.Configure<TelemetryConfiguration>(config => config.TelemetryChannel = channel);
+    services.AddLogging(builder =>
+    {
+        // Only Application Insights is registered as a logger provider
+        builder.AddApplicationInsights(
+            configureTelemetryConfiguration: (config) => config.ConnectionString = "<YourConnectionString>",
+            configureApplicationInsightsLoggerOptions: (options) => { }
+        );
+    });
+
+    IServiceProvider serviceProvider = services.BuildServiceProvider();
+    ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+    logger.LogInformation("Logger is working...");
+}
+finally
+{
+    // Explicitly call Flush() followed by Delay, as required in console apps.
+    // This ensures that even if the application terminates, telemetry is sent to the back end.
+    channel.Flush();
+
+    await Task.Delay(TimeSpan.FromMilliseconds(1000));
+}
+```
 
 # [.NET 5.0](#tab/dotnet5)
 
@@ -199,44 +237,6 @@ namespace ConsoleApp
     }
 }
 
-```
-
-# [.NET 6.0+](#tab/dotnet6)
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-
-using var channel = new InMemoryChannel();
-
-try
-{
-    IServiceCollection services = new ServiceCollection();
-    services.Configure<TelemetryConfiguration>(config => config.TelemetryChannel = channel);
-    services.AddLogging(builder =>
-    {
-        // Only Application Insights is registered as a logger provider
-        builder.AddApplicationInsights(
-            configureTelemetryConfiguration: (config) => config.ConnectionString = "<YourConnectionString>",
-            configureApplicationInsightsLoggerOptions: (options) => { }
-        );
-    });
-
-    IServiceProvider serviceProvider = services.BuildServiceProvider();
-    ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-
-    logger.LogInformation("Logger is working...");
-}
-finally
-{
-    // Explicitly call Flush() followed by Delay, as required in console apps.
-    // This ensures that even if the application terminates, telemetry is sent to the back end.
-    channel.Flush();
-
-    await Task.Delay(TimeSpan.FromMilliseconds(1000));
-}
 ```
 
 ---
