@@ -326,10 +326,43 @@ Make sure to follow these steps after completing the migration.
 1. Regenerate stats on recreated tables as migration would have caused incorrect stats.
 
 **Cluster Health**
-1. If multiple clusters share the same storage and HMS DB, then we should enable auto-compaction/compaction threads only in one cluster and disable everywhere else.
-1. Follow metastore tuning 
-(shared earlier) to reduce their CPU usage.
 
+If multiple clusters share the same storage and HMS DB, then we should enable auto-compaction/compaction threads only in one cluster and disable everywhere else.
+
+Tune Metastore to reduce their CPU usage.
+1. Disable transactional event listeners – Do this only if the hive replication feature is not used.
+   1. From Ambari UI, **remove the value for hive.metastore.transactional.event.listeners**.
+   1. Default Value: `org.apache.hive.hcatalog.listener.DbNotificationListener`
+   1. New value: `<Empty>` 
+
+1. Disable Hive PrivilegeSynchronizer
+   1. From Ambari UI, **set hive.privilege.synchronizer = false.** 
+   1. Default Value: `true`
+   1. New value: `false` 
+
+1.	Optimize the partition repair feature 
+   1.	Disable partition repair - This feature is used to synchronize the partitions of Hive tables in storage location with Hive metastore. You may disable this feature if “msck repair” is used after the data ingestion. 
+   1. To disable the feature **add "discover.partitions=false"** under table properties using ALTER TABLE.
+      OR (if the feature cannot be disabled)
+   1.	Increase the partition repair frequency. 
+
+1. From Ambari UI, increase the value of “metastore.partition.management.task.frequency”  (in seconds). Please note, this change would delay the visibility of some of the partitions ingested into storage.
+   1. Default Value: `60`
+   1. Proposed value: `3600` 
+1. Advanced Optimizations
+The following options need to be tested in a lower(non-prod) environment before applying tin production.
+   1.	Remove the Materialized view related listener if Materialized view is not used.
+   1. From Ambari UI, **add a custom property (in custom hive-site.xml) and remove the unwanted background metastore threads**. 
+   1. Property name: **metastore.task.threads.remote**
+   1. Default Value: `N/A (it uses few class names internally)`
+   1. New value:
+`org.apache.hadoop.hive.metastore.txn.AcidHouseKeeperService,org.apache.hadoop.hive.metastore.txn.AcidOpenTxnsCounterService,org.apache.hadoop.hive.metastore.txn.AcidCompactionHistoryService,org.apache.hadoop.hive.metastore.txn.AcidWriteSetService,org.apache.hadoop.hive.metastore.PartitionManagementTask`
+1.	Disable the background threads if replication is disabled.
+      1. From Ambari UI, add a custom property (in custom hive-site.xml) and remove the unwanted threads. 
+      1. Property name: **metastore.task.threads.always**
+      1. Default Value: `N/A (it uses few class names internally)` 
+      1. New value: `org.apache.hadoop.hive.metastore.RuntimeStatsCleanerTask`
+ 
 **Query Tuning**
 1. Keep default configs of Hive to run the queries as they're tuned for TPC-DS workloads. Need query level tuning only if it fails or running slow. 
 1. Ensure stats are up to date to avoid bad plan or wrong results.
