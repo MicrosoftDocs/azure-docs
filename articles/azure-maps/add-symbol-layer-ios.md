@@ -175,7 +175,7 @@ map.images.add(.azm_markerRed, withID: "marker-red")
 let layer = SymbolLayer(source: source, options: [.iconImage("marker-red")])
 ```
 
-The code below lists all of the built-in icon images available as static variables of `UIImage` class.
+The code below lists the built-in icon images available as static variables of `UIImage` class.
 
 ```swift
 UIImage.azm_markerDefault // Dark blue
