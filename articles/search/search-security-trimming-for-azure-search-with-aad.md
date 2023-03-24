@@ -39,13 +39,13 @@ Your application must also be registered with Azure AD as a multi-tenant app, as
 
 This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you aren't a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
-1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
+1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory tenant.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
-1. Give the registration a name, perhaps a name that is similar to the search application name. Select **Register**.
+1. Give the registration a name, perhaps a name that's similar to the search application name. Select **Register**.
 
-1. Once the app registration is created, copy the Application ID. You'll need to provide this string to your application.
+1. Once the app registration is created, copy the Application (client) ID. You'll need to provide this string to your application.
 
    If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSecurityTrimming), paste this value into the **app.config** file.
 
@@ -63,7 +63,9 @@ This step integrates your application with Azure AD for the purpose of accepting
    - **Group.ReadWrite.All**
    - **User.ReadWrite.All**
 
-Microsoft Graph provides an API that allows programmatic access to Azure AD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
+    Microsoft Graph provides an API that allows programmatic access to Azure AD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
+
+1. Select **Grant admin consent for <tenant-name>** to complete the consent process.
 
 ## Create users and groups
 
