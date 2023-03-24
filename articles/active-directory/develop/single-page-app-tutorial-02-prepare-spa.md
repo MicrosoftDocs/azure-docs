@@ -10,7 +10,7 @@ ms.date: 02/27/2023
 #Customer intent: As a React developer, I want to know how to create a new React project in an IDE and add authentication.
 ---
 
-# Tutorial: Prepare an application for authentication
+# Tutorial: Prepare a Single-page application for authentication
 
 After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a single-page React application using `npm` and create files needed for authentication and authorization.
 
