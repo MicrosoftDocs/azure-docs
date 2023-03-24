@@ -14,7 +14,7 @@ ms.date: 03/23/2023
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
-Change Data Capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. The change data capture feature of the analytical store is seamlessly integrated with Azure Synapse and Azure Data Factory, providing you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
+Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. The change data capture feature of the analytical store is seamlessly integrated with Azure Synapse and Azure Data Factory, providing you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
 
 :::image type="content" source="media\analytical-store-change-data-capture\overview-diagram.png" alt-text="Diagram of the analytical store in Azure Cosmos DB and how it, with change data capture, can write to various first and third-party target services.":::
 
@@ -28,15 +28,19 @@ In addition to providing incremental data feed from analytical store to diverse 
 - There's no limitation around the fixed data retention period for which changes are available
 - Multiple change feeds on the same container can be consumed simultaneously
 
-## Support for capturing deletes and intermediate updates
+## Features
+
+Change data capture in Azure Cosmos DB analytical store supports the following key features.
+
+### Capturing deletes and intermediate updates
 
 The change data capture feature for the analytical store captures deleted records and the intermediate updates. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink.
 
-## Ability to filter the change feed for a specific type of operation
+## Filter the change feed for a specific type of operation
 
 You can filter the change data capture feed for a specific type of operation. For example, you can selectively capture the insert and update operations only, thereby ignoring the user-delete and TTL-delete operations.
 
-## Support for applying filters, projections, and transformations on the Change feed via source query
+### Applying filters, projections, and transformations on the Change feed via source query
 
 You can optionally use a source query to specify filter(s), projection(s), and transformation(s), which would all be pushed down to the columnar analytical store. Here's a sample source-query that would only capture incremental records with the filter `Category = 'Urban'`. This sample query projects only five fields and applies a simple transformation:
 
@@ -49,7 +53,7 @@ WHERE Category = 'Urban'
 > [!NOTE]
 > If you would like to enable source-query based change data capture on Azure Data Factory data flows during preview, please email [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) and share your **subscription Id** and **region**. This is not necessary to enable source-query based change data capture on an Azure Synapse data flow.
 
-## Throughput isolation, lower latency and lower TCO
+### Throughput isolation, lower latency and lower TCO
 
 Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
 
