@@ -17,10 +17,6 @@ This article will show you how to use multimedia redirection (MMR) for Azure Vir
 
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
->
->Multimedia redirection video playback redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). For more information, see [Prerequisites](#prerequisites).
-> 
->Multimedia redirection WebRTC calling redirection (preview) on Azure Virtual Deskto pis only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 ## Prerequisites
 
@@ -30,6 +26,10 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 - Microsoft Edge or Google Chrome installed on your session hosts.
 - Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 - Windows Desktop client, version 1.2.3916 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. This includes the multimedia redirection plugin (`C:\Program Files\Remote Desktop\MsMmrDVCPlugin.dll`), which is required on the client device. Your device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+
+To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
+
+To use MMR WebRTC calling redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 ## Install the multimedia redirection extension
 
@@ -227,9 +227,9 @@ When you enable video status overlay, you'll see a short message at the top of t
 
 1. Select the extension icon in your browser.
 
-2. Select **Show Advanced Settings**.
+1. Select **Show Advanced Settings**.
 
-3. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
+1. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
 
 ## Enable WebRTC calling redirection
 

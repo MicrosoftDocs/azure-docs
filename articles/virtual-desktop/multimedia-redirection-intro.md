@@ -10,17 +10,31 @@ manager: femila
 # Understanding multimedia redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Azure Virtual Desktop webRTC-based calls are currently in PREVIEW.
+> Multimedia Redirection WebRTC redirected calls are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multimedia redirection (MMR) gives you smooth video playback while watching videos and clear audio calls when making WebRTC based calls (preview) in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature. 
+Multimedia redirection (MMR) gives you smooth video playback and clear audio calls in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature.
 
-> [!NOTE]
-> Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
->
-> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). Multimedia redirection WebRTC calling redirection (preview) on Azure Virtual Desktop is only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+MMR also has two key features:
+
+- Video playback redirection, which optimizes video playback experience for streaming sites and websites with embedded videos like YouTube and Facebook. For more information about which sites are compatible with this feature, see [Video playback redirection](#video-playback-redirection).
+- WebRTC calling redirection (preview), which optimizes audio calls for WebRTC-based calling apps like Content Guru Storm. For more information about which sites are compatible with this feature, see [WebRTC call redirection](#webrtc-call-redirection).
+
+## Prerequisites
+
+In order to use MMR for Azure Virtual Desktop, you need:
+
+- The Windows Desktop client.
+- A Windows 11, Windows 10, or Windows 10 IoT Enterprise device.
+
+To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
+
+To use MMR WebRTC calling redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 <!--Which version?-->
+
+> [!NOTE]
+> MMR isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 
 ## Websites that work with multimedia redirection
 
@@ -77,14 +91,14 @@ The following sites work with video playback redirection:
    :::column-end:::
 :::row-end:::
 
-### WebRTC call redirection
+### WebRTC calling redirection
 
-The following sites work with webRTC call redirection:
+The following sites work with webRTC calling redirection:
 
 - WebRTC Sample Site 
 - Content Guru Storm 
 - Intermedia AnyMeeting 
-- Azure Communication Service-based calling apps, such as Dynamics 365 Omnichannel Voice
+- Dynamics 365 Omnichannel Voice
 
 Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a supported browser, MMR is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. MMR supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
