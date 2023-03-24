@@ -345,7 +345,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e, Windows metric collection has been
        kubectl apply -f windows-exporter-daemonset.yaml
    ```
 
-1. Apply the [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) to your cluster. Set the `windowsexporter` and `windowskubeproxy` Booleans to `true`. For more information, see [Metrics addon settings configmap](./prometheus-metrics-scrape-configuration.md#metrics-addon-settings-configmap).
+1. Apply the [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) to your cluster. Set the `windowsexporter` and `windowskubeproxy` Booleans to `true`. For more information, see [Metrics add-on settings configmap](./prometheus-metrics-scrape-configuration.md#metrics-add-on-settings-configmap).
 1. Enable the recording rules required for the default dashboards:
 
    * For the CLI, include the option `--enable-windows-recording-rules`.
@@ -355,48 +355,48 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e, Windows metric collection has been
 
 ## Verify deployment
 
-Run the following command to verify that the DaemonSet was deployed properly on the Linux node pools:
+1. Run the following command to verify that the DaemonSet was deployed properly on the Linux node pools:
 
-```
-kubectl get ds ama-metrics-node --namespace=kube-system
-```
+    ```
+    kubectl get ds ama-metrics-node --namespace=kube-system
+    ```
 
-The number of pods should be equal to the number of nodes on the cluster. The output should resemble the following example:
+    The number of pods should be equal to the number of nodes on the cluster. The output should resemble the following example:
+    
+    ```
+    User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
+    NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+    ama-metrics-node   1         1         1       1            1           <none>          10h
+    ```
 
-```
-User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
-NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-ama-metrics-node   1         1         1       1            1           <none>          10h
-```
+1. Run the following command to verify that the DaemonSet was deployed properly on the Windows node pools:
 
-Run the following command to verify that the DaemonSet was deployed properly on the Windows node pools:
+    ```
+    kubectl get ds ama-metrics-win-node --namespace=kube-system
+    ```
+    
+    The output should resemble the following example:
+    
+    ```
+    User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
+    NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+    ama-metrics-win-node   3         3         3       3            3           <none>          10h
+    ```
 
-```
-kubectl get ds ama-metrics-win-node --namespace=kube-system
-```
+1. Run the following command to verify that the ReplicaSets were deployed properly:
 
-The output should resemble the following example:
-
-```
-User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
-NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-ama-metrics-win-node   3         3         3       3            3           <none>          10h
-```
-
-Run the following command to verify that the ReplicaSets were deployed properly:
-
-```
-kubectl get rs --namespace=kube-system
-```
-
-The output should resemble the following example:
-
-```
-User@aksuser:~$kubectl get rs --namespace=kube-system
-NAME                            DESIRED   CURRENT   READY   AGE
-ama-metrics-5c974985b8          1         1         1       11h
-ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
-```
+    ```
+    kubectl get rs --namespace=kube-system
+    ```
+    
+    The output should resemble the following example:
+    
+    ```
+    User@aksuser:~$kubectl get rs --namespace=kube-system
+    NAME                            DESIRED   CURRENT   READY   AGE
+    ama-metrics-5c974985b8          1         1         1       11h
+    ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
+    ```
 
 ## Feature support
 
@@ -413,26 +413,26 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ## Uninstall the metrics add-on
 Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.
 
-Install the `aks-preview` extension by using the following command:
+1. Install the `aks-preview` extension by using the following command:
 
-```
-az extension add --name aks-preview
-```
+    ```
+    az extension add --name aks-preview
+    ```
+    
+    For more information on installing a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    
+    > [!NOTE]
+    > Upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is at least '0.5.132'. Find your current version by using the `az version`.
+    
+    ```azurecli
+    az extension add --name aks-preview
+    ```
 
-For more information on installing a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+1. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster, along with the DCRA that links the data collection endpoint or data collection rule with your cluster. This action doesn't remove the data collection endpoint, data collection rule, or the data already collected and stored in your Azure Monitor workspace.
 
-> [!NOTE]
-> Upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is at least '0.5.132'. Find your current version by using the `az version`.
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster, along with the DCRA that links the data collection endpoint or data collection rule with your cluster. This action doesn't remove the data collection endpoint, data collection rule, or the data already collected and stored in your Azure Monitor workspace.
-
-```azurecli
-az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
-```
+    ```azurecli
+    az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
+    ```
 
 ## Region mappings
 When you allow a default Azure Monitor workspace to be created when you install the metrics add-on, it's created in the region listed in the following table.
