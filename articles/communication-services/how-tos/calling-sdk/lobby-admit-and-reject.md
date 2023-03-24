@@ -44,7 +44,7 @@ You can also reject specific user to the Teams meeting from lobby by calling the
 
 ```js
 const teamsUserIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
-const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
+const userIdentifier = { communicationUserId: '<COMMUNICATION_SERVICES_USER_ID>' };
 const phoneUserIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
 await call.rejectParticipant(teamsUserIdentifier);
 await call.rejectParticipant(userIdentifier);
