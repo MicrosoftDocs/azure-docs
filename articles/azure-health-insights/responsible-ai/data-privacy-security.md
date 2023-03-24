@@ -17,7 +17,7 @@ ms.author: behoorne
 This article provides high level details regarding how Azure Health Insights processes data provided by customers. As an important reminder, you're responsible for the implementation of your use case and are required to obtain all necessary permissions or other proprietary rights required to process the data you send to the system. It's your responsibility to comply with all applicable laws and regulations in your jurisdiction.
 
 
-## What data does it process and how?:  
+## What data does it process and how?  
 
 Azure Health Insights:
 - processes text from the patient's clinical documents that are sent by the customer to the system for the purpose of inferring cancer attributes. 

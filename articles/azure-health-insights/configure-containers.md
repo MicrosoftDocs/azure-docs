@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Health Insights containers
 titleSuffix: Azure Health Insights
-description: Azure Health Insights containers uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+description: Azure Health Insights containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -67,11 +67,11 @@ The `Eula` setting indicates that you've accepted the license for the container.
 |--|------|-----------|-------------|
 |Yes| `Eula` | String | License acceptance **Example:** `Eula=accept` |
 
-Azure Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container you agree to these terms.
+Azure Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you don't have an existing agreement governing your use of Azure, you agree that your agreement use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container you agree to these terms.
 
 ## Logging settings
  
-The `Logging` settings manages logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core applications. 
+The `Logging` settings manage logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core applications. 
 
 The following logging providers are supported by the container:
 

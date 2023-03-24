@@ -20,7 +20,7 @@ Azure Health Insights OncoPhenotype model was trained with labels that conform t
 
 You can find an overview of the response values here: 
 
-**Inference type** |**Description**                       |**Vamues**                              
+**Inference type** |**Description**                       |**Values**                              
 -------------------|--------------------------------------|----------------------------------------
 tumorSite          |The tumor site                        |`None, ICD-O-3 tumor site code (C__. \_ )`
 histology          |The histology code                    |`None, 4-digit ICD-O-3 histology code`    
@@ -38,7 +38,7 @@ Each inference has an attribute called ```confidenceScore```  that expresses the
 
 ## Importance
 
-When you set the ```includeEvidence``` property to ```true```, each evidence property will have an ```importance``` attribute that expresses how important that evidence was to predicting the inference value, ranging from 0 to 1. A higher importance value indicates that the model relied more on that specific evidence.
+When you set the ```includeEvidence``` property to ```true```, each evidence property has an ```importance``` attribute that expresses how important that evidence was to predicting the inference value, ranging from 0 to 1. A higher importance value indicates that the model relied more on that specific evidence.
 
 ## Next steps
 

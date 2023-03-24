@@ -14,12 +14,12 @@ ms.author: behoorne
 
 # Quickstart: Deploy Azure Health Insights using the Azure portal
 
-In this quickstart, you'll learn how to deploy Azure Health Insights using the Azure portal.
+In this quickstart, you learn how to deploy Azure Health Insights using the Azure portal.
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure Health Insights, and retrevie the needed details  such your service URL, keys and manage your access controls.
+Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
 
 ## Prerequisite 
-To deploy Azure Health Insights you must register your subscription. Please let us know the Azure subscription ID you plan to use for Azure Health Insights so that we can register necessary feature flags on our end.
+To deploy Azure Health Insights, you must register your subscription. Let us know the Azure subscription ID you plan to use for Azure Health Insights so that we can register necessary feature flags on our end.
 
 ## Deploy Azure Health Insights
 

@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # OncoPhenotype model configuration
 
-To interact with the OncoPhenotype model you can provide several model configurations parameters that will modify the outcome of the responses.
+To interact with the OncoPhenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
@@ -47,7 +47,7 @@ If a case is found in the provided clinical documents and the model is able to f
 
 ### With case finding 
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model will check for a cancer case but not include the evidence.
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
 
 ```json
 Request: 
@@ -143,7 +143,7 @@ Response:
 ```
 ### Without case finding 
 
-The following example represents a case wihtout a finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model will check for a cancer case but not include the evidence.
+The following example represents a case without a finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
 ```json
 Request: 
 {
@@ -194,7 +194,7 @@ Response:
 
 Through the model configuration, the API allows you to seek evidence from the provided clinical documents as part of the inferences.
 
-**Include evidence** | **Behavioir**                                  
+**Include evidence** | **Behavior**                                  
 ------------------- | ----------------------------------------------
 true                | Evidence is returned as part of each inference     
 false               | No evidence is returned                           
@@ -202,7 +202,7 @@ false               | No evidence is returned
 
 ## Evidence example
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```true```. Meaning the model will check for a cancer case  and include the evidence.
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```true```. Meaning the model checks for a cancer case  and include the evidence.
 
 ```json 
 Request:

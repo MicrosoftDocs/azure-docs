@@ -22,7 +22,7 @@ To use the OncoPhenotype model, you must have a Cognitive Services account creat
 Once deployment is complete, you use the Azure portal to navigate to the newly created Cognitive Services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 
 
-## Sumbit a request and get results
+## Example request and results
 
 To send an API request, you need your Cognitive Services account endpoint and key. You can also find a full view on the [request parameters here](../request-info.md)
 
@@ -153,7 +153,7 @@ More information on the [response information can be found here](../response-inf
 ## Request validation
 
 Every request has required and optional fields that should be provided to the OncoPhenotype model.
-When you are sending data to the model, please make sure that you take the following into account:
+When you're sending data to the model, make sure that you take the following properties into account:
 
 Within a request:
 - ```patients``` should be set

@@ -23,7 +23,7 @@ Azure Health Insights is a Cognitive Service providing an API that serves insigh
 Health and Life Sciences organizations have multiple high-value business problems that require clinical insights inferences that are based on clinical data. 
 Azure Health Insights is a Cognitive Service that provides prebuilt models that assist with solving those business problems.
 
-## Available decision dupport models
+## Available decision support models
 
 There are currently two models available in Azure Health Insights: 
 

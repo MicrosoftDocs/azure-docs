@@ -158,18 +158,21 @@ The gradual Matching uses patient information for matching, including demographi
 
 Other clinical information is derived from the eligibility criteria found in the subset of trials within the query. The model selects **up to three** most differentiating concepts, that is, that helps the most in qualifying the patient. The model will only indicate concepts that appear in trials and won't suggest collecting information that isn't required and won't help in qualification.
 
-When finding potential eligible patients to a clinical trial, same concept of needed clinical info will be provided. In this case, the three most differentiating concepts for the clinical trial provided will be selected. In case more than one trial was provided, three concepts for all the clinical trials provided will be selected. 
+When you match potential eligible patients to a clinical trial, the same concept of needed clinical info will need to be provided. 
+In this case, the three most differentiating concepts for the clinical trial provided are selected. 
+In case more than one trial was provided, three concepts for all the clinical trials provided are selected. 
 
 - Customers are expected to use the provided ```UMLSConceptsMapping.json``` file to map each selected concept with the expected answer type. Customers can also use the suggested question text to generate questions to users. Question text can also be edited and/or localized by customers.
 
-- When sending patient information back to the Trial Matcher, customers can also send a ```null``` value to any concept. This instructs the Trial Matcher to skip that concept, ignore it in patient qualification and instead send the next differentiating concept in the response.
+- When you send patient information back to the Trial Matcher, you can also send a ```null``` value to any concept. 
+This instructs the Trial Matcher to skip that concept, ignore it in patient qualification and instead send the next differentiating concept in the response.
 
 > [!IMPORTANT]
 > Typically, when using gradual Matching, the first request to the Trial Matcher will include a list of ```registryFilters``` based on customer configuration and user responses (e.g. condition and location). The response to the initial request will include a list of trial ```ids```. To improve performance and reduce latency, the trial ```ids``` should be used in consecutive requests directly (utilizing the ```ids``` registryFilter), instead of the original ```registryFilters``` that were used.
 
 
 ## Category concepts
-There are five different categories that can used as concepts:
+There are five different categories that are used as concepts:
 -	UMLS concept ID that represents a single concept
 -	UMLS concept ID that represents multiple related concepts
 - Textual concepts
