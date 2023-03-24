@@ -7,8 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 01/30/2023
+ms.topic: how-to
+ms.date: 03/24/2023
 ms.custom: devx-track-csharp
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
@@ -16,6 +16,7 @@ ms.custom: devx-track-csharp
 This article demonstrates how to use Azure Active Directory (AD) security identities together with filters in Azure Cognitive Search to trim search results based on user group membership.
 
 This article covers the following tasks:
+
 > [!div class="checklist"]
 > - Create Azure AD groups and users
 > - Associate the user with the group you have created
@@ -30,7 +31,7 @@ This article covers the following tasks:
 
 Your index in Azure Cognitive Search must have a [security field](search-security-trimming-for-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
 
-You must have Azure AD administrator permissions (Owner or administrator), required in this walkthrough for creating users, groups, and associations. 
+You must have Azure AD administrator permissions (Owner or administrator) to create users, groups, and associations. 
 
 Your application must also be registered with Azure AD as a multi-tenant app, as described in the following procedure.
 
@@ -46,7 +47,7 @@ This step integrates your application with Azure AD for the purpose of accepting
 
 1. Once the app registration is created, copy the Application ID. You'll need to provide this string to your application.
 
-   If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), paste this value into the **app.config** file.
+   If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSecurityTrimming), paste this value into the **app.config** file.
 
    Repeat for the Tenant ID.
 

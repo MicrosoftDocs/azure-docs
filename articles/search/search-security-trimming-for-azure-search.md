@@ -7,50 +7,50 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/24/2023
 ---
 
 # Security filters for trimming results in Azure Cognitive Search
 
-Cognitive Search doesn't provide document-level permissions and can't vary search results based on user permissions. As a workaround, you can create a filter that trims search results based on a string consisting of user identity information.
+Cognitive Search doesn't provide document-level permissions and can't vary search results from the within the same index by user permissions. As a workaround, you can create a filter that trims search results based on a string containing a group or user identity.
 
 This article describes a pattern for security filtering that includes following steps:
 
 > [!div class="checklist"]
-> * Assemble source documents that contain the required content
-> * Create a field in your search index to contain the principal identifiers 
+> * Assemble source documents with the required content
+> * Create a field for the principal identifiers 
 > * Push the documents to the search index for indexing
-> * Query the index with `search.in` filter function
+> * Query the index with the `search.in` filter function
 
-## Choosing the security filter pattern
+## About the security filter pattern
 
-Although Cognitive Search doesn't integrate with security subsystems at query time, many customers who have document-level security requirements have found that filters can meet their needs.
+Although Cognitive Search doesn't integrate with security subsystems for access to content within an index, many customers who have document-level security requirements have found that filters can meet their needs.
 
-In Cognitive Search, a security filter is a regular OData filter that includes or excludes a search result based on a matching value. The security principal is just a string. There's no authentication or authorization. The service uses the string as filter criteria to include or exclude a document from the search results.
+In Cognitive Search, a security filter is a regular OData filter that includes or excludes a search result based on a matching value, except that in a security filter, the criteria is a string consisting of a security principal. There's no authentication or authorization through the security principal. The principal is just a string, used in a filter expression, to include or exclude a document from the search results.
 
 There are several ways to achieve security filtering. One way is through a complicated disjunction of equality expressions: for example, `Id eq 'id1' or Id eq 'id2'`, and so forth. This approach is error-prone, difficult to maintain, and in cases where the list contains hundreds or thousands of values, slows down query response time by many seconds. 
 
-A better solution is using the `search.in` function for security filters. This solution is described in this article. If you use `search.in(Id, 'id1, id2, ...')` instead of an equality expression, you can expect subsecond response times.
+A better solution is using the `search.in` function for security filters, as described in this article. If you use `search.in(Id, 'id1, id2, ...')` instead of an equality expression, you can expect subsecond response times.
 
 ## Prerequisites
 
-* You must have a [search index](search-what-is-an-index.md) that you can modify. 
+* The field containing group or user identity must be a string with the "filterable" attribute. It should be a collection. It shouldn't allow nulls.
 
-* You must also have source documents that include a field containing a group or user identity having access to the document. This information becomes the filter criteria against which documents are selected or rejected from the result set returned to the issuer. In the following JSON documents, the "security_id" fields contain an identity string that can be used in a security filter.
+* Other fields in the same document should provide the content that's accessible to that group or user. In the following JSON documents, the "security_id" fields contain identities used in a security filter, and the name, salary, and marital status will be included if the identity of the caller matches the "security_id" of the document.
 
     ```json
     {  
         "Employee-1": {  
             "id": "000-0000-00-0-00000-1",
-            "name": "Sanchez",   
+            "name": "Abram",   
             "salary": 75000,   
             "married": true,
             "security_id": "10011"
         },
         "Employee-2": {  
             "id": "000-0000-00-0-00000-2",
-            "name": "Smith",   
+            "name": "Adams",   
             "salary": 75000,   
             "married": true,
             "security_id": "20022"
@@ -59,7 +59,7 @@ A better solution is using the `search.in` function for security filters. This s
     ```
 
    >[!NOTE]
-   > The process of retrieving the principal identifiers and injecting those strings into source documents that can be indexed by Cognitive Search isn't covered in this article. See the documentation of your identity service provider for help with obtaining identifiers.
+   > The process of retrieving the principal identifiers and injecting those strings into source documents that can be indexed by Cognitive Search isn't covered in this article. Refer to the documentation of your identity service provider for help with obtaining identifiers.
 
 ## Create security field
 
