@@ -43,16 +43,20 @@ After receiving the error message, you have two options:
 - Remove usage on your end and wait 12 hours for the current record to expire.
 - Bypass the validation to ignore API changes.
 
-## Fail fast on minor version manual upgrades in AKS
-
-When manually updating a minor Kubernetes version, checks will be run to detect API breaking changes. If you attempt an upgrade and the checks detect usage on a deprecated API in the goal version, you can either remove usage on your end or bypass the validation to ignore API changes.
-
 ### Remove usage on API breaking changes
 
-To remove usage on API breaking changes, update the `"properties":` block of `Microsoft.ContainerService/ManagedClusters` `PUT` operation with the following settings:
+Remove usage on API breaking changes using the following steps:
+
+1. Remove the deprecated API, which is listed in the error message.
+2. Wait 12 hours for the current record to expire.
+3. Retry your cluster upgrade.
+
+### Bypass validation to ignore API changes
+
+To bypass validation to ignore API breaking changes, update the `"properties":` block of `Microsoft.ContainerService/ManagedClusters` `PUT` operation with the following settings:
 
 > [!NOTE]
-> The date and time you specify for `"until"` has to be in the future. `Z` stands for timezone. The following example is in GMT.
+> The date and time you specify for `"until"` has to be in the future. `Z` stands for timezone. The following example is in GMT. For more information, see [Combined date and time representations](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
 ```
 {
@@ -69,28 +73,6 @@ To remove usage on API breaking changes, update the `"properties":` block of `Mi
 }
 ```
 
-After updating the properties, you must wait 12 hours for the current record to expire.
-
-### Bypass validation to ignore API changes
-
-To override fail fast on control plane minor version manual upgrades in AKS, use the [`az aks upgrade`][az-aks-upgrade] command with the `--ignore-api-changes` parameter.
-
-```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes_version KUBERNETES_VERSION --ignore-api-changes
-```
-
-To override *after* fail fast, use the [`az aks upgrade`][az-aks-upgrade] command.
-
-```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes_version KUBERNETES_VERSION
-```
-
-You'll receive a message prompting you to choose whether you want to proceed with the API breaking changes. This message will look similar to the following example message:
-
-```azurecli
-We detected the following API breaking changes in your service, do you wish to proceed Y/N?
-```
-
 ## Next steps
 
 In this article, you learned how to stop cluster upgrades on API breaking changes in AKS. To learn more about AKS cluster upgrades, see:
@@ -101,4 +83,3 @@ In this article, you learned how to stop cluster upgrades on API breaking change
 <!-- INTERNAL LINKS -->
 [upgrade-cluster]: upgrade-cluster.md
 [planned-maintenance-aks]: planned-maintenance.md
-[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
