@@ -39,7 +39,7 @@ Performance Monitor is part of Network Performance Monitor and is network monito
 
 * Monitor the health of the network, without the need for SNMP
 
-:::image type="content" source="./media/network-monitoring-overview/Network Performance Monitor-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
+:::image type="content" source="./media/network-monitoring-overview/npm-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
 
 For more information, view the following articles:
 
