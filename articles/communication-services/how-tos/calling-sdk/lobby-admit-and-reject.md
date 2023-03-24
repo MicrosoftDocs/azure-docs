@@ -51,7 +51,7 @@ await call.rejectParticipant(userIdentifier);
 await call.rejectParticipant(phoneUserIdentifier);
 ```
 
-If there are lots of users in the Teams meeting lobby, you can admit all users to the Teams meeting from lobby by calling the method `admitAll` on the object `TeamsCall` or `Call`. 
+You can also admit all users in the lobby by calling the method `admitAll` on the object `TeamsCall` or `Call`. 
 
 ```js
 await call.admitAll();
