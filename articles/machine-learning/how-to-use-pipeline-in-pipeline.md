@@ -68,7 +68,7 @@ You can use az ml component create or ml_client.components.create_or_update to r
 
 ### Using pipeline component to build pipeline job
 
-After register pipeline component, you can drag and drop pipeline component in designer canvas and use UI to build pipeline job.
+After you register the pipeline component, you can drag and drop the pipeline component into the designer canvas and use the UI to build pipeline job.
 
 :::image type="content" source="./media/how-to-use-pipeline-component/pipeline-component-authoring.png" alt-text="Screenshot of the designer canvas page to build pipeline job with pipeline component." lightbox= "./media/how-to-use-pipeline-component/pipeline-component-authoring.png":::
 
