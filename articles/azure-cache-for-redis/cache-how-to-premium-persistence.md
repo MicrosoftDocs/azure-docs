@@ -21,11 +21,9 @@ ms.date: 03/24/2023
 
 ## Scope of availability
 
-
 |Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
 |---------|---------|---------|---------|
 |Available  | No         | Yes        |  Yes (preview)  |
-
 
 ## Types of data persistence in Redis
 
@@ -128,8 +126,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 1. When you reach the **Advanced** tab, select either _RDB_ or _AOF_ options in the **(PREVIEW) Data Persistence** section.
 
-:::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
-<!-- **FRAN--Need to update this screenshot. Potentially just by adding a red box around the persistence section** -->
+    :::image type="content" source="media/cache-how-to-premium-persistence/cache-advanced-persistence.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab and Data persistence is highlighted with a red box.":::
 
 1. To enable RDB persistence, select **RDB** and configure the settings.
 
@@ -155,9 +152,10 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ### [Using PowerShell (Premium tier)](#tab/premium)
 
-The [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](/powershell/module/az.rediscache/new-azrediscache#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](/powershell/module/az.rediscache/new-azrediscache.md#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
+The [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) command can be used to create a new Premium-tier cache using data persistence. See examples for [RDB persistence](/powershell/module/az.rediscache/new-azrediscache#example-5-configure-data-persistence-for-a-premium-azure-cache-for-redis) and [AOF persistence](/powershell/module/az.rediscache/new-azrediscache#example-6-configure-data-persistence-for-a-premium-azure-cache-for-redis-aof-backup-enabled)
 
 Existing caches can be updated using the [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) command. See examples of [adding persistence to an existing cache](/powershell/module/az.rediscache/set-azrediscache#example-3-modify-azure-cache-for-redis-if-you-want-to-add-data-persistence-after-azure-redis-cache-created).
+
 
 ### [Using PowerShell (Enterprise tier)](#tab/enterprise)
 
@@ -191,13 +189,13 @@ az redis update --name MyRedisCache --resource-group MyResourceGroup --set "redi
 
 ### [Using Azure CLI (Enterprise tier)](#tab/enterprise)
 
-The [az redisenterprise create](/cli/azure/redienterprise#az-redisenterprise-create) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` parameters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
+The [az redisenterprise create](/cli/azure/redienterprise.md#az-redisenterprise-create) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` parameters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
 
 ```azurecli
 az redisenterprise create --cluster-name "cache1" --resource-group "rg1" --location "East US" --sku "Enterprise_E10" --persistence rdb-enabled=true rdb-frequency="1h" 
 ```
 
-Existing caches can be updated using the [az redisenterprise update](/cli/azure/redienterprise#az-redisenterprise-database-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
+Existing caches can be updated using the [az redisenterprise update](/cli/azure/redienterprise.md#az-redisenterprise-database-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
 
 ```azurecli
 az redisenterprise database update --cluster-name "cache1" --resource-group "rg1" --persistence rdb-enabled=true rdb-frequency="12h" 
@@ -301,7 +299,7 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 ### When should I use a second storage account?
 
-Use a second storage account for AOF persistence when you think you have higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits. This option is only available for Premium tier caches.
+Use a second storage account for AOF persistence when you think you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits. This option is only available for Premium tier caches.
 
 ### Does AOF persistence affect throughput, latency, or performance of my cache?
 
