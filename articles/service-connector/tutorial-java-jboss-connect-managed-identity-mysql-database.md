@@ -157,7 +157,15 @@ CONFIGURATIONS=$(az webapp connection create mysql-flexible \
     --query configurations)
 ```
 
-This command creates a connection between your web app and your MySQL server, and manages authentication through a system-assigned managed identity.
+This Service Connector command will do the following tasks in the background:
+
+- Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
+- Set the Azure Active Directory admin to the current signed-in user.
+- Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above variable `$CONFIGURATIONS`
+- Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`
+
+  > [!NOTE]
+  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
 
 ## Deploy the application
 
