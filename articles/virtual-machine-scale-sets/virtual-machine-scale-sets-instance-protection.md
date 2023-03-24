@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: avverma, devx-track-azurepowershell
-
+ms.custom: avverma
 ---
 # Instance Protection for Azure Virtual Machine Scale Set instances
 

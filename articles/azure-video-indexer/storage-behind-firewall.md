@@ -2,7 +2,7 @@
 title: Use Video Indexer with storage behind firewall
 description: This article gives an overview how to configure Azure Video Indexer to use storage behind firewall.
 ms.topic: article
-ms.date: 03/02/2023
+ms.date: 03/21/2023
 ms.author: juliako
 ---
 
@@ -10,7 +10,10 @@ ms.author: juliako
 
 When you create a Video Indexer account, you must associate it with a Media Services and Storage account. Video Indexer can access Media Services and Storage using system authentication or Managed Identity authentication. Video Indexer validates that the user adding the association has access to the Media Services and Storage account with Azure Resource Manager Role Based Access Control (RBAC).
 
-If you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](/azure/media-services/latest/concept-managed-identities) authentication that allows Video Indexer access through the firewall is the preferred option. It allows Video Indexer and Media Services to access the storage account that has been configured without needing public access for [trusted storage access.](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-to-trusted-azure-services)
+If you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](/azure/media-services/latest/concept-managed-identities) authentication that allows Video Indexer access through the firewall is the preferred option. It allows Video Indexer and Media Services to access the storage account that has been configured without needing public access for [trusted storage access.](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services)
+
+> [!IMPORTANT] 
+> When you lock your storage accounts without public access be aware that the client device you're using to download the video source file using the Video Indexer portal will be the source ip that the storage account will see and allow/deny depending on the network configuration of your storage account. For instance, if I'm accessing the Video Indexer portal from my home network and I want to download the video source file a sas url to the storage account is created, my device will initiate the request and as a consequence the storage account will see my home ip as source ip. If you did not add exception for this ip you will not be able to access the SAS url to the source video. Work with your network/storage administrator on a network strategy i.e. use your corporate network, VPN or Private Link. 
 
 Follow these steps to enable Managed Identity for Media Services and Storage and then lock your storage account. It's assumed that you already created a Video Indexer account and associated with a Media Services and Storage account.
 
@@ -39,6 +42,11 @@ Follow these steps to enable Managed Identity for Media Services and Storage and
 
    :::image type="content" source="./media/storage-behind-firewall/trusted-service-storage-lock-select-exceptions.png" alt-text="Screenshot of how to disable public access for your storage account and enable exception for trusted services from the Azure portal.":::
 1. Under **Exceptions**, make sure that **Allow Azure services on the trusted services list to access this storage account** is selected.
+
+
+## Upload from locked storage account
+
+When uploading a file to Video Indexer you can provide a link to a video using a SAS locator. If the storage account hosting the video is not publicly accessible we need to use the Managed Identity and Trusted Service approach. Since there is no way for us to know if a SAS url is pointing to a locked storage account, and this also applies to the storage account connected to Media Services, you need to explicitly set the query parameter `useManagedIdentityToDownloadVideo` to `true` in the [upload-video API call](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). In addition, you also need to set the role `Azure Storage : Storage Blob Data Owner` on this storage account as you did with the storage account connect to Media Services in the previous section.
 
 ## Summary
 

@@ -169,6 +169,11 @@
             "source_path_from_root": "/articles/virtual-desktop/deploy-windows-server-virtual-machine.md",
             "redirect_url": "/azure/virtual-desktop/add-session-hosts-host-pool",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/environment-setup.md",
+            "redirect_url": "/azure/virtual-desktop/terminology",
+            "redirect_document_id": false
         }
     ]
 }

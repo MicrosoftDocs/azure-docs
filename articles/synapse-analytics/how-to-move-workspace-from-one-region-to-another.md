@@ -3,7 +3,7 @@ title: Move an Azure Synapse Analytics workspace from region to another
 description: This article teaches you how to move an Azure Synapse Analytics workspace from one region to another. 
 services: synapse-analytics 
 ms.service:  synapse-analytics 
-ms.subservice: 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/30/2022
 author: matt1883

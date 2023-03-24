@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - adoption strategy Azure | Microsoft Docs
+title: Hybrid identity design - adoption strategy Azure
 description: With Conditional Access control, Azure AD checks the specific conditions you pick when authenticating the user and before allowing access to the application.
 documentationcenter: ''
 services: active-directory

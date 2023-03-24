@@ -1,7 +1,7 @@
 ---
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.date: 03/06/2023
 ms.topic: tutorial
 author: mayurigupta13
@@ -41,6 +41,9 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
 ## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
 
 You can install the Azure Key Vault Secrets Provider extension on your connected cluster in the Azure portal, by using Azure CLI, or by deploying ARM template.
+
+> [!TIP]
+> If the cluster is behind an outbound proxy server, ensure that you connect it to Azure Arc using the [proxy configuration](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) option before installing the extension.
 
 > [!TIP]
 > Only one instance of the extension can be deployed on each Azure Arc-enabled Kubernetes cluster.
@@ -399,7 +402,7 @@ az k8s-extension update --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_
 You can use other configuration settings as needed for your deployment. For example, to change the kubelet root directory while creating a cluster, modify the az k8s-extension create command:
 
 ```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.enable secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
 ```
 
 

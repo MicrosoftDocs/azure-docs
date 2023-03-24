@@ -2,7 +2,7 @@
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ms.date: 05/16/2022
 ---
 
@@ -143,21 +143,21 @@ az aks nodepool add \
 
 Mariner is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. Mariner only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
 
-You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku CBLMariner`.
+You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
 
 ```azurecli
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name marinerpool \
-    --os-sku CBLMariner
+    --os-sku mariner
 ```
 
 ### Migrate Ubuntu nodes to Mariner
 
 Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
 
-1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku CBLMariner`.
+1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
 
 > [!NOTE]
 > When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.

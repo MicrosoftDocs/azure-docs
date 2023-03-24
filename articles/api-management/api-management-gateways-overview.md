@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 08/04/2022
 ms.author: danlep
 ---
 
@@ -91,9 +91,11 @@ The following table compares features available in the managed gateway versus th
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
-| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
-| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ❌ |
-| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+| [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️<sup>1</sup> | ❌ |
+| [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ❌ | ❌ |
+| [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+
+<sup>1</sup> GraphQL subscriptions aren't supported in the Consumption tier.
 
 ### Policies
 
@@ -102,9 +104,9 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
-| [GraphQL resolvers](api-management-policies.md#graphql-resolver-policies) and [GraphQL validation](api-management-policies.md#validation-policies)|  ✔️ | ✔️ | ❌ |
-| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ | ❌ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
 | [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
+| [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>

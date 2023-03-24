@@ -30,7 +30,7 @@ After you deploy this feature, there are two different sets of connection instru
 
   * Use native clients on *non*-Windows local computers (example: a Linux PC).
   * Use the native client of your choice. (This includes the Windows native client.)
-  * Connect using SSH or RDP.
+  * Connect using SSH or RDP. (Note that bastion tunnel does not relay web servers or hosts.)
   * Set up concurrent VM sessions with Bastion.
   * [Upload files](vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
 
@@ -194,7 +194,7 @@ Use the example that corresponds to the type of target VM to which you want to c
 
 ## <a name="connect-tunnel"></a>Connect to VM - other native clients
 
-This section helps you connect to your virtual machine from native clients on *non*-Windows local computers (example: a Linux PC) using the **az network bastion tunnel** command. You can also connect using this method from a Windows computer. This is helpful when you require an SSH connection and want to upload files to your VM.
+This section helps you connect to your virtual machine from native clients on *non*-Windows local computers (example: a Linux PC) using the **az network bastion tunnel** command. You can also connect using this method from a Windows computer. This is helpful when you require an SSH connection and want to upload files to your VM. Note that bastion tunnel supports RDP/SSH connection but does not relay web servers or hosts.
 
 This connection supports file upload from the local computer to the target VM. For more information, see [Upload files](vm-upload-download-native.md).
 

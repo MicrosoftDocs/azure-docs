@@ -53,8 +53,6 @@ landingContent:
         links:
           - text: Use secret from Key Vault
             url: key-vault-access.md
-          - text: Publish through portal
-            url: publish-portal.md
 
   # Card
   - title: Access control

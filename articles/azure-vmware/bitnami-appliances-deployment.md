@@ -145,7 +145,7 @@ In this step, you'll modify the *bootproto* and *onboot* parameters and assign a
 
 ## Step 5. Enable SSH access to the virtual appliance
 
-In this step, you'll enable SSH on your virtual appliance for remote access control. The SSH service is disabled by default. You'll also use PuTTy to connect to the host console.
+In this step, you'll enable SSH on your virtual appliance for remote access control. The SSH service is disabled by default. You'll also use an OpenSSH client to connect to the host console.
 
 1. Enable and start the SSH service.
 
@@ -173,7 +173,10 @@ In this step, you'll enable SSH on your virtual appliance for remote access cont
    sudo /etc/init.d/ssh force-reload
    ```
 
-1. Open PuTTY, select the **SSH** option and provide the host name and **22* for the port. Then select **Open**. 
+1. Start the SSH session.
+   ```bash
+   ssh hostname:22
+   ```
 
 1. At the virtual appliance console prompt, enter the Bitnami username and password to connect to the host. 
 
