@@ -47,7 +47,7 @@ The steps you'll take are:
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/deploy-model.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
 
 ## Create handle to workspace

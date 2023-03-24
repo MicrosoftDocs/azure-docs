@@ -42,7 +42,7 @@ The steps are:
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/train-model.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/train-model.ipynb -->
 
 ## Use a command job to train a model in Azure Machine Learning
 

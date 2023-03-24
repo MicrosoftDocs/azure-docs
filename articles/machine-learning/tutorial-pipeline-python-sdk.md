@@ -55,7 +55,7 @@ The two steps are first data preparation and second training.
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/pipeline.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/pipeline.ipynb -->
 
 
 ## Set up the pipeline resources

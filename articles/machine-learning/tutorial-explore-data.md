@@ -37,7 +37,7 @@ The start of a machine learning project typically involves exploratory data anal
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/get-started-tutorials/tutorials/get-started-notebooks/explore-data.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/explore-data.ipynb -->
 
 
 ## Download the data used in this tutorial
