@@ -42,6 +42,7 @@ final CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
 
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 ```
+-----
 
 ### Default Camera and Microphone Configuration Options
 
@@ -75,6 +76,7 @@ final CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
 
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 ```
+-----
 
 ### Permission Handling
 
@@ -112,5 +114,6 @@ callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
     System.out.println(callCompositeErrorEvent.getErrorCode());
 });
 ```
+-----
 
 
