@@ -29,7 +29,8 @@ Hive 3 supports only the thin client, Beeline for running queries and Hive admin
 
 You enter supported Hive CLI commands by invoking Beeline using the Hive keyword as a Hive user or invoke a beeline using `beeline -u <JDBC URL>`. You can get the JDBC URL from Ambari Hive page.
 
-:::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URL output." border="true":::
+:::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URL output." border="true" lightbox="./media/apache-hive-migrate-workloads/jdbc-url.png":::
+
 
 Use Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, includes:
 
@@ -38,7 +39,7 @@ Use Beeline (instead of the thick client Hive CLI, which is no longer supported)
 
 You can also execute the Hive script, which is under the directory “/usr/bin”, which invokes a beeline connection using JDBC URL.
 
-:::image type="content" source="./media/apache-hive-migrate-workloads/beeline-connection-using-jdbc-url.png" alt-text="Screenshot showing beeline connection output." border="true":::
+:::image type="content" source="./media/apache-hive-migrate-workloads/beeline-connection-using-jdbc-url.png" alt-text="Screenshot showing beeline connection output." border="true" lightbox="./media/apache-hive-migrate-workloads/beeline-connection-using-jdbc-url.png":::
 
 A thin client architecture facilitates securing data in
 
@@ -447,7 +448,8 @@ The above script automatically connects to your backend DB and fetches the detai
     And you can see the difference details under "DIFFERENCE DETAILS:" line.
     If there's any difference, it prints
 
-    ```PART_COL_STATS;
+    ```
+    PART_COL_STATS;
     ('difference', ['BIT_VECTOR', 'varbinary'])
     ```
     The line with semicolon `PART_COL_STATS;` is the table name. And under the table name you can find the differences as `('difference', ['BIT_VECTOR', 'varbinary'])` if there are any difference in column or datatype.
