@@ -19,7 +19,7 @@ Microsoft Purview data governance solutions are a platform as a service (PaaS) s
 
 For an added layer of security, you can create private endpoints for your Microsoft Purview account. You'll get a private IP address from your virtual network in Azure to the Microsoft Purview account and its managed resources. This address will restrict all traffic between your virtual network and the Microsoft Purview account to a private link for user interaction with the APIs and Microsoft Purview governance portal, or for scanning and ingestion.
 
-Currently, the Microsoft Purview firewall provides access control for the public endpoint of your purview account. You can use the firewall to allow all access or to block all access through the public endpoint when using private endpoints. For more information see, [Microsoft Purview firewall options](/catalog-firewall.md)
+Currently, the Microsoft Purview firewall provides access control for the public endpoint of your purview account. You can use the firewall to allow all access or to block all access through the public endpoint when using private endpoints. For more information see, [Microsoft Purview firewall options](catalog-firewall.md)
 
 Based on your network, connectivity, and security requirements, you can set up and maintain Microsoft Purview accounts to access underlying services or ingestion. Use this best practices guide to define and prepare your network environment so you can access Microsoft Purview and scan data sources from your network or cloud.
 
@@ -135,7 +135,7 @@ You must use private endpoints for your Microsoft Purview account if you have an
 
 - Review [DNS requirements](catalog-private-link-name-resolution.md#deployment-options). If you're using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Microsoft Purview account endpoints to the private endpoint's IP address.
 
-- To scan Azure data sources through private connectivity, use [Managed VNet Runtime](/catalog-managed-vnet). View [supported regions](catalog-managed-vnet.md#supported-regions). This option can reduce the administrative overhead of deploying and managing self-hosted integration runtime machines.
+- To scan Azure data sources through private connectivity, use [Managed VNet Runtime](catalog-managed-vnet.md). View [supported regions](catalog-managed-vnet.md#supported-regions). This option can reduce the administrative overhead of deploying and managing self-hosted integration runtime machines.
 
 ### Integration runtime options
 
