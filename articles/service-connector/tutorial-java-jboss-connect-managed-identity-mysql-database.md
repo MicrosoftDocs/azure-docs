@@ -168,7 +168,7 @@ Follow these steps to prepare data in a database and deploy the application.
     mysql -h "${DATABASE_FQDN}" --user "${CURRENT_USER}" --enable-cleartext-plugin --password="$RDBMS_ACCESS_TOKEN" < init-db.sql
     ```
 
-1. Remove temporary firewall rule
+1. Remove the temporary firewall rule.
 
     ```azurecli
     az mysql flexible-server firewall-rule delete --resource-group $RESOURCE_GROUP --name $MYSQL_HOST --rule-name AllowCurrentMachineToConnect
