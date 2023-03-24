@@ -18,7 +18,7 @@ The UI Library gives developers the ability to provide a more customized experie
 
 `CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It represents the local participant.  By default, for remote participants, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` are displayed in all avatar components locally. 
 
-Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` overwrites the navigation bar's title and subtitle in pre-meeting screen respectively. By default, the UI library displays 'Setup' as the title and nothing as the subtitle.
+Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` overwrites the navigation bar's title and subtitle in premeeting screen respectively. By default, the UI library displays 'Setup' as the title and nothing as the subtitle.
 
 #### Local Participant View Data
 
@@ -30,7 +30,7 @@ This class is held in the `CallCompositeLocalOptions` object that represents opt
 
 #### Setup Screen View Data
 
-`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle is hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information are not sent up to the server.
+`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` isn't defined, then subtitle is hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information aren't sent up to the server.
 
 #### Usage
 
@@ -121,4 +121,4 @@ callComposite.addOnRemoteParticipantJoinedEventHandler { remoteParticipantJoined
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot showing the Android data custom model remote injection."::: |
+| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot of the Android remote participants view data injection."::: |

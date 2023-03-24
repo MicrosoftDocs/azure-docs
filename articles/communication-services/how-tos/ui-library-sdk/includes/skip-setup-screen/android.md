@@ -80,7 +80,7 @@ callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 
 ### Permission Handling
 
-It is recommended to let the users join a call with microphone and camera permission being granted to use the bypass setup screen feature with camera and microphone default configuration APIs. However, if developers do not handle the permissions of the user, UI Library tries to handle them for you.
+It's recommended to let the users join a call with microphone and camera permission being granted to use the bypass setup screen feature with camera and microphone default configuration APIs. However, if developers don't handle the permissions of the user, UI Library tries to handle them for you.
 
 Microphone permission is a must have to join a call. If users try to join a call with denied microphone permission, UI Library drops the call in connecting stage and may throw an error with code `CallCompositeErrorCode.MICROPHONE_PERMISSION_NOT_GRANTED`.
 On the other hand, users are able to join a call even if they deny the camera permission. UI Library disables the camera functionality when camera permission is set as denied. Thus the camera default configuration API doesn't affect the calling experience. User may enjoy default camera configuration API effect once the camera permission is set as granted.
