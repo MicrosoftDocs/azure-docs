@@ -81,7 +81,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
         :::image type="content" source="media/entitlement-management-logic-apps/create-logic-app-extension-details.png" alt-text="Screenshot of creating logic app detail selections.":::
 
     > [!NOTE]    
-    > when creating a new Logic App in this modal, the length of "/subscriptions/{SubscriptionId}/resourceGroups/{RG Name}/providers/Microsoft.Logic/workflows/{Logicapp Name}" cannot exceed 150 characters.
+    > When creating a new Logic App in this modal, the length of "/subscriptions/{SubscriptionId}/resourceGroups/{RG Name}/providers/Microsoft.Logic/workflows/{Logicapp Name}" cannot exceed 150 characters.
 
 1. In **Review and Create**, review the summary of your custom extension and make sure the details for your Logic App callout are correct. Then select **Create**.
 
@@ -94,7 +94,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 1. Navigate to the Custom Extensions tab within a Catalog as mentioned earlier.
 
 1. Here, you can view all the custom extensions you've created, along with the associated Logic App and information about the custom extension type.
-    :::image type="content" source="media/entitlement-management-logic-apps/custom-extension-list.png" alt-text="Screenshot of a list of custom extensions.":::
+    :::image type="content" source="media/entitlement-management-logic-apps/custom-extension-list.png" alt-text="Screenshot of a list of custom extensions." lightbox="media/entitlement-management-logic-apps/custom-extension-list.png":::
 1. Along with the Logic App name, the column Type dictates whether the custom extension was created in the new V2 auth model (after March 17, 2023), or the original model. If a custom extension was created in the new model, the Type column matches the selected type from the configuration modal that is either “*assignment request*” or “*pre-expiration*”. For older custom extensions, the type shows “*custom access package*”.    
 
 1. The Token Security column shows the associated auth security framework used when creating the custom extension. New V2 custom extensions show “*proof-of-possession*” (PoP) as the token security type. Older custom extensions show “regular”.   
@@ -175,7 +175,7 @@ Microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestRemoved
 ``
 
 The following flow diagram shows the entitlement management callout to Logic Apps workflow:
-:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram.":::
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram." lightbox="media/entitlement-management-logic-apps/extensibility-diagram-flow.png":::
  
 An example of a resume request payload is:
 
@@ -230,7 +230,7 @@ Content-Type: application/json
 ### Approver experience
 
 An approver sees the string specified in the resume request payload under `customExtensionStageInstanceDetail` as shown in the payload located in [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
-:::image type="content" source="media/entitlement-management-logic-apps/extensibility-approver-experience.png" alt-text="Screenshot of the approver screen.":::
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-approver-experience.png" alt-text="Screenshot of the approver screen." lightbox="media/entitlement-management-logic-apps/extensibility-approver-experience.png":::
 
 ### Requestor experience
 
@@ -245,7 +245,8 @@ The following status updates are displayed to users based on their custom extens
 |When the extension resumes      | Process continues         |
 
 This is an example of a MyAccess request history from a requestor after the extension resumes:
- :::image type="content" source="media/entitlement-management-logic-apps/extensibility-requestor-experience.png" alt-text="Screenshot of the requestor screen.":::
+
+ :::image type="content" source="media/entitlement-management-logic-apps/extensibility-requestor-experience.png" alt-text="Screenshot of the requestor screen." lightbox="media/entitlement-management-logic-apps/extensibility-requestor-experience.png":::
 
 ## Troubleshooting and Validation 
 
