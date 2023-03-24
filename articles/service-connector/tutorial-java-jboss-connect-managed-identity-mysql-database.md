@@ -127,6 +127,20 @@ Install the Service Connector passwordless extension for the Azure CLI:
 az extension add --name serviceconnector-passwordless --upgrade
 ```
 
+Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+
+```azurecli
+AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
+AZ_IDENTITY_RESOURCE_ID=$(az identity create \
+    --name $AZ_USER_IDENTITY_NAME \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --query id \
+    --output tsv)
+```
+
+> [!IMPORTANT]
+> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
+
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
@@ -138,7 +152,7 @@ CONFIGURATIONS=$(az webapp connection create mysql-flexible \
     --target-resource-group $RESOURCE_GROUP \
     --server $MYSQL_HOST \
     --database $DATABASE_NAME \
-    --system-identity \
+    --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID \
     --client-type java \
     --query configurations)
 ```
