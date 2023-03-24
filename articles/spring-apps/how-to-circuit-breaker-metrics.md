@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with the Application Insights Java in-process agent. With this feature, you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.
+This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature, you can monitor the metrics of Resilience4j circuit breaker from Application Insights with Micrometer.
 
 The demo [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) shows how the monitoring works.
 
@@ -28,7 +28,7 @@ The demo [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-sam
 
 ## Build and deploy apps
 
-Use the following procedure to build and deploy the sample applications.
+Use the following steps to build and deploy the sample applications.
 
 1. Clone and build the demo repository.
 
@@ -78,9 +78,9 @@ Use the following procedure to build and deploy the sample applications.
 >   </dependency>
 >   ```
 >
-> * The customer code requires the `CircuitBreakerFactory` API, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
+> * Your code must use the `CircuitBreakerFactory` API, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For more information, see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
-> * The following two dependencies have conflicts with resilient4j packages.  Be sure the customer does not include them.
+> * The following two dependencies have conflicts with Resilient4j packages.  Be sure you don't include them.
 >
 >   ```xml
 >   <dependency>
@@ -108,7 +108,8 @@ Use the following procedure to build and deploy the sample applications.
 
    :::image type="content" source="media/how-to-circuit-breaker-metrics/application-insights.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Application Insights page with the Application Insights on the button bar highlighted." lightbox="media/how-to-circuit-breaker-metrics/application-insights.png":::
 
-1. Select **Metrics** in the navigation pane. The Metrics page provides dropdown menus and options to define the charts in this procedure. For all charts, set the **Metric Namespace**, to **azure.applicationinsights**.
+1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set the **Metric Namespace** to **azure.applicationinsights**.
+
 
    :::image type="content" source="media/how-to-circuit-breaker-metrics/chart-menus.png" alt-text="Screenshot of the Azure portal Application Insights Metrics page, with Metrics highlighted in the navigation pane, and with azure-applicationinsights highlighted in the Metric Namespace dropdown menu." lightbox="media/how-to-circuit-breaker-metrics/chart-menus.png":::
 
