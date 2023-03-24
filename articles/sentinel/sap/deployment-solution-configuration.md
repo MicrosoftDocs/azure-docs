@@ -94,9 +94,7 @@ By default, all analytics rules provided in the Microsoft Sentinel solution for 
 3. Sensitive privileged user logon
 4. Sensitive privileged user makes a change in other
 5. Sensitive privilege user password change and login
-6. Brute force (RFC)
-7. Function module tested
-8. The SAP audit log monitoring analytics rules
+6. Function module tested
 
 ## Enable or disable the ingestion of specific SAP logs
 

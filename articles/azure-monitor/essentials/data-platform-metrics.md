@@ -109,6 +109,9 @@ The following table shows sample data from a multidimensional metric, network th
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155.0 Kbps |
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
 
+> [!NOTE]
+> Dimension names and dimension values are case-insenstive.
+
 
 ## Retention of metrics
 

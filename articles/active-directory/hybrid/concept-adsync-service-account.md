@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSync service account | Microsoft Docs'
+title: 'Azure AD Connect: ADSync service account'
 description: This topic describes the ADSync service account and provides best practices regarding the account.
 services: active-directory
 documentationcenter: ''

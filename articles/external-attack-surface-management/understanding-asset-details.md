@@ -32,12 +32,12 @@ This section is comprised of high-level information that is key to understanding
 |--|--|--|
 | Asset Name | The name of an asset. | All |
 | UUID | This 128-bit label represents the universally unique identifier (UUID) for the | All |
-| Added to inventory | The date than an asset was added to inventory, whether automatically to the “Approved Inventory” state or in another state (e.g. “Candidate”).  | All |
+| Added to inventory | The date that an asset was added to inventory, whether automatically to the “Approved Inventory” state or in another state (e.g. “Candidate”).  | All |
 | Status | The status of the asset within the RiskIQ system. Options include Approved Inventory, Candidate, Dependencies, or Requires Investigation. | All |
 | First seen (Global Security Graph) | The date that Microsoft first scanned the asset and added it to our comprehensive Global Security Graph.  | All |
 | Last seen (Global Security Graph) | The date that Microsoft most recently scanned the asset. | All |
 | Discovered on | Indicates the creation date of the Discovery Group that detected the asset.  | All |
-| Last updated | The date that the asset was last updated, whether by new data discovered in a scan or manual user actions (e.g. a state change).  | All |
+| Last updated | The date that the asset was last updated by a manual user actions (e.g. a state change, asset removal).  | All |
 | Country | The country of origin detected for this asset. | All |
 | State/Province | The state or province of origin detected for this asset. | All |
 | City | The city of origin detected for this asset. | All |

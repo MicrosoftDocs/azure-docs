@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Gra-Pe | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Gra-Pe'
 description: Learn how to configure single sign-on between Azure Active Directory and Gra-Pe.
 services: active-directory
 author: jeevansd

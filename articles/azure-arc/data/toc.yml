@@ -90,6 +90,8 @@ items:
           href: monitor-grafana-kibana.md
         - name: Deploy telemetry router 
           href: deploy-telemetry-router.md
+        - name: Adding Exporters and Pipelines 
+          href: adding-exporters-and-pipelines.md
         - name: Upload to Azure Monitor
           items:
             - name: Upload prerequisites
@@ -158,6 +160,8 @@ items:
               href: reserved-capacity-overview.md
             - name: Rotate certificates
               href: rotate-user-tls-certificate.md
+            - name: Rotate service managed credentials
+              href: rotate-sql-managed-instance-credentials.md  
             - name: Resize persistent volume (PVC)
               href: resize-persistent-volume-claim.md
             - name: Delete
@@ -214,6 +218,8 @@ items:
           items:
             - name: Turn on transparent data encryption manually
               href: configure-transparent-data-encryption-manually.md
+            - name: Turn on transparent data encryption (preview)
+              href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
             - name: Overview
@@ -226,6 +232,8 @@ items:
               href: managed-instance-disaster-recovery.md
             - name: Reprovision replica
               href: reprovision-replica.md
+        - name: Troubleshoot
+          href: troubleshoot-managed-instance.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
     - name: Overview
@@ -250,8 +258,14 @@ items:
       items:
         - name: Manage
           items:
-            - name: Back up and restore
+            - name: Active Directory
+              items:
+                - name: Deploy PostgresSQL server - CLI
+                  href: deploy-active-directory-postgresql-server-cli.md
+            - name: Automated backup and restore
               href: backup-restore-postgresql.md
+            - name: Restore
+              href: restore-postgresql.md
             - name: Change PostgreSQL port
               href: change-postgresql-port.md
             - name: Configure and scale

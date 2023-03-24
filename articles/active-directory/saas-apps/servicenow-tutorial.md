@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
 services: active-directory
 author: jeevansd

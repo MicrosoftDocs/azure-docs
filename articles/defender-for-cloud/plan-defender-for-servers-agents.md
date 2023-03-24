@@ -140,4 +140,10 @@ You want to configure a custom workspace | Log Analytics agent, Azure Monitor ag
 
 ## Next steps
 
-After you work through these planning steps, learn how to [scale your Defender for Servers deployment](plan-defender-for-servers-scale.md).
+After working through these planning steps, you can start deployment:
+
+- [Enable Defender for Servers](enable-enhanced-security.md) plans
+- [Connect on-premises machines](quickstart-onboard-machines.md) to Azure.
+- [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
+- [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.
+- Learn about [scaling your Defender for Server deployment](plan-defender-for-servers-scale.md).

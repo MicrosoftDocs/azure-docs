@@ -2,7 +2,7 @@
 title: Azure Service Bus - messaging exceptions | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 ms.topic: article
-ms.date: 03/21/2022
+ms.date: 02/17/2023
 ---
 
 # Service Bus messaging exceptions
@@ -52,7 +52,10 @@ The following table lists messaging exception types, and their causes, and notes
 
 ## QuotaExceededException
 
-[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indicates that a quota for a specific entity has been exceeded.
+[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indicates that a quota for a specific entity has been exceeded. 
+
+> [!NOTE]
+> For Service Bus quotas, see [Quotas](service-bus-quotas.md).
 
 ### Queues and topics
 

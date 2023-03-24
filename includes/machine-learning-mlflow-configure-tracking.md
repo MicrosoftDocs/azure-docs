@@ -59,7 +59,8 @@ ms.author: fasantia
     
         ml_client = MLClient(credential=DefaultAzureCredential(),
                                 subscription_id=subscription_id, 
-                                resource_group_name=resource_group)
+                                resource_group_name=resource_group,
+                                workspace_name=workspace_name)
         ```
     
         > [!IMPORTANT]

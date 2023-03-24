@@ -31,7 +31,7 @@ Microsoft verified partners can help you onboard Microsoft Entra Permissions Man
 * **Onboarding and Deployment Support**
 
     Partners can guide you through the entire onboarding and deployment process for 
-    ermissions Management across AWS, Azure, and GCP.
+    Permissions Management across AWS, Azure, and GCP.
 
 
 ## Partner list

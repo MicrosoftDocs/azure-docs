@@ -149,13 +149,18 @@ See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
 
-Supported via Azure ML Kubernetes and Azure ML compute clusters:
+Supported via Azure Machine Learning Kubernetes and Azure Machine Learning compute clusters:
 
 * PyTorch
 * TensorFlow
 * MPI
 
 The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
+
+> [!IMPORTANT]
+> Using Apache Spark via Azure Synapse Analytics Spark clusters is in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 See [Distributed training with Azure Machine Learning](concept-distributed-training.md).
 

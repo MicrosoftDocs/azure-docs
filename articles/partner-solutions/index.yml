@@ -36,7 +36,7 @@ productDirectory:
       imageSrc: ./media/index/datadog.svg
       links:
         - url: ./datadog/overview.md
-          text: Monitor and analyze large-scale applications.
+          text: Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.
     # Card 3
     - title: Logz.io
       imageSrc: ./media/index/logz.io.svg

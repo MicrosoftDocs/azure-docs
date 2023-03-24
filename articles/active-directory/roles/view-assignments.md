@@ -1,6 +1,6 @@
 ---
 title: List Azure AD role assignments
-description: You can now see and manage members of an Azure Active Directory administrator role in the Azure Active Directory admin center.
+description: You can now see and manage members of an Azure Active Directory administrator role in the Azure portal.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -32,7 +32,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 This procedure describes how to list role assignments with organization-wide scope.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** and then select a role to open it and view its properties.
 
@@ -72,7 +72,7 @@ To download all assignments for a specific role, follow these steps.
 
 This section describes how to list role assignments with single-application scope. This feature is currently in public preview.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 

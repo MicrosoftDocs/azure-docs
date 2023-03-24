@@ -17,7 +17,7 @@ Azure Arc-enabled data services support Active Directory (AD) for Identity and A
 
 This article describes how to enable Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication. The article demonstrates two possible AD integration modes: 
 -  Customer-managed keytab (CMK) 
--  System-managed keytab (SMK)  
+-  Service-managed keytab (SMK)  
 
 The notion of Active Directory(AD) integration mode describes the process for keytab management including: 
 - Creating AD account used by SQL Managed Instance
@@ -28,7 +28,7 @@ The notion of Active Directory(AD) integration mode describes the process for ke
 To enable Active Directory authentication for SQL Server on Linux and Linux containers, use a [keytab file](/sql/linux/sql-server-linux-ad-auth-understanding#what-is-a-keytab-file). The keytab file is a cryptographic file containing service principal names (SPNs), account names and hostnames. SQL Server uses the keytab file for authenticating itself to the Active Directory (AD) domain and authenticating its clients using Active Directory (AD). Do the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance: 
 
 - [Deploy data controller](create-data-controller-indirect-cli.md) 
-- [Deploy a customer-managed keytab AD connector](deploy-customer-managed-keytab-active-directory-connector.md) or [Deploy a system-managed keytab AD connector](deploy-system-managed-keytab-active-directory-connector.md)
+- [Deploy a customer-managed keytab AD connector](deploy-customer-managed-keytab-active-directory-connector.md) or [Deploy a service-managed keytab AD connector](deploy-system-managed-keytab-active-directory-connector.md)
 - [Deploy SQL managed instances](deploy-active-directory-sql-managed-instance.md)
 
 The following diagram shows how to enable Active Directory authentication for Azure Arc-enabled SQL Managed Instance:
@@ -49,7 +49,7 @@ What is the difference between the two Active Directory integration modes?
 To enable Active Directory authentication for Arc-enabled SQL Managed Instance, you need an Active Directory connector where you specify the Active Directory integration deployment mode. The two Active Directory integration modes are:
 
 - Customer-managed keytab
-- System-managed keytab 
+- Service-managed keytab 
 
 The following section compares these modes.
 

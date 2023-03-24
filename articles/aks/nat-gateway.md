@@ -1,33 +1,32 @@
 ---
-title: Managed NAT Gateway
+title: Create a managed or user-assigned NAT gateway
 titleSuffix: Azure Kubernetes Service
-description: Learn how to create an AKS cluster with managed NAT integration
+description: Learn how to create an AKS cluster with managed NAT integration and user-assigned NAT gateway.
 author: asudbring
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/26/2021
 ms.author: allensu
 ---
 
-# Managed NAT Gateway
+# Create a managed or user-assigned NAT gateway
 
 While you can route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic you can have. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
 
-This article shows you how to create an AKS cluster with a Managed NAT Gateway for egress traffic and how to disable OutboundNAT on Windows.
+This article shows you how to create an AKS cluster with a managed NAT gateway and a user-assigned NAT gateway for egress traffic and how to disable OutboundNAT on Windows.
 
 ## Before you begin
 
-To use Managed NAT gateway, you must have the following prerequisites:
+* Make sure you're using the latest version of [Azure CLI][az-cli].
+* Make sure you're using Kubernetes version 1.20.x or above.
+* Managed NAT Gateway is incompatible with custom virtual networks.
 
-* The latest version of [Azure CLI][az-cli]
-* Kubernetes version 1.20.x or above
+## Create an AKS cluster with a managed NAT gateway
 
-## Create an AKS cluster with a Managed NAT Gateway
+To create an AKS cluster with a new managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. If you want the NAT gateway to be able to operate out of availability zones, specify the zones using `--zones`.
 
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, then creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 4 minutes.
-
-To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway`, `--nat-gateway-managed-outbound-ip-count`, and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
+The following example creates a *myResourceGroup* resource group, then creates a *natCluster* AKS cluster in *myResourceGroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -44,7 +43,7 @@ az aks create \
 ```
 
 > [!IMPORTANT]
-> If no value the outbound IP address is specified, the default value is one.
+> If no value for the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
 
@@ -57,9 +56,9 @@ az aks update \
     --nat-gateway-managed-outbound-ip-count 5
 ```
 
-## Create an AKS cluster with a user-assigned NAT Gateway
+## Create an AKS cluster with a user-assigned NAT gateway
 
-To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type userAssignedNATGateway` when running `az aks create`. This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT Gateway is preconfigured on the subnet. The following commands create the required resources for this scenario. Make sure to run them all in the same session so that the values stored to variables are still available for the `az aks create` command.
+To create an AKS cluster with a user-assigned NAT gateway, use `--outbound-type userAssignedNATGateway` when running `az aks create`. This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-kubenet] or [Azure CNI][byo-vnet-azure-cni]) and that the NAT Gateway is preconfigured on the subnet. The following commands create the required resources for this scenario. Make sure to run them all in the same session so that the values stored to variables are still available for the `az aks create` command.
 
 1. Create the resource group.
 

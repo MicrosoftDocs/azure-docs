@@ -9,7 +9,9 @@ ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 ---
 # Mount Azure Storage as a local share in App Service
-
+> [!NOTE]
+> When using VNET integration on your web app, the mounted drive will use an RC1918 IP address and not an IP address from your VNET.
+>
 ::: zone pivot="code-windows"
 
 This guide shows how to mount Azure Storage Files as a network share in Windows code (non-container) in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. The benefits of custom-mounted storage include:

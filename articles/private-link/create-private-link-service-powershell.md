@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create an Azure private link service using Azure PowerShell'
-description: In this quickstart, learn how to create an Azure private link service using Azure PowerShell
+title: 'Quickstart: Create an Azure private link service - Azure PowerShell'
+description: In this quickstart, learn how to create an Azure private link service using Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/02/2023
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ---
+
 # Quickstart: Create a Private Link service using Azure PowerShell
 
 Get started creating a Private Link service that refers to your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.

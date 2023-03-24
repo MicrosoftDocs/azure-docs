@@ -4,10 +4,11 @@ description: Use the available metrics to diagnose your degraded or unavailable 
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
+ms.topic: troubleshooting
 ms.workload: infrastructure-services
-ms.date: 08/14/2020
+ms.date: 02/14/2023
 ms.author: mbender
+ms.custom: FY23 content-maintenance
 ---
 
 # Troubleshoot resource health, and inbound availability issues 

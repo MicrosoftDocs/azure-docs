@@ -23,20 +23,20 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 ### Purchase fails
 
-A purchase can fail because a valid credit card isn't connected to the Azure subscription, or because a payment method isn't associated with the subscription. To solve this problem, use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](/azure/cost-management-billing/manage/change-credit-card).
+A purchase can fail because a valid credit card isn't connected to the Azure subscription, or because a payment method isn't associated with the subscription. To solve this problem, use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
 
-A purchase can also fail because an Enterprise Agreement (EA) subscription doesn't allow Azure Marketplace purchases. Try to use a different subscription. Or, check if your EA subscription is enabled for Azure Marketplace purchases. For more information, see [Enabling Azure Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+A purchase can also fail because an Enterprise Agreement (EA) subscription doesn't allow Azure Marketplace purchases. Try to use a different subscription. Or, check if your EA subscription is enabled for Azure Marketplace purchases. For more information, see [Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 
 ### You can't create a New Relic resource 
 
 To set up Azure Native New Relic Service, you must have owner access on the Azure subscription. Ensure that you have the appropriate access before you start the setup.
 
-To find the New Relic offering on Azure and set up the service, you must first register the `NewRelic.Observability` resource provider in your Azure subscription. To register the resource provider by using the Azure portal, follow the guidance in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types). 
+To find the New Relic offering on Azure and set up the service, you must first register the `NewRelic.Observability` resource provider in your Azure subscription. To register the resource provider by using the Azure portal, follow the guidance in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). 
 To register the resource provider from a command line, enter `az provider register --namespace NewRelic.Observability --subscription <subscription-id>`.
 
 ### Logs aren't being sent to New Relic
 
-Only resource types in [supported categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to New Relic through the integration. To check whether the resource is set up to send logs to New Relic, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, verify that there's a New Relic diagnostic setting.
+Only resource types in [supported categories](../../azure-monitor/essentials/resource-logs-categories.md) send logs to New Relic through the integration. To check whether the resource is set up to send logs to New Relic, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, verify that there's a New Relic diagnostic setting.
 
 ### You can't install or uninstall an extension on a virtual machine
 
@@ -48,7 +48,7 @@ Only virtual machines that currently have the New Relic agent installed should b
 
 Resource monitoring in New Relic is enabled through the *ingest API key*, which you set up at the time of resource creation. Revoking the ingest API key from the New Relic portal disrupts monitoring of logs and metrics for all resources, including virtual machines and app services. You shouldn't* revoke the ingest API key. If the API key is already revoked, contact New Relic support.
 
-If your Azure subscription is suspended or deleted because of payment-related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](/azure/cost-management-billing/manage/change-credit-card).
+If your Azure subscription is suspended or deleted because of payment-related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
 
 New Relic manages the APIs for creating and managing resources, and for the storage and processing of customer telemetry data. The New Relic APIs might be on or outside Azure. If your Azure subscription and resource are working correctly but the New Relic portal shows problems with monitoring data, contact New Relic support.
 <!-- need some clarification here -->

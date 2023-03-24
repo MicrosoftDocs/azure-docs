@@ -16,12 +16,16 @@
   items:
   - name: About Azure Arc resource bridge
     href: ./resource-bridge/overview.md
+  - name: System requirements
+    href: ./resource-bridge/system-requirements.md
   - name: Network requirements
     href: ./resource-bridge/network-requirements.md
   - name: Security overview
     href: ./resource-bridge/security-overview.md
   - name: Deployment overview
     href: ./resource-bridge/deploy-cli.md
+  - name: Maintenance
+    href: ./resource-bridge/maintenance.md
   - name: Troubleshoot
     href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >

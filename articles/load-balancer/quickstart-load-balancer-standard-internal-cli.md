@@ -1,16 +1,17 @@
 ---
 title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer by using the Azure CLI.
+description: This quickstart shows how to create an internal load balancer using the Azure CLI.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/23/2022
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api, template-quickstart
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
-# Quickstart: Create an internal load balancer to load balance VMs by using the Azure CLI
+
+# Quickstart: Create an internal load balancer to load balance VMs using the Azure CLI
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
 

@@ -1,15 +1,13 @@
 ---
-title: Understand Azure IoT Hub cloud-to-device messaging | Microsoft Docs
+title: Understand Azure IoT Hub cloud-to-device messaging
 description: This developer guide discusses how to use cloud-to-device messaging with your IoT hub. It includes information about the message life cycle and configuration options.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/20/2022
-ms.custom: mqtt, devx-track-azurecli
-
+ms.custom: mqtt
 ---
 
 # Send cloud-to-device messages from an IoT hub
@@ -44,7 +42,7 @@ A thread could fail to process a message without notifying the IoT hub. In this 
 
 The **max delivery count** property on the IoT hub determines the maximum number of times a message can transition between the *Enqueued* and *Invisible* states. After that number of transitions, the IoT hub sets the state of the message to *Dead lettered*. Similarly, the IoT hub sets the state of a message to *Dead lettered* after its expiration time. For more information, see [Message expiration (time to live)](#message-expiration-time-to-live).
 
-The [How to send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) article shows you how to send cloud-to-device messages from the cloud and receive them on a device.
+The [How to send cloud-to-device messages with IoT Hub](c2d-messaging-dotnet.md) article shows you how to send cloud-to-device messages from the cloud and receive them on a device.
 
 A device ordinarily completes a cloud-to-device message when the loss of the message doesn't affect the application logic. An example of this completion might be when the device has persisted the message content locally or has successfully executed an operation. The message could also carry transient information, whose loss wouldn't impact the functionality of the application. Sometimes, for long-running tasks, you can:
 
@@ -168,4 +166,4 @@ You can set the configuration options in one of the following ways:
 
 For information about the SDKs that you can use to receive cloud-to-device messages, see [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md).
 
-To try out receiving cloud-to-device messages, see the [Send cloud-to-device](iot-hub-csharp-csharp-c2d.md) tutorial.
+To try out receiving cloud-to-device messages, see the [Send cloud-to-device](c2d-messaging-dotnet.md) tutorial.

@@ -63,6 +63,8 @@ landingContent:
         url: manage-reserved-vm-instance.md
       - text: Exchange and refund reservations
         url: exchange-and-refund-azure-reservations.md
+      - text: Changes to the reservation exchange policy
+        url: reservation-exchange-policy-changes.md
 
   # Card (optional)
   - title: Report costs after purchase

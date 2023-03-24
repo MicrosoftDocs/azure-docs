@@ -5,7 +5,7 @@ author: nzthiago
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: thalme
-ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell
 ---
 
 # Azure Functions Premium plan
@@ -267,6 +267,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |North Europe| 100 | 100 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
+|South Africa West| 20 | 20 |
 |South Central US| 100 | 100 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
