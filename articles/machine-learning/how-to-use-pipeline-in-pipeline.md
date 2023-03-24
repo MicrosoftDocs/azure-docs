@@ -62,7 +62,7 @@ Pipeline component can use as step like other component in pipeline job.
 
 [!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb?name=pipeline-component-pipeline-job)]
 
-## Check pipeline job with sweep step in Studio
+## Pipeline job with sweep step in studio
 
 You can use az ml component create or ml_client.components.create_or_update to register pipeline component as registered component. After that you can view component in asset library and component list page.
 
