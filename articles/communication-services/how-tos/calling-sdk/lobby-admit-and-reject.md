@@ -12,11 +12,11 @@ ms.custom: template-how-to
 
 ---
 [!INCLUDE [Install SDK](../calling-sdk/includes/install-sdk/install-sdk-web.md)]
-Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby. You first need to import `Call` or `TeamsCall` deom the Calling SDK:
+Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby.
 
 # Manage participants in Teams meeting Lobby
 
-In this article you will learn how to admit and reject participants from Microsoft Teams meetings lobby by using Azure Communication Service calling SDKs.
+In this article, you will learn how to admit and reject participants from Microsoft Teams meetings lobby by using Azure Communication Service calling SDKs.
 
 ## Prerequisites
 
@@ -25,30 +25,55 @@ In this article you will learn how to admit and reject participants from Microso
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+User ends up in the lobby depending on Microsoft Teams configuration. The controls are described here:
+[Learn more about Teams configuration ](https://learn.microsoft.com/en-us/azure/communication-services/concepts/interop/guest/teams-administration)
+
 Microsoft 365 or Azure Communication Services users can admit or reject users from lobby, if they are connected to Teams meeting and have Organizer, Co-organizer, or Presenter meeting role.
 [Learn more about meeting roles](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
+
+To update or check current meeting join & lobby policies in Teams admin center:
+[Learn more about Teams policies ](https://learn.microsoft.com/en-us/microsoftteams/settings-policies-reference#automatically-admit-people)
+
+
+### Get remote participant properties
+
+The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn how to join Teams meeting](./teams-interoperability.md)
+
+To know who is in the lobby, you could check the state of a remote participant. The `remoteParticipant` with `InLobby` state indicates that remote participant is in lobby.
+To get the `remoteParticipants` collection:
+```js
+call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
+```
+To get the state of a remote participant:
+```js
+const state = remoteParticipant.state;
+```
+
+Before admit or reject `remoteParticipant` with `InLobby` state, you could get the identifier for a remote participant:
+```js
+const identifier = remoteParticipant.identifier;
+```
+
+The `identifier` can be one of the following `CommunicationIdentifier` types:
+
+- `{ communicationUserId: '<COMMUNICATION_SERVICES_USER_ID'> }`: Object representing the Azure Communication Services user.
+- `{ phoneNumber: '<PHONE_NUMBER>' }`: Object representing the phone number in E.164 format.
+- `{ microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
+- `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
+
+### Start lobby operations
 
 To admit, reject or admit all users from the lobby, you can use the `admit`, `rejectParticipant` and `admitAll` asynchronous APIs:
 
 You can admit specific user to the Teams meeting from lobby by calling the method `admit` on the object `TeamsCall` or `Call`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input.
 ```js
-const teamsUserIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
-const userIdentifier = { communicationUserId: '<COMMUNICATION_SERVICES_USER_ID>' };
-const phoneUserIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
-await call.admit(teamsUserIdentifier);
-await call.admit(userIdentifier);
-await call.admit(phoneUserIdentifier);
+await call.admit(identifier);
 ```
 
 You can also reject specific user to the Teams meeting from lobby by calling the method `rejectParticipant` on the object `TeamsCall` or `Call`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input.
 
 ```js
-const teamsUserIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
-const userIdentifier = { communicationUserId: '<COMMUNICATION_SERVICES_USER_ID>' };
-const phoneUserIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
-await call.rejectParticipant(teamsUserIdentifier);
-await call.rejectParticipant(userIdentifier);
-await call.rejectParticipant(phoneUserIdentifier);
+await call.rejectParticipant(identifier);
 ```
 
 You can also admit all users in the lobby by calling the method `admitAll` on the object `TeamsCall` or `Call`. 
