@@ -75,11 +75,11 @@ To bypass validation to ignore API breaking changes, update the `"properties":` 
 
 ## Next steps
 
-In this article, you learned how to stop cluster upgrades on API breaking changes in AKS. To learn more about AKS cluster upgrades, see:
+In this article, you learned how AKS detects deprecated APIs before an update is triggered and fails the upgrade operation upfront. To learn more about AKS cluster upgrades, see:
 
 - [Upgrade an AKS cluster][upgrade-cluster]
 - [Use Planned Maintenance to schedule and control upgrades for your AKS clusters (preview)][planned-maintenance-aks]
 
 <!-- INTERNAL LINKS -->
 [upgrade-cluster]: upgrade-cluster.md
-[planned-maintenance-aks]: planned-maintenance.md
+[planned-maintenance-aks]: planned-mainten
