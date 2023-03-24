@@ -192,7 +192,7 @@ Following these steps to prepare data in database and deploy the application.
     mvn clean package -DskipTests -f ../pom.xml
     ```
 
-1. Deploy the WAR and the startup script to the app service
+1. Deploy the WAR and the startup script to the app service.
     ```azurecli
     az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path ../target/ROOT.war --type war
     az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path ../src/main/webapp/WEB-INF/createMySQLDataSource.sh --type startup
