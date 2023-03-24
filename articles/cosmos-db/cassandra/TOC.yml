@@ -41,6 +41,8 @@
       href: migrate-data.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
+    - name: KQL transformations for workspace data
+      href: ../tutorial-log-transformation.md
 - name: Samples
   items:
     - name: Azure CLI

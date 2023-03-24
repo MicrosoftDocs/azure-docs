@@ -241,7 +241,7 @@ Now when you select that unit in the map, the pop-up menu will have the new laye
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Creators Rest API]: /rest/api/maps-creator/
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [manifest]: drawing-requirements.md#manifest-file-requirements
 [unitProperties]: drawing-requirements.md#unitproperties
 [categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json
