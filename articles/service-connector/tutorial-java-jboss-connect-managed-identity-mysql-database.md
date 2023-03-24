@@ -159,7 +159,7 @@ Follow these steps to prepare data in a database and deploy the application.
     az mysql flexible-server firewall-rule create --resource-group $RESOURCE_GROUP --name $MYSQL_HOST --rule-name AllowCurrentMachineToConnect --start-ip-address ${MY_IP} --end-ip-address ${MY_IP}
     ```
 
-1. Connect to database and create tables
+1. Connect to the database and create tables.
 
     ```azurecli
     DATABASE_FQDN=${MYSQL_HOST}.mysql.database.azure.com
