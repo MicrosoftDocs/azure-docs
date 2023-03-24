@@ -53,13 +53,14 @@ Azure Load Testing collects detailed resource metrics across your Azure app comp
 
 - Use shared secrets or certificates
 - Pass secrets into the JMeter script (store in Azure Key Vault or in CI/CD secrets store)
-- Azure AD authentication config: https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad
+- [Azure AD authentication config](/azure/app-service/configure-authentication-provider-aad)
 - Blogpost
 
 ## Next steps
 
-    - Configure high-scale load
-    - Configure CI/CD
+- Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
 
 ## Use App Service diagnostics for your load test
 
@@ -99,9 +100,3 @@ To view the App Service diagnostics information for your application under load 
 
     > [!NOTE]
     > It can take up to 45 minutes for the insights data to be displayed on this page.
-
-## Next steps
-
-- Learn how to [parameterize a load test with secrets and environment variables](./how-to-parameterize-load-tests.md).
-- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
