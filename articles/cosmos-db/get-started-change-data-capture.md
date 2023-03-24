@@ -115,7 +115,7 @@ First, create a straightforward [Azure Blob Storage](../storage/blobs/index.yml)
 
 1. Back in Azure Data Factory, create a new sink for the change data captured from your `cosmos` source.
 
-    :::image type="content" source="media/get-started-change-data-capture/add-sink.png" alt-text="Add a new sink that's connected to the existing source.":::
+    :::image type="content" source="media/get-started-change-data-capture/add-sink.png" alt-text="Screenshot of adding a new sink that's connected to the existing source.":::
 
 1. Give the sink a unique name. In this example, the sink is named `storage`.
 
