@@ -47,7 +47,6 @@ On-premises Location 2 is connected to a hub virtual network via private peering
 
 :::image type="content" source="./media/backend-interoperability/loc2view.png" alt-text="Diagram of location 2 perspective of the topology.":::
 
-
 ## ExpressRoute and site-to-site VPN connectivity in tandem
 
 ###  Site-to-site VPN over ExpressRoute
