@@ -87,7 +87,7 @@ Using MSAL in your code, you specify the audience by using one of the following 
 
 MSAL will throw a meaningful exception if you specify both the Azure AD authority audience and the tenant ID.
 
-If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience. (That is, it will behave as though `common` were specified.)
+If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience. (That is, it will behave as though `common` were specified.) If there is a possibility that the tenant that the application is deployed on will have external users, the `common` and `organization` endpoints should be avoided.
 
 ### Effective audience
 
