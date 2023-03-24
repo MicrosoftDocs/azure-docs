@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/23/2023
+ms.date: 03/24/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
@@ -62,7 +62,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
-3. Enter a Name for the application, such as _Msal Android app_
+3. Enter a Name for the application, such as _MSAL Android app_
 4. Save the package name. You will enter it later into the Azure portal.
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and click **Finish**.
@@ -151,9 +151,9 @@ Follow these steps to set up a new project if you don't already have an Android 
 
 ## Use MSAL
 
-### Add MSAL to your project
+### Add MSAL and Microsoft Graph SDK to your project
 
-1. In the Android Studio project window, navigate to **app** > **build.gradle** and add the following library in the _dependencies_ section:
+1. In the Android Studio project window, navigate to **app** > **build.gradle** and add the following libraries in the _dependencies_ section:
 
    ```gradle
    implementation 'com.microsoft.identity.client:msal:4.2.0'
@@ -172,7 +172,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 
 ### Required Imports
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. After the package name, add the following imports:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. After the package name, add the following imports:
 
 ```java
 import android.util.Log;
@@ -197,7 +197,7 @@ import com.microsoft.identity.client.exception.*;
 
 #### Initialize Variables
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet:
 
 ```java
 private final static String[] SCOPES = {"Files.Read"};
@@ -218,7 +218,7 @@ TextView currentUserTextView;
 
 ### onCreate
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, replace the onCreate() method with the following code snippet which instantiate MSAL using the `SingleAccountPublicClientApplication`:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, replace the onCreate() method with the following code snippet which instantiate MSAL using the `SingleAccountPublicClientApplication`:
 
 ```java
 @Override
@@ -245,7 +245,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### loadAccount
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `loadAccount()` method which monitors status of the current logged in user:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `loadAccount()` method which monitors status of the current logged in user:
 
 ```java
 //When app comes to the foreground, load existing account to determine if user is signed in
@@ -279,7 +279,7 @@ private void loadAccount() {
 
 ### initializeUI
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `initializeUI()` method Listen to buttons and call methods or log errors accordingly:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `initializeUI()` method that listen to buttons and call methods or log errors accordingly:
 
 ```java
 private void initializeUI(){
@@ -350,7 +350,7 @@ private void initializeUI(){
 
 ### getAuthInteractiveCallback
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `getAuthInteractiveCallback()` method which is used to acquire token interactively:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `getAuthInteractiveCallback()` method which is used to acquire token interactively:
 
 ```java
 private AuthenticationCallback getAuthInteractiveCallback() {
@@ -382,7 +382,7 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 
 ### getAuthSilentCallback
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `getAuthSilentCallback()` method which acquires token without interrupting the user:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `getAuthSilentCallback()` method, which acquires token without interrupting the user:
 
 ```java
 private SilentAuthenticationCallback getAuthSilentCallback() {
@@ -407,7 +407,7 @@ The following code demonstrates how to call the GraphAPI using the Graph SDK.
 
 ### callGraphAPI
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `callGraphAPI()` method:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `callGraphAPI()` method:
 
 ```java
 private void callGraphAPI(IAuthenticationResult authenticationResult) {
@@ -452,7 +452,7 @@ If you would like to model your UI off this tutorial, the following methods prov
 
 #### updateUI
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `updateUI()` method which Enable/disable buttons based on sign-in state and set text.:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `updateUI()` method which Enable/disable buttons based on sign-in state and set text.:
 
 ```java
 private void updateUI(@Nullable final IAccount account) {
@@ -475,7 +475,7 @@ private void updateUI(@Nullable final IAccount account) {
 
 #### displayError
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayError()` method which logs errors:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayError()` method which logs errors:
 
 ```java
 private void displayError(@NonNull final Exception exception) {
@@ -485,7 +485,7 @@ private void displayError(@NonNull final Exception exception) {
 
 #### displayGraphResult
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayGraphResult()` method which reads Microsoft Graph response:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `displayGraphResult()` method which reads Microsoft Graph response:
 
 ```java
 private void displayGraphResult(@NonNull final JsonObject graphResponse) {
@@ -495,7 +495,7 @@ private void displayGraphResult(@NonNull final JsonObject graphResponse) {
 
 #### performOperationOnSignOut
 
-In **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `performOperationOnSignOut()` method to update text in UI to reflect sign out:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. Inside the `MainActivity` class, add the following code snippet that declares `performOperationOnSignOut()` method to update text in UI to reflect sign out:
 
 ```java
 private void performOperationOnSignOut() {
@@ -620,5 +620,5 @@ When no longer needed, delete the app object that you created in the [Register y
 
 Learn more about building mobile apps that call protected web APIs in our multi-part scenario series.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
