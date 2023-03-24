@@ -27,18 +27,18 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 
 ## Prerequisites
 - Review [getting started with training on Azure Machine Learning](./how-to-train-model.md).
-- To use this feature in Azure Machine Learning Studio, enable the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
+- To use this feature in Azure Machine Learning studio, enable the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 - To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
-
-
+- To use SSH, you need an SSH key pair. You can use the `ssh-keygen -f "<filepath>"` command to generate a public and private key pair.
+   
 ## Interact with your job container
 
 By specifying interactive applications at job creation, you can connect directly to the container on the compute node where your job is running. Once you have access to the job container, you can test or debug your job in the exact same environment where it would run. You can also use VS Code to attach to the running process and debug as you would locally. 
 
 ### Enable during job submission
-# [Azure Machine Learning Studio](#tab/ui)
+# [Azure Machine Learning studio](#tab/ui)
 1. Create a new job from the left navigation pane in the studio portal.
 
 
@@ -54,10 +54,10 @@ By specifying interactive applications at job creation, you can connect directly
   :::image type="content" source="./media/interactive-jobs/sleep-command.png" alt-text="Screenshot of reviewing a drafted job and completing the creation.":::
 
   You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
-      * sleep 1s
-      * sleep 1m
-      * sleep 1h
-      * sleep 1d
+  * sleep 1s
+  * sleep 1m
+  * sleep 1h
+  * sleep 1d
 
   You can also use the ```sleep infinity``` command that would keep the job alive indefinitely. 
     
@@ -77,105 +77,94 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
 
    Note that you have to import the `JobService` class from the `azure.ai.ml.entities` package to configure interactive services via the SDKv2. 
 
-    ```python
-    command_job = command(...
-        code="./src",  # local path where the code is stored
-        command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
-        environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
-        compute="<name-of-compute>",
-        services={
-          "My_jupyterlab": JobService(
-            job_service_type="jupyter_lab",
-            nodes="all" # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
-          ),
-          "My_vscode": JobService(
-            job_service_type="vs_code",
-            nodes="all"
-          ),
-          "My_tensorboard": JobService(
-            job_service_type="tensor_board",
-            nodes="all",
-            properties={
-                "logDir": "output/tblogs"  # relative path of Tensorboard logs (same as in your training script)
-            }          
-          ),
-          "My_ssh": JobService(
-            job_service_type="ssh",
-            sshPublicKeys="<add-public-key>",
-            nodes="all"
-            properties={
-                "sshPublicKeys":"<add-public-key>"
-            }    
-          ),
-        }
-    )
+   ```python
+   command_job = command(...
+       code="./src",  # local path where the code is stored
+       command="python main.py", # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running
+       environment="AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest",
+       compute="<name-of-compute>",
+       services={
+         "My_jupyterlab": JupyterLabJobService(
+           nodes="all" # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
+         ),
+         "My_vscode": VsCodeJobService(
+           nodes="all"
+         ),
+         "My_tensorboard": TensorBoardJobService(
+           nodes="all",
+           log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
+         ),
+         "My_ssh": SshJobService(
+           ssh_Public_Keys="<add-public-key>",
+           nodes="all"  
+         ),
+       }
+   )
+   
+   # submit the command
+   returned_job = ml_client.jobs.create_or_update(command_job)
+   ```
 
-    # submit the command
-    returned_job = ml_client.jobs.create_or_update(command_job)
-    ```
+   The `services` section specifies the training applications you want to interact with.  
 
-    The `services` section specifies the training applications you want to interact with.  
+   You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
+   * sleep 1s
+   * sleep 1m
+   * sleep 1h
+   * sleep 1d
 
-    You can put `sleep <specific time>` at the end of your command to specify the amount of time you want to reserve the compute resource. The format follows: 
-    * sleep 1s
-    * sleep 1m
-    * sleep 1h
-    * sleep 1d
-
-    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
-    
-    > [!NOTE]
-    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+   You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+   
+   > [!NOTE]
+   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Submit your training job. For more details on how to train with the Python SDKv2, check out this [article](./how-to-train-model.md).
 
 # [Azure CLI](#tab/azurecli)
 
 1. Create a job yaml `job.yaml` with below sample content. Make sure to replace `your compute name` with your own value. If you want to use custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
-    ```dotnetcli
-    code: src 
-    command: 
-      python train.py 
-      # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
-    environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
-    compute: azureml:<your compute name>
-    services:
-        my_vs_code:
-          job_service_type: vs_code
-          nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
-        my_tensor_board:
-          job_service_type: tensor_board
-          properties:
-            logDir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
-          nodes: all
-        my_jupyter_lab:
-          job_service_type: jupyter_lab
-          nodes: all
-        my_ssh:
-         job_service_type: ssh
-         properties:
-           sshPublicKeys: <paste the entire pub key content>
+   ```dotnetcli
+   code: src 
+   command: 
+     python train.py 
+     # you can add a command like "sleep 1h" to reserve the compute resource is reserved after the script finishes running.
+   environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:41
+   compute: azureml:<your compute name>
+   services:
+       my_vs_code:
+         job_service_type: vs_code
+         nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
+       my_tensor_board:
+        job_service_type: tensor_board
+         log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
          nodes: all
-    ```
-    The `services` section specifies the training applications you want to interact with.  
+       my_jupyter_lab:
+         job_service_type: jupyter_lab
+         nodes: all
+       my_ssh:
+         job_service_type: ssh
+         ssh_public_keys: <paste the entire pub key content>
+         nodes: all
+   ```
 
-    You can put `sleep <specific time>` at the end of the command to specify the amount of time you want to reserve the compute resource. The format follows: 
-    * sleep 1s
-    * sleep 1m
-    * sleep 1h
-    * sleep 1d
+   The `services` section specifies the training applications you want to interact with.  
 
-    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
-    
-    > [!NOTE]
-    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
+   You can put `sleep <specific time>` at the end of the command to specify the amount of time you want to reserve the compute resource. The format follows: 
+   * sleep 1s
+   * sleep 1m
+   * sleep 1h
+   * sleep 1d
+
+   You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
+ 
+   > [!NOTE]
+   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
 2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id> `to submit your training job. For more details on running a job via CLIv2, check out this [article](./how-to-train-model.md). 
 
 ---
-
 ### Connect to endpoints
-# [Azure Machine Learning Studio](#tab/ui)
+# [Azure Machine Learning studio](#tab/ui)
 To interact with your running job, click the button **Debug and monitor** on the job details page. 
 
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
@@ -206,7 +195,6 @@ You can find the reference documentation for these commands [here](/cli/azure/ml
 You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with by passing in the node index.
 
 ---
-
 ### Interact with the applications
 When you click on the endpoints to interact when your job, you're taken to the user container under your working directory, where you can access your code, inputs, outputs, and logs. If you run into any issues while connecting to the applications, the interactive capability and applications logs can be found from **system_logs->interactive_capability** under **Outputs + logs** tab.
 

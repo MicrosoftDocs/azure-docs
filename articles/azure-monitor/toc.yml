@@ -618,7 +618,7 @@ items:
               - name: ASP.NET App Monitoring
                 displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
                 href: app/asp-net.md
-            - name: Non-HTTP and background apps
+            - name: Non-HTTP, console, and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
