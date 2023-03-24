@@ -140,7 +140,7 @@ Create the worker restart file, this example calls the file `worker-restarts.yml
 machineconfig.machineconfiguration.openshift.io/25-machineconfig-worker-reboot created
 ```
 
-The MCO will move workloads and then reboot each node one at a time. Once the workers have come back online, we will follow the same procedure to reboot the master nodes. You can verify the status of the workers by querying the nodes and validate they are all in the `Ready` state.
+The MCO moves workloads and then reboots each node one at a time. Once the workers have come back online, we'll follow the same procedure to reboot the master nodes. You can verify the status of the workers by querying the nodes and validate they're all in the `Ready` state.
 
 >[!NOTE]
 > Depending on the size of the workload the cluster has, it can take several minutes for each node to reboot.
