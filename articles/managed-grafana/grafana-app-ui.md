@@ -15,11 +15,10 @@ This reference covers the Grafana web application's main UI components, includin
 
 ## Panels
 
-A Grafana panel is a basic building block in Grafana. Each panel displays a dataset from a data source query using a [visualization](#visualizations). For more information about panels, refer to the following items:
+A Grafana panel is a basic building block in Grafana. Each panel displays a dataset from a data source query using a visualization For more information about panels, refer to the following items:
 
-* [Working with Grafana panels](https://grafana.com/docs/grafana/latest/panels/working-with-panels/)
+* [Working with Grafana panels](https://grafana.com/docs/grafana/latest/panels-visualizations/#panels-and-visualizations/)
 * [Query a data source](https://grafana.com/docs/grafana/latest/panels/query-a-data-source/)
-* [Modify visualization text and background colors](https://grafana.com/docs/grafana/latest/panels/specify-thresholds/)
 * [Override field values](https://grafana.com/docs/grafana/latest/panels/override-field-values/)
 * [Transform data](https://grafana.com/docs/grafana/latest/panels/transform-data/)
 * [Format data using value mapping](https://grafana.com/docs/grafana/latest/panels/format-data/)
@@ -31,7 +30,7 @@ A Grafana panel is a basic building block in Grafana. Each panel displays a data
 
 ## Visualizations
 
-Grafana [panels](#panels) support various visualizations, which are visual representations of underlying data. These representations are often graphical and include:
+Grafana panels support various visualizations, which are visual representations of underlying data. These representations are often graphical and include:
 
 * Graphs and charts
   * [Time series](https://grafana.com/docs/grafana/latest/visualizations/time-series/)
@@ -77,4 +76,4 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to create a Grafana dashboard](./how-to-create-dashboard.md)
+> [Create a Grafana dashboard](./how-to-create-dashboard.md)
