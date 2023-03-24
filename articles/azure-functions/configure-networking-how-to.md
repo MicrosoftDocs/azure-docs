@@ -2,7 +2,7 @@
 title: How to configure Azure Functions with a virtual network
 description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 03/24/2023
 ms.custom: template-how-to
 ---
 
@@ -12,26 +12,28 @@ This article shows you how to perform tasks related to configuring your function
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. When configuring your storage account with private endpoints, public access to your storage account is not automatically disabled. In order to disable public access to your storage account, configure your storage firewall to allow access from only selected networks.
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. During creation, you can secure the storage account using the Azure Portal (refer Option 1 below) or ARM template (refer Option 2 below). If the storage account was not secured during creation, you can also replace this storage account with one that is secured with service endpoints or private endpoints by updating the settings manually (refer Option 3 below). Due to current design, its not possible to directly secure the same storage account thats used by an already created function app.
 
+- **Option 1:** To create a new function app using a new storage account that's locked behind a virtual network, via the Azure portal, you can follow the tutorial [Use private endpoints to integrate Azure Functions with a virtual network](https://learn.microsoft.com/azure/azure-functions/functions-create-vnet)
 
+- **Option 2:**To create a new function app using a new storage account that's locked behind a virtual network, via an ARM template, you can use this [Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints) 
+
+- **Option 3:**To secure an already existing function app to a secure storage account that's locked behind a virtual network, follow the instructions below.
 
 > [!NOTE]  
 > This feature currently works for all Windows and Linux virtual network-supported SKUs in the Dedicated (App Service) plan and for Windows Elastic Premium plans. Consumption tier isn't supported. 
 
-To set up a function with a storage account restricted to a private network:
-
-1. Create a function with a storage account that does not have service endpoints enabled.
+1. Create or Use a function app with a storage account that does not have service endpoints or private endpoints enabled.
 
 1. Configure the function to connect to your virtual network.
 
-1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
+1. Create or configure a different storage account.  This will be the storage account we secure with private endpoints or service endpoints and connect our function.
 
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) in the secured storage account.
 
 1. Enable service endpoints or private endpoint for the storage account.  
     * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` sub-resources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
-    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
+    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts on the firewall.
 
 1. Copy the file and blob content from the function app storage account to the secured storage account and file share.
 
