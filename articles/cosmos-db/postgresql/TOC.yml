@@ -226,7 +226,7 @@
         - name: System tables
           href: reference-metadata.md
     - name: REST APIs
-      href: /rest/api/postgresqlhsc/?view=azuresql
+      href: /rest/api/postgresqlhsc/
     - name: ARM templates
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
     - name: Bicep
