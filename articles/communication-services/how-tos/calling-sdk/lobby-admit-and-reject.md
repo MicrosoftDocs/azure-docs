@@ -26,7 +26,7 @@ In this article you will learn how to admit and reject participants from Microso
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Microsoft 365 or Azure Communication Services users can admit or reject users from lobby, if they are connected to Teams meeting and have Organizer, Co-organizer, or Presenter meeting role.
-[Learn more about meeting roles](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
+[Learn more about meeting roles](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
 
 To admit, reject or admit all users from the lobby, you can use the `admit`, `rejectParticipant` and `admitAll` asynchronous APIs:
 
