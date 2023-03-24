@@ -12,11 +12,13 @@ author: palma21
 
 Customizing your node configuration allows you to configure or tune your operating system (OS) settings or the kubelet parameters to match the needs of the workloads. When you create an AKS cluster or add a node pool to your cluster, you can customize a subset of commonly used OS and kubelet settings. To configure settings beyond this subset, [use a daemon set to customize your needed configurations without losing AKS support for your nodes](support-policies.md#shared-responsibility).
 
-## Use custom node configuration
+## Kubelet custom configuration
 
-### Kubelet custom configuration
+Kubelet custom configuration is supported for Linux and Windows node pools. Supported parameters differ and are documented below.
 
-The supported Kubelet parameters and accepted values are listed below.
+### Linux Kubelet custom configuration
+
+The supported Kubelet parameters and accepted values for Linux node pools are listed below.
 
 | Parameter | Allowed values/interval | Default | Description |
 | --------- | ----------------------- | ------- | ----------- |
@@ -27,15 +29,26 @@ The supported Kubelet parameters and accepted values are listed below.
 | `imageGcLowThreshold` | 0-100, no higher than `imageGcHighThreshold` | 80 | The percent of disk usage before which image garbage collection is never run. Minimum disk usage that **can** trigger garbage collection. |
 | `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | none | Optimize NUMA node alignment, see more [here](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | Allowed list of unsafe sysctls or unsafe sysctl patterns. | 
-| `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 MB | The maximum size (for example, 10 MB) of a container log file before it's rotated. | 
+| `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 | The maximum size (for example, 10 MB) of a container log file before it's rotated. | 
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. | 
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
-### Linux OS custom configuration
+### Windows Kubelet custom configuration
+
+The supported Kubelet parameters and accepted values for Windows node pools are listed below.
+
+| Parameter | Allowed values/interval | Default | Description |
+| --------- | ----------------------- | ------- | ----------- |
+| `imageGcHighThreshold` | 0-100 | 85 | The percent of disk usage after which image garbage collection is always run. Minimum disk usage that **will** trigger garbage collection. To disable image garbage collection, set to 100. | 
+| `imageGcLowThreshold` | 0-100, no higher than `imageGcHighThreshold` | 80 | The percent of disk usage before which image garbage collection is never run. Minimum disk usage that **can** trigger garbage collection. |
+| `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 | The maximum size (for example, 10 MB) of a container log file before it's rotated. | 
+| `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. | 
+
+## Linux OS custom configuration
 
 The supported OS settings and accepted values are listed below.
 
-#### File handle limits
+### File handle limits
 
 When you're serving a lot of traffic, it's common that the traffic you're serving is coming from a large number of local files. You can tweak the below kernel settings and built-in limits to allow you to handle more, at the cost of some system memory.
 
@@ -46,8 +59,7 @@ When you're serving a lot of traffic, it's common that the traffic you're servin
 | `fs.aio-max-nr` | 65536 - 6553500 | 65536 | The aio-nr shows the current system-wide number of asynchronous io requests. aio-max-nr allows you to change the maximum value aio-nr can grow to. |
 | `fs.nr_open` | 8192 - 20000500 | 1048576 | The maximum number of file-handles a process can allocate. |
 
-
-#### Socket and network tuning
+### Socket and network tuning
 
 For agent nodes, which are expected to handle very large numbers of concurrent sessions, you can use the subset of TCP and network options below that you can tweak per node pool. 
 
@@ -72,7 +84,7 @@ For agent nodes, which are expected to handle very large numbers of concurrent s
 | `net.netfilter.nf_conntrack_max` | 131072 - 1048576 | 131072 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_max` is the maximum number of nodes in the hash table, that is, the maximum number of connections supported by the `nf_conntrack` module or the size of connection tracking table. | 
 | `net.netfilter.nf_conntrack_buckets` | 65536 - 147456 | 65536 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_buckets` is the size of hash table. | 
 
-#### Worker limits
+### Worker limits
 
 Like file descriptor limits, the number of workers or threads that a process can create are limited by both a kernel setting and user limits. The user limit on AKS is unlimited. 
 
@@ -80,7 +92,7 @@ Like file descriptor limits, the number of workers or threads that a process can
 | ------- | ----------------------- | ------- | ----------- |
 | `kernel.threads-max` | 20 - 513785 | 55601 | Processes can spin up worker threads. The maximum number of all threads that can be created is set with the kernel setting `kernel.threads-max`. | 
 
-#### Virtual memory
+### Virtual memory
 
 The settings below can be used to tune the operation of the virtual memory (VM) subsystem of the Linux kernel and the `writeout` of dirty data to disk.
 
@@ -93,12 +105,44 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) is a Linux kernel feature intended to improve performance by making more efficient use of your processor’s memory-mapping hardware. When enabled the kernel attempts to allocate `hugepages` whenever possible and any Linux process will receive 2-MB pages if the `mmap` region is 2 MB naturally aligned. In certain cases when `hugepages` are enabled system wide, applications may end up allocating more memory resources. An application may `mmap` a large region but only touch 1 byte of it, in that case a 2-MB page might be allocated instead of a 4k page for no good reason. This scenario is why it's possible to disable `hugepages` system-wide or to only have them inside `MADV_HUGEPAGE madvise` regions. | 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | This value controls whether the kernel should make aggressive use of memory compaction to make more `hugepages` available. | 
 
-
-
 > [!IMPORTANT]
 > For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
 
-Create a `kubeletconfig.json` file with the following contents:
+## Create an AKS cluster with a customized node configuration
+
+### Prerequisites for Windows kubelet custom configuration
+
+* You need to use `aks-preview` and register the feature flag.
+
+  1. Install or update `aks-preview`.
+
+    ```azurecli
+    # Install aks-preview
+    az extension add --name aks-preview
+    # Update aks-preview
+    az extension update --name aks-preview
+    ```
+
+  2. Register the feature flag.
+
+    ```azurecli
+    az feature register --namespace Microsoft.ContainerService --name WindowsCustomKubeletConfigPreview
+    ``` 
+  3. Check the registration status.
+
+    ```azurecli
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Previewflag')].{Name:name,State:properties.state}"
+    ```
+
+  4. Refresh the registration of the `Microsoft.ContainerService` resource provider.
+
+    ```azurecli
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+### Create config files for kubelet configuration, OS configutation, or both
+
+Create a `kubeletconfig.json` file with the following contents (for Linux node pools):
 
 ```json
 {
@@ -115,7 +159,21 @@ Create a `kubeletconfig.json` file with the following contents:
  "failSwapOn": false
 }
 ```
-Create a `linuxosconfig.json` file with the following contents:
+> [!NOTE]
+> Windows kubelet custom configuration only supports the parameters `imageGcHighThreshold`, `imageGcLowThreshold`, `containerLogMaxSizeMB`, and `containerLogMaxFiles`. The json file contents above should be modified to remove any unsupported parameters.
+
+Create a `kubeletconfig.json` file with the following contents (for Windows node pools):
+
+```json
+{
+  "imageGcHighThreshold": 90,
+   "imageGcLowThreshold": 70,
+   "containerLogMaxSizeMB": 20,
+   "containerLogMaxFiles": 6
+}
+```
+
+Create a `linuxosconfig.json` file with the following contents (for Linux node pools only):
 
 ```json
 {
@@ -130,31 +188,41 @@ Create a `linuxosconfig.json` file with the following contents:
 }
 ```
 
-Create a new cluster specifying the kubelet and OS configurations using the JSON files created in the previous step. 
+### Create a new cluster using custom configuration files
+
+When creating a new cluster, you can use the customized configuration files created in the previous step to specify the kubelet configuration, OS configuration, or both. Since the first node pool created with az aks create is a linux node pool in all cases, you should use the kubeletconfig.json and linuxosconfig.json files.
 
 > [!NOTE]
-> When you create a cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value. CustomKubeletConfig or CustomLinuxOsConfig isn't supported for OS type: Windows.
+> If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value. CustomLinuxOsConfig isn't supported for OS type: Windows.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json --linux-os-config ./linuxosconfig.json
 ```
+### Add a node pool using custom configuration files
 
-Add a new node pool specifying the Kubelet parameters using the JSON file you created.
+When adding a node pool to a cluster, you can use the customized configuration file created in the previous step to specify the kubelet configuration. CustomKubeletConfig is supported for Linux and Windows node pools.
 
 > [!NOTE]
-> When you add a node pool to an existing cluster, you can specify the kubelet configuration, OS configuration, or both. If you specify a configuration when adding a node pool, only the nodes in the new node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.
+> When you add a Linux node pool to an existing cluster, you can specify the kubelet configuration, OS configuration, or both. When you add a Windows node pool to an existing cluster, you can only specify the kubelet configuration. If you specify a configuration when adding a node pool, only the nodes in the new node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.
+
+For Linux node pools
 
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
+For Windows node pools
 
-## Other configuration
+```azurecli
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./kubeletconfig.json
+```
 
-The settings below can be used to modify other Operating System settings.
+## Other configurations
+
+These settings can be used to modify other Operating System settings.
 
 ### Message of the Day
 
-Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster  creation or node pool creation.
+Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster creation or node pool creation.
 
 #### Cluster creation
 
