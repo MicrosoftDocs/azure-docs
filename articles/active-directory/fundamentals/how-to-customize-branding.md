@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 03/24/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -57,7 +57,7 @@ The branding elements are called out in the following example. Text descriptions
 1. **Background image** and **page background color**: The entire space behind the sign-in box.
 1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
 1. **Username hint and text**: The text that appears before a user enters their information.
-1. **Sign-in page text**: Additional text you can below the username field.
+1. **Sign-in page text**: Additional text you can add below the username field.
 1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
 1. **Template**: The layout of the page and sign-in boxes.
 1. **Footer**: Text in the lower-right corner of the page where you can add Terms of use or privacy information.
@@ -192,7 +192,7 @@ The process for customizing the experience is the same as the [default sign-in e
 
 Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the user's browser settings.
 
-![Screenshot of the sign-in experience in Hebrew, demonstrating the right-to-left layout.](media/how-to-customize-branding/righ-to-left-language-example.png)
+![Screenshot of the sign-in experience in Hebrew, demonstrating the right-to-left layout.](media/how-to-customize-branding/right-to-left-language-example.png)
 
 ## Next steps
 

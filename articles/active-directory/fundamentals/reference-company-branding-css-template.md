@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 03/24/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.collection: M365-identity-device-management
@@ -88,11 +88,11 @@ Use the following CSS selectors to configure the details of the sign-in experien
 
 - `.ext-boilerplate-text` - Custom message text at the bottom of the sign-in box
 
-    ![Screenshot of the sign-in box with the optional boilerplate text area highlighted](media/reference-company-branding-css-template/ext-boilerplate-text.png)
+    ![Screenshot of the sign-in box with the optional boilerplate text area highlighted.](media/reference-company-branding-css-template/ext-boilerplate-text.png)
 
 - `.ext-promoted-fed-cred-box` - Sign-in options text box
 
-    ![Screenshot of the sign-in box with the federated sign-in option highlighted.](media/reference-company-branding-css-template/ext-promoted-fed-cred-box.png)
+    ![Screenshot of the sign-in box with the federated sign-in option highlighted.](media/reference-company-branding-css-template/ext-promoted-federated-credential-box.png)
  
 -  Styles for the footer:
     - `.ext-footer` - Footer area at the bottom of the page
