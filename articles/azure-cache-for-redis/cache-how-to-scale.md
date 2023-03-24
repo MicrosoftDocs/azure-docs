@@ -20,9 +20,9 @@ Azure Cache for Redis has different tier offerings that provide flexibility in t
 There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 - _Scaling up_ increases the size of the Virtual Machine (VM) running the Redis server, adding more memory, Virtual CPUs (vCPUs), and network bandwidth. Scaling up is also called _vertical scaling_. The opposite of scaling up is _Scaling down_. 
-<!-- can we say 'the Redis server' here -->
-- _Scaling out_ divides the cache instance into more nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis world, scaling out is frequently called [_clustering_](https://redis.io/docs/management/scaling/).
-<!-- Not sure about the phrase "Redis world" -->
+
+- _Scaling out_ divides the cache instance into more nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis community, scaling out is frequently called [_clustering_](https://redis.io/docs/management/scaling/).
+
 
 ## Scope of availability
 
@@ -219,10 +219,10 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 > The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
 >
 
-> [!CAution]
+> [!CAUTION]
 > The Enterprise and Enterprise Flash tiers do not yet support _scale down_ or _scale in_ operations.
 >
-<!-- Should this actually be !CAUTION -->
+
 
 ### Scale using the Azure portal
 
@@ -384,8 +384,8 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 * If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 > [!IMPORTANT]
-> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [here](cache-best-practices-scale.md#clustering-on-enterprise).
-><!-- fxl - I don't see specific information about enterprise in this document. I don't see a link either.-->
+> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
+>
 >
 
 ### How are keys distributed in a cluster?
@@ -451,11 +451,11 @@ If you're using StackExchange.Redis and receive `MOVE` exceptions when using clu
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 
-OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use.  For more information, see [here](cache-best-practices-scale.md#clustering-on-enterprise).
+OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use.  For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
 
 ### How many shards do Enterprise tier caches use?
 
-Unlike Basic, Standard, and Premium tier caches, Enterprise and Enterprise Flash caches can take advantage of multiple shards on a single node. View the [Enterprise tier best practices](cache-best-practices-scale.md#sharding-and-cpu-utilization) page for more information. 
+Unlike Basic, Standard, and Premium tier caches, Enterprise and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization).
 
 ## Next steps
 
