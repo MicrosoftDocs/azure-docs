@@ -28,9 +28,9 @@ callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 
 ### Default Camera and Microphone Options
 
-By default, setup screen gives the user an option to configure the camera and microphone settings before joining a call. When you try to bypass the setup screen to join a call, user does not have that option unless they join the call already. We are providing more options to set default behavior of the camera and microphone so that developers get more control over default state of camera and microphone. You can pass a boolean value with `cameraOnByDefault` and `microphoneOnByDefault` to turn camera and microphone ON or OFF. These attributes empower developers to have control over camera and microphone controls prior to join a call. Default camera and microphone state control functionality is not affected if user grants the permission for each of them respectively.
+By default, setup screen gives the user an option to configure the camera and microphone settings before joining a call. When you try to bypass the setup screen to join a call, user doesn't have that option unless they join the call already. We're providing more options to set default behavior of the camera and microphone so that developers get more control over default state of camera and microphone. You can pass a boolean value with `cameraOnByDefault` and `microphoneOnByDefault` to turn camera and microphone ON or OFF. These attributes empower developers to have control over camera and microphone controls prior to join a call. Default camera and microphone state control functionality isn't affected if user grants the permission for each of them respectively.
 
-By default, both `cameraOnByDefault` and `microphoneOnByDefault` are set to false. You can use this functionality even with UI Libraries default call join experience. In that case, setup screen camera and microphone is turned ON or OFF according to the configuration that you set.
+By default, both `cameraOnByDefault` and `microphoneOnByDefault` are set to false. You can use this functionality even with UI Libraries default call join experience. In that case, setup screen camera and microphone are turned ON or OFF according to the configuration that you set.
 
 To use camera and microphone default state feature, pass the boolean value with
 `cameraOnByDefault` and `microphoneOnByDefault` to `LocalOptions` and inject it to `callComposite.launch`.
@@ -44,19 +44,16 @@ callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 
 ### Permission Handling
 
-It is recommended to let the users join a call with microphone and camera permission being granted to use the bypass setup screen feature with camera and microphone default configuration APIs. However, if developers do not handle the permissions of the user, UI Library tries to handle them for you.
+It is recommended to let the users join a call with microphone and camera permission being granted to use the bypass setup screen feature with camera and microphone default configuration APIs. However, if developers don't handle the permissions of the user, UI Library tries to handle them for you.
 
 Microphone permission is a must have to join a call. If users try to join a call with denied microphone permission, UI Library drops the call in connecting stage and may throw the `microphonePermissionNotGranted` error.
-On the other hand, if camera permission is denied, users are able to join the call but the camera default configuration API does not make any impact since UI Library disables the camera functionality for the user in the call.
+On the other hand, users will be able to join a call even if they deny the camera permission. UI Library disables the camera functionality when camera permission is set as denied. Thus the camera default configuration API will not affect the calling experience. User will be able to enjoy default camera configuration API affect once the camera permission is set as granted. 
 
-We recommend, developers handle the microphone permission and also camera permission before joining the call if user joins the call with camera turned on default.
+We recommend, developers handle the microphone permission. If user joins the call with camera turned on default, we recommend developers to handle the camera permission as well.
 
 ## Network Error
 
-In case of, network disruption happens or call drops during a call, UI Library exits and may throw an error with code `callEndFailed`. If user does not have network connection prior to join a call and tries to join the call with bypass setup screen feature, UI Library exits in call connecting stage and may throw an error with code `networkConnectionNotAvailable`.
-In case of, network disruption or call drop during a call, UI Library will exit and might throw `callEndFailed` error. If user does not have network connection prior to join a call and tries to join the call with bypass setup screen feature, UI Library exits in call connecting stage and might throw `networkConnectionNotAvailable` error.
-
-#### Usage
+If network disruption happens or call drops during a call, UI Library exits and may throw `callEndFailed` error. If user doesn't have network connection prior to join a call and tries to join the call with bypass setup screen feature, UI Library exits at call connecting stage and may throw `networkConnectionNotAvailable` error.
 
 You can implement closures to act on composite events. The following example shows an error event for a failed composite:
 
