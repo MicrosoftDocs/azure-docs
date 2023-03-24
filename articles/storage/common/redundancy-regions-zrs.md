@@ -70,7 +70,7 @@ get-azlocation `
     | ft -property @{N='Geography Group';E={$_.GeographyGroup}},@{N='Region Display Name';E={$_.DisplayName}},@{N='Region';E={$_.Location}},@{N='Paired Region';E={$_.Name}}
 ```
 
-The output should look similar to the following sample:
+The output should look similar to the following sample. Your results may vary depending on the regions and sovereign or government clouds you have access to:
 
 ```
 Geography Group Region Display Name  Region             Paired Region     
@@ -154,7 +154,7 @@ get-azlocation `
     | ft -property @{N='Geography Group';E={$_.GeographyGroup}},@{N='Region Display Name';E={$_.DisplayName}},@{N='Region';E={$_.Location}},@{N='Paired Region';E={$_.Name}}
 ```
 
-The output should look similar to the following sample:
+The output should look similar to the following sample. Your results may vary depending on the regions and sovereign or government clouds you have access to:
 
 ```
 Geography Group Region Display Name Region         Paired Region     
