@@ -18,7 +18,7 @@ ms.custom: sdkv2, cliv2,
 
 When developing a complex machine learning pipeline, it is common to have sub-pipelines that use multi-step  to perform tasks such as data preprocessing and model training. These sub-pipelines can be developed and tested standalone. Pipeline component groups multi-step as a component that can be used as a single step to create complex pipelines. Which will will help you share your work and better collaborate with team members.
 
-Pipeline component author can focus on the sub-task, and easy to integrate pipeline component with whole pipeline job. Meanwhile, as pipeline component have well defined interface (inputs/outputs), pipeline component user didn't need to know detail implementation of pipeline component.
+By using a pipeline component, the author can focus on developing sub-tasks and easily integrate them with the entire pipeline job. Furthermore, a pipeline component has a well-defined interface in terms of inputs and outputs, which means that user of the pipeline component does not need to know the implementation details of the component.
 
 In this article, you'll learn how to use pipeline component in Azure Machine Learning pipeline.
 
