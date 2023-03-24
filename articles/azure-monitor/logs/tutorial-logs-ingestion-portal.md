@@ -1,30 +1,30 @@
 ---
-title: 'Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)'
-description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using a REST API (Azure portal version).
+title: 'Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)'
+description: Tutorial on how sending data to a Log Analytics workspace in Azure Monitor using the Logs ingestion API. Supporting components configured using the Azure portal.
+ms.topic: tutorial
+ms.date: 03/20/2023
 author: bwren
 ms.author: bwren
-ms.topic: tutorial
-ms.date: 07/15/2022
+
 ms.reviewer: ivkhrul 
 ms.service: azure-monitor
 ---
 
-# Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)
-The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
+# Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor. The sample application collects entries from a text file and 
 
 > [!NOTE]
-> This tutorial uses the Azure portal. For a similar tutorial that uses Azure Resource Manager templates, see [Tutorial: Send data to Azure Monitor Logs by using a REST API (Resource Manager templates)](tutorial-logs-ingestion-api.md).
+> This tutorial uses the Azure portal to configure the components to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a similar tutorial that uses Azure Resource Manager templates to configure these components and that has sample code for client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
 
-In this tutorial, you learn to:
 
-> [!div class="checklist"]
-> * Create a custom table in a Log Analytics workspace.
-> * Create a data collection endpoint (DCE) to receive data over HTTP.
-> * Create a data collection rule (DCR) that transforms incoming data to match the schema of the target table.
-> * Create a sample application to send custom data to Azure Monitor.
+The steps required to configure the Logs ingestion API are as follows:
 
-> [!NOTE]
-> This tutorial uses PowerShell to call the Logs ingestion API. See [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme) for guidance on using the client libraries for other languages.
+1. [Create an Azure AD application](#create-azure-ad-application) to authenticate against the API.
+3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
+2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to. As part of this process, you will create a data collection rule (DCR) to direct the data to the target table.
+5. [Give the AD application access to the DCR](#assign-permissions-to-the-dcr).
+6. [Use sample code to send data to using the Logs ingestion API](#send-sample-data).
+
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -38,7 +38,7 @@ In this tutorial, you'll use a PowerShell script to send sample Apache access lo
 
 After the configuration is finished, you'll send sample data from the command line, and then inspect the results in Log Analytics.
 
-## Configure the application
+## Create Azure AD application
 Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the **Azure Active Directory** menu in the Azure portal, select **App registrations** > **New registration**.
@@ -61,8 +61,8 @@ Start by registering an Azure Active Directory application to authenticate again
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
 
-## Create a data collection endpoint
-A [data collection endpoint](../essentials/data-collection-endpoint-overview.md) is required to accept the data from the script. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the VM being associated, but it does not need to be in the same region as the Log Analytics workspace where the data will be sent or the data collection rule being used.
+## Create data collection endpoint
+A [data collection endpoint](../essentials/data-collection-endpoint-overview.md) is required to accept the data from the script. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE does not need to be in the same region as the Log Analytics workspace where the data will be sent or the data collection rule being used.
 
 1. To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then select **Create**.
 
@@ -76,125 +76,8 @@ A [data collection endpoint](../essentials/data-collection-endpoint-overview.md)
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-endpoint-uri.png" alt-text="Screenshot that shows DCE URI.":::
 
-## Generate sample data
-> [!IMPORTANT]
-> You must be using PowerShell version 7.2 or later.
 
-The following PowerShell script generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration.
-
-1. Run the following PowerShell command, which adds a required assembly for the script:
-
-    ```powershell
-    Add-Type -AssemblyName System.Web
-    ```
-
-1. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value**. Then save it with the file name *LogGenerator.ps1*.
-
-    ``` PowerShell
-    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $DceURI, $Table)
-    ################
-    ##### Usage
-    ################
-    # LogGenerator.ps1
-    #   -Log <String>              - Log file to be forwarded
-    #   [-Type "file|API"]         - Whether the script should generate sample JSON file or send data via
-    #                                API call. Data will be written to a file by default.
-    #   [-Output <String>]         - Path to resulting JSON sample
-    #   [-DcrImmutableId <string>] - DCR immutable ID
-    #   [-DceURI]                  - Data collection endpoint URI
-    #   [-Table]                   - The name of the custom log table, including "_CL" suffix
-
-
-    ##### >>>> PUT YOUR VALUES HERE <<<<<
-    # Information needed to authenticate to Azure Active Directory and obtain a bearer token
-    $tenantId = "<put tenant ID here>"; #the tenant ID in which the Data Collection Endpoint resides
-    $appId = "<put application ID here>"; #the app ID created and granted permissions
-    $appSecret = "<put secret value here>"; #the secret created for the above app - never store your secrets in the source code
-    ##### >>>> END <<<<<
-
-
-    $file_data = Get-Content $Log
-    if ("file" -eq $Type) {
-        ############
-        ## Convert plain log to JSON format and output to .json file
-        ############
-        # If not provided, get output file name
-        if ($null -eq $Output) {
-            $Output = Read-Host "Enter output file name" 
-        };
-
-        # Form file payload
-        $payload = @();
-        $records_to_generate = [math]::min($file_data.count, 500)
-        for ($i=0; $i -lt $records_to_generate; $i++) {
-            $log_entry = @{
-                # Define the structure of log entry, as it will be sent
-                Time = Get-Date ([datetime]::UtcNow) -Format O
-                Application = "LogGenerator"
-                RawData = $file_data[$i]
-            }
-            $payload += $log_entry
-        }
-        # Write resulting payload to file
-        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json) -Force
-
-    } else {
-        ############
-        ## Send the content to the data collection endpoint
-        ############
-        if ($null -eq $DcrImmutableId) {
-            $DcrImmutableId = Read-Host "Enter DCR Immutable ID" 
-        };
-
-        if ($null -eq $DceURI) {
-            $DceURI = Read-Host "Enter data collection endpoint URI" 
-        }
-
-        if ($null -eq $Table) {
-            $Table = Read-Host "Enter the name of custom log table" 
-        }
-
-        ## Obtain a bearer token used to authenticate against the data collection endpoint
-        $scope = [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
-        $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
-        $headers = @{"Content-Type" = "application/x-www-form-urlencoded" };
-        $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
-        $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-
-        ## Generate and send some data
-        foreach ($line in $file_data) {
-            # We are going to send log entries one by one with a small delay
-            $log_entry = @{
-                # Define the structure of log entry, as it will be sent
-                Time = Get-Date ([datetime]::UtcNow) -Format O
-                Application = "LogGenerator"
-                RawData = $line
-            }
-            # Sending the data to Log Analytics via the DCR!
-            $body = $log_entry | ConvertTo-Json -AsArray;
-            $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" };
-            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2021-11-01-preview";
-            $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers;
-
-            # Let's see how the response looks
-            Write-Output $uploadResponse
-            Write-Output "---------------------"
-
-            # Pausing for 1 second before processing the next entry
-            Start-Sleep -Seconds 1
-        }
-    }
-    ```
-
-1. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called `sample_access.log`.
-
-1. To read the data in the file and create a JSON file called `data_sample.json` that you can send to the logs ingestion API, run:
-
-    ```PowerShell
-    .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
-    ```
-
-## Add a custom log table
+## Create new table in Log Analytics workspace
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
@@ -314,6 +197,123 @@ The final step is to give the application permission to use the DCR. Any applica
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot that shows saving the DCR role assignment.":::
 
+## Generate sample data
+
+The following PowerShell script generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration.
+
+1. Run the following PowerShell command, which adds a required assembly for the script:
+
+    ```powershell
+    Add-Type -AssemblyName System.Web
+    ```
+
+1. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value**. Then save it with the file name *LogGenerator.ps1*.
+
+    ``` PowerShell
+    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $DceURI, $Table)
+    ################
+    ##### Usage
+    ################
+    # LogGenerator.ps1
+    #   -Log <String>              - Log file to be forwarded
+    #   [-Type "file|API"]         - Whether the script should generate sample JSON file or send data via
+    #                                API call. Data will be written to a file by default.
+    #   [-Output <String>]         - Path to resulting JSON sample
+    #   [-DcrImmutableId <string>] - DCR immutable ID
+    #   [-DceURI]                  - Data collection endpoint URI
+    #   [-Table]                   - The name of the custom log table, including "_CL" suffix
+
+
+    ##### >>>> PUT YOUR VALUES HERE <<<<<
+    # Information needed to authenticate to Azure Active Directory and obtain a bearer token
+    $tenantId = "<put tenant ID here>"; #the tenant ID in which the Data Collection Endpoint resides
+    $appId = "<put application ID here>"; #the app ID created and granted permissions
+    $appSecret = "<put secret value here>"; #the secret created for the above app - never store your secrets in the source code
+    ##### >>>> END <<<<<
+
+
+    $file_data = Get-Content $Log
+    if ("file" -eq $Type) {
+        ############
+        ## Convert plain log to JSON format and output to .json file
+        ############
+        # If not provided, get output file name
+        if ($null -eq $Output) {
+            $Output = Read-Host "Enter output file name" 
+        };
+
+        # Form file payload
+        $payload = @();
+        $records_to_generate = [math]::min($file_data.count, 500)
+        for ($i=0; $i -lt $records_to_generate; $i++) {
+            $log_entry = @{
+                # Define the structure of log entry, as it will be sent
+                Time = Get-Date ([datetime]::UtcNow) -Format O
+                Application = "LogGenerator"
+                RawData = $file_data[$i]
+            }
+            $payload += $log_entry
+        }
+        # Write resulting payload to file
+        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json) -Force
+
+    } else {
+        ############
+        ## Send the content to the data collection endpoint
+        ############
+        if ($null -eq $DcrImmutableId) {
+            $DcrImmutableId = Read-Host "Enter DCR Immutable ID" 
+        };
+
+        if ($null -eq $DceURI) {
+            $DceURI = Read-Host "Enter data collection endpoint URI" 
+        }
+
+        if ($null -eq $Table) {
+            $Table = Read-Host "Enter the name of custom log table" 
+        }
+
+        ## Obtain a bearer token used to authenticate against the data collection endpoint
+        $scope = [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
+        $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
+        $headers = @{"Content-Type" = "application/x-www-form-urlencoded" };
+        $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
+        $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
+
+        ## Generate and send some data
+        foreach ($line in $file_data) {
+            # We are going to send log entries one by one with a small delay
+            $log_entry = @{
+                # Define the structure of log entry, as it will be sent
+                Time = Get-Date ([datetime]::UtcNow) -Format O
+                Application = "LogGenerator"
+                RawData = $line
+            }
+            # Sending the data to Log Analytics via the DCR!
+            $body = $log_entry | ConvertTo-Json -AsArray;
+            $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" };
+            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2021-11-01-preview";
+            $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers;
+
+            # Let's see how the response looks
+            Write-Output $uploadResponse
+            Write-Output "---------------------"
+
+            # Pausing for 1 second before processing the next entry
+            Start-Sleep -Seconds 1
+        }
+    }
+    ```
+
+1. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called `sample_access.log`.
+
+1. To read the data in the file and create a JSON file called `data_sample.json` that you can send to the logs ingestion API, run:
+
+    ```PowerShell
+    .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
+    ```
+
+
 ## Send sample data
 Allow at least 30 minutes for the configuration to take effect. You might also experience increased latency for the first few entries, but this activity should normalize.
 
@@ -326,25 +326,7 @@ Allow at least 30 minutes for the configuration to take effect. You might also e
 1. From Log Analytics, query your newly created table to verify that data arrived and that it's transformed properly.
 
 ## Troubleshooting
-This section describes different error conditions you might receive and how to correct them.
-
-### Script returns error code 403
-Ensure that you have the correct permissions for your application to the DCR. You might also need to wait up to 30 minutes for permissions to propagate.
-
-### Script returns error code 413 or warning of TimeoutExpired with the message ReadyBody_ClientConnectionAbort in the response
-The message is too large. The maximum message size is currently 1 MB per call.
-
-### Script returns error code 429
-API limits have been exceeded. The limits are currently set to 500 MB of data per minute for both compressed and uncompressed data and 300,000 requests per minute. Retry after the duration listed in the `Retry-After` header in the response.
-
-### Script returns error code 503
-Ensure that you have the correct permissions for your application to the DCR. You might also need to wait up to 30 minutes for permissions to propagate.
-
-### You don't receive an error, but data doesn't appear in the workspace
-The data might take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.
-
-### IntelliSense in Log Analytics doesn't recognize the new table
-The cache that drives IntelliSense might take up to 24 hours to update.
+See the [Troubleshooting](tutorial-logs-ingestion-code.md#troubleshooting) section of the sample code article if your code doesn't work as expected.
 
 ## Sample data
 You can use the following sample data for the tutorial. Alternatively, you can use your own data if you have your own Apache access logs.
