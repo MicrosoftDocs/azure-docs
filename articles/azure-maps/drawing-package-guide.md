@@ -15,7 +15,7 @@ zone_pivot_groups: drawing-package-version
 
 :::zone pivot="drawing-package-v1"
 
-This guide shows you how to prepare your Drawing Package for the [Azure Maps Conversion service] using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.
+This guide shows you how to prepare your Drawing Package for the Azure Maps [Conversion service] using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.
 
 To start with, make sure your Drawing Package is in .zip format, and contains the following files:
 
@@ -117,7 +117,7 @@ The wall layer is meant to represent the physical extents of a facility such as 
 
 The drawing package Manifest is a JSON file. The Manifest tells the Azure Maps Conversion service how to read the facility DWG files and metadata. Some examples of this information could be the specific information each DWG layer contains, or the geographical location of the facility.
 
-To achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the [sample drawing package]. This guide doesn't cover properties supported by the manifest. For more information about manifest properties, see  [Manifest File Properties].
+To achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the [sample drawing package]. This guide doesn't cover properties supported by the manifest. For more information about manifest properties, see  [Manifest file requirements].
 
 ### Building levels
 
@@ -227,7 +227,7 @@ You should now have all the DWG drawings prepared to meet Azure Maps Conversion 
 
 :::zone pivot="drawing-package-v2"
 
-This guide shows you how to prepare your Drawing Package for the Azure Maps [Conversion service v2]. A Drawing Package contains one or more DWG drawing files for a single facility and a manifest file describing the DWG files.
+This guide shows you how to prepare your Drawing Package for the Azure Maps [Conversion service]. A Drawing Package contains one or more DWG drawing files for a single facility and a manifest file describing the DWG files.
 
 If you don't have your own package to reference along with this guide, you may download the [sample drawing package v2].
 
@@ -288,7 +288,7 @@ For a better understanding of layers and feature classes, see [Drawing Package R
 
 The drawing package Manifest is a JSON file. The Manifest tells the Azure Maps Conversion service how to read the facility DWG files and metadata. Some examples of this information could be the specific information each DWG layer contains, or the geographical location of the facility.
 
-To achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the [sample drawing package v2]. This guide doesn't cover properties supported by the manifest. For more information about manifest properties, see  [Manifest File Properties].
+To achieve a successful conversion, all “required” properties must be defined. A sample manifest file can be found inside the [sample drawing package v2]. This guide doesn't cover properties supported by the manifest. For more information about manifest properties, see  [Manifest file requirements].
 
 The manifest can be created manually in any text editor, or can be created using the Azure Maps Creator onboarding tool. This guide provides examples for each.
 
@@ -316,7 +316,7 @@ Defining text properties enables you to associate text entities that fall inside
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the create a new manifest screen of the onboarding tool.":::
 
 > [!IMPORTANT]
-> Wayfinding support for `Drawing Package 2.0` will be supported in the near future. The following feature class should be defined (non-case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
+> Wayfinding support for `Drawing Package 2.0` will be available soon. The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
 >
 > 1. Wall
 > 2. Stair
@@ -356,16 +356,15 @@ You should now have all the DWG drawings prepared to meet Azure Maps Conversion 
 > [Tutorial: Creating a Creator indoor map]
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
-[Azure Maps Conversion service]: /rest/api/maps/v2/conversion
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
-[Manifest File Properties]: drawing-requirements.md#manifest-file-requirements
+[Manifest file requirements]: drawing-requirements.md#manifest-file-requirements-1
 [Drawing Package Requirements]: drawing-requirements.md
 [Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
 
 <!--------------------- Drawing Package v2 links--------------------------------------------------->
-[Conversion service v2]: https://aka.ms/creator-conversion
+[Conversion service]: https://aka.ms/creator-conversion
 [sample drawing package v2]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0
 [Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
-[manifest files]: /azure/azure-maps/drawing-requirements#manifest-file-requirements
+[manifest files]: drawing-requirements.md#manifest-file-1
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
