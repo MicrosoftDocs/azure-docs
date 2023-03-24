@@ -142,7 +142,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 
 #### Create a new cache that is scaled out using clustering
 
-Clustering is enabled  **New Azure Cache for Redis** from the working pane during cache creation.
+Clustering is enabled during cache creation from the working pane, when you create a new Azure Cache for Redis.
 
 1. Use the [_Create an open-source Redis cache_ quickstart guide](quickstart-create-redis.md) to start creating a new cache using the Azure portal. 
 
