@@ -50,7 +50,7 @@ The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUri
 
 If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. 
 
-The following example shows a scenario for copying a blob from a different container within the same storage account. Both the source and destination blobs are authorized using Azure AD.
+The following example shows a scenario for copying a blob from a different container within the same storage account. This example also shows how to lease the source blob during the copy operation to prevent changes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyBlobWithinAccount":::
 
