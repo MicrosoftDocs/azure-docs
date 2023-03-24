@@ -113,7 +113,7 @@ To learn more about input delay performance counters, see [User Input Delay perf
 
 ## Estimating Windows Event Log ingestion
 
-Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by the Azure Monitor Agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 These are the default Windows Events for Azure Virtual Desktop Insights:
 
@@ -126,7 +126,7 @@ These are the default Windows Events for Azure Virtual Desktop Insights:
 
 Windows Events send whenever the terms of the event are met in the environment. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range of 1,000 to 10,000 events per VM per day based on examples from healthy environments for this estimate. For example, if we estimate each event record size in this example to be 1,500 bytes, this comes out to roughly 2 to 15 megabytes of event data per day for the specified environment.
 
-To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
+To learn more about configuring Windows event log data collection with the Azure Monitor Agent, see how to [Collect events and performance counters from virtual machines with Azure Monitor Agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent).
 
 ## Estimating diagnostics ingestion
 
@@ -203,8 +203,6 @@ Perf
 
 This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
 
-You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configure-performance-counters).
-
 ### Manage Windows Event Logs
 
 Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase the number of events sent to the log, but the information can be critical to fixing the host's issues. We recommend keeping them. To learn more about how to manage Windows Event Logs, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
@@ -220,4 +218,3 @@ Learn more about Azure Virtual Desktop Insights at these articles:
 - [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
 - Use the [glossary](insights-glossary.md) to learn more about terms and concepts.
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help.
-- Check out [Monitoring usage and estimated costs in Azure Monitor](../azure-monitor/usage-estimated-costs.md) to learn more about managing your monitoring costs.
