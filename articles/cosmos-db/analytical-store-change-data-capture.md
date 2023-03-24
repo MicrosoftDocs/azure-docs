@@ -1,7 +1,7 @@
 ---
 title: Change data capture in analytical store
 titleSuffix: Azure Cosmos DB
-description: Change Data Capture (CDC) in Azure Cosmos DB analytical store allows you to efficiently consume a continuous and incremental feed of changed data.
+description: Change data capture (CDC) in Azure Cosmos DB analytical store allows you to efficiently consume a continuous and incremental feed of changed data.
 author: Rodrigossz
 ms.author: rosouz
 ms.reviewer: sidandrews
@@ -36,7 +36,7 @@ Change data capture in Azure Cosmos DB analytical store supports the following k
 
 The change data capture feature for the analytical store captures deleted records and the intermediate updates. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink.
 
-## Filter the change feed for a specific type of operation
+### Filter the change feed for a specific type of operation
 
 You can filter the change data capture feed for a specific type of operation. For example, you can selectively capture the insert and update operations only, thereby ignoring the user-delete and TTL-delete operations.
 

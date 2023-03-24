@@ -14,7 +14,7 @@ ms.date: 03/23/2023
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
-Use Change Data Capture (CDC) in Azure Cosmos DB analytical store as a source to [Azure Data Factory](../data-factory/index.yml) or [Azure Synapse Analytics](../synapse-analytics/index.yml) to capture specific changes to your data.
+Use Change data capture (CDC) in Azure Cosmos DB analytical store as a source to [Azure Data Factory](../data-factory/index.yml) or [Azure Synapse Analytics](../synapse-analytics/index.yml) to capture specific changes to your data.
 
 ## Prerequisites
 

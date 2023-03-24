@@ -270,7 +270,7 @@
           href: ../synapse-link-frequently-asked-questions.yml
         - name: Analytical store - overview
           href: ../analytical-store-introduction.md
-        - name: Change Data Capture (CDC)
+        - name: Change data capture (CDC)
           href: ../analytical-store-change-data-capture.md
     - name: Back up and restore
       items:
