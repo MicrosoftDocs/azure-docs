@@ -220,7 +220,15 @@ When the new webpage shows your to-do list, your app is connecting to the databa
 
 You should now be able to edit the to-do list as before.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## 7. Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+
+```azurecli-interactive
+az group delete --name <group-name>
+```
+
+This command may take a minute to run.
 
 ## Frequently asked questions
 
