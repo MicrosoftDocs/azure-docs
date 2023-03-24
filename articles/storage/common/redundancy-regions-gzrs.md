@@ -15,7 +15,7 @@ ms.custom: engagement-fy23, references_regions
 
 # Azure regions that support geo-zone-redundant storage (GZRS)
 
-This article lists the regions that support geo-zone-redundant storage (GZRS). For a list of regions that support zone-redundant storage (ZRS), see [Azure regions that support zone-redundant storage (GZRS)](redundancy-regions-zrs.md).
+This article lists the regions that support geo-zone-redundant storage (GZRS). For a list of regions that support zone-redundant storage (ZRS), see [Azure regions that support zone-redundant storage (ZRS)](redundancy-regions-zrs.md).
 
 [!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-gzrs.md)]
 
