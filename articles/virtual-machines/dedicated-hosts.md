@@ -208,3 +208,4 @@ Azure monitors and manages the health status of your hosts. The following states
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
 
+
