@@ -544,6 +544,8 @@
       items: 
         - name: Best practices
           href: flexible-server/application-best-practices.md
+        - name: Connection libraries
+          href: flexible-server/concepts-connection-libraries.md
         - name: Connection resilience
           href: flexible-server/concepts-connectivity.md
     - name: Azure Advisor recommendations
