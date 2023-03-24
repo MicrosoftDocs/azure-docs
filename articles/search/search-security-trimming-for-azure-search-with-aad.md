@@ -144,7 +144,7 @@ IndexDocumentsResult result = searchClient.IndexDocuments(batch);
 
 ## Issue a search request
 
-For security trimming purposes, the values in your security field in the index are static values used for including or excluding documents in search results. For example, if the group identifier for Admissions is "A11B22C33D44-E55F66G77-H88I99JKK", any documents in an Azure Cognitive Search index having that identifier in the security filed are included (or excluded) in the search results sent back to the requestor.
+For security trimming purposes, the values in your security field in the index are static values used for including or excluding documents in search results. For example, if the group identifier for Admissions is "A11B22C33D44-E55F66G77-H88I99JKK", any documents in an Azure Cognitive Search index having that identifier in the security field are included (or excluded) in the search results sent back to the caller.
 
 To filter documents returned in search results based on groups of the user issuing the request, review the following steps.
 
