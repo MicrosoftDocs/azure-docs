@@ -2,13 +2,18 @@
 title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 02/14/2023
 ms.author: azfuncdf
 ---
 
 # Fan-out/fan-in scenario in Durable Functions - Cloud backup example
 
 *Fan-out/fan-in* refers to the pattern of executing multiple functions concurrently and then performing some aggregation on the results. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement a fan-in/fan-out scenario. The sample is a durable function that backs up all or some of an app's site content into Azure Storage.
+
+> [!NOTE]
+> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
+>
+> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experience.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -50,7 +55,7 @@ Notice the `await Task.WhenAll(tasks);` line. All the individual calls to the `E
 
 After awaiting from `Task.WhenAll`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The function uses the standard *function.json* for orchestrator functions.
 
@@ -66,6 +71,19 @@ Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to
 > Although tasks are conceptually similar to JavaScript promises, orchestrator functions should use `context.df.Task.all` and `context.df.Task.any` instead of `Promise.all` and `Promise.race` to manage task parallelization.
 
 After yielding from `context.df.Task.all`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+Here is the code that implements the orchestrator function:
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,4,7-35":::
+
+Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function were *not* yielded, which allows them to run in parallel. When we pass this array of tasks to `context.df.Task.all`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+
+> [!NOTE]
+> Although Tasks are conceptually similar to JavaScript promises, orchestrator functions should use `context.df.Task.all` and `context.df.Task.any` instead of `Promise.all` and `Promise.race` to manage task parallelization.
+
+After yielding from `context.df.Task.all`, we know that all function calls have completed and have returned values back to us. Each call to `copyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
 # [Python](#tab/python)
 
@@ -96,7 +114,7 @@ The helper activity functions, as with other samples, are just regular functions
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=44-54)]
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The *function.json* file for `E2_GetFileList` looks like the following:
 
@@ -107,6 +125,14 @@ And here is the implementation:
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_GetFileList/index.js":::
 
 The function uses the `readdirp` module (version 2.x) to recursively read the directory structure.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+Here is the implementation of the `getFileList` activity function:
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,3,7,36-48":::
+
+The function uses the `readdirp` module (version `3.x`) to recursively read the directory structure.
 
 # [Python](#tab/python)
 
@@ -134,7 +160,7 @@ And here is the implementation:
 
 The function uses some advanced features of Azure Functions bindings (that is, the use of the [`Binder` parameter](../functions-dotnet-class-library.md#binding-at-runtime)), but you don't need to worry about those details for the purpose of this walkthrough.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 
@@ -143,6 +169,12 @@ The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 The JavaScript implementation uses the [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) to upload the files to Azure Blob Storage.
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_CopyFileToBlob/index.js":::
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+The JavaScript implementation of `copyFileToBlob` uses an Azure Storage output binding to upload the files to Azure Blob storage.
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1-2,5-6,8-9,50-68":::
 
 # [Python](#tab/python)
 
