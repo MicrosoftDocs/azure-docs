@@ -150,8 +150,7 @@ Virtual network peering is one way to access your private cluster. To use virtua
 1. In the Azure portal, navigate to the resource group that contains your cluster's virtual network.  
 1. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 1. In the left pane, select **Peerings**.  
-1. Select **Add**, add the virtual network of the VM, and then create the peering.  
-1. Go to the virtual network where you have the VM and select **Peerings**. Select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
+1. Select **Add**, add the virtual network of the VM, and then create the peering. For more information, see  [Virtual network peering][virtual-network-peering].
 
 ## Hub and spoke with custom DNS
 
