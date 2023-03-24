@@ -46,17 +46,13 @@ The following methods begin an asynchronous copy of data from the source blob:
 
 The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation. These methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation.
 
-The following example shows how to copy a source blob to a destination blob, using a [Uri](/dotnet/api/system.uri) object to represent the source blob URI:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyBlob":::
-
 #### Copy a blob within the same storage account
 
 If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. 
 
 The following example shows a scenario for copying a blob from a different container within the same storage account. Both the source and destination blobs are authorized using Azure AD.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/Program.cs" id="Snippet_CopyWithinStorageAccount":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyBlobWithinAccount":::
 
 #### Copy a blob from another storage account
 
@@ -141,7 +137,7 @@ When you copy a source blob to a destination blob that has a *different* name wi
 
 To learn more about copying blobs using the Azure Blob Storage client library for .NET, see the following resources.
 
-### REST API operations
+#### REST API operations
 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for copying blobs use the following REST API operations:
 
@@ -149,7 +145,7 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
-### Code samples
+#### Code samples
 
 - [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs)
 
