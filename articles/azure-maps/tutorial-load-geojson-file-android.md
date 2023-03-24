@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Load GeoJSON data into Azure Maps Android SDK | Microsoft Azure Maps'
 description: Tutorial on how to load GeoJSON data file into the Azure Maps Android map SDK.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -22,12 +22,12 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 
 ## Prerequisites
 
-1. Complete the [Quickstart: Create an Android app](quick-android-map.md). This tutorial will extend the code used in that quickstart.
+1. Complete the [Quickstart: Create an Android app](quick-android-map.md). This tutorial extends the code used in that quickstart.
 2. Download the [Sample Points of Interest](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Static/data/geojson/SamplePoiDataSet.json) GeoJSON file.
 
 ### Import GeoJSON data from web or assets folder
 
-Most GeoJSON files wrap all data within a `FeatureCollection`. With this scenario in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method, which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added to the map.
+Most GeoJSON files wrap all data within a `FeatureCollection`. With this scenario in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method, which deserializes the string into a GeoJSON `FeatureCollection` object that can be added to the map.
 
 The following steps show you how to import a GeoJSON file into the application and deserialize it as a GeoJSON `FeatureCollection` object.
 
@@ -233,7 +233,7 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
 
 ::: zone-end
 
-10. Run the application. A map will be displayed with bubbles overlaid for each location in the GeoJSON file. Tapping on any bubble will display a popup with the name and entity type of the feature touched.
+10. Run the application. A map is displayed with bubbles overlaid for each location in the GeoJSON file. Tapping on any bubble displays a popup with the name and entity type of the feature touched.
 
     ![Map of data from a GeoJSON file displayed with a popup being opened when location tapped](media/tutorial-load-geojson-file-android/android-import-geojson.gif)
 

@@ -53,12 +53,12 @@ Resolution:
    ```powershell
    # Set 22 port:
    azcmagent config list
-   azcmagent config get incomingconnections.port
-   azcmagent config set incomingconnections.port 22
+   azcmagent config get incomingconnections.ports
+   azcmagent config set incomingconnections.ports 22
    azcmagent config
    
    # Add multiple ports:
-   azcmagent config set incomingconnections.port 22,3516
+   azcmagent config set incomingconnections.ports 22,6516
    ```
    
 ## Azure permissions issues
