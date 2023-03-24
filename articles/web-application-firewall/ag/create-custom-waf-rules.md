@@ -240,7 +240,7 @@ Here's the corresponding JSON:
       "priority": 10,
       "ruleType": "MatchRule",
       "action": "Block",
-      "state": "Enabled,
+      "state": "Enabled",
       "matchConditions": [
         {
           "matchVariables": [
