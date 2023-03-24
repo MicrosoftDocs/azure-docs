@@ -52,7 +52,7 @@ else
 fi
 
 cd node_exporter-*.*-amd64
-nohup ./node_expoprter --web.listen-address=":9100" &
+nohup ./node_exporter --web.listen-address=":9100" &
 ```
 
 ## Prerequisites to enable secure communication
