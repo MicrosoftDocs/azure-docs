@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # Interoperability in Azure - Control plane analysis
 
-This article describes the control plane analysis of the [test setup][Setup]. You can also review the [test setup configuration][Configuration] and the [data plane analysis][Data-Analysis] of the test setup.
+This article describes the control plane analysis of the [test setup](./connectivty-interoperability-preface.md). You can also review the [test setup configuration](./connectivty-interoperability-configuration.md) and the [data plane analysis](./connectivty-interoperability-data-plane.md) of the test setup.
 
 Control plane analysis essentially examines routes that are exchanged between networks within a topology. Control plane analysis can help you understand how different networks view the topology.
 
@@ -19,12 +19,14 @@ Control plane analysis essentially examines routes that are exchanged between ne
 
 The following figure illustrates the network from the perspective of a hub virtual network (VNet) and a spoke VNet (highlighted in blue). The figure also shows the autonomous system number (ASN) of different networks and routes that are exchanged between different networks: 
 
+:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
 ![1][1]
 
 The ASN of the VNet's Azure ExpressRoute gateway is different from the ASN of Microsoft Enterprise Edge Routers (MSEEs). An ExpressRoute gateway uses a private ASN (a value of **65515**) and MSEEs use public ASN (a value of **12076**) globally. When you configure ExpressRoute peering, because MSEE is the peer, you use **12076** as the peer ASN. On the Azure side, MSEE establishes eBGP peering with the ExpressRoute gateway. The dual eBGP peering that the MSEE establishes for each ExpressRoute peering is transparent at the control plane level. Therefore, when you view an ExpressRoute route table, you see the VNet's ExpressRoute gateway ASN for the VNet's prefixes. 
 
 The following figure shows a sample ExpressRoute route table: 
 
+:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
 ![5][5]
 
 Within Azure, the ASN is significant only from a peering perspective. By default, the ASN of both the ExpressRoute gateway and the VPN gateway in Azure VPN Gateway is **65515**.
@@ -33,18 +35,21 @@ Within Azure, the ASN is significant only from a peering perspective. By default
 
 Both on-premises Location 1 and the remote VNet are connected to the hub VNet via ExpressRoute 1. They share the same perspective of the topology, as shown in the following diagram:
 
+:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
 ![2][2]
 
 ## On-premises Location 1 and the branch VNet perspective via a site-to-site VPN
 
 Both on-premises Location 1 and the branch VNet are connected to a hub VNet's VPN gateway via a site-to-site VPN connection. They share the same perspective of the topology, as shown in the following diagram:
 
+:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
 ![3][3]
 
 ## On-premises Location 2 perspective
 
 On-premises Location 2 is connected to a hub VNet via private peering of ExpressRoute 2: 
 
+:::image type="content" source="./media/folder/image.png" alt-text="Alt text here.":::
 ![4][4]
 
 ## ExpressRoute and site-to-site VPN connectivity in tandem
@@ -93,14 +98,13 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [5]: ./media/backend-interoperability/exr1-routetable.png "ExpressRoute 1 route table"
 
 <!--Link References-->
-[Setup]: ./connectivty-interoperability-preface.md
-[Configuration]: ./connectivty-interoperability-configuration.md
+
 [ExpressRoute]: ../expressroute/expressroute-introduction.md
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
 [Control-Analysis]: 
-[Data-Analysis]: ./connectivty-interoperability-data-plane.md
+
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
 [S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md
 [ExR-S2S-CoEx]: ../expressroute/expressroute-howto-coexist-resource-manager.md
