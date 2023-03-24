@@ -14,7 +14,7 @@ In this article, you learn how to create user delegation, shared access signatur
 
 >[!TIP]
 >
-> [Managed identities](create-use-managed-identities.md) enable you to grant access to your storage data without the need to include SAS tokens with your HTTP requests. *See*,[Managed identities for Document Translation](create-use-managed-identities.md).
+> [Managed identities](create-use-managed-identities.md) provide an alternate method for you to grant access to your storage data without the need to include SAS tokens with your HTTP requests. *See*, [Managed identities for Document Translation](create-use-managed-identities.md).
 >
 > * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications.
 > * Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
