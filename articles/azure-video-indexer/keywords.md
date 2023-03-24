@@ -16,7 +16,7 @@ Keywords extraction is an Azure Video Indexer AI feature that automatically de
 
 ## Prerequisites  
 
-Review [Transparency Note overview](/legal/azure-video-indexer/transparency-notee?context=/azure/azure-video-indexer/context/context)
+Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 
 ## General principles 
 
