@@ -31,7 +31,7 @@ To send an API request, you need your Cognitive Services account endpoint and ke
 
 ### Example Request
 
-To submit a request to the Trial Matcher, you need to make a POST request to the trialmatcher endpoint. 
+To submit a request to the Trial Matcher, you need to make a POST request to the endpoint. 
 
 In the example below the patients are matches to the ```Clinicaltrials_gov``` source, for a ```lung cancer``` condition with facility locations for the city ```Orlando```. 
 
@@ -78,7 +78,7 @@ Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 ```
 
 
-The response will include the operation-location in the response header. The value looks similar to the following URL:
+The response includes the operation-location in the response header. The value looks similar to the following URL:
 ```https://eastus.api.cognitive.microsoft.com/healthdecisionsupport/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview```
 
 
@@ -91,7 +91,7 @@ Content-Type: application/json
 Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 ```
 
-An example response is shown below:
+An example response:
 
 ```json
 {
