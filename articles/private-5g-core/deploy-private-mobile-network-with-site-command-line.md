@@ -33,7 +33,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 ## Azure CLI commands used in this article
 
 - [az mobile-network create](/cli/azure/mobile-network#az-mobile-network-create)
-- [az mobile-network site create](cli/azure/mobile-network/site#az-mobile-network-site-create)
+- [az mobile-network site create](/cli/azure/mobile-network/site#az-mobile-network-site-create)
 - [az mobile-network pccp create](/cli/azure/mobile-network/pccp#az-mobile-network-pccp-create)
 - [az mobile-network pcdp create](/cli/azure/mobile-network/pcdp#az-mobile-network-pcdp-create)
 - [az mobile-network data-network create](/cli/azure/mobile-network/data-network#az-mobile-network-data-network-create)
