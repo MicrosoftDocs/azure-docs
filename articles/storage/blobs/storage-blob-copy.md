@@ -56,7 +56,7 @@ The following example shows a scenario for copying a blob from a different conta
 
 #### Copy a blob from another storage account
 
-If the source is a blob in another storage account, access to the source blob must be authorized via SAS token. The SAS token needs to have **Read ('r')** permissions. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
+If the source is a blob in another storage account, access to the source blob must be authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
 The following example shows a scenario for copying a blob from another storage account. In this example, we create a source blob URI with an appended SAS token by calling [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) on the blob client. To use this method, the source blob client needs to be authorized via account key. 
 
@@ -124,14 +124,6 @@ To abort a pending copy operation, call one of the following operations:
 The following code example shows how to abort a pending copy operation:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_AbortBlobCopy":::
-
-## Billing considerations
-
-The destination account of a `Copy Blob` or `Copy Blob From URL` operation is charged for one transaction to start the copy. The destination account also incurs one transaction for each request to the copy operation.
-
-When the source blob is in another account, the source account incurs transaction costs. In addition, if the source and destination accounts reside in different regions, bandwidth that you use to transfer the request is charged to the source storage account as egress. Egress between accounts within the same region is free.
-
-When you copy a source blob to a destination blob that has a *different* name within the same account, you use extra storage resources for the new blob. The copy operation then results in a charge against the storage account's capacity usage for those additional resources. However, if the source and destination blobs have the *same* name and reside in the same account (for example, when you promote a snapshot to its base blob), no additional charge is incurred other than extra copy metadata stored in version 2012-02-12 and later. 
 
 ## Resources
 
