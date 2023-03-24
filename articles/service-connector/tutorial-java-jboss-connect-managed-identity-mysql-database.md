@@ -229,6 +229,8 @@ az webapp browse \
     --name $APPSERVICE_NAME
 ```
 
+Then go to the `/checklist` page to see the app response.
+
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
