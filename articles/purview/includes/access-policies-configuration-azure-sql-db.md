@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 03/17/2022
+ms.date: 03/24/2022
 ---
 
 Return to the Azure portal for Azure SQL Database to verify it is now governed by Microsoft Purview
