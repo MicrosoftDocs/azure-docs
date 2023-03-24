@@ -15,9 +15,9 @@ This article provides instructions on customizing metrics scraping for a Kuberne
 
 Three different configmaps can be configured to change the default settings of the metrics add-on:
 
-- ama-metrics-settings-configmap
-- ama-metrics-prometheus-config
-- ama-metrics-prometheus-config-node
+- `ama-metrics-settings-configmap`
+- `ama-metrics-prometheus-config`
+- `ama-metrics-prometheus-config-node`
 
 ## Metrics add-on settings configmap
 
@@ -39,7 +39,7 @@ The following table has a list of all the default targets that the Azure Monitor
 | windowskubeproxy | bool | `false` | Scrape windows-kube-proxy in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
 | prometheuscollectorhealth | bool | `false` | Scrape information about the prometheus-collector container, such as the amount and size of time series scraped. |
 
-If you want to turn on the scraping of the default targets that aren't enabled by default, edit the configmap `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) to update the targets listed under `default-scrape-settings-enabled` to `true`. Apply the configmap to your cluster.
+If you want to turn on the scraping of the default targets that aren't enabled by default, edit the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap` to update the targets listed under `default-scrape-settings-enabled` to `true`. Apply the configmap to your cluster.
 
 ### Customize metrics collected by default targets
 By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](prometheus-metrics-scrape-configuration-minimal.md). To collect all metrics from default targets, in the configmap under `default-targets-metrics-keep-list`, set `minimalingestionprofile` to `false`.
@@ -54,14 +54,14 @@ apiserver = "mymetric.*"
 ```
 
 > [!NOTE]
-> If you use quotes or backslashes in the regex, you'll need to escape them by using a backslash. Examples are `"test\'smetric\"s\""` and `testbackslash\\*`.
+> If you use quotation marks or backslashes in the regex, you need to escape them by using a backslash like the examples `"test\'smetric\"s\""` and `testbackslash\\*`.
 
-To further customize the default jobs to change properties such as collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`. Then apply the job by using custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Azure Monitor](prometheus-metrics-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
+To further customize the default jobs to change properties like collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`. Then apply the job by using a custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Azure Monitor](prometheus-metrics-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
 
 ### Cluster alias
-The cluster label appended to every time series scraped will use the last part of the full AKS cluster's Azure Resource Manager resource ID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`.
+The cluster label appended to every time series scraped uss the last part of the full AKS cluster's Azure Resource Manager resource ID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`.
 
-To override the cluster label in the time series scraped, update the setting `cluster_alias` to any string under `prometheus-collector-settings` in the `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap). You can either create this configmap or edit an existing one.
+To override the cluster label in the time series scraped, update the setting `cluster_alias` to any string under `prometheus-collector-settings` in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You can either create this configmap or edit an existing one.
 
 The new label also shows up in the cluster parameter dropdown in the Grafana dashboards instead of the default one.
 
@@ -69,10 +69,10 @@ The new label also shows up in the cluster parameter dropdown in the Grafana das
 > Only alphanumeric characters are allowed. Any other characters are replaced with `_`. This change is to ensure that different components that consume this label adhere to the basic alphanumeric convention.
 
 ### Debug mode
-To view every metric that's being scraped for debugging purposes, the metrics add-on agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap). You can either create this configmap or edit an existing one. For more information, see [the Debug Mode section in Troubleshoot collection of Prometheus metrics](prometheus-metrics-troubleshoot.md#debug-mode).
+To view every metric that's being scraped for debugging purposes, the metrics add-on agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You can either create this configmap or edit an existing one. For more information, see the [Debug mode section in Troubleshoot collection of Prometheus metrics](prometheus-metrics-troubleshoot.md#debug-mode).
 
 ### Scrape interval settings
-To update the scrape interval settings for any target, the customer can update the duration in default-targets-scrape-interval-settings setting for that target in `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap). The scrape intervals have to be set by customer in the correct format specified [here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). Otherwise, the default value of 30 seconds is applied to the corresponding targets.
+To update the scrape interval settings for any target, you can update the duration in the setting `default-targets-scrape-interval-settings` for that target in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You have to set the scrape intervals in the correct format specified in [this website](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). Otherwise, the default value of 30 seconds is applied to the corresponding targets.
 
 ## Configure custom Prometheus scrape jobs
 
@@ -82,11 +82,11 @@ Follow the instructions to [create, validate, and apply the configmap](prometheu
 
 ### Advanced setup: Configure custom Prometheus scrape jobs for the DaemonSet
 
-The `ama-metrics` ReplicaSet pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` ReplicaSet pod to the `ama-metrics` DaemonSet pod. 
+The `ama-metrics` ReplicaSet pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` ReplicaSet pod to the `ama-metrics` DaemonSet pod.
 
-The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheus-addon-ds-configmap), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery. Otherwise, each node tries to scrape all targets and will make many calls to the Kubernetes API server. 
+The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheus-addon-ds-configmap), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery. Otherwise, each node tries to scrape all targets and makes many calls to the Kubernetes API server.
 
-The following `node-exporter` config is one of the default targets for the DaemonSet pods. It uses the `$NODE_IP` environment variable, which is already set for every ama-metrics add-on container to target a specific port on the node.
+The following `node-exporter` config is one of the default targets for the DaemonSet pods. It uses the `$NODE_IP` environment variable, which is already set for every `ama-metrics` add-on container to target a specific port on the node.
 
   ```yaml
   - job_name: node
@@ -108,7 +108,7 @@ Custom scrape targets can follow the same format by using `static_configs` with 
 
 ## Prometheus configuration tips and examples
 
-Learn some tips and see some examples in this section.
+Learn some tips from examples in this section.
 
 ### Configuration file for custom scrape config
 
@@ -126,7 +126,7 @@ scrape_configs:
   - <job-y>
 ```
 
-Any other unsupported sections must be removed from the config before they're applied as a configmap. Otherwise, the custom configuration fails validation and won't be applied.
+Any other unsupported sections must be removed from the config before they're applied as a configmap. Otherwise, the custom configuration fails validation and isn't applied.
 
 See the [Apply config file](prometheus-metrics-scrape-validate.md#apply-config-file) section to create a configmap from the Prometheus config.
 

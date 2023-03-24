@@ -328,7 +328,7 @@ Deploy the template with the parameter file by using any valid method for deploy
 
 ## Enable Windows metrics collection
 
-As of version 6.4.0-main-02-22-2023-3ee44b9e, Windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics add-on enables the Windows DaemonSet pods to start running on your nodepools. Both Windows Server 2019 and Windows Server 2022 are supported. Follow these steps to enable the pods to collect metrics from your Windows node pools.
+As of version 6.4.0-main-02-22-2023-3ee44b9e, Windows metric collection has been enabled for the AKS clusters. Onboarding to the Azure Monitor Metrics add-on enables the Windows DaemonSet pods to start running on your node pools. Both Windows Server 2019 and Windows Server 2022 are supported. Follow these steps to enable the pods to collect metrics from your Windows node pools.
 
 1. Manually install windows-exporter on AKS nodes to access Windows metrics.
    Enable the following collectors:
@@ -355,7 +355,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e, Windows metric collection has been
 
 ## Verify deployment
 
-Run the following command to verify that the DaemonSet was deployed properly on the Linux nodepools:
+Run the following command to verify that the DaemonSet was deployed properly on the Linux node pools:
 
 ```
 kubectl get ds ama-metrics-node --namespace=kube-system
@@ -369,7 +369,7 @@ NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SEL
 ama-metrics-node   1         1         1       1            1           <none>          10h
 ```
 
-Run the following command to verify that the DaemonSet was deployed properly on the Windows nodepools:
+Run the following command to verify that the DaemonSet was deployed properly on the Windows node pools:
 
 ```
 kubectl get ds ama-metrics-win-node --namespace=kube-system
