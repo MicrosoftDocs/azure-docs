@@ -1,7 +1,7 @@
 ---
-title: Manage a dev box definition
+title: Create, update, delete dev box definitions
 titleSuffix: Microsoft Dev Box
-description: Learn how to create and delete Microsoft Dev Box Preview dev box definitions.
+description: Learn how to create, update, and delete Microsoft Dev Box Preview dev box definitions.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
