@@ -51,7 +51,7 @@ On the other hand, users are able to join a call even if they deny the camera pe
 
 We recommend, developers handle the microphone permission. If user joins the call with camera turned on default, we recommend developers to handle the camera permission as well.
 
-## Network Error
+### Network Error
 
 If network disruption happens or call drops during a call, UI Library exits and may throw `callEndFailed` error. If user doesn't have network connection prior to join a call and tries to join the call with bypass setup screen feature, UI Library exits at call connecting stage and may throw `networkConnectionNotAvailable` error.
 

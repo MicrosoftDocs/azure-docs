@@ -18,7 +18,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 `LocalOptions` is data model that consists of `ParticipantViewData` and `SetupScreenViewData`.  By default for `ParticipantViewData`, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` are displayed in all avatar components. 
 
-Similarly, for 'SetupScreenViewData', by default the UI library displays 'Setup' as the title and subtitle which are set to be hidden. The `title` and `subtitle` in 'SetupScreenViewData' overwrites the navigation bar's title and subtitle in pre-meeting screen respectively. 
+Similarly, for 'SetupScreenViewData', by default, the UI library displays 'Setup' as the title and nothing as subtitle. The `title` and `subtitle` in 'SetupScreenViewData' overwrites the navigation bar's title and subtitle in pre-meeting screen respectively. 
 
 #### Local Participant View Data
 
@@ -26,7 +26,7 @@ Similarly, for 'SetupScreenViewData', by default the UI library displays 'Setup'
 
 #### Setup Screen View Data
 
-`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not required. 
+`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (also known as Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not required. 
 If `subtitle` is not defined, then it is always set to be hidden. This class is locally stored and its information isn't sent up to the server.
 
 #### Usage

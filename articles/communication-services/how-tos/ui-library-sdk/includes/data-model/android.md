@@ -18,7 +18,7 @@ The UI Library gives developers the ability to provide a more customized experie
 
 `CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It represents the local participant.  By default, for remote participants, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` are displayed in all avatar components locally. 
 
-Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` overwrites the navigation bar's title and subtitle in pre-meeting screen respectively. By default, the UI library displays 'Setup' as the title and subtitle is set to be hidden.
+Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` overwrites the navigation bar's title and subtitle in pre-meeting screen respectively. By default, the UI library displays 'Setup' as the title and nothing as the subtitle.
 
 #### Local Participant View Data
 
