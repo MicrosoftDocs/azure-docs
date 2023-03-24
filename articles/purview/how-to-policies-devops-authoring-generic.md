@@ -139,30 +139,28 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 >[!NOTE]
 > The role definition for SQL Performance Monitor will be expanded around April 2023 to include the following actions.
 
-        /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/
-        /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/
-        /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/
-        /Sqlservers/DBCCs/ViewServerPerformanceState/
-        /Sqlservers/Databases/ExtendedEventSessions/
-        /Sqlservers/Databases/ExtendedEventSessions/Options/
-        /Sqlservers/Databases/ExtendedEventSessions/Events/
-        /Sqlservers/Databases/ExtendedEventSessions/Events/
-        /Sqlservers/Databases/ExtendedEventSessions/State/
-        /Sqlservers/Databases/ExtendedEventSessions/State/
-        /Sqlservers/Databases/ExtendedEventSessions/
-        /Sqlservers/Databases/ExtendedEventSessions/Target/
-        /Sqlservers/Databases/ExtendedEventSessions/Target/
-        /Sqlservers/ExtendedEventSessions/
-        /Sqlservers/ExtendedEventSessions/Options/
-        /Sqlservers/ExtendedEventSessions/Events/
-        /Sqlservers/ExtendedEventSessions/Events/
-        /Sqlservers/ExtendedEventSessions/State/
-        /Sqlservers/ExtendedEventSessions/State/
-        /Sqlservers/ExtendedEventSessions/
-        /Sqlservers/ExtendedEventSessions/Target/
-        /Sqlservers/ExtendedEventSessions/Target/
-
-
+- /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/
+- /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/
+- /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/
+- /Sqlservers/DBCCs/ViewServerPerformanceState/
+- /Sqlservers/Databases/ExtendedEventSessions/
+- /Sqlservers/Databases/ExtendedEventSessions/Options/
+- /Sqlservers/Databases/ExtendedEventSessions/Events/
+- /Sqlservers/Databases/ExtendedEventSessions/Events/
+- /Sqlservers/Databases/ExtendedEventSessions/State/
+- /Sqlservers/Databases/ExtendedEventSessions/State/
+- /Sqlservers/Databases/ExtendedEventSessions/
+- /Sqlservers/Databases/ExtendedEventSessions/Target/
+- /Sqlservers/Databases/ExtendedEventSessions/Target/
+- /Sqlservers/ExtendedEventSessions/
+- /Sqlservers/ExtendedEventSessions/Options/
+- /Sqlservers/ExtendedEventSessions/Events/
+- /Sqlservers/ExtendedEventSessions/Events/
+- /Sqlservers/ExtendedEventSessions/State/
+- /Sqlservers/ExtendedEventSessions/State/
+- /Sqlservers/ExtendedEventSessions/
+- /Sqlservers/ExtendedEventSessions/Target/
+- /Sqlservers/ExtendedEventSessions/Target/
 
 
 ## Next steps
