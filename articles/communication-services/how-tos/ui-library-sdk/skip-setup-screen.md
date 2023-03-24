@@ -6,7 +6,7 @@ author: mbellah
 ms.author: mbellah
 ms.service: azure-communication-services
 ms.topic: how-to 
-ms.date: 21/03/2023
+ms.date: 03/21/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 

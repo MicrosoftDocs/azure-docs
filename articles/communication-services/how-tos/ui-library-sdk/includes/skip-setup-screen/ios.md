@@ -3,7 +3,7 @@ description: In this tutorial, you learn how to use the Calling composite on iOS
 author: mbellah
 
 ms.author: mbellah
-ms.date: 22/03/2023
+ms.date: 03/22/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -15,8 +15,6 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 `LocalOptions` is an options wrapper that sets the capability of the UI Library to skip the setup screen using a boolean. By default, the bypass setup screen capability is set to false, so that UI Library goes through setup screen to provide the default experience of the UI Library. UI Library will assess `bypassSetupScreen` attribute value to set the mode for calling experience. You'll have to set `bypassSetupScreen` with true boolean value to get the bypass setup screen experience. Also to get a smooth transition to join a call, we recommend you to handle all the required permissions prior to join a call.
 
 :::image type="content" source="media/ios-bypass-setup-screen.png" alt-text="Android Bypass Setup Screen":::
-
-#### Usage
 
 To use the feature, pass the boolean value with `bypassSetupScreen` to `LocalOptions` and inject it to `callComposite.launch`.
 
@@ -31,8 +29,6 @@ callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 By default, setup screen gives the user an option to configure the camera and microphone settings before joining a call. When you try to bypass the setup screen to join a call, user does not have that option anymore. So we are providing more options to set default behavior of the camera and microphone. You can pass a boolean value with `cameraOnByDefault` and `microhponeOnByDefault` to turn camera and microphone ON or OFF. Given that users have granted permission for camera and microphone, they will be set as ON or OFF when joining a call.
 
 By default, both `cameraOnByDefault` and `microhponeOnByDefault` are set to false. You can use these attributes even with UI Libraries default call join experience. In that case, setup screen camera and microphone will be turned ON or OFF according to the value.
-
-#### Usage 
 
 To use camera and microphone default state feature, pass the boolean value with
 `cameraOnByDefault` and `microhponeOnByDefault` to `LocalOptions` and inject it to `callComposite.launch`.

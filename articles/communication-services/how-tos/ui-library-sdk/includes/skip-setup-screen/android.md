@@ -3,7 +3,7 @@ description: In this tutorial, you learn how to use the Calling composite on And
 author: mbellah
 
 ms.author: mbellah
-ms.date: 21/03/2023
+ms.date: 03/21/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -19,7 +19,6 @@ We recommend you to build your application such a way that when user tries to jo
 
 :::image type="content" source="media/android-bypass-setup-screen.png" alt-text="Android Bypass Setup Screen":::
 
-#### Usage
 
 To use the feature, pass the boolean value with `bypassSetupScreen` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
 
@@ -50,8 +49,6 @@ callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 By default, setup screen gives the user an option to configure the camera and microphone settings before joining a call. When you try to bypass the setup screen to join a call, user does not have that option unless they join the call already. So we are providing more options to set default behavior of the camera and microphone. You can pass a boolean value with `cameraOnByDefault` and `microhponeOnByDefault` to turn camera and microphone ON or OFF. This empowers developers to have control over camera and microphone controls prior to join a call. The feature for camera and microphone defauly state control will not be affected if their respective permission is denied by the user.
 
 By default, both `cameraOnByDefault` and `microhponeOnByDefault` are set to false. You can use this functionality even with UI Libraries default call join experience. In that case, setup screen camera and microphone will be turned ON or OFF according to the configuration you will set.
-
-#### Usage 
 
 To use camera and microphone default state feature, pass the boolean value with
 `cameraOnByDefault` and `microhponeOnByDefault` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
@@ -94,8 +91,6 @@ We recommend, developers handle the microphone permission and also camera permis
 In case of, network disruption or call drop during a call, UI Library will exit and might throw an error with code `CallCompositeErrorCode.CALL_END_FAILED`. If user does not have network connection prior to join a call and tries to join the call with bypass setup screen feature, UI Library exits in call connecting stage and might throw an error with code `CallCompositeErrorCode.NETWORK_CONNECTION_NOT_AVAILABLE`. 
 
 It is recommended to join the call by checking network availability to avoid such error.
-
-#### Usage
 
 To receive error events, call `setOnErrorHandler` with `CallComposite`.
 
