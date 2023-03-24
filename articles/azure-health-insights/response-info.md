@@ -12,11 +12,11 @@ ms.author: behoorne
 
 # Azure Health Insights response info  
 
-This page describes the response models and parameters that are returned by the Azure Health Insights service.
+This page describes the response models and parameters that are returned by Azure Health Insights service.
 
 
 ## Response
-The generic part of the Azure Health Insights response, common to all models.
+The generic part of Azure Health Insights response, common to all models.
 
 Name              |Required|Type  |Description                                                                                     
 ------------------|--------|------|------------------------------------------------------------------------------------------------

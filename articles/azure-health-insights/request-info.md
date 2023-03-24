@@ -12,10 +12,10 @@ ms.author: behoorne
 
 # Azure Health Insights request info  
 
-This page describes the request models and parameters that are used to interact with the Azure Health Insights service.
+This page describes the request models and parameters that are used to interact with Azure Health Insights service.
 
 ## Request
-The generic part of the Azure Health Insights request, common to all models.
+The generic part of Azure Health Insights request, common to all models.
 
 Name    |Required|Type           |Description                                                         
 --------|--------|---------------|--------------------------------------------------------------------

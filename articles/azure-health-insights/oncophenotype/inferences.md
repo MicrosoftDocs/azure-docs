@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # OncoPhenotype Inference information
 
-The Azure Health Insights OncoPhenotype model was trained with labels that conform to the following standards.
+Azure Health Insights OncoPhenotype model was trained with labels that conform to the following standards.
 - Tumor site and histology inferences: **WHO ICD-O-3** representation.
 - Clinical and pathologic stage TNM category inferences: **American Joint Committee on Cancer (AJCC)'s 7th edition** of the cancer staging manual.
 

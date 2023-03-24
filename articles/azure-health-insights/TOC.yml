@@ -20,7 +20,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-     - name: Deploy the Azure Health Insights using the portal
+     - name: Deploy Azure Health Insights using the portal
        href: deploy-portal.md
 - name: How-to guides
   items:

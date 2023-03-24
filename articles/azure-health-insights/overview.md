@@ -13,19 +13,15 @@ ms.author: behoorne
 
 # What is Azure Health Insights?
 
-The Azure Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework that uses multiple Cognitive Services, Healthcare API services, and other Azure resources. 
-
-The Azure Health Insights provides an API that serves models specific for Health and Life Sciences. It performs analysis and provide inferences to be used by a human. 
-
-The Azure Health Insight models receives input in different modalities, from one or more patients, and returns insight as a result, with potential reasoning. 
+Azure Health Insights is a Cognitive Service providing an API that serves insight models, which perform analysis and provide inferences to be used by a human. The models can receive input in different modalities, and return insight inferences including evidence as a result, for key high value scenarios in the health domain
 
 > [!IMPORTANT] 
 > Azure Health Insights is a capability provided “AS IS” and “WITH ALL FAULTS.” Azure Health Insights isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Azure Health Insights. 
 
-## Why use the Azure Health Insights?
+## Why use Azure Health Insights?
 
 Health and Life Sciences organizations have multiple high-value business problems that require clinical insights inferences that are based on clinical data. 
-Azure Health Insights is an Applied AI service that provides prebuilt models that assist with solving those business problems.
+Azure Health Insights is a Cognitive Service that provides prebuilt models that assist with solving those business problems.
 
 ## Available decision dupport models
 
@@ -38,9 +34,9 @@ The [OncoPhenotype](./oncophenotype/overview.md) receives clinical records of on
 
 ## Architecture
 
-![Diagram that shows the Azure Health Insights architecture.](media/architecture.png) 
+![Diagram that shows Azure Health Insights architecture.](media/architecture.png) 
 
-The Azure Health Insights service receives patient data through multiple input channels. This can be unstructured healthcare data, FHIR resources or specific JSON format data. This in combination with the correct model configuration, such as ```includeEvidence```. 
+Azure Health Insights service receives patient data through multiple input channels. This can be unstructured healthcare data, FHIR resources or specific JSON format data. This in combination with the correct model configuration, such as ```includeEvidence```. 
 With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher or OncoPhenotype.  
 
 ## Next steps

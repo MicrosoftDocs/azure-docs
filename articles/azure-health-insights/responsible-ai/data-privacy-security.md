@@ -29,7 +29,7 @@ Azure Health Insights:
 ## How is data retained?
 
 - The input data sent to Azure Health Insights is temporarily stored for up to 24 hours and is purged thereafter.
-- The Azure Health Insights response data is temporarily stored for 24 hours and is purged thereafter.
+- Azure Health Insights response data is temporarily stored for 24 hours and is purged thereafter.
 - During requests' and responses, the data is encrypted and only accessible to authorized on-call engineers for service support, if there's a catastrophic failure. Should on-call engineers access this data, internal audit logs track these operations. 
 - There are no customer controls available at this time.
 

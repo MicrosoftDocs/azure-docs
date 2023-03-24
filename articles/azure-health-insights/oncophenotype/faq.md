@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # OncoPhenotype frequently asked questions
 
-You’ll find answers to commonly asked questions about OncoPhenotype, part of the Azure Health Insights service, in this article
+You’ll find answers to commonly asked questions about OncoPhenotype, part of Azure Health Insights service, in this article
 
 ## What does inference value ```None``` mean?
 ```None``` implies that the model couldn't find enough relevant information to make a meaningful prediction.

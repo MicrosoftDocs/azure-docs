@@ -1,7 +1,7 @@
 ---
 title: How to use Azure Health Insights containers
 titleSuffix: Azure Health Insights
-description: Learn how to use our Azure Health Insights models on premises using Docker containers.
+description: Learn how to use our Azure Health Insight models on premises using Docker containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -13,7 +13,7 @@ ms.author: behoorne
 
 # Use Azure Health Insights containers
 
-Containers enable you to host the Azure Health Insights API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Azure Health Insights remotely, then containers might be a good option.
+Containers enable you to host Azure Health Insights API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Azure Health Insights remotely, then containers might be a good option.
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
@@ -33,7 +33,7 @@ The host is an x64-based computer that runs the Docker container. It can be a co
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 
-The following table describes the minimum and recommended specifications for the Azure Health Insights containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for Azure Health Insights containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
@@ -44,7 +44,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container images with `docker pull`
 
-The Azure Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They resides within the `azure-cognitive-services/health-insights/` repository and can be found by their model name. 
+Azure Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They resides within the `azure-cognitive-services/health-insights/` repository and can be found by their model name. 
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
 - OncoPhenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
@@ -77,13 +77,13 @@ container-
 >   * The [responsible AI](responsible-ai/transparency-note.md)  (RAI) acknowledgment must also be present with a value of `accept`.
 
 
-There are multiple ways you can install and run the Azure Health Insights containers. 
+There are multiple ways you can install and run Azure Health Insights containers. 
 
 - Use the Azure portal to create a Azure Health Insights resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. 
 - Use PowerShell and Azure CLI scripts to automate resource deployment and container conffiguration.
 
-When you use the Azure Health Insights container, the data contained in your API requests and responses is not visible to Microsoft, and is **not** used for training the model applied to your data. 
+When you use Azure Health Insights container, the data contained in your API requests and responses is not visible to Microsoft, and is **not** used for training the model applied to your data. 
 
 ### Run the container locally 
 
@@ -108,7 +108,7 @@ ApiKey={API_KEY}
 
 This command:
 
-- Runs the Azure Health Insights container from the container image
+- Runs Azure Health Insights container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (EULA) and responsible AI (RAI) terms
@@ -216,8 +216,8 @@ The [docker run](https://docs.docker.com/engine/reference/commandline/run/) comm
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | The API key of the Azure Health Insights resource that's used to track billing information.<br/>The value of this option must be set to an API key for the provisioned resource that's specified in `Billing`. |
-| `Billing` | The endpoint of the Azure Health Insights resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
+| `ApiKey` | The API key of Azure Health Insights resource that's used to track billing information.<br/>The value of this option must be set to an API key for the provisioned resource that's specified in `Billing`. |
+| `Billing` | The endpoint of Azure Health Insights resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
 ## Summary

@@ -20,7 +20,7 @@ Microsoft's Transparency Notes are intended to help you understand how our AI te
 
 ## The basics of Azure Health Insights
 
-Azure Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework that uses multiple Cognitive Services, Healthcare API services, and other Azure resources. It currently includes the following features.
+Azure Health Insights is built with the Azure Cognitive Services Framework that uses multiple Cognitive Services, Healthcare API services, and other Azure resources. It currently includes the following features.
 
 **Overviews:** 
 

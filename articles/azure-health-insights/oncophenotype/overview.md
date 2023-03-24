@@ -14,7 +14,7 @@ ms.author: behoorne
 
 # What is OncoPhenotype - Azure Health Insights
 
-OncoPhenotype is a decision support model that’s offered within the context of the broader Azure Health Insights. It augments traditional clinical Natural Language Processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
+OncoPhenotype is an AI model that’s offered within the context of the broader Azure Health Insights. It augments traditional clinical Natural Language Processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 
 
 > [!IMPORTANT] 
