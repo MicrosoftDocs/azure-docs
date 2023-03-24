@@ -62,7 +62,7 @@ Follow these steps to create a public IPv4 address with a standard SKU named myS
 > [!NOTE]
 > In regions with [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select **No Zone** (default option), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field won't appear.
 
-You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer frontend configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer frontend configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [**Basic SKU**](#tab/option-1-create-public-ip-basic)
 
@@ -96,17 +96,17 @@ Follow these steps to create a public IPv4 address with a basic SKU named myBasi
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
-If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the AllocationMethod to **Dynamic**.
+If it's acceptable for the IP address to change over time, you can set **IP address assignment** to **Dynamic**.
 
-# [**Routing Preference**](#tab/option-1-create-public-ip-routing-preference)
+# [**Routing preference**](#tab/option-1-create-public-ip-routing-preference)
 
 This section shows you how to configure [routing preference](routing-preference-overview.md) via an ISP network (**Internet** option) for a public IP address. After you create the public IP address, you can associate it with the following Azure resources:
 
-- Virtual machine
-- Virtual Machine Scale Set
-- Azure Kubernetes Service (AKS)
-- Internet-facing load balancer
-- Application gateway
+- Azure Virtual Machines
+- Azure Virtual Machine Scale Set
+- Azure Kubernetes Service
+- Azure Load Balancer
+- Azure Application Gateway
 - Azure Firewall
 
 By default, the routing preference for public IP address is set to the Microsoft global network for all Azure services and can be associated with any Azure service.
@@ -145,13 +145,13 @@ By default, the routing preference for public IP address is set to the Microsoft
 > [!NOTE]
 > In regions with [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select **No Zone** (default option), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field won't appear.
 
-You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer frontend configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer frontend configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [**Tier**](#tab/option-1-create-public-ip-tier)
 
-Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions and is required for the frontends of cross-region load balancers.  
+Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions and is required for the frontends of cross-region load balancers. For a **Global** tier, **Regions** must be a home region.
 
-For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
+For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md) and [Home regions](/azure/load-balancer/cross-region-overview#home-regions).
 
 ## Create a global tier public IP
 
