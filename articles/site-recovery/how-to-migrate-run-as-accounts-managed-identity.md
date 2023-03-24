@@ -11,7 +11,7 @@ ms.date: 02/23/2023
 # Migrate from a Run As account to Managed Identities 
 
 > [!IMPORTANT]
-> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](/articles/automation/automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/articles/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts).
+> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](/articles/automation/automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/articles/automation/automation-managed-identity-faq.md).
 > - Delaying the feature has a direct impact on our support burden, as it would cause upgrades of mobility agent to fail.
 
 This article shows you how to migrate your runbooks to use a Managed Identities for Azure Site Recovery. Azure Automation Accounts are used by Azure Site Recovery customers to auto-update the agents of their protected virtual machines. Site Recovery creates Azure Automation Run As Accounts when you enable replication via the IaaS VM Blade and Recovery Services Vault. 
@@ -27,7 +27,7 @@ Before you migrate from a Run As account to a managed identity, ensure that you 
 Here are some of the benefits of using managed identities:
 
 - **Credentials access** - You don't need to manage credentials.
-- **Simplified authentication** - You can use managed identities to authenticate to any resource that supports [Azure AD authentication](/articles/authentication/overview-authentication.md), including your own applications.
+- **Simplified authentication** - You can use managed identities to authenticate to any resource that supports Azure AD authentication including your own applications.
 - **Cost effective** - Managed identities can be used at no extra cost.
 -  **Double encryption** - Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption.
 
@@ -105,7 +105,21 @@ To link an existing managed identity Automation account to your Recovery Service
 ## Next steps
 
 Learn more about:
-- [Managed identities](/articles/active-directory/managed-identities-azure-resources/overview).
+- [Managed identities](/articles/active-directory/managed-identities-azure-resources/overview.md).
 - [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing).
 - [FAQ for migrating from a Run As account to a managed identity](/articles/automation/automation-managed-identity-faq).
-- [FAQ for Managed Identities](../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
+- [FAQ for Managed Identities](/articles/active-directory/managed-identities-azure-resources/managed-identities-faq.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+(/articles/active-directory/managed-identities-azure-resources/overview)
