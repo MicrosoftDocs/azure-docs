@@ -1,0 +1,171 @@
+---
+title: Add, remove, or use protected actions in Azure AD (preview)
+description: Learn how to add, remove, or use protected actions in Azure Active Directory.
+services: active-directory
+author: rolyon
+manager: amycolannino
+ms.author: rolyon
+ms.service: active-directory
+ms.subservice: roles
+ms.workload: identity
+ms.topic: how-to
+ms.date: 03/31/2022
+---
+
+# Add, remove, or use protected actions in Azure AD (preview)
+
+> [!IMPORTANT]
+> Protected actions are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, remove, and use a protected action.
+
+## Prerequisites
+
+To add or remove protected actions, you must have:
+
+- Azure AD Premium P1 or P2 license
+- [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator)
+
+## Add a protected action
+
+To add a protection action, assign a Conditional Access policy to one or more permissions, using a Conditional Access authentication context.
+
+Make sure you have at least one Conditional Access authentication context configured in your tenant. Learn more
+
+1. Sign in to the Microsoft Entra admin portal.
+
+1. Select Azure Active Directory > Roles & Admins > Protected actions (Preview).
+
+1. Select Add protected actions to add a new protected action.
+
+    If Add attribute set is disabled, make sure you're assigned the Conditional Access administrator role. For more information, see Troubleshoot protected actions.
+
+1. Select a configured Conditional Access authentication context. 
+
+    If no values are available, configure Conditional Access authentication context for your tenant. Learn more
+
+1. Select the permission that will be protected by Conditional Access
+
+1. Select Add.
+
+1. When finished, select Save.
+
+    The new protected actions appear in the list of protected actions
+
+## Remove a protected action
+
+To remove a protection action, unassign Conditional Access policy requirements from a permission.
+
+1. Sign in to the Microsoft Entra admin portal.
+
+1. Select Azure Active Directory > Roles & Admins > Protected actions (Preview).
+
+1. Find and select the permission Conditional Access policy to unassign.
+
+1. Select Remove on the toolbar.
+ 
+    After you remove the protected action, the permission won't have a Conditional Access requirement. A new Conditional Access policy can be assigned to the permission.
+
+## Microsoft Graph
+
+### Add a protected action
+
+Protected actions are added by assigning an authentication context value to a permission. Authentication context values that are available in the tenant can be discovered by calling the authentication context API.
+
+Authentication context can be assigned to a permission using the resourceAction API beta endpoint:
+
+```http
+https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions/
+```
+
+The following example shows
+
+```http
+https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions/microsoft.directory-conditionalAccessPolicies-delete-delete?$select=authenticationContextId, isAuthenticationContextSettable
+```
+
+ResourceActions with the property isAuthenticationContextSettable set to true support authentication context.
+
+ResourceActions with the value of the property authenticationContextId is the authentication context ID that has been assigned to the action.
+
+Note To view the isAuthenticationContextSettable and authenticationContextId properties, they must be included in the select statement when making the request to the resourceAction API.
+
+## Use a protected action
+
+When a user performs a protected action, they'll need to satisfy Conditional Access policy requirements. This section shows the experience for a user being prompted to satisfy a policy. In this example, the user is required to authenticate with a FIDO security key before they can update Conditional Access policies.
+
+1. Sign in to the Microsoft Entra admin portal.
+
+1. Select Azure Active Directory > Protect & Secure > Conditional Access.
+
+1. Select on a Conditional Access policy view it.
+
+    Policy editing is disabled because the authentication requirements haven't been satisfied.
+
+1. Select Click here to reauthenticate.
+
+1. Complete the authentication requirements when the browser is redirected to the Azure AD sign-in page.
+ 
+1. Edit policy and save changes.
+
+## Troubleshoot
+
+### Symptom - No authentication context values can be selected
+
+When attempting to select a Conditional Access authentication context, there are no values available to select.
+ 
+**Cause**
+
+No Conditional Access authentication context values have been enabled in the tenant.
+
+**Solution**
+
+Enable authentication context for the tenant by adding a new authentication context. Ensure Publish to apps is checked, so the value is available to be selected. Learn more
+
+### Symptom - Policy isn't getting triggered.
+
+In some cases, after a protected action has been added, users may not be prompted as expected. For example, if policy requires multifactor authentication, a user may not see a sign-in prompt. 
+
+**Cause 1**
+
+The user hasn't been assigned to the Conditional Access policies used for protected action.
+
+**Solution 1**
+
+Use Conditional Access What If tool to check if the user has been assigned policy. When using the tool, select the user and the authentication context that was used with the protected action. Select What If and verify the expected policy is listed in the Policies that will apply table. If the policy doesn't apply, check the policy user assignment condition, and add the user.
+
+**Cause 2**
+
+The user has previously satisfied policy. For example, the completed multifactor authentication earlier in the same session. 
+
+**Solution 2**
+
+Check the Azure AD sign-in events to troubleshoot. The sign-in events will include details about the session, including if the user has already completed multifactor authentication. When troubleshooting with the sign-in logs, it's also helpful to check the policy details page, to confirm an authentication context was requested.  
+
+### Symptom - No access to add protected actions
+
+When signed in you don't have permissions to add or remove protected actions.
+
+**Cause**
+
+You don't have permission to manage protected actions.
+
+**Solution**
+
+Make sure you're assigned the Security Administrator or Condition Access Administrator role.
+
+### Symptom - Error returned using PowerShell to perform a protected action
+
+When using PowerShell to perform a protected action, an error is returned and there's no prompt to satisfy Conditional Access policy.
+
+**Cause**
+
+Microsoft Graph PowerShell supports step-up authentication, which is required to allow policy prompts. Azure and Azure AD Graph PowerShell isn't supported for step-up authentication.
+
+**Solution**
+
+Make sure you're using Microsoft Graph PowerShell.
+
+## Next steps
+
