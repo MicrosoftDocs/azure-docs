@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Multi-tenant organizations documentation - Azure AD
+title: Multi-tenant organizations documentation
 summary: A multi-tenant organization is an organization that has more than one instance of Azure Active Directory. Describes ways that users can have a seamless experience accessing resources and collaborating across multiple tenants.
 
 metadata:

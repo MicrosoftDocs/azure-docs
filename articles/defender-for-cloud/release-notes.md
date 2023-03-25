@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/20/2023
+ms.date: 03/20/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,7 +20,34 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in March include:
 
+- [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
+- [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+
+### Some regulatory compliance standards are now available in government clouds
+
+We are announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
+
+**Azure Government**:
+- [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+
+**Azure China 21Vianet**:
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+### New preview recommendation for Azure SQL Servers 
+
+We have added a new recommendation for Azure SQL Servers, `Azure SQL Server authentication mode should be Azure Active Directory Only (Preview)`.
+
+The recommendation is based on the existing policy [`Azure SQL Database should have Azure Active Directory Only Authentication enabled`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fabda6d70-9778-44e7-84a8-06713e6db027)
+
+This recommendation disables local authentication methods and allows only Azure Active Directory Authentication which improves security by ensuring that Azure SQL Databases can exclusively be accessed by Azure Active Directory identities. 
+
+Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server?tabs=azure-cli&view=azuresql).
 
 ### New alert in Defender for Key Vault
 

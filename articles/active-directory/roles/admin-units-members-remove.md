@@ -1,5 +1,5 @@
 ---
-title: Remove users, groups, or devices from an administrative unit - Azure Active Directory
+title: Remove users, groups, or devices from an administrative unit
 description: Remove users, groups, or devices from an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
