@@ -102,7 +102,7 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 
 ### Select your target architecture
 
-Currently, Visual Studio Code can develop Python modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64.
+Visual Studio Code can develop Python modules for Linux AMD64, Linux ARM32v7, Linux ARM64v8, and Windows AMD64 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64.
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window.
 
