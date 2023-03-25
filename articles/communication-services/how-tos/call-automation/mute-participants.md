@@ -45,6 +45,6 @@ In a typical contact center, there may be times when a supervisor needs to join 
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
-## Next Steps
+## Next steps
 
 Learn more about [Call Automation](../../concepts/call-automation/call-automation.md). 
