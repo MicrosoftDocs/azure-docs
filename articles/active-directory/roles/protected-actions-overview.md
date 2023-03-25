@@ -95,10 +95,23 @@ If your organization has developed an application that calls the Microsoft Graph
 
 ## Best practices
 
-- **Have an emergency account**: When configuring Conditional Access policies for protected actions, be sure to have an emergency account that is excluded from the policy. This provides a mitigation against accidental lockout.
-- **Move user and sign-in risk policies to Conditional Access**: Conditional Access permissions aren't used when managing Azure AD Identity Protection risk policies. We recommend moving user and sign-in risk policies to Conditional Access.
-- **Use named network locations**: Named network location permissions aren't used when managing multi-factor authentication trusted IPs. We recommend using [named network locations](../conditional-access/location-condition.md#named-locations).
-- **Don't use protected actions to block access based on identity or group membership**: Protected actions are used to apply an access requirement to perform a protected action. They aren't intended to block use of a permission just based on user identity or group membership. Who has access to specific permissions is an authorization decision and should be controlled by role assignment.
+Here are some best practices for using protected actions.
+
+- **Have an emergency account**
+
+    When configuring Conditional Access policies for protected actions, be sure to have an emergency account that is excluded from the policy. This provides a mitigation against accidental lockout.
+
+- **Move user and sign-in risk policies to Conditional Access**
+
+    Conditional Access permissions aren't used when managing Azure AD Identity Protection risk policies. We recommend moving user and sign-in risk policies to Conditional Access.
+
+- **Use named network locations**
+
+    Named network location permissions aren't used when managing multi-factor authentication trusted IPs. We recommend using [named network locations](../conditional-access/location-condition.md#named-locations).
+
+- **Don't use protected actions to block access based on identity or group membership**
+
+    Protected actions are used to apply an access requirement to perform a protected action. They aren't intended to block use of a permission just based on user identity or group membership. Who has access to specific permissions is an authorization decision and should be controlled by role assignment.
 
 ## License requirements
 
