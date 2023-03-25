@@ -26,7 +26,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/dev-box/how-to-configure-network-connections.md",
+      "source_path_from_root": "/articles/dev-box/how-to-manage-network-connection.md",
       "redirect_url": "/azure/dev-box/how-to-configure-network-connections",
       "redirect_document_id": false
     }
