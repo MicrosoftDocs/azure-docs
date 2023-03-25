@@ -189,7 +189,7 @@ az redis update --name MyRedisCache --resource-group MyResourceGroup --set "redi
 
 ### [Using Azure CLI (Enterprise tier)](#tab/enterprise)
 
-The [az redisenterprise create](/cli/azure/redisenterprise?view=azure-cli-latest#az-redisenterprise-update) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` parameters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
+The [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-update) command can be used to create a new Enterprise-tier cache using data persistence. Use the `rdb-enabled`, `rdb-frequency`, `aof-enabled`, and `aof-frequency` parameters to configure the persistence setup. This example creates a new E10 Enterprise tier cache using RDB persistence with one hour frequency:
 
 ```azurecli
 az redisenterprise create --cluster-name "cache1" --resource-group "rg1" --location "East US" --sku "Enterprise_E10" --persistence rdb-enabled=true rdb-frequency="1h" 
