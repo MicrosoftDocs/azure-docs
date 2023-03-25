@@ -40,7 +40,7 @@ Container Apps generates system logs to inform you of the status of service leve
 - Deactivating Old revisions
 - Error provisioning revision
 
-The system log data can be stored and monitored through the Container Apps logging options or streamed through the Azure portal or CLI.  For more information, see [Logging options](log-options.md) and [Log streams](log-streaming.md).
+The system log data can be stored and monitored through the Container Apps logging options or streamed through the Azure portal or CLI.  For more information, [Log streams](log-streaming.md).
 
 ## Next steps
 
