@@ -100,7 +100,7 @@ Customers in the following countries or regions can add their Tax IDs.
 |Spain    |   Sweden   |
 |Switzerland    |   Taiwan  |
 |Tajikistan   |   Thailand  |
-|Turkey    |   Ukraine   |
+|Türkiye    |   Ukraine   |
 |United Arab Emirates    |   United Kingdom     |
 |Uzbekistan    |  Vietnam    |
 |Zimbabwe    |   |
