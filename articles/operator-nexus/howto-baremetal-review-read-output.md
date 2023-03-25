@@ -1,5 +1,5 @@
 ---
-title: How to view the output of an `az networkcloud run-read-command` in the Cluster Manager Storage account
+title: How to view the output of an `az networkcloud run-read-command` in the Operator Nexus Cluster Manager Storage account
 description: Step by step guide on locating the output of a `az networkcloud run-read-command` in the Cluster Manager Storage account.
 author: eak13
 ms.author: ekarandjeff
@@ -27,4 +27,4 @@ This guide walks you through accessing the output file that is created in the Cl
 
 For information on running the `run-read-command`, see:
 
-- [Troubleshoot Baremetal Machine issues using the run-read command](howto-baremetal-run-read.md)
+- [Troubleshoot BMM issues using the run-read command](howto-baremetal-run-read.md)

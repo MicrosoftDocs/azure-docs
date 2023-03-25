@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot BMM issues using the `az networkcloud baremetalmachine run-read-command`
+title: Troubleshoot BMM issues using the `az networkcloud baremetalmachine run-read-command` for Operator Nexus
 description: Step by step guide on using the `az networkcloud baremetalmachine run-read-command` to run diagnostic commands on a BMM.
 author: eak13
 ms.author: ekarandjeff
