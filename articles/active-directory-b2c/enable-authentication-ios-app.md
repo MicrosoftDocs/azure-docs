@@ -90,7 +90,7 @@ The [sample code](configure-authentication-sample-ios-app.md#step-4-get-the-ios-
 - Contains information about your Azure AD B2C identity provider. The app uses this information to establish a trust relationship with Azure AD B2C. 
 - Contains the authentication code to authenticate users, acquire tokens, and validate them.
 
-Choose a `UIViewController` where users authenticates.  In your `UIViewController`, merge the code with the [code that's provided in GitHub](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/blob/vNext/MSALiOS/ViewController.swift). 
+Choose a `UIViewController` where users authenticate.  In your `UIViewController`, merge the code with the [code that's provided in GitHub](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/blob/vNext/MSALiOS/ViewController.swift). 
 
 ## Step 4: Configure your iOS Swift app
 
