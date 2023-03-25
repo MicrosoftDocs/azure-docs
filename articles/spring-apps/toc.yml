@@ -119,6 +119,8 @@ items:
     href: concept-manage-monitor-app-spring-boot-actuator.md
   - name: Customize Azure Spring Apps egress with a user-defined route
     href: concept-outbound-type.md
+  - name: Enterprise Tier in Azure Marketplace
+    href: how-to-enterprise-marketplace-offer.md
 - name: Security
   items:
   - name: Security controls
@@ -201,8 +203,6 @@ items:
       href: how-to-outbound-public-ip.md
     - name: Move across regions
       href: how-to-move-across-regions.md
-    - name: View Enterprise Tier offering
-      href: how-to-enterprise-marketplace-offer.md
   - name: Scale
     items:
     - name: Manually scale an app

@@ -28,7 +28,7 @@ More details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* In some countries, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
+\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
 
 \** Applications from all other subscription types will be reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
