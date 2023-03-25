@@ -55,7 +55,7 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Custom Neural Voice Pro |
 | `te-IN` | Telugu (India) | Custom Neural Voice Pro |
 | `th-TH` | Thai (Thailand) | Custom Neural Voice Pro |
-| `tr-TR` | Turkish (Turkey) | Custom Neural Voice Pro |
+| `tr-TR` | Turkish (Türkiye) | Custom Neural Voice Pro |
 | `vi-VN` | Vietnamese (Vietnam) | Custom Neural Voice Pro |
 | `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Custom Neural Voice Pro |
