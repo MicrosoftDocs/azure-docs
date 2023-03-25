@@ -26,7 +26,7 @@ To add or remove protected actions, you must have:
 
 - Azure AD Premium P1 or P2 license
 - [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator)
-- One or more [Conditional Access authentication context configured](../conditional-access/concept-conditional-access-cloud-apps#authentication-context)
+- One or more [Conditional Access authentication context configured](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
 
 ## Add a protected action
 
@@ -42,7 +42,7 @@ To add a protection action, assign a Conditional Access policy to one or more pe
 
 1. Select a configured Conditional Access authentication context. 
 
-    If no values are available, [configure a Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps#authentication-context) for your tenant.
+    If no values are available, [configure a Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context) for your tenant.
 
 1. Select the permission that will be protected by Conditional Access.
 
@@ -70,9 +70,9 @@ To remove a protection action, unassign Conditional Access policy requirements f
 
 ### Add a protected action
 
-Protected actions are added by assigning an authentication context value to a permission. Authentication context values that are available in the tenant can be discovered by calling the [authenticationContextClassReference](/graph/api/resources/authenticationcontextclassreference) API.
+Protected actions are added by assigning an authentication context value to a permission. Authentication context values that are available in the tenant can be discovered by calling the [authenticationContextClassReference](/graph/api/resources/authenticationcontextclassreference?branch=main) API.
 
-Authentication context can be assigned to a permission using the [unifiedRbacResourceAction](/graph/api/resources/unifiedrbacresourceaction) API beta endpoint:
+Authentication context can be assigned to a permission using the [unifiedRbacResourceAction](/graph/api/resources/unifiedrbacresourceaction?branch=main) API beta endpoint:
 
 ```http
 https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions/

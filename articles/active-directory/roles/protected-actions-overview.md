@@ -81,15 +81,15 @@ Here is the initial set of permissions:
 
 If an application or service attempts to perform a protection action, it may need to be able to make a step-up authentication request, so the user is able to satisfy the required Conditional Access policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
 
-- Azure Active Directory admin experiences for the actions in the Azure and Entra portals
-- Microsoft Graph PowerShell
-- Microsoft Graph Explorer
+- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com)
+- [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
+- [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 
 There are some known and expected limitations. The following applications will fail if they attempt to perform a protected action. In the case that step-up authentication is required to perform the protected action, the following clients will fail to authenticate.
  
-- Azure PowerShell 
-- Azure AD PowerShell
-- Creating a new terms of use page in the Azure or Entra portal. New pages are registered with Conditional Access so are subject to Conditional Access create and update protected actions
+- [Azure PowerShell](/powershell/azure/what-is-azure-powershell?branch=main) 
+- [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
+- Creating a new [terms of use](../conditional-access/terms-of-use.md) page in the Entra admin center or Azure portal. New pages are registered with Conditional Access so are subject to Conditional Access create and update protected actions.
 
 If your organization has developed an application that calls the Microsoft Graph API to perform a protected action, you should review the code sample for how to handle a claims challenge using step-up authentication. For more information, see [Developer guide to Conditional Access authentication context](../develop/developer-guide-conditional-access-authentication-context.md).
 
