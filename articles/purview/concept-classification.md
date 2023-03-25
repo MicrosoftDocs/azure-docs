@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 03/23/2023
 ---
 
 # Data classification in the Microsoft Purview governance portal

@@ -1,6 +1,6 @@
 ---
-title: Sign-in logs (preview) in Azure Active Directory
-description: Conceptual information about Azure AD sign-in logs, including new features in preview. 
+title: Sign-in logs (preview)
+description: Conceptual information about sign-in logs, including new features in preview. 
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/12/2023
+ms.date: 03/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -105,9 +105,13 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Screenshot customize columns button.](./media/concept-all-sign-ins/sign-in-logs-columns-preview.png)
 
+#### Considerations for MFA sign-ins
+
+When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
+
 ### Non-interactive user sign-ins
 
-Like interactive user sign-ins, non-interactive sign-ins are done on behalf of a user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user will perceive these sign-ins as happening in the background.
+Like interactive user sign-ins, non-interactive sign-ins are done on behalf of a user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user perceives these sign-ins as happening in the background.
 
 **Report size:** Large </br>
 **Examples:** 
@@ -128,7 +132,7 @@ You can't customize the fields shown in this report.
 
 To make it easier to digest the data, non-interactive sign-in events are grouped. Clients often create many non-interactive sign-ins on behalf of the same user in a short time period. The non-interactive sign-ins share the same characteristics except for the time the sign-in was attempted. For example, a client may get an access token once per hour on behalf of a user. If the state of the user or client doesn't change, the IP address, resource, and all other information is the same for each access token request. The only state that does change is the date and time of the sign-in. 
 
-When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins will be from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) will have a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
+When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) have a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
 
 Sign-ins are aggregated in the non-interactive users when the following data matches:
 
@@ -142,7 +146,7 @@ The IP address of non-interactive sign-ins doesn't match the actual source IP of
 
 ### Service principal sign-ins
 
-Unlike interactive and non-interactive user sign-ins, service principal sign-ins don't involve a user. Instead, they're sign-ins by any non-user account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-in log). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
+Unlike interactive and non-interactive user sign-ins, service principal sign-ins don't involve a user. Instead, they're sign-ins by any nonuser account, such as apps or service principals (except managed identity sign-in, which are in included only in the managed identity sign-in log). In these sign-ins, the app or service provides its own credential, such as a certificate or app secret to authenticate or access resources.
 
 
 **Report size:** Large </br>
@@ -187,7 +191,7 @@ Select the **Add filters** option from the top of the table to get started.
 
 ![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/concept-all-sign-ins/sign-in-logs-filter-preview.png)
 
-There are several filter options to choose from. Below are some notable options and details.
+There are several filter options to choose from:
 
 - **User:** The *user principal name* (UPN) of the user in question.
 - **Status:** Options are *Success*, *Failure*, and *Interrupted*.

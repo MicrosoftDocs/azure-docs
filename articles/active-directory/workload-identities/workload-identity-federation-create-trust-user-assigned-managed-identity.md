@@ -40,7 +40,7 @@ To learn more about supported regions, time to propagate federated credential up
 - Get the information for your external IdP and software workload, which you need in the following steps.
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment.
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+- Find the name of the user-assigned managed identity, which you need in the following steps.
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
@@ -181,13 +181,13 @@ To delete a specific federated identity credential, select the **Delete** icon f
 - Get the information for your external IdP and software workload, which you need in the following steps.
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment.
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1)
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+- Find the name of the user-assigned managed identity, which you need in the following steps.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Run the [az identity federated-credential create](/cli/azure/identity/federated-credential#az-identity-federated-credential-create) command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
+Run the [az identity federated-credential create](/cli/azure/identity/federated-credential#az-identity-federated-credential-create) command to create a new federated identity credential on your user-assigned managed identity (specified by the name).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
 ```azurecli
 az login 
@@ -282,7 +282,7 @@ az identity federated-credential delete --name $ficId --identity-name $uaId --re
   - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
   - Run scripts locally with Azure PowerShell, as described in the next section.
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+- Find the name of the user-assigned managed identity, which you need in the following steps.
 
 ### Configure Azure PowerShell locally
 
@@ -312,7 +312,7 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Run the New-AzFederatedIdentityCredentials command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
+Run the [New-AzFederatedIdentityCredentials](/powershell/module/az.managedserviceidentity/new-azfederatedidentitycredentials) command to create a new federated identity credential on your user-assigned managed identity (specified by the name).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
 ```azurepowershell
 New-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 `
@@ -321,7 +321,7 @@ New-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityNam
 
 ## List federated identity credentials on a user-assigned managed identity
 
-Run the Get-AzFederatedIdentityCredentials command to read all the federated identity credentials configured on a user-assigned managed identity:
+Run the [Get-AzFederatedIdentityCredentials](/powershell/module/az.managedserviceidentity/get-azfederatedidentitycredentials) command to read all the federated identity credentials configured on a user-assigned managed identity:
 
 ```azurepowershell
 Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01
@@ -329,7 +329,7 @@ Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityNam
 
 ## Get a federated identity credential on a user-assigned managed identity
 
-Run the Get-AzFederatedIdentityCredentials command to show a federated identity credential (by ID):
+Run the [Get-AzFederatedIdentityCredentials](/powershell/module/az.managedserviceidentity/get-azfederatedidentitycredentials) command to show a federated identity credential (by name):
 
 ```azurepowershell
 Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 -Name fic-pwsh01
@@ -337,7 +337,7 @@ Get-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityNam
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-Run the Remove-AzFederatedIdentityCredentials command to delete a federated identity credential under an existing user assigned identity.
+Run the [Remove-AzFederatedIdentityCredentials](/powershell/module/az.managedserviceidentity/remove-azfederatedidentitycredentials) command to delete a federated identity credential under an existing user assigned identity.
 
 ```azurepowershell
 Remove-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -IdentityName uai-pwsh01 -Name fic-pwsh01
@@ -353,7 +353,7 @@ Remove-AzFederatedIdentityCredentials -ResourceGroupName azure-rg-test -Identity
 - Get the information for your external IdP and software workload, which you need in the following steps.
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment.
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3)
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+- Find the name of the user-assigned managed identity, which you need in the following steps.
 
 ## Template creation and editing
 
@@ -473,7 +473,7 @@ Make sure that any kind of automation creates federated identity credentials und
   - To run in the cloud, use [Azure Cloud Shell](../../cloud-shell/overview.md).
   - To run locally, install [curl](https://curl.haxx.se/download.html) and the [Azure CLI](/cli/azure/install-azure-cli).
 - [Create a user-assigned manged identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity-4)
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+- Find the name of the user-assigned managed identity, which you need in the following steps.
 
 ## Obtain a bearer access token
 
@@ -491,7 +491,7 @@ Make sure that any kind of automation creates federated identity credentials und
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-Create or update a federated identity credential on the specified user-assigned managed identity.
+[Create or update a federated identity credential](/rest/api/managedidentity/2022-01-31-preview/federated-identity-credentials/create-or-update) on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/provider
@@ -530,7 +530,7 @@ PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 ## List federated identity credentials on a user-assigned managed identity
 
-List all the federated identity credentials on the specified user-assigned managed identity.
+[List all the federated identity credentials](/rest/api/managedidentity/2022-01-31-preview/federated-identity-credentials/list) on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials?api-version=2022-01-31-preview' -H "Content-Type: application/json" -X GET -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -550,7 +550,7 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Get a federated identity credential on a user-assigned managed identity
 
-Get a federated identity credential on the specified user-assigned managed identity.
+[Get a federated identity credential](/rest/api/managedidentity/2022-01-31-preview/federated-identity-credentials/get) on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X GET -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -570,7 +570,7 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-Delete a federated identity credential on the specified user-assigned managed identity.
+[Delete a federated identity credential](/rest/api/managedidentity/2022-01-31-preview/federated-identity-credentials/delete) on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"

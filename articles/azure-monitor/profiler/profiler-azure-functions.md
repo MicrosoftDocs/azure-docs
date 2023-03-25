@@ -31,6 +31,7 @@ In this article, you'll use the Azure portal to:
 |---------------|----------|
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
+|APPINSIGHTS_INSTRUMENTATIONKEY | Unique value from your App Insights resource. |
 
 ## Add app settings to your Azure Functions app
 
