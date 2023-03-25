@@ -64,7 +64,7 @@ To ensure the success of the create operation, it's recommended to avoid creatin
 > Read Replicas are currently supported for the General Purpose and Memory Optimized server compute tiers, Burstable server compute tier is not supported.
 
 > [!IMPORTANT]
-> When performing replica creation, deletion, and promotion operations, the primary server will enter an updating state. During this time, server management operations such as modifying server parameters, changing high availability options, or adding or removing firewalls will be unavailable. It's important to note that the updating state only affects server management operations and does not impact [data plane](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane) operations. This means that your database server will remain fully functional and able to accept connections, as well as serve read and write traffic.
+> When performing replica creation, deletion, and promotion operations, the primary server will enter an updating state. During this time, server management operations such as modifying server parameters, changing high availability options, or adding or removing firewalls will be unavailable. It's important to note that the updating state only affects server management operations and does not impact [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. This means that your database server will remain fully functional and able to accept connections, as well as serve read and write traffic.
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
