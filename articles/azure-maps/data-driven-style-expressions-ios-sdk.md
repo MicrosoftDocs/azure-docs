@@ -2,8 +2,8 @@
 title: Data-driven style expressions in iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps iOS SDK to adjust styles in maps.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -47,7 +47,7 @@ The following comparison operators are supported:
 To test whether a feature has or lacks a specific property, compare the
 attribute to `NULL` or `NIL`. Predicates created using the
 `NSPredicate(value:)` initializer are also supported. String
-operators and custom operators are not supported.
+operators and custom operators aren't supported.
 
 The following compound operators are supported:
 
@@ -83,8 +83,8 @@ aggregate operators that are used in the predicate:
 
 Other comparison predicate options are unsupported, namely `l`
 (for locale sensitivity) and `n` (for normalization). A comparison is
-locale-sensitive as long as it is case- or diacritic-insensitive. Comparison
-predicate options are not supported in conjunction with comparison modifiers
+locale-sensitive as long as it's case- or diacritic-insensitive. Comparison
+predicate options aren't supported with comparison modifiers
 like `ALL` and `ANY`.
 
 ### Operands
@@ -93,7 +93,7 @@ Operands in predicates can be [variables](#variables), [key paths](#key-paths),
 or almost anything else that can appear
 [inside an expression](#using-expressions-to-configure-layer-options).
 
-Automatic type casting is not performed. Therefore, a feature only matches a
+Automatic type casting isn't performed. Therefore, a feature only matches a
 predicate if its value for the property in question is of the same type as the
 value specified in the predicate. Use the `CAST()` operator to convert a key
 path or variable into a matching type:
@@ -110,7 +110,7 @@ in Apple developer documentation.
 
 ### Operands examples
 
-Bubble and symbol layers will render the coordinates of all geometries in a data source, by default. This behavior can highlight the vertices of a polygon or a line. The `filter` option of the layer can be used to limit the geometry type of the features it renders, by using `NSExpression.geometryTypeAZMVariable` within a predicate. The following example limits a bubble layer so that only `Point` features are rendered.
+Bubble and symbol layers render the coordinates of all geometries in a data source, by default. This behavior can highlight the vertices of a polygon or a line. The `filter` option of the layer can be used to limit the geometry type of the features it renders, by using `NSExpression.geometryTypeAZMVariable` within a predicate. The following example limits a bubble layer so that only `Point` features are rendered.
 
 ```swift
 let layer = BubbleLayer(source: source, options: [
@@ -319,7 +319,7 @@ Conditionals are supported via the built-in `NSExpression(forAZMConditional:true
 
 #### Conditionals example
 
-The following example steps through different predicates until it finds one that evaluates to `true`, and then returns its true expression. If no predicates evaluates to `true`, the last false expression will be returned.
+The following example steps through different predicates until it finds one that evaluates to `true`, and then returns its true expression. If no predicates evaluate to `true`, the last false expression is returned.
 
 ```swift
 let layer = BubbleLayer(
@@ -348,11 +348,11 @@ let layer = BubbleLayer(
 
 ### Aggregates
 
-Aggregate expressions can contain arrays of expressions. In some cases, it is possible to use the array itself instead of wrapping the array in an aggregate expression.
+Aggregate expressions can contain arrays of expressions. In some cases, it's possible to use the array itself instead of wrapping the array in an aggregate expression.
 
 ### Variables
 
-The following variables are defined by this SDK for use with layer options.
+Th iOS SDK defines the following variables for use with layer options.
 
 #### Feature identifier
 
@@ -404,7 +404,7 @@ _Format string syntax_: `$zoomLevel`
 
 ##### Zoom example
 
-By default, the radii of data points rendered in the heat map layer have a fixed point radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many points vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, will create a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression, with the point radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `pow(2, maxZoom - minZoom) * radius` as shown below.
+By default, the radii of data points rendered in the heat map layer have a fixed point radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It makes the heat map layer look more static and consistent. Each zoom level of the map has twice as many points vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, creates a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression, with the point radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `pow(2, maxZoom - minZoom) * radius` as shown below.
 
 ```swift
 let layer = HeatMapLayer(
@@ -540,7 +540,7 @@ The following section shows specific to AzureMaps methods that extend the `NSExp
 
 #### Match expression
 
-A match expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `NSExpression(forKeyPath: "entityType")` that returns a string or a number. The matched expressions is a dictionary, which should have keys as expressions that evaluate either to single string or number or to an array of all strings or all numbers and values as any expressions. If the input expression type doesn't match the type of the keys, the result will be the default fallback value.
+A match expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `NSExpression(forKeyPath: "entityType")` that returns a string or a number. The matched expression is a dictionary, which should have keys as expressions that evaluate either to single string or number or to an array of all strings or all numbers and values as any expressions. If the input expression type doesn't match the type of the keys, the result is the default fallback value.
 
 ##### Match expression examples
 
@@ -569,7 +569,7 @@ let layer = BubbleLayer(
 )
 ```
 
-The following example uses an expression evaluating to string array to specify a set of labels that should all return the same value. This approach is much more efficient than listing each label individually. In this case, if the `entityType` property is `"restaurant"` or `"grocery_store"`, red color will be returned.
+The following example uses an expression evaluating to string array to specify a set of labels that should all return the same value. This approach is much more efficient than listing each label individually. In this case, if the `entityType` property is `"restaurant"` or `"grocery_store"`, red color is returned.
 
 ```swift
 let layer = BubbleLayer(
@@ -600,7 +600,7 @@ A coalesce expression steps through a set of expressions until the first non-nul
 
 ##### Coalesce expression example
 
-The following example uses a coalesce expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `nil`, the expression will then try looking for the `subTitle` property, if its missing or `nil`, it will then fall back to an empty string.
+The following example uses a coalesce expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `nil`, the expression looks for the `subTitle` property, if it's missing or `nil`, it returns an empty string.
 
 ```swift
 let layer = SymbolLayer(
@@ -624,7 +624,7 @@ let layer = SymbolLayer(
 
 #### Join expression
 
-Join multiple strings together. Each value must be a string or a number.
+Joins multiple strings together. Each value must be a string or a number.
 
 ##### Join expression example
 
@@ -649,7 +649,7 @@ let layer = SymbolLayer(
 )
 ```
 
-The above expression renders a pin on the map with the text `"64°F"` overlaid on top of it as shown in the image below.
+The above expression renders a pin on the map with the text `"64°F"` overlaid on top of it as shown in the following image.
 
 :::image type="content" source="./media/ios-sdk/data-driven-style-expressions-ios/join-expression.png" alt-text="Join expression example":::
 
@@ -669,7 +669,7 @@ There are three types of interpolation methods that can be used in an interpolat
 | `ExpressionInterpolationMode.exponential` | Interpolates exponentially between the stops. A base is specified and controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A base value close to 1 produces an output that increases more linearly.| An expression that evaluates to a number, specifying the base of the exponential interpolation. |
 | `ExpressionInterpolationMode.cubicBezier` | Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points. | An array or aggregate expression containing four expressions, each evaluating to a number. The four numbers are control points for the cubic Bézier curve. |
 
-Here is an example of what these different types of interpolations look like.
+Here's an example of what these different types of interpolations look like.
 
 | Linear  | Exponential | Cubic Bezier |
 |---------|-------------|--------------|
@@ -677,7 +677,7 @@ Here is an example of what these different types of interpolations look like.
 
 ###### Interpolation expression example
 
-The following example uses a linear interpolation expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, blue color will be returned. If it's between 60 and less than 70, yellow will be returned. If it's between 70 and less than 80, orange will be returned. If it's 80 or greater, red will be returned.
+The following example uses a linear interpolation expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, blue color is returned. If it's between 60 and less than 70, yellow is returned. If it's between 70 and less than 80, orange is returned. If it's 80 or greater, red is returned.
 
 ```swift
 let layer = BubbleLayer(
@@ -712,7 +712,7 @@ Step expressions return the output value of the stop just before the input value
 
 ###### Step expression example
 
-The following example uses a step expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, blue will be returned. If it's between 60 and less than 70, yellow will be returned. If it's between 70 and less than 80, orange will be returned. If it's 80 or greater, red will be returned.
+The following example uses a step expression to set the `bubbleColor` property of a bubble layer based on the `temperature` property of the point feature. If the `temperature` value is less than 60, blue is returned. If it's between 60 and less than 70, yellow is returned. If it's between 70 and less than 80, orange is returned. If it's 80 or greater, red is returned.
 
 ```swift
 let layer = BubbleLayer(

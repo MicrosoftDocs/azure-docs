@@ -96,7 +96,7 @@ The following tables provide information about what kind of traffic information 
 | Spain                  |     ✓     |  ✓  |
 | Sweden                 |     ✓     |  ✓  |
 | Switzerland            |     ✓     |  ✓  |
-| Turkey                 |     ✓     |  ✓  |
+| Türkiye                |     ✓     |  ✓  |
 | Ukraine                |     ✓     |  ✓  |
 | United Kingdom         |     ✓     |  ✓  |
 
