@@ -19,13 +19,24 @@ As an example of how this would work in practice: Say you have a large installba
 
 |Capacity  |Provisioned amount (TiB)  |IOPS  |Throughput (MB/s)  |
 |---------|---------|---------|---------|
-|Base     |90         |500,000         |8,000         |
-|Additional|60         |N/A         |N/A         |
-|Total     |150         |500,000         |8,000         |
+|Base     |30         |150,000         |2,400         |
+|Additional|5         |N/A         |N/A         |
+|Total     |35         |150,000         |2,400         |
 
-After deploying the SAN, you divide it into volume groups, one for each workload.
+After deploying the SAN, divide it into volume groups, one for each workload.
 
+- AKS volume group
+    - Volume1 - 10 TiB, up to 64,000 IOPS, up to 2,400 throughput
+- SQL volume group
+    - Volume1 - 10 TiB, up to 64,000 IOPS, up to 2,400 throughput
+    - Volume2 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
+    - Volume3 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
+- MariaDB volume group
+    - Volume1 - 10 TiB, up to 64,000 IOPS, up to 2,400 throughput
+    - Volume2 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
+    - Volume3 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
 
+An Elastic SAN's performance is distributed amongst all its volumes. In this case, we have a SAN with 150,000 IOPS and 2,400 MB/s. multiple volumes that, collectively, could exceed 150,000 IOPS. With this configuration, it's still possible that all your workloads can be served. An Elastic SAN automatically distributes its IOPS and MB/s amongst its volumes, on a first use basis, as they request it. So if one volume demands 64,000 IOPS, and 64,000 IOPS are available on the SAN, it will perform at that level.
 
 Before deploying an Elastic SAN Preview, consider the following:
 
