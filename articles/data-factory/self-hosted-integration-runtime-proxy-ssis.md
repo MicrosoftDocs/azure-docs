@@ -38,6 +38,23 @@ You then set up your self-hosted IR in the same data factory where your Azure-SS
 
 Finally, you download and install the latest version of self-hosted IR, as well as the additional drivers and runtime, on your on-premises machine or Azure virtual machine (VM), as follows:
 - Download and install the latest version of [self-hosted IR](https://www.microsoft.com/download/details.aspx?id=39717).
+
+- Enable SSIS package execution on self-hosted integration runtime node if self-hosted IR version is **5.28.0** or later.
+
+  **ExecuteSsisPackage** property is newly introduced from self-hosted IR version **5.28.0**. Use below self-hosted IR command line action to enable or disable SSIS package execution: 
+    
+    - -EnableExecuteSsisPackage		Enable SSIS package execution on self-hosted IR node.
+    
+    - -DisableExecuteSsisPackage	Disable SSIS package execution on self-hosted IR node.
+  
+    - -GetExecuteSsisPackage 
+  
+  Self-hosted IR command line details refer to [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md?tabs=data-factory#set-up-an-existing-self-hosted-ir-via-local-powershell).
+  
+  Newly installed self-hosted IR node with version 5.28.0 or later, ExecuteSsisPackage property is by default **disabled**.
+  
+  Existing self-hosted IR node updated to version 5.28.0 or later, ExecuteSsisPackage property is by default **enabled**
+
 - If you use Object Linking and Embedding Database (OLEDB), Open Database Connectivity (ODBC), or ADO.NET connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
 
   If you use the earlier version of the OLEDB driver for SQL Server (SQL Server Native Client [SQLNCLI]), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=50402).  
@@ -183,7 +200,6 @@ If you need to access data stores that have been configured to use only the stro
 - Changing variable values in both on-premises and cloud staging tasks is currently unsupported.
 - Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.
 - *ParameterMapping* in OLEDB Source is currently unsupported. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview blob container. Using Azure Storage Explorer, you can connect to our public preview blob container by entering the above SAS URI.
-- To enable/disable SSIS package executions on self-hosted integration runtime nodes, please refer to this document [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory#set-up-an-existing-self-hosted-ir-via-local-powershell) to manage self-hosted IR via powershell. ExecuteSsisPackage property is true by default if self-hosted IR upgrades to the version equal to or higher than 5.28.0. If self-hosted IR is newly installed with a version equal to or higher than 5.28.0, then ExecuteSsisPackage property is by default false.
 
 ## Next steps
 
