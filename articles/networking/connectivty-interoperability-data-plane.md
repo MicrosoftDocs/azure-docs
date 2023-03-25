@@ -78,7 +78,7 @@ Tracing route to 10.2.30.10 over a maximum of 30 hops
 Trace complete.
 ```
 
-In this traceroute, the first hop is the Azure ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise edge Router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location 1 LAN IPs. These IP addresses aren't advertised in the hub virtual network. The fourth hop is the VM in the on-premises Location 1.
+In this traceroute, the first hop is the Azure ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise edge router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location 1 LAN IPs. These IP addresses aren't advertised in the hub virtual network. The fourth hop is the VM in the on-premises Location 1.
 
 ### Path to on-premises Location 2
 
