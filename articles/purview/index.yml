@@ -61,7 +61,6 @@ landingContent:
         links:
           - text: Deployment best practices
             url: deployment-best-practices.md
-
   # Card
   - title: Discover and govern Azure data sources
     linkLists:
@@ -86,6 +85,40 @@ landingContent:
           - text: Onboard Azure sources at scale
             url: tutorial-data-sources-readiness.md
   #Card
+  - title: Discover non-Azure data sources
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Discover SQL server on-premises
+          url: register-scan-on-premises-sql-server.md
+        - text: Discover Google BigQuery
+          url: register-scan-google-bigquery-source.md
+        - text: Discover Amazon S3
+          url: register-scan-amazon-s3.md
+        - text: Discover Amazon RDS
+          url: register-scan-amazon-rds.md
+        - text: Discover Oracle
+          url: register-scan-oracle-source.md
+        - text: Discover Hive Metastore Database
+          url: register-scan-hive-metastore-source.md
+  #Card
+  - title: Discover data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Browse and lineage
+          url: tutorial-browse-and-view-lineage.md
+    - linkListType: how-to-guide
+      links:
+        - text: Connect to Azure Data Factory
+          url: how-to-link-azure-data-factory.md
+        - text: Use data lineage features
+          url: catalog-lineage-user-guide.md
+        - text: Browse by asset type
+          url: how-to-browse-catalog.md
+        - text: Search for assets, terms, annotations, and contacts
+          url: how-to-search-catalog.md
+  #Card
   - title: Classify data
     linkLists:
     - linkListType: tutorial
@@ -105,22 +138,18 @@ landingContent:
         - text: Bulk edit assets
           url: how-to-bulk-edit-assets.md
   #Card
-  - title: Discover data 
+  - title: Understand your data
     linkLists:
-    - linkListType: tutorial
-      links:
-        - text: Browse and lineage
-          url: tutorial-browse-and-view-lineage.md
     - linkListType: how-to-guide
       links:
-        - text: Connect to Azure Data Factory
-          url: how-to-link-azure-data-factory.md
-        - text: Use data lineage features
-          url: catalog-lineage-user-guide.md
-        - text: Browse by asset type
-          url: how-to-browse-catalog.md
-        - text: Search for assets, terms, annotations, and contacts
-          url: how-to-search-catalog.md
+        - text: View sensitivity label insights
+          url: sensitivity-insights.md
+        - text: View asset insights
+          url: asset-insights.md
+        - text: View classification insights
+          url: classification-insights.md
+        - text: View glossary insights
+          url: glossary-insights.md
   #Card
   - title: Share data in Microsoft Purview
     linkLists:
@@ -135,48 +164,7 @@ landingContent:
         - text: Share data from ADLS Gen 2
           url: register-scan-adls-gen2.md#data-sharing
   #Card
-  - title: Discover non-Azure data sources
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Discover SQL server on-premises
-          url: register-scan-on-premises-sql-server.md
-        - text: Discover Google BigQuery
-          url: register-scan-google-bigquery-source.md
-        - text: Discover Amazon S3
-          url: register-scan-amazon-s3.md
-        - text: Discover Amazon RDS
-          url: register-scan-amazon-rds.md
-        - text: Discover Oracle
-          url: register-scan-oracle-source.md
-        - text: Discover Hive Metastore Database
-          url: register-scan-hive-metastore-source.md
-  #Card
-  - title: Understand your data
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: View sensitivity label insights
-          url: sensitivity-insights.md
-        - text: View asset insights
-          url: asset-insights.md
-        - text: View classification insights
-          url: classification-insights.md
-        - text: View glossary insights
-          url: glossary-insights.md
-  #Card
-  - title: Secure your network
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Use private endpoints with Microsoft Purview
-          url: catalog-private-link.md
-        - text: Network configuration
-          url: catalog-private-link-name-resolution.md
-        - text: Connect to private networks
-          url: manage-integration-runtimes.md
-  #Card
-  - title: Secure your data
+  - title: Secure your data (Data policy)
     linkLists:
     - linkListType: concept
       links:
@@ -204,5 +192,14 @@ landingContent:
           url: how-to-policies-data-owner-storage.md
         - text: Data owner policies on resource groups or subscriptions
           url: how-to-policies-data-owner-resource-group.md
-        
- 
+  #Card
+  - title: Secure your network connections
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Use private endpoints with Microsoft Purview
+          url: catalog-private-link.md
+        - text: Network configuration
+          url: catalog-private-link-name-resolution.md
+        - text: Connect to private networks
+          url: manage-integration-runtimes.md

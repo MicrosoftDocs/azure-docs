@@ -3157,7 +3157,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-139 |[3199720] |Security Update for Windows Kernel |2.57 |Nov 8.2016 |
 | MS16-140 |[3193479] |Security Update For Boot Manager |5.3, 4.38, 3.45 |Nov 8, 2016 |
 | MS16-142 |[3198467] |Cumulative Security Update for Internet Explorer |2.57, 4.38, 5.3 |Nov 8, 2016 |
-| N/A |[3192321] |Turkey ends DST observance |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| N/A |[3192321] |Türkiye ends DST observance |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | N/A |[3185330] |October 2016 security monthly quality rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
 | N/A |[3192403] |October 2016 Preview of Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
 | N/A |[3177467] |Servicing stack update for Windows 7 SP1 and Windows Server 2008 R2 SP1: September 20, 2016 |2.57 |Nov 8, 2016 |

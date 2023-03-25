@@ -117,6 +117,10 @@ A token's validity is evaluated at the time the token is used. The policy with t
 
 All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 
+## REST API reference
+
+You can configure token lifetime policies and assign them to apps and service principals using Microsoft Graph. For more information, see the [tokenLifetimePolicy resource type](/graph/api/resources/tokenlifetimepolicy) and its associated methods.
+
 ## Cmdlet reference
 
 These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#service-principals).
