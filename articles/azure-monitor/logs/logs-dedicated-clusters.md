@@ -542,7 +542,12 @@ Content-type: application/json
 
 ### Unlink a workspace from cluster
 
-You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. You can query data as usual and the service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.  
+You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. 
+
+> [!WARNING]
+> Unlinking a workspace from a cluster does not move that workspace's data out of the cluster. Any data collected while a workspace was linked to a cluster remains on that cluster even after the workspace is unlinked from the cluster. 
+
+You can query data as usual and the service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.  
 
 > [!NOTE] 
 > There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach limit.
@@ -577,7 +582,7 @@ N/A
 
 You need to have *write* permissions on the cluster resource. 
 
-When deleting a cluster, you're losing access to all data, which was ingested from workspaces that were linked to it. This operation isn't reversible.
+When deleting a cluster, you're losing access to all data, which was ingested from workspaces that were ever linked to it. This operation isn't reversible.
 The cluster's billing stops when cluster is deleted, regardless of the 30-days commitment tier defined in cluster. 
 
 If you delete your cluster while workspaces are linked, workspaces get automatically unlinked from the cluster before the cluster delete, and new data to workspaces gets ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.

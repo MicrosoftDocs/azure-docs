@@ -8,7 +8,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an account
+  - name: Create a Microsoft Purview account
     items:
     - name: Create an account - Azure portal
       href: create-catalog-portal.md
@@ -22,52 +22,28 @@ items:
       href: quickstart-bicep-create-azure-purview.md
     - name: Create an account - ARM
       href: quickstart-ARM-create-azure-purview.md
-  - name: Create a collection - Azure portal
-    href: quickstart-create-collection.md
+  - name: Data map
+    items:
+    - name: Create a collection - Azure portal
+      href: quickstart-create-collection.md
   - name: Data sharing
     items:
     - name: Share and receive data
       href: quickstart-data-share.md
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
-  - name: Data Policy
+  - name: Data policy
     items:
     - name: Create a simple DevOps policy
       href: how-to-policies-devops-azure-sql-db.md
-- name: Tutorials
-  items:
-  - name: Deployment checklist
-    href: tutorial-azure-purview-checklist.md
-  - name: Data owner policies for Azure Storage
-    href: tutorial-data-owner-policies-storage.md
-  - name: Integrate with Microsoft Sentinel
-    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
-  - name: Onboard Azure sources at scale
-    items:
-    - name: Azure source readiness at scale
-      href: tutorial-data-sources-readiness.md
-    - name: MSI configuration at scale
-      href: tutorial-msi-configuration.md
-  - name: Onboard an on-premises SQL Server instance
-    href: tutorial-register-scan-on-premises-sql-server.md
-  - name: Use Atlas 2.2 APIs
-    href: tutorial-atlas-2-2-apis.md
-  - name: Use REST APIs for data planes
-    href: tutorial-using-rest-apis.md
-  - name: Use REST APIs for collections
-    href: tutorial-metadata-policy-collections-apis.md
-  - name: Use the Python SDK
-    href: tutorial-using-python-sdk.md
 - name: Concepts
   items:
-  - name: Use the Microsoft Purview governance portal
-    href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
+      - name: Use the Microsoft Purview governance portal
+        href: use-azure-purview-studio.md
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default account
-        href: concept-default-purview-account.md
       - name: Asset lifecycle best practices
         href: concept-best-practices-asset-lifecycle.md
       - name: Automation best practices
@@ -126,7 +102,7 @@ items:
       href: concept-workflow.md
   - name: Data sharing
     href: concept-data-share.md
-  - name: Data policies
+  - name: Data policy
     items:
     - name: Data owner policies
       href: concept-policies-data-owner.md
@@ -138,7 +114,7 @@ items:
       href: concept-policies-purview-account-delete.md
     - name: Update on Data owner policies actions
       href: concept-policies-data-owner-action-update.md
-  - name: Data Estate Insights
+  - name: Data estate insights
     items:
     - name: Data Estate Insights
       href: concept-insights.md
@@ -146,29 +122,6 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
-  - name: Manage collections
-    href: how-to-create-and-manage-collections.md
-  - name: Manage sources
-    items:
-    - name: Supported sources
-      href: microsoft-purview-connector-overview.md
-    - name: Manage data sources
-      href: manage-data-sources.md
-    - name: Manage credentials
-      href: manage-credentials.md
-      displayName: Create and manage credentials
-    - name: Manage integration runtimes
-      items:
-        - name: Create and manage a self-hosted integration runtime
-          href: manage-integration-runtimes.md
-        - name: Self-hosted integration runtime auto-update and expiration
-          href: self-hosted-integration-runtime-version.md
-    - name: Manage assets with Metamodel
-      href: how-to-metamodel.md
-    - name: Create a service principal
-      href: create-service-principal-azure.md
-    - name: Request access to data asset
-      href: how-to-request-access.md
   - name: Sources
     items:
     - name: Azure Multiple Source
@@ -251,78 +204,121 @@ items:
       href: register-scan-amazon-rds.md
     - name: Amazon S3
       href: register-scan-amazon-s3.md
-  - name: Scan
+  - name: Data map
     items:
-    - name: Scan a registered source
-      href: scan-data-sources.md
-    - name: Create a scan rule set
-      href: create-a-scan-rule-set.md
-    - name: Resource set pattern rules
-      href: how-to-resource-set-pattern-rules.md
-    - name: Monitor data map population
-      href: how-to-monitor-data-map-population.md
-    - name: Troubleshoot scans & connections
-      href: troubleshoot-connections.md
+      - name: Manage collections
+        href: how-to-create-and-manage-collections.md
+      - name: Manage sources
+        items:
+        - name: Supported sources
+          href: microsoft-purview-connector-overview.md
+        - name: Manage data sources
+          href: manage-data-sources.md
+        - name: Manage credentials
+          href: manage-credentials.md
+          displayName: Create and manage credentials
+        - name: Manage integration runtimes
+          items:
+            - name: Create and manage a self-hosted integration runtime
+              href: manage-integration-runtimes.md
+            - name: Self-hosted integration runtime auto-update and expiration
+              href: self-hosted-integration-runtime-version.md
+        - name: Scan
+          items:
+          - name: Scan a registered source
+            href: scan-data-sources.md
+          - name: Create a scan rule set
+            href: create-a-scan-rule-set.md
+          - name: Resource set pattern rules
+            href: how-to-resource-set-pattern-rules.md
+          - name: Monitor data map population
+            href: how-to-monitor-data-map-population.md
+          - name: Troubleshoot scans & connections
+            href: troubleshoot-connections.md
+        - name: Classify
+          items:
+          - name: Automatically apply classifications
+            href: apply-classifications.md
+          - name: Manually apply classifications
+            href: manually-apply-classifications.md
+          - name: System classifications
+            href: supported-classifications.md
+          - name: Create custom classifications
+            href: create-a-custom-classification-and-classification-rule.md
+        - name: Label
+          items:
+          - name: Labeling in Microsoft Purview
+            href: create-sensitivity-label.md
+          - name: How to label your data
+            href: how-to-automatically-label-your-content.md
+          - name: Sensitivity labels FAQ
+            href: sensitivity-labels-frequently-asked-questions.yml
+        - name: Lineage
+          items:
+          - name: Lineage user guide
+            href: catalog-lineage-user-guide.md
+          - name: Azure Data Factory lineage
+            href: how-to-link-azure-data-factory.md
+          - name: Azure Data Share lineage
+            href: how-to-link-azure-data-share.md
+          - name: Azure Synapse Analytics lineage
+            href: how-to-lineage-azure-synapse-analytics.md
+          - name: Microsoft Purview Data Sharing lineage
+            href: how-to-lineage-purview-data-sharing.md
+          - name: Power BI lineage
+            href: how-to-lineage-powerbi.md
+          - name: Spark lineage
+            href: how-to-lineage-spark-atlas-connector.md
+          - name: SQL Server Integration Services lineage
+            href: how-to-lineage-sql-server-integration-services.md
   - name: Data catalog
     items:
-    - name: Browse Data Catalog
-      href: how-to-browse-catalog.md
-    - name: Search Data Catalog
-      href: how-to-search-catalog.md
-    - name: Manage catalog assets
-      href: catalog-asset-details.md
-    - name: Bulk edit assets
-      href: how-to-bulk-edit-assets.md
-    - name: Asset certification
-      href: how-to-certify-assets.md
-    - name: Managed attributes
-      href: how-to-managed-attributes.md
-  - name: Lineage
-    items:
-    - name: Lineage user guide
-      href: catalog-lineage-user-guide.md
-    - name: Azure Data Factory lineage
-      href: how-to-link-azure-data-factory.md
-    - name: Azure Data Share lineage
-      href: how-to-link-azure-data-share.md
-    - name: Azure Synapse Analytics lineage
-      href: how-to-lineage-azure-synapse-analytics.md
-    - name: Microsoft Purview Data Sharing lineage
-      href: how-to-lineage-purview-data-sharing.md
-    - name: Power BI lineage
-      href: how-to-lineage-powerbi.md
-    - name: Spark lineage
-      href: how-to-lineage-spark-atlas-connector.md
-    - name: SQL Server Integration Services lineage
-      href: how-to-lineage-sql-server-integration-services.md
-  - name: Business glossary
-    items:
-    - name: Create & manage glossaries
-      href: how-to-create-manage-glossary.md
-    - name: Create & manage terms
-      href: how-to-create-manage-glossary-term.md
-    - name: Import & export terms
-      href: how-to-import-export-glossary.md
-    - name: Manage term templates
-      href: how-to-manage-term-templates.md
-  - name: Classify
-    items:
-    - name: Automatically apply classifications
-      href: apply-classifications.md
-    - name: Manually apply classifications
-      href: manually-apply-classifications.md
-    - name: System classifications
-      href: supported-classifications.md
-    - name: Create custom classifications
-      href: create-a-custom-classification-and-classification-rule.md
-  - name: Label
-    items:
-    - name: Labeling in Microsoft Purview
-      href: create-sensitivity-label.md
-    - name: How to label your data
-      href: how-to-automatically-label-your-content.md
-    - name: Sensitivity labels FAQ
-      href: sensitivity-labels-frequently-asked-questions.yml
+      - name: Create a service principal
+        href: create-service-principal-azure.md
+      - name: Request access to data asset
+        href: how-to-request-access.md
+      - name: Browse Data Catalog
+        href: how-to-browse-catalog.md
+      - name: Search Data Catalog
+        href: how-to-search-catalog.md
+      - name: Manage catalog assets
+        href: catalog-asset-details.md
+      - name: Bulk edit assets
+        href: how-to-bulk-edit-assets.md
+      - name: Asset certification
+        href: how-to-certify-assets.md
+      - name: Managed attributes
+        href: how-to-managed-attributes.md
+      - name: Manage assets with Metamodel
+        href: how-to-metamodel.md
+      - name: Business glossary
+        items:
+        - name: Create & manage glossaries
+          href: how-to-create-manage-glossary.md
+        - name: Create & manage terms
+          href: how-to-create-manage-glossary-term.md
+        - name: Import & export terms
+          href: how-to-import-export-glossary.md
+        - name: Manage term templates
+          href: how-to-manage-term-templates.md
+      - name: Workflows
+        items:
+        - name: Self-service hybrid data access
+          href: how-to-workflow-self-service-data-access-hybrid.md
+        - name: Approval for business terms
+          href: how-to-workflow-business-terms-approval.md
+        - name: Approval for data asset curation
+          href: how-to-workflow-asset-curation.md
+        - name: Manage requests and approvals
+          href: how-to-workflow-manage-requests-approvals.md
+        - name: Manage workflow runs
+          href: how-to-workflow-manage-runs.md
+        - name: Workflow connectors
+          href: how-to-use-workflow-connectors.md    
+        - name: Workflow dynamic content
+          href: how-to-use-workflow-dynamic-content.md      
+        - name: Workflow HTTP connector
+          href: how-to-use-workflow-http-connector.md
   - name: Data sharing
     items:
     - name: Share data
@@ -331,7 +327,7 @@ items:
       href: how-to-receive-share.md
     - name: Data sharing FAQ
       href: how-to-data-share-faq.md
-  - name: Data Estate Insights
+  - name: Data estate insights
     items:
     - name: Disable Data Estate Insights
       href: disable-data-estate-insights.md
@@ -347,37 +343,13 @@ items:
       href: classification-insights.md
     - name: View sensitivity label insights
       href: sensitivity-insights.md
-  - name: Networking & security
+  - name: Data policy
     items:
-    - name: Private endpoints
-      items:
-      - name: Private endpoints overview
-        href: catalog-private-link.md
-      - name: Network firewall settings
-        href: catalog-firewall.md        
-      - name: End-to-end network isolation
-        href: catalog-private-link-end-to-end.md
-      - name: Isolate network for account and portal
-        href: catalog-private-link-account-portal.md
-      - name: Managed virtual network
-        href: catalog-managed-vnet.md
-      - name: Configure DNS for private endpoint
-        href: catalog-private-link-name-resolution.md
-      - name: Troubleshoot private endpoints
-        href: catalog-private-link-troubleshoot.md
-      - name: Private endpoint and Managed VNets FAQ
-        href: catalog-private-link-faqs.md
-    - name: Deployment exceptions
-      href: create-azure-purview-portal-faq.md
-    - name: Conditional access
-      href: catalog-conditional-access.md
-  - name: Data policies
-    items:
-    - name: Register data sources for "Data use management"
+    - name: Enable data sources for "Data use management"
       href: how-to-enable-data-use-management.md
     - name: DevOps policies
       items:
-      - name: DevOps policies - Create, list, update and delete policies
+      - name: DevOps policies - Create, list, update and delete DevOps policies
         href: how-to-policies-devops-authoring-generic.md
       - name: DevOps policies - Azure SQL Database 
         href: how-to-policies-devops-azure-sql-db.md
@@ -407,42 +379,74 @@ items:
         href: how-to-policies-self-service-azure-sql-db.md
       - name: Self-service policies Azure Storage
         href: how-to-policies-self-service-storage.md
-  - name: Workflows
+  - name: Master Data Management
     items:
-    - name: Self-service hybrid data access
-      href: how-to-workflow-self-service-data-access-hybrid.md
-    - name: Approval for business terms
-      href: how-to-workflow-business-terms-approval.md
-    - name: Approval for data asset curation
-      href: how-to-workflow-asset-curation.md
-    - name: Manage requests and approvals
-      href: how-to-workflow-manage-requests-approvals.md
-    - name: Manage workflow runs
-      href: how-to-workflow-manage-runs.md
-    - name: Workflow connectors
-      href: how-to-use-workflow-connectors.md    
-    - name: Workflow dynamic content
-      href: how-to-use-workflow-dynamic-content.md      
-    - name: Workflow HTTP connector
-      href: how-to-use-workflow-http-connector.md
+    - name: Profisee
+      href: how-to-deploy-profisee-purview-integration.md
+  - name: Secure your network connections
+    items:
+    - name: Private endpoints
+      items:
+      - name: Private endpoints overview
+        href: catalog-private-link.md
+      - name: Network firewall settings
+        href: catalog-firewall.md        
+      - name: End-to-end network isolation
+        href: catalog-private-link-end-to-end.md
+      - name: Isolate network for account and portal
+        href: catalog-private-link-account-portal.md
+      - name: Managed virtual network
+        href: catalog-managed-vnet.md
+      - name: Configure DNS for private endpoint
+        href: catalog-private-link-name-resolution.md
+      - name: Troubleshoot private endpoints
+        href: catalog-private-link-troubleshoot.md
+      - name: Private endpoint and Managed VNets FAQ
+        href: catalog-private-link-faqs.md
+    - name: Deployment exceptions
+      href: create-azure-purview-portal-faq.md
+    - name: Conditional access
+      href: catalog-conditional-access.md
   - name: Kafka notifications
     items:
     - name: Configure for Kafka notifications
       href: configure-event-hubs-for-kafka.md
     - name: Publish and receive Kafka notifications - .NET
       href: manage-kafka-dotnet.md
-  - name: Implement custom types
-    href: tutorial-custom-types.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
-  - name: Integrate with Azure security products
-    href: how-to-integrate-with-azure-security-products.md
-  - name: Master Data Management
+  - name: Integration with Azure security products
     items:
-    - name: Profisee
-      href: how-to-deploy-profisee-purview-integration.md
+    - name: Integrate with Azure security products
+      href: how-to-integrate-with-azure-security-products.md
+    - name: Integrate with Microsoft Sentinel
+      href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
+- name: Tutorials
+  items:
+  - name: Deployment checklist
+    href: tutorial-azure-purview-checklist.md
+  - name: Data owner policies for Azure Storage
+    href: tutorial-data-owner-policies-storage.md
+  - name: Implement custom types
+    href: tutorial-custom-types.md
+  - name: Onboard Azure sources at scale
+    items:
+    - name: Azure source readiness at scale
+      href: tutorial-data-sources-readiness.md
+    - name: MSI configuration at scale
+      href: tutorial-msi-configuration.md
+  - name: Onboard an on-premises SQL Server instance
+    href: tutorial-register-scan-on-premises-sql-server.md
+  - name: Use Atlas 2.2 APIs
+    href: tutorial-atlas-2-2-apis.md
+  - name: Use REST APIs for data planes
+    href: tutorial-using-rest-apis.md
+  - name: Use REST APIs for collections
+    href: tutorial-metadata-policy-collections-apis.md
+  - name: Use the Python SDK
+    href: tutorial-using-python-sdk.md
 - name: Reference
   items:
     - name: Product glossary reference

@@ -84,14 +84,16 @@ In the Azure portal, navigate to [Cost Management + Billing](https://portal.az
 
 ### MCA customers
 
-If you're an Owner, Contributor or Reader on your Billing Account, you can download the CSV file that contains new usage data from the [Azure portal](https://ms.portal.azure.com/#home). In the portal, navigate to **Cost management + Billing**.
+To view and download usage data for a billing profile, you must be a billing profile Owner, Contributor, Reader, or Invoice manager.
 
-1. Select the billing account.
-2. Select **Invoices.**
-3. Download the Actual Cost CSV file based on your scenario.
-    - To download the usage for the current month, select **Download pending usage.**
-    - To download the usage for a prior invoice, select the ellipsis symbol ( **...** ) and select **Prepare Azure usage file.**
-1. If you want to download the Amortized Cost CSV file, you'll need to use [Exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API](../automate/get-small-usage-datasets-on-demand.md).
+To download usage for billed charges:
+
+1. Search for **Cost Management + Billing**.
+2. Select a billing profile.
+3. Select **Invoices**.
+4. In the invoice grid, find the row of the invoice corresponding to the usage that you want to download.
+5. Select the ellipsis (**...**) at the end of the row.
+6. In the download context menu, select **Azure usage and charges**.
 
 ## Common cost and usage tasks
 

@@ -1,7 +1,7 @@
 ---
 title: How to deploy tenant workloads
 description: Learn the steps for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
-author: dramasamymsft #Required; your GitHub user alias, with correct capitalization.
+author: dramasamy #Required; your GitHub user alias, with correct capitalization.
 ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
@@ -42,7 +42,6 @@ You should have the following information already:
 - VLAN/subnet info for each of the layer 3 network(s)
 - Which network(s) would need to talk to each other (remember to put VLANs/subnets that needs to
   talk to each other into the same L3 Isolation Domain)
-- VLAN/subnet info for your `defaultcninetwork` for AKS-Hybrid cluster
 - BGP peering and network policies information for your L3 Isolation Domain(s)
 - VLANs for all your layer 2 network(s)
 - VLANs for all your trunked network(s)
@@ -148,7 +147,7 @@ Your VM requires at least one Cloud Services Network. You need the egress endpoi
 
 ### Step V3: create a VM
 
-Operator Nexus Virtual Machines (VMs) are used for hosting VNF(s) within a Telco network.
+Operator Nexus Virtual Machines (VMs) is used for hosting VNF(s) within a Telco network.
 The Nexus platform provides `az networkcloud virtualmachine create` to create a customized VM.
 For hosting a VNF on your VM, have it [Microsoft Azure Arc-enrolled](/azure/azure-arc/servers/overview),
 and provide a way to ssh to it via Azure CLI.
@@ -244,7 +243,7 @@ Gather this information:
 
 - The `resourceId` of the `cloudservicesnetwork`
 - The `resourceId(s)` for each of the L2/L3/Trunked Networks
-- Determine which network will serve as your default gateway (can only choose 1)
+- Determine which network serves as your default gateway (can only choose 1)
 - If you want to specify `networkAttachmentName` (interface name) for any of your networks
 - Determine the `ipAllocationMethod` for each of your L3 Network (static/dynamic)
 - The dimension of your VM
@@ -456,7 +455,7 @@ You need the egress endpoints you want to add to the proxy for your VM to access
 
 For each previously created tenant network, a corresponding AKS-Hybrid vNET network needs to be created
 
-You'll need the Azure Resource Manager resource ID for each of the networks you created earlier. You can retrieve the Azure Resource Manager resource IDs as follows:
+You need the Azure Resource Manager resource ID for each of the networks you created earlier. You can retrieve the Azure Resource Manager resource IDs as follows:
 
 ```azurecli
 az networkcloud cloudservicesnetwork show -g "<YourResourceGroupName>" -n "<YourCloudServicesNetworkName>" --subscription "<YourSubscription>" -o tsv --query id
@@ -498,7 +497,8 @@ This section describes how to create an AKS-Hybrid cluster
     --control-plane-count <count> \
     --location <dc-location> \
     --node-count <worker node count> \
-    --node-vm-size <Operator Nexus SKU>
+    --node-vm-size <Operator Nexus SKU> \
+    --zones <comma separated list of availability zones>
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
