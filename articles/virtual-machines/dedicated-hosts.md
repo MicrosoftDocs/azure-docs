@@ -82,14 +82,14 @@ When creating a new host group, make sure the setting for automatic VM placement
 
 Host groups that are enabled for automatic placement don't require all the VMs to be automatically placed. You'll still be able to explicitly pick a host, even when automatic placement is selected for the host group.
 
-### Limitations
+### Automatic placement limitations
 
 Known issues and limitations when using automatic VM placement:
 
 - You won't be able to redeploy your VM.
 - You won't be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
 
-## Host Service Healing
+## Host service healing
 
 In case of any failure relating to the underlying node, network connectivity or software issues can push the host and VMs on the host to a non-healthy state causing disruption and downtime to your workloads. The default action is for Azure to automatically service heal the impacted host to a healthy node and move all VMs to the healthy host. Once the VMs are service healed and restarted the impacted host will be deallocated. During the service healing process the host and VMs would become unavailable incurring a slight downtime. 
 
@@ -200,6 +200,22 @@ Azure monitors and manages the health status of your hosts. The following states
 | Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
 | Host Deallocated| All virtual machines have been removed from the host. You're no longer being charged for this host since the hardware was taken out of rotation.   |
 
+## Frequently Asked Questions
+
+**Q**. What happens to my dedicated host in case of a live migration?
+
+**A**. As of today, Azure dedicated hosts do not live migration and in case of a hardware failure, we service heal the host to a different node.
+
+
+**Q**. Can I run VMs from multiple VM families on the same dedicated host?
+
+**A**. No, you would be able to run only VMs as the same family as the underlying dedicated host. For e.g., a Dsv3-Type4 host will only support VMs of Dsv3 VM family.
+
+
+**Q**. Would I be able to run different VM sizes on a single dedicated host?
+
+**A**. Yes, you can run multiple sizes of VMs on the same dedicated host as long as the all the VMs belong to the same family as the underlying dedicated host and there is enough capacity on the host to support the VMs sizes. For e.g., on a Dsv3-Type4 host you could run D2sv3, D8sv3, D16sv3 VMs at the same time.
+
 ## Next steps
 
 - To deploy a dedicated host, see [Deploy VMs and scale sets to dedicated hosts](./dedicated-hosts-how-to.md).
@@ -207,5 +223,6 @@ Azure monitors and manages the health status of your hosts. The following states
 - There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
+
 
 
