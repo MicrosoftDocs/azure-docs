@@ -6,7 +6,7 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: Understand the device message data transformation
+  - name: Understand the device message processing stages
     href: understand-service.md
 - name: Quickstarts
   expanded: true
