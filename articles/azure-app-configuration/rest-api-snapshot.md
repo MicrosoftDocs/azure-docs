@@ -40,9 +40,9 @@ This article applies to API version 2022-11-01-preview.
     "created": [datetime ISO 8601],
     "size": [number],
     "items_count": [number],
-    "tags": [object with string properties, optional],
+    "tags": [object with string properties],
     "retention_period": [number, timespan in seconds],
-    "expires": [number, timespan in seconds, optional]
+    "expires": [number, timespan in seconds]
 }
 ```
 
@@ -51,7 +51,7 @@ This article applies to API version 2022-11-01-preview.
 ```json
 {
   "key": [string],
-  "label": [string, optional]
+  "label": [string]
 }
 ```
 
@@ -252,14 +252,14 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 **parameters**
 
-| Property Name            | Required | Default value                                                        |
-|--------------------------|----------|----------------------------------------------------------------------|
-| name                     | yes      | n/a                                                                  |
-| filters                  | yes      | n/a                                                                  |
-| filters[\<index\>].key   | yes      | n/a                                                                  |
-| tags                     | no       | {}                                                                   |
-| filters[\<index\>].label | no       | null                                                                 |
-| composition_type         | no       | group_by_key                                                         |
+| Property Name            | Required | Default value                                                       |
+|--------------------------|----------|---------------------------------------------------------------------|
+| name                     | yes      | n/a                                                                 |
+| filters                  | yes      | n/a                                                                 |
+| filters[\<index\>].key   | yes      | n/a                                                                 |
+| tags                     | no       | {}                                                                  |
+| filters[\<index\>].label | no       | null                                                                |
+| composition_type         | no       | group_by_key                                                        |
 | retention_period         | no       | 2592000 (30 days) (standard tier) <br/> 604800 (7 days) (free tier) |
 
 ```http
@@ -367,7 +367,7 @@ Content-Type: application/json; charset=utf-8
 
 ```json
 {
-    "id": "{name}",
+    "id": "{id}",
     "status": "Succeeded",
     "error": null
 }
@@ -387,6 +387,13 @@ If any error occurs during the provisioning of the snapshot, the `error` propert
 ```
 
 ## Archive (Patch)
+
+A snapshot in the `ready` state can be archived.
+An archived snapshot will be assigned an expiration date, based off the retention period established at the time of its creation.
+After the expiration date passes, the snapshot will be permanently deleted.
+At any time before the expiration date, the snapshot's items can still be listed.
+
+Archiving a snapshot that is already `archived` does not affect the snapshot.
 
 - Required: `{name}`, `{status}`, `{api-version}`
 
@@ -412,26 +419,38 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
 
 ```json
 {
-  "etag": "4f6dd610dd5e4deebc7fbaef685fb903",
+  "etag": "33a0c9cdb43a4c2cb5fc4c1feede1c68",
   "name": "{name}",
   "status": "archived",
-  "filters": [
-      {
-          "key": "app1/*",
-          "label": "prod"
-      }
-  ],
-  "composition_type": "group_by_key",
-  "created": "2023-03-20T21:00:03+00:00",
-  "size": 2000,
-  "items_count": 4,
-  "tags": {},
-  "retention_period": 7776000,
+  ...
   "expires": "2023-08-11T21:00:03+00:00"
 }
 ```
 
+Archiving a snapshot that is currently in the `provisioning` or `failed` state is an invalid operation.
+
+**Response:**
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type: application/problem+json; charset="utf-8"
+```
+
+```json
+{
+    "type": "https://azconfig.io/errors/invalid-state",
+    "title": "Target resource state invalid.",
+    "detail": "The target resource is not in a valid state to perform the requested operation.",
+    "status": 409
+}
+```
+
 ## Recover (Patch)
+
+A snapshot in the `archived` state can be recovered.
+Once the snapshot is recovered the snapshot's expiration date is removed.
+
+Recovering a snapshot that is already `ready` does not affect the snapshot.
 
 - Required: `{name}`, `{status}`, `{api-version}`
 
@@ -457,22 +476,29 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
 
 ```json
 {
-  "etag": "4f6dd610dd5e4deebc7fbaef685fb903",
+  "etag": "90dd86e2885440f3af9398ca392095b9",
   "name": "{name}",
   "status": "ready",
-  "filters": [
-      {
-          "key": "app1/*",
-          "label": "prod"
-      }
-  ],
-  "composition_type": "group_by_key",
-  "created": "2023-03-20T21:00:03+00:00",
-  "size": 2000,
-  "items_count": 4,
-  "tags": {},
-  "retention_period": 7776000,
+  ...
   "expires": null
+}
+```
+
+Recovering a snapshot that is currently in the `provisioning` or `failed` state is an invalid operation.
+
+**Response:**
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type: application/problem+json; charset="utf-8"
+```
+
+```json
+{
+    "type": "https://azconfig.io/errors/invalid-state",
+    "title": "Target resource state invalid.",
+    "detail": "The target resource is not in a valid state to perform the requested operation.",
+    "status": 409
 }
 ```
 
