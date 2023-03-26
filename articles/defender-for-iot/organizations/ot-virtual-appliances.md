@@ -70,15 +70,4 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see:
-
-- [Which appliances do I need?](ot-appliance-sizing.md)
-- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
-
-Then, use any of the following procedures to continue:
-
-- [Purchase sensors or download software for sensors](onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](how-to-install-software.md)
-
-Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances.
+For more information, see [Prepare an OT site deployment](best-practices/plan-prepare-deploy.md).
