@@ -87,7 +87,10 @@ To analyze logs outside of Azure Monitor, [export data out of your Log Analytics
 
 #### Build and training models
 
-Machine learning training is a long and iterative process, which usually involves retrieving and cleaning the training data, engineer features, experimenting with various models, and tuning parameters until you find a model that's sufficiently accurate and robust. 
+Machine learning training is a long and iterative process, which usually involves retrieving and cleaning the training data, engineer features, experimenting with various 
+models, and tuning parameters until you find a model that's sufficiently accurate and robust. 
+
+There are a variety of open source machine learning libraries you can use to build and train machine learning models on data in Azure Monitor Logs, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py), and [MMLSpark](https://github.com/microsoft/SynapseML).
 
 **Option 1: Directly in Azure Monitor Logs**
 
@@ -117,15 +120,22 @@ To run your notebook on schedule, you can:
 
 1. Run a notebook as a step in an Azure Machine Learning pipeline using [NotebookRunnerStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb).
 2. [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).
-#### Converting Azure Monitor data to corresponding data type
+#### Converting Azure Monitor data to different data formats
 
-Different tools/libraries use different formats of data.
+Azure Monitor Logs stores data in JSON format. Depending on the tools or libraries you use and the way implement your machine learning pipeline, you might need to convert data formats as part of your pipeline. 
 
-You may need convert Azure Monitor data to appropriate format, pending on tool/library used and on way you chose to access Azure Monitor data.
-Received message. Here is the text converted to markdown: ``` # Data Exploration If you wish to analyze logs outside Azure Monitor – see How to analyze data exported from Log Anal
+For example:
 
+- [Scikit Learn](https://scikit-learn.org/) uses Pandas DataFrames. 
+- [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib) uses Spark DataFrames 
+- [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats. 
 
-Machine learning libraries example:<br>- ML open-source frameworks like Scikit-Learn<br>- PyTorch<br>- Tensorflow<br>- SparkML<br>- Azure Machine Learning SDK<br>- MMLSpark (Microsoft ML library for Apache Spark)
+Here are a number of conversion methods:
+
+- [Create an Azure Machine Learning dataset a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
+- [Convert JSON to Spark DataFrame](https://sparkbyexamples.com/pyspark/different-ways-to-create-dataframe-in-pyspark/#from-json) 
+- [Convert JSON to Azure Machine Learning dataset](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#azureml-data-dataset-factory-tabulardatasetfactory-from-json-lines-files). 
+
 
 ## Next steps
 
