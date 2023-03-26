@@ -34,7 +34,6 @@ The [Azure Monitor agent](agents/agents-overview.md) installed by Container insi
 - [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)
 - [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](../aks/monitor-aks.md)
-- 
 
 ## Applications
 Applications hosted outside of Azure must be hard coded to send telemetry to [Azure Monitor Application Insights](app/app-insights-overview.md) using SDKs for [supported languages](app/app-insights-overview.md#supported-languages). Annual code maintenance should be planned to upgrade the SDKs per [Application Insights SDK support guidance](app/sdk-support-guidance.md).
