@@ -40,7 +40,7 @@ We recommend using the **Support** credentials when signing into the OT sensor f
 1. In a browser, go to the OT sensor's IP address, and enter the username and password.
 
     > [!NOTE]
-    > If you forgot your password, select **Reset Password**. For more information, see [Investigate password failure at initial sign-in](../how-to-troubleshoot-the-sensor.md#investigate-password-failure-at-initial-sign-in).
+    > If you forgot your password, select **Reset Password**.
     >
 
     If you're working with a pre-configured appliance, you're prompted to enter a new password.
