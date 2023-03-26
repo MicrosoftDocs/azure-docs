@@ -35,7 +35,7 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
     - Use a [**Storage** service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
     - Allowlist the region-specific IP addresses for Azure Storage.
 - Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
-- Check that your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
+- Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** and **Tag Contributor** role access on the Compute resource group and **Reader** and **Tag Contributor** role access on the Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
 - sapcontrol and saphostctrl exe files must exist in the path /usr/sap/hostctrl/exe on ASCS, App server and Database.
@@ -86,7 +86,7 @@ To provide permissions to the SAP system resources to a user-assigned managed id
 
 To register an existing SAP system in Azure Center for SAP solutions:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Azure Center for SAP solutions administrator** role access to the subscription or resource groups where the SAP system exists. For more information, see the [resource permissions explanation](#enable-resource-permissions).
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** role access to the subscription or resource groups where the SAP system exists. For more information, see the [resource permissions explanation](#enable-resource-permissions).
 1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
 1. On the **Azure Center for SAP solutions** page, select **Register an existing SAP system**.
 
@@ -148,16 +148,19 @@ This error happens when the Database identifier is incorrectly configured on the
 1. [Register the SAP system](#register-sap-system) again.
 
 ### Error - Azure VM Agent not in desired provisioning state
-This issue occurs when Azure VM agent's provisioning state is not as expected on the specified Virtual Machine. Expected state is **Ready**. Verify the agent status by checking the properties section in the VM overview page. To fix the VM Agent, 
+**Cause:** This issue occurs when Azure VM agent's provisioning state is not as expected on the specified Virtual Machine. Expected state is **Ready**. Verify the agent status by checking the properties section in the VM overview page. 
+
+**Solution:** To fix the Linux VM Agent, 
 1. Login to the VM using bastion or serial console.
-1. If the VM agent exists and is not running, then restart the waagent.
+2. If the VM agent exists and is not running, then restart the waagent.
   - sudo systemctl status waagent. 
-  - If the service is not running then restart this service. To restart use the following steps:
+3. If the service is not running then restart this service. To restart use the following steps:
   - sudo systemctl stop waagent
   - sudo systemctl start waagent
-  - If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
-3. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
+4. If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
+5. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
 
+To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent.md).
 
 ## Next steps
 
