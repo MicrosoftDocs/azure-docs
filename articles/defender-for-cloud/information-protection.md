@@ -19,7 +19,11 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 - [Integrate Microsoft Purview with Microsoft Defender for Cloud](episode-two.md)
 
 > [!NOTE]
-> Microsoft Defender for Cloud also provides data sensitivity context by enabling the sensitive data discovery (preview). The integration between Microsoft Purview Data Catalog and Microsoft Defender for Cloud described in this page offers a complementary source of data context for resources **not** covered by the sensitive data discovery feature. Purview Catalog will provide data context **only** for resources in subscriptions not onboarded to sensitive data discovery feature or resource types not supported by this feature. Learn more in [Data-aware security posture (preview)](concept-data-security-posture.md).
+> Microsoft Defender for Cloud also provides data sensitivity context by enabling the sensitive data discovery (preview). The integration between Microsoft Purview Data Catalog and Microsoft Defender for Cloud described in this page offers a complementary source of data context for resources **not** covered by the sensitive data discovery feature.
+> * Purview Catalog provides data context **only** for resources in subscriptions not onboarded to sensitive data discovery feature or resource types not supported by this feature.
+> * Data context provided by Purview Catalog is provided as is and does **not** consider the [data sensitivity settings](data-sensitivity-settings.md).
+> 
+> Learn more in [Data-aware security posture (preview)](concept-data-security-posture.md).
 
 
 ## Availability
