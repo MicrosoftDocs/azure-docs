@@ -32,7 +32,7 @@ ms.author: eur
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural`<sup>2</sup> (Female)<br/>`bn-BD-PradeepNeural`<sup>2</sup> (Male) |
 | `bn-IN` | Bengali (India) | `bn-IN-BashkarNeural`<sup>2</sup> (Male)<br/>`bn-IN-TanishaaNeural`<sup>2</sup> (Female) |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | `bs-BA-GoranNeural`<sup>2</sup> (Male)<br/>`bs-BA-VesnaNeural`<sup>2</sup> (Female) |
-| `ca-ES` | Catalan (Spain) | `ca-ES-AlbaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-JoanaNeural` (Female) |
+| `ca-ES` | Catalan | `ca-ES-AlbaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-JoanaNeural` (Female) |
 | `cs-CZ` | Czech (Czechia) | `cs-CZ-AntoninNeural` (Male)<br/>`cs-CZ-VlastaNeural` (Female) |
 | `cy-GB` | Welsh (United Kingdom) | `cy-GB-AledNeural`<sup>2</sup> (Male)<br/>`cy-GB-NiaNeural`<sup>2</sup> (Female) |
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural` (Female)<br/>`da-DK-JeppeNeural` (Male) |
@@ -139,7 +139,7 @@ ms.author: eur
 | `ta-SG` | Tamil (Singapore) | `ta-SG-AnbuNeural` (Male)<br/>`ta-SG-VenbaNeural` (Female) |
 | `te-IN` | Telugu (India) | `te-IN-MohanNeural` (Male)<br/>`te-IN-ShrutiNeural` (Female) |
 | `th-TH` | Thai (Thailand) | `th-TH-AcharaNeural` (Female)<br/>`th-TH-NiwatNeural` (Male)<br/>`th-TH-PremwadeeNeural` (Female) |
-| `tr-TR` | Turkish (Turkey) | `tr-TR-AhmetNeural` (Male)<br/>`tr-TR-EmelNeural` (Female) |
+| `tr-TR` | Turkish (Türkiye) | `tr-TR-AhmetNeural` (Male)<br/>`tr-TR-EmelNeural` (Female) |
 | `uk-UA` | Ukrainian (Ukraine) | `uk-UA-OstapNeural` (Male)<br/>`uk-UA-PolinaNeural` (Female) |
 | `ur-IN` | Urdu (India) | `ur-IN-GulNeural` (Female)<br/>`ur-IN-SalmanNeural` (Male) |
 | `ur-PK` | Urdu (Pakistan) | `ur-PK-AsadNeural` (Male)<br/>`ur-PK-UzmaNeural` (Female) |

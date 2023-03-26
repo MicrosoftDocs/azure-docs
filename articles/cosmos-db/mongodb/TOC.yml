@@ -188,6 +188,8 @@
               href: ../synapse-link-frequently-asked-questions.yml
             - name: Analytical store - Overview
               href: ../analytical-store-introduction.md
+            - name: Change data capture (CDC)
+              href: ../analytical-store-change-data-capture.md
         - name: Back up and restore
           items:
             - name: Back up and restore introduction
@@ -473,6 +475,8 @@
               href: ../synapse-link-power-bi.md
             - name: Configure custom partitioning
               href: ../configure-custom-partitioning.md
+            - name: Get started with change data capture
+              href: ../get-started-change-data-capture.md
         - name: Back up and restore
           items:
             - name: Continuous backup

@@ -158,7 +158,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- SA(Saudi Arabia)
 
-		- TR(Turkey)
+		- TR(Türkiye)
 
 		- YE(Yemen)
 
