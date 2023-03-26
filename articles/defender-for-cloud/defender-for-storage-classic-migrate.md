@@ -54,7 +54,7 @@ Migrating from the classic Defender for Storage plan to the new Defender for Sto
 
 If the classic Defender for Storage plan is enabled with per-transaction pricing, you can switch to the new plan at either the subscription or resource level. You can also [exclude specific storage accounts](../storage/common/azure-defender-storage-configure.md#) from protected subscriptions.
 
-Storage accounts that were previously excluded from protected subscriptions in the per-transaction plan won't remain excluded when you switch to the new plan. However, the exclusion tags remain on the resource and can be removed. In most cases, storage accounts that were previously excluded from protected subscriptions benefit the most from the new pricing plan.
+Storage accounts that were previously excluded from protected subscriptions in the per-transaction plan will not remain excluded when you switch to the new plan. However, the exclusion tags will remain on the resource and can be removed. In most cases, storage accounts that were previously excluded from protected subscriptions will benefit the most from the new pricing plan. 
 
 ### Migrating from the classic Defender for Storage plan enabled with per-storage account pricing
 
