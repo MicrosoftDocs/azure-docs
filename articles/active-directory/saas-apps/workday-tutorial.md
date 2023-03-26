@@ -182,20 +182,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     g Select **Do Not Deflate SP-initiated Authentication Request**.
 
-1. Perform the following steps in the below image.
-
-    ![Workday](./media/workday-tutorial/service-provider.png "SAML Identity Providers")
-
-    a. In the **Service Provider ID (Will be Deprecated)** textbox, type **http://www.workday.com**.
-
-    b. In the **IDP SSO Service URL (Will be Deprecated)** textbox, type **Login URL** value.
-
-    c. Select **Do Not Deflate SP-initiated Authentication Request (Will be Deprecated)**.
-
-    d. For **Authentication Request Signature Method**, select **SHA256**.
-
-    e. Click **OK**.
-
     > [!NOTE]
     > Please ensure you set up single sign-on correctly. In case you enable single sign-on with incorrect setup, you may not be able to enter the application with your credentials and get locked out. In this situation, Workday provides a backup log-in URL where users can sign-in using their normal username and password in the following format:[Your Workday URL]/login.flex?redirect=n
 
