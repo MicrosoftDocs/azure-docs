@@ -12,7 +12,7 @@ ms.date: 02/28/2023
 ---
 # AIOps and machine learning in Azure Monitor 
 
-Artificial Intelligence for IT Operations (AIOps) offers powerful ways to improve service quality, performance, efficiency, and reliability by processing and automatically act on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
+Artificial Intelligence for IT Operations (AIOps) offers powerful ways to improve service quality and reliability by processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
 
 Azure Monitor's built-in machine learning capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
 
@@ -87,11 +87,12 @@ To analyze logs outside of Azure Monitor, [export data out of your Log Analytics
 
 #### Build and training models
 
-There are a variety of open source machine learning libraries you can use to build and train machine learning models on data in Azure Monitor Logs, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py), and [SynapseML](https://github.com/microsoft/SynapseML).
+There are various open source machine learning libraries you can use to build and train machine learning models on data in Azure Monitor Logs, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py), and [SynapseML](https://github.com/microsoft/SynapseML).
 
 **Option 1: Directly in Azure Monitor Logs**
 
-- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#prepare-data-for-model-training)
+- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data)
+
 
 **Option 2: Export data**
 
@@ -104,7 +105,7 @@ Scoring is the process of applying a machine learning model on new data to get
 
 **Option 1: Directly in Azure Monitor Logs**
 
-- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data)
+- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#score-new-data-using-the-trained-model-and-identify-anomalies)
 
 **Option 2: Export data**
 
@@ -127,7 +128,7 @@ For example:
 - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib) uses Spark DataFrames 
 - [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats. 
 
-Here are a number of available conversion methods:
+Here are a some of the available conversion methods:
 
 - [Create an Azure Machine Learning dataset from a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
 - [Convert JSON to Spark DataFrame](https://sparkbyexamples.com/pyspark/different-ways-to-create-dataframe-in-pyspark/#from-json) 
