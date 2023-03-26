@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Sauce Labs
 
-In this article, you learn how to integrate Sauce Labs with Azure Active Directory (Azure AD). App integration for Single Sign-On and automatic account provisioning at Sauce Labs. When you integrate Sauce Labs with Azure AD, you can:
+In this article, you learn how to integrate Sauce Labs with Azure Active Directory (Azure AD). App integration for single sign-on and automatic account provisioning at Sauce Labs. When you integrate Sauce Labs with Azure AD, you can:
 
 * Control in Azure AD who has access to Sauce Labs.
 * Enable your users to be automatically signed-in to Sauce Labs with their Azure AD accounts.
@@ -60,7 +60,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user doesn't have to perform any step as the app is already preintegrated with Azure.
 
 1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
