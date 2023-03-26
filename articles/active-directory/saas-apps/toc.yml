@@ -1413,6 +1413,8 @@
       items:
       - name: LabLog
         href: lablog-tutorial.md
+      - name: LambdaTest Single Sign on
+        href: lambda-test-single-sign-on-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
       - name: LanSchool Air
