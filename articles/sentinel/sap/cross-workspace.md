@@ -63,8 +63,10 @@ This table maps out the access of data and features for the SAP and SOC teams in
 |Function  |SOC team  |SAP team  |
 |---------|---------|---------|
 |SOC workspace access     | &#x2705;         | &#10060;     |
-|SAP workspace data, analytics rules, functions, watchlists, and workbooks access     | &#x2705;         | &#x2705;         |
-|SAP incident access and collaboration     | &#x2705;          | &#x2705;          |
+|SAP workspace data, analytics rules, functions, watchlists, and workbooks access     | &#x2705;         | &#x2705;<sup>1</sup>         |
+|SAP incident access and collaboration     | &#x2705;          | &#x2705;<sup>1</sup>          |
+
+<sup>1</sup>The SOC team can see these functions on both workspaces, while the SAP team can see these functions only on the SAP workspace.
 
 ## Scenario 2: SAP data is kept in the SOC workspace 
 
