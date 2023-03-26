@@ -16,35 +16,80 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Enable Microsoft Defender for Storage
 
-**Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
+**Microsoft Defender for Storage** is an Azure-native solution offering an advanced layer of intelligence for threat detection and mitigation in storage accounts, powered by Microsoft Threat Intelligence, Microsoft Defender Antimalware technologies, and Sensitive Data Discovery. Covering Azure Blob Storage, Azure Files, and Azure Data Lake Storage services, it provides a comprehensive alert suite, near real-time Malware Scanning (add-on), and sensitive data threat detection (no extra cost), allowing quick detection, triage, and response to potential security threats with contextual information.
 
-Microsoft Defender for Storage continuously analyzes the transactions of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Azure Files](https://azure.microsoft.com/services/storage/files/) services. When potentially malicious activities are detected, security alerts are generated. Alerts are shown in Microsoft Defender for Cloud with the details of the suspicious activity, appropriate investigation steps, remediation actions, and security recommendations.
+With Microsoft Defender for Storage, organizations can customize their protection and enforce consistent security policies by enabling it on subscriptions and storage accounts with granular control and flexibility.
 
-Analyzed transactions of Azure Blob Storage include operation types such as `Get Blob`, `Put Blob`, `Get Container ACL`, `List Blobs`, and `Get Blob Properties`. Examples of analyzed Azure Files operation types include `Get File`, `Create File`, `List Files`, `Get File Properties`, and `Put Range`.
+Learn more about Microsoft Defender for Storage [capabilities](../../defender-for-cloud/defender-for-storage-introduction.md) and [security threats and alerts](../../defender-for-cloud/defender-for-storage-threats-alerts.md).
 
-**Defender for Storage doesn't access the Storage account data, doesn't require you to enable access logs, and has no impact on Storage performance.**
-
-> [!NOTE]
-> Microsoft Defender for Storage customers can now choose to move to a new predictable pricing plan. The pricing model is per-storage account, where high-volume transactions may incur additional overage charges. This new pricing plan will also include all new security features and detections.
->
-> Customers using the legacy per-transaction pricing plan need to migrate to the new per-storage account plan to access these new features and pricing. The legacy per-transaction pricing plan charges are based on the number of analyzed transactions in the storage account.
->
-> For further details, please refer to the [Microsoft Defender for Storage FAQ](#faq---microsoft-defender-for-storage-pricing).
-
-Learn more about the [benefits, features, and limitations of Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md). You can also learn more about Defender for Storage in the [Defender for Storage episode](../../defender-for-cloud/episode-thirteen.md) of the Defender for Cloud in the Field video series.
+> [!TIP]
+> If you're currently using Microsoft Defender for Storage classic, consider upgrading to the new plan, which offers several benefits over the classic plan. Learn more about [migrating to the new plan](../../defender-for-cloud/defender-for-storage-classic-migrate.md).
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) and in the [Defender plans page](#azure-portal) in the Azure portal |
-|Protected storage types:|[Blob Storage](../blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
-|Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Feature availability:|- Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning – Preview<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
+|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* In the future, Malware Scanning will be priced at $0.15/GB of data ingested. Billing for Malware Scanning is not enabled during public preview and advanced notice will be given before billing starts.|
+| Supported storage types:|[Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
+|Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
+|Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for activity monitoring)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+
+\* Azure DNS Zone is not supported for Malware Scanning and sensitive data threat detection.
+
+## Prerequisites
+
+- Networking
+
+    Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. “Public network access” disabled is not supported and Malware Scanning won't scan the data.
+
+- Permissions
+
+    To enable Malware Scanning feature on the entire subscription you will need the Owner role on the subscription. Alternatively, you can use a role that has the following actions:
+
+        Microsoft.Security/pricings/write
+        Microsoft.Security/pricings/read
+        Microsoft.Security/pricings/SecurityOperator/read
+        Microsoft.Security/pricings/SecurityOperator/write
+        Microsoft.Authorization/roleAssignments/read
+        Microsoft.Authorization/roleAssignments/write
+        Microsoft.Authorization/roleAssignments/delete
+
+    To enable Malware Scanning feature on a specific storage account you will need the Storage Account Owner role.
+
+- Event Grid resource provider
+
+    Event Grid resource provider must be registered to be able to create the Event Grid System Topic used for detect upload triggers.
+
+    Follow [these steps](../../event-grid/blob-event-quickstart-portal.md#register-the-event-grid-resource-provider) to verify Event Grid is registered on your subscription.
+
+    :::image type="content" source="media/azure-defender-storage-configure/register-event-grid-resource-provider.png" alt-text="Diagram showing how to register Event Grid as a resource provider." lightbox="media/azure-defender-storage-configure/register-event-grid-resource-provider.png":::
+
+    You must have permission to the `/register/action` operation for the resource provider. This permission is included in the Contributor and Owner roles.
 
 ## Set up Microsoft Defender for Storage
 
-## [Per-storage account pricing](#tab/per-storage-account/)
+To enable and configure Microsoft Defender for Storage to ensure maximum protection and cost optimization, the following configuration options are available: 
+
+Enable/disable Microsoft Defender for Storage. 
+
+Enable/disable the malware scanning or sensitive data threat detection configurable features. 
+
+Set a monthly cap on the malware scanning per storage account to control costs. (default value is 5000GB per storage account per month) 
+
+Configure additional methods for saving malware scanning results and logging. 
+
+[! Tip] the Malware Scanning features has advanced configurations to support security teams' different workflows and requirements. 
+
+Override subscription-level settings to configure specific storage accounts with custom configurations that differ from the settings configured at the subscription level. 
+
+You can enable and configure Microsoft Defender for Storage from the Azure portal, built-in Azure policies, programmatically using IaC templates (Bicep and ARM) or directly with REST API. 
+
+> [!NOTE]
+> To prevent migrating back to the legacy classic plan, make sure to disable the old Defender for Storage policies. Look for and disable policies named **Configure Azure Defender for Storage to be enabled**, **Azure Defender for Storage should be enabled**, or **Configure Microsoft Defender for Storage to be enabled (per-storage account plan)**.
+
+## [Enable on a subscription](#tab/enable-subscription/)
 
 > [!NOTE]
 > You can only enable per-storage account pricing at the subscription level.
