@@ -132,7 +132,7 @@ If you want to disable the plan, toggle the status button to **Off** for the Sto
 
 To enable and configure Defender for Storage at scale with an Azure built-in policy to ensure that consistent security policies are applied across all existing and new storage accounts within the subscriptions, follow these steps:
 
-1. Sign in to the Azure portal and navigate to the Policy dashboard.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to the Policy dashboard.
 
 1. In the Policy dashboard, select **Definitions** from the left-side menu.
 
@@ -229,7 +229,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 And add the following request body:
 
-```http
+```json
 {
     "properties": {
         "extensions": [
@@ -251,7 +251,7 @@ And add the following request body:
 }
 ```
 
-To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
 
 If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
 
@@ -273,16 +273,19 @@ The steps below include instructions on how to set up logging and an Event Grid 
 ### Azure Portal
 
 To enable and configure Microsoft Defender for Storage for a specific account using the Azure portal:
-Sign in to the Azure portal.
-Navigate to your storage account.
-In the storage account menu (left side-panel), in the Security + networking section, select Microsoft Defender for Cloud.
-On-upload Malware Scanning and Sensitive data threat detection are enabled by default. You can disable them by unchecking the boxes.
-Select Enable on storage account.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to your storage account.
+1. In the storage account menu, in the **Security + networking** section, select **Microsoft Defender for Cloud**.
+1. **On-upload Malware Scanning** and **Sensitive data threat detection** are enabled by default. You can disable the features by unselecting them.
+1. Select **Enable on storage account**.
 
 Microsoft Defender for Storage is now enabled on this storage account.
-[! Tip] To configure On-upload malware scanning settings (e.g., monthly cap), click Settings after Defender for Storage was enabled.
 
-If you want to disable Defender for Storage on the storage account or disable one of the features (On-upload malware scanning or Sensitive data threat detection), select Settings, edit the settings, and click Save.
+> [!TIP]
+> To configure **On-upload malware scanning** settings, such as monthly cap, select **Settings** after Defender for Storage was enabled.
+
+If you want to disable Defender for Storage on the storage account or disable one of the features (On-upload malware scanning or Sensitive data threat detection), select **Settings**, edit the settings, and select **Save**.
 
 ### ARM template
 
@@ -309,7 +312,11 @@ To enable Microsoft Defender for Storage at the storage account level using an A
 }
 ```
 
-To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
+
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+
+To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 
 Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
 
@@ -318,37 +325,67 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
 ```bicep
-resource symbolicname 'Microsoft.Security/pricings@2022-03-01' = {
-  name: 'StorageAccounts'
-  properties: {
-    pricingTier: 'Standard'
-    subPlan: 'PerTransaction'
-  }
+param accountName string
+
+resource accountName_current 'Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings@2022-12-01-preview' = {
+  name: '${accountName}/Microsoft.Security/current'
+  properties: {
+    isEnabled: true
+    malwareScanning: {
+      onUpload: {
+        isEnabled: true
+        capGBPerMonth: 5000
+      }
+    }
+    sensitiveDataDiscovery: {
+      isEnabled: true
+    }
+    overrideSubscriptionLevelSettings: true
+  }
 }
 ```
 
-To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
+
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+
+To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 
 Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
 ### REST API
 
-To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using the Microsoft Defender for Cloud REST API, create a PUT request with this endpoint and body:
+To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId` , `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2022-03-01
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01
+```
 
+And add the following request body:
+
+```json
 {
-"properties": {
-    "pricingTier": "Standard",
-    "subPlan": "PerTransaction"
+    "properties": {
+        "isEnabled": true,
+        "malwareScanning": {
+            "onUpload": {
+                "isEnabled": true,
+                "capGBPerMonth": 5000
+            }
+        },
+        "sensitiveDataDiscovery": {
+            "isEnabled": true
+        },
+        "overrideSubscriptionLevelSettings": false
     }
 }
 ```
 
-Replace `{subscriptionId}` with your subscription ID.
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
 
-To disable the plan, set the `-pricingTier` property value to `Free` and remove the `subPlan` parameter.
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+
+To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 
 Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
@@ -356,236 +393,181 @@ Learn more about the [updating Defender plans with the REST API](/rest/api/defen
 
 ## Configure Malware Scanning
 
-### Setting Up Logging for Malware Scanning 
+### Setting Up Logging for Malware Scanning
 
-For each storage account enabled with Malware Scanning, you can define a Log Analytics workspace destination to store every scan result in a centralized log repository that is easy to query.  
+For each storage account enabled with Malware Scanning, you can define a Log Analytics workspace destination to store every scan result in a centralized log repository that is easy to query.
 
-Before sending scan results to Log Analytics, create a Log Analytics workspace or use an existing one (refer to Create Log Analytics workspaces for more information).  
+1. Before sending scan results to Log Analytics, [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) or use an existing one.
 
-To configure the Log Analytics destination, navigate to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.  
+1. To configure the Log Analytics destination, navigate to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and select the settings to configure.
 
-This configuration can be performed using REST API as well: 
-Request URL: 
+This configuration can be performed using REST API as well:
 
-PUT  
+Request URL:
+
+```http
+PUT
+https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
+/providers/Microsoft.Security/antiMalwareSettings/current/providers/Microsoft.Insights/
+diagnosticSettings/service?api-version=2021-05-01-preview
+```
+
+Request Body:
+
+```json
+{
+    "properties": {
+        "workspaceId": "/subscriptions/704601a1-0ac4-4d5d-aecd-322835fbde2f/resourcegroups/demorg/providers/microsoft.operationalinsights/workspaces/malwarescanningscanresultworkspace",
+        "logs": [
+            {
+                "categoryGroup": "allLogs",
+                "enabled": true,
+                "retentionPolicy": {
+                    "enabled": true,
+                    "days": 180
+                }
+            }
+        ]
+    }
+}
+```
+
+### Setting Up Event Grid for Malware Scanning
+
+For each storage account enabled with Malware Scanning, you can configure to send every scan result using event grid event for automation purposes.
+
+1. To configure Event Grid for sending scan results, you'll first need to create a custom topic in advance. Refer to the Event Grid documentation on creating custom topics for guidance. Ensure that the destination Event Grid custom topic is created in the same region as the storage account from which you want to send scan results.
+
+1. To configure the Event Grid custom topic destination, go to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.
+
+> [!NOTE]
+> When you set a Event Grid custom topic, you should set “Override Defender for Storage subscription-level settings” to “ON” to make sure it overrides the subscription-level settings.
+
+This configuration can be performed using REST API as well:
+
+Request URL:
+
+```http
+PUT
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name> 
-/providers/Microsoft.Security/antiMalwareSettings/current/providers/Microsoft.Insights/ 
-diagnosticSettings/service?api-version=2021-05-01-preview 
+/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview
+```
 
-Request Body: 
+Request Body:
 
+```json
 { 
-
     "properties": { 
-
-        "workspaceId": "/subscriptions/704601a1-0ac4-4d5d-aecd-322835fbde2f/resourcegroups/demorg/providers/microsoft.operationalinsights/workspaces/malwarescanningscanresultworkspace", 
-
-        "logs": [ 
-
-            { 
-
-                "categoryGroup": "allLogs", 
-
-                "enabled": true, 
-
-                "retentionPolicy": { 
-
-                    "enabled": true, 
-
-                    "days": 180 
-
-                } 
-
-            } 
-
-        ] 
-
-    }} 
-
- 
- 
-
-### Setting Up Event Grid for Malware Scanning 
-
-For each storage account enabled with Malware Scanning, you can configure to send every scan result using event grid event for automation purposes.  
-
-To configure Event Grid for sending scan results, you'll first need to create a custom topic in advance. Refer to the Event Grid documentation on creating custom topics for guidance. Ensure that the destination Event Grid custom topic is created in the same region as the storage account from which you want to send scan results.  
-
-To configure the Event Grid custom topic destination, go to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.  
-
-Note: when setting Event Grid custom topic, you should set “Override Defender for Storage subscription-level settings” to “ON” to make sure it will be overrun b 
-
- 
-
-This configuration can be performed using REST API as well: 
-
-Request URL: 
-
-PUT  
-https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name> 
-/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview 
-
-Request Body: 
-
-{ 
-
-    "properties": { 
-
         "isEnabled": true, 
-
         "malwareScanning": { 
-
             "onUpload": { 
-
                 "isEnabled": true, 
-
                 "capGBPerMonth": 5000 
-
             }, 
-
             "scanResultsEventGridTopicResourceId": "/subscriptions/704601a1-0ac4-4d5d-aecd-322835fbde2f/resourceGroups/DemoRG/providers/Microsoft.EventGrid/topics/ScanResultsEGCustomTopic" 
-
         }, 
-
         "sensitiveDataDiscovery": { 
-
             "isEnabled": true 
-
         }, 
-
         "overrideSubscriptionLevelSettings": true 
-
     } 
+}
+```
 
-} 
+### Override Defender for Storage subscription-level settings
 
- 
+Defender for Storage settings on each storage account is inherited by the subscription-level settings. Use Override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level.
 
- 
+The override setting is usually used for the following scenarios:
 
-### Override Defender for Storage subscription-level settings 
+1. Enable the malware scanning or the data sensitivity threat detection features.
 
- 
-Defender for Storage settings on each storage account is inherited by the subscription-level settings. Use Override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level.  
-The override setting is usually used for the following scenarios: 
+1. Configure custom settings for Malware Scanning.
 
-Enable/disable the malware scanning or the data sensitivity threat detection features 
+1. Disable Microsoft Defender for Storage on specific storage accounts.
 
-Configure custom settings for Malware Scanning 
+> [!NOTE]
+> We recommend that you enable Defender for Storage on the entire subscription to protect all existing and future storage accounts in it. However, there are some cases where you would want to exclude specific storage accounts from Defender protection. If you've decided to exclude, follow the steps below to use the override setting and then disable the relevant storage account.
+>
+> If you are using the Defender for Storage (classic), you can also [exclude storage accounts](../../defender-for-cloud/defender-for-storage-classic-enable.md).
 
-Disable Microsoft Defender for Storage on specific storage accounts 
+#### Azure portal
 
-[!Note]  
+To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the Azure portal:
 
-It is recommended to enable Defender for Storage on the entire subscription to protect all existing and future storage accounts in it. However, there are some cases where you would want to exclude specific storage accounts from Defender protection. If you've decided to exclude, follow the steps below to use the override setting and then disable the relevant storage account. 
+1. Sign in to the [Azure portal](https://portal.azure.com/)
 
- 
+1. Navigate to your storage account that you want to configure custom settings.
 
-If you wish to exclude storage accounts from the Defender for Storage classic plan, you should follow the steps documented in configure Microsoft Defender for Storage (classic), as the steps outlined in this document are specifically for the new plan. 
+1. In the storage account menu, in the **Security + networking** section, select **Microsoft Defender for Cloud**.
 
- 
+1. Select **Settings** in Microsoft Defender for Storage.
 
-#### Azure portal 
+1. Set the status of **Override Defender for Storage subscription-level settings** (under Advanced settings) to **On**. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings.
 
-To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the Azure portal: 
+1. Configure the settings you want to change:
 
-Sign in to the Azure portal. 
+    1. To enable malware scanning or sensitive data threat detection, set the status to **On**.
 
-Navigate to your storage account that you want to configure custom settings. 
+    1. To modify the settings of malware scanning:
 
-In the storage account menu (left side-panel), in the Security + networking section, select Microsoft Defender for Cloud. 
+        1. Switch the On-upload malware scanning to **On** if it’s not already enabled.
 
-Select Settings in the Microsoft Defender for Storage section to open the side menu. 
+        1. Check the relevant boxes underneath and change the settings. If you wish to permit unlimited scanning, assign the value `-1`.
 
-Set the status of Override Defender for Storage subscription-level settings (under Advanced settings) to On. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings. 
+    Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-malware-scanning.md).
 
-Configure the settings you wish to change: 
+1. To disable Defender for Storage on this storage accounts, set the status of Microsoft Defender for Storage to **Off**.
 
-To enable/disable malware scanning or sensitive data threat detection, set their status to on/off accordingly. 
+1. Select **Save**.
 
-To modify the settings of malware scanning: 
+#### REST API
 
-Switch the On-upload malware scanning to On if it’s not already enabled. 
+To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the REST API:
 
-Check the relevant boxes underneath and change the settings. If you wish to permit unlimited scanning, assign the value -1.  
+1. Create a PUT request with this endpoint. Replace the `subscriptionId`, `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
-For more information on Malware Scanning, visit Malware Scanning in Defender for Storage. 
+Request URL:
 
-To disable Defender for Storage on this storage accounts, set the status of Microsoft Defender for Storage to Off. 
+```http
+PUT
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview
+```
 
- 
+Request Body:
 
-Click Save. 
+```json
+{
+    "properties": {
+        "isEnabled": true,
+        "malwareScanning": {
+            "onUpload": {
+                "isEnabled": true,
+                "capGBPerMonth": 5000
+            }
+        },
+        "sensitiveDataDiscovery": {
+            "isEnabled": true
+        },
+        "overrideSubscriptionLevelSettings": true
+    }
+}
+```
+    
+    1. To enable malware scanning or sensitive data threat detection, set the value of `isEnabled` to `true` under the relevant features.
+    
+    1. To modify the settings of malware scanning, edit the relevant fields under “onUpload”, make sure the value of isEnabled is true. If you wish to permit unlimited scanning, assign the value -1 to the capGBPerMonth parameter.
+    
+        Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-malware-scanning.md).
+    
+    1. To disable Defender for Storage on this storage accounts, use the following request body:
+    
+    ```json
+    {
+        "properties": {
+            "isEnabled": false,
+            "overrideSubscriptionLevelSettings": true
+        }
+    }
 
- 
-
-#### REST API 
-
-To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the REST API: 
-
- 
-
-Create a PUT request with this endpoint (replace the subscriptionId , resourceGroupName, and accountName in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly): 
-
-HTTP 
-
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview 
-
-Configure the settings you wish to change by adding them to the request body: 
-
-JSON 
-
-{ 
-
-    "properties": { 
-
-        "isEnabled": true, 
-
-        "malwareScanning": { 
-
-            "onUpload": { 
-
-                "isEnabled": true, 
-
-                "capGBPerMonth": 5000 
-
-            } 
-
-        }, 
-
-        "sensitiveDataDiscovery": { 
-
-            "isEnabled": true 
-
-        }, 
-
-        "overrideSubscriptionLevelSettings": true 
-
-    } 
-
-} 
-
- 
-
-To enable/disable malware scanning or sensitive data threat detection, set the value of isEnabled to true/false under the relevant features. 
-
-To modify the settings of malware scanning, edit the relevant fields under “onUpload”, make sure the value of isEnabled is true. If you wish to permit unlimited scanning, assign the value -1 to the capGBPerMonth parameter. 
-For more information on Malware Scanning, visit Malware Scanning in Defender for Storage. 
-
-To disable Defender for Storage on this storage accounts, use the following request body: 
-
-JSON 
-
-{ 
-
-    "properties": { 
-
-        "isEnabled": false, 
-
-        "overrideSubscriptionLevelSettings": true 
-
-    } 
-
-} 
-
-Make sure you add the parameter overrideSubscriptionLevelSettings and its value is set to true. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings. 
+1. Make sure you add the parameter `overrideSubscriptionLevelSettings` and its value is set to `true`. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings.
