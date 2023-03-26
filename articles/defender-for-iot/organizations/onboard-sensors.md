@@ -76,7 +76,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
         For example:
 
-        :::image type="content" source="media/sites-and-zones/sites-and-zones-azure.png" alt-text="Screenshot of the Set up OT/ICS Security page with site and zone details defined" lightbox="media/sites-and-zones/sites-and-zones-azure.png":::
+        :::image type="content" source="media/sites-and-zones/sites-and-zones-azure.png" alt-text="Screenshot of the Set up OT/ICS Security page with site and zone details defined." lightbox="media/sites-and-zones/sites-and-zones-azure.png":::
 
 1. When you're done with all other fields, select **Register**.
 
