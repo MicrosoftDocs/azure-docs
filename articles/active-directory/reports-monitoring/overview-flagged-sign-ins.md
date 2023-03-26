@@ -57,7 +57,7 @@ With flagging enabled, the same browser application and client must be used or t
 
 ### Admin: Find flagged events in reports
 
-1.	In the Azure AD portal, go to **Sign-in logs** > **Add Filters**.
+1.	In the Azure portal, go to **Sign-in logs** > **Add Filters**.
 1.	From the **Pick a field** menu, select **Flagged for review** and **Apply**.
 1.	All events that were flagged by users are shown.
 1.	If needed, apply more filters to refine the event view.
@@ -88,7 +88,7 @@ Any user signing into Azure AD via web page can use flag sign-ins for review. Me
 
 ## Who can review flagged sign-ins?
 
-Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure AD portal. For more information, see [who can access it?](concept-sign-ins.md#how-do-you-access-the-sign-in-logs)
+Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure portal. For more information, see [who can access it?](concept-sign-ins.md#how-do-you-access-the-sign-in-logs)
 
 
 To flag sign-in failures, you don't need extra permissions.

@@ -6,8 +6,6 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.author: mijacobs 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Create a Web App plus Azure Cache for Redis using Bicep
 

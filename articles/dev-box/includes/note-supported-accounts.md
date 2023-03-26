@@ -7,4 +7,4 @@ ms.service: dev-box
 ---
 
 > [!NOTE]
-> Microsoft Dev Box Preview doesn't support the use of guest accounts or Microsoft Accounts (Live IDs). 
+> Microsoft Dev Box Preview doesn't support the use of guest accounts or Microsoft accounts.

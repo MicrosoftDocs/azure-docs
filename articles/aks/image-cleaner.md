@@ -4,6 +4,7 @@ description: Learn how to use Image Cleaner to clean up stale images on Azure Ku
 ms.author: nickoman
 author: nickomang
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/02/2023
 ---
 

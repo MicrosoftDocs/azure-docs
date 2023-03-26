@@ -3,6 +3,7 @@ title: Set up scaling of session hosts using Azure Automation and Azure Logic Ap
 description: How to automatically scale Azure Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.date: 04/29/2022
 ms.author: helohr
 manager: femila

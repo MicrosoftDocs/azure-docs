@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 10/12/2022
+ms.date: 03/10/2023
 ms.topic: conceptual
 ---
 
@@ -58,6 +58,10 @@ To connect using an access token, run the following command:
 To connect with your elevated logged-on credentials (interactive), run the following command:
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+To connect using a device code (and avoid having to sign in through a browser), use the `--use-device-code` flag:
+
+`azcmagent connect --use-device-code --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
 ### disconnect
 

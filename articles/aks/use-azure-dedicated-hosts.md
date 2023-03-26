@@ -2,7 +2,8 @@
 title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Dedicated Hosts Group and associate it with Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 12/01/2022
+ms.custom: devx-track-azurecli
+ms.date: 03/10/2023
 ---
 
 # Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
@@ -23,6 +24,7 @@ Using Azure Dedicated Hosts for nodes with your AKS cluster has the following be
 
 The following limitations apply when you integrate Azure Dedicated Host with Azure Kubernetes Service:
 
+* Accelerated Networking
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It isn't supported to update agent pool from host group A to host group B.
 * Using ADH across subscriptions.

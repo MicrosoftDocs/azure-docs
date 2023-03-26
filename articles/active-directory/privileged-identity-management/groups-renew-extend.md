@@ -1,5 +1,5 @@
 ---
-title: Extend or renew PIM for groups assignments (preview) - Azure Active Directory
+title: Extend or renew PIM for groups assignments (preview)
 description: Learn how to extend or renew PIM for groups assignments (preview).
 services: active-directory
 documentationcenter: ''

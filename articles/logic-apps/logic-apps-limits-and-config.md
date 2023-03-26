@@ -687,5 +687,6 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 
 ## Next steps
 
-* Learn how to [create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* Learn about [common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)

@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 02/24/2023
+ms.date: 03/09/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -14,12 +14,6 @@ ms.date: 02/24/2023
 The traditional [Azure Container Networking Interface (CNI)](./configure-azure-cni.md) assigns a VNet IP address to every Pod, either from a pre-reserved set of IPs on every node, or from a separate subnet reserved for pods. This approach requires planning IP addresses and could lead to address exhaustion, which introduces difficulties scaling your clusters as your application demands grow.
 
 With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network (VNet) subnet, whereas pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an overlay network, and Network Address Translation (using the node's IP address) is used to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, truly extending the IP space available for containerized applications in AKS.
-
-> [!NOTE]
-> Azure CNI Overlay is currently **_unavailable_** in the following regions:
-> - South Central US
-> - West US
-
 
 ## Overview of overlay networking
 
@@ -45,7 +39,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration        | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                            | Additional hop adds minor latency                                             |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
-| OS platforms supported       | Linux and Windows Server 2022                                            | Linux only                                                                    |
+| OS platforms supported       | Linux and Windows Server 2022                                    | Linux only                                                                    |
 
 ## IP address planning
 
@@ -65,7 +59,7 @@ The following are additional factors to consider when planning pods IP address s
 
 ## Network security groups
 
-Pod to pod traffic with Azure CNI Overlay is not encapsulated and subnet [network security group][nsgs] rules are applied. If the subnet NSG contains deny rules that would impact the pod CIDR traffic, make sure the following rules are in place to ensure proper cluster functionality (in addition to all [AKS egress requirements][aks-egress]):
+Pod to pod traffic with Azure CNI Overlay is not encapsulated and subnet [network security group][nsg] rules are applied. If the subnet NSG contains deny rules that would impact the pod CIDR traffic, make sure the following rules are in place to ensure proper cluster functionality (in addition to all [AKS egress requirements][aks-egress]):
 
 * Traffic from the node CIDR to the node CIDR on all ports and protocols
 * Traffic from the node CIDR to the pod CIDR on all ports and protocols (required for service traffic routing)
@@ -98,9 +92,8 @@ Use the traditional VNet option when:
 
 ## Limitations with Azure CNI Overlay
 
-The overlay solution has the following limitations:
+Azure CNI Overlay has the following limitations:
 
-* Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 * Windows Server 2019 node pools are not supported for overlay.
 
@@ -162,4 +155,4 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [aks-egress]: limit-egress-traffic.md
 [aks-network-policies]: use-network-policies.md
-[nsg]: /azure/virtual-network/network-security-groups-overview
+[nsg]: ../virtual-network/network-security-groups-overview.md

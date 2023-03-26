@@ -15,17 +15,19 @@ ms.reviewer: manrath, sureshja
 
 # Validation differences by supported account types (signInAudience)
 
-When registering an application with the Microsoft identity platform for developers, you're asked to select which account types your application supports. In the application object and manifest, this property is `signInAudience`.
+When registering an application with the Microsoft identity platform for developers, you're asked to select which account types your application supports. You can refer to the **Help me choose** link under **Supported account types** during the registration process. The value you select for this property has implications on other app object properties.
 
-The options include the following values:
+After the application has been registered, you can check or change the account type that the application supports at any time. Under the **Manage** pane of your application, search for **Manifest** and find the `signInAudience` value. The different account types, and the corresponding `signInAudience` are shown in the following table:
 
-- **AzureADMyOrg**: Only accounts in the organizational directory where the app is registered (single-tenant).
-- **AzureADMultipleOrgs**: Accounts in any organizational directory (multi-tenant).
-- **AzureADandPersonalMicrosoftAccount**: Accounts in any organizational directory (multi-tenant) and personal Microsoft accounts (for example, Skype, Xbox, and Outlook.com).
+| Supported account types (Register an application) | `signInAudience` (Manifest) |
+|---------------------------------------------------|-----------------------------|
+| Accounts in this organizational directory only (Single tenant) | `AzureADMyOrg` |
+| Accounts in any organizational directory (Any Azure AD directory - Multitenant) | `AzureADMultipleOrgs` |
+| Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
 
-For registered applications, you can find the value for supported account types on the **Authentication** section of an application. You can also find it under the `signInAudience` property in the **Manifest**.
+If you change this property you may need to change other properties first. 
 
-The value you select for this property has implications on other app object properties. As a result, if you change this property you may need to change other properties first.
+## Validation differences
 
 See the following table for the validation differences of various properties for different supported account types.
 

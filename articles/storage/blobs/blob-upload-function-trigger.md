@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 3/11/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Tutorial: Upload and analyze a file with Azure Functions and Blob Storage

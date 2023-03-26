@@ -1,27 +1,25 @@
 ---
-title: Get started with the MedTech service in Azure Health Data Services
-description: This article describes how to get started with the MedTech service in Azure Health Data Services.
+title: Get started with the MedTech service - Azure Health Data Services
+description: This article describes how to get started with the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/27/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
-# Get started with the MedTech service in the Azure Health Data Services
+# Get started with the MedTech service 
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article will show you how to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). There are six steps you need to follow to be able to deploy and process MedTech service to ingest data from a device using Azure Event Hubs service, persist the data to Azure FHIR service as Observation resources, and link FHIR service Observations to user and device resources. This article provides an architecture overview to help you follow the six steps of the implementation process.
+This article will show you how to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). There are six steps you need to follow to be able to deploy the MedTech service.
 
-## Architecture overview of the MedTech service
+The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key deployment stages: deployment, post-deployment, and data processing.
 
-The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key development stages: deployment, post-deployment, and data processing.
-
-:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing the MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
 
 Follow these six steps to set up and start using the MedTech service.
 
@@ -74,17 +72,17 @@ The MedTech service must be configured to ingest data it will receive from an ev
 
 Once you have starting using the portal and added the MedTech service to your workspace, you must then configure the MedTech service to ingest data from an event hub. For more information about configuring the MedTech service to ingest data, see [Configure the MedTech service to ingest data](deploy-new-config.md).
 
-### Configuring device mappings
+### Configuring the device mapping
 
-You must configure the MedTech service to map it to the device you want to receive data from. Each device has unique settings that the MedTech service must use. For more information on how to use device mappings, see [How to use device mappings](how-to-configure-device-mappings.md).
+You must configure the MedTech service to map it to the device you want to receive data from. Each device has unique settings that the MedTech service must use. For more information on how to use the device mapping, see [How to use device mappings](how-to-configure-device-mappings.md).
 
 - Azure Health Data Services provides an open source tool you can use called [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper). The IoMT Connector Data Mapper will help you map your device's data structure to a form that the MedTech service can use. For more information on device content mapping, see [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/main/docs/Configuration.md#device-content-mapping). 
 
 - When you're deploying the MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the device mapping properties](deploy-new-config.md).
 
-### Configuring destination mappings
+### Configuring the FHIR destination mapping
 
-Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-configure-fhir-mappings.md).
+Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of the FHIR destination mapping, see [How to use the FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 For step-by-step destination property mapping, see [Configure destination properties](deploy-new-config.md).
 

@@ -95,7 +95,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 ## Azure Maps supported views
 
-> [!Note]
+> [!NOTE]
 > On August 1, 2019, Azure Maps was released in the following countries/regions:
 >
 > * Argentina
@@ -111,7 +111,7 @@ Make sure you set up the **View** parameter as required for the REST APIs and th
   
 Ensure that you have set up the View parameter as required. View parameter specifies which set of geopolitically disputed content is returned via Azure Maps services.
 
-Affected Azure Maps REST Services:
+Affected Azure Maps REST services:
 
 * Get Map Tile
 * Get Map Image
