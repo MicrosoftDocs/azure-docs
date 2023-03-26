@@ -59,7 +59,7 @@ In the **Enterprise Flash** tier, keys and values are also partially stored on-d
 
 In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MMK. There's no persistence disk mounted and Azure Storage is used instead. 
 
-## Prerequisites and Limitations
+## Prerequisites and limitations
 
 ### General prerequisites and limitations
 
@@ -73,7 +73,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 - [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Purge protection isn't enabled by default.
 - When you use firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](/azure/key-vault/general/network-security).
 - Only RSA keys are supported
-- The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. A recommended built-in role definition with the least priveleges needed for this scenario is called [KeyVault Crypto Service Encryption User](../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user).
+- The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. A recommended built-in role definition with the least privileges needed for this scenario is called [KeyVault Crypto Service Encryption User](../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user).
 
 ## How to configure CMK encryption on Enterprise caches
 
@@ -100,7 +100,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 
    :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-version.png" alt-text="Screenshot showing the select identity and key fields completed.":::
 
-1. If using the **URI** input method, enter the Key Indentifier URI for your chosen key from Azure Key Vault.  
+1. If using the **URI** input method, enter the Key Identifier URI for your chosen key from Azure Key Vault.  
 
 1. When you've entered all the information for your cache, select **Review + create**.
 
@@ -125,11 +125,11 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted using MM
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
    :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="Screenshot showing the select identity and key fields completed for Encryption.":::
    
-1. If using the **URI** input method, enter the Key Indentifier URI for your chosen key from Azure Key Vault.  
+1. If using the **URI** input method, enter the Key Identifier URI for your chosen key from Azure Key Vault.  
 
 1. Select **Save**
 
-## Next Steps
+## Next steps
 
 Learn more about Azure Cache for Redis features:
 

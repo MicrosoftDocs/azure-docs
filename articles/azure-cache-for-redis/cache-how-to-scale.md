@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Cache for Redis has different tier offerings that provide flexibility in the choice of cache size and features. Through scaling, you can change the size, tier, and number of nodes after creating a cache instance to match your application needs. This article shows you how to scale your cache using the Azure portal, plus tools such as Azure PowerShell and Azure CLI.
 
-## Types of Scaling
+## Types of scaling
 
 There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
@@ -60,7 +60,7 @@ For more information on determining the cache pricing tier to use, see [Choosing
 > For more information on how to optimize the scaling process, see the [best practices for scaling guide](cache-best-practices-scale.md)
 >
 
-## Prerequisites/Limitations of Scaling Azure Cache for Redis
+## Prerequisites/limitations of scaling Azure Cache for Redis
 
 You can scale up/down to a different pricing tier with the following restrictions:
 
@@ -89,15 +89,15 @@ You can scale out/in with the following restrictions:
 
 1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
 
-    :::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
+    :::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="Screenshot showing Scale on the resource menu.":::
 
 1. Choose a pricing tier in the working pane and then choose **Select**.
     
-    :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
+    :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Screenshot showing the Azure Cache for Redis tiers.":::
 
 1. While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
-    :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
+    :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="Screenshot showing the notification of scaling.":::
 
 1.  When scaling is complete, the status changes from **Scaling** to **Running**.
 

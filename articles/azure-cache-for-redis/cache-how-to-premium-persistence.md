@@ -130,13 +130,13 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 1. To enable RDB persistence, select **RDB** and configure the settings.
 
- | Setting      | Suggested value  | Description |
+   | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Use the drop-down and select a backup interval. Choices include **60 Minutes**, **6 hours**, and **12 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
 
 1. To enable AOF persistence, select **AOF** and configure the settings.
 
- | Setting      | Suggested value  | Description |
+   | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Drop down and select a backup interval. Choices include **Write every second** and **Always write**. | The _Always write_ option will append new entries to the AOF file after every write to the cache. This choice offers the best durability but does lower cache performance. |
    
@@ -203,7 +203,7 @@ az redisenterprise database update --cluster-name "cache1" --resource-group "rg1
 
 ---
 
-## Managing Data Encryption
+## Managing data encryption
 Because Redis persistence creates data at rest, encrypting this data is an important concern for many users. Encryption options vary based on the tier of Azure Cache for Redis being used. 
 
 With the **Premium** tier, data is streamed directly from the cache instance to Azure Storage when persistence is initiated. Various encryption methods can be used with Azure Storage, including Microsoft-managed keys, customer-managed keys, and customer-provided keys. For information on encryption methods, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md). 
@@ -262,6 +262,12 @@ AOF persistence saves every write to a log, which has a significant effect on th
 
 For more information on performance when using AOF persistence, see [Does AOF persistence affect throughput, latency, or performance of my cache?](#does-aof-persistence-affect-throughput-latency-or-performance-of-my-cache)
 
+### Does AOF persistence affect throughput, latency, or performance of my cache?
+
+AOF persistence does affect throughput. AOF runs on both the primary and replica process, therefore you see higher CPU and Server Load for a cache with AOF persistence than an identical cache without AOF persistence. AOF offers the best consistency with the data in memory because each write and delete is persisted with only a few seconds of delay. The trade-off is that AOF is more compute intensive.
+
+As long as CPU and Server Load are both less than 90%, there is a penalty on throughput, but the cache operates normally, otherwise. Above 90% CPU and Server Load, the throughput penalty can get much higher, and the latency of all commands processed by the cache increases. This is because AOF persistence runs on both the primary and replica process, increasing the load on the node in use, and putting persistence on the critical path of data. 
+
 ### What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?
 
 For both RDB and AOF persistence:
@@ -301,11 +307,7 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 Use a second storage account for AOF persistence when you think you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits. This option is only available for Premium tier caches.
 
-### Does AOF persistence affect throughput, latency, or performance of my cache?
 
-AOF persistence does affect throughput. AOF runs on both the primary and replica process, therefore you see both higher CPU and Server Load for a cache with AOF persistence, than for a cache with an identical workload without AOF persistence. AOF offers the best consistency with the data in memory because as each write and delete is persisted right away. The trade-off is that AOF is more compute intensive.
-
-As long as CPU and Server Load are both less than 90%, the penalty on throughput is not generally problematic. Above 90% CPU and Server Load, the penalty can get much higher. Persistence runs on the primary and replica process, increasing the load on the node in use, and putting persistence on the critical path of data. If persistence to storage is slow, then overall writes/deletes are also slow, also known as latency.
 
 ### How can I remove the second storage account?
 
