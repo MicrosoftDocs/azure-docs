@@ -1,10 +1,10 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - security content reference | Microsoft Docs
+title: Microsoft Sentinel solution for SAP® applications - security content reference
 description: Learn about the built-in security content provided by the Microsoft Sentinel solution for SAP® applications.
-author: MSFTandrelom
-ms.author: andrelom
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 03/26/2023
 ---
 
 # Microsoft Sentinel solution for SAP® applications: security content reference
@@ -33,7 +33,19 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ## Built-in analytics rules
 
-### Built-in SAP analytics rules for monitoring the SAP audit log
+### Risky configuration manipulation
+
+To ensure the security of the SAP system, SAP has identified security-relevant parameters that need to be monitored for changes. With the TBD rule, the Microsoft Sentinel solution for SAP® applications tracks over 52 security-related parameters in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
+
+To understand parameter changes in the system, the Microsoft Sentinel solution for SAP® applications uses the parameter history table, which records changes made to both static and dynamic parameters in the system every hour.  
+
+These parameters can have different severities for production and non-production systems, as well as different recommended values for each parameter. When a change is made to a security-related parameter, Sentinel checks to see if the change is security-related and if the value is set according to the recommended values. If the change is suspected as outside the safe zone, the Microsoft Sentinel solution for SAP® applications creates an incident detailing the change, and identifies who made the change.  
+
+You can also add new configurations to create alerts for specific parameters and values.
+
+Review the list of parameters that this rule monitors. 
+
+### Monitoring the SAP audit log
 
 The SAP Audit log data is used across many of the analytics rules of the Microsoft Sentinel solution for SAP® applications. Some analytics rules look for specific events on the log, while others correlate indications from several logs to produce high fidelity alerts and incidents.
 In addition, there are two analytics rules which are designed to accommodate the entire set of standard SAP audit log events (183 different events), and any other custom events you may choose to log using the SAP audit log.
@@ -58,7 +70,7 @@ Learn more:
 
 The following tables list the built-in [analytics rules](deploy-sap-security-content.md) that are included in the Microsoft Sentinel solution for SAP® applications, deployed from the Microsoft Sentinel Solutions marketplace.
 
-### Built-in SAP analytics rules for initial access
+### Initial access
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
@@ -71,7 +83,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - Informational - Lifecycle - SAP Notes were implemented in system** | Identifies SAP Note implementation in the system. | Implement an SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  Change Requests | - |
 
 
-### Built-in SAP analytics rules for data exfiltration
+### Data exfiltration
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
@@ -91,7 +103,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - (Preview) High Volume of Potentially Sensitive Data Exported** | Identifies export of a high volume of data via files in proximity to an execution of a sensitive transaction, a sensitive program, or direct access to sensitive table. | Export high volume of data via files. <br><br>**Data sources**:  SAP Security Audit Log, [SAP - Sensitive Tables](#tables), [SAP - Sensitive Transactions](#transactions), [SAP - Sensitive Programs](#programs) | Exfiltration |
 
 
-### Built-in SAP analytics rules for persistency
+### Persistency
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
@@ -104,9 +116,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - Execution of Obsolete/Insecure Program** |Identifies the execution of an obsolete or insecure ABAP program. <br><br> Maintain obsolete programs in the [SAP - Obsolete Programs](#programs) watchlist.<br><br> **Note**: Relevant for production systems only. | Run a program directly using SE38/SA38/SE80, or by using a background job.  <br><br>**Data sources**: SAPcon -  Audit Log | Discovery, Command and Control |
 | **SAP - Multiple Password Changes by User** | Identifies multiple password changes by user. | Change user password <br><br>**Data sources**: SAPcon - Audit Log | Credential Access |
 
-
-
-### Built-in SAP analytics rules for attempts to bypass SAP security mechanisms
+### Attempts to bypass SAP security mechanisms
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
@@ -126,7 +136,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - Dynamic ABAP Program** | Identifies the execution of dynamic ABAP programming. For example, when ABAP code was dynamically created, changed, or deleted. <br><br> Maintain excluded transaction codes in the [SAP - Transactions for ABAP Generations](#transactions) watchlist. | Create an ABAP Report that uses ABAP program generation commands, such as INSERT REPORT, and then run the report.  <br><br>**Data sources**: SAPcon - Audit Log | Discovery, Command and Control, Impact |
 
 
-### Built-in SAP analytics rules for suspicious privileges operations
+### Suspicious privileges operations
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |

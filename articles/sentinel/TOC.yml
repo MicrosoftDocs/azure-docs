@@ -986,6 +986,8 @@
       href: sap/sap-solution-security-content.md
     - name: SAP audit log workbook
       href: sap/sap-audit-log-workbook.md
+    - name: SAP risky configuration paramters
+      href: sap/sap-risky-configuration-parameters.md
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
