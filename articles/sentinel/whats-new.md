@@ -19,6 +19,22 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## March 2023
 
+- [Stream audit log data from GCP into Microsoft Sentinel](#stream-audit-log-data-from-gcp-into-microsoft-sentinel)
+- [Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces)
+- [Automatically update the SAP data connector agent (Preview)](#automatically-update-the-sap-data-connector-agent-preview)
+
+### Stream audit log data from GCP into Microsoft Sentinel
+
+You can now [stream audit log data from the Google Cloud Platform (GCP) into Microsoft Sentinel](connect-google-cloud-platform.md) using the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP). The new connector ingests logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
+
+### Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces
+
+You can now [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](cross-workspcace.md) in different scenarios. This feature allows improved flexibility for managed security service providers (MSSPs) or a global or federated SOC, data residency requirements, organizational hierarchy/IT design, and insufficient role-based access control (RBAC) in a single workspace. One common use case is the need for collaboration between the security operations center (SOC) and SAP teams in your organization. Read about [the scenarios that address this use case](cross-workspcace.md).
+
+### Monitor risky SAP configuration changes
+
+TBD
+
 ### Automatically update the SAP data connector agent (Preview)
 
 You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
@@ -116,57 +132,19 @@ You've already been able to use the **alert details** feature to override these 
 
 See which ones, and learn how to use the updated mechanism, in [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
-## November 2022
-
-- [Use Incident tasks to manage incident workflow (Preview)](#use-incident-tasks-to-manage-incident-workflow-preview)
-- [Common Event Format (CEF) via AMA (Preview)](#common-event-format-cef-via-ama-preview)
-- [Monitor the health of automation rules and playbooks](#monitor-the-health-of-automation-rules-and-playbooks)
-- [Updated Microsoft Sentinel Logstash plugin](#updated-microsoft-sentinel-logstash-plugin)
-
-### Use Incident tasks to manage incident workflow (Preview)
-
-SecOps analysts are expected to perform a list of steps, or tasks, in the process of triaging, investigating, or remediating an incident. Standardizing and formalizing the list of tasks can help keep your SOC running smoothly, ensuring the same requirements apply to all analysts.
-
-SOC managers, automation engineers, and senior analysts can use Microsoft Sentinel's automation capabilities to generate lists of tasks that will apply across groups of incidents based on their content, ensuring that front-line analysts apply the same standards of care across the board and don't miss any critical steps.
-
-- Learn more about [incident tasks](incident-tasks.md).
-- Learn how analysts can [use tasks to handle incident workflow](work-with-tasks.md).
-- Learn how to add tasks to groups of incidents automatically using [automation rules](create-tasks-automation-rule.md) or [playbooks](create-tasks-playbook.md).
-
-### Common Event Format (CEF) via AMA (Preview)
-
-The [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector allows you to quickly filter and upload logs over CEF from multiple on-premises appliances to Microsoft Sentinel via the Azure Monitor Agent (AMA).
-
-The AMA supports Data Collection Rules (DCRs), which you can use to filter the logs before ingestion, for quicker upload, efficient analysis, and querying.
-
-### Monitor the health of automation rules and playbooks
-
-To ensure proper functioning and performance of your security orchestration, automation, and response operations in your Microsoft Sentinel service, keep track of the health of your automation rules and playbooks by monitoring their execution logs.
-
-Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
-
-- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
-- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
-- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
-
-### Updated Microsoft Sentinel Logstash plugin
-
-A [new version of the Microsoft Sentinel Logstash plugin](connect-logstash-data-connection-rules.md) leverages the new Azure Monitor Data Collection Rules (DCR) based Logs Ingestion API. The new plugin: 
-
-- Provides data transformation capabilities like filtering, masking, and enrichment. 
-- Allows full control over the output schema, including configuration of the column names and types. 
-- Can forward logs from external data sources into both custom tables and standard tables. 
-- Provides performance improvements, compression, and better telemetry and error handling.
-
 ## Announcements
 
+- [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
 - [WindowsEvent table enhancements](#windowsevent-table-enhancements)
 - [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes)
 - [New behavior for alert grouping in analytics rules](#new-behavior-for-alert-grouping-in-analytics-rules)
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+### Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties
+
+Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties due to a change in infrastructure performed on MDIs. Alerts will no longer contain any MDA links under **ExtendedLinks** with a **Label** that starts with **Defender for Cloud Apps**. This change will take effect April 30th, 2023. [Read more about this change](/defender-for-identity/whats-new#defender-for-identity-release-2198). 
 
 ### WindowsEvent table enhancements
 
