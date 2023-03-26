@@ -27,6 +27,8 @@ Defender for Storage (classic) doesn't access the Storage account data and has n
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Defender for Storage (classic) in the field](episode-thirteen.md)
 
+For more clarification about Defender for Storage (classic), see the [commonly asked questions](#common-questions---microsoft-defender-for-storage-classic).
+
 ## Availability
 
 |Aspect|Details|
@@ -84,7 +86,7 @@ Alerts include details of the incident that triggered them, and recommendations 
 
 - **Hash reputation analysis isn't supported for all files protocols and operation types** - Some, but not all, of the telemetry logs contain the hash value of the related blob or file. In some cases, the telemetry doesn't contain a hash value. As a result, some operations can't be monitored for known malware uploads. Examples of such unsupported use cases include SMB file-shares and when a blob is created using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list).
 
-## FAQ - Microsoft Defender for Storage (classic)
+## Common questions - Microsoft Defender for Storage (classic)
 
 - [Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?](#are-there-differences-in-features-between-the-new-defender-for-storage-plan-and-the-legacy-defender-for-storage-classic-plan)
 - [How do I estimate charges at the account level?](#how-do-i-estimate-charges-at-the-account-level)

@@ -12,8 +12,8 @@ This article describes how to customize data sensitivity settings in Microsoft D
 
 Data sensitivity settings are used to identify and focus on managing the critical sensitive data in your organization.
 
-- The sensitive info types and sensitivity labels which come from Microsoft Purview portal and which you can select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](https://learn.microsoft.com/microsoft-365/compliance/sensitive-information-type-learn-about?view=o365-worldwide) provided by Microsoft Purview portal. A selection of these are enabled by default, and you can modify as needed.
-- You can optionally allow the import of custom sensitive info types and allow the import of [sensitivity labels](https://learn.microsoft.com/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) that you've defined in Microsoft Purview.
+- The sensitive info types and sensitivity labels which come from Microsoft Purview portal and which you can select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about) provided by Microsoft Purview portal. A selection of these are enabled by default, and you can modify as needed.
+- You can optionally allow the import of custom sensitive info types and allow the import of [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in Microsoft Purview.
 - If you import labels, you can set sensitivity thresholds that determine the minimum threshold sensitivity level for a label to be marked as sensitive in Defender for Cloud. 
 
 This configuration helps you focus on your critical sensitive resources and improve the accuracy of the sensitivity insights.
@@ -65,8 +65,8 @@ To customize data sensitivity settings that appear in Defender for Cloud, review
 
 If you're using Microsoft Purview sensitivity labels, make sure that:
 
--  the label scope is set to "Items"; under which you should configure [auto labeling for files and emails](https://learn.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide#how-to-configure-auto-labeling-for-office-apps)
-- labels must be [published](https://learn.microsoft.com/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide#publish-sensitivity-labels-by-creating-a-label-policy) with a label policy that is in effect. 
+-  the label scope is set to "Items"; under which you should configure [auto labeling for files and emails](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps)
+- labels must be [published](/microsoft-365/compliance/create-sensitivity-labels#publish-sensitivity-labels-by-creating-a-label-policy) with a label policy that is in effect. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
