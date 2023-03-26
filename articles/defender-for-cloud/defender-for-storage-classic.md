@@ -10,7 +10,7 @@ ms.topic: overview
 # Overview of Microsoft Defender for Storage (classic)
 
 > [!NOTE]
-> Upgrade to the new [Microsoft Defender for Storage plan](defender-for-storage-introduction.md). The new Defender for Storage plan was launched on March 28, 2023. It includes new features like Malware Scanning and Sensitive Data Threat Detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Additionally, all new Defender for Storage features will only be released in the new plan.
+> Upgrade to the new [Microsoft Defender for Storage plan](defender-for-storage-introduction.md). It includes new features like Malware Scanning and Sensitive Data Threat Detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Additionally, all new Defender for Storage features will only be released in the new plan.
 Migrating to the new plan is a simple process, read here about [how to migrate from the classic plan](defender-for-storage-classic-migrate.md).
 > If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage (classic) plan to access these features and pricing. Learn about the benefits of [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
 
@@ -73,7 +73,7 @@ Security alerts are triggered for the following scenarios (typically from 1-2 ho
 | **Phishing campaigns** | When content that's hosted on Azure Storage is identified as part of a phishing attack that's impacting Microsoft 365 users. |
 
 > [!TIP]
-> For a comprehensive list of all Defender for Storage (classic) alerts, see the [alerts reference page](alerts-reference.md#alerts-azurestorage). This is useful for workload owners who want to know what threats can be detected and help SOC teams gain familiarity with detections before investigating them. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md).
+> For a comprehensive list of all Defender for Storage (classic) alerts, see the [alerts reference page](alerts-reference.md#alerts-azurestorage). It is essential to review the prerequisites, as certain security alerts are only accessible under the new Defender for Storage plan. The information in the reference page is beneficial for workload owners seeking to understand detectable threats and enables Security Operations Center (SOC) teams to familiarize themselves with detections prior to conducting investigations. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md).
 
 Alerts include details of the incident that triggered them, and recommendations on how to investigate and remediate threats. Alerts can be exported to Microsoft Sentinel or any other third-party SIEM or any other external tool. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 

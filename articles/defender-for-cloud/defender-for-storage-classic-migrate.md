@@ -51,15 +51,15 @@ Migrating from the classic Defender for Storage plan to the new Defender for Sto
 
 ### Migrating from the classic Defender for Storage plan enabled with per-transaction pricing 
 
-If the classic Defender for Storage plan is enabled with per-transaction pricing, you can switch to the new plan at either the subscription or resource level. You can also exclude specific storage accounts from protected subscriptions. Detailed instructions enabling the new plan are available here: enable and configure Defender for Storage. 
+If the classic Defender for Storage plan is enabled with per-transaction pricing, you can switch to the new plan at either the subscription or resource level. You can also [exclude specific storage accounts](../storage/common/azure-defender-storage-configure.md#) from protected subscriptions.
 
-Please note that storage accounts that were previously excluded from protected subscriptions in the per-transaction plan will not remain excluded when you switch to the new plan. However, the exclusion tags will remain on the resource and can be removed. In most cases, storage accounts that were previously excluded from protected subscriptions will benefit the most from the new pricing plan. 
+Storage accounts that were previously excluded from protected subscriptions in the per-transaction plan will not remain excluded when you switch to the new plan. However, the exclusion tags will remain on the resource and can be removed. In most cases, storage accounts that were previously excluded from protected subscriptions will benefit the most from the new pricing plan. 
 
 ### Migrating from the classic Defender for Storage plan enabled with per-storage account pricing 
 
 If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The pricing plan will remain the same in the new Defender for Storage, except for additional charges for malware scanning, which are charged per GB scanned (free during preview). 
 
-You can also exclude specific storage accounts from protected subscriptions, and instructions for enabling the new plan are available here: enable and configure Defender for Storage. 
+ You can also [exclude specific storage accounts](../storage/common/azure-defender-storage-configure.md#) from protected subscriptions.
 
 ## Identify active Microsoft Defender for Storage pricing plans on your subscriptions 
 

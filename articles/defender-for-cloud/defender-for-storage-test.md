@@ -23,17 +23,17 @@ There are three main components to test:
 
 Follow these steps to test Malware Scanning after enabling the feature:
 
-1. To verify that the setup is successful, upload a file to the storage account. You can use the Azure portal to upload a file.
+1. To verify that the setup is successful, upload a file to the storage account. You can use the Azure portal to [upload a file](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)
 
 1. Inspect new blob index tags:
 
     1. After uploading the file, view the blob and examine its blob index tags.
 
-    1. You should see two new tags: "Malware Scanning scan result" and "Malware Scanning scan time".
+    1. You should see two new tags: **Malware Scanning scan result** and **Malware Scanning scan time**.
 
     1. The blob index tags serve as a helpful way to view the scan results.
 
-1. If you don't see the new blob index tags, click the "Refresh" button.
+1. If you don't see the new blob index tags, select the **Refresh** button.
 
 ## Upload an EICAR test file to simulate malware upload:
 
@@ -53,23 +53,23 @@ To simulate a malware upload using an EICAR test file, follow these steps:
 
 1. Upload the EICAR test file to your storage account.
 
-1. Verify the "Malware Scanning scan result" index tag:
+1. Verify the **Malware Scanning scan result** index tag:
 
-    1. Check for the "Malware Scanning scan result" index tag with the value "Malicious".
+    1. Check for the **Malware Scanning scan result** index tag with the value **Malicious**.
 
-    1. If the tags are not visible, click the "Refresh" button.
+    1. If the tags are not visible, select the **Refresh** button.
 
 1. Receive a Microsoft Defender for Cloud security alert:
 
-    1. Navigate to "Microsoft Defender for Cloud" using the search bar in Azure.
+    1. Navigate to **Microsoft Defender for Cloud** using the search bar in Azure.
 
-    1. Click on "Security Alerts".
+    1. Select on **Security Alerts**.
 
 1. Review the security alert:
 
-    1. Locate the alert titled "Malicious file uploaded to storage account (Preview)".
+    1. Locate the alert titled **Malicious file uploaded to storage account (Preview)**.
 
-    1. Click on the alert’s “View full details” button to see all the related details.
+    1. Select on the alert’s **View full details** button to see all the related details.
 
     1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 
@@ -87,9 +87,9 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Go to the **Containers** blade in the newly created storage account.
 
-    1. Click the "+ Container" button to create a new blob container.
+    1. Select the **+ Container** button to create a new blob container.
 
-    1. Name the new container "test-container".
+    1. Name the new container **test-container**.
 
 1. Upload test data:
 
@@ -101,7 +101,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Save the file with the updated information.
 
-    1. Upload the file you created to the "test-container" in the storage account.
+    1. Upload the file you created to the **test-container** in the storage account.
 
 1. Enable Defender for Storage:
 
@@ -115,9 +115,9 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Return to the Containers blade.
 
-    1. Right-click on the " test-container" and select "Change the access level".
+    1. Right-click on the **test-container** and select **Change the access level**.
 
-    1. Choose the "Container (anonymous read access for containers and blobs)" option and click "OK".
+    1. Choose the **Container (anonymous read access for containers and blobs)** option and select **OK**.
 
     The previous step exposes the blob container's content to the internet, which will trigger a security alert within 30-60 minutes.
 
@@ -125,9 +125,9 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Go to the **Security Alerts** blade.
 
-    1. Look for the alert titled "The access level of a sensitive storage blob container was changed to allow unauthenticated public access".
+    1. Look for the alert titled **The access level of a sensitive storage blob container was changed to allow unauthenticated public access**.
 
-    1. Click on the alert’s “View full details” button to see all the related details.
+    1. Select on the alert’s **View full details** button to see all the related details.
 
 Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 
@@ -141,17 +141,17 @@ To test the activity monitoring feature by simulating access from a Tor exit nod
 
     1. Go to the **Containers** blade in the storage account.
 
-    1. Click the "+ Container" button to create a new blob container.
+    1. Select the **+ Container** button to create a new blob container.
 
-    1. Name the new container "test-container-tor".
+    1. Name the new container **test-container-tor**.
 
-1. Upload any file to the "test-container-tor".
+1. Upload any file to the **test-container-tor**.
 
 1. Generate a SAS (shared access signatures) token:
 
-    1. Right-click on the uploaded file and select "Generate SAS".
+    1. Right-click on the uploaded file and select **Generate SAS**.
 
-    1. Click the "Generate SAS token and URL" button.
+    1. Select the **Generate SAS token and URL** button.
 
     1. Copy the Blob SAS URL.
 
@@ -169,9 +169,9 @@ To test the activity monitoring feature by simulating access from a Tor exit nod
 
     1. Go to the **Security Alerts** blade.
 
-    1. Look for the alert titled "Access from a Tor exit node to a storage blob container".
+    1. Look for the alert titled **Access from a Tor exit node to a storage blob container**.
 
-    1. Click on the alert’s “View full details” button to see all the related details.
+    1. Select on the alert’s **View full details** button to see all the related details.
 
 Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 

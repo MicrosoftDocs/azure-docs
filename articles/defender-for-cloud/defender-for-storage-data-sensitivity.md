@@ -34,7 +34,7 @@ Learn more about the [roles and permissions](data-security-posture-enable.md#ena
 
 ## Enabling sensitive data threat detection
 
-Sensitive data threat detection is enabled by default when you enable Defender for Storage. is a configurable feature in the new Defender for Storage plan. You can enable in the Azure portal or with other at-scale methods at no additional cost.
+[Sensitive data threat detection](link) is enabled by default when you enable Defender for Storage. You can enable in the Azure portal or with other at-scale methods at no additional cost.
 
 ## Using the sensitivity context in the security alerts
 
@@ -43,7 +43,7 @@ Sensitive Data Threat Detection capability will help you to prioritize security 
 In the alert’s Extended Properties, you can find sensitivity scanning findings for a **blob container**: 
 
 - Sensitivity scanning time UTC (when the last scan was performed)
-- Top sensitivity label
+- Top sensitivity label - the most sensitive label found in the blob container
 - Sensitive information types - information types that were found and whether they are based on custom rules
 - Sensitive file types - the file types of the sensitive data
 
