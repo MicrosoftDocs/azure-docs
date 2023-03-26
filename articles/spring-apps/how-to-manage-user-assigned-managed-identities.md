@@ -25,7 +25,7 @@ Managed identities for Azure resources provide an automatically managed identity
 
 - If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 - [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
@@ -34,7 +34,7 @@ Managed identities for Azure resources provide an automatically managed identity
 
 ::: zone-end
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 - An already provisioned Azure Spring Apps instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 - [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
