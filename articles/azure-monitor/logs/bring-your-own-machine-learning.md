@@ -129,7 +129,7 @@ For example:
 
 Here are a number of available conversion methods:
 
-- [Create an Azure Machine Learning dataset a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
+- [Create an Azure Machine Learning dataset from a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
 - [Convert JSON to Spark DataFrame](https://sparkbyexamples.com/pyspark/different-ways-to-create-dataframe-in-pyspark/#from-json) 
 - [Convert JSON to Azure Machine Learning dataset](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#azureml-data-dataset-factory-tabulardatasetfactory-from-json-lines-files) 
 
