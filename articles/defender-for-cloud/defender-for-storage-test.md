@@ -43,7 +43,7 @@ To simulate a malware upload using an EICAR test file, follow these steps:
 
     1. Use an EICAR test file instead of real malware to avoid causing damage. Standardized antimalware software treats EICAR test files as malware.
 
-    1. Exclude an empty folder to prevent your endpoint antivirus protection from deleting the file. For Microsoft Defender for Endpoint (MDE) users, refer to add an exclusion to Windows Security.
+    1. Exclude an empty folder to prevent your endpoint antivirus protection from deleting the file. For Microsoft Defender for Endpoint (MDE) users, refer to [add an exclusion to Windows Security](https://support.microsoft.com/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26#ID0EBF=Windows_11).
 
 1. Create the EICAR test file:
 
@@ -71,7 +71,7 @@ To simulate a malware upload using an EICAR test file, follow these steps:
 
     1. Click on the alert’s “View full details” button to see all the related details.
 
-    1. Learn more about Defender for Storage security alerts in the reference table for all security alerts in Microsoft Defender for Cloud.
+    1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 
 ## Testing sensitive data threat detection
 
@@ -85,7 +85,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
 1. Set up a test container:
 
-    1. Go to the Containers blade in the newly created storage account.
+    1. Go to the **Containers** blade in the newly created storage account.
 
     1. Click the "+ Container" button to create a new blob container.
 
@@ -97,7 +97,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Create a new file and save it in a format like TXT, CSV, or DOCX.
 
-    1. Add the following string to the file: ASD 100-22-3333 SSN Text - this is a test US (United States) SSN (Social Security Number).
+    1. Add the following string to the file: `ASD 100-22-3333 SSN Text` - this is a test US (United States) SSN (Social Security Number).
 
     1. Save the file with the updated information.
 
@@ -105,7 +105,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
 1. Enable Defender for Storage:
 
-    1. In the Azure portal, go to Defender for Cloud.
+    1. In the Azure portal, go to **Microsoft Defender for Cloud**.
 
     1. Enable Defender for Storage on the storage account with the Sensitivity Data Discovery feature enabled.
 
@@ -123,13 +123,13 @@ To test the sensitive data threat detection feature by uploading test data that 
 
 1. Review the security alert:
 
-    1. Go to the Security Alerts blade.
+    1. Go to the **Security Alerts** blade.
 
     1. Look for the alert titled "The access level of a sensitive storage blob container was changed to allow unauthenticated public access".
 
     1. Click on the alert’s “View full details” button to see all the related details.
 
-Learn more about Defender for Storage security alerts in the reference table for all security alerts in Microsoft Defender for Cloud.
+Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 
 ## Testing activity monitoring
 
@@ -139,7 +139,7 @@ To test the activity monitoring feature by simulating access from a Tor exit nod
 
 1. Set up a test container:
 
-    1. Go to the Containers blade in the storage account.
+    1. Go to the **Containers** blade in the storage account.
 
     1. Click the "+ Container" button to create a new blob container.
 
@@ -167,13 +167,13 @@ To test the activity monitoring feature by simulating access from a Tor exit nod
 
 1. Review the security alert:
 
-    1. Go to the Security Alerts blade.
+    1. Go to the **Security Alerts** blade.
 
     1. Look for the alert titled "Access from a Tor exit node to a storage blob container".
 
     1. Click on the alert’s “View full details” button to see all the related details.
 
-Learn more about Defender for Storage security alerts in the reference table for all security alerts in Microsoft Defender for Cloud.
+Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 
 ## Next steps
 

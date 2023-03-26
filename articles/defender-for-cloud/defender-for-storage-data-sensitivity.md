@@ -29,6 +29,7 @@ Upon enablement, the Sensitive Data Discovery engine initiates an automatic scan
 
 Sensitive data threat detection is available for Blob storage accounts, including: Standard general-purpose V1, Standard general-purpose V2, Azure Data Lake Storage Gen2 and Premium block blobs. Learn more about the [availability of Defender for Storage features](defender-for-storage-introduction.md#availability).
 
+To enable sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions.
 Learn more about the [roles and permissions](data-security-posture-enable.md#enable-data-aware-security-posture-in-defender-cspm-for-azure-subscriptions) required for sensitive data threat detection.
 
 ## Enabling sensitive data threat detection
@@ -43,14 +44,14 @@ In the alert’s Extended Properties, you can find sensitivity scanning findings
 
 - Sensitivity scanning time UTC (when the last scan was performed)
 - Top sensitivity label
-- Sensitive information types
-- Sensitive file types
+- Sensitive information types - information types that were found and whether they are based on custom rules
+- Sensitive file types - the file types of the sensitive data
 
 :::image type="content" source="media/defender-for-storage-data-sensitivity/sensitive-data-alerts.png" alt-text="Screenshot of an alert regarding sensitive data." lightbox="media/defender-for-storage-data-sensitivity/sensitive-data-alerts.png":::
 
-## Integrate with the organizational sensitivity settings in Microsoft Purview
+## Integrate with the organizational sensitivity settings in Microsoft Purview (optional)
 
-When you enable Sensitive Data Threat Detection capability, the sensitive data categories include built-in sensitive information types (SITs) default list of Microsoft Purview. This will affect the alerts you receive from Defender for Storage and storage or containers that are found to contain these SITs are marked as containing sensitive data.
+When you enable sensitive data threat detection, the sensitive data categories include built-in sensitive information types (SITs) default list of Microsoft Purview. This will affect the alerts you receive from Defender for Storage and storage or containers that are found to contain these SITs are marked as containing sensitive data.
 
 To customize the Data Sensitivity Discovery for your organization, you can [create custom sensitive information types (SITs)](/microsoft-365/compliance/create-a-custom-sensitive-information-type) and connect to your organizational settings with a single step integration. Learn more [here](episode-two.md).
 

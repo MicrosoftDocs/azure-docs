@@ -10,7 +10,8 @@ ms.topic: overview
 # Overview of Microsoft Defender for Storage (classic)
 
 > [!NOTE]
-> Upgrade to the new Microsoft Defender for Storage plan. The new Defender for Storage plan was launched on March 28, 2023. It includes new features like Malware Scanning and Sensitive Data Threat Detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Additionally, all new Defender for Storage features will only be released in the new plan.
+> Upgrade to the new [Microsoft Defender for Storage plan](defender-for-storage-introduction.md). The new Defender for Storage plan was launched on March 28, 2023. It includes new features like Malware Scanning and Sensitive Data Threat Detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Additionally, all new Defender for Storage features will only be released in the new plan.
+Migrating to the new plan is a simple process, read here about [how to migrate from the classic plan](defender-for-storage-classic-migrate.md).
 > If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage (classic) plan to access these features and pricing. Learn about the benefits of [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
 
 **Microsoft Defender for Storage (classic)** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.

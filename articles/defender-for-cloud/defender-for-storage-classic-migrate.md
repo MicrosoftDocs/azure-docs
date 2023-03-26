@@ -44,18 +44,18 @@ The classic plan will be deprecated in the future, and the deprecation will be a
 
 ## Migration scenarios
 
-Migrating from the classic Defender for Storage plan to the new Defender for Storage plan is a straightforward process, and there are several ways to do it. In both cases, you will need to proactively enable the new plan to access its enhanced capabilities and pricing. 
+Migrating from the classic Defender for Storage plan to the new Defender for Storage plan is a straightforward process, and there are several ways to do it. You will need to proactively enable the new plan to access its enhanced capabilities and pricing. 
 
 >[!NOTE]
 > To enable the new plan, make sure to disable the old Defender for Storage policies. Look for and disable policies named "Configure Azure Defender for Storage to be enabled", "Azure Defender for Storage should be enabled", or "Configure Microsoft Defender for Storage to be enabled (per-storage account plan)". 
 
-### Migrating from the Classic Defender for Storage Plan Enabled with Per-Transaction Pricing 
+### Migrating from the classic Defender for Storage plan enabled with per-transaction pricing 
 
 If the classic Defender for Storage plan is enabled with per-transaction pricing, you can switch to the new plan at either the subscription or resource level. You can also exclude specific storage accounts from protected subscriptions. Detailed instructions enabling the new plan are available here: enable and configure Defender for Storage. 
 
 Please note that storage accounts that were previously excluded from protected subscriptions in the per-transaction plan will not remain excluded when you switch to the new plan. However, the exclusion tags will remain on the resource and can be removed. In most cases, storage accounts that were previously excluded from protected subscriptions will benefit the most from the new pricing plan. 
 
-### Migrating from the Classic Defender for Storage Plan Enabled with Per-Storage Account Pricing 
+### Migrating from the classic Defender for Storage plan enabled with per-storage account pricing 
 
 If the classic Defender for Storage plan is enabled with per-storage account pricing, you can switch to the new plan at either the subscription or resource level. The pricing plan will remain the same in the new Defender for Storage, except for additional charges for malware scanning, which are charged per GB scanned (free during preview). 
 
@@ -63,7 +63,7 @@ You can also exclude specific storage accounts from protected subscriptions, and
 
 ## Identify active Microsoft Defender for Storage pricing plans on your subscriptions 
 
-If you're looking to quickly identify which pricing plans are active on your subscriptions, utilizing this Coverage workbook based on Azure Resource Graph (ARG) Explorer (with the ‘securityresources’ table) data is a great solution. This tool allows you to simplify and analyze your enablement status easily. 
+If you're looking to quickly identify which pricing plans are active on your subscriptions, utilizing this [Coverage workbook](https://portal.azure.com/#blade/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Security%20Center/ConfigurationId/community-Workbooks%2FAzure%20Security%20Center%2FCoverage/Type/workbook/WorkbookTemplateName/Coverage) based on [Azure Resource Graph (ARG) Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) (with the ‘**securityresources**’ table) data is a great solution. This tool allows you to simplify and analyze your enablement status easily. 
 
 >[!NOTE]
 >The Coverage workbook and ARG Explorer query only provide enablement status when Defender for Storage is enabled at the subscription level. For storage accounts with Defender for Storage enabled at the resource level, the enablement status can be found within the Defender for Cloud blade of the storage accounts in the Azure portal. Additionally, the enablement status can be queried with a PowerShell script.
