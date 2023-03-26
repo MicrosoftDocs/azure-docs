@@ -60,8 +60,8 @@ The plug-in can be used in the following ways, to provide basic virtual network 
 
 ## Next steps
 
-* [Deploy the plug-in](deploy-container-networking.md) for Kubernetes clusters or Docker containers
-
 * [Deploy container networking for a stand-alone Linux Docker host](/azure/virtual-network/deploy-container-networking-docker-linux)
 
 * [Deploy container networking for a stand-alone Windows Docker host](/azure/virtual-network/deploy-container-networking-docker-windows)
+
+* [Deploy the plug-in](deploy-container-networking.md) for Kubernetes clusters or Docker containers
