@@ -37,7 +37,7 @@ The [Onco Phenotype](./oncophenotype/overview.md) receives clinical records of o
 ![Diagram that shows Azure Health Insights architecture.](media/architecture.png) 
 
 Azure Health Insights service receives patient data through multiple input channels. This can be unstructured healthcare data, FHIR resources or specific JSON format data. This in combination with the correct model configuration, such as ```includeEvidence```. 
-With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher or OncoPhenotype.  
+With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher or Onco Phenotype.  
 
 ## Next steps
 
