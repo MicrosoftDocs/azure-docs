@@ -80,10 +80,6 @@ Service and processing log files are stored on the Azure portal for 30 days from
 
 Other OT monitoring log files are stored only on the OT network sensor and the on-premises management console.
 
-For more information, see:
-
-- [Troubleshoot the sensor](how-to-troubleshoot-the-sensor.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-the-on-premises-management-console.md)
 
 ## On-premises backup file capacity
 
@@ -91,11 +87,6 @@ Both the OT network sensor and the on-premises management console have automated
 
 On both the OT sensor and the on-premises management console, older backup files are overridden when the configured storage capacity has reached its maximum.
 
-For more information, see:
-
-- [Set up backup and restore files on an OT sensor](backup-restore-sensor.md#set-up-backup-and-restore-files)
-- [Configure OT sensor backup settings on an on premises management console](backup-sensors-from-management.md#configure-ot-sensor-backup-settings)
-- [Configure OT sensor backup settings for an on-premises management console](backup-sensors-from-management.md#configure-ot-sensor-backup-settings)
 
 ### Backups on the OT network sensor
 
