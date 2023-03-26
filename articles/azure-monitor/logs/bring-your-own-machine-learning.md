@@ -12,13 +12,11 @@ ms.date: 02/28/2023
 ---
 # AIOps and machine learning in Azure Monitor 
 
-[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful methods of processing and automatically acting on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
+[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful ways to process and automatically act on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
 
-Azure Monitor's built-in machine learning capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. 
+Azure Monitor's built-in machine learning capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
 
-These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations immediately, without machine learning knowledge and further investment.    
-
-You can also create machine learning pipelines to act on data in Azure Monitor Logs to train your own machine learning models and add analysis and response capabilities that address your IT and business goals.    
+You can also create your own machine learning pipeline to act on data in Azure Monitor Logs. Azure Monitor provides tools that let work with data in Azure Monitor Logs in an integrated environment, or using Azure machine learning services, to train your own machine learning models and introduce new analysis and response capabilities to address your IT and business goals.    
 
 This article describes Azure Monitor's built-in AIOps capabilities and explains how you can create and run customized machine learning models on data in Azure Monitor Logs. 
 
@@ -56,6 +54,18 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 If the richness of native KQL functions doesn't meet your business needs, you can implement custom machine learning models. For example, if you need to perform hunting for security attacks when data requires more sophisticated models than linear or other regressions supported by KQL, or if you need to correlate data in Azure Monitor Logs with data from other sources. 
 
+This table compares the advantages and limitations of the three using machine learning pipeline implementation approaches:
+
+||Integrated environment|External machine learning pipeline|Hybrid pipeline<br>(Scoring in an integrated environment, external model training)|
+|-|-|-|-|
+|**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
+|**Uses other Azure services?**|Optional: You can integrate a notebook with Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>**Scoring**: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
+|**Advantages**|Minimal latency and cost savings.|No query limits.|**Scoring**: Minimal latency and cost savings. |
+|**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which are possible to overcome by splitting query execution into chunks.|Cost of export and storage, increased latency due to export.|**Training**: Cost of export and training. |
+| |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Supports several GBs of data, or a few million records. |
+
+### Implement the machine learning lifecycle in your Azure Monitor Logs pipeline
+
 Setting up a machine learning pipeline typically involves all or some of these tasks:
  
 - Data exploration, including advanced analytics and visualization 
@@ -63,19 +73,8 @@ Setting up a machine learning pipeline typically involves all or some of these t
 - Model deployment and scoring 
 - Getting insights from scored data 
 
-This table compares the advantages and limitations of the three using machine learning pipeline implementation approaches:
 
-||Integrated environment|External machine learning pipeline|Hybrid pipeline<br>(Scoring in an integrated environment, external model training)|
-|-|-|-|-|
-|**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
-|**Uses other Azure services**|Optional: You can integrate a notebook with Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>**Scoring**: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
-|**Advantages**|Minimal latency and cost savings.|No query limits.|**Scoring**: Minimal latency and cost savings. |
-|**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which are possible to overcome by splitting query execution into chunks.|Cost of export and storage, increased latency due to export.|**Training**: Cost of export and training. |
-| |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Supports several GBs of data, or a few million records. |
-
-### Implement the steps in the machine learning lifecycle
-
-### Explore data
+#### Explore data
 
 Azure Monitor offers a set of tools for exploring and preparing data for analytics and machine learning. The quickest ways to get started with data exploration is using:
 
@@ -84,7 +83,7 @@ Azure Monitor offers a set of tools for exploring and preparing data for analyti
 
 To analyze logs outside of Azure Monitor, [export data out of your Log Analytics workspace](../logs/logs-data-export.md) and set up the environment in the service you choose. For an example of how to explore logs outside of Azure Monitor, see [How to analyze data exported from Log Analytics data using Synapse](https://techcommunity.microsoft.com/t5/azure-observability-blog/how-to-analyze-data-exported-from-log-analytics-data-using/ba-p/2547888).
 
-### Build and training models
+#### Build and training models
 
 Machine learning training is a long and iterative process, which usually involves retrieving and cleaning the training data, engineer features, experimenting with various models, and tuning parameters until you find a model that's sufficiently accurate and robust. 
 
@@ -94,7 +93,7 @@ Machine learning training is a long and iterative process, which usually involve
 - [Train machine learning models with Apache Spark in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib)
 - [Train a model in Python with automated machine learning in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-azure-machine-learning-tutorial)
 
-### Deploy and score machine learning models 
+#### Deploy and score machine learning models 
 
 Scoring is the process of applying a machine learning model on new data to get predictions. Scoring usually needs to be done at scale with minimal latency, processing large sets of new records.  
 
@@ -104,14 +103,14 @@ Scoring is the process of applying a machine learning model on new data to get
 - [Score machine learning models with PREDICT in serverless Apache Spark pools](/azure/synapse-analytics/machine-learning/tutorial-score-model-predict-spark-pool)
 - [Deploy machine learning models to Azure](/azure/machine-learning/v1/how-to-deploy-and-where?tabs=azcli)
 
-### Get insights from scored data on schedule
+#### Get insights from scored data on schedule
 
 To run your notebook on schedule, you can follow below steps:
 
 1. You can run a notebook as a step in Azure Machine Learning Pipeline using NotebookRunnerStep
 2. Schedule machine learning pipeline
 
-### Converting Azure Monitor data to corresponding data type
+#### Converting Azure Monitor data to corresponding data type
 
 Different tools/libraries use different formats of data.
 
