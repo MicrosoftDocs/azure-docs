@@ -50,7 +50,7 @@ To deploy SAP solution security content, do the following:
 
 1. To open the SAP solution page, select **Microsoft Sentinel solution for SAP® applications**.
 
-    :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel solution for SAP® applications' solution pane.":::
+    :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel solution for SAP® applications' solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 
 1. To launch the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription and resource group.
 
