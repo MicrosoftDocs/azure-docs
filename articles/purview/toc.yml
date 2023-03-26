@@ -44,8 +44,6 @@ items:
         href: use-azure-purview-studio.md
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default account
-        href: concept-default-purview-account.md
       - name: Asset lifecycle best practices
         href: concept-best-practices-asset-lifecycle.md
       - name: Automation best practices

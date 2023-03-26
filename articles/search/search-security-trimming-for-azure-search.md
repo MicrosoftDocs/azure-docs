@@ -13,7 +13,7 @@ ms.date: 03/24/2023
 
 # Security filters for trimming results in Azure Cognitive Search
 
-Cognitive Search doesn't provide document-level permissions and can't vary search results from the within the same index by user permissions. As a workaround, you can create a filter that trims search results based on a string containing a group or user identity.
+Cognitive Search doesn't provide document-level permissions and can't vary search results from within the same index by user permissions. As a workaround, you can create a filter that trims search results based on a string containing a group or user identity.
 
 This article describes a pattern for security filtering that includes following steps:
 
