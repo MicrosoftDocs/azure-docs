@@ -1,7 +1,7 @@
 ---
-title: Guidance for integration and responsible use with Onco Phenotype
+title: Guidance for integration and responsible use with Onco-Phenotype
 titleSuffix: Azure Health Insights
-description: Microsoft wants to help you responsibly develop and deploy solutions that use Onco Phenotype.
+description: Microsoft wants to help you responsibly develop and deploy solutions that use Onco-Phenotype.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# Guidance for integration and responsible use with Onco Phenotype
+# Guidance for integration and responsible use with Onco-Phenotype
 
-As Microsoft works to help customers safely develop and deploy solutions using the Onco Phenotype model, we're taking a principled approach to upholding personal agency and dignity by considering the AI systems' fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing Responsible AI.
+As Microsoft works to help customers safely develop and deploy solutions using the Onco-Phenotype model, we're taking a principled approach to upholding personal agency and dignity by considering the AI systems' fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing Responsible AI.
 
 ## General guidelines
 

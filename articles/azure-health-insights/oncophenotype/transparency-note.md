@@ -1,7 +1,7 @@
 ---
-title: Transparency Note for Onco Phenotype
+title: Transparency Note for Onco-Phenotype
 titleSuffix: Azure Health Insights
-description: Microsoft's Transparency Notes for Onco Phenotype are intended to help you understand how our AI technology works.
+description: Microsoft's Transparency Notes for Onco-Phenotype are intended to help you understand how our AI technology works.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -11,13 +11,13 @@ ms.date: 01/26/2023
 ms.author: behoorne
 ---
 
-# Transparency Note for Onco Phenotype
+# Transparency Note for Onco-Phenotype
 
 An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Creating a system that is fit for its intended purpose requires an understanding of how the technology works, its capabilities and limitations, and how to achieve the best performance. 
 
 Microsoft's Transparency Notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. They are also part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai). 
 
-## Example use cases for the Onco Phenotype
+## Example use cases for the Onco-Phenotype
 **Use case** | **Description** 
 -------------|----------------
 Assisted annotation and curation | Support solutions for clinical data annotation and curation. For example: to support clinical coding, digitization of data that was manually created, automation of registry reporting.
