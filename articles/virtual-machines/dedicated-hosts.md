@@ -41,6 +41,7 @@ Reserving the entire host provides several benefits beyond those of a standard s
 
 ![View of the new resources for dedicated hosts.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
+
 A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it.
 
 A **host** is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VM sizes can be created. Each host can host multiple VMs, of different sizes, as long as they are from the same size series.
@@ -159,6 +160,7 @@ Provisioning a dedicated host will consume both dedicated host vCPU and the VM f
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
+
 For more information, see [Virtual machine vCPU quotas](./windows/quotas.md).
 
 Free trial and MSDN subscriptions don't have quota for Azure Dedicated Hosts.
@@ -184,7 +186,7 @@ The *type* is the hardware generation. Different hardware types for the same VM 
 The sizes and hardware types vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 > [!NOTE]
-> Once a Dedicated host is provisoned, you can't change the size or type. If you need a different size of type, you will need to create a new host.
+> Once a Dedicated host is provisioned, you can't change the size or type. If you need a different size of type, you will need to create a new host.
 
 ## Host life cycle
 
@@ -194,10 +196,9 @@ Azure monitors and manages the health status of your hosts. The following states
 | Health State   | Description       |
 |----------|----------------|
 | Host Available     | There are no known issues with your host.   |
-| Host Under Investigation  | We’re having some issues with the host that we’re looking into. This transitional state is required for Azure to try to identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
+| Host Under Investigation| We’re having some issues with the host that we’re looking into. This transitional state is required for Azure to try to identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
 | Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
-| Host deallocated  | All virtual machines have been removed from the host. You're no longer being charged for this host since the hardware was taken out of rotation.   |
-
+| Host Deallocated| All virtual machines have been removed from the host. You're no longer being charged for this host since the hardware was taken out of rotation.   |
 
 ## Next steps
 
@@ -206,3 +207,5 @@ Azure monitors and manages the health status of your hosts. The following states
 - There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
+
+

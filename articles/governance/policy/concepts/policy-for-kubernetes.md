@@ -9,7 +9,7 @@ author: timwarner-msft
 ---
 # Understand Azure Policy for Kubernetes clusters
 
-Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an _admission
+Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply
 at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure
 Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters
@@ -18,7 +18,7 @@ from one place. The add-on enacts the following functions:
 - Checks with Azure Policy service for policy assignments to the cluster.
 - Deploys policy definitions into the cluster as
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and
-  [constraint](https://github.com/open-policy-agent/gatekeeper#constraints) custom resources.
+  [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources.
 - Reports auditing and compliance details back to Azure Policy service.
 
 Azure Policy for Kubernetes supports the following cluster environments:

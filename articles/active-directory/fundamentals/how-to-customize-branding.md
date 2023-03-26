@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 03/24/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -20,26 +20,13 @@ ms.collection: M365-identity-device-management
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
 
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS.
+The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
 > [!NOTE]
 > Instructions for the legacy company branding customization process can be found in the **[Customize branding](customize-branding.md)** article.<br><br>The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-## User experience
-
-You can customize the sign-in pages when users access your organization's tenant-specific apps. For Microsoft and SaaS applications (multi-tenant apps) such as <https://myapps.microsoft.com>, or <https://outlook.com> the customized sign-in page appears only after the user types their **Email**, or **Phone**, and select **Next**. 
-
-Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page appears immediately in the first step. 
-
-In the following examples replace the contoso.com with your own tenant name, or verified domain name:
-
-- For Microsoft Outlook `https://outlook.com/contoso.com` 
-- For SharePoint online `https://contoso.sharepoint.com`
-- For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
-- Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
-## Role and license requirements
+## License requirements
 
 Adding custom branding requires one of the following licenses:
 
@@ -61,6 +48,42 @@ The **Global Administrator** role is required to customize company branding.
 
 **Use Microsoft Graph with Azure AD company branding.** Company branding can be viewed and managed using Microsoft Graph on the `/beta` endpoint and the `organizationalBranding` resource type. For more information, see the [organizational branding API documentation](/graph/api/resources/organizationalbranding?view=graph-rest-beta&preserve-view=true).
 
+The branding elements are called out in the following example. Text descriptions are provided following the image.
+
+:::image type="content" source="media/how-to-customize-branding/company-branding-map.png" alt-text="Screenshot of the sign-in page, with each of the company branding elements highlighted." lightbox="media/how-to-customize-branding/company-branding-map-large.png":::
+
+1. **Favicon**: Small icon that appears on the left side of the browser tab.
+1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
+1. **Background image** and **page background color**: The entire space behind the sign-in box.
+1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
+1. **Username hint and text**: The text that appears before a user enters their information.
+1. **Sign-in page text**: Additional text you can add below the username field.
+1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
+1. **Template**: The layout of the page and sign-in boxes.
+1. **Footer**: Text in the lower-right corner of the page where you can add Terms of use or privacy information.
+
+### User experience
+
+When customizing the sign-in pages that users see when accessing your organization's tenant-specific applications, there are some user experience scenarios you may need to consider.
+
+For Microsoft, Software as a Service (SaaS), and multi-tenant applications such as <https://myapps.microsoft.com>, or <https://outlook.com>, the customized sign-in page appears only after the user types their **Email** or **Phone number** and selects the **Next** button. 
+
+Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-realm-discovery-policy.md) for authentication. In these scenarios, when a customer signs in to an Azure AD common sign-in page, Azure AD can use the customer's user name to determine where they should sign in. 
+
+For customers who access applications from a custom URL, the `whr` query string parameter, or a domain variable, can be used to apply company branding at the initial sign-in screen, not just after adding the email or phone number. For example, `whr=contoso.com` would appear in the custom URL for the app. With the Home Realm Discover and domain parameter included, the company branding appears immediately in the first sign-in step. Other domain hints can be included.
+
+In the following examples replace the contoso.com with your own tenant name, or verified domain name:
+
+- For Microsoft Outlook `https://outlook.com/contoso.com` 
+- For SharePoint online `https://contoso.sharepoint.com`
+- For my app portal `https://myapps.microsoft.com/?whr=contoso.com` 
+- Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
+
+> [!NOTE]
+> The settings to manage the 'Stay signed in?' prompt can now be found in the User settings area of Azure AD. Go to **Azure AD** > **Users** > **User settings**.
+<br><br>
+For more information on the 'Stay signed in?' prompt, see [How to manage user profile information](how-to-manage-user-profile-info.md#learn-about-the-stay-signed-in-prompt).
+
 ## How to navigate the company branding process
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
@@ -78,6 +101,8 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
 - **Favicon**: Select a PNG or JPG of your logo that appears in the web browser tab.
 
+    ![Screenshot of sample favicons in a web browser.](media/how-to-customize-branding/favicon-example.png)
+
 - **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image scales and crops according to the window size, but may be partially blocked by the sign-in prompt.
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
@@ -88,12 +113,18 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
     - Choose one of two **Templates**: Full-screen or partial-screen background. The full-screen background could obscure your background image, so choose the partial-screen background if your background image is important.
     - The details of the **Header** and **Footer** options are set on the next two sections of the process.
+    
+    ![Screenshot of the Layout tab.](media/how-to-customize-branding/layout-visual-templates.png)
 
-- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page. [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
+- **Custom CSS**: Upload custom CSS to replace the Microsoft default style of the page.
+    - [Download the CSS template](https://download.microsoft.com/download/7/2/7/727f287a-125d-4368-a673-a785907ac5ab/custom-styles-template-013023.css).
+    - View the [CSS template reference guide](reference-company-branding-css-template.md).
 
 ## Header
 
 If you haven't enabled the header, go to the **Layout** section and select **Show header**. Once enabled, select a PNG or JPG to display in the header of the sign-in page.
+
+![Screenshot of the message indicating that the header needs to be enabled.](media/how-to-customize-branding/disabled-header-message.png)
 
 ## Footer
 
@@ -103,7 +134,7 @@ If you haven't enabled the footer, go to the **Layout** section and select **Sho
     
     Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links don't have to be related to privacy and cookies.
 
-- **Show 'Terms of Use'**: This option is also elected by default and displays the [Microsoft 'Terms of Use'](https://www.microsoft.com/servicesagreement/) link.
+- **Show 'Terms of Use'**: This option is also selected by default and displays the [Microsoft 'Terms of Use'](https://www.microsoft.com/servicesagreement/) link.
 
     Uncheck this option to hide the default Microsoft link. Optionally provide your own **Display text** and **URL**. The text and links don't have to be related to your terms of use.
 
@@ -159,8 +190,12 @@ To create an inclusive experience for all of your users, you can customize the s
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 
+Azure AD supports right-to-left functionality for languages such as Arabic and Hebrew that are read right-to-left. The layout adjusts automatically, based on the user's browser settings.
+
+![Screenshot of the sign-in experience in Hebrew, demonstrating the right-to-left layout.](media/how-to-customize-branding/right-to-left-language-example.png)
+
 ## Next steps
 
+- [View the CSS template reference guide](reference-company-branding-css-template.md).
 - [Learn more about default user permissions in Azure AD](../fundamentals/users-default-permissions.md)
-
-- [Manage the 'stay signed in' prompt](active-directory-users-profile-azure-portal.md#learn-about-the-stay-signed-in-prompt)
+- [Manage the 'stay signed in' prompt](how-to-manage-user-profile-info.md#learn-about-the-stay-signed-in-prompt)
