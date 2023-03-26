@@ -251,7 +251,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Trinidad and Tobago](/legal/pay/trinidad-and-tobago)
 > - [Turkmenistan](/legal/pay/turkmenistan)
 > - [Tunisia](/legal/pay/tunisia)
-> - [Turkey](/legal/pay/turkey)
+> - [Türkiye](/legal/pay/turkey)
 > - [Uganda](/legal/pay/uganda)
 > - [Ukraine](/legal/pay/ukraine)
 > - [United Arab Emirates](/legal/pay/united-arab-emirates)

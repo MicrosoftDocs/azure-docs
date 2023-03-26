@@ -5,7 +5,7 @@ author: surajmb #Required
 ms.author: surmb #Required
 ms.service: azure  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/06/2023 #Required; mm/dd/yyyy format.
+ms.date: 03/23/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -15,10 +15,10 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 ## Prerequisites
 
-* A Network Fabric Controller exists -- add link in your Azure account.
+* A Network Fabric Controller is successfully provisioned.
   * A Network Fabric Controller instance in Azure manages multiple Network Fabric Resources.
   * You can reuse a pre-existing Network Fabric Controller.
-* Physical infrastructure installed and cabled as per BoM.
+* Physical infrastructure installed and cabled as per BOM.
 * ExpressRoute connectivity established between the Azure region and your WAN (your networking).
 * The needed VLANs, Route-Targets and IP addresses configured in your network.
 * Terminal Server [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
@@ -29,9 +29,11 @@ This article describes how to create a Network Fabric by using the Azure Command
 |-----------------------------------------------|---| ---|----|------------|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True | String |
 | location | Location of Azure region | "eastus" |True | String |
-| resource-name | Name of the FabricResource | Austin-Fabric |True | String |
+| resource-name | Name of the FabricResource | NF-Lab1 |True | String |
 | nf-sku  |Fabric SKU ID, based on the ordered SKU of the BoM. Contact AFO team for specific SKU value for the BoM | M8-A400-A100-C16-aa |True | String|
 | nfc-id |Network Fabric Controller ARM resource ID| |True | String |
+| rack-count |Total number of aggregation and compute racks | 9 |True | Integer |
+| server-count-per-rack |Total number of worker nodes per rack| 16 |True | Integer |
 ||
 |**managed-network-config**| Details of management network ||True ||
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 not allowed, /18 and lower allowed) | 10.246.0.0/19|True | String |
@@ -81,11 +83,13 @@ az nf fabric create \
 --resource-name "NFName" \
 --nf-sku "NFSKU" \
 --nfc-id ""/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkfabric/networkfabricControllers/NFCName" \" \
-  --nni-config '{"layer3Configuration":{"primaryIpv4Prefix":"10.246.0.124/30", "secondaryIpv4Prefix": "10.246.0.128/30", "fabricAsn":65048, "peerAsn":65048, "vlanId": 20}}' \
-  --ts-config '{"primaryIpv4Prefix":"20.0.10.0/30", "secondaryIpv4Prefix": "20.0.10.4/30","username":"****", "password": "*****"}' \
-  --managed-network-config '{"ipv4Prefix":"10.246.0.0/19", \
-     "managementVpnConfiguration":{"optionBProperties":{"importRouteTargets":["65048:10039"], "exportRouteTargets":["65048:10039"]}}, \
-     "workloadVpnConfiguration":{"optionBProperties":{"importRouteTargets":["65048:10050"], "exportRouteTargets":["65048:10050"]}}}' 
+--fabric-asn 65014 \
+--ipv4-prefix 10.x.0.0/19 \
+--ipv6-prefix fda0:d59c:da05::/59 \
+--rack-count 5 \
+--server-count-per-rack 8 \
+--ts-config '{"primaryIpv4Prefix":"20.x.0.5/30","secondaryIpv4Prefix": "20.x.1.6/30","username":"*****", "password": "************", "serialNumber":"************"}' \
+--managed-network-config '{"infrastructureVpnConfiguration":{"peeringOption":"OptionB","optionBProperties":{"importRouteTargets":["65014:10039"],"exportRouteTargets":["65014:10039"]}}, "workloadVpnConfiguration":{"peeringOption": "OptionB", "optionBProperties": {"importRouteTargets": ["65014:10050"], "exportRouteTargets": ["65014:10050"]}}}'     
 ```
 
 Expected output:
@@ -93,65 +97,58 @@ Expected output:
 ```json
 {
   "annotation": null,
+  "fabricAsn": 65014,
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName",
+  "ipv4Prefix": "10.x.0.0/19",
+  "ipv6Prefix": "fda0:d59c:da05::/59",
   "l2IsolationDomains": null,
   "l3IsolationDomains": null,
   "location": "eastus",
   "managementNetworkConfiguration": {
-    "ipv4Prefix": "10.246.0.0/19",
-    "ipv6Prefix": null,
-    "managementVpnConfiguration": {
+    "infrastructureVpnConfiguration": {
+      "administrativeState": "Enabled",
+      "networkToNetworkInterconnectId": null,
       "optionAProperties": null,
       "optionBProperties": {
         "exportRouteTargets": [
-          "65048:10039"
+          "65014:10039"
         ],
         "importRouteTargets": [
-          "65048:10039"
+          "65014:10039"
         ]
       },
-      "peeringOption": "OptionA",
-      "state": "Enabled"
+      "peeringOption": "OptionB"
     },
     "workloadVpnConfiguration": {
+      "administrativeState": "Enabled",
+      "networkToNetworkInterconnectId": null,
       "optionAProperties": null,
       "optionBProperties": {
         "exportRouteTargets": [
-          "65048:10050"
+          "65014:10050"
         ],
         "importRouteTargets": [
-          "65048:10050"
+          "65014:10050"
         ]
       },
-      "peeringOption": "OptionA",
-      "state": "Enabled"
+      "peeringOption": "OptionB"
     }
   },
   "name": "NFName",
-  "networkfabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/Microsoft.ManagedNetworkfabric/networkfabricControllers/NFCName",
-  "networkfabricSku": "NFSKU",
-  "networkToNetworkInterconnect": {
-    "layer2Configuration": null,
-    "layer3Configuration": {
-      "fabricAsn": 65048,
-      "peerAsn": 65048,
-      "primaryIpv4Prefix": "10.246.0.124/30",
-      "primaryIpv6Prefix": null,
-      "routerId": null,
-      "secondaryIpv4Prefix": "10.246.0.128/30",
-      "secondaryIpv6Prefix": null,
-      "vlanId": 20
-    }
-  },
+  "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/Microsoft.ManagedNetworkfabric/networkfabricControllers/NFCName",
+  "networkFabricSku": "NFSKU",
   "operationalState": null,
   "provisioningState": "Accepted",
+  "rackCount": 5,
   "racks": null,
   "resourceGroup": "NFResourceGroup",
+  "routerId": null,
+  "serverCountPerRack": 8,
   "systemData": {
-    "createdAt": "2022-11-02T06:56:05.019873+00:00",
+    "createdAt": "2023-03-10T11:06:33.818069+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:56:05.019873+00:00",
+    "lastModifiedAt": "2023-03-10T11:06:33.818069+00:00",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
@@ -159,17 +156,18 @@ Expected output:
   "terminalServerConfiguration": {
     "networkDeviceId": null,
     "password": null,
-    "primaryIpv4Prefix": "20.0.10.0/30",
+    "primaryIpv4Prefix": "20.x.0.5/30",
     "primaryIpv6Prefix": null,
-    "secondaryIpv4Prefix": "20.0.10.4/30",
+    "secondaryIpv4Prefix": "20.x.1.6/30",
     "secondaryIpv6Prefix": null,
-    "****": "root"
+    "serialNumber": "xxxxxxxx",
+    "username": "xxxxxxxx"
   },
   "type": "microsoft.managednetworkfabric/networkfabrics"
 }
 ```
 
-## List or get Network Fabric
+## List Network Fabric
 
 ```azurecli
 az nf fabric list --resource-group "NFResourceGroup"  
@@ -182,195 +180,141 @@ Expected output:
   {
     "annotation": null,
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName",
-    "l2IsolationDomains": null,
-    "l3IsolationDomains": null,
-    "location": "eastus",
-    "managementNetworkConfiguration": {
-      "ipv4Prefix": "10.246.0.0/19",
-      "ipv6Prefix": null,
-      "managementVpnConfiguration": {
-        "optionAProperties": null,
-        "optionBProperties": {
-          "exportRouteTargets": [
-            "65048:10039"
-          ],
-          "importRouteTargets": [
-            "65048:10039"
-          ]
-        },
-        "peeringOption": "OptionA",
-        "state": "Enabled"
+  "ipv4Prefix": "10.x.0.0/19",
+  "ipv6Prefix": "fda0:d59c:da05::/59",
+  "l2IsolationDomains": null,
+  "l3IsolationDomains": null,
+  "location": "eastus",
+  "managementNetworkConfiguration": {
+    "infrastructureVpnConfiguration": {
+      "administrativeState": "Enabled",
+      "networkToNetworkInterconnectId": null,
+      "optionAProperties": null,
+      "optionBProperties": {
+        "exportRouteTargets": [
+          "65014:10039"
+        ],
+        "importRouteTargets": [
+          "65014:10039"
+        ]
       },
-      "workloadVpnConfiguration": {
-        "optionAProperties": null,
-        "optionBProperties": {
-          "exportRouteTargets": [
-            "65048:10050"
-          ],
-          "importRouteTargets": [
-            "65048:10050"
-          ]
-        },
-        "peeringOption": "OptionA",
-        "state": "Enabled"
-      }
+      "peeringOption": "OptionB"
     },
+    "workloadVpnConfiguration": {
+      "administrativeState": "Enabled",
+      "networkToNetworkInterconnectId": null,
+      "optionAProperties": null,
+      "optionBProperties": {
+        "exportRouteTargets": [
+          "65014:10050"
+        ],
+        "importRouteTargets": [
+          "65014:10050"
+        ]
+      },
+      "peeringOption": "OptionB"
+    }
+  },
     "name": "NFName",
     "networkfabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/Microsoft.ManagedNetworkfabric/networkfabricControllers/NFCName",
-    "networkfabricSku": "NFSKU",
-    "networkToNetworkInterconnect": {
-      "layer2Configuration": null,
-      "layer3Configuration": {
-        "fabricAsn": 65048,
-        "peerAsn": 65048,
-        "primaryIpv4Prefix": "10.246.0.124/30",
-        "primaryIpv6Prefix": null,
-        "routerId": null,
-        "secondaryIpv4Prefix": "10.246.0.128/30",
-        "secondaryIpv6Prefix": null,
-        "vlanId": 20
-      }
-    },
-    "operationalState": null,
-    "provisioningState": "Failed",
-    "racks": null,
-    "resourceGroup": "NFResourceGroup",
-    "systemData": {
-      "createdAt": "2022-11-02T06:56:05.019873+00:00",
-      "createdBy": "email@address.com",
-      "createdByType": "User",
-      "lastModifiedAt": "2022-11-02T06:56:05.019873+00:00",
-      "lastModifiedBy": "email@address.com",
-      "lastModifiedByType": "User"
-    },
-    "tags": null,
-    "terminalServerConfiguration": {
-      "networkDeviceId": null,
-      "password": null,
-      "primaryIpv4Prefix": "20.0.10.0/30",
-      "primaryIpv6Prefix": null,
-      "secondaryIpv4Prefix": "20.0.10.4/30",
-      "secondaryIpv6Prefix": null,
-      "****": "****"
-    },
-    "type": "microsoft.managednetworkfabric/networkfabrics"
-  }
+  "networkFabricSku": "NFSKU",
+  "operationalState": null,
+  "provisioningState": "Succeeded",
+  "rackCount": 5,
+  "racks": null,
+  "resourceGroup": "NFResourceGroup",
+  "routerId": null,
+  "serverCountPerRack": 8,
+  "systemData": {
+    "createdAt": "2023-03-10T11:06:33.818069+00:00",
+    "createdBy": "email@address.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-03-10T11:06:33.818069+00:00",
+    "lastModifiedBy": "email@address.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": null,
+  "terminalServerConfiguration": {
+    "networkDeviceId": null,
+    "password": null,
+    "primaryIpv4Prefix": "20.x.0.5/30",
+    "primaryIpv6Prefix": null,
+    "secondaryIpv4Prefix": "20.x.1.6/30",
+    "secondaryIpv6Prefix": null,
+    "serialNumber": "xxxxxxxx",
+    "username": "xxxxxxxx"
+  },
+  "type": "microsoft.managednetworkfabric/networkfabrics"
+}
 ]
 ```
 
-## Add Racks
+## Create NNI
 
-On creating Network Fabric, add one aggregate rack and two or more compute racks to the Network Fabric. The number of racks should match the physical racks in the Operator Nexus instance
+Upon creating Network Fabric, the next action is to create NNI. 
+Run the following command to create the NNI:
 
-### Add Aggregate Rack
-
-```azurecli
-az nf rack create  \
---resource-group "NFResourceGroup"  \
---location "eastus"  \
---network-rack-sku "M8-A400-A100-C16-aa"  \
---nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName" \
---resource-name "AR1" 
+```azurecl
+az nf nni create --resource-group "NFResourceGroup" \
+--location "eastus" \
+--resource-name "NNIResourceName" \
+--fabric "NFName" \
+--is-management-type "True" \
+--use-option-b "True" \
+--layer2-configuration '{"portCount": 1, "mtu": 1500}' \
+--layer3-configuration '{"peerASN": 65014, "vlanId": 683, "primaryIpv4Prefix": "10.x.0.124/30", "secondaryIpv4Prefix": "10.x.0.128/30", "primaryIpv6Prefix": "fda0:d59c:da0a:500::7c/127", "secondaryIpv6Prefix": "fda0:d59c:da0a:500::80/127"}'
 ```
 
 Expected output:
 
 ```json
 {
-  "annotation": null,
-  "id": "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkRacks/AR1",
-  "location": "eastus",
-  "name": "AR1",
-  "networkDevices": [
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-CE1",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-CE2",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-TOR17",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-TOR18",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-MgmtSwitch1",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-MgmtSwitch2",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-NPB1",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-AR1-NPB2"
-  ],
-  "networkfabricId": "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName",
-  "networkRackSku": "M8-A400-A100-C16-aa",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "NFResourceGroupName",
-  "systemData": {
-    "createdAt": "2022-11-01T17:04:18.908946+00:00",
-    "createdBy": "email@adress.com",
-    "createdByType": "User",
-    "lastModifiedAt": "2022-11-01T17:04:18.908946+00:00",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User"
+  "administrativeState": null,
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName/networkToNetworkInterconnects/NNIResourceName",
+  "isManagementType": "True",
+  "layer2Configuration": {
+    "interfaces": null,
+    "mtu": 1500,
+    "portCount": 1
   },
-  "tags": null,
-  "type": "microsoft.managednetworkfabric/networkracks"
-}
-```
-
-### Add Compute Rack 1
-
-```azurecli
-az nf rack create  \
---resource-group "NFResourceGroup"  \
---location "eastus"  \
---network-rack-sku "M8-A400-A100-C16-aa"  \
---nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName" \
---resource-name "CR1" 
-```
-
-Expected output:
-
-```json
-{
-  "annotation": null,
-  "id": "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkRacks/CR1",
-  "location": "eastus",
-  "name": "CR1",
-  "networkDevices": [
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-TOR1",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-TOR2",
-    "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-MgmtSwitch"
-  ],
-  "networkfabricId": "/subscriptions/8a0c9a74-a831-4363-8590-49bbdd2ea39e/resourceGroups/OP1lab2-fabric/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName",
-  "networkRackSku": "M8-A400-A100-C16-aa",
+  "layer3Configuration": {
+    "exportRoutePolicyId": null,
+    "fabricAsn": null,
+    "importRoutePolicyId": null,
+    "peerAsn": 65014,
+    "primaryIpv4Prefix": "10.x.0.124/30",
+    "primaryIpv6Prefix": "fda0:d59c:da0a:500::7c/127",
+    "secondaryIpv4Prefix": "10.x.0.128/30",
+    "secondaryIpv6Prefix": "fda0:d59c:da0a:500::80/127",
+    "vlanId": 683
+  },
+  "name": "NNIResourceName",
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFResourceGroupName",
+  "resourceGroup": "NFResourceGroup",
   "systemData": {
-    "createdAt": "2022-11-01T17:05:21.219619+00:00",
+    "createdAt": "2023-03-10T13:35:45.952324+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-01T17:05:21.219619+00:00",
+    "lastModifiedAt": "2023-03-10T13:35:45.952324+00:00",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
-  "tags": null,
-  "type": "microsoft.managednetworkfabric/networkracks"
+  "type": "microsoft.managednetworkfabric/networkfabrics/networktonetworkinterconnects",
+  "useOptionB": "True"
 }
 ```
 
-### Add Compute Rack 2
-
-```azurecli
-az nf rack create  \
---resource-group "NFResourceGroup"  \
---location "eastus"  \
---network-rack-sku "M8-A400-A100-C16-aa"  \
---nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkfabrics/NFName" \
---resource-name "CR2" 
-```
-
-Once all the racks are added, NFA creates the corresponding networkDevice resources.
+Once NNI created, NFA creates the corresponding Device resources.
 
 ## Next steps
 
-* Update the serial number in the networkDevice resource with the actual serial number on the device. The device sends the serial number as part of DHCP request.
-* Configure the terminal server with the serial numbers of all the devices (which also hosts DHCP server)
-* Provision the network devices via zero-touch provisioning mode. Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding device
+* Update the serial number in the Device resource with the actual serial number on the device. The device sends the serial number as part of DHCP request.
+* Configure the terminal server with the serial numbers of all the Devices (which also hosts DHCP server)
+* Provision the Device via zero-touch provisioning mode. Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding Device
 
-## Update Network Fabric devices
+## Update Network Fabric Device
 
-Run the following command to update Network Fabric Devices:
+Run the following command to update Device with required details:
 
 ```azurecli
 az nf device update  \
@@ -412,9 +356,9 @@ Expected output:
 }
 ```
 
-## List or get Network Fabric devices
+## List Network Fabric Device
 
-Run the following command to List Network Fabric devices:
+Run the following command to list Device:
 
 ```azurecli
 az nf device list --resource-group "NFResourceGroup"
@@ -473,7 +417,7 @@ Expected output:
   }
 ```
 
-Run the following command to Get or Show details of a Network Fabric device:
+Run the following command to show details of a Device:
 
 ```azurecli
 az nf device show --resource-group "example-rg" --resource-name "example-device"
@@ -510,14 +454,14 @@ Expected output:
 
 ## Provision Fabric
 
-Once the device serial number is updated, the Network Fabric needs to be provisioned by executing the following command
+Once the Device serial number is updated, the Network Fabric needs to be provisioned by executing the following command
 
 ```azurecli
-az nf fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
+az nf fabric provision --resource-group "NFResourceGroup" --resource-name "NFName"
 ```
 
 ```azurecli
-az nf fabric show --resource-group "NFResourceGroup"    --resource-name "NFName"
+az nf fabric show --resource-group "NFResourceGroup" --resource-name "NFName"
 ```
 
 Expected output:
@@ -530,7 +474,7 @@ Expected output:
   "l3IsolationDomains": null,
   "location": "eastus",
   "managementNetworkConfiguration": {
-    "ipv4Prefix": "10.246.0.0/19",
+    "ipv4Prefix": "10.x.0.0/19",
     "ipv6Prefix": null,
     "managementVpnConfiguration": {
       "optionAProperties": null,
@@ -567,10 +511,10 @@ Expected output:
     "layer3Configuration": {
       "fabricAsn": 65048,
       "peerAsn": 65048,
-      "primaryIpv4Prefix": "10.246.0.124/30",
+      "primaryIpv4Prefix": "10.x.0.124/30",
       "primaryIpv6Prefix": null,
       "routerId": null,
-      "secondaryIpv4Prefix": "10.246.0.128/30",
+      "secondaryIpv4Prefix": "10.x.0.128/30",
       "secondaryIpv6Prefix": null,
       "vlanId": 20
     }
@@ -593,9 +537,9 @@ Expected output:
   "terminalServerConfiguration": {
     "networkDeviceId": null,
     "password": null,
-    "primaryIpv4Prefix": "20.0.10.0/30",
+    "primaryIpv4Prefix": "20.x.10.0/30",
     "primaryIpv6Prefix": null,
-    "secondaryIpv4Prefix": "20.0.10.4/30",
+    "secondaryIpv4Prefix": "20.x.10.4/30",
     "secondaryIpv6Prefix": null,
     "****": "****"
   },
@@ -605,21 +549,10 @@ Expected output:
 
 ## Deleting Network Fabric
 
-To delete the Fabric, the operational state of Fabric shouldn't be "Provisioned". To change the operational state from Provisioned, run the same command to create the Fabric. Ensure there are no racks associated before deleting Fabric.
+To delete the Network Fabric, the operational state of shouldn't be `Provisioned`. To change the operational state from `Provisioned`, run the `deprovision` command.
 
 ```azurecli
-az nf fabric create \
---resource-group "NFResourceGroup" \
---location "eastus" \
---resource-name "NFName" \
---nf-sku "NFSKU" \
---nfc-id ""/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkfabric/networkfabricControllers/NFCName" \" \
-  --nni-config '{"layer3Configuration":{"primaryIpv4Prefix":"10.246.0.124/30", "secondaryIpv4Prefix": "10.246.0.128/30", "fabricAsn":65048, "peerAsn":65048, "vlanId": 20}}' \
-  --ts-config '{"primaryIpv4Prefix":"20.0.10.0/30", "secondaryIpv4Prefix": "20.0.10.4/30","****":"****", "password": "*****"}' \
-  --managed-network-config '{"ipv4Prefix":"10.246.0.0/19", \
-     "managementVpnConfiguration":{"optionBProperties":{"importRouteTargets":["65048:10039"], "exportRouteTargets":["65048:10039"]}}, \
-     "workloadVpnConfiguration":{"optionBProperties":{"importRouteTargets":["65048:10050"], "exportRouteTargets":["65048:10050"]}}}' 
-
+az nf fabric deprovision --resource-group "NFResourceGroup"  --resource-name "NFName"
 ```
 
 Expected output:
@@ -632,7 +565,7 @@ Expected output:
   "l3IsolationDomains": null,
   "location": "eastus",
   "managementNetworkConfiguration": {
-    "ipv4Prefix": "10.246.0.0/19",
+    "ipv4Prefix": "10.x.0.0/19",
     "ipv6Prefix": null,
     "managementVpnConfiguration": {
       "optionAProperties": null,
@@ -669,16 +602,16 @@ Expected output:
     "layer3Configuration": {
       "fabricAsn": 65048,
       "peerAsn": 65048,
-      "primaryIpv4Prefix": "10.246.0.124/30",
+      "primaryIpv4Prefix": "10.x.0.124/30",
       "primaryIpv6Prefix": null,
       "routerId": null,
-      "secondaryIpv4Prefix": "10.246.0.128/30",
+      "secondaryIpv4Prefix": "10.x.0.128/30",
       "secondaryIpv6Prefix": null,
       "vlanId": 20
     }
   },
   "operationalState": null,
-  "provisioningState": "Accepted",
+  "provisioningState": "deprovisioned",
   "racks":["/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkRacks/AggRack".
   "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkRacks/CompRack1,
   "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroup/providers/Microsoft.ManagedNetworkfabric/networkRacks/CompRack2]
@@ -695,9 +628,9 @@ Expected output:
   "terminalServerConfiguration": {
     "networkDeviceId": null,
     "password": null,
-    "primaryIpv4Prefix": "20.0.10.0/30",
+    "primaryIpv4Prefix": "20.x.10.0/30",
     "primaryIpv6Prefix": null,
-    "secondaryIpv4Prefix": "20.0.10.4/30",
+    "secondaryIpv4Prefix": "20.x.10.4/30",
     "secondaryIpv6Prefix": null,
     "****": "root"
   },
@@ -705,12 +638,8 @@ Expected output:
 }
 ```
 
-After the operationalState is no longer "Provisioned", delete all the Racks one by one
+After the operationalState is no longer `Provisioned`, delete the Network Fabric
 
 ```azurecli
-az nf rack delete --resource-group "NFResourceGroup"  --resource-name "RackName" 
-```
-
-```azurecli
-az nf fabric show --resource-group "NFResourceGroup"    --resource-name "NFName"
+az nf fabric delete --resource-group "NFResourceGroup"  --resource-name "NFName" 
 ```

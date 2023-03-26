@@ -130,13 +130,13 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 
 The API server endpoint has no public IP address. To manage the API server, you'll need to use a VM that has access to the AKS cluster's Azure Virtual Network (VNet). There are several options for establishing network connectivity to the private cluster.
 
-* Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
+* Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster using the [`az vm create`][az-vm-create] command with the `--vnet-name` parameter.
 * Use a VM in a separate network and set up [Virtual network peering][virtual-network-peering].  See the section below for more information on this option.
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
 * Use the [AKS `command invoke` feature][command-invoke].
 * Use a [private endpoint][private-endpoint-service] connection.
 
-Creating a VM in the same VNET as the AKS cluster is the easiest option. Express Route and VPNs add costs and require additional networking complexity. Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
+Creating a VM in the same VNet as the AKS cluster is the easiest option. Express Route and VPNs add costs and require additional networking complexity. Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
 
 ## Virtual network peering
 
@@ -150,8 +150,7 @@ Virtual network peering is one way to access your private cluster. To use virtua
 1. In the Azure portal, navigate to the resource group that contains your cluster's virtual network.  
 1. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 1. In the left pane, select **Peerings**.  
-1. Select **Add**, add the virtual network of the VM, and then create the peering.  
-1. Go to the virtual network where you have the VM and select **Peerings**. Select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
+1. Select **Add**, add the virtual network of the VM, and then create the peering. For more information, see  [Virtual network peering][virtual-network-peering].
 
 ## Hub and spoke with custom DNS
 
@@ -276,3 +275,4 @@ For associated best practices, see [Best practices for network connectivity and 
 [install-azure-cli]: /cli/azure/install-azure-cli
 [private-dns-zone-contributor-role]: ../role-based-access-control/built-in-roles.md#dns-zone-contributor
 [network-contributor-role]: ../role-based-access-control/built-in-roles.md#network-contributor
+[az-vm-create]: /cli/azure/vm#az-vm-create

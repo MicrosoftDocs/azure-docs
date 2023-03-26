@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ---
 
 # Application Insights overview
@@ -16,7 +16,7 @@ In addition to collecting [Metrics](standard-metrics.md) and application [Teleme
 
 The [log trace](asp-net-trace-logs.md) is associated with other telemetry to give a detailed view of the activity. Adding trace logging to existing apps only requires providing a destination for the logs; the logging framework rarely needs to be changed.
 
-:::image type="content" source="media/app-insights-overview/app-insights.png" alt-text="Screenshot of Application Insights in the Azure portal.":::
+:::image type="content" source="media/overview-dashboard/0001-dashboard.png" alt-text="Screenshot of Application Insights in the Azure portal." lightbox="media/overview-dashboard/0001-dashboard.png":::
 
 Application Insights provides other features including, but not limited to:
 

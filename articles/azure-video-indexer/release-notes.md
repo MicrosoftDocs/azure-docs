@@ -25,6 +25,10 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 ## March 2023
 
+### Support for storage behind firewall
+
+It is good practice to lock storage accounts and disable public access to enhance or comply with enterprise security policy. Video Indexer can now access non-public accessible storage accounts using the [Azure Trusted Service](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) exception using Managed Identities. You can read more how to set it up in our [how-to](storage-behind-firewall.md).
+
 ### New custom speech and pronunciation training
 
 Azure Video Indexer has added a new custom speech model experience. The experience includes ability to use custom pronunciation datasets to improve recognition of mispronounced words, phrases, or names. The custom models can be used to improve the transcription quality of content with industry specific terminology. To learn more, see [Customize speech model overview](customize-speech-model-overview.md).
