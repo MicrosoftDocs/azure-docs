@@ -48,7 +48,7 @@ A common practice is to provide some or all of the SOC team members with the **S
 
 Creating separate workspaces for the SAP and SOC data has these benefits:
 
-- Microsoft Sentinel can create alerts that include both SOC and SAP data, and to run those alerts on the SOC workspace. 
+- Microsoft Sentinel can trigger alerts that include both SOC and SAP data, and run those alerts on the SOC workspace. 
 
    > [!NOTE]
    > For larger SAP landscapes, running queries made by the SOC on data from the SAP workspace can impact performance, because the SAP data must travel to the SOC workspace when being queried. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same [dedicated cluster](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
@@ -62,13 +62,13 @@ This table maps out the access of data and features for the SAP and SOC teams in
 
 |Function  |SOC team  |SAP team  |
 |---------|---------|---------|
-|SOC workspace access     | &#10060;         | &#x2705;         |
+|SOC workspace access     | &#x2705;         | &#10060;     |
 |SAP workspace data, analytics rules, functions, watchlists, and workbooks access     | &#x2705;         | &#x2705;         |
 |SAP incident access and collaboration     | &#x2705;          | &#x2705;          |
 
 ## Scenario 2: SAP data is kept in the SOC workspace 
 
-In this scenario, you want to keep all of the data in one workspace. You can do this using Log Analytics to [manage access to data by resource](../resource-context-rbac.md). You can also associate SAP resources with an Azure resource ID by specifying the required `azure_resource_id` field in the connector configuration section on the data collector used to ingest data from the SAP system into Microsoft Sentinel. 
+In this scenario, you want to keep all of the data in one workspace and to apply access controls. You can do this using Log Analytics to [manage access to data by resource](../resource-context-rbac.md). You can also associate SAP resources with an Azure resource ID by specifying the required `azure_resource_id` field in the [connector configuration section](reference-systemconfig.md#connector-configuration-section) on the data collector used to ingest data from the SAP system into Microsoft Sentinel. 
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-combined.png" alt-text="Diagram of working with the Microsoft Sentinel solution for SAP® applications using the same workspace for the SAP and SOC data." border="false":::
 
