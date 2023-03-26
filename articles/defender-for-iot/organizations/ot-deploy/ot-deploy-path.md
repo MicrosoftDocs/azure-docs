@@ -140,10 +140,7 @@ We recommend that you configure an Active Directory connection for managing on-p
 
 If you don't configure these settings during deployment, you can also return and configure them later on.
 
-For more information, see:
-
-- [Set up SNMP MIB monitoring on an OT sensor](../how-to-set-up-snmp-mib-monitoring.md)
-- [Configure an Active Directory connection](../manage-users-sensor.md#configure-an-active-directory-connection)
+For more information, see [Set up SNMP MIB monitoring on an OT sensor](../how-to-set-up-snmp-mib-monitoring.md).
 
 ## Calibrate and fine-tune OT monitoring
 
@@ -180,7 +177,7 @@ Your OT sensors will remain in *Learning mode* for as long as new traffic is det
 When baseline learning ends, the OT monitoring deployment process is complete, and you'll continue on in operational mode for ongoing monitoring. In operational mode, any activity that differs from your baseline data will trigger an alert.
 
 > [!TIP]
-> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
+> Turn off learning mode manually if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
 >
 
 ## Next steps

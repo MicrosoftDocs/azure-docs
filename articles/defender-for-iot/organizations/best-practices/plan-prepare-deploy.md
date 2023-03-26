@@ -196,7 +196,6 @@ If you decide to deploy with the built-in, self-signed certificate, we recommend
 For more information, see:
 
 - [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
-- [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates)
 
 ## Next steps
 

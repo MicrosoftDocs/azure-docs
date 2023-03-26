@@ -389,7 +389,6 @@ We recommend that you configure an Active Directory connection for managing on-p
 If you don't configure these settings during deployment, you can also return and configure them later on. For more information, see:
 
 - [Set up SNMP MIB monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md)
-- [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
 
 > [!div class="step-by-step"]
 > [« Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md)
