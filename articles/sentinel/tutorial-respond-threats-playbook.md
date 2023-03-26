@@ -252,47 +252,49 @@ To create an automation rule:
 
 1. **Trigger:** Select the appropriate trigger according to the circumstance for which you're creating the automation rule&mdash;**When incident is created**, **When incident is updated**, or **When alert is created**.
 
-1. **Conditions:** If you selected an incident trigger and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
+1. **Conditions:**
+    1. If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
 
-1. Add any other conditions you want this automation rule's activation to depend on. Select **+ Add** and choose [conditions or condition groups](add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
+    1. For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
-1. Choose the actions you want this automation rule to take. Available actions include **Assign owner**, **Change status**, **Change severity**, **Add tags**, and **Run playbook**. You can add as many actions as you like.
+    1. Add any other conditions you want to determine whether this automation rule will run. Select **+ Add** and choose [conditions or condition groups](add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 
-1. If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. Only playbooks that start with the **incident trigger** can be run from automation rules, so only they will appear in the list.<a name="permissions-to-run-playbooks"></a>
+1. **Actions:**
+    1. Since you're using this automation rule to run a playbook, choose the **Run playbook** action from the drop-down list. You'll then be prompted to choose from a second drop-down list that shows the available playbooks. An automation rule can run only those playbooks that start with the same trigger (incident or alert) as the trigger defined in the rule, so only those playbooks will appear in the list.<a name="permissions-to-run-playbooks"></a>
 
-    <a name="explicit-permissions"></a>
-
-    > [!IMPORTANT]
-    >
-    > **Microsoft Sentinel must be granted explicit permissions in order to run playbooks based on the incident trigger**, whether manually or from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
-    >
-    > In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and click **Apply**.
-    >  
-    > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
-    >
-    > - You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
-    >
-    > - In a multi-tenant deployment, if the playbook you want to run is in a different tenant, you must grant Microsoft Sentinel permission to run the playbook in the playbook's tenant.
-    >    1. From the Microsoft Sentinel navigation menu in the playbooks' tenant, select **Settings**.
-    >    1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
-    >    1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
-    >
-    > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the Azure Security Insights app in your Azure Lighthouse onboarding template:
-    >    1. From the Azure Portal go to **Azure Active Directory**.
-    >    1. Click on **Enterprise Applications**.
-    >    1. Select **Application Type**  and filter on **Microsoft Applications**.
-    >    1. In the search box type **Azure Security Insights**.
-    >    1. Copy the **Object ID** field. You will need to add this additional authorization to your existing Azure Lighthouse delegation.
-    >
-    >    The **Microsoft Sentinel Automation Contributor** role has a fixed GUID which is `f4c81013-99ee-4d62-a7ee-b3f1f648599a`. A sample Azure Lighthouse authorization would look like this in your parameters template:
-    >    
-    >    ```json
-    >    {
-    >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
-    >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
-    >        "principalIdDisplayName": "Microsoft Sentinel Automation Contributors" 
-    >    }
-    >    ```
+        <a name="explicit-permissions"></a>
+    
+       > [!IMPORTANT]
+       >
+   > **Microsoft Sentinel must be granted explicit permissions in order to run playbooks**, whether manually or from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
+   >
+   > In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and click **Apply**.
+   >  
+   > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
+   >
+   > - You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
+   >
+   > - In a multi-tenant deployment, if the playbook you want to run is in a different tenant, you must grant Microsoft Sentinel permission to run the playbook in the playbook's tenant.
+   >      1. From the Microsoft Sentinel navigation menu in the playbooks' tenant, select **Settings**.
+   >      1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
+   >      1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
+   >
+   > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
+   >    1. From the Azure Portal go to **Azure Active Directory**.
+   >    1. Click on **Enterprise Applications**.
+   >    1. Select **Application Type**  and filter on **Microsoft Applications**.
+   >    1. In the search box type **Azure Security Insights**.
+   >    1. Copy the **Object ID** field. You will need to add this additional authorization to your existing Azure Lighthouse delegation.
+   >
+   >    The **Microsoft Sentinel Automation Contributor** role has a fixed GUID which is `f4c81013-99ee-4d62-a7ee-b3f1f648599a`. A sample Azure Lighthouse authorization would look like this in your parameters template:
+   >    
+   >    ```json
+   >    {
+   >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
+   >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+   >        "principalIdDisplayName": "Microsoft Sentinel Automation Contributors" 
+   >    }
+   >    ```
 
 1. Set an expiration date for your automation rule if you want it to have one.
 
