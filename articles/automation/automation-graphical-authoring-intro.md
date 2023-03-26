@@ -380,30 +380,6 @@ Runbooks in Azure Automation that manage Azure resources require authentication 
 ```powershell-interactive
 wget https://raw.githubusercontent.com/azureautomation/runbooks/master/Utility/AzMI/AzureAutomationTutorialWithIdentityGraphical.graphrunbook -outfile AzureAutomationTutorialWithIdentityGraphical.graphrunbook
 ```
-![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
-
-The `Get Run As Connection` activity, or `Get-AutomationConnection`, is configured with a constant value data source named `AzureRunAsConnection`.
-
-![Run As Connection Configuration](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
-
-The next activity, `Connect-AzAccount`, adds the authenticated Run As account for use in the runbook.
-
-![Connect-AzAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
-
->[!NOTE]
->For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount` itself.
-
-For the parameter fields **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
-
-Some subscribers create an Automation account using an [Azure AD user account](./shared-resources/credentials.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the `Add-AzureAccount` cmdlet with a [credential asset](./shared-resources/credentials.md). The asset represents an Active Directory user with access to the Azure account.
-
-You can enable this functionality for your graphical runbook by adding a credential asset to the canvas, followed by an `Add-AzureAccount` activity that uses the credential asset for its input. See the following example.
-
-![Authentication activities](media/automation-graphical-authoring-intro/authentication-activities.png)
-
-The runbook must authenticate at its start and after each checkpoint. Thus you must use an `Add-AzureAccount` activity after any `Checkpoint-Workflow` activity. You do not need to use an additional credential activity.
-
-![Activity output](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
 ## Export a graphical runbook
 

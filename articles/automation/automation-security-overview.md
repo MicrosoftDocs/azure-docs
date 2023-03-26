@@ -61,6 +61,9 @@ For details on using managed identities, see [Enable managed identity for Azure 
 
 ## Run As accounts
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
 - Azure Run As Account
 - Azure Classic Run As Account
@@ -71,8 +74,6 @@ To create or renew a Run As account, permissions are needed at three levels:
 - Azure Active Directory (Azure AD), and
 - Automation account
 
-> [!NOTE]
-> Azure Automation does not automatically create the Run As account, it has been replaced by using managed identities.
 
 ### Subscription permissions
 
@@ -124,6 +125,9 @@ When you create a Run As account, it performs the following tasks:
 * Creates an Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
 
 ### Azure Classic Run As account
+
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 When you create an Azure Classic Run As account, it performs the following tasks:
 
