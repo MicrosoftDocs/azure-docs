@@ -45,7 +45,7 @@ Updates in March include:
 - [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
-- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)  
 
 ### A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection
 
@@ -125,6 +125,26 @@ Defender for Key Vault has the following new alert:
 | **Denied access from a suspicious IP to a key vault**<br>(KV_SuspiciousIPAccessDenied) | An unsuccessful key vault access has been attempted by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. Though this attempt was unsuccessful, it indicates that your infrastructure might have been compromised. We recommend further investigations. | Credential Access | Low |
 
 You can see a list of all of the [alerts available for Key Vault](alerts-reference.md).
+
+### New Defender for Storage plan
+
+A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection. 
+
+Cloud storage plays a key role in the organization and stores large volumes of valuable and sensitive data. Today we are announcing a new Defender for Storage plan. If you’re using the previous plan, now renamed to “Defender for Storage classic”, you'll need to proactively migrate to the new plan in order to use the new features and benefits.  
+
+The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. It also provides a more predictable and flexible pricing structure for better control over coverage and costs.  
+
+The new plan has new capabilities now in public preview:
++	Detecting sensitive data exposure and exfiltration events
++	Near real-time blob on-upload malware scanning across all file types
++	Detecting entities with no identities using SAS tokens
+
+These capabilities enhance the existing Activity Monitoring     capability, based on control and data plane log analysis and behavioral modeling to identify early signs of breach.  
+
+All of these capabilities are available in a new predictable and flexible pricing plan that provides granular control over data protection at both the subscription and resource levels.  
+ 
+Learn more at [Overview of Microsoft Defender for Storage](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction). 
+
 
 ## February 2023
 
