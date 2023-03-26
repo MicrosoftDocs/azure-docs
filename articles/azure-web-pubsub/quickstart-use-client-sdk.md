@@ -157,7 +157,7 @@ Edit the `Program.cs` file and add following code:
 ```csharp
 using Azure.Messaging.WebPubSub.Clients;
 // Client Access URL from Azure portal
-var clientURL = args[0];
+var clientURL = Environment.GetEnvironmentVariable("WebPubSubClientURL"));
 // Instantiates the client object. 
 var client = new WebPubSubClient(new Uri(clientURL));
 ```
@@ -234,7 +234,7 @@ Run the client in your terminal.  To verify the client is sending and receiving 
 
 # [JavaScript](#tab/javascript)
 
-To start the client go the terminal and run the following command.  Replace the `<Client Access URL>` with the Client Access URL you copied from the portal.
+To start the client go the terminal and run the following command.  Replace the `<Client Access URL>` with the client access URL you copied from the portal.
 
 ```bash
 export WebPubSubClientURL="<Client Access URL>"
@@ -243,9 +243,10 @@ node index.js
 
 # [C#](#tab/csharp)
 
-To start the client, run the following command in your terminal replacing the `<client-access-url>` with the Client Access URL you copied from the portal:
+To start the client, run the following command in your terminal replacing the `<client-access-url>` with the client access URL you copied from the portal:
 
 ```bash
+export WebPubSubClientURL="<Client Access URL>"
 dotnet run <client-access-url>
 ```
 
