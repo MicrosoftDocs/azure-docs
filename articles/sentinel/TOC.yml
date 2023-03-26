@@ -344,7 +344,7 @@
       - name: Box (using Azure Function)
         href: data-connectors/box-using-azure-function.md
       - name: Broadcom Symantec DLP
-        href: data-connectors/broadcom-symantec-dlp.md
+        href: data-connectors/braodcom-symantec-dlp.md
       - name: Cisco Application Centric Infrastructure
         href: data-connectors/cisco-application-centric-infrastructure.md
       - name: Cisco ASA
