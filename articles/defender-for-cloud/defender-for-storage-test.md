@@ -181,6 +181,6 @@ In this article, you learned how to test data protection and threat detection in
 
 Learn more about:
 
-- [Threat response](defender-for-storage-response.md)
+- [Threat response](defender-for-storage-threats-alerts.md)
 - [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)
 - [Threat detection and alerts](defender-for-storage-threats-alerts.md)

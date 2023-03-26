@@ -32,7 +32,7 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 |Release state:|General availability (GA)|
 |Feature availability:|- Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning – Preview<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
 |Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* In the future, Malware Scanning will be priced at $0.15/GB of data ingested. Billing for Malware Scanning is not enabled during public preview and advanced notice will be given before billing starts.|
-| Supported storage types:|[Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
+| Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
 |Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for activity monitoring)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
@@ -48,13 +48,13 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 
     To enable Malware Scanning feature on the entire subscription you will need the Owner role on the subscription. Alternatively, you can use a role that has the following actions:
 
-        Microsoft.Security/pricings/write
-        Microsoft.Security/pricings/read
-        Microsoft.Security/pricings/SecurityOperator/read
-        Microsoft.Security/pricings/SecurityOperator/write
-        Microsoft.Authorization/roleAssignments/read
-        Microsoft.Authorization/roleAssignments/write
-        Microsoft.Authorization/roleAssignments/delete
+    - Microsoft.Security/pricings/write
+    - Microsoft.Security/pricings/read
+    - Microsoft.Security/pricings/SecurityOperator/read
+    - Microsoft.Security/pricings/SecurityOperator/write
+    - Microsoft.Authorization/roleAssignments/read
+    - Microsoft.Authorization/roleAssignments/write
+    - Microsoft.Authorization/roleAssignments/delete
 
     To enable Malware Scanning feature on a specific storage account you will need the Storage Account Owner role.
 
@@ -99,7 +99,7 @@ There are several ways to enable Defender for Storage on subscriptions:
 - [REST API](#rest-api)
 
 > [!TIP]
-> You can [override or set custom configuration settings](link) for specific storage accounts within protected subscriptions.
+> You can [override or set custom configuration settings](#override-defender-for-storage-subscription-level-settings) for specific storage accounts within protected subscriptions.
 
 ### Azure portal
 
@@ -114,9 +114,9 @@ To enable Defender for Storage at the subscription level using the Azure portal:
 
 1. On the **Defender plans** page, locate **Storage** in the list and select **On** and **Save**.
 
-      If you currently have Defender for Storage enabled with per-transaction pricing, select the **New pricing plan available** link and confirm the pricing change.
+    If you currently have Defender for Storage enabled with per-transaction pricing, select the **New pricing plan available** link and confirm the pricing change.
 
-        :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Defender for Storage in Defender for Cloud." lightbox="media/azure-defender-storage-configure/enable-azure-defender-security-center.png":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Defender for Storage in Defender for Cloud." lightbox="media/azure-defender-storage-configure/enable-azure-defender-security-center.png":::
 
 Microsoft Defender for Storage is now enabled for this subscription, and is fully protected, including on-upload malware scanning and sensitive data threat detection.
 
@@ -515,7 +515,7 @@ To override Defender for Storage subscription-level settings to configure settin
 
         1. Check the relevant boxes underneath and change the settings. If you wish to permit unlimited scanning, assign the value `-1`.
 
-    Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-malware-scanning.md).
+    Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-configure-malware-scan.md).
 
 1. To disable Defender for Storage on this storage accounts, set the status of Microsoft Defender for Storage to **Off**.
 
@@ -527,38 +527,38 @@ To override Defender for Storage subscription-level settings to configure settin
 
 1. Create a PUT request with this endpoint. Replace the `subscriptionId`, `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
-Request URL:
-
-```http
-PUT
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview
-```
-
-Request Body:
-
-```json
-{
-    "properties": {
-        "isEnabled": true,
-        "malwareScanning": {
-            "onUpload": {
-                "isEnabled": true,
-                "capGBPerMonth": 5000
-            }
-        },
-        "sensitiveDataDiscovery": {
-            "isEnabled": true
-        },
-        "overrideSubscriptionLevelSettings": true
-    }
-}
-```
+    Request URL:
     
+    ```http
+    PUT
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview
+    ```
+    
+    Request Body:
+    
+    ```json
+    {
+        "properties": {
+            "isEnabled": true,
+            "malwareScanning": {
+                "onUpload": {
+                    "isEnabled": true,
+                    "capGBPerMonth": 5000
+                }
+            },
+            "sensitiveDataDiscovery": {
+                "isEnabled": true
+            },
+            "overrideSubscriptionLevelSettings": true
+        }
+    }
+    ```
+
     1. To enable malware scanning or sensitive data threat detection, set the value of `isEnabled` to `true` under the relevant features.
     
     1. To modify the settings of malware scanning, edit the relevant fields under “onUpload”, make sure the value of isEnabled is true. If you wish to permit unlimited scanning, assign the value -1 to the capGBPerMonth parameter.
     
-        Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-malware-scanning.md).
+        Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-malware-scan.md).
     
     1. To disable Defender for Storage on this storage accounts, use the following request body:
     

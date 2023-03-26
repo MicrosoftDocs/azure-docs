@@ -15,7 +15,7 @@ ms.topic: overview
 The Defender for Storage includes advanced security capabilities and a pricing plan to help you effectively secure your data at scale.
 
 > [!NOTE]
-> If you already have the Defender for Storage (classic) enabled and want to access the new security features and pricing, you'll need to [migrate to the new pricing plan](link).
+> If you already have the Defender for Storage (classic) enabled and want to access the new security features and pricing, you'll need to [migrate to the new pricing plan](defender-for-storage-classic-migrate.md).
 
 ## Advanced security capabilities
 
@@ -48,7 +48,7 @@ With a simple agentless setup at scale, you can enable Defender for Storage at t
 |Release state:|General availability (GA)|
 |Feature availability:|- Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning – Preview<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
 |Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* In the future, Malware Scanning will be priced at $0.15/GB of data ingested. Billing for Malware Scanning is not enabled during public preview and advanced notice will be given before billing starts.|
-| Supported storage types:|[Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
+| Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
 |Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for activity monitoring)<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
@@ -58,9 +58,9 @@ With a simple agentless setup at scale, you can enable Defender for Storage at t
 
 Defender for Storage provides:
 
-- **Better protection against malware**: The Malware Scanning scans and detects in near real-time all file types, including archives of every uploaded blob. The scan provides fast and reliable results, helping you prevent your storage accounts from acting as an entry and distribution point for threats. Learn more about [Malware Scanning](link).
+- **Better protection against malware**: The Malware Scanning scans and detects in near real-time all file types, including archives of every uploaded blob. The scan provides fast and reliable results, helping you prevent your storage accounts from acting as an entry and distribution point for threats. Learn more about [Malware Scanning](defender-for-storage-malware-scan.md).
 
-- **Improved threat detection and protection of sensitive data**: Lets you efficiently prioritize and examine security alerts by considering the sensitivity of the data that could be at risk for better detection and protection against potential threats. By quickly identifying and addressing the most significant risks, this capability lowers the likelihood of data breaches and enhances sensitive data protection by detecting exposure events and suspicious activities on resources containing sensitive data. Learn more about [data sensitivity scanning](link).
+- **Improved threat detection and protection of sensitive data**: Lets you efficiently prioritize and examine security alerts by considering the sensitivity of the data that could be at risk for better detection and protection against potential threats. By quickly identifying and addressing the most significant risks, this capability lowers the likelihood of data breaches and enhances sensitive data protection by detecting exposure events and suspicious activities on resources containing sensitive data. Learn more about [data sensitivity scanning](defender-for-storage-data-sensitivity.md).
 
 - **Detection of entities without identities**: Detects compromised and misconfigured authentication tokens that allow access to the data plane to help prevent unauthorized access to your storage accounts and improve the overall security of your data.
 
@@ -78,7 +78,7 @@ Defender for Storage constantly analyzes data and control plane logs from protec
 
 ### Malware Scanning
 
-Malware Scanning safeguards your blob storage accounts from becoming entry and distribution points for malware in your organization and downstream consumers. It scans every uploaded blob, regardless of upload method, using the regional Malware Scanning service powered by the Microsoft Antimalware engine. After scanning, you can access the results through index-tags, event-grid events, log analytics, or high-severity MDC alerts for malicious blobs found. Learn more about [Malware Scanning](link).
+Malware Scanning safeguards your blob storage accounts from becoming entry and distribution points for malware in your organization and downstream consumers. It scans every uploaded blob, regardless of upload method, using the regional Malware Scanning service powered by the Microsoft Antimalware engine. After scanning, you can access the results through index-tags, event-grid events, log analytics, or high-severity MDC alerts for malicious blobs found. Learn more about [Malware Scanning](defender-for-storage-malware-scan.md).
 
 ### Sensitive data threat detection (Sensitive Data Discovery) 
 

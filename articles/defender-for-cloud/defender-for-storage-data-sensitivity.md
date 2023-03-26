@@ -34,7 +34,7 @@ Learn more about the [roles and permissions](data-security-posture-enable.md#ena
 
 ## Enabling sensitive data threat detection
 
-[Sensitive data threat detection](link) is enabled by default when you enable Defender for Storage. You can enable in the Azure portal or with other at-scale methods at no additional cost.
+[Sensitive data threat detection](defender-for-storage-data-sensitivity.md) is enabled by default when you enable Defender for Storage. You can enable in the Azure portal or with other at-scale methods at no additional cost.
 
 ## Using the sensitivity context in the security alerts
 
