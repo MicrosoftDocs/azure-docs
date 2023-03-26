@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Health Insights
-summary:  Azure Applied AI Service
+summary: Azure Health Insights
 metadata:
   title: Azure Health Insights
   description: this article contains documentation regarding the different Health Decision Models from Health A.I.
@@ -25,11 +25,11 @@ landingContent:
         links:
           - text: Deploy using the portal
             url: deploy-portal.md
-  - title: OncoPhenotype
+  - title: Onco-Phenotype
     linkLists:
       - linkListType: overview
         links:
-          - text: About OncoPhenotype
+          - text: About Onco-Phenotype
             url: oncophenotype/overview.md
       - linkListType: concept
         links:
@@ -61,5 +61,3 @@ landingContent:
         links:
           - text: Get started
             url: trial-matcher/get-started.md
-          - text: Integrate with Azure Health Bot
-            url: trial-matcher/azure-healthbot-integration.md

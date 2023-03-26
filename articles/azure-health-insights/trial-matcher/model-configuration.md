@@ -11,20 +11,25 @@ ms.date: 02/02/2023
 ms.author: behoorne
 ---
 
-# Trial Matcher Model configuration
+# Trial Matcher model configuration
 
 The Trial Matcher includes a built-in Knowledge graph, which uses trials taken from [clinicaltrials.gov](https://clinicaltrials.gov/), and is being updated periodically. 
-When you're matching patients to trials, you can define a list of filters to query a subset of clinical trials. Each filter can be defined based on trial conditions, types, recruitment statuses, sponsors, phases, purposes, facility names, locations, or trial IDs.
+
+When you're matching patients to trials, you can define a list of filters to query a subset of clinical trials. Each filter can be defined based on ```trial conditions```, ```types```, ```recruitment statuses```, ```sponsors```, ```phases```, ```purposes```, ```facility names```, ```locations```, or ```trial IDs```.
 - Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
+
+In the following configuration, the model queries trials that are in recruitment status ```recruiting``` or ```not yet recruiting```.
 
 ```json
 "recruitmentStatuses": ["recruiting", "notYetRecruiting"]
 ```
 
-In the above example, either trials that are in recruitment status ```recruiting``` or ```not yet recruiting``` will be queried.
 
-- Specifying multiple filter categories results in a trial set that is the intersection of the sets.
+- Specifying multiple filter categories results in a trial set that is the combination of the sets.
+In the following case, only trials for diabetes that are recruiting in Illinois are queried.
+Leaving a category empty will not limit the trials by that category.
+
 ```json
 "registryFilters": [
     {
@@ -47,13 +52,9 @@ In the above example, either trials that are in recruitment status ```recruiting
 ]
 ```
 
-In the above example, only trials for diabetes that are currently recruiting in Illinois, United States are queried.
-- Leaving a category empty won't limit trials by that category.
-
-
-
 ## Evidence
-Evidence is an indication of whether the model’s output should include evidence for the inferences. Defaults to true. For each trial that the model concluded the patient is illegible to, the model returns the relevant patient information and the eligibility criteria that were used to exclude the patient from the trial.
+Evidence is an indication of whether the model’s output should include evidence for the inferences. The default value is true. For each trial that the model concluded the patient is ineligible to, the model returns the relevant patient information and the eligibility criteria that were used to exclude the patient from the trial.
+
 ```json
 {
     "type": "trialEligibility",
@@ -84,8 +85,10 @@ Evidence is an indication of whether the model’s output should include evidenc
 ```
 
 ## Verbose
-Verbose is an indication of whether the model should return trial information. Defaults to false. If set to True, the model returns trial information including Title, Phase, Type, Recruitment status, Sponsors, Contacts, and Facilities.
-When you're using Gradual matching then this is typically used in the last stage of the qualification process, before displaying trial results.
+Verbose is an indication of whether the model should return trial information. The default value is false. If set to True, the model returns trial information including ```Title```, ```Phase```, ```Type```, ```Recruitment status```, ```Sponsors```, ```Contacts```, and ```Facilities```.
+
+If you use [gradual matching](./trial-matcher-modes.md), it’s typically used in the last stage of the qualification process, before displaying trial results
+
 
 ```json
 {
@@ -107,9 +110,9 @@ When you're using Gradual matching then this is typically used in the last stage
         ],
         "contacts": [
             {
-                "name": "Piotr Witkowski, MD, PhD",
-                "email": "pwitkowski@surgery.bsd.uchicago.edu",
-                "phone": "773-702-2447"
+                "name": "Frank, MD, PhD",
+                "email": "frank@surgery.uchicago.edu",
+                "phone": "999-702-2447"
             }
         ],
         "facilities": [
@@ -128,10 +131,10 @@ When you're using Gradual matching then this is typically used in the last stage
 
 
 
-## Adding Custom Trials 
+## Adding custom trials 
 Trial Matcher can receive the eligibility criteria of a clinical trial in the format of a custom trial. The user of the service should provide the eligibility criteria section of the custom trial, as a text, in a format that is similar to the format of clinicaltrials.gov (same indentation and structure).
-A custom trial can be provided as a unique trial to match patient to, as a list of custom trials or as addition to clinicaltrials.gov knowledge graph.
-To provide a custom trial, the input to the Trial matcher service should include ```ClinicalTrialRegisteryFilter.sources``` with value ```custom```. 
+A custom trial can be provided as a unique trial to match a patient to, as a list of custom trials, or as addition to clinicaltrials.gov knowledge graph.
+To provide a custom trial, the input to the Trial Matcher service should include ```ClinicalTrialRegisteryFilter.sources``` with value ```custom```. 
 
 ```json
 {
@@ -216,7 +219,7 @@ To provide a custom trial, the input to the Trial matcher service should include
 
 ## Next steps
 
-To get started using the Trial Matcher model, you can 
+To get started using the Trial Matcher model, refer to
 
 >[!div class="nextstepaction"]
-> [deploy the service via the portal](../deploy-portal.md) 
+> [Deploy the service via the portal](../deploy-portal.md) 

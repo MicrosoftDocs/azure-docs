@@ -16,7 +16,7 @@ ms.author: behoorne
 
 Microsoft wants to help you responsibly develop and deploy solutions that use Azure Health Insights. We're taking a principled approach to upholding personal agency and dignity by considering the fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability of our AI systems. These considerations are in line with our commitment to developing Responsible AI.
 
-This article Azure Health Insights features and the key considerations for making use of this technology responsibly. Consider the following factors when you decide how to use and implement AI-powered products and features.
+This article features the key considerations to use Azure Health Insights technology responsibly. Consider the following factors when you decide how to use and implement AI-powered products and features.
 
 ## General guidelines
 
@@ -42,7 +42,3 @@ When getting ready to integrate and use AI-powered products or features, the fol
 - [Microsoft Responsible AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft Responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
 - [Microsoft Azure Learning courses on Responsible AI](/training/paths/responsible-ai-business-principles/)
-
-## See Also
-- [Transparency note for OncoPhenotype](../oncophenotype/transparency-note.md)
-- [Transparency note for Trial Matcher](../trial-matcher/integration-and-responsible-use.md)

@@ -1,7 +1,7 @@
 ---
-title: Guidance for integration and responsible use with OncoPhenotype
+title: Guidance for integration and responsible use with Onco-Phenotype
 titleSuffix: Azure Health Insights
-description: Microsoft wants to help you responsibly develop and deploy solutions that use OncoPhenotype.
+description: Microsoft wants to help you responsibly develop and deploy solutions that use Onco-Phenotype.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# Guidance for integration and responsible use with OncoPhenotype
+# Guidance for integration and responsible use with Onco-Phenotype
 
-As Microsoft works to help customers safely develop and deploy solutions using the OncoPhenotype model, we're taking a principled approach to upholding personal agency and dignity by considering the AI systems' fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing Responsible AI.
+As Microsoft works to help customers safely develop and deploy solutions using the Onco-Phenotype model, we're taking a principled approach to upholding personal agency and dignity by considering the AI systems' fairness, reliability & safety, privacy & security, inclusiveness, transparency, and human accountability. These considerations are in line with our commitment to developing Responsible AI.
 
 ## General guidelines
 
@@ -27,7 +27,7 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 - **Legal review**: Obtain appropriate legal advice to review your solution, particularly if you use it in sensitive or high-risk applications. Understand what restrictions you might need to work within and your responsibility to resolve any issues that might come up in the future.
 
-- **System review**: If you're planning to integrate and responsibly use an AI-powered product or feature into an existing system of software, customers and organizational processes, take the time to understand how each part of your system will be affected. Consider how your AI solution aligns with Microsoft's Responsible AI principles.
+- **System review**: If you're planning to integrate and responsibly use an AI-powered product or feature into an existing system of software, customers, and organizational processes, take the time to understand how each part of your system will be affected. Consider how your AI solution aligns with Microsoft's Responsible AI principles.
 
 - **Human in the loop**: Keep a human in the loop. This means ensuring constant human oversight of the AI-powered product or feature and maintaining the role of humans in decision-making. Ensure you can have real-time human intervention in the solution to prevent harm. This enables you to manage where the AI model doesn't perform as required.
 
@@ -35,11 +35,10 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 - **Customer feedback loop**: Provide a feedback channel that allows users and individuals to report issues with the service once it's been deployed. Once you've deployed an AI-powered product or feature it requires ongoing monitoring and improvement – be ready to implement any feedback and suggestions for improvement.
 
-## Integration and responsible use for PHI
+## Integration and responsible use for Patient Health Information (PHI)
 
-  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has articles on storing health data and on engineering compliance with HIPAA and HITRUST that you may find helpful.
+  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has [articles](https://learn.microsoft.com/azure/architecture/example-scenario/data/azure-health-data-consortium) on storing health data and on engineering compliance with HIPAA and HITRUST that you may find helpful.
   - **Protecting PHI**: The health feature doesn't anonymize the data you send to the service. If your system presents the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
-
 
 ## Learn more about Responsible AI
 - [Microsoft Responsible AI principles](https://www.microsoft.com/ai/responsible-ai)

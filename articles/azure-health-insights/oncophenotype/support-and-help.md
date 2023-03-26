@@ -1,7 +1,7 @@
 ---
-title: OncoPhenotype support and help options
+title: Onco-Phenotype support and help options
 titleSuffix: Azure Health Insights
-description: How to obtain help and support for questions and problems when you create applications that use with OncoPhenotype model
+description: How to obtain help and support for questions and problems when you create applications that use with Onco-Phenotype model
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# OncoPhenotype model support and help options
+# Onco-Phenotype model support and help options
 
-Are you just starting to explore the functionality of the OncoPhenotype model? Perhaps you're implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
+Are you just starting to explore the functionality of the Onco-Phenotype model? Perhaps you're implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Azure Health Insights.
 
 ## Create an Azure support request
 
@@ -27,10 +27,3 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 ## Post a question on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
-
-If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [OncoPhenotype overview](overview.md)

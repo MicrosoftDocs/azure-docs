@@ -1,17 +1,17 @@
 items: 
-- name: OncoPhenotype
+- name: Onco-Phenotype
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About OncoPhenotype
+    - name: About Onco-Phenotype
       href: overview.md
     - name: FAQ
       href: faq.md
 - name: Quickstarts
   expanded: true
   items:
-     - name: Use the OncoPhenotype model
+     - name: Use the Onco-Phenotype model
        href: get-started.md
 - name: Responsible use of AI
   expanded: true

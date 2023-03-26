@@ -1,7 +1,7 @@
 ---
-title: OncoPhenotype model configuration
+title: Onco-Phenotype model configuration
 titleSuffix: Azure Health Insights
-description: This article provides OncoPhenotype model configuration information.
+description: This article provides Onco-Phenotype model configuration information.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# OncoPhenotype Model configuration
+# Onco-Phenotype model configuration
 
-To interact with the OncoPhonetype model you can provide several model configurations parameters that will modify the outcome of the responses.
+To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
@@ -27,22 +27,27 @@ To interact with the OncoPhonetype model you can provide several model configura
 ```
 
 ## Case finding
-Through the model configuration, the API allows you to explicitly check if a cancer case exists in the provided clinical documents and only then generate the inferences
 
-**CHECK FOR CANCER CASE** |**DID THE MODEL FIND A CASE?** |**BEHAVIOR** 
+
+The Onco-Phenotype model configuration helps you find if any cancer cases exist. The API allows you to explicitly check if a cancer case exists in the provided clinical documents. 
+
+**Check for cancer case** |**Did the model find a case?** |**Behavior** 
 ---------------------- |-----------------------|-------------------
 true |Yes  |Inferences are returned 
 true  |No  |No inferences are returned     
 false  |N/A  |Inferences are always returned but they aren't meaningful if there's no cancer case.
+
 Set ```checkForCancerCase``` to ```false``` if
 - you're sure that the provided clinical documents definitely contain a case
 - the model is unable to find a case in a valid scenario
 
-If there exists a case in the provided clinical documents and the model is able to find that case, inferences returned are same irrespective of ```checkForCancerCase``` configuration.
+If a case is found in the provided clinical documents and the model is able to find that case, the inferences are always returned.
 
 ## Case finding examples 
 
 ### With case finding 
+
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
 
 ```json
 Request: 
@@ -138,6 +143,7 @@ Response:
 ```
 ### Without case finding 
 
+The following example represents a case without a finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
 ```json
 Request: 
 {
@@ -188,15 +194,15 @@ Response:
 
 Through the model configuration, the API allows you to seek evidence from the provided clinical documents as part of the inferences.
 
-**INCLUDE EVIDENCE** | **BEHAVIOR**                                  
+**Include evidence** | **Behavior**                                  
 ------------------- | ----------------------------------------------
 true                | Evidence is returned as part of each inference     
 false               | No evidence is returned                           
 
 
-## Evidence examples 
+## Evidence example
 
-### Request that contains a case
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```true```. Meaning the model checks for a cancer case  and include the evidence.
 
 ```json 
 Request:
@@ -463,7 +469,7 @@ Response:
 
 ## Next steps
 
-To get better insights into the request and responses, you can read more on following pages:
+Refer to the following page to get better insights into the request and responses:
 
 >[!div class="nextstepaction"]
 > [Inference information](inferences.md) 

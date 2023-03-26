@@ -12,7 +12,7 @@ ms.author: behoorne
 ---
 
 
-# Transparency Note for Azure Health Insights
+# Transparency note for Azure Health Insights
 
 An AI system includes not only the technology, but also the people who use it, the people who will be affected by it, and the environment in which it's deployed. Creating a system that is fit for its intended purpose requires an understanding of how the technology works, its capabilities and limitations, and how to achieve the best performance. 
 
@@ -20,16 +20,23 @@ Microsoft's Transparency Notes are intended to help you understand how our AI te
 
 ## The basics of Azure Health Insights
 
-### Introduction
+Azure Health Insights is built with the Azure Cognitive Services Framework that uses multiple Cognitive Services, Healthcare API services, and other Azure resources. It currently includes the following features.
 
-Azure Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework that uses multiple Cognitive Services, Healthcare API services and other Azure resources. It currently includes the following features 
+**Overviews:** 
 
 - [Trial Matcher](../trial-matcher/overview.md) 
-- [OncoPhenotye](../oncophenotype/overview.md) 
+- [Onco-Phenotype](../oncophenotype/overview.md) 
 
-Read the overview to get an introduction to each feature and review the example use cases. See the How-to guides and the API reference to understand more details about what each feature does and what gets returned by the system.
+Read the overviews above and review the example use cases to get an introduction to each feature. See the How-to guides and the API reference to understand more details about what each feature does and what gets returned by the system. 
 
-This article contains basic guidelines for how to use Azure Cognitive Service for language features responsibly. Read the general information first and then jump to the specific article if you're using one of the features.
+- [Patient info API reference for Trial Matcher](../trial-matcher/patient-info.md) 
+- [Patient info API reference for Onco-Phenotype](../oncophenotype/patient-info.md) 
+- [Response API information](../response-info.md) 
+- [Request API information](../request-info.md) 
+
+**Transparency notes:**
+
+This article contains basic guidelines for how to use Azure Health Insights features responsibly. Read the general information in this article first. Then, refer to the transparency articles below if you're using one of the features:
 
 - [Transparency note for Trial Matcher](../trial-matcher/transparency-note.md) 
-- [Transparency note for OncoPhenotye](../oncophenotype//transparency-note.md) 
+- [Transparency note for Onco-Phenotype](../oncophenotype/transparency-note.md) 

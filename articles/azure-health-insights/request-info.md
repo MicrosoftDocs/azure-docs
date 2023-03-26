@@ -10,12 +10,12 @@ ms.date: 02/17/2023
 ms.author: behoorne
 ---
 
-# Azure Health Insights Request Info  
+# Azure Health Insights request info  
 
-This page describes the request models and parameters that can be used to interact with the Azure Health Insights service.
+This page describes the request models and parameters that are used to interact with Azure Health Insights service.
 
 ## Request
-The generic part of the Azure Health Insights request, common to all models.
+The generic part of Azure Health Insights request, common to all models.
 
 Name    |Required|Type           |Description                                                         
 --------|--------|---------------|--------------------------------------------------------------------
@@ -40,7 +40,7 @@ Name        |Required|Type               |Description
 ------------|--------|-------------------|-----------------------------
 `gender`      |no      |string             |[ female, male, unspecified ]
 `birthDate`   |no      |string             |The patient's date of birth. 
-`clinicalInfo`|no      |ClinicalCodeElement|                             
+`clinicalInfo`|no      |ClinicalCodeElement|A piece of clinical information, expressed as a code in a clinical coding system.                             
 
 ## ClinicalCodeElement
 A piece of clinical information, expressed as a code in a clinical coding system.
@@ -54,7 +54,7 @@ Name  |Required|Type  |Description
 
 
 ## PatientDocument
-A clinical document related to a patient. Document here's in the wide sense - not just a text document (note).
+A clinical unstructured document related to a patient.
 
 Name           |Required|Type           |Description                                                                                                
 ---------------|--------|---------------|-----------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ The content of the patient document.
 
 Name      |Required|Type  |Description                                                                                                                                                                                                                    
 ----------|--------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-`sourceType`|yes     |string|The type of the content's source.<br>In case the source type is 'inline', the content is given as a string (for instance, text).<br>In case the source type is 'reference', the content is given as a URI.[ inline, reference ]
+`sourceType`|yes     |string|The type of the content's source.<br>If the source type is 'inline', the content is given as a string (for instance, text).<br>If the source type is 'reference', the content is given as a URI.[ inline, reference ]
 `value`     |yes     |string|The content of the document, given either inline (as a string) or as a reference (URI).                                                                                                                  
 
 ## Next steps
@@ -78,4 +78,4 @@ Name      |Required|Type  |Description
 To get started using the service, you can 
 
 >[!div class="nextstepaction"]
-> [deploy the service via the portal](deploy-portal.md) 
+> [Deploy the service via the portal](deploy-portal.md) 
