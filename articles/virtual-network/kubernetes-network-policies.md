@@ -14,7 +14,7 @@ Network policies provide micro-segmentation for pods just like Network Security 
 
 :::image type="content" source="./media/kubernetes-network-policies/kubernetes-network-policies-overview.png" alt-text="Diagram of Kubernetes network policies overview.":::
 
-Azure Network Policy Management implementation works with the Azure CNI that provides VNet integration for containers. Network Policy Manager is supported on Linux and Windows Server. The implementation enforces traffic filtering by configuring allow and deny IP rules based on the defined policies in Linux IPTables or Host Network Service(HNS) ACLPolicies for Windows Server.
+Azure Network Policy Management implementation works with the Azure CNI that provides virtual network integration for containers. Network Policy Manager is supported on Linux and Windows Server. The implementation enforces traffic filtering by configuring allow and deny IP rules based on the defined policies in Linux IPTables or Host Network Service(HNS) ACLPolicies for Windows Server.
 
 ## Planning security for your Kubernetes cluster
 
@@ -39,16 +39,16 @@ Once the cluster is deployed run the following `kubectl` command to download and
 For Linux:
 
   ```
-  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/Network Policy Manager/azure-Network Policy Manager.yaml
+  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/Network Policy Manager/azure-npm.yaml
   ```
 
 For Windows:
 
  ```
-  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/Network Policy Manager/examples/windows/azure-Network Policy Manager.yaml
+  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/Network Policy Manager/examples/windows/azure-npm.yaml
   ```
 
-The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/Network Policy Manager).
+The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/npm).
 
 ## Monitor and visualize network configurations with Azure NPM
 
@@ -127,9 +127,9 @@ integrations: |-
         collect_advanced_metrics = true
 ```
 
-Advanced metrics are optional, and turning them on automatically turns on basic metrics collection. Advanced metrics currently include only `Network Policy Manager_ipset_counts`
+Advanced metrics are optional, and turning them on automatically turns on basic metrics collection. Advanced metrics currently include only `Network Policy Manager_ipset_counts`.
 
-Learn more about [Azure Monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md)
+Learn more about [Azure Monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md).
 
 ### Visualization options for Azure Monitor
 
@@ -146,7 +146,7 @@ Besides viewing the workbook, you can also directly query the Prometheus metrics
 | where Name contains "npm_"
 ```
 
-You can also query log analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-query.md) 
+You can also query log analytics directly for the metrics. For more information, see [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-query.md).
 
 #### Viewing in Grafana dashboard
 
@@ -158,7 +158,7 @@ The dashboard has visuals similar to the Azure Workbook. You can add panels to c
 
 Some users may choose to collect metrics with a Prometheus server instead of Azure Monitor for containers. You merely need to add two jobs to your scrape config to collect Network Policy Manager metrics.
 
-To install a Prometheus server, add this helm repo on your cluster
+To install a Prometheus server, add this helm repo on your cluster:
 
 ```
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
@@ -173,7 +173,7 @@ helm install prometheus stable/prometheus -n monitoring \
 --set-file extraScrapeConfigs=prometheus-server-scrape-config.yaml
 ```
 
-where `prometheus-server-scrape-config.yaml` consists of
+where `prometheus-server-scrape-config.yaml` consists of:
 
 ```
 - job_name: "azure-npm-node-metrics"
@@ -266,7 +266,7 @@ The visuals for this dashboard are identical to the dashboard with a container i
 
 ### Sample dashboards
 
-Following are some sample dashboard for Network Policy Manager metrics in container insights (CI) and Grafana
+Following are some sample dashboard for Network Policy Manager metrics in container insights (CI) and Grafana.
 
 #### CI summary counts
 
