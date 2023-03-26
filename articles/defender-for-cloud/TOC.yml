@@ -521,8 +521,6 @@
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a PoC
         href: defender-for-storage-test.md
-      - name: Setting up response
-        href: defender-for-storage-response.md
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Defender for Storage (classic)
