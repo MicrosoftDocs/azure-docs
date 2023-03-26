@@ -21,6 +21,7 @@ Azure Network Policy Management implementation works with the Azure CNI that pro
 When implementing security for your cluster, use network security groups (NSGs) to filter traffic entering and leaving your cluster subnet (North-South traffic). Use Azure Network Policy Manager for traffic between pods in your cluster (East-West traffic).
 
 ## Using Azure Network Policy Manager
+
 Azure Network Policy Manager can be used in the following ways to provide micro-segmentation for pods.
 
 ### Azure Kubernetes Service (AKS)
@@ -49,7 +50,7 @@ For Windows:
 
 The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/Network Policy Manager).
 
-## Monitor and visualize network configurations with Azure Network Policy Manager
+## Monitor and visualize network configurations with Azure NPM
 
 Azure Network Policy Manager includes informative Prometheus metrics that allow you to monitor and better understand your configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. You can start collecting these metrics using either Azure Monitor or a Prometheus server.
 
@@ -81,7 +82,7 @@ See a [configuration for these alerts](#set-up-alerts-for-alertmanager) as follo
 
 2. Correlate cluster counts (for example, ACLs) to execution times.
 
-3. Get the human-friendly name of an ipset in a given IPTables rule (for example, `azure-Network Policy Manager-487392` represents `podlabel-role:database`).
+3. Get the human-friendly name of an ipset in a given IPTables rule (for example, `azure-npm-487392` represents `podlabel-role:database`).
  
 ### All supported metrics
 
@@ -89,17 +90,17 @@ The following list is of supported metrics. Any `quantile` label has possible va
 
 | Metric Name                          | Description                                    | Prometheus Metric Type | Labels         |
 | -----                                | -----                                          | -----    |  -----                       |
-| `Network Policy Manager_num_policies`                   | number of network policies                     | Gauge    |  -                           |
-| `Network Policy Manager_num_iptables_rules`             | number of IPTables rules                       | Gauge    |  -                           |
-| `Network Policy Manager_num_ipsets`                     | number of IPSets                               | Gauge    |  -                           |
-| `Network Policy Manager_num_ipset_entries`              | number of IP address entries in all IPSets     | Gauge    |  -                           |
-| `Network Policy Manager_add_iptables_rule_exec_time`    | runtime for adding an IPTables rule            | Summary  | `quantile`                   |
-| `Network Policy Manager_add_ipset_exec_time`            | runtime for adding an IPSet                    | Summary  | `quantile`                   |
-| `Network Policy Manager_ipset_counts` (advanced)        | number of entries within each individual IPSet | GaugeVec | `set_name` & `set_hash`      |
-| `Network Policy Manager_add_policy_exec_time`           | runtime for adding a network policy            | Summary  | `quantile` & `had_error`     |
-| `Network Policy Manager_controller_policy_exec_time`    | runtime for updating/deleting a network policy | Summary  | `quantile` & `had_error` & `operation` (with values `update` or `delete`)            |
-| `Network Policy Manager_controller_namespace_exec_time` | runtime for creating/updating/deleting a namespace      | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
-| `Network Policy Manager_controller_pod_exec_time`       | runtime for creating/updating/deleting a pod            | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
+| `npm_num_policies`                   | number of network policies                     | Gauge    |  -                           |
+| `npm_num_iptables_rules`             | number of IPTables rules                       | Gauge    |  -                           |
+| `npm_num_ipsets`                     | number of IPSets                               | Gauge    |  -                           |
+| `npm_num_ipset_entries`              | number of IP address entries in all IPSets     | Gauge    |  -                           |
+| `npm_add_iptables_rule_exec_time`    | runtime for adding an IPTables rule            | Summary  | `quantile`                   |
+| `npm_add_ipset_exec_time`            | runtime for adding an IPSet                    | Summary  | `quantile`                   |
+| `npm_ipset_counts` (advanced)        | number of entries within each individual IPSet | GaugeVec | `set_name` & `set_hash`      |
+| `npm_add_policy_exec_time`           | runtime for adding a network policy            | Summary  | `quantile` & `had_error`     |
+| `npm_controller_policy_exec_time`    | runtime for updating/deleting a network policy | Summary  | `quantile` & `had_error` & `operation` (with values `update` or `delete`)            |
+| `npm_controller_namespace_exec_time` | runtime for creating/updating/deleting a namespace      | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
+| `npm_controller_pod_exec_time`       | runtime for creating/updating/deleting a pod            | Summary  | `quantile` & `had_error` & `operation` (with values `create`, `update`, or `delete`) |
 
 There are also "exec_time_count" and "exec_time_sum" metrics for each "exec_time" Summary metric.
 
@@ -142,7 +143,7 @@ Besides viewing the workbook, you can also directly query the Prometheus metrics
 
 ```query
 | where TimeGenerated > ago(5h)
-| where Name contains "Network Policy Manager_"
+| where Name contains "npm_"
 ```
 
 You can also query log analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-query.md) 
@@ -175,7 +176,7 @@ helm install prometheus stable/prometheus -n monitoring \
 where `prometheus-server-scrape-config.yaml` consists of
 
 ```
-- job_name: "azure-Network Policy Manager-node-metrics"
+- job_name: "azure-npm-node-metrics"
   metrics_path: /node-metrics
   kubernetes_sd_configs:
   - role: node
@@ -185,7 +186,7 @@ where `prometheus-server-scrape-config.yaml` consists of
     regex: ([^:]+)(?::\d+)?
     replacement: "$1:10091"
     target_label: __address__
-- job_name: "azure-Network Policy Manager-cluster-metrics"
+- job_name: "azure-npm-cluster-metrics"
   metrics_path: /cluster-metrics
   kubernetes_sd_configs:
   - role: service
@@ -194,19 +195,19 @@ where `prometheus-server-scrape-config.yaml` consists of
     regex: kube-system
     action: keep
   - source_labels: [__meta_kubernetes_service_name]
-    regex: Network Policy Manager-metrics-cluster-service
+    regex: npm-metrics-cluster-service
     action: keep
 # Comment from here to the end to collect advanced metrics: number of entries for each IPSet
   metric_relabel_configs:
   - source_labels: [__name__]
-    regex: Network Policy Manager_ipset_counts
+    regex: npm_ipset_counts
     action: drop
 ```
 
-You can also replace the `azure-Network Policy Manager-node-metrics` job with the following content or incorporate it into a pre-existing job for Kubernetes pods:
+You can also replace the `azure-npm-node-metrics` job with the following content or incorporate it into a pre-existing job for Kubernetes pods:
 
 ```
-- job_name: "azure-Network Policy Manager-node-metrics-from-pod-config"
+- job_name: "azure-npm-node-metrics-from-pod-config"
   metrics_path: /node-metrics
   kubernetes_sd_configs:
   - role: pod
@@ -229,21 +230,21 @@ If you use a Prometheus server, you can set up an AlertManager like so. Here's a
 
 ```
 groups:
-- name: Network Policy Manager.rules
+- name: npm.rules
   rules:
   # fire when Network Policy Manager has a new failure with an OS call or when translating a Network Policy (suppose there's a scraping interval of 5m)
   - alert: AzureNetwork Policy ManagerFailureCreatePolicy
     # this expression says to grab the current count minus the count 5 minutes ago, or grab the current count if there was no data 5 minutes ago
-    expr: (Network Policy Manager_add_policy_exec_time_count{had_error='true'} - (Network Policy Manager_add_policy_exec_time_count{had_error='true'} offset 5m)) or Network Policy Manager_add_policy_exec_time_count{had_error='true'}
+    expr: (npm_add_policy_exec_time_count{had_error='true'} - (npm_add_policy_exec_time_count{had_error='true'} offset 5m)) or npm_add_policy_exec_time_count{had_error='true'}
     labels:
       severity: warning
-      addon: azure-Network Policy Manager
+      addon: azure-npm
     annotations:
       summary: "Azure Network Policy Manager failed to handle a policy create event"
       description: "Current failure count since Network Policy Manager started: {{ $value }}"
   # fire when the median time to apply changes for a pod create event is more than 100 milliseconds.
-  - alert: AzureNetwork Policy ManagerHighControllerPodCreateTimeMedian
-    expr: topk(1, Network Policy Manager_controller_pod_exec_time{operation="create",quantile="0.5",had_error="false"}) > 100.0
+  - alert: AzurenpmHighControllerPodCreateTimeMedian
+    expr: topk(1, npm_controller_pod_exec_time{operation="create",quantile="0.5",had_error="false"}) > 100.0
     labels:
       severity: warning
       addon: azure-Network Policy Manager
@@ -252,7 +253,7 @@ groups:
       # could have a simpler description like the one for the alert above,
       # but this description includes the number of pod creates that were handled in the past 10 minutes, 
       # which is the retention period for observations when calculating quantiles for a Prometheus Summary metric
-      description: "value: [{{ $value }}] and observation count: [{{ printf `(Network Policy Manager_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} - (Network Policy Manager_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} offset 10m)) or Network Policy Manager_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'}` $labels.pod $labels.pod $labels.pod | query | first | value }}] for pod: [{{ $labels.pod }}]"
+      description: "value: [{{ $value }}] and observation count: [{{ printf `(npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} - (npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'} offset 10m)) or npm_controller_pod_exec_time_count{operation='create',pod='%s',had_error='false'}` $labels.pod $labels.pod $labels.pod | query | first | value }}] for pod: [{{ $labels.pod }}]"
 ```
 
 ### Visualization options for Prometheus
