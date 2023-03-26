@@ -368,7 +368,7 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
     - `RSSTATPH` report: Reads the SAP profile parameters and stores this data in the PAHI table. 
     - `RSDB_PAR` report: Reads the database parameters and stores them in the PAHI table.
 
-If the job exists, no further steps are needed.
+If the job exists and is configured correctly, no further steps are needed.
 
 **If the job doesn’t exist**: 
 
