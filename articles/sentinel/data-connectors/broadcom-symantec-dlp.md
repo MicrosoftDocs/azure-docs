@@ -1,6 +1,6 @@
 ---
-title: "Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Palo Alto Networks Cortex Data Lake (CDL) to connect your data source to Microsoft Sentinel."
+title: "Broadcom Symantec DLP connector for Microsoft Sentinel"
+description: "Learn how to install the connector Broadcom Symantec DLP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 03/25/2023
@@ -8,38 +8,43 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel
+# Broadcom Symantec DLP connector for Microsoft Sentinel
 
-The [Palo Alto Networks CDL](https://www.paloaltonetworks.com/cortex/cortex-data-lake) data connector provides the capability to ingest [CDL logs](https://docs.paloaltonetworks.com/cortex/cortex-data-lake/log-forwarding-schema-reference/log-forwarding-schema-overview.html) into Microsoft Sentinel.
+The [Broadcom Symantec Data Loss Prevention (DLP)](https://www.broadcom.com/products/cyber-security/information-protection/data-loss-prevention) connector allows you to easily connect your Symantec DLP with Microsoft Sentinel, to create custom dashboards, alerts, and improve investigation. This gives you more insight into your organization’s information, where it travels, and improves your security operation capabilities.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Log Analytics table(s)** | CommonSecurityLog (PaloAltoNetworksCDL)<br/> |
+| **Log Analytics table(s)** | CommonSecurityLog (SymantecDLP)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
 
-**Top 10 Destinations**
+**Top 10 Triggered Activities**
    ```kusto
-PaloAltoCDLEvent
+SymantecDLP 
  
-   | where isnotempty(DstIpAddr)
-    
-   | summarize count() by DstIpAddr
- 
+   | summarize count() by Activity 
+
    | top 10 by count_
    ```
 
+**Top 10 Filenames**
+   ```kusto
+SymantecDLP 
+ 
+   | summarize count() by FileName 
+
+   | top 10 by count_
+   ```
 
 
 ## Vendor installation instructions
 
 
-> [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**PaloAltoCDLEvent**](https://aka.ms/sentinel-paloaltocdl-parser) which is deployed with the Microsoft Sentinel Solution.
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SymantecDLP and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Broadcom%20SymantecDLP/Parsers/SymantecDLP.txt). The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Linux Syslog agent configuration
 
@@ -55,7 +60,7 @@ Select or create a Linux machine that Microsoft Sentinel will use as the proxy b
 
 Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
 
-> 1. Make sure that you have Python on your machine using the following command: python -version.
+> 1. Make sure that you have Python on your machine using the following command: python –version.
 
 > 2. You must have elevated permissions (sudo) on your machine.
 
@@ -63,9 +68,11 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
 
-2.  Configure Cortex Data Lake to forward logs to a Syslog Server using CEF
+2. Forward Symantec DLP logs to a Syslog agent
 
-[Follow the instructions](https://docs.paloaltonetworks.com/cortex/cortex-data-lake/cortex-data-lake-getting-started/get-started-with-log-forwarding-app/forward-logs-from-logging-service-to-syslog-server.html) to configure logs forwarding from Cortex Data Lake to a Syslog Server.
+Configure Symantec DLP to forward Syslog messages in CEF format to your Microsoft Sentinel workspace via the Syslog agent.
+1. [Follow these instructions](https://help.symantec.com/cs/DLP15.7/DLP/v27591174_v133697641/Configuring-the-Log-to-a-Syslog-Server-action?locale=EN_US) to configure the Symantec DLP to forward syslog
+2. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
 3. Validate connection
 
@@ -77,7 +84,7 @@ Open Log Analytics to check if the logs are received using the CommonSecurityLog
 
 If the logs are not received, run the following connectivity validation script:
 
-> 1. Make sure that you have Python on your machine using the following command: python -version
+> 1. Make sure that you have Python on your machine using the following command: python –version
 
 >2. You must have elevated permissions (sudo) on your machine
 
@@ -96,4 +103,4 @@ Make sure to configure the machine's security according to your organization's s
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-broadcomsymantecdlp?tab=Overview) in the Azure Marketplace.
