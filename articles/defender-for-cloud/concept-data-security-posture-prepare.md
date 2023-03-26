@@ -48,13 +48,11 @@ New S3 bucket being added to an already scanned AWS account will be scanned by u
 
 ## Configuring data sensitivity settings
 
-Here are the permissions and requirements for [customizing sensitivity settings](data-sensitivity-settings.md).
+The main steps for configuring data sensitivity setting include:
+- [Import custom sensitive info types/labels from Microsoft Purview portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-purview-portal)
+- [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
+- [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 
-**Action** | **Requirements**
---- | ---
-Modify built-in sensitivity settings | You need one of these permissions:<br/><br/> Global Administrator<br/>Compliance Administrator<br/>Compliance Data Administrator<br/>Security Administrator<br/>Security Operator
-[Add custom information types from Microsoft Purview](data-sensitivity-settings.md) | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.
-[Add sensitivity labels from Microsoft Purview](data-sensitivity-settings.md) | Requires consent to allow the use of custom sensitive information types and labels that are configured in Microsoft Purview.<br/><br/> One or more [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) must be [created and defined](/microsoft-365/compliance/get-started-with-sensitivity-labels) in Microsoft Purview.<br/><br/> The label must be configured to [apply to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).<br/><br/> The labels must be [published](/microsoft-365/compliance/create-sensitivity-labels) with a label policy that’s in effect. Scope should include Items and Schematized data assets and autolabeling rules.<br/><br/>Sub-labels such as Confidential/Limited aren't supported when defining label threshold levels in Defender for Cloud.
 [Learn more](/microsoft-365/compliance/create-sensitivity-labels) about sensitivity labels in Microsoft Purview.
 
 ## Discovery and scanning
