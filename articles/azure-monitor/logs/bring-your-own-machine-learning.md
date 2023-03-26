@@ -12,7 +12,7 @@ ms.date: 02/28/2023
 ---
 # AIOps and machine learning in Azure Monitor 
 
-[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful ways to process and automatically act on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
+[Artificial Intelligence for IT Operations (AIOps)](https://www.gartner.com/information-technology/glossary/aiops-artificial-intelligence-operations) offers powerful ways to improve service quality, performance, efficiency, and reliability by processing and automatically act on data you collect from applications, services, and IT resources into Azure Monitor using machine learning.
 
 Azure Monitor's built-in machine learning capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
 
@@ -116,7 +116,7 @@ Scoring is the process of applying a machine learning model on new data to get
 
 #### Get insights from scored data on schedule
 
-To run your notebook on schedule, you can:
+To run your notebook on schedule:
 
 1. Run a notebook as a step in an Azure Machine Learning pipeline using [NotebookRunnerStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb).
 2. [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).
@@ -130,11 +130,11 @@ For example:
 - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib) uses Spark DataFrames 
 - [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats. 
 
-Here are a number of conversion methods:
+Here are a number of available conversion methods:
 
 - [Create an Azure Machine Learning dataset a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
 - [Convert JSON to Spark DataFrame](https://sparkbyexamples.com/pyspark/different-ways-to-create-dataframe-in-pyspark/#from-json) 
-- [Convert JSON to Azure Machine Learning dataset](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#azureml-data-dataset-factory-tabulardatasetfactory-from-json-lines-files). 
+- [Convert JSON to Azure Machine Learning dataset](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#azureml-data-dataset-factory-tabulardatasetfactory-from-json-lines-files) 
 
 
 ## Next steps
