@@ -104,7 +104,7 @@ To create a new query using the query editor, select the ‘open query editor’
 
 You can use the following links to learn more about Kusto queries:
 
-- [KQL Quick Reference](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference) 
-- [Kusto Query Language (KQL) overview](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [KQL Quick Reference](/azure/data-explorer/kql-quick-reference) 
+- [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/)
 - [Must Learn KQL Part 1: Tools and Resources](https://azurecloudai.blog/2021/11/17/must-learn-kql-part-1-tools-and-resources/) 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
