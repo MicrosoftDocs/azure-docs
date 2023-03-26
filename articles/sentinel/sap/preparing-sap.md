@@ -351,15 +351,16 @@ The required authorizations are listed here by log type. Only the authorizations
 | S_TABU_NAM | TABLE | SNCSYSACL |
 | S_TABU_NAM | TABLE | USRACL |
 
-When you finish deployment, you can [remove the user role and the optional CR installed on your ABAP system](deployment-solution-configuration.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
+If needed, you can [remove the user role and the optional CR installed on your ABAP system](deployment-solution-configuration.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
 
-## Verify that the Microsoft Sentinel solution for SAP® applications can monitor the PAHI table (history of system, database, and SAP parameters)
+## Verify that the PAHI table (history of system, database, and SAP parameters) is updated at regular intervals
 
-The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table frequently due to an SAP issue in the TCOLL table (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to frequently monitor the PAHI table to alert on suspicious actions that might happen at any time throughout the day. 
+The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table at regular intervals, due to missing or faulty configuration (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to update the PAHI table an to monitor it frequently, so that the Microsoft Sentinel solution for SAP® applications can alert on suspicious actions that might happen at any time throughout the day. 
 
-You can also configure a set of [analytics rules](sap-solution-security-content.md) that alert on suspicious events related to the PAHI table.
+> [!NOTE]
+> For optimal results, in your machine's *systemconfig.ini* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. 
 
-**To verify that the Microsoft Sentinel solution for SAP® applications can monitor the PAHI table**:
+**To verify that the PAHI table is updated at regular intervals**:
 
 1. Check whether the `SAP_COLLECTOR_FOR_PERFMONITOR` job, based on the RSCOLL00 program, is scheduled and running hourly, by the DDIC user in the 000 client.
 1. Check whether the `RSHOSTPH`, `RSSTATPH` and `RSDB_PAR` report names are maintained in the TCOLL table. 
