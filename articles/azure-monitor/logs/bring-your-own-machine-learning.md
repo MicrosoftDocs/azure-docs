@@ -31,9 +31,7 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 
 ## Use machine learning in Azure Monitor Logs
 
-[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the high-performance Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. 
-
-The [Kusto Query Languages's built-in time series analysis and machine learning functions, operators, and plug-ins](/azure/data-explorer/kusto/query/machine-learning-clustering) let you gain insights about service health, usage, capacity and other trends, and to generate forecasts and detect anomalies. 
+[Azure Monitor Logs](../logs/data-platform-logs.md) is based on the high-performance Kusto big data analytics platform, which makes it easy to analyze large volumes of data you collect into a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in near real-time. Use the Kusto Query Language's [built-in time series analysis and machine learning functions, operators, and plug-ins](/azure/data-explorer/kusto/query/machine-learning-clustering) to gain insights about service health, usage, capacity and other trends, and to generate forecasts and detect anomalies. 
 
 To gain greater flexibility and expand your ability to analyze and act on data, you can also implement your own machine learning pipeline on data in Azure Monitor Logs.   
 
@@ -50,7 +48,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 | |[Azure portal or Query API log query limits](../service-limits.md#log-analytics-workspaces) depending on whether you're working in the portal or using the API, for example, from a notebook.| Query API log query limits depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-to-act-on-data-in-azure-monitor-logs).|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
-## Create your own machine learning pipeline
+## Create your own machine learning pipeline in Azure Monitor Logs
 
 If the richness of native KQL functions doesn't meet your business needs, you can implement custom machine learning models. For example, if you need to perform hunting for security attacks when data requires more sophisticated models than linear or other regressions supported by KQL, or if you need to correlate data in Azure Monitor Logs with data from other sources. 
 
@@ -73,13 +71,17 @@ Setting up a machine learning pipeline typically involves all or some of these t
 - Model deployment and scoring 
 - Getting insights from scored data 
 
-
+Azure Monitor provides tools for implementing each of these steps by working with data directly in Azure Monitor Logs, or by exporting data for use by other Azure or external services. 
 #### Explore data
 
-Azure Monitor offers a set of tools for exploring and preparing data for analytics and machine learning. The quickest ways to get started with data exploration is using:
+**Option 1: Directly in Azure Monitor Logs**
+
+The quickest ways to get started with data exploration is using:
 
 - [Log Analytics](../logs/log-analytics-tutorial.md) - Provides a rich set of tools for exploring and visualizing data in the Azure portal.
-- [Notebooks](../logs/jupyter-notebook-ml-azure-monitor-logs.md#integrate-your-log-analytics-workspace-with-your-notebook) - Run KQL queries on data in Azure Monitor Logs and visualize data using various libraries.
+- [Querying and visualizing data in an integrated environment](../logs/jupyter-notebook-ml-azure-monitor-logs.md#integrate-your-log-analytics-workspace-with-your-notebook), such as a notebook, using [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) - Run KQL queries on data in Azure Monitor Logs and visualize data using various libraries.
+
+**Option 2: Export data**
 
 To analyze logs outside of Azure Monitor, [export data out of your Log Analytics workspace](../logs/logs-data-export.md) and set up the environment in the service you choose. For an example of how to explore logs outside of Azure Monitor, see [How to analyze data exported from Log Analytics data using Synapse](https://techcommunity.microsoft.com/t5/azure-observability-blog/how-to-analyze-data-exported-from-log-analytics-data-using/ba-p/2547888).
 
@@ -87,9 +89,12 @@ To analyze logs outside of Azure Monitor, [export data out of your Log Analytics
 
 Machine learning training is a long and iterative process, which usually involves retrieving and cleaning the training data, engineer features, experimenting with various models, and tuning parameters until you find a model that's sufficiently accurate and robust. 
 
-**Examples:**
+**Option 1: Directly in Azure Monitor Logs**
 
 - [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#prepare-data-for-model-training)
+
+**Option 2: Export data**
+
 - [Train machine learning models with Apache Spark in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib)
 - [Train a model in Python with automated machine learning in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-azure-machine-learning-tutorial)
 
@@ -97,19 +102,21 @@ Machine learning training is a long and iterative process, which usually involve
 
 Scoring is the process of applying a machine learning model on new data to get predictions. Scoring usually needs to be done at scale with minimal latency, processing large sets of new records.  
 
-**Examples:**
+**Option 1: Directly in Azure Monitor Logs**
 
 - [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data)
+
+**Option 2: Export data**
+
 - [Score machine learning models with PREDICT in serverless Apache Spark pools](/azure/synapse-analytics/machine-learning/tutorial-score-model-predict-spark-pool)
 - [Deploy machine learning models to Azure](/azure/machine-learning/v1/how-to-deploy-and-where?tabs=azcli)
 
 #### Get insights from scored data on schedule
 
-To run your notebook on schedule, you can follow below steps:
+To run your notebook on schedule, you can:
 
-1. You can run a notebook as a step in Azure Machine Learning Pipeline using NotebookRunnerStep
-2. Schedule machine learning pipeline
-
+1. Run a notebook as a step in an Azure Machine Learning pipeline using [NotebookRunnerStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb).
+2. [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).
 #### Converting Azure Monitor data to corresponding data type
 
 Different tools/libraries use different formats of data.
