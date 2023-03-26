@@ -100,7 +100,7 @@ For example, you may have more devices that require monitoring if you're increas
 
 1. After any changes are made, make sure to reactivate your sensors. For more information, see [Reactivate an OT sensor](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor).
 
-1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made.
 
 Changes to your plan will take effect one hour after confirming the change. This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
 

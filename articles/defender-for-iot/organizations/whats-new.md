@@ -59,7 +59,7 @@ For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-
 
 Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+You'll only need to update your activation file if you're updating an OT sensor from a legacy version or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -561,10 +561,6 @@ Now, for locally managed sensors, you can upload that diagnostic log directly on
 > [!TIP]
 > For cloud-connected sensors, starting from sensor version [22.1.3](#march-2022), the diagnostic log is automatically available to support when you open the ticket.
 >
-For more information, see:
-
-- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
-- [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 
 ### Improved security for uploading protocol plugins
 
@@ -799,8 +795,6 @@ Now you can get a summary of the log and system information that gets added to y
 
 :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup and Restore dialog showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
-For more information, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
-
 ### Alert updates
 
 **In the Azure portal**:
@@ -914,7 +908,7 @@ The following Defender for IoT options and configurations have been moved, remov
 
 - Reports previously found on the **Reports** page are now shown on the **Data Mining** page instead. You can also continue to view data mining information directly from the on-premises management console.
 
-- Changing a locally managed sensor name is now supported only by onboarding the sensor to the Azure portal again with the new name. Sensor names can no longer be changed directly from the sensor. For more information, see [Change the name of a sensor](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor).
+- Changing a locally managed sensor name is now supported only by onboarding the sensor to the Azure portal again with the new name. Sensor names can no longer be changed directly from the sensor.
 
 ## Next steps
 

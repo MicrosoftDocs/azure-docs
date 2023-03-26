@@ -269,7 +269,8 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- Diagnostic logs automatically available to support for cloud-connected sensors
+
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
 - [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
@@ -288,7 +289,7 @@ This version includes the following new updates and fixes:
 
 - [Enhanced sensor Overview page](how-to-manage-individual-sensors.md)
 
-- [New sensor diagnostics log](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- New sensor diagnostics log
 
 - [Alert updates](how-to-view-alerts.md):
 
@@ -316,7 +317,7 @@ This version includes the following new updates and fixes:
 
 - [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
 
-- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
+- Updated process for sensor name changes
 
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 

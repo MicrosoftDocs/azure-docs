@@ -71,8 +71,6 @@ The console supports the following certificate types:
   > [!IMPORTANT]
   > We recommend that you don't use the default self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
 
-For more information about working with certificates, see [Manage certificates](how-to-manage-individual-sensors.md#manage-certificates).
-
 ### Sign in and activate the sensor
 
 **To sign in and activate:**
@@ -133,7 +131,7 @@ For information about uploading a new certificate, supported certificate paramet
 
 After activating a sensor, cloud-connected and locally-managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active.
 
-If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor. For more information, see [Update legacy OT sensor software](update-ot-software.md#update-legacy-ot-sensor-software).
+If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor. 
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
