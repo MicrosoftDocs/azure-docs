@@ -40,7 +40,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
 |**Scenario**|- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :x: |- Anomaly detection and root cause analysis :white_check_mark:<br>- Alerting and automation :white_check_mark:|
-|**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, and a machine learning service.|
+|**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, or a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |- Dependent on the machine learning service you use. <br>- Introduces latency when querying or exporting data. |
 |**Cost**|No extra cost|- Cost of the machine learning service you use.<br>- Depending on how you [implement your machine learning pipeline](#apply-your-own-machine-learning-pipeline-to-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
 |**Limitations**|Analyze several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#apply-your-own-machine-learning-pipeline-to-data-in-azure-monitor-logs). |
@@ -87,10 +87,7 @@ To analyze logs outside of Azure Monitor, [export data out of your Log Analytics
 
 #### Build and training models
 
-Machine learning training is a long and iterative process, which usually involves retrieving and cleaning the training data, engineer features, experimenting with various 
-models, and tuning parameters until you find a model that's sufficiently accurate and robust. 
-
-There are a variety of open source machine learning libraries you can use to build and train machine learning models on data in Azure Monitor Logs, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py), and [MMLSpark](https://github.com/microsoft/SynapseML).
+There are a variety of open source machine learning libraries you can use to build and train machine learning models on data in Azure Monitor Logs, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), [Azure Machine Learning SDK](/python/api/overview/azure/ml/?view=azure-ml-py), and [SynapseML](https://github.com/microsoft/SynapseML).
 
 **Option 1: Directly in Azure Monitor Logs**
 
