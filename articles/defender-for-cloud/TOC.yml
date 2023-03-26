@@ -529,13 +529,15 @@
       href: defender-for-storage-malware-scan.md
     - name: Sensitive data threat detection
       href: defender-for-storage-data-sensitivity.md
-    - name: Working with Defender for Storage
+    - name: Enable and configure with Defender for Storage
       items:
       - name: Enable Defender for Storage
         href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
+      - name: Required permissions
+        href: support-matrix-defender-for-storage.md
       - name: Configure Malware Scanning
         href: defender-for-storage-configure-malware-scan.md
-      - name: Test and run a PoC
+      - name: Test and run a Proof of Concept
         href: defender-for-storage-test.md
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md

@@ -30,7 +30,7 @@ Upon enablement, the Sensitive Data Discovery engine initiates an automatic scan
 Sensitive data threat detection is available for Blob storage accounts, including: Standard general-purpose V1, Standard general-purpose V2, Azure Data Lake Storage Gen2 and Premium block blobs. Learn more about the [availability of Defender for Storage features](defender-for-storage-introduction.md#availability).
 
 To enable sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions.
-Learn more about the [roles and permissions](link) required for sensitive data threat detection.
+Learn more about the [roles and permissions](support-matrix-defender-for-storage.md) required for sensitive data threat detection.
 
 ## Enabling sensitive data threat detection
 
