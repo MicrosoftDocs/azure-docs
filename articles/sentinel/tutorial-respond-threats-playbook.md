@@ -306,19 +306,13 @@ To create an automation rule:
 
 [Discover other ways](automate-incident-handling-with-automation-rules.md#creating-and-managing-automation-rules) to create automation rules.
 
-### Respond to alerts
+### Respond to alerts&mdash;legacy method
 
-You use a playbook to respond to an **alert** by creating an **analytics rule**, or editing an existing one, that runs when the alert is generated, and selecting your playbook as an automated response in the [analytics rule wizard](detect-threats-custom.md).
+Another way to run playbooks automatically in response to **alerts** has been to call them from an **analytics rule**. When the rule generates an alert the playbook runs.
 
-1. From the **Analytics** blade in the Microsoft Sentinel navigation menu, select the analytics rule for which you want to automate the response, and click **Edit** in the details pane.
+**This method will be deprecated as of April 2026.**
 
-1. In the **Analytics rule wizard - Edit existing scheduled rule** page, select the **Automated response** tab.
-
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Automated response tab":::
-
-1. Choose your playbook from the drop-down list. You can choose more than one playbook, but only playbooks using the **alert trigger** will be available.
-
-1. In the **Review and update** tab, select **Save**.
+Beginning **April 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md).
 
 ## Run a playbook on demand
 
