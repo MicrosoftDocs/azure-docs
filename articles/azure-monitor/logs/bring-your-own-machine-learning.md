@@ -117,7 +117,7 @@ Scoring is the process of applying a machine learning model on new data to get
 To run your notebook on schedule:
 
 1. Run a notebook as a step in an Azure Machine Learning pipeline using [NotebookRunnerStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb).
-2. [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).
+1. [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).
 #### Convert Azure Monitor Logs data to different formats
 
 Azure Monitor Logs stores data in JSON format. Depending on the tools or libraries you use and the way implement your machine learning pipeline, you might need to convert data formats as part of your pipeline. 
