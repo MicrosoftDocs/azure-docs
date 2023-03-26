@@ -7,14 +7,16 @@ ms.topic: reference
 ms.date: 03/26/2023
 ---
 
-# Microsoft Sentinel solution for SAP® applications: security content reference
+# Microsoft Sentinel solution for SAP® applications - monitored parameters to detect risky configuration manipulation
 
 This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the [risky configuration manipulation feature](sap-solution-security-content.md#risky-configuration-manipulation).
 
+## Monitored SAP security parameters
+
 |Parameter  |Description  |Security value/considerations |
 |---------|---------|---------|
-|gw/accept_remote_trace_level     |Controls whether or not the Central Process Integration (CPI) and Remote Function Call (RFC) subsystems adopt the remote trace level. When this parameter is set to 1, remote trace levels are accepted and adopted by the CPI and RFC subsystems. When set to 0, remote trace levels are not accepted and the local trace level is used instead.<br><br>The trace level is a setting that determines the level of detail recorded in the system log for a specific program or process. When remote trace levels are adopted, this means that the trace level setting for a program or process can be set from a remote system instead of only from the local system. This can be useful in situations where remote debugging or troubleshooting is required.          | |
-|login/password_change_for_SSO      |Controls how password changes are enforced in Single Sign-On (SSO) situations. |High, because enforcing password changes can help prevent unauthorized access to the system by an attackers who may have obtained valid credentials through phishing or other means.         |
+|gw/accept_remote_trace_level     |Controls whether or not the Central Process Integration (CPI) and Remote Function Call (RFC) subsystems adopt the remote trace level. When this parameter is set to `1`, the CPI and RFC subsystems accept and adopt the remote trace levels. When set to `0`, remote trace levels aren't accepted and the local trace level is used instead.<br><br>The trace level is a setting that determines the level of detail recorded in the system log for a specific program or process. When the subsystems adopt the trace levels, you can set the trace level for a program or process from a remote system and not only from the local system. This setting can be useful in situations where remote debugging or troubleshooting is required.          | |
+|login/password_change_for_SSO      |Controls how password changes are enforced in single sign-on situations. |High, because enforcing password changes can help prevent unauthorized access to the system by attackers who may have obtained valid credentials through phishing or other means.         |
 |icm/accept_remote_trace_level      |Determines whether the Internet Communication Manager (ICM) accepts remote trace level changes from external systems. |Medium, because allowing remote trace level changes can provide valuable diagnostic information to attackers and potentially compromise system security.         |
 |rdisp/gui_auto_logout      |Specifies the maximum idle time for SAP GUI connections before automatically logging out the user. | High, because automatically logging out inactive users can help prevent unauthorized access to the system by attackers who may have gained access to a user's workstation.         |
 |rsau/enable      |Controls whether the Security Audit log is enabled. |High, because the Security Audit log can provide valuable information for detecting and investigating security incidents.         |
@@ -27,31 +29,31 @@ This article details the security parameters in the SAP system that the Microsof
 |login/fails_to_session_end      |Sets the number of invalid login attempts allowed before the user's session is terminated. |High, because the parameter helps prevent brute-force attacks on user accounts.         |
 |wdisp/ssl_encrypt      |Sets the mode for SSL re-encryption of HTTP requests. |High, because this parameter ensures that data transmitted over HTTP is encrypted, which helps prevent eavesdropping and data tampering.         |
 |login/no_automatic_user_sapstar      |Controls the automatic login of the SAP* user. |High, because this parameter helps prevent unauthorized access to the SAP system via the default SAP* account.         |
-|rsau/max_diskspace/local    |Defines the maximum amount of disk space that can be used for local storage of audit logs. This is a security parameter because it helps to prevent the filling up of disk space and ensures that audit logs are available for investigation.         | |
-|snc/extid_login_diag     |Enables or disables the logging of external ID in Secure Network Communication (SNC) logon errors. This is a security parameter because it can help identify attempts of unauthorized access to the system.         | |
-|login/password_change_waittime     |Defines the number of days a user must wait before changing their password again. This is a security parameter because it helps enforce password policies and ensure that users change their passwords periodically.         | |
-|snc/accept_insecure_cpic     |Determines whether or not the system accepts insecure SNC connections using the CPIC protocol. This is a security parameter because it controls the level of security for SNC connections.         | |
-|snc/accept_insecure_r3int_rfc     |Determines whether or not the system accepts insecure SNC connections for R/3 and RFC protocols. This is a security parameter because it controls the level of security for SNC connections.         | |
-|snc/accept_insecure_rfc      |Determines whether or not the system accepts insecure SNC connections using RFC protocols. This is a security parameter because it controls the level of security for SNC connections.         | |
-|snc/data_protection/max      |Defines the maximum level of data protection for SNC connections. This is a security parameter because it controls the level of encryption used for SNC connections.         | |
-|rspo/auth/pagelimit     |Defines the maximum number of spool requests that a user can display or delete at once. This is a security parameter because it helps to prevent denial-of-service attacks on the spool system.         | |
-|snc/accept_insecure_gui     |Determines whether or not the system accepts insecure SNC connections using the GUI. This is a security parameter because it controls the level of security for SNC connections.         | |
-|login/accept_sso2_ticket      |Enables or disables the acceptance of SSO2 tickets for logon. This is a security parameter because it controls the level of security for logon to the system.         | |
-|login/multi_login_users     |Defines whether or not multiple logon sessions are allowed for the same user. This is a security parameter because it controls the level of security for user sessions and helps prevent unauthorized access.         | |
+|rsau/max_diskspace/local    |Defines the maximum amount of disk space that can be used for local storage of audit logs. This security parameter helps to prevent the filling up of disk space and ensures that audit logs are available for investigation.         | |
+|snc/extid_login_diag     |Enables or disables the logging of external ID in Secure Network Communication (SNC) logon errors. This security parameter can help identify attempts of unauthorized access to the system.         | |
+|login/password_change_waittime     |Defines the number of days a user must wait before changing their password again. This security parameter helps enforce password policies and ensure that users change their passwords periodically.         | |
+|snc/accept_insecure_cpic     |Determines whether or not the system accepts insecure SNC connections using the CPIC protocol. This security parameter controls the level of security for SNC connections.         | |
+|snc/accept_insecure_r3int_rfc     |Determines whether or not the system accepts insecure SNC connections for R/3 and RFC protocols. This security parameter controls the level of security for SNC connections.         | |
+|snc/accept_insecure_rfc      |Determines whether or not the system accepts insecure SNC connections using RFC protocols. This security parameter controls the level of security for SNC connections.         | |
+|snc/data_protection/max      |Defines the maximum level of data protection for SNC connections. This security parameter controls the level of encryption used for SNC connections.         | |
+|rspo/auth/pagelimit     |Defines the maximum number of spool requests that a user can display or delete at once. This security parameter helps to prevent denial-of-service attacks on the spool system.         | |
+|snc/accept_insecure_gui     |Determines whether or not the system accepts insecure SNC connections using the GUI. This security parameter controls the level of security for SNC connections.         | |
+|login/accept_sso2_ticket      |Enables or disables the acceptance of SSO2 tickets for logon. This security parameter controls the level of security for logon to the system.         | |
+|login/multi_login_users     |Defines whether or not multiple logon sessions are allowed for the same user. This security parameter controls the level of security for user sessions and helps prevent unauthorized access.         | |
 |login/password_expiration_time      |Specifies the maximum time interval in days for which a password is valid. When this time elapses, the user is prompted to change their password. |Setting this parameter to a lower value can improve security by ensuring that passwords are changed frequently.         |
-|login/password_max_idle_initial      |Specifies the maximum time interval in minutes for which a user can remain logged on without performing any activity. After this time elapses, the user is automatically logged off. |Setting a lower value for this parameter can improve security by ensuring that idle sessions are not left open for extended periods of time.         |
-|login/password_history_size      |Specifies the number of previous passwords that a user is not allowed to reuse. |This prevents users from repeatedly using the same passwords, which can improve security.         |
+|login/password_max_idle_initial      |Specifies the maximum time interval in minutes for which a user can remain logged on without performing any activity. After this time elapses, the user is automatically logged off. |Setting a lower value for this parameter can improve security by ensuring that idle sessions aren't left open for extended periods of time.         |
+|login/password_history_size      |Specifies the number of previous passwords that a user isn't allowed to reuse. |This parameter prevents users from repeatedly using the same passwords, which can improve security.         |
 |snc/data_protection/use      |Enables the use of SNC data protection. When enabled, SNC ensures that all data transmitted between SAP systems is encrypted and secure. |         |
-|rsau/max_diskspace/per_day |Specifies the maximum amount of disk space in MB that can be used for audit logs per day. Setting a lower value for this parameter can help ensure that audit logs do not consume too much disk space and can be managed effectively. | |
+|rsau/max_diskspace/per_day |Specifies the maximum amount of disk space in MB that can be used for audit logs per day. Setting a lower value for this parameter can help ensure that audit logs don't consume too much disk space and can be managed effectively. | |
 |snc/enable |Enables SNC for communication between SAP systems. |When enabled, SNC provides an extra layer of security by encrypting data transmitted between systems. |
-|auth/no_check_in_some_cases |Disables authorization checks in certain cases. |While this may improve performance, it can also pose a security risk by allowing users to perform actions they may not have permission for. |
+|auth/no_check_in_some_cases |Disables authorization checks in certain cases. |While this parameter may improve performance, it can also pose a security risk by allowing users to perform actions they may not have permission for. |
 |auth/object_disabling_active |Disables specific authorization objects for user accounts that have been inactive for a specified period of time. |Can help improve security by reducing the number of inactive accounts with unnecessary permissions. |
-|login/disable_multi_gui_login |Prevents a user from being logged in to multiple GUI sessions simultaneously. |This can help improve security by ensuring that users are only logged in to one session at a time. |
-|login/min_password_lng |Specifies the minimum length that a password can be. |Setting a higher value for this parameter can improve security by ensuring that passwords are not easily guessed. |
+|login/disable_multi_gui_login |Prevents a user from being logged in to multiple GUI sessions simultaneously. |This parameter can help improve security by ensuring that users are only logged in to one session at a time. |
+|login/min_password_lng |Specifies the minimum length that a password can be. |Setting a higher value for this parameter can improve security by ensuring that passwords aren't easily guessed. |
 |rfc/reject_expired_passwd |Prevents the execution of RFCs when the user's password has expired. |Can help improve security by ensuring that only authenticated and authorized users are allowed to execute RFCs. |
-|rsau/max_diskspace/per_file |Sets the maximum size of an audit file that can be created by SAP system auditing. Setting a lower value helps prevent excessive growth of audit files and thus helps ensure adequate disk space. |Setting an appropriate value helps manage the size of audit files and avoid storage issues. |
+|rsau/max_diskspace/per_file |Sets the maximum size of an audit file that SAP system auditing can create. Setting a lower value helps prevent excessive growth of audit files and thus helps ensure adequate disk space. |Setting an appropriate value helps manage the size of audit files and avoid storage issues. |
 |login/min_password_letters |Specifies the minimum number of letters that must be included in a user's password. Setting a higher value helps increase password strength and security. |Setting an appropriate value helps enforce password policies and improve password security. |
-|rsau/selection_slots |Sets the number of selection slots that can be used for audit files. Setting a higher value can help to avoid overwriting of older audit files. |Helps ensure that audit files are retained for a longer period of time, which can be useful in case of any security breach. |
+|rsau/selection_slots |Sets the number of selection slots that can be used for audit files. Setting a higher value can help to avoid overwriting of older audit files. |Helps ensure that audit files are retained for a longer period of time, which can be useful in a security breach. |
 |gw/sim_mode |This parameter sets the gateway's simulation mode. When enabled, the gateway only simulates communication with the target system, and no actual communication takes place. |Enabling this parameter can be useful for testing purposes and can help prevent any unintended changes to the target system. |
 |login/fails_to_user_lock |Sets the number of failed login attempts after which the user account gets locked. Setting a lower value helps prevent brute force attacks. |Helps prevent unauthorized access to the system and helps protect user accounts from being compromised. | 
 |login/password_compliance_to_current_policy |Enforces the compliance of new passwords with the current password policy of the system. Its value should be set to `1` to enable this feature. |High. |
@@ -65,3 +67,15 @@ This article details the security parameters in the SAP system that the Microsof
 |login/min_password_lowercase  |Sets the minimum number of lowercase letters required in new passwords. Its value should be set to a positive integer. 
 |login/password_downwards_compatibility |Allows passwords to be set using old hashing algorithms for backwards compatibility with older systems. Its value should be set to `0` to disable this feature. | |
 |snc/data_protection/min |Sets the minimum level of data protection that must be used for SNC-protected connections. Its value should be set to a positive integer. | |
+
+## Next steps
+
+For more information, see:
+
+- [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [SAP solution security content](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
+- [Configuration file reference](configuration-file-reference.md)
+- [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
