@@ -70,43 +70,40 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 
 ## Set up Microsoft Defender for Storage
 
-To enable and configure Microsoft Defender for Storage to ensure maximum protection and cost optimization, the following configuration options are available: 
+To enable and configure Microsoft Defender for Storage to ensure maximum protection and cost optimization, the following configuration options are available:
 
-Enable/disable Microsoft Defender for Storage. 
+- Enable Microsoft Defender for Storage.
+- Enable the malware scanning or sensitive data threat detection configurable features.
+- Set a monthly cap on the malware scanning per storage account to control costs. (Default value is 5000GB per storage account per month)
+- Configure additional methods for saving malware scanning results and logging.
 
-Enable/disable the malware scanning or sensitive data threat detection configurable features. 
+    > [!TIP]
+    > The Malware Scanning features has [advanced configurations](../../defender-for-cloud/defender-for-storage-configure-malware-scan.md) to help security teams support different workflows and requirements.
 
-Set a monthly cap on the malware scanning per storage account to control costs. (default value is 5000GB per storage account per month) 
+- Override subscription-level settings to configure specific storage accounts with custom configurations that differ from the settings configured at the subscription level.
 
-Configure additional methods for saving malware scanning results and logging. 
-
-[! Tip] the Malware Scanning features has advanced configurations to support security teams' different workflows and requirements. 
-
-Override subscription-level settings to configure specific storage accounts with custom configurations that differ from the settings configured at the subscription level. 
-
-You can enable and configure Microsoft Defender for Storage from the Azure portal, built-in Azure policies, programmatically using IaC templates (Bicep and ARM) or directly with REST API. 
+You can enable and configure Microsoft Defender for Storage from the Azure portal, built-in Azure policies, programmatically using IaC templates (Bicep and ARM) or directly with REST API.
 
 > [!NOTE]
 > To prevent migrating back to the legacy classic plan, make sure to disable the old Defender for Storage policies. Look for and disable policies named **Configure Azure Defender for Storage to be enabled**, **Azure Defender for Storage should be enabled**, or **Configure Microsoft Defender for Storage to be enabled (per-storage account plan)**.
 
 ## [Enable on a subscription](#tab/enable-subscription/)
 
-> [!NOTE]
-> You can only enable per-storage account pricing at the subscription level.
+We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 
-With the Defender for Storage per-storage account pricing, you can configure Defender for Storage on your subscriptions in several ways to protect all your existing and new storage accounts in that subscription.
-
-You can configure Microsoft Defender for Storage on your subscriptions in several ways:
+There are several ways to enable Defender for Storage on subscriptions:
 
 - [Azure portal](#azure-portal)
-- [Bicep template](#bicep-template)
-- [ARM template](#arm-template)
-- [Terraform template](#terraform-template)
+- [Azure built-in policy](#azure-built-in-policy)
+- IaC templates, including [Bicep](#bicep-template) and [ARM](#arm-template)
 - [REST API](#rest-api)
+
+> [!TIP]
+> You can [override or set custom configuration settings](link) for specific storage accounts within protected subscriptions.
 
 ### Azure portal
 
-To enable Microsoft Defender for Storage at the subscription level with per-storage account pricing using the Azure portal:
+To enable Defender for Storage at the subscription level using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -115,52 +112,200 @@ To enable Microsoft Defender for Storage at the subscription level with per-stor
 
     :::image type="content" source="media/azure-defender-storage-configure/defender-for-cloud-select-subscription.png" alt-text="Screenshot showing how to select a subscription in Defender for Cloud." lightbox="media/azure-defender-storage-configure/defender-for-cloud-select-subscription.png":::
 
-1. On the **Defender plans** page, enable Defender for Storage per-storage account pricing with one of the following options:
-
-    - Choose the **Enable all** button to enable Microsoft Defender for Cloud in the subscription.
-    - To enable Microsoft Defender for Storage, locate **Storage** in the list and toggle the **On** button. Then choose **Save**.
+1. On the **Defender plans** page, locate **Storage** in the list and select **On** and **Save**.
 
       If you currently have Defender for Storage enabled with per-transaction pricing, select the **New pricing plan available** link and confirm the pricing change.
 
         :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Defender for Storage in Defender for Cloud." lightbox="media/azure-defender-storage-configure/enable-azure-defender-security-center.png":::
 
-Microsoft Defender for Storage is now enabled for this storage account.
+Microsoft Defender for Storage is now enabled for this subscription, and is fully protected, including on-upload malware scanning and sensitive data threat detection.
 
-To disable the plan, toggle the **Off** button for Defender for Storage on the **Defender plans** page.
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection**, you can select **Settings** and change the status of the relevant feature to Off.
 
-### Enable per-storage account pricing programmatically
+If you want to change the malware scanning size cap per storage account per month for malware, change the settings in **Edit configuration**.
+
+If you want to disable the plan, toggle the status button to **Off** for the Storage plan on the Defender plans page.
+
+### Enable Defender for Storage at scale
+
+#### Azure built-in policy
+
+To enable and configure Defender for Storage at scale with an Azure built-in policy to ensure that consistent security policies are applied across all existing and new storage accounts within the subscriptions, follow these steps:
+
+1. Sign in to the Azure portal and navigate to the Policy dashboard.
+
+1. In the Policy dashboard, select **Definitions** from the left-side menu.
+
+1. In the “Security Center” category, search for and then select the **Configure Microsoft Defender for Storage to be enabled**. This policy will enable all Defender for Storage capabilities: Activity Monitoring, Malware Scanning and Sensitive Data Threat Detection. You can also get it here: [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#security-center)
+
+    If you want to enable a policy without the configurable features, use **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only)**.
+
+1. Choose the policy and review it.
+
+1. Select **Assign** and edit the policy details. You can fine-tune, edit, and add custom rules to the policy.
+
+1. Once you have completed reviewing, select **Review + create**.
+
+1. Select **Create** to assign the policy.
 
 #### Bicep template
 
-To enable Microsoft Defender for Storage at the subscription level with per-storage account pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
+To enable Microsoft Defender for Storage at the subscription level using [Bicep](../../azure-resource-manager/bicep/overview.md), make sure your [target scope is set to `subscription`](../../azure-resource-manager/bicep/deploy-to-subscription.md#scope-to-subscription), and add the following to your Bicep template:
 
 ```bicep
-resource symbolicname 'Microsoft.Security/pricings@2022-03-01' = {
+resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
   name: 'StorageAccounts'
   properties: {
     pricingTier: 'Standard'
-    subPlan: 'PerStorageAccount'
+    subPlan: 'DefenderForStorageV2'
+    extensions: [
+      {
+        name: 'OnUploadMalwareScanning'
+        isEnabled: 'True'
+        additionalExtensionProperties: {
+          CapGBPerMonthPerStorageAccount: '5000'
+        }
+      }
+      {
+        name: 'SensitiveDataDiscovery'
+        isEnabled: 'True'
+      }
+    ]
   }
 }
 ```
 
-To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
+To modify the monthly cap for malware scanning per storage account, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
 
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+
+To disable the entire Defender for Storage plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
 #### ARM template
 
-To enable Microsoft Defender for Storage at the subscription level with per-storage account pricing using an ARM template, add this JSON snippet to the resources section of your ARM template:
+To enable and configure Microsoft Defender for Storage at the subscription level using an ARM template, add this JSON snippet to the resources section of your ARM template:
 
 ```json
 {
-  "type": "Microsoft.Security/pricings",
-  "apiVersion": "2022-03-01",
-  "name": "StorageAccounts",
-  "properties": {
-    "pricingTier": "Standard",
-    "subPlan": "PerStorageAccount"
-  }
+    "type": "Microsoft.Security/pricings",
+    "apiVersion": "2023-01-01",
+    "name": "StorageAccounts",
+    "properties": {
+        "pricingTier": "Standard",
+        "subPlan": "DefenderForStorageV2",
+        "extensions": [
+            {
+                "name": "OnUploadMalwareScanning",
+                "isEnabled": "True",
+                "additionalExtensionProperties": {
+                    "CapGBPerMonthPerStorageAccount": "5000"
+                }
+            },
+            {
+                "name": "SensitiveDataDiscovery",
+                "isEnabled": "True"
+            }
+        ]
+    }
+}
+```
+
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
+
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+
+To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
+
+Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
+
+#### REST API
+
+To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint (replace the `subscriptionId` in the endpoint URL with your own Azure subscription ID):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01
+```
+
+And add the following request body:
+
+```http
+{
+    "properties": {
+        "extensions": [
+            {
+                "name": "OnUploadMalwareScanning",
+                "isEnabled": "True",
+                "additionalExtensionProperties": {
+                    "CapGBPerMonthPerStorageAccount": "5000"
+                }
+            },
+            {
+                "name": "SensitiveDataDiscovery",
+                "isEnabled": "True"
+            }
+        ],
+        "subPlan": "DefenderForStorageV2",
+        "pricingTier": "Standard"
+    }
+}
+```
+
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+
+To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
+
+Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
+
+## [Enable on a storage account](#tab/enable-storage-account/)
+
+You can enable and configure Microsoft Defender for Storage on specific storage accounts in several ways:
+
+- [Azure Portal](#azure-portal-1)
+- [ARM template](#arm-template-1)
+- [Bicep template](#bicep-template-1)
+- [REST API](#rest-api-1)
+
+The steps below include instructions on how to set up logging and an Event Grid for the Malware Scanning.
+
+### Azure Portal
+
+To enable and configure Microsoft Defender for Storage for a specific account using the Azure portal:
+Sign in to the Azure portal.
+Navigate to your storage account.
+In the storage account menu (left side-panel), in the Security + networking section, select Microsoft Defender for Cloud.
+On-upload Malware Scanning and Sensitive data threat detection are enabled by default. You can disable them by unchecking the boxes.
+Select Enable on storage account.
+
+Microsoft Defender for Storage is now enabled on this storage account.
+[! Tip] To configure On-upload malware scanning settings (e.g., monthly cap), click Settings after Defender for Storage was enabled.
+
+If you want to disable Defender for Storage on the storage account or disable one of the features (On-upload malware scanning or Sensitive data threat detection), select Settings, edit the settings, and click Save.
+
+### ARM template
+
+To enable Microsoft Defender for Storage at the storage account level using an ARM template, add this JSON snippet to the resources section of your ARM template:
+
+```json
+{
+    "type": "Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings",
+    "apiVersion": "2022-12-01-preview",
+    "name": "[concat(parameters('accountName'), '/Microsoft.Security/current')]",
+    "properties": {
+        "isEnabled": true,
+        "malwareScanning": {
+            "onUpload": {
+                "isEnabled": true,
+                "capGBPerMonth": 5000
+            }
+        },
+        "sensitiveDataDiscovery": {
+            "isEnabled": true
+        },
+        "overrideSubscriptionLevelSettings": true
+    }
 }
 ```
 
@@ -168,68 +313,7 @@ To disable the plan, set the `pricingTier` property value to `Free` and remove t
 
 Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
 
-#### Terraform template
-
-To enable Microsoft Defender for Storage at the subscription level with per-storage account pricing using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value:
-
-```terraform
-resource "azapi_resource" "symbolicname" {
-  type = "Microsoft.Security/pricings@2022-03-01"
-  name = "StorageAccounts"
-  parent_id = "<subscriptionId>"
-  body = jsonencode({
-    properties = {
-      pricingTier = "Standard"
-      subPlan = "PerStorageAccount"
-    }
-  })
-}
-```
-
-To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
-
-Learn more about the [Terraform template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-terraform).
-
-#### REST API
-
-To enable Microsoft Defender for Storage at the subscription level with per-storage account pricing using the Microsoft Defender for Cloud REST API, create a PUT request with this endpoint and body:
-
-```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2022-03-01
-
-{
-  "properties": {
-    "pricingTier": "Standard",
-    "subPlan": "PerStorageAccount"
-  }
-}
-```
-
-Replace `{subscriptionId}` with your subscription ID.
-
-> [!TIP]
-> You can use the [Get](/rest/api/defenderforcloud/pricings/get) and [List](/rest/api/defenderforcloud/pricings/list) API requests to see all of the Defender for Cloud plans that are enabled for the subscription.
-
-To disable the plan, set the `-pricingTier` property value to `Free` and remove the `subPlan` parameter.
-
-Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
-
-## [Per-transaction pricing](#tab/per-transaction/)
-
-For the Defender for Storage per-transaction pricing, we recommend that you enable Defender for Storage for each subscription so that all existing and new storage accounts are protected. If you want to only protect specific accounts, [configure Defender for Storage for each account](#set-up-per-transaction-pricing-for-an-account).
-
-### Set up per-transaction pricing for a subscription
-
-You can configure Microsoft Defender for Storage on your subscriptions in several ways:
-
-- [Bicep template](#bicep-template-1)
-- [ARM template](#arm-template-1)
-- [Terraform template](#terraform-template-1)
-- [PowerShell](#powershell)
-- [Azure CLI](#azure-cli)
-- [REST API](#rest-api-1)
-
-#### Bicep template
+### Bicep template
 
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
@@ -247,104 +331,7 @@ To disable the plan, set the `pricingTier` property value to `Free` and remove t
 
 Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
-#### ARM template
-
-To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using an ARM template, add this JSON snippet to the resources section of your ARM template:
-
-```json
-{
-  "type": "Microsoft.Security/pricings",
-  "apiVersion": "2022-03-01",
-  "name": "StorageAccounts",
-  "properties": {
-    "pricingTier": "Standard",
-    "subPlan": "PerTransaction"
-  }
-}
-```
-
-To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
-
-Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
-
-#### Terraform template
-
-To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using a Terraform template, add this code snippet to your template with your subscription ID as the `parent_id` value:
-
-```terraform
-resource "azapi_resource" "symbolicname" {
-  type = "Microsoft.Security/pricings@2022-03-01"
-  name = "StorageAccounts"
-  parent_id = "<subscriptionId>"
-  body = jsonencode({
-    properties = {
-      pricingTier = "Standard"
-      subPlan = "PerTransaction"
-    }
-  })
-}
-```
-
-To disable the plan, set the `pricingTier` property value to `Free` and remove the `subPlan` property.
-
-Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
-
-#### PowerShell
-
-To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using PowerShell:
-
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
-1. Use the `Connect-AzAccount` cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
-1. Use these commands to register your subscription to the Microsoft Defender for Cloud Resource Provider:
-
-    ```powershell
-    Set-AzContext -Subscription <subscriptionId>
-    Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'
-    ```
-
-    Replace `<subscriptionId>` with your subscription ID.
-
-1. Enable Microsoft Defender for Storage for your subscription with the `Set-AzSecurityPricing` cmdlet:
-
-    ```powershell
-    Set-AzSecurityPricing -Name "StorageAccounts" -PricingTier "Standard"
-    ```
-
-> [!TIP]
-> You can use the [`GetAzSecurityPricing` (Az_Security)](/powershell/module/az.security/get-azsecuritypricing) to see all of the Defender for Cloud plans that are enabled for the subscription.
-
-To disable the plan, set the `-PricingTier` property value to `Free`.
-
-Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
-
-#### Azure CLI
-
-To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using Azure CLI:
-
-1. If you don't have it already, [install the Azure CLI](/cli/azure/install-azure-cli).
-1. Use the `az login` command to sign in to your Azure account. Learn more about [signing in to Azure with Azure CLI](/cli/azure/authenticate-azure-cli).
-1. Use these commands to set the subscription ID and name:
-
-    ```azurecli
-    az account set --subscription "<subscriptionId or name>"
-    ```
-
-    Replace `<subscriptionId>` with your subscription ID.
-
-1. Enable Microsoft Defender for Storage for your subscription with the `az security pricing create` command:
-
-    ```azurecli
-    az security pricing create -n StorageAccounts --tier "standard"
-    ```
-
-> [!TIP]
-> You can use the [`az security pricing show`](/cli/azure/security/pricing#az-security-pricing-show) command to see all of the Defender for Cloud plans that are enabled for the subscription.
-
-To disable the plan, set the `-tier` property value to `free`.
-
-Learn more about the [`az security pricing create`](/cli/azure/security/pricing#az-security-pricing-create) command.
-
-#### REST API
+### REST API
 
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using the Microsoft Defender for Cloud REST API, create a PUT request with this endpoint and body:
 
@@ -365,124 +352,240 @@ To disable the plan, set the `-pricingTier` property value to `Free` and remove 
 
 Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
-### Set up per-transaction pricing for an account
-
-You can configure Microsoft Defender for Storage with per-transaction pricing on your accounts in several ways:
-
-- [Azure portal](#azure-portal-1)
-- [ARM template](#arm-template-2)
-- [PowerShell](#powershell-1)
-- [Azure CLI](#azure-cli-1)
-
-#### Azure portal
-
-To enable Microsoft Defender for Storage for a specific account with per-transaction pricing using the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account.
-1. In the **Security + networking** section of the Storage account menu, select **Microsoft Defender for Cloud**.
-1. Select **Enable Defender on this storage account only**.
-
-:::image type="content" source="media/azure-defender-storage-configure/storage-enable-defender-for-account.png" alt-text="Screenshot showing how to enable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/azure-defender-storage-configure/storage-enable-defender-for-account.png":::
-
-Microsoft Defender for Storage is now enabled for this storage account. If you want to disable Defender for Storage on the account, select **Disable**.
-
-:::image type="content" source="media/azure-defender-storage-configure/storage-disable-defender-for-account.png" alt-text="Screenshot showing how to disable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/azure-defender-storage-configure/storage-disable-defender-for-account.png":::
-
-#### ARM template
-
-To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using an ARM template, use [the prepared Azure template](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
-
-If you want to disable Defender for Storage on the account:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account.
-1. In the Security + networking section of the Storage account menu, select **Microsoft Defender for Cloud**.
-1. Select **Disable**.
-
-#### PowerShell
-
-To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using PowerShell:
-
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
-1. Use the Connect-AzAccount cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
-1. Enable Microsoft Defender for Storage for the desired storage account with the [`Enable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) cmdlet:
-
-    ```powershell
-    Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
-    ```
-
-    Replace `<subscriptionId>`, `<resource-group>`, and `<storage-account>` with the values for your environment.
-
-If you want to disable per-transaction pricing for a specific storage account, use the [`Disable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection) cmdlet:
-
-```powershell
-Disable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
-```
-
-Learn more about the [using PowerShell with Microsoft Defender for Cloud](../../defender-for-cloud/powershell-onboarding.md).
-
-#### Azure CLI
-
-To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using Azure CLI:
-
-1. If you don't have it already, [install the Azure CLI](/cli/azure/install-azure-cli).
-1. Use the `az login` command to sign in to your Azure account. Learn more about [signing in to Azure with Azure CLI](/cli/azure/authenticate-azure-cli).
-1. Enable Microsoft Defender for Storage for your subscription with the [`az security atp storage update`](/cli/azure/security/atp/storage) command:
-
-    ```azurecli
-    az security atp storage update \
-    --resource-group <resource-group> \
-    --storage-account <storage-account> \
-    --is-enabled true
-    ```
-
-> [!TIP]
-> You can use the [`az security atp storage show`](/cli/azure/security/atp/storage) command to see if Defender for Storage is enabled on an account.
-
-To disable Microsoft Defender for Storage for your subscription, use the [`az security atp storage update`](/cli/azure/security/atp/storage) command:
-
-```azurecli
-az security atp storage update \
---resource-group <resource-group> \
---storage-account <storage-account> \
---is-enabled false
-```
-
-Learn more about the [az security atp storage](/cli/azure/security/atp/storage#az-security-atp-storage-update) command.
-
 ---
 
-## FAQ - Microsoft Defender for Storage pricing
-### Can I switch from an existing per-transaction pricing to per-storage account pricing?
+## Configure Malware Scanning
 
-Yes, you can migrate to per-storage account pricing in the Azure portal or using any of the other supported enablement methods. To migrate to per-storage account pricing, [enable per-storage account pricing at the subscription level](#set-up-microsoft-defender-for-storage).
+### Setting Up Logging for Malware Scanning 
 
-### Can I return to per-transaction pricing after switching to per-storage account pricing?
+For each storage account enabled with Malware Scanning, you can define a Log Analytics workspace destination to store every scan result in a centralized log repository that is easy to query.  
 
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage) to migrate back from per-storage account pricing using all enablement methods except for the Azure portal.
+Before sending scan results to Log Analytics, create a Log Analytics workspace or use an existing one (refer to Create Log Analytics workspaces for more information).  
 
-### Will you continue supporting per-transaction pricing?
+To configure the Log Analytics destination, navigate to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.  
 
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage) from all the enablement methods, except for the Azure portal.
+This configuration can be performed using REST API as well: 
+Request URL: 
 
-### Can I exclude specific storage accounts from protections in per-storage account pricing?
+PUT  
+https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name> 
+/providers/Microsoft.Security/antiMalwareSettings/current/providers/Microsoft.Insights/ 
+diagnosticSettings/service?api-version=2021-05-01-preview 
 
-No, you can only enable per-storage account pricing for each subscription. All storage accounts in the subscription are protected.
+Request Body: 
 
-### How long does it take for per-storage account pricing to be enabled?
+{ 
 
-When you enable Microsoft Defender for Storage at the subscription level for per-storage account or per-transaction pricing, it takes up to 24 hours for the plan to be enabled.
+    "properties": { 
 
-### Is there any difference in the feature set of per-storage account pricing compared to the legacy per-transaction pricing?
+        "workspaceId": "/subscriptions/704601a1-0ac4-4d5d-aecd-322835fbde2f/resourcegroups/demorg/providers/microsoft.operationalinsights/workspaces/malwarescanningscanresultworkspace", 
 
-No. Both per-storage account and per-transaction pricing include the same features. The only difference is the pricing.
+        "logs": [ 
 
-### How can I estimate the cost for each pricing?
+            { 
 
-To estimate the cost according to each pricing for your environment, we created a [pricing estimation workbook](https://aka.ms/dfstoragecosttool) and a PowerShell script that you can run in your environment.
+                "categoryGroup": "allLogs", 
 
-## Next steps
+                "enabled": true, 
 
-- Check out the [alerts for Azure Storage](../../defender-for-cloud/alerts-reference.md#alerts-azurestorage)
-- Learn about the [features and benefits of Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md)
+                "retentionPolicy": { 
+
+                    "enabled": true, 
+
+                    "days": 180 
+
+                } 
+
+            } 
+
+        ] 
+
+    }} 
+
+ 
+ 
+
+### Setting Up Event Grid for Malware Scanning 
+
+For each storage account enabled with Malware Scanning, you can configure to send every scan result using event grid event for automation purposes.  
+
+To configure Event Grid for sending scan results, you'll first need to create a custom topic in advance. Refer to the Event Grid documentation on creating custom topics for guidance. Ensure that the destination Event Grid custom topic is created in the same region as the storage account from which you want to send scan results.  
+
+To configure the Event Grid custom topic destination, go to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.  
+
+Note: when setting Event Grid custom topic, you should set “Override Defender for Storage subscription-level settings” to “ON” to make sure it will be overrun b 
+
+ 
+
+This configuration can be performed using REST API as well: 
+
+Request URL: 
+
+PUT  
+https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name> 
+/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview 
+
+Request Body: 
+
+{ 
+
+    "properties": { 
+
+        "isEnabled": true, 
+
+        "malwareScanning": { 
+
+            "onUpload": { 
+
+                "isEnabled": true, 
+
+                "capGBPerMonth": 5000 
+
+            }, 
+
+            "scanResultsEventGridTopicResourceId": "/subscriptions/704601a1-0ac4-4d5d-aecd-322835fbde2f/resourceGroups/DemoRG/providers/Microsoft.EventGrid/topics/ScanResultsEGCustomTopic" 
+
+        }, 
+
+        "sensitiveDataDiscovery": { 
+
+            "isEnabled": true 
+
+        }, 
+
+        "overrideSubscriptionLevelSettings": true 
+
+    } 
+
+} 
+
+ 
+
+ 
+
+### Override Defender for Storage subscription-level settings 
+
+ 
+Defender for Storage settings on each storage account is inherited by the subscription-level settings. Use Override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level.  
+The override setting is usually used for the following scenarios: 
+
+Enable/disable the malware scanning or the data sensitivity threat detection features 
+
+Configure custom settings for Malware Scanning 
+
+Disable Microsoft Defender for Storage on specific storage accounts 
+
+[!Note]  
+
+It is recommended to enable Defender for Storage on the entire subscription to protect all existing and future storage accounts in it. However, there are some cases where you would want to exclude specific storage accounts from Defender protection. If you've decided to exclude, follow the steps below to use the override setting and then disable the relevant storage account. 
+
+ 
+
+If you wish to exclude storage accounts from the Defender for Storage classic plan, you should follow the steps documented in configure Microsoft Defender for Storage (classic), as the steps outlined in this document are specifically for the new plan. 
+
+ 
+
+#### Azure portal 
+
+To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the Azure portal: 
+
+Sign in to the Azure portal. 
+
+Navigate to your storage account that you want to configure custom settings. 
+
+In the storage account menu (left side-panel), in the Security + networking section, select Microsoft Defender for Cloud. 
+
+Select Settings in the Microsoft Defender for Storage section to open the side menu. 
+
+Set the status of Override Defender for Storage subscription-level settings (under Advanced settings) to On. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings. 
+
+Configure the settings you wish to change: 
+
+To enable/disable malware scanning or sensitive data threat detection, set their status to on/off accordingly. 
+
+To modify the settings of malware scanning: 
+
+Switch the On-upload malware scanning to On if it’s not already enabled. 
+
+Check the relevant boxes underneath and change the settings. If you wish to permit unlimited scanning, assign the value -1.  
+
+For more information on Malware Scanning, visit Malware Scanning in Defender for Storage. 
+
+To disable Defender for Storage on this storage accounts, set the status of Microsoft Defender for Storage to Off. 
+
+ 
+
+Click Save. 
+
+ 
+
+#### REST API 
+
+To override Defender for Storage subscription-level settings to configure settings that are different from the settings that are configured on the subscription-level using the REST API: 
+
+ 
+
+Create a PUT request with this endpoint (replace the subscriptionId , resourceGroupName, and accountName in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly): 
+
+HTTP 
+
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/DefenderForStorageSettings/current?api-version=2022-12-01-preview 
+
+Configure the settings you wish to change by adding them to the request body: 
+
+JSON 
+
+{ 
+
+    "properties": { 
+
+        "isEnabled": true, 
+
+        "malwareScanning": { 
+
+            "onUpload": { 
+
+                "isEnabled": true, 
+
+                "capGBPerMonth": 5000 
+
+            } 
+
+        }, 
+
+        "sensitiveDataDiscovery": { 
+
+            "isEnabled": true 
+
+        }, 
+
+        "overrideSubscriptionLevelSettings": true 
+
+    } 
+
+} 
+
+ 
+
+To enable/disable malware scanning or sensitive data threat detection, set the value of isEnabled to true/false under the relevant features. 
+
+To modify the settings of malware scanning, edit the relevant fields under “onUpload”, make sure the value of isEnabled is true. If you wish to permit unlimited scanning, assign the value -1 to the capGBPerMonth parameter. 
+For more information on Malware Scanning, visit Malware Scanning in Defender for Storage. 
+
+To disable Defender for Storage on this storage accounts, use the following request body: 
+
+JSON 
+
+{ 
+
+    "properties": { 
+
+        "isEnabled": false, 
+
+        "overrideSubscriptionLevelSettings": true 
+
+    } 
+
+} 
+
+Make sure you add the parameter overrideSubscriptionLevelSettings and its value is set to true. This ensures that the settings are saved only for this storage account and will not be overrun by the subscription settings. 

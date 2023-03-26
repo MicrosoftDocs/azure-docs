@@ -46,10 +46,13 @@ With a simple agentless setup at scale, you can enable Defender for Storage at t
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-| Feature availability | Activity monitoring (security alerts) - General availability (GA)</br>Malware Scanning – Preview</br>Detecting entities without identities (SAS-based) – Preview</br>Sensitive data threat detection (Sensitive Data Discovery) – Preview |
-|Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (Standard/Premium StorageV2, Block Blobs) support Activity monitoring, Malware Scanning, Sensitive Data Discovery <br>[Azure Files](../storage/files/storage-files-introduction.md) (over REST API and SMB) support Activity monitoring<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled) support Activity monitoring, Malware Scanning |
-| Required roles and permissions: | For Malware Scanning and Sensitive Data Discovery either:</br>- Subscription Owner role</br>- Microsoft.Storage/storageAccounts/{read/write}​​ and Microsoft.Authorization/roleAssignments/{read/write/delete}​ |
+|Feature availability:|- Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning – Preview<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
+|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* In the future, Malware Scanning will be priced at $0.15/GB of data ingested. Billing for Malware Scanning is not enabled during public preview and advanced notice will be given before billing starts.|
+| Supported storage types:|[Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
+|Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
+|Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Azure Government (Only for activity monitoring)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+
+\* Azure DNS Zone is not supported for Malware Scanning and sensitive data threat detection.
 
 ## What are the benefits of Microsoft Defender for Storage?
 
