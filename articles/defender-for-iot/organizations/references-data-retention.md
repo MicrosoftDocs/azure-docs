@@ -7,7 +7,9 @@ ms.date: 01/22/2023
 
 # Data retention across Microsoft Defender for IoT
 
-Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
+Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinately on your sensors. 
+
+Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
@@ -129,3 +131,4 @@ For more information, see:
 - [Manage individual OT network sensors](how-to-manage-individual-sensors.md)
 - [Manage OT network sensors from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage an on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Azure data encryption](/azure/security/fundamentals/encryption-overview)

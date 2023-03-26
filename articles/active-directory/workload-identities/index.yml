@@ -55,6 +55,13 @@ landingContent:
           - text: Configure a managed identity to trust an external identity provider
             url: workload-identity-federation-create-trust-user-assigned-managed-identity.md
   # Card
+  - title: Enforce best practice for how apps use auth methods
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application authentication methods API
+            url: /graph/api/resources/applicationauthenticationmethodpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
   - title: Secure risky workload identities
     linkLists:
       - linkListType: overview
