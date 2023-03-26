@@ -19,8 +19,11 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagem
 
 There are two approaches to Map DNS for the applications in multiple Azure Spring Apps in the same VNET. Using the Microsoft provided fully qualified domain name (FQDN) or using the custom domain. This doc will show you how to achieve that with two Azure Spring Apps instance azure-spring-apps-1 and azure-spring-apps-2 in the same VNET as an example.
 
+## Overview
 
-## Shared steps
+Using the microsoft provided fully qualified domain name (FQDN) is relatively simple and lightweight way compared to the custom domain way. It is recommanded if you do not need a wildcard approach in your DNS zone. If you already have a custom domain or you want a wildcard approach to work in a multi instance scenario, please use the custom domain way. These two ways has [shared steps](#shared-steps) at the beginning and would have different extra steps at the following(e.g.[FQDN](#extra-steps-by-using-microsoft-provided-fully-qualified-domain-name) and [custom domain](#extra-steps-by-using-custom-domain)), please follow the steps in following sections.
+
+## [Shared steps](#shared-steps)
 
 ### Find the IP for your applications
 
@@ -165,7 +168,7 @@ az spring app update \
 ---
 
 
-## Extra steps by using Microsoft provided Fully qualified domain name
+## [Extra steps by using Microsoft provided Fully qualified domain name](extra-steps-fqdn)
 
 Using this Microsoft provided fully qualified domain name requires you to add DNS record for each applications. Before using this approach, please make sure that you have read [Access your application in a private network](how-to-prepare-app-deployment.md).
 
@@ -219,7 +222,7 @@ After the assignment, you can access all those application's private FQDN in the
 ![Access private endpoint in vnet FQDN 2](media/spring-cloud-access-app-vnet-multiple-instance/access-private-endpoint-2-fqdn.png)
 
 
-## Extra steps by using Custom domain
+## [Extra steps by using Custom domain](extra-steps-custom-domain)
 
 By using Custom domain, you only need to add DNS record for each azure spring apps instance. But instead, you need to configure custom domain for each applications. please make sure that you have read [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
