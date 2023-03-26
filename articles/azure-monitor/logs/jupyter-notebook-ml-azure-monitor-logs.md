@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 ## Limitations 
 
 - [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome up to curtain degree as suggested later. 
-- Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
+- Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). 
 
 ## Prerequisites 
 In this tutorial, you need:
@@ -53,13 +53,13 @@ In this tutorial, you need:
 
     - A CPU compute instance.  
     - A kernel set to Python 3.8 or higher.
-    - [A notebook](../../machine-learning/quickstart-run-notebooks#create-a-new-notebook). 
+    - [A notebook](../../machine-learning/quickstart-run-notebooks.md#create-a-new-notebook). 
 - The following roles and permissions: 
 
     |Type  |Details  |
     |---------|---------|
     |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from and send data to your Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
-    |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     | 
+    |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../../machine-learning/how-to-assign-roles.md).     | 
 ## Tools you'll use
 
 |Source| Tool | Description |
@@ -67,10 +67,10 @@ In this tutorial, you need:
 |Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
 ||[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
 ||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API. Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional)|
-||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal#configure-the-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
+||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal.md#configure-the-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
 |Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
 ||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool for Python. |
-||[Plotly](https://spark.apache.org/docs/api/python/index.html)| An open source graphing library for Python. |
+||[Plotly](https://plotly.com/python/)| An open source graphing library for Python. |
 ||[Scikit-learn](https://scikit-learn.org/stable/)|An open source Python library that implements machine learning algorithms for predictive data analysis.|    
  ## Install required Python tools
 
@@ -244,7 +244,7 @@ Use the gradient boosting regression model to predict ingestion in a new time ra
     In this tutorial, we'll use a method called [Tukey's fences method](https://en.wikipedia.org/wiki/Outlier#Tukey%27s_fences) to identify anomalies. 
     
     > [!NOTE]
-    > The KQL [series_decompse_anomalies](../../data-explorer/kusto/query/series-decompose-anomaliesfunction) function also uses the Tukey's fences method to detect anomalies.
+    > The KQL [series_decompse_anomalies](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function also uses the Tukey's fences method to detect anomalies.
     
     As you can see, the DataFrame is now filtered based on a new **Anomalies** column, which is set to `1` for all ingestion values that the Tukey's fences method identified as anomalies.
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-ingestion-anomalies.png" alt-text="Screenshot that shows a DataFrame that lists the ingestion values identified as anomalies." 
@@ -253,7 +253,7 @@ Use the gradient boosting regression model to predict ingestion in a new time ra
 
 Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further analysis.   
 
-1. To send data to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api).
+1. To send data to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api.md).
 1. Define variables you need to pass in the call to the Logs Ingestion API:
 
     ```python
@@ -277,5 +277,5 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 Learn more about how to: 
 
 - [Schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md).
-- [Detect and analyze anomalies using KQL](../../logs/kql-machine-learning-azure-monitor).
+- [Detect and analyze anomalies using KQL](../logs/kql-machine-learning-azure-monitor.md).
 - [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/).
