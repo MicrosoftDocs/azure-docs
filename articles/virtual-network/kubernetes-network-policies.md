@@ -282,7 +282,7 @@ Following are some sample dashboard for Network Policy Manager metrics in contai
 
 #### CI runtime quantiles
 
-:::image type="content" source="./media/kubernetes-network-policies/workbook-runtime-quantiles.pn" alt-text="Screenshot of Azure Workbook runtime quantiles.":::
+:::image type="content" source="./media/kubernetes-network-policies/workbook-runtime-quantiles.png" alt-text="Screenshot of Azure Workbook runtime quantiles.":::
 
 #### Grafana dashboard summary counts
 
