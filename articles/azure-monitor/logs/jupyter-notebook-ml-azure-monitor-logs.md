@@ -46,7 +46,6 @@ In this tutorial, you learn how to:
 - [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome up to curtain degree as suggested later. 
 - Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor). 
 
-
 ## Prerequisites 
 In this tutorial, you need:
 
@@ -61,8 +60,6 @@ In this tutorial, you need:
     |---------|---------|
     |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from and send data to your Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
     |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     | 
-- Basic familiarity with data science concepts.  
-
 ## Tools you'll use
 
 |Source| Tool | Description |
