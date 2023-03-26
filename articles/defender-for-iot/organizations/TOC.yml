@@ -310,8 +310,10 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Data retention
-    href: references-data-retention.md
+  - name: Sample connectivity models
+    href: best-practices/sample-connectivity-models.md
+  - name: Networking requirements
+    href: networking-requirements.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -357,9 +359,23 @@
         href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
       - name: Neousys Nuvo-500LP (L100 Rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: Supported protocols
+    href: concept-supported-protocols.md
   - name: Alert reference
     href: alert-engine-messages.md
     displayName: alerts
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
+  - name: CLI command reference
+    items:
+    - name: CLI users and access
+      href: references-work-with-defender-for-iot-cli-commands.md
+      displayName: shell, login, cli, command-line, commands, users, user
+    - name: OT sensor CLI reference
+      href: cli-ot-sensor.md
+      displayName: shell, login, cli, command-line, commands, users, user
+  - name: Data retention
+    href: references-data-retention.md
   - name: API reference
     items:
     - name: Working with Defender for IoT APIs
@@ -388,16 +404,6 @@
         href: api/management-inventory-apis.md
       - name: Partner integration
         href: api/management-integration-apis.md
-  - name: Sensor health message reference
-    href: sensor-health-messages.md
-  - name: Defender for IoT CLI
-    items:
-    - name: CLI users and access
-      href: references-work-with-defender-for-iot-cli-commands.md
-      displayName: shell, login, cli, command-line, commands, users, user
-    - name: OT sensor CLI reference
-      href: cli-ot-sensor.md
-      displayName: shell, login, cli, command-line, commands, users, user
   - name: Frequently asked questions
     items:
     - name: General FAQ
@@ -408,8 +414,6 @@
       href: faqs-eiot.md
 - name: Resources
   items:
-  - name: OT network pre-deployment checklist
-    href: pre-deployment-checklist.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
   - name: Regional availability

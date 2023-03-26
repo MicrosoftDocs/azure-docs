@@ -7,9 +7,7 @@ ms.date: 01/22/2023
 
 # Data retention across Microsoft Defender for IoT
 
-Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinately on your sensors. 
-
-Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
+Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
@@ -84,8 +82,8 @@ Other OT monitoring log files are stored only on the OT network sensor and the o
 
 For more information, see:
 
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
-- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Troubleshoot the sensor](how-to-troubleshoot-the-sensor.md)
+- [Troubleshoot the on-premises management console](how-to-troubleshoot-the-on-premises-management-console.md)
 
 ## On-premises backup file capacity
 
@@ -95,10 +93,9 @@ On both the OT sensor and the on-premises management console, older backup files
 
 For more information, see:
 
-- [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)
-- [Configure backup settings for an OT network sensor](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)
-- [Configure OT sensor backup settings from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#backup-storage-for-sensors)
-- [Configure backup settings for an on-premises management console](how-to-manage-the-on-premises-management-console.md#define-backup-and-restore-settings)
+- [Set up backup and restore files on an OT sensor](backup-restore-sensor.md#set-up-backup-and-restore-files)
+- [Configure OT sensor backup settings on an on premises management console](backup-sensors-from-management.md#configure-ot-sensor-backup-settings)
+- [Configure OT sensor backup settings for an on-premises management console](backup-sensors-from-management.md#configure-ot-sensor-backup-settings)
 
 ### Backups on the OT network sensor
 
@@ -131,4 +128,3 @@ For more information, see:
 - [Manage individual OT network sensors](how-to-manage-individual-sensors.md)
 - [Manage OT network sensors from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage an on-premises management console](how-to-manage-the-on-premises-management-console.md)
-- [Azure data encryption](/azure/security/fundamentals/encryption-overview)
