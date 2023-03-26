@@ -135,7 +135,7 @@ Now that your bot is created and deployed, create a Communication Services resou
 
 1. Complete the steps to [create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 
-1. Create a Communication Services user and issue a [user access token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**. *Copy the token string and the user ID string*.
+1. Create a Communication Services user and issue a [user access token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**. *Copy the token string and the user ID string*.
 
 ## Enable the Communication Services Chat channel
 
@@ -543,7 +543,7 @@ In some use cases, two bots need to be added to the same chat thread to provide 
 
 You can verify the Communication Services user identity of a message sender in the activity's `From.Id` property. Check to see whether it belongs to another bot. Then, take the required action to prevent a bot-to-bot communication flow. If this type of scenario results in high call volumes, the Communication Services Chat channel throttles the requests and a bot can't send and receive messages.
 
-Learn more about [throttle limits](/azure/communication-services/concepts/service-limits#chat).
+Learn more about [throttle limits](../../concepts/service-limits.md#chat).
 
 ## Troubleshoot
 

@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 03/21/2023
 ---
 
 # Storage considerations for Azure Functions
@@ -27,6 +27,8 @@ To learn more about storage account types, see [Storage account overview](../sto
 
 While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to meet these storage account requirements. In the portal, unsupported accounts are filtered out when choosing an existing storage account while creating a function app. In this flow, you're only allowed to choose existing storage accounts in the same region as the function app you're creating. To learn more, see [Storage account location](#storage-account-location).
 
+Storage accounts secured by using firewalls or virtual private networks also can't be used in the portal creation flow. For more information, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## Storage account guidance
@@ -49,7 +51,7 @@ The storage account connection string must be updated when you regenerate storag
 
 It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator). In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
 
-You may need to use separate store accounts to [avoid host ID collisions](#avoiding-host-id-collisions).
+You may need to use separate storage accounts to [avoid host ID collisions](#avoiding-host-id-collisions).
 
 ### Lifecycle management policy considerations
 
@@ -93,7 +95,7 @@ You can use the following strategies to avoid host ID collisions:
 
 You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostid` setting. For more information, see [AzureFunctionsWebHost__hostid](functions-app-settings.md#azurefunctionswebhost__hostid). 
 
-When the collision occurs between slots, you may need to mark this setting as a slot setting. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+When the collision occurs between slots, you must set a specific host ID for each slot, including the production slot. You must also mark these settings as [deployment settings](functions-deployment-slots.md#create-a-deployment-setting) so they don't get swapped. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 ## Azure Arc-enabled clusters
 

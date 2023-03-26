@@ -128,7 +128,7 @@ The charge for maintaining restored logs is calculated based on the volume of da
 For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data.
 
 > [!NOTE]
-> Billing of restore is not yet enabled. Restore can be used for free until February 1, 2023.
+> Billing of restore is not yet enabled. You can restore logs for free until early 2023.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

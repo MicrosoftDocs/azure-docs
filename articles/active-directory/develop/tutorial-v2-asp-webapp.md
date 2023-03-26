@@ -2,7 +2,7 @@
 title: "Tutorial: Create an ASP.NET web app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build an ASP.NET web application that uses the Microsoft identity platform and OWIN middleware to enable user login.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/20/2022
-ms.author: jmprieur
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 

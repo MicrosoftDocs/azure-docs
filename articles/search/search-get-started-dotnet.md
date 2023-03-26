@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 08/29/2022
+ms.date: 01/27/2023
 ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library

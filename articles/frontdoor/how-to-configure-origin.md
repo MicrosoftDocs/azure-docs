@@ -1,5 +1,6 @@
 ---
-title: How to configure origins - Azure Front Door
+title: How to configure origins
+titleSuffix: Azure Front Door
 description: This article shows how to configure origins in an origin group to use with your Azure Front Door profile.
 services: frontdoor
 author: duongau

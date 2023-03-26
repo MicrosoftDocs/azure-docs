@@ -2,6 +2,7 @@
 title: Use a managed identity in Azure Kubernetes Service
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/08/2022
 ---
 
@@ -57,7 +58,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at [Azure AD Pod Identity Role Assignment configuration](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/).
 
 ## Create an AKS cluster using a managed identity
 
@@ -145,7 +146,7 @@ The output should resemble the following:
 
 ### Add role assignment
 
-For Vnet, attached Azure disk, static IP address, route table which are outside the default worker node resource group, you need to assign the `Contributor` role on custom resource group.
+For VNet, attached Azure disk, static IP address, route table which are outside the default worker node resource group, you need to assign the `Contributor` role on custom resource group.
 
 ```azurecli-interactive
 az role assignment create --assignee <control-plane-identity-principal-id> --role "Contributor" --scope "<custom-resource-group-resource-id>"
@@ -160,7 +161,7 @@ az role assignment create --assignee 22222222-2222-2222-2222-222222222222 --role
 For user-assigned kubelet identity which is outside the default worker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
 
 ```azurecli-interactive
-az role assignment create --assignee <control-plane-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
+az role assignment create --assignee <kubelet-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
 ```
 
 Example:

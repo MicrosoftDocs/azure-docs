@@ -98,7 +98,7 @@ We've also added links to some user-generated content. Those items will be marke
 * September 2020 [Multivariate Time-series Anomaly Detection via Graph Attention Network](https://arxiv.org/abs/2009.02040) - Paper on multivariate anomaly detection accepted by ICDM 2020
 * November 5, 2019 [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/overview-of-sr-cnn-algorithm-in-azure-anomaly-detector/ba-p/982798) - Technical blog on SR-CNN
 * June 10, 2019 [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) - Paper on SR-CNN accepted by KDD 2019
-* April 25, 2019 **[UGC]** [Trying the Cognitive Service: Anomaly Detector API (in Japanese)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* April 25, 2019 **[UGC]** [Trying the Cognitive Service: Anomaly Detector API (in Japanese)](/ja-jp/azure/cognitive-services/anomaly-detector/)
 * April 20, 2019 [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/ai-customer-engineering-team/introducing-azure-anomaly-detector-api/ba-p/490162) - Announcement blog
 
 ## Videos

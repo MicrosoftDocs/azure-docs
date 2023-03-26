@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 12/23/2022
+ms.date: 1/31/2023
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -95,7 +95,7 @@ Devices that use symmetric key authentication need their connection strings to c
 
 The edge-enabled devices that connect to your IoT hub are listed on the **Devices** page of your IoT hub. If you have multiple devices, you can filter the list by selecting the type **Iot Edge Devices**, then select **Apply**. 
 
-:::image type="content" source="media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view your devices in the Azure portal, IoT Hub.":::
+:::image type="content" source="media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view your devices in the Azure portal, IoT Hub." lightbox="media/iot-edge-register-device/portal-view-devices.png":::
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Devices that authenticate with symmetric keys have their connection strings available to copy in the portal. To find your connection string in the portal:
 

@@ -26,6 +26,9 @@ This guide provides key concepts and instructions for containerization of Linux 
 
 ::: zone pivot="container-windows"
 
+> [!NOTE]
+> Service Principal is no longer supported for Windows container image pull authentication. The recommended way is to use Managed Identity for both Windows and Linux containers
+
 ## Supported parent images
 
 For your custom Windows image, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
@@ -134,7 +137,7 @@ If the app changes compute instances for any reason, such as scaling up and down
 
 ## Configure port number
 
-By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, App Service assumes your custom container is listening on port 80. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_PORT=8000

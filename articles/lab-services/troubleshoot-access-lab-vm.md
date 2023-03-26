@@ -51,9 +51,9 @@ To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or S
 
 When you create a new lab from an exported lab VM image, perform the following steps:
 
-1. Reuse the same credentials as the original template VM when creating the new lab.
+1. Reuse the same credentials that were used in the original, exported, template VM.
 
-1. After the lab creation finishes, you can [reset the username and password](./how-to-set-virtual-machine-passwords.md).
+1. After the lab creation finishes, you can [reset the password](./how-to-set-virtual-machine-passwords.md).
 
 ### After logging in, the lab VM is not working correctly
 

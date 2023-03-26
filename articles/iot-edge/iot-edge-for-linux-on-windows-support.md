@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge for Linux on Windows supported systems
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether generally available or in preview. 
 
@@ -19,9 +19,9 @@ This article provides details about which systems are supported by IoT Edge for 
 
 If you experience problems while using Azure IoT Edge for Linux on Windows, there are several ways to seek support. Try one of the following channels for support:
 
-**Reporting bugs** – Bugs can be reported on the [issues page](https://github.com/azure/iotedge-eflow/issues) of the project. Bugs related to Azure IoT Edge can be reported on the [IoT Edge issues page](https://github.com/azure/iotedge/issues). Fixes rapidly make their way from the projects in to product updates.
+**Reporting bugs** - Bugs can be reported on the [issues page](https://github.com/azure/iotedge-eflow/issues) of the project. Bugs related to Azure IoT Edge can be reported on the [IoT Edge issues page](https://github.com/azure/iotedge/issues). Fixes rapidly make their way from the projects in to product updates.
 
-**Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com).
+**Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com).
 
 
 ## Container engines

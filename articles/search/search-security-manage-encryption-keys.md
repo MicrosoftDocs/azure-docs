@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/20/2023
-ms.custom: references_regions, devx-track-azurepowershell 
+ms.custom: references_regions
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
@@ -23,6 +23,9 @@ This article walks you through the steps of setting up customer-managed key (CMK
 + CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
+
+> [!NOTE]
+> If an index is CMK encrypted, it is only accessible if the search service has access the key. If access to the key is revoked, the index is unusable and the service cannot be scaled until the index is deleted or access to the key is restored.
 
 ## CMK encrypted objects
 
@@ -348,7 +351,7 @@ In this section, you'll set the policy that defines a CMK standard for your sear
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
 
-1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](/azure/governance/policy/concepts/effects#deny). 
+1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](../governance/policy/concepts/effects.md#deny). 
 
    During evaluation of the request, a request that matches a deny policy definition is marked as non-compliant. Assuming the standard for your service is CMK encryption, "deny" means that requests that *don't* specify CMK encryption are non-compliant.
 

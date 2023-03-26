@@ -45,8 +45,8 @@ In order to update DCR, we are going to retrieve its content and save it as a fi
 2. Execute the following commands to retrieve DCR content and save it to a file. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file to store DCR.
 
     ```PowerShell
-    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
-    $FilePath = “<FilePath>” # Store DCR content in this file
+    $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
+    $FilePath = "<FilePath>" # Store DCR content in this file
     $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
     $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
     ```

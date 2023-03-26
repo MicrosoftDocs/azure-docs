@@ -7,9 +7,7 @@ ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 05/27/2021
-
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: seodec18
 ---
 
 # Upgrading the Azure Disk Encryption version

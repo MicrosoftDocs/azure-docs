@@ -118,8 +118,8 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 |Section  |Key  |Value  |
 |---------|---------|---------|
 | b2cPolicies | names |The user flows or custom policies that you created in [step 1](#step-1-configure-your-user-flow). |
-| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
-| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
+| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
+| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
 | Configuration | clientId | The React application ID from [step 2.3](#23-register-the-react-app). |
 | protectedResources| endpoint| The URL of the web API: `http://localhost:5000/hello`. |
 | protectedResources| scopes| The web API scopes that you created in [step 2.2](#22-configure-scopes). For example: `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`. |
@@ -171,7 +171,7 @@ In the sample folder, open the *authConfig.js* file. This file contains informat
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|credentials|tenantName| Your Azure AD B2C [domain/tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
+|credentials|tenantName| Your Azure AD B2C [domain/tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
 |credentials|clientID| The web API application ID from step [2.1](#21-register-the-web-api-application). In the [earlier diagram](#app-registration), it's the application with **App ID: 2**.|
 |policies|policyName|The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). If your application uses multiple user flows or custom policies, specify only one. For example, use the sign-up or sign-in user flow.|
 | protectedRoutes| scopes | The scopes of your web API application registration from [step 2.5](#25-grant-permissions). |

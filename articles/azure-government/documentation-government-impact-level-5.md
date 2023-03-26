@@ -7,7 +7,7 @@ ms.custom: references_regions, ignite-2022
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 10/30/2022
+ms.date: 02/09/2023
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -269,7 +269,7 @@ For Management and governance services availability in Azure Government, see [Pr
 
 ### [Azure Managed Applications](../azure-resource-manager/managed-applications/index.yml) 
 
-- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-app.md#bring-your-own-storage-for-the-managed-application-definition).
+- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-bring-your-own-storage.md).
 
 ### [Azure Monitor](../azure-monitor/index.yml)
 
@@ -288,6 +288,15 @@ Log Analytics may also be used to ingest extra customer-provided logs. These log
 ### [Microsoft Intune](/mem/intune/fundamentals/)
 
 - Intune supports Impact Level 5 workloads in Azure Government with no extra configuration required. Line-of-business apps should be evaluated for IL5 restrictions prior to [uploading to Intune storage](/mem/intune/apps/apps-add). While Intune does encrypt applications that are uploaded to the service for distribution, it doesn't support customer-managed keys.
+
+
+## Media
+
+For Media services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
+
+### [Media Services](/azure/media-services/latest/)
+
+- Configure encryption at rest of content in Media Services by [using customer-managed keys in Azure Key Vault](/azure/media-services/latest/concept-use-customer-managed-keys-byok).
 
 
 ## Migration

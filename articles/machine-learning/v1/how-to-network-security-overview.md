@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
 ---
 
 <!-- # Virtual network isolation and privacy overview -->
@@ -157,7 +157,7 @@ In this section, you learn how Azure Machine Learning securely communicates betw
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-In this section, you learn the options available for securing an inferencing environment when using the Azure CLI extension for ML v1 or the Azure ML Python SDK v1. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
+In this section, you learn the options available for securing an inferencing environment when using the Azure CLI extension for ML v1 or the Azure Machine Learning Python SDK v1. When doing a v1 deployment, we recommend that you use Azure Kubernetes Services (AKS) clusters for high-scale, production deployments.
 
 You have two options for AKS clusters in a virtual network:
 
@@ -224,7 +224,7 @@ Microsoft Sentinel is a security solution that can integrate with Azure Machine 
 
 Microsoft Sentinel can automatically create a workspace for you if you are OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
 
-For information on this process, see [Create an Azure ML workspace from Microsoft Sentinel](../../sentinel/notebooks-hunt.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+For information on this process, see [Create an Azure Machine Learning workspace from Microsoft Sentinel](../../sentinel/notebooks-hunt.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
 :::image type="content" source="./media/how-to-network-security-overview/common-public-endpoint-deployment.svg" alt-text="Diagram showing Microsoft Sentinel public connection.":::
 
@@ -232,7 +232,7 @@ For information on this process, see [Create an Azure ML workspace from Microsof
 
 If you want to secure your workspace and associated resources in a VNet, you must create the Azure Machine Learning workspace first. You must also create a virtual machine 'jump box' in the same VNet as your workspace, and enable Azure Bastion connectivity to it. Similar to the public configuration, SOC analysts and administrators can connect using Microsoft Sentinel, but some operations must be performed using Azure Bastion to connect to the VM.
 
-For more information on this configuration, see [Create an Azure ML workspace from Microsoft Sentinel](../../sentinel/notebooks-hunt.md?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
+For more information on this configuration, see [Create an Azure Machine Learning workspace from Microsoft Sentinel](../../sentinel/notebooks-hunt.md?tabs=private-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
 :::image type="content" source="./media/how-to-network-security-overview/private-endpoint-deploy-bastion.svg" alt-text="Daigram showing Microsoft Sentinel connection through a VNet.":::
 

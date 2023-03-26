@@ -3,9 +3,9 @@ title: Configure and manage enhanced soft delete for Azure Backup (preview)
 description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
 ms.topic: how-to
 ms.date: 12/13/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Configure and manage enhanced soft delete in Azure Backup (preview)

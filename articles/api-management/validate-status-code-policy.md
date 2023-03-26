@@ -4,7 +4,7 @@ description: Reference for the validate-status-code policy available for use in 
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/05/2022
 ms.author: danlep
 ---

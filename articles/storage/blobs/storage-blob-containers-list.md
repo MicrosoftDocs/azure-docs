@@ -52,8 +52,18 @@ The following example asynchronously lists the containers in a storage account t
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="Snippet_ListContainers":::
 
+## Resources
+
+To learn more about listing containers using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for listing containers use the following REST API operation:
+
+- [List Containers](/rest/api/storageservices/list-containers2) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
 ## See also
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
-- [List Containers](/rest/api/storageservices/list-containers2)
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)

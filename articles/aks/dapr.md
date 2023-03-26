@@ -3,7 +3,7 @@ title: Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kuberne
 description: Install and configure Dapr on your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes clusters using the Dapr cluster extension.
 author: greenie-msft
 ms.author: nigreenf
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 01/06/2023
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
@@ -96,6 +96,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
+- Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
 
 ### Set up the Azure CLI extension for cluster extensions
 

@@ -201,7 +201,7 @@ The following concepts and information help determine policies:
 
 * **Just-in-time admin principles**. Use the Azure AD logs to capture information for performing administrative tasks that are common in your environment. Determine the typical amount of time needed to complete the tasks.
 * **Just-enough admin principles**. Determine the least-privileged role, which might be a custom role, that's needed for administrative tasks. For more information, see [Least privileged roles by task in Azure Active Directory](../roles/delegate-by-task.md).
-* **Establish an elevation policy**. After you have insight into the type of elevated privilege needed and how long is needed for each task, create policies that reflect elevated privileged usage for your environment. As an example, define a policy to limit Global admin access to one hour.
+* **Establish an elevation policy**. After you have insight into the type of elevated privilege needed and how long is needed for each task, create policies that reflect elevated privileged usage for your environment. As an example, define a policy to limit Global Administrator access to one hour.
 
 After you establish your baseline and set policy, you can configure monitoring to detect and alert usage outside of policy.
 

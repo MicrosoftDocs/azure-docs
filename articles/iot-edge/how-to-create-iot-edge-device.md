@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Create an IoT Edge device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides an overview of the options available to you for installing and provisioning IoT Edge on your devices.
 
@@ -29,33 +29,13 @@ If you know what type of platform, provisioning, and authentication options you 
 
 If you want more information about how to choose the right option for you, continue through this article to learn more.
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-|    | Linux containers on Linux hosts | Linux containers on Windows hosts | Windows containers on Windows hosts |
-|--| ----- | ---------------- | ------- |
-| **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) | [X.509 certificates](how-to-provision-single-device-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-windows-symmetric.md) |
-| **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md) |
-
-:::moniker-end
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-
 >[!NOTE]
->The following table reflects the supported scenarios for IoT Edge version 1.4. To see content about Windows containers, switch to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
-
-|    | Linux containers on Linux hosts |
-|--| ----- |
-| **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) |
-| **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) |
+>The following table reflects the supported scenarios for IoT Edge version 1.4.
 
 |    | Linux containers on Linux hosts | Linux containers on Windows hosts |
 |--| ----- | ---------------- |
 | **Manual provisioning (single device)** | [X.509 certificates](how-to-provision-single-device-linux-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)<br><br>[Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) |
 | **Autoprovisioning (devices at scale)** | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)<br><br>[Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) |
-
-:::moniker-end
 
 ## Terms and concepts
 
@@ -95,22 +75,7 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-For Windows devices, the IoT Edge runtime is installed directly on the host device. This platform allows you to build, deploy, and run your IoT Edge modules as Windows containers.
-
-   > [!NOTE]
-   > Windows containers aren't the recommended way to run IoT Edge on Windows devices, as they aren't supported beyond version 1.1 of Azure IoT Edge.
-   >
-   > Consider using IoT Edge for Linux on Windows, which will be supported in future versions.
-:::moniker-end
-<!--end 1.1-->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
-IoT Edge version 1.4 doesn't support Windows containers. Windows containers are not supported beyond version 1.1. To learn more about IoT Edge with Windows containers, see the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
-:::moniker-end
-<!--end iotedge-2020-11-->
+IoT Edge version 1.4 doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
 
 ## Choose how to provision your devices
 
@@ -196,19 +161,3 @@ You can also use the links below to go to the relevant article.
 * [Provision Linux on Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
 * [Provision Linux on Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-### Windows containers on Windows hosts
-
-**Manually provision a single device**:
-
-* [Provision a single Windows device using X.509 certificates](how-to-provision-single-device-windows-x509.md)
-* [Provision a single Windows device using symmetric keys](how-to-provision-single-device-windows-symmetric.md)
-
-**Provision multiple devices at-scale**:
-
-* [Provision Windows devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)
-* [Provision Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-windows-tpm.md)
-* [Provision Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md)
-:::moniker-end

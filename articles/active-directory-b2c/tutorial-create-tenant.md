@@ -30,7 +30,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 - You can create up to **20** tenants per subscription. This limit help protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). 
 
-- By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you add and verify a custom domain. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
+- By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you add and verify a custom domain. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. Learn how to [read your tenant usage](microsoft-graph-operations.md#tenant-usage).  
 
 - If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant first](./faq.yml?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant-). A role of at least *Subscription Administrator* is required. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
 
@@ -42,7 +42,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 ## Create an Azure AD B2C tenant
 >[!NOTE]
->If you're unable to create Azure AD B2C tenant, review your user settings page to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
+>If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 

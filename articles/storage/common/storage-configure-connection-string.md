@@ -136,9 +136,10 @@ To learn how to authorize access to Azure Storage with the account key or with a
 
 - [Authorize access and connect to Blob Storage with .NET](../blobs/storage-blob-dotnet-get-started.md?tabs=account-key#authorize-access-and-connect-to-blob-storage)
 - [Authorize access and connect to Blob Storage with Java](../blobs/storage-blob-java-get-started.md?tabs=account-key#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with JavaScript](../blobs/storage-blob-javascript-get-started.md#authorize-access-and-connect-to-blob-storage)
+- [Authorize access and connect to Blob Storage with Python](../blobs/storage-blob-python-get-started.md#authorize-access-and-connect-to-blob-storage)
 
 ## Next steps
 
-- [Use the Azure Identity library to get an access token for authorization](identity-library-acquire-token.md)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)

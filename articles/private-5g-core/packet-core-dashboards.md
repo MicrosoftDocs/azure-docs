@@ -1,7 +1,7 @@
 ---
 title: Packet core dashboards
-titleSuffix: Azure Private 5G Core Preview
-description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core Preview deployment. 
+titleSuffix: Azure Private 5G Core
+description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core deployment. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -18,14 +18,23 @@ The packet core dashboards are powered by *Grafana*, an open-source, metric anal
 
 ## Access the packet core dashboards
 
-To sign in to the packet core dashboards:
+> [!TIP]
+> When signing in, if you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
-1. In your browser, enter https://*\<LocalMonitoringIP\>*/grafana, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+### Azure Active Directory
+
+To sign in to the packet core dashboards if you enabled Azure Active Directory authentication:
+
+1. In your browser, enter https://*\<local monitoring domain\>*/grafana, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](enable-azure-active-directory.md#configure-domain-system-name-dns-for-local-monitoring-ip).
+1. Follow the prompts to sign in with your account credentials.
+
+### Local username and password
+
+To sign in to the packet core dashboards if you enabled local username and password authentication:
+
+1. In your browser, enter https://*\<local monitoring IP\>*/grafana, where *\<local monitoring IP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
     :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
-
-    > [!TIP]
-    > If you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
 1. Sign in using your credentials. 
 

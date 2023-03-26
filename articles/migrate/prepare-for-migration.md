@@ -1,9 +1,9 @@
 ---
 title: Prepare machines for migration with Azure Migrate
 description: Learn how to prepare on-premises machines for migration with Azure Migrate.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: sunishvohra-ms 
+ms.author: sunishvohra
+ms.manager: vijain
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.custom: engagement-fy23

@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Connect Azure IoT Edge devices together to create a hierarchy (nested edge)

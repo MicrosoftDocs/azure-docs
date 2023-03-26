@@ -4,9 +4,9 @@ description: Describes how to back up and recover Azure VMs using Azure Backup w
 ms.topic: conceptual
 ms.date: 04/25/2022
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up and restore Azure VMs with PowerShell

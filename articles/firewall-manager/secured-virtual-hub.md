@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 03/24/2023
 ms.author: victorh
 ---
 

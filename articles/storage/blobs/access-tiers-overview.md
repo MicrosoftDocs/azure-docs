@@ -206,3 +206,4 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 - [Set a blob's access tier](access-tiers-online-manage.md)
 - [Archive a blob](archive-blob.md)
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)

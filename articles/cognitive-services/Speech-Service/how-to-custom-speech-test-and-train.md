@@ -30,7 +30,7 @@ Text and audio that you use to test and train a custom model should include samp
 
 The following table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended for testing | Used for training | Recommended for training |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-20 hours of audio |
 | [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
@@ -94,6 +94,9 @@ Consider these details:
 A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition will only be as good as the data that you provide. You should upload only high-quality transcripts.
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise is not helpful, it shouldn't limit or degrade your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
+
+> [!IMPORTANT]
+> For more information about the best practices of preparing human-labeled transcripts, see [Human-labeled transcripts with audio](how-to-custom-speech-human-labeled-transcriptions.md). 
 
 Custom Speech projects require audio files with these properties:
 

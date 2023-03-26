@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/07/2023
+ms.date: 02/01/2023
 ms.topic: include
 ms.author: eur
 ---
@@ -12,7 +12,7 @@ ms.author: eur
 | `ar-EG` | Arabic (Egypt) | Custom Neural Voice Pro |
 | `ar-SA` | Arabic (Saudi Arabia) | Custom Neural Voice Pro |
 | `bg-BG` | Bulgarian (Bulgaria) | Custom Neural Voice Pro |
-| `ca-ES` | Catalan | Custom Neural Voice Pro |
+| `ca-ES` | Catalan (Spain) | Custom Neural Voice Pro |
 | `cs-CZ` | Czech (Czechia) | Custom Neural Voice Pro |
 | `da-DK` | Danish (Denmark) | Custom Neural Voice Pro |
 | `de-AT` | German (Austria) | Custom Neural Voice Pro |
@@ -41,7 +41,8 @@ ms.author: eur
 | `ja-JP` | Japanese (Japan) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
 | `ko-KR` | Korean (Korea) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
 | `ms-MY` | Malay (Malaysia) | Custom Neural Voice Pro |
-| `nb-NO` | Norwegian (Bokmål, Norway) | Custom Neural Voice Pro |
+| `nb-NO` | Norwegian Bokmål (Norway) | Custom Neural Voice Pro |
+| `nl-BE` | Dutch (Belgium) | Custom Neural Voice Pro |
 | `nl-NL` | Dutch (Netherlands) | Custom Neural Voice Pro |
 | `pl-PL` | Polish (Poland) | Custom Neural Voice Pro |
 | `pt-BR` | Portuguese (Brazil) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
@@ -54,7 +55,7 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Custom Neural Voice Pro |
 | `te-IN` | Telugu (India) | Custom Neural Voice Pro |
 | `th-TH` | Thai (Thailand) | Custom Neural Voice Pro |
-| `tr-TR` | Turkish (Turkey) | Custom Neural Voice Pro |
+| `tr-TR` | Turkish (Türkiye) | Custom Neural Voice Pro |
 | `vi-VN` | Vietnamese (Vietnam) | Custom Neural Voice Pro |
 | `zh-CN` | Chinese (Mandarin, Simplified) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Custom Neural Voice Pro |

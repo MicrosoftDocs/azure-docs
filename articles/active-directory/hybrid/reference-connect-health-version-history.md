@@ -283,7 +283,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 * Easy access to AD FS topology and patterns in AD FS Performance Counters.
 * Trend in successful token requests on AD FS servers grouped by Applications, Authentication Methods, Request Network Location etc.
 * Trends in failed request on AD FS servers grouped by Applications, Error Types etc.
-* Simpler Agent Deployment using Azure AD Global Admin credentials.  
+* Simpler Agent Deployment using Azure AD Global Administrator credentials.  
 
 ## Next steps
 Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](./whatis-azure-ad-connect.md).

@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting Azure AD MFA NPS extension - Azure Active Directory
+title: Troubleshooting Azure AD MFA NPS extension
 description: Get help resolving issues with the NPS extension for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 05/12/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

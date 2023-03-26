@@ -96,17 +96,43 @@ The JSON syntax for filtering by event type is:
 
 For simple filtering by subject, specify a starting or ending value for the subject. For example, you can specify the subject ends with `.txt` to only get events related to uploading a text file to storage account. Or, you can filter the subject begins with `/blobServices/default/containers/testcontainer` to get all events for that container but not other containers in the storage account.
 
-When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
+When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the **subject** property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
 
-The JSON syntax for filtering by subject is:
+### Examples (Blob Storage events)
+Blob events can be filtered by the event type, container name, or name of the object that was created or deleted. 
 
-```json
-"filter": {
-  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/blobs/log",
-  "subjectEndsWith": ".jpg"
-}
+The subject of Blob storage events uses the format:
 
 ```
+/blobServices/default/containers/<containername>/blobs/<blobname>
+```
+
+To match all events for a storage account, you can leave the subject filters empty.
+
+To match events from blobs created in a set of containers sharing a prefix, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/containerprefix
+```
+
+To match events from blobs created in specific container, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/containername/
+```
+
+To match events from blobs created in specific container sharing a blob name prefix, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/containername/blobs/blobprefix
+```
+To match events from blobs create in a specific subfolder of a container, use a `subjectBeginsWith` filter like:
+
+```
+/blobServices/default/containers/{containername}/blobs/{subfolder}/
+```
+
+To match events from blobs created in specific container sharing a blob suffix, use a `subjectEndsWith` filter like ".log" or ".jpg". 
 
 ## Advanced filtering
 

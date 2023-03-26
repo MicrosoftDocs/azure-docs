@@ -3,6 +3,8 @@ title: Azure Backup glossary
 description: This article defines terms helpful for use with Azure Backup.
 ms.topic: conceptual
 ms.date: 12/21/2020
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup glossary

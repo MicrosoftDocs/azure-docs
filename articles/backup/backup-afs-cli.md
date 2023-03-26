@@ -3,6 +3,8 @@ title: Back up Azure file shares with Azure CLI
 description: Learn how to use Azure CLI to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
 ms.date: 01/14/2020
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure file shares with Azure CLI

@@ -13,6 +13,12 @@ ms.date: 11/09/2020
 ---
 # Algorithm & component reference for Azure Machine Learning designer
 
+[!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
+> * [v1](./component-reference.md)
+> * [v2 (current version)](../component-reference-v2/component-reference-v2.md)
+
 >[!Note]
 > Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
 >

@@ -23,7 +23,7 @@ To have exceptions reported from your server-side application, consider the foll
 
   * Add the [Application Insights Extension](./azure-web-apps.md) for Azure web apps.
   * Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md) for Azure Virtual Machines and Azure Virtual Machine Scale Sets IIS-hosted apps.
-  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./status-monitor-v2-overview.md) for IIS web servers, or enable the [Java agent](./java-in-process-agent.md) for Java web apps.
+  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./application-insights-asp-net-agent.md) for IIS web servers, or enable the [Java agent](./opentelemetry-enable.md?tabs=java) for Java web apps.
 
 ### Client side
 
@@ -517,7 +517,7 @@ namespace WcfService4
 
 ## Exception performance counters
 
-If you've [installed the Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on your server, you can get a chart of the exceptions rate, measured by .NET. Both handled and unhandled .NET exceptions are included.
+If you've [installed the Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) on your server, you can get a chart of the exceptions rate, measured by .NET. Both handled and unhandled .NET exceptions are included.
 
 Open a metrics explorer tab, add a new chart. Under **Performance Counters**, select **Exception rate**.
 

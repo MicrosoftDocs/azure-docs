@@ -12,7 +12,7 @@ ms.subservice: files
 # Azure Files scalability and performance targets
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB and NFS file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
 
-The targets listed here might be affected by other variables in your deployment. For example, the performance of IO for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. You should also expect these limits will increase over time. 
+The targets listed here might be affected by other variables in your deployment. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. You should also expect these limits will increase over time. 
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -83,9 +83,9 @@ File scale targets apply to individual files stored in Azure file shares.
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
 
-<sup>1 Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
+<sup>1 Applies to read and write I/Os (typically smaller I/O sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
 
-<sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
+<sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
 
 <sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
 
@@ -176,5 +176,6 @@ As a general guide for your deployment, you should keep a few things in mind:
 - The object throughput is inversely proportional to the MiB per second throughput. For smaller files, you will experience higher throughput in terms of the number of objects processed per second, but lower MiB per second throughput. Conversely, for larger files, you will get fewer objects processed per second, but higher MiB per second throughput. The MiB per second throughput is limited by the Azure Files scale targets.
 
 ## See also
+- [Understand Azure Files performance](understand-performance.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)

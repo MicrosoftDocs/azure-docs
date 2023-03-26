@@ -4,9 +4,9 @@ description: Learn how to use security features in Azure Backup to make backups 
 ms.reviewer: utraghuv
 ms.topic: how-to
 ms.date: 11/30/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 

@@ -24,7 +24,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## Data limits
 
-+ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
++ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 + The maximum size of the custom entity definition is 10 MB if it's provided as an external file, specified through the "entitiesDefinitionUri" parameter. 
 + If the entities are defined inline using the "inlineEntitiesDefinition" parameter, the maximum size is 10 KB.
 

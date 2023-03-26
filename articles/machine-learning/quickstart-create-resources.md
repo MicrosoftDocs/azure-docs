@@ -89,7 +89,7 @@ The studio is your web portal for Azure Machine Learning. This portal combines n
 
 Review the parts of the studio on the left-hand navigation bar:
 
-* The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
+* The **Authoring** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
 
     * **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts.
     * **Automated ML** steps you through creating a machine learning model without writing code.

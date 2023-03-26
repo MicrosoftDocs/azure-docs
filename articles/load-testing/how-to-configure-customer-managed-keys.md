@@ -10,9 +10,9 @@ ms.date: 05/10/2022
 ms.topic: how-to
 ---
 
-# Configure customer-managed keys for your Azure Load Testing Preview resource with Azure Key Vault
+# Configure customer-managed keys for your Azure Load Testing resource with Azure Key Vault
 
-Azure Load Testing Preview automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
+Azure Load Testing automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
 
 The keys you provide are stored securely using [Azure Key Vault](../key-vault/general/overview.md). You can create a separate key for each Azure Load Testing resource you enable with customer-managed keys.
 
@@ -24,9 +24,6 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 > [!NOTE]
 > Azure Load Testing does not encrypt metrics data for a test run with your customer-managed key, including the JMeter metrics sampler names that you specify in the JMeter script. Microsoft has access to this metrics data.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

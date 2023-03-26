@@ -30,13 +30,13 @@ The specific prerequisites for Core Tools depend on the features you plan to use
 
 **[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
-**[Install extensions](#install-extensions)**: To manually install extensions by using Core Tools, you must have the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
+**[Install extensions](#install-extensions)**: To manually install extensions by using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed. The .NET SDK is used by Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
 ## <a name="v2"></a>Core Tools versions
 
 There are four versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required.
 
-Choose a version tab below to learn about each specific version and for detailed installation instructions:
+Choose one of the following version tabs to learn about each specific version and for detailed installation instructions:
 
 # [Version 4.x](#tab/v4)
 
@@ -44,11 +44,11 @@ Supports [version 4.x](functions-versions.md) of the Functions runtime. This ver
 
 # [Version 3.x](#tab/v3)
 
-Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
+Supports [version 3.x](functions-versions.md) of the Azure Functions runtime, which reached end of life (EOL) for extended support on December 13, 2022. Use version 4.x instead. 
 
 # [Version 2.x](#tab/v2)
 
-Supports [version 2.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
+Supports [version 3.x](functions-versions.md) of the Azure Functions runtime, which reached end of life (EOL) for extended support on December 13, 2022. Use version 4.x instead.
 
 # [Version 1.x](#tab/v1) 
 
@@ -56,7 +56,7 @@ Supports version 1.x of the Azure Functions runtime. This version of the tools i
 
 ---
 
-You can only install one version of Core Tools on a given computer.  Unless otherwise noted, the examples in this article are for version 3.x.
+You can only install one version of Core Tools on a given computer.  Unless otherwise noted, the examples in this article are for version 4.x.
 
 ## Install the Azure Functions Core Tools
 
@@ -189,10 +189,10 @@ Version 1.x of the Core Tools isn't supported on Linux. Use version 2.x or a lat
 
 ## Changing Core Tools versions
 
-When changing to a different version of Core Tools, you should use the same package manager as the original installation to move to a different package version. For example, if you installed Core Tools version 2.x using npm, you should use the following command to upgrade to version 3.x:
+When changing to a different version of Core Tools, you should use the same package manager as the original installation to move to a different package version. For example, if you installed Core Tools version 3.x using npm, you should use the following command to upgrade to version 4.x:
 
 ```bash
-npm install -g azure-functions-core-tools@3 --unsafe-perm true
+npm install -g azure-functions-core-tools@4 --unsafe-perm true
 ```
 
 If you used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing a different version.
@@ -216,7 +216,7 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
-This example creates a Functions project in a new `MyFunctionProj` folder. You are prompted to choose a default language for your project. 
+This example creates a Functions project in a new `MyFunctionProj` folder. You're prompted to choose a default language for your project. 
 
 The following considerations apply to project initialization:
 
@@ -226,13 +226,13 @@ The following considerations apply to project initialization:
 
 + If you plan to publish your project to a custom Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
 
-Certain languages may have additional considerations:
+Certain languages may have more considerations:
 
 # [C\#](#tab/csharp)
 
 + Core Tools lets you create function app projects for the .NET runtime as both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
 
-+ Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These are the same files you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
++ Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These files are the same ones you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 
 # [Java](#tab/java)
 
@@ -244,7 +244,7 @@ Certain languages may have additional considerations:
 
 # [PowerShell](#tab/powershell)
 
-There are no additional considerations for PowerShell.
+There are no other considerations for PowerShell.
 
 # [Python](#tab/python)
 
@@ -252,7 +252,7 @@ There are no additional considerations for PowerShell.
 
 # [TypeScript](#tab/ts)
 
-+ To use a `--worker-runtime` value of `node`, specify the `--language` as `javascript`.
++ To use a `--worker-runtime` value of `node`, specify the `--language` as `typescript`.
 
 + See the [TypeScript section in the JavaScript developer reference](functions-reference-node.md#typescript) for `func init` behaviors specific to TypeScript. 
 
@@ -260,11 +260,11 @@ There are no additional considerations for PowerShell.
 
 ## Register extensions
 
-Starting with runtime version 2.x, [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
+Starting with runtime version 2.x, [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you're using. HTTP bindings and timer triggers don't require extensions. 
 
-To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 3.1 SDK and having to deal with the extensions.csproj file. 
+To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET SDK and having to deal with the extensions.csproj file. 
 
-Extension bundles is the recommended approach for functions projects other than C# complied projects, as well as C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
+Extension bundles is the recommended approach for functions projects other than C# complied projects, and for C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
 
 [!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
 
@@ -274,9 +274,9 @@ There may be cases in a non-.NET project when you can't use extension bundles, s
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
+By default, these settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
 
-The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
+The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference articles:
 
 * [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
@@ -341,7 +341,7 @@ To create a function in an existing project, run the following command:
 func new
 ```
 
-In version 3.x/2.x, when you run `func new` you are prompted to choose a template in the default language of your function app. Next, you're prompted to choose a name for your function. In version 1.x, you are also required to choose the language. 
+When you run `func new`, you're prompted to choose a template in the default language of your function app. Next, you're prompted to choose a name for your function. In version 1.x, you're also required to choose the language. 
 
 You can also specify the function name and template in the `func new` command. The following example uses the `--template` option to create an HTTP trigger named `MyHttpTrigger`:
 
@@ -515,7 +515,7 @@ You must have already [created a function app in your Azure subscription](functi
 To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). 
 
 >[!IMPORTANT]
-> When you create a function app in the Azure portal, it uses version 3.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
+> When you create a function app in the Azure portal, it uses version 4.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
 > You can't change the runtime version for a function app that has existing functions.
 
 
@@ -582,7 +582,7 @@ func extensions install
 
 The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but doesn't update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
 
-If your function app uses bindings or NuGet packages that Core Tools does not recognize, you must manually install the specific extension.
+If your function app uses bindings or NuGet packages that Core Tools doesn't recognize, you must manually install the specific extension.
 
 ### Install a specific extension
 
@@ -612,7 +612,7 @@ This type of streaming logs requires that Application Insights integration be en
 
 [!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
-If you are using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
+If you're using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
 
 ## Next steps
 

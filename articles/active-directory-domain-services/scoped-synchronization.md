@@ -10,10 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using the Azure portal
 

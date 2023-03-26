@@ -70,7 +70,7 @@ Upon a system's end-of-life, Microsoft operational personnel follow rigorous dat
 ## Compliance
 We design and manage the Azure infrastructure to meet a broad set of international and industry-specific compliance standards, such as ISO 27001, HIPAA, FedRAMP, SOC 1, and SOC 2. We also meet country- or region-specific standards, including Australia IRAP, UK G-Cloud, and Singapore MTCS. Rigorous third-party audits, such as those done by the British Standards Institute, verify adherence to the strict security controls these standards mandate.
 
-For a full list of compliance standards that Azure adheres to, see the [Compliance offerings](/azure/compliance/).
+For a full list of compliance standards that Azure adheres to, see the [Compliance offerings](../../compliance/index.yml).
 
 ## Next steps
 To learn more about what Microsoft does to help secure the Azure infrastructure, see:

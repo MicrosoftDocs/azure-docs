@@ -1,16 +1,16 @@
 ---
-title: Limitations with Azure AD certificate-based authentication without federation - Azure Active Directory
+title: Limitations with Azure AD certificate-based authentication without federation
 description: Learn supported and unsupported scenarios for Azure AD certificate-based authentication
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
-author: vimrang
-manager: daveba
+author: justinha
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management

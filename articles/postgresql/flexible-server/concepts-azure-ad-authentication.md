@@ -41,7 +41,7 @@ The following table provides a list of high-level Azure AD features and capabili
 | Disable Password Authentication | Not Available | Available |
 | Service Principal can act as group member | No | Yes |
 | Audit Azure AD Logins | No | Yes |
-| PG bouncer support | No | March 2023 |
+| PG bouncer support | No | Yes  (New Servers) |
 
 ## How Azure AD Works In Flexible Server
 
@@ -88,12 +88,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 > Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL this access will be revoked immediately.
 
 - Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and a new user is added with the same name the new user won't be able to connect with the existing role.
-
-## Limitations
-
-- PG bouncer is currently not supported, and we are planning to release this very soon..
-
-- GA versions of Terraform/CLI/API will be released soon. You can use preview API 2022-12-01 version until then.
 
 
 ## Next steps

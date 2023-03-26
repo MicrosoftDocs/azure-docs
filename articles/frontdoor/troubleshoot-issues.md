@@ -17,11 +17,11 @@ This article describes how to troubleshoot common routing problems that you migh
 
 You can request Azure Front Door to return more debugging HTTP response headers. For more information, see [optional response headers](front-door-http-headers-protocol.md#optional-debug-response-headers).
 
-## 503 response from Azure Front Door after a few seconds
+## 503 or 504 response from Azure Front Door after a few seconds
 
 ### Symptom
 
-* Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 error responses.
+* Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 or 504 error responses.
 * The failure from Azure Front Door typically appears after about 30 seconds.
 * Intermittent 503 errors appear with "ErrorInfo: OriginInvalidResponse."
 

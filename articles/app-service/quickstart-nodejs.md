@@ -33,7 +33,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
+- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to create and configure Azure resources.
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Have a FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
+- Have an FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
 
 ::: zone-end
 ## Create your Node.js application
@@ -117,10 +117,10 @@ Before you continue, ensure that you have all the prerequisites installed and co
 2. Right-click on App Services and select **Create new Web App**. A Linux container is used by default. 
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. In Select a runtime stack, select the Node.js version you want. An **LTS** version is recommended.
-1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be provisioned in Azure.
+1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be created in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
-    While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
+    While Visual Studio Code creates the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
 1. Once deployment completes, select **Browse Website** in the notification popup. The browser should display the Express default page.
 
@@ -133,10 +133,10 @@ Before you continue, ensure that you have all the prerequisites installed and co
 1. Select **Windows** for the operating system.
 1. Select the location you want to serve your app from. For example, *West Europe*.
 1. Select **Create new App Service plan**, then enter a name for the plan (such as *AppServiceQS-plan*), then select **F1 Free** for the pricing tier.
-1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait the resources to be provisioned in Azure.
+1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait the resources to be created in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
-    While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
+    While Visual Studio Code creates the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
     > [!NOTE]
     > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see [You do not have permission to view this directory or page](configure-language-nodejs.md#you-do-not-have-permission-to-view-this-directory-or-page).
@@ -456,6 +456,9 @@ Congratulations, you've successfully completed this quickstart!
 
 > [!div class="nextstepaction"]
 > [Configure Node.js app](configure-language-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Check out the other Azure extensions.
 

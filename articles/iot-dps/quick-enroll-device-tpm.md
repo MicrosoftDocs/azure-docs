@@ -234,7 +234,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 2. Using a text editor, create a _create_individual_enrollment.js_ file in your working folder. Add the following code to the file:
 
-    ```Java
+    ```javascript
     'use strict';
 
     var provisioningServiceClient = require('azure-iot-provisioning-service').ProvisioningServiceClient;
@@ -389,7 +389,7 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 :::zone-end
 
-To verify that the enrollment group has been created:
+To verify that the individual enrollment has been created:
 
 1. In the Azure portal, select your Device Provisioning Service.
 
