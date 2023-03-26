@@ -32,18 +32,17 @@ What AWS data resources can I scan? | AWS S3 buckets<br/><br/> Defender for Clou
 What permissions do I need for scanning? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .cvs, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can scan Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Scanning is done locally in the region.
-What AWS regions are supported? | Asia Pacific (Tokyo); Asia Pacific (Singapore); Asia Pacific (Sydney); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); US East (Ohio); US East (N Virginia); US West (N. California): US West (Oregon).<br/><br/> Scanning is done locally in the region.
+What AWS regions are supported? | Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/> Scanning is done locally in the region.
 Do I need to install an agent? | No, scanning is agentless.
 What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include other costs except for the respective plan costs.
 
 ## Scanning
 
 - It takes up to 24 hours to see the results for a first scan.
-- Refreshed results for a subscription that's previously been scanned take up to 48 hours.
+- Refreshed results for a resource that's previously been scanned take up to 8 days.
 - A new Azure storage account that's added to an already scanned subscription will be scanned within 24 hours or less.
-- A new AWS S3 storage account that's added to an already scanned AWS account will be scanned within 48 hours or less.
+- A new AWS S3 bucket that's added to an already scanned AWS account will be scanned within 48 hours or less.
 
-New S3 bucket being added to an already scanned AWS account will be scanned by up to 48 hours.
 
 
 ## Configuring data sensitivity settings
