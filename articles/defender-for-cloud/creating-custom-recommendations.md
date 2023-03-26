@@ -1,9 +1,9 @@
 ---
 title: Create Custom Recommendations in Microsoft Defender for Cloud
-description: This article explains how to create custom recommendations in Microsoft Defender for Cloud to secure your environment based on your organization’s internal needs and requirements.
+description: This article explains how to create custom recommendations in Microsoft Defender for Cloud to secure your environment based on your organization's internal needs and requirements.
 ms.topic: how-to
 author: AlizaBernstein
-ms.date: 03/23/2022
+ms.date: 03/26/2023
 ---
 # Create custom recommendations and security standards in Microsoft Defender for Cloud
 
@@ -44,11 +44,11 @@ There are three types of resources to create and manage custom recommendations:
 
     :::image type="content" source="./media/create-custom-recommendations/select-create-recommendation.png" alt-text="Screenshot showing where to select Create and then Recommendation." lightbox="./media/create-custom-recommendations/select-create-recommendation.png":::
 
-1. Fill in the recommendation details (for example: name, severity) and select the standard/s you’d like to add this recommendation to. 
+1. Fill in the recommendation details (for example: name, severity) and select the standard/s you'd like to add this recommendation to. 
 
     :::image type="content" source="./media/create-custom-recommendations/fill-info-recommendation.png" alt-text="Screenshot showing where to fill in description details of recommendation." lightbox="./media/create-custom-recommendations/fill-info-recommendation.png":::
 
-1. Write a KQL query that defines the recommendation logic. You can write the query in the “recommendation query” text box or [use the query editor](#create-new-queries-using-the-query-editor).
+1. Write a KQL query that defines the recommendation logic. You can write the query in the "recommendation query" text box or [use the query editor](#create-new-queries-using-the-query-editor).
     
     :::image type="content" source="./media/create-custom-recommendations/open-query-editor.png" alt-text="Screenshot showing where to open the query editor." lightbox="./media/create-custom-recommendations/open-query-editor.png":::
 
@@ -74,20 +74,20 @@ There are three types of resources to create and manage custom recommendations:
     
     :::image type="content" source="./media/create-custom-recommendations/fill-name-description.png" alt-text="Screenshot showing where to fill in your custom recommendation's name and description." lightbox="./media/create-custom-recommendations/fill-name-description.png":::
 
-1. Select Save; the new standard will now be assigned to the account/project you’ve created it in. You can assign the same standard to other accounts / projects that you have Contributor and up access to. 
+1. Select Save; the new standard will now be assigned to the account/project you've created it in. You can assign the same standard to other accounts / projects that you have Contributor and up access to. 
 
 ## Create new queries using the query editor
 
 In the query editor you have the ability to run your queries over your raw data (native API calls).
-To create a new query using the query editor, select the ‘open query editor’ button. The editor will contain data on all the native APIs we support to help build the queries. The data appears in the same structure as in the API.  You can view the results of your query in the Results pane. The [**How to**](#steps-for-building-a-query) tab gives you step by step instructions for building your query.
+To create a new query using the query editor, select the 'open query editor' button. The editor will contain data on all the native APIs we support to help build the queries. The data appears in the same structure as in the API.  You can view the results of your query in the Results pane. The [**How to**](#steps-for-building-a-query) tab gives you step by step instructions for building your query.
 
 :::image type="content" source="./media/create-custom-recommendations/query-editor.png" alt-text="Screenshot showing how to use the query editor." lightbox="./media/create-custom-recommendations/query-editor.png":::
 
 ### Steps for building a query
 
-- The first row of the query should include the environment and resource type. For example: | where Environment == 'AWS' and Identifiers.Type == 'ec2.instance’
-- The query must contain an “iff” statement that defines the healthy or unhealthy conditions. Use this template and edit only the “condition”: "| extend HealthStatus = iff(condition, 'UNHEALTHY','HEALTHY')".
-- The last row should return all the original columns: “| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus”.
+- The first row of the query should include the environment and resource type. For example: | where Environment == 'AWS' and Identifiers.Type == 'ec2.instance'
+- The query must contain an "iff" statement that defines the healthy or unhealthy conditions. Use this template and edit only the "condition": "| extend HealthStatus = iff(condition, 'UNHEALTHY','HEALTHY')".
+- The last row should return all the original columns: "| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus".
 
     >[!Note]
     >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of Record filed using a dot notation. <br>
