@@ -2123,6 +2123,8 @@
         href: sap-netweaver-tutorial.md
       - name: SAP Qualtrics
         href: qualtrics-tutorial.md
+      - name: Sauce Labs
+        href: sauce-labs-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: Saviynt
