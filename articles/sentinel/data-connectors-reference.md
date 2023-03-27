@@ -366,7 +366,6 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Defender for Identity](data-connectors/microsoft-defender-for-identity.md)
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Microsoft Defender for Office 365](data-connectors/microsoft-defender-for-office-365.md)
-- [Microsoft Defender Threat Intelligence (Preview)](data-connectors/microsoft-defender-threat-intelligence.md)
 - [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
 - [Microsoft Purview (Preview)](data-connectors/microsoft-purview.md)
