@@ -47,7 +47,7 @@ There are a few ways to verify the update was successful, but you can navigate t
 2. Type a Diagnostic setting name.
 3. Select **Azure Firewall Fat Flow Log** under **Categories** and any other logs you want to be supported in the firewall.
 4. In Destination details, select  **Send to Log Analytics** workspace
-   1. Choose your desired Subscription and pre-configured Log Analytics workspace.
+   1. Choose your desired Subscription and preconfigured Log Analytics workspace.
    1. Enable **Resource specific**.
    :::image type="content" source="media/enable-top-ten-and-flow-trace/log-destination-details.png" alt-text="Screenshot showing log destination details.":::
 
@@ -61,7 +61,7 @@ There are a few ways to verify the update was successful, but you can navigate t
 
 ## Flow trace
 
-Currently, the firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *syn* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it is difficult to troubleshoot if a packet is dropped, or asymmetric routing has occurred. 
+Currently, the firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *syn* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing has occurred. 
 
 The following additional properties can be added: 
 - SYN, ACK 
@@ -91,7 +91,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 2. Type a Diagnostic setting name.
 3. Select **Azure Firewall Fat Flow Log** under **Categories** and any other logs you want to be supported in the firewall.
 4. In Destination details, select  **Send to Log Analytics** workspace
-   1. Choose your desired Subscription and pre-configured Log Analytics workspace.
+   1. Choose your desired Subscription and preconfigured Log Analytics workspace.
    1. Enable **Resource specific**.
    :::image type="content" source="media/enable-top-ten-and-flow-trace/log-destination-details.png" alt-text="Screenshot showing log destination details.":::
 
