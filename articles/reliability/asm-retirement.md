@@ -13,7 +13,7 @@ ms.service: reliability
 
 Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. However, ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment
 
-## Benefits of Migrating to ARM 
+## Benefits of migrating to ARM 
 Migrating from the classic resource model to ARM offers several benefits, including:  
 
 - Manage your infrastructure through declarative templates rather than scripts. 
@@ -32,7 +32,7 @@ Migrating from the classic resource model to ARM offers several benefits, includ
 
 There are many service-related benefits which can be found in the migration guides. 
 
-## Services being Retired 
+## Services being retired 
 To help with this transition, we are providing a range of resources and tools, including documentation and migration guides. We encourage you to begin planning your migration to ARM as soon as possible to ensure that you can continue to take advantage of the latest Azure features and capabilities. 
 Here is a list of classic resources being retired and their retirement dates: 
 
