@@ -119,7 +119,7 @@ dotnet new console
 dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 ```
 
-Note that the The SDK is available as a [NuGet packet](https://www.nuget.org/packages/Azure.Messaging.WebPubSub.Client).  
+Note that the SDK is available as a [NuGet packet](https://www.nuget.org/packages/Azure.Messaging.WebPubSub.Client).  
 
 ---
 
