@@ -37,7 +37,8 @@ Then you define these elements for the resulting alert actions by using:
 
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
-1. On the **Select a signal** pane, you can search for the signal name or you can filter the list of signals by:
+1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
+1. (Optional.) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
     - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
 
@@ -57,30 +58,17 @@ Then you define these elements for the resulting alert actions by using:
     |Resource health|Resource health|The service that provides the resource-level health status. |
     |Service health|Service health|The service that provides the subscription-level health status.         |
 
-1. Select the **Signal name** and **Apply**.
+    Select the **Signal name** and **Apply**.
 1. Follow the steps in the tab that corresponds to the type of alert you're creating.
 
     ### [Metric alert](#tab/metric)
 
-    1. On the **Configure signal logic** pane, you can preview the results of the selected metric signal. Select values for the following fields.
+    1. Preview the results of the selected metric signal in the **Preview** section. Select values for the following fields.
 
         |Field |Description |
         |---------|---------|
-        |Select time series|Select the time series to include in the results. |
-        |Chart period|Select the time span to include in the results. Can be from the last six hours to the last week.|
-
-    1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
-
-        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
-
-        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
-
-        |Field  |Description  |
-        |---------|---------|
-        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
-        |Operator|The operator used on the dimension name and value.  |
-        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
-        |Include all future values| Select this field to include any future values added to the selected dimension.  |
+        |Time range|The time range to include in the results. Can be from the last six hours to the last week.|
+        |Time series|The time series to include in the results.|
 
     1. In the **Alert logic** section:
 
@@ -94,6 +82,19 @@ Then you define these elements for the resulting alert actions by using:
         |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts. |
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
+ 
+    1. (Optional) Depending on the signal type, you might see the **Split by dimensions** section.
+
+        Dimensions are name-value pairs that contain more data about the metric value. By using dimensions, you can filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values.
+
+        If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. For example, the transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, and PutPage). You can choose to have an alert fired when there's a high number of transactions in a specific API (the aggregated data). Or you can use dimensions to alert only when the number of transactions is high for specific APIs.
+
+        |Field  |Description  |
+        |---------|---------|
+        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
+        |Operator|The operator used on the dimension name and value.  |
+        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+        |Include all future values| Select this field to include any future values added to the selected dimension.  |
 
     1. (Optional) In the **When to evaluate** section: 
 
