@@ -63,7 +63,7 @@ Data sensitivity settings define what's considered sensitive data in your organi
 - **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in the Microsoft Purview compliance portal.
 - **Sensitive data thresholds**: In Defender for Cloud you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
 
-When scanning resources for data sensitivity, scan results are based these settings.
+When scanning resources for data sensitivity, scan results are based on these settings.
 
 When you enable data-aware security capabilities with the sensitive data discovery component in the Defender CSPM or Defender for Storage plans, Defender for Cloud uses algorithms to identify storage resources that appear to contain sensitive data. Resources are labeled in accordance with data sensitivity settings.
 

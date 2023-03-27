@@ -126,7 +126,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Right-click on the **test-container** and select **Change the access level**.
 
-        :::image type="content" source="media/defender-for-storage-test/Testing-sensitivity-1.png" alt-text="Screenshot showing how change the access level for a test of Malware Scanning.":::
+        :::image type="content" source="media/defender-for-storage-test/Testing-sensitivity-1.png" alt-text="Screenshot showing how to change the access level for a test of Malware Scanning.":::
 
     1. Choose the **Container (anonymous read access for containers and blobs)** option and select **OK**.
 
