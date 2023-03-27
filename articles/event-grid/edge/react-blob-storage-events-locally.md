@@ -23,7 +23,7 @@ For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage o
 > [!WARNING]
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
 
-In order to complete this tutorial, you will need:
+In order to complete this tutorial, you'll need:
 
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
 * **Azure IoT Hub and IoT Edge device** - Follow the steps in the quickstart for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
@@ -41,8 +41,8 @@ There are several ways to deploy modules to an IoT Edge device and all of them w
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Navigate to your IoT Hub.
 1. Select **IoT Edge** from the menu in the **Automatic Device Management** section. 
-1. Click on the ID of the target device from the list of devices
-1. Select **Set Modules**. Keep the page open. You will continue with the steps in the next section.
+1. Select the ID of the target device from the list of devices
+1. Select **Set Modules**. Keep the page open. You'll continue with the steps in the next section.
 
 ### Configure a deployment manifest
 
@@ -76,7 +76,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
         }
     ```    
 
- 1. Click **Save**
+ 1. Select **Save**
  1. Continue to the next section to add the Azure Event Grid Subscriber module before deploying them together.
 
     >[!IMPORTANT]
@@ -96,7 +96,7 @@ This section shows you how to deploy another IoT module which would act as an ev
    * **Name**: subscriber
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Container Create Options**: None
-1. Click **Save**
+1. Select **Save**
 1. Continue to the next section to add the Azure Blob Storage module
 
 ## Deploy Azure Blob Storage module
@@ -109,8 +109,8 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
 2. From the types of modules in the drop-down list, select **IoT Edge Module**
 3. Provide the name, image, and container create options of the container:
 
-   * **Name**: azureblobstorageoniotedge
-   * **Image URI**: mcr.microsoft.com/azure-blob-storage:latest
+   * **Name**: `azureblobstorageoniotedge`
+   * **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
    * **Container Create Options**:
 
    ```json
@@ -147,8 +147,8 @@ This section shows you how to deploy the Azure Blob Storage module, which would 
      - For Linux containers, **my-volume:/blobroot**
      - For Windows containers,**my-volume:C:/BlobRoot**
 
-5. Click **Save**
-6. Click **Next** to continue to the routes section
+5. Select **Save**
+6. Select **Next** to continue to the routes section
 
     > [!NOTE]
     > If you are using an Azure VM as the edge device, add an inbound port rule to allow inbound traffic on the host ports used in this tutorial: 4438, 5888, 8080, and 11002. For instructions on adding the rule, see [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
@@ -319,7 +319,7 @@ Keep the default routes, and select **Next** to continue to the review section
             }
     ```
 
-Congratulations! You have completed the tutorial. The following sections provide details on the event properties.
+Congratulations! You've completed the tutorial. The following sections provide details on the event properties.
 
 ### Event properties
 
@@ -327,14 +327,14 @@ Here's the list of supported event properties and their types and descriptions.
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
-| subject | string | Publisher-defined path to the event subject. |
-| eventType | string | One of the registered event types for this event source. |
-| eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
-| data | object | Blob storage event data. |
-| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
-| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | Blob storage event data. |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 The data object has the following properties:
 
@@ -347,7 +347,7 @@ The data object has the following properties:
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |
 | blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
-| url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*. |
+| url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: `\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>`. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: `\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>`. |
 
 
 ## Next steps
@@ -357,7 +357,7 @@ See the following articles from the Blob Storage documentation:
 - [Filter Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
 - [Recommended practices for consuming Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
 
-In this tutorial, you published events by creating or deleting blobs in an Azure Blob Storage. See the other tutorials to learn how to forward events to cloud (Azure Event Hub or Azure IoT Hub): 
+In this tutorial, you published events by creating or deleting blobs in an Azure Blob Storage. See the other tutorials to learn how to forward events to cloud (Azure Event Hubs or Azure IoT Hub): 
 
-- [Forward events to Azure Event Grid](forward-events-event-grid-cloud.md)
+- [Forward events to Azure Event Grid](forward-events-cloud.md)
 - [Forward events to Azure IoT Hub](forward-events-iothub.md)

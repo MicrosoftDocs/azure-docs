@@ -242,7 +242,7 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 | Svalbard                |            ✓            |                          |                       |   ✓   |
 | Sweden                  |            ✓            |            ✓            |            ✓          |   ✓   |
 | Switzerland             |            ✓            |            ✓            |            ✓          |   ✓   |
-| Turkey                  |            ✓            |             ✓           |                       |   ✓   |
+| Türkiye                 |            ✓            |             ✓           |                       |   ✓   |
 | Ukraine                 |            ✓            |             ✓           |                       |   ✓   |
 | United Kingdom          |            ✓            |            ✓            |            ✓          |   ✓   |
 | Vatican City            |            ✓            |                         |            ✓          |   ✓   |

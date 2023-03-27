@@ -246,7 +246,7 @@ After checking that your function works, create your logic app resource and work
 
    ![Screenshot showing Azure portal, Consumption workflow designer, and blank logic app template selected.](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
 
-Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens for incoming emails that have attachments. Every workflow must start with a trigger, which fires when the trigger condition is met, for example, a specific event happens or when new data exists. For more information, see [Quickstart: Create your first Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md).
+Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens for incoming emails that have attachments. Every workflow must start with a trigger, which fires when the trigger condition is met, for example, a specific event happens or when new data exists. For more information, see [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
 ## Add a trigger to check incoming email
 
@@ -660,4 +660,4 @@ When you no longer need this sample, delete the resource group that contains you
 In this tutorial, you created a logic app workflow that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions. Now, learn more about other connectors that you can use to build logic app workflows.
 
 > [!div class="nextstepaction"]
-> [Learn more about connectors for Logic Apps](../connectors/apis-list.md)
+> [Learn about connectors in Azure Logic Apps](../connectors/introduction.md)

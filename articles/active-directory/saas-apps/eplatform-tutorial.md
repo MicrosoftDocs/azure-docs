@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ePlatform | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ePlatform'
 description: Learn how to configure single sign-on between Azure Active Directory and ePlatform.
 services: active-directory
 author: jeevansd

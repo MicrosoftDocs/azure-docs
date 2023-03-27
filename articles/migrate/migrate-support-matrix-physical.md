@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/21/2023
 ms.custom: engagement-fy23
 ---
 
@@ -31,7 +31,7 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 **Physical server deployment:** The physical server can be standalone or deployed in a cluster.
 
 **Type of servers:** Bare metal servers, virtualized servers running on-premises or other clouds like AWS, GCP, Xen etc.
->[!Note]
+> [!Note]
 > Currently, Azure Migrate does not support the discovery of para-virtualized servers.
 
 **Operating system:** All Windows and Linux operating systems can be assessed for migration.
@@ -65,7 +65,7 @@ For Linux servers, based on the features you want to perform, you can create a u
 
 ### Option 1
 - You need a sudo user account on the servers that you want to discover. Use this account to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
-- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
+- You need to enable sudo access on /usr/bin/bash to execute the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
 - Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - Azure Migrate supports the following Linux OS distributions for discovery using an account with sudo access:
 

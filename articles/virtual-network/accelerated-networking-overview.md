@@ -1,6 +1,6 @@
 ---
 title: Accelerated Networking overview
-description: Accelerated Networking to improves networking performance of Azure VMs.
+description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
 services: virtual-network
 author: asudbring
 manager: gedegrac
@@ -9,99 +9,113 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/15/2022
+ms.date: 03/20/2023
 ms.author: allensu
 ---
 
-# What is Accelerated Networking?
+# Accelerated Networking (AccelNet) overview
 
-Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads on supported VM types. The following diagram illustrates how two VMs communicate with and without accelerated networking:
+This article explains Accelerated Networking and describes its benefits, constraints, and supported configurations. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
 
-![Communication between Azure virtual machines with and without accelerated networking](./media/create-vm-accelerated-networking/accelerated-networking.png)
+The following diagram illustrates how two VMs communicate with and without Accelerated Networking:
 
-Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic.
+![Screenshot that shows communication between Azure VMs with and without Accelerated Networking.](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-> [!NOTE]
-> To learn more about virtual switches, see [Hyper-V Virtual Switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch).
+**Without Accelerated Networking**, all networking traffic in and out of the VM traverses the host and the virtual switch. The virtual switch provides all policy enforcement to network traffic. Policies include network security groups, access control lists, isolation, and other network virtualized services. To learn more about virtual switches, see [Hyper-V Virtual Switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch).
 
-With accelerated networking, network traffic arrives at the VM's network interface (NIC) and is then forwarded to the VM. All network policies that the virtual switch applies are now offloaded and applied in hardware. Because policy is applied in hardware, the NIC can forward network traffic directly to the VM. The NIC bypasses the host and the virtual switch, while it maintains all the policy it applied in the host.
-
-The benefits of accelerated networking only apply to the VM that it's enabled on. For the best results, enable this feature on at least two VMs connected to the same Azure virtual network. When communicating across virtual networks or connecting on-premises, this feature has minimal impact to overall latency.
+**With Accelerated Networking**, network traffic that arrives at the VM's network interface (NIC) forwards directly to the VM. Accelerated Networking offloads all network policies that the virtual switch applied, and applies them in hardware. Because hardware applies policy, the NIC can forward network traffic directly to the VM. The NIC bypasses the host and the virtual switch, while it maintains all the policy it applied in the host.
 
 ## Benefits
 
-- **Lower Latency / Higher packets per second (pps)**: Eliminating the virtual switch from the data path removes the time packets spend in the host for policy processing. It also increases the number of packets that can be processed inside the VM.
+Accelerated Networking has the following benefits:
 
-- **Reduced jitter**: Virtual switch processing depends on the amount of policy that needs to be applied. It also depends on the workload of the CPU that's doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM. Offloading also removes the host-to-VM communication, all software interrupts, and all context switches.
+- **Lower latency and higher packets per second (pps).** Removing the virtual switch from the data path eliminates the time packets spend in the host for policy processing, and increases the number of packets that the VM can process.
 
-- **Decreased CPU utilization**: Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
+- **Reduced jitter.** Virtual switch processing time depends on the amount of policy to apply and the workload of the CPU that does the processing. Offloading policy enforcement to the hardware removes that variability by delivering packets directly to the VM. Offloading also removes the host-to-VM communication, all software interrupts, and all context switches.
 
-## Supported operating systems
-
-The following versions of Windows are supported:
-
-- **Windows Server 2022**
-- **Windows Server 2019 Standard/Datacenter**
-- **Windows Server 2016 Standard/Datacenter** 
-- **Windows Server 2012 R2 Standard/Datacenter**
-- **Windows 10, version 21H2 or later** _(includes Windows 10 Enterprise multi-session)_
-- **Windows 11** _(includes Windows 11 Enterprise multi-session)_
-
-The following distributions are supported out of the box from the Azure Gallery: 
-- **Ubuntu 14.04 with the linux-azure kernel**
-- **Ubuntu 16.04 or later** 
-- **SLES12 SP3 or later** 
-- **RHEL 7.4 or later**
-- **CentOS 7.4 or later**
-- **CoreOS Linux**
-- **Debian "Stretch" with backports kernel, Debian "Buster" or later**
-- **Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)**
-- **Oracle Linux 7.5 and later with UEK version 5**
-- **FreeBSD 10.4, 11.1 & 12.0 or later**
+- **Decreased CPU utilization.** Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
 
 ## Limitations and constraints
 
+- The benefits of Accelerated Networking apply only to the VM that enables it.
+
+- For best results, you should enable Accelerated Networking on at least two VMs in the same Azure virtual network. This feature has minimal impact on latency when you communicate across virtual networks or connect on-premises.
+
+- You can't enable Accelerated Networking on a running VM. You can enable Accelerated Networking on a supported VM only when the VM is stopped and deallocated.
+
+- You can't deploy virtual machines (classic) with Accelerated Networking through Azure Resource Manager.
+
+### Supported regions
+
+Accelerated Networking is available in all global Azure regions and the Azure Government Cloud.
+
+### Supported operating systems
+
+The following versions of Windows support Accelerated Networking:
+
+- Windows Server 2022
+- Windows Server 2019 Standard/Datacenter
+- Windows Server 2016 Standard/Datacenter
+- Windows Server 2012 R2 Standard/Datacenter
+- Windows 10, version 21H2 or later, including Windows 10 Enterprise multisession
+- Windows 11, including Windows 11 Enterprise multisession
+
+The following Linux and FreeBSD distributions from the Azure Gallery support Accelerated Networking out of the box:
+
+- Ubuntu 14.04 with the linux-azure kernel
+- Ubuntu 16.04 or later
+- SLES12 SP3 or later
+- RHEL 7.4 or later
+- CentOS 7.4 or later
+- CoreOS Linux
+- Debian "Stretch" with backports kernel
+- Debian "Buster" or later
+- Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)
+- Oracle Linux 7.5 and later with UEK version 5
+- FreeBSD 10.4, 11.1 & 12.0 or later
+
 ### Supported VM instances
 
-Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. 
+- Most general-purpose and compute-optimized VM instance sizes with two or more vCPUs support Accelerated Networking. On instances that support hyperthreading, VM instances with four or more vCPUs support Accelerated Networking.
 
-Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation.
+- To check whether a VM size supports Accelerated Networking, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
 
-The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
+- You can directly query the list of VM SKUs that support Accelerated Networking by using the Azure CLI [az vm list-skus](/cli/azure/vm#az-vm-list-skus) command.
 
-> [!NOTE]
-> Although NC and NV sizes will show in the command below, they do not support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs will have no effect.
+  ```azurecli-interactive
+  az vm list-skus \
+    --location westus \
+    --all true \
+    --resource-type virtualMachines \
+    --query '[].{size:size, name:name, acceleratedNetworkingEnabled: capabilities[?name==`AcceleratedNetworkingEnabled`].value | [0]}' \
+    --output table
+  ```
 
-```azurecli-interactive
-az vm list-skus \
-  --location westus \
-  --all true \
-  --resource-type virtualMachines \
-  --query '[].{size:size, name:name, acceleratedNetworkingEnabled: capabilities[?name==`AcceleratedNetworkingEnabled`].value | [0]}' \
-  --output table
-```
+  >[!NOTE]
+  >Although NC and NV sizes appear in the command output, those sizes don't support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs has no effect.
 
-### Custom images (or) Azure compute gallery images
+### Custom VM images
 
-If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
+If you use a custom image that supports Accelerated Networking, make sure you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Accelerated Networking also requires network configurations that exempt configuration of the virtual functions on the mlx4_en and mlx5_core drivers. Images with cloud-init version 19.4 or greater have networking correctly configured to support Accelerated Networking during provisioning.
 
+The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
-Sample configuration drop-in for NetworkManager (RHEL, CentOS):
-```
+```bash
 sudo mkdir -p /etc/NetworkManager/conf.d 
 sudo cat /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
-# Ignore SR-IOV interface on Azure, since it'll be transparently bonded 
+# Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [keyfile] 
 unmanaged-devices=driver:mlx4_core;driver:mlx5_core 
 EOF 
 ```
 
-Sample configuration drop-in for networkd (Ubuntu, Debian, Flatcar):
-```
+The following example shows a sample configuration drop-in for `networkd` on Ubuntu, Debian, or Flatcar:
+
+```bash
 sudo mkdir -p /etc/systemd/network 
 sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
-# Ignore SR-IOV interface on Azure, since it'll be transparently bonded 
+# Ignore SR-IOV interface on Azure, since it's transparently bonded 
 # to the synthetic interface 
 [Match] 
 Driver=mlx4_en mlx5_en mlx4_core mlx5_core 
@@ -110,20 +124,8 @@ Unmanaged=yes
 EOF 
 ```
 
-### Regions
-
-Accelerated networking is available in all global Azure regions and Azure Government Cloud.
-
-### Enabling accelerated networking on a running VM
-
-A supported VM size without accelerated networking enabled can only have the feature enabled when it's stopped and deallocated.
-
-### Deployment through Azure Resource Manager
-
-Virtual machines (classic) can't be deployed with accelerated networking.
-
 ## Next steps
-* Learn [how Accelerated Networking works](./accelerated-networking-how-it-works.md)
-* Learn how to [create a VM with Accelerated Networking in PowerShell](./create-vm-accelerated-networking-powershell.md)
-* Learn how to [create a VM with Accerelated Networking using Azure CLI](./create-vm-accelerated-networking-cli.md)
-* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
+- [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)
+- [Create a VM with Accelerated Networking by using PowerShell](./create-vm-accelerated-networking-powershell.md)
+- [Create a VM with Accelerated Networking by using Azure CLI](./create-vm-accelerated-networking-cli.md)
+- [Proximity placement groups](../virtual-machines/co-location.md)

@@ -252,10 +252,10 @@ When users use the registration link to sign in to a classroom, they're prompted
 
 :::image type="content" source="./media/how-to-configure-student-usage/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/cant-find-account.png":::
 
-Here's a link for users to [sign up for a Microsoft account](http://signup.live.com).  
+Here's a link for users to [sign up for a Microsoft account](https://signup.live.com).  
 
 > [!IMPORTANT]
-> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `http://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
+> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
 
 ### Use a GitHub account
 

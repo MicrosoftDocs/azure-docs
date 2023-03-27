@@ -383,6 +383,14 @@ groups:
     title: Maven command
   - id: create-option-vscode
     title: Visual Studio Code
+- id: functions-nodejs-model
+  title: Node.js Programming model
+  prompt: Choose a programming model
+  pivots:
+  - id: nodejs-model-v4
+    title: v4 (preview)
+  - id: nodejs-model-v3
+    title: v3
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -938,12 +946,12 @@ groups:
   title: App Service platform
   prompt: Choose a hosting platform
   pivots:
-  - id: platform-sphere
-    title: Sphere
-  - id: platform-linux
-    title: Linux
   - id: platform-windows
     title: Windows
+  - id: platform-linux
+    title: Linux
+  - id: platform-sphere
+    title: Azure Sphere
 - id: app-service-platform-environment
   title: App Service platform and development tool
   prompt: Choose a hosting platform and development tool
@@ -1449,6 +1457,27 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-quickstart-new
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+- id: openai-chat
+  title: API Options
+  prompt: Chat API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-chat-ml
+    title: ChatML
+# Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
   prompt: Choose your preferred resource creation method
@@ -1570,7 +1599,7 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-# Owner: philmea
+# Owner: Brendanc
 - id: facility-ontology-schema
   title: Creator Facility Ontology
   prompt: Choose a Facility Ontology Version
@@ -1579,6 +1608,15 @@ groups:
     title: Facility Ontology 1.0
   - id: facility-ontology-v2
     title: Facility Ontology 2.0
+# Owner: Brendanc
+- id: drawing-package-version
+  title: Creator drawing package
+  prompt: Choose a drawing package Version
+  pivots:
+  - id: drawing-package-v1
+    title: drawing package 1.0
+  - id: drawing-package-v2
+    title: drawing package 2.0
 # Owner: veyalla
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
   title: Azure Monitor for IoT Edge FAQ
@@ -1776,6 +1814,15 @@ groups:
   - id: container-apps-bicep
     title: Bicep
 # Owner: cshoe
+- id: static-web-apps-api-protocols
+  title: API protocol
+  prompt: Select an API protocol
+  pivots:
+  - id: static-web-apps-rest
+    title: REST
+  - id: static-web-apps-graphql
+    title: GraphQL
+# Owner: cshoe
 - id: container-apps-config-types
   title: Configuration method
   prompt: Select a configuration method
@@ -1871,9 +1918,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: powershell-hrd
-    title: PowerShell
+    title: Azure AD PowerShell
   - id: graph-hrd
-    title: Graph
+    title: Microsoft Graph
 ## template with all
 - id: enterprise-apps-all
   title: Manage Enterprise apps
@@ -2085,6 +2132,14 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+- id: deploy-python-web-app-postgressql
+  title: Workflows
+  prompt: Choose your path
+  pivots:
+  - id: deploy-portal
+    title: Azure portal
+  - id: deploy-azd
+    title: Azure Developer CLI
 # Owner: daknappe (Azure Virtual Desktop)
 - id: azure-virtual-desktop-host-pool-types
   title: Azure Virtual Desktop host pool management type

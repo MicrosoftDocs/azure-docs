@@ -1,5 +1,5 @@
 ---
-title: Building a Conditional Access policy - Azure Active Directory
+title: Building a Conditional Access policy
 description: What are all of the options available to build a Conditional Access policy and what do they mean?
 
 services: active-directory

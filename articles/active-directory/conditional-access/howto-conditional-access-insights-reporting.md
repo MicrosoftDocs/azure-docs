@@ -1,5 +1,5 @@
 ---
-title: Conditional Access insights and reporting workbook - Azure Active Directory
+title: Conditional Access insights and reporting workbook
 description: Using the Azure AD Conditional Access insights and reporting workbook to troubleshoot policies
 
 services: active-directory
