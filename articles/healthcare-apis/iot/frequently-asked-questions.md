@@ -60,7 +60,7 @@ The MedTech service buffers Observation resources created during the transformat
 
 ## Does the MedTech service perform backups of device messages?
 
-No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days. Event hubs can be deployed in [three different service tiers](/azure/event-hubs/event-hubs-quotas?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier-dependent: Basic one day, Standard 1-7 days, Premium 90 days. If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
+No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days. Event hubs can be deployed in [three different service tiers](../../event-hubs/event-hubs-quotas.md?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier-dependent: Basic one day, Standard 1-7 days, Premium 90 days. If the device message data is successfully processed by the MedTech service, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
 
 To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) 
 

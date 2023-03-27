@@ -109,14 +109,14 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 
 ## Supported operating systems
 
-Defender for Cloud depends on the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) or the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent). Make sure that your machines are running one of the supported operating systems as described on the following pages:
+Defender for Cloud depends on the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) or the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Make sure that your machines are running one of the supported operating systems as described on the following pages:
 
 - Azure Monitor Agent
-    - [Azure Monitor Agent for Windows supported operating systems](/azure/azure-monitor/agents/agents-overview#windows)
-    - [Azure Monitor Agent for Linux supported operating systems](/azure/azure-monitor/agents/agents-overview#linux)
+    - [Azure Monitor Agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
+    - [Azure Monitor Agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
 - Log Analytics agent
-    - [Log Analytics agent for Windows supported operating systems](/azure/azure-monitor/agents/agents-overview#windows)
-    - [Log Analytics agent for Linux supported operating systems](/azure/azure-monitor/agents/agents-overview#linux)
+    - [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
+    - [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent).
 

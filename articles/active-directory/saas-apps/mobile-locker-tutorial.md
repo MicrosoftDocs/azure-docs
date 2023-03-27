@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mobile Locker | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Mobile Locker'
 description: Learn how to configure single sign-on between Azure Active Directory and Mobile Locker.
 services: active-directory
 author: jeevansd

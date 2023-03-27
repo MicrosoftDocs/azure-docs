@@ -2,8 +2,8 @@
 title: 'Tutorial: Use Microsoft Azure Maps to create store locator web applications'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 01/03/2022
 ms.topic: tutorial
 ms.service: azure-maps
@@ -31,23 +31,23 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* [Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+* An [Azure Maps account]
+* A [subscription key]
 
-For more information about Azure Maps authentication, see [Manage authentication in Azure Maps].
-
-[Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Sample code
 
 In this tutorial, you'll create a store locator for a fictional company named *Contoso Coffee*. Also, this tutorial includes some tips to help you learn about extending the store locator with other optional functionality.
 
-To see a live sample of what you will create in this tutorial, see [Simple Store Locator] on the **Azure Maps Code Samples** site.
+To see a live sample of what you're creating in this tutorial, see [Simple Store Locator] on the **Azure Maps Code Samples** site.
 
-To more easily follow and engage this tutorial, you'll need to download the following resources:
+To more easily follow and engage this tutorial, download the following resources:
 
-* Full source code for the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) on GitHub.
-* [Store location data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) that you'll import into the store locator dataset.
+* [Simple Store Locator] source code.
+* [Store location data] used to import into the store locator dataset.
 * The [Map images].
 
 ## Store locator features
@@ -213,7 +213,7 @@ To create the HTML:
     </main>
     ```
 
-After you finish, *index.html* should look like [Simple Store Locator.html].
+After you finish, *index.html* should look like _[Simple Store Locator.html]_ in the tutorial sample code.
 
 ## Define the CSS styles
 
@@ -481,7 +481,7 @@ To add the JavaScript:
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps primary subscription key to the map SDK.
+            //Add your Azure Maps subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -1015,7 +1015,7 @@ In this tutorial, you learned how to create a basic store locator by using Azure
 
 ## Additional information
 
-* For the completed code used in this tutorial, see the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) tutorial on GitHub.
+* For the completed code, see the [Simple Store Locator tutorial on GitHub].
 * To view this sample live, see [Simple Store Locator] on the **Azure Maps Code Samples** site.
 * learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid].
 * You can also [Use data-driven style expressions] to apply to your business logic.
@@ -1028,10 +1028,13 @@ To see more code examples and an interactive coding experience:
 > [How to use the map control](how-to-use-map-control.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Visual Studio Code]: https://code.visualstudio.com
 [Simple Store Locator]: https://samples.azuremaps.com/?sample=simple-store-locator
+[Simple Store Locator tutorial on GitHub]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator
+[Simple Store Locator.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html
+
 [data]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data
 [Search service]: /rest/api/maps/search
 [Spherical Mercator projection]: glossary.md#spherical-mercator-projection
@@ -1039,14 +1042,14 @@ To see more code examples and an interactive coding experience:
 [EPSG:4326]: https://epsg.io/4326
 [ContosoCoffee.xlsx]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data
 [Map images]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/images
-[Simple Store Locator.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
-[suggestions as you type]: (https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
-[support for multiple languages]: (https://samples.azuremaps.com/?sample=map-localization
-[filter locations along a route]: (https://samples.azuremaps.com/?sample=filter-data-along-route
-[set filters]: (https://samples.azuremaps.com/?sample=filter-symbols-by-property
+[suggestions as you type]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
+[support for multiple languages]: https://samples.azuremaps.com/?sample=map-localization
+[filter locations along a route]: https://samples.azuremaps.com/?sample=filter-data-along-route
+[set filters]: https://samples.azuremaps.com/?sample=filter-symbols-by-property
 [Azure App Service Web App]: ../app-service/quickstart-html.md
 [SQL Server spatial data types overview]: /sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017
 [Query spatial data for the nearest neighbor]: /sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
 [Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[Store location data]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data

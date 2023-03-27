@@ -1,10 +1,10 @@
 ---
-title: System-preferred multifactor authentication (MFA) - Azure Active Directory
+title: System-preferred multifactor authentication (MFA)
 description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/22/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -23,6 +23,9 @@ For example, if a user registered both SMS and Microsoft Authenticator push noti
 System-preferred MFA is a Microsoft managed setting, which is a [tristate policy](#authentication-method-feature-configuration-properties). For preview, the **default** state is disabled. If you want to turn it on for all users or a group of users during preview, you need to explicitly change the Microsoft managed state to **enabled** by using Microsoft Graph API. Sometime after general availability, the Microsoft managed state for system-preferred MFA will change to **enabled**. 
 
 After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system always determines and presents the most secure method they registered. 
+
+>[!NOTE]
+>System-preferred MFA is a key security upgrade to traditional second factor notifications. We highly recommend enabling system-preferred MFA in the near term for improved sign-in security. 
 
 ## Enable system-preferred MFA
 
@@ -50,7 +53,7 @@ System-preferred MFA can be enabled only for a single group, which can be a dyna
 Use the following API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
 
 ```
-https://graph.microsoft.com/beta/authenticationMethodsPolicy
+https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
 ```
 
 >[!NOTE]
@@ -58,7 +61,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy
 
 ### Request
 
-The following example excludes a sample target group and includes all users. For more information, see [Update authenticationMethodsPolicy](/graph/api/authenticationmethodspolicy-update?view=graph-rest-beta).
+The following example excludes a sample target group and includes all users. For more information, see [Update authenticationMethodsPolicy](/graph/api/authenticationmethodspolicy-update).
 
 ```http
 PATCH https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy
@@ -91,25 +94,18 @@ Content-Type: application/json
 
 ### How does system-preferred MFA determine the most secure method?
 
-When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. The order of authentication methods is dynamic. It's updated as the security landscape changes, and as better authentication methods emerge.
+When a user signs in, the authentication process checks which authentication methods are registered for the user. The user is prompted to sign-in with the most secure method according to the following order. The order of authentication methods is dynamic. It's updated as the security landscape changes, and as better authentication methods emerge. Click the link for information about each method.
 
-1. Temporary Access Pass
-1. Certificate-based authentication
-1. FIDO2 security key
-1. Microsoft Authenticator notification
-1. Companion app notification
-1. Microsoft Authenticator time-based one-time password (TOTP)
-1. Companion app TOTP
-1. Hardware token based TOTP
-1. Software token based TOTP
-1. SMS over mobile
-1. OnewayVoiceMobileOTP
-1. OnewayVoiceAlternateMobileOTP
-1. OnewayVoiceOfficeOTP
-1. TwowayVoiceMobile
-1. TwowayVoiceAlternateMobile
-1. TwowayVoiceOffice
-1. TwowaySMSOverMobile
+1. [Temporary Access Pass](howto-authentication-temporary-access-pass.md)
+1. [Certificate-based authentication](concept-certificate-based-authentication.md)
+1. [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
+1. [Microsoft Authenticator push notifications](concept-authentication-authenticator-app.md)
+1. [Time-based one-time password (TOTP)](concept-authentication-oath-tokens.md)<sup>1</sup>
+1. [Telephony](concept-authentication-phone-options.md)<sup>2</sup>
+
+<sup>1</sup> Includes hardware or software TOTP from Microsoft Authenticator, Authenticator Lite, or third-party applications.
+
+<sup>2</sup> Includes SMS and voice calls.
 
 ### How does system-preferred MFA affect AD FS or NPS extension?
 
@@ -118,6 +114,7 @@ System-preferred MFA doesn't affect users who sign in by using Active Directory 
 ### What happens for users who aren't specified in the Authentication methods policy but enabled in the legacy MFA tenant-wide policy?
 
 The system-preferred MFA also applies for users who are enabled for MFA in the legacy MFA policy.
+
 :::image type="content" border="true" source="./media/how-to-mfa-number-match/legacy-settings.png" alt-text="Screenshot of legacy MFA settings.":::
 
 ## Next steps

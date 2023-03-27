@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Jostle | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Jostle'
 description: Learn how to configure single sign-on between Azure Active Directory and Jostle.
 services: active-directory
 author: jeevansd

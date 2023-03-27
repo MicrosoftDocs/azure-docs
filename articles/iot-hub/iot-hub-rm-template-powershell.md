@@ -1,12 +1,11 @@
 ---
-title: Create an Azure IoT Hub using a template (PowerShell) | Microsoft Docs
+title: Create an Azure IoT Hub using a template (PowerShell)
 description: How to use an Azure Resource Manager template to create an IoT Hub with Azure PowerShell.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,7 +18,7 @@ This article shows you how to use an Azure Resource Manager template to create a
 
 ## Prerequisites
 
-[Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](/azure/cloud-shell/overview)
+[Azure PowerShell module](/powershell/azure/install-az-ps) or [Azure Cloud Shell](../cloud-shell/overview.md)
 
 Azure Cloud Shell is useful if you don't want to install the PowerShell module locally, as Cloud Shell performs from a browser.
 

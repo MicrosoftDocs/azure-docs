@@ -5,26 +5,27 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 08/9/2022
-ms.custom: template-quickstart, ignite-fall-2021, mode-api, devx-track-azurepowershell
+ms.date: 03/15/2023
+ms.custom: template-quickstart, ignite-fall-2021, mode-api
 ---
 
 # Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell
 
 Get started with Azure Virtual Network Manager by using the Azure PowerShell to manage connectivity for your virtual networks.
 
-In this quickstart, you'll deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology.
+In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* During preview, the `4.15.1-preview` version of `Az.Network` is required to access the required cmdlets.
-* If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+* Run `Connect-AzAccount` to create a local connection with Azure.
 
 > [!IMPORTANT]
 > Perform this quickstart using Powershell locally, not through Azure Cloud Shell. The version of `Az.Network` in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
@@ -34,7 +35,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 Install the latest *Az.Network* Azure PowerShell module using this command:
 
 ```azurepowershell-interactive
- Install-Module -Name Az.Network -RequiredVersion 4.15.1-preview -AllowPrerelease
+ Install-Module -Name Az.Network -RequiredVersion 5.3.0
 ```
 
 ## Create a resource group
@@ -54,7 +55,7 @@ New-AzResourceGroup @rg
 
 ## Create Virtual Network Manager
 
-1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using New-AzNetworkManagerScope.
+1. Define the scope and access type this Azure Virtual Network Manager instance have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using New-AzNetworkManagerScope.
 
     ```azurepowershell-interactive
     
@@ -163,7 +164,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 ### Option 1: Static membership
     
 1. Add the static member to the network group with the following commands:
-    1. Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. Below is an approach using the ARM Templates uniqueString() implementation.
+    1. Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. This is an approach using the ARM Templates uniqueString() implementation.
    
     ```azurepowershell-interactive
         function Get-UniqueString ([string]$id, $length=13)
@@ -230,7 +231,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 1. Create the Azure Policy definition using the conditional statement defined in the last step using New-AzPolicyDefinition.
 
 > [!IMPORTANT]
-> Policy resources must have a scope unique name. It is recommended to use a consistent hash of the network group. Below is an approach using the ARM Templates uniqueString() implementation.
+> Policy resources must have a scope unique name. It is recommended to use a consistent hash of the network group. This is an approach using the ARM Templates uniqueString() implementation.
    
  ```azurepowershell-interactive
      function Get-UniqueString ([string]$id, $length=13)
@@ -294,7 +295,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
 ## Commit deployment
 
-Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit. This will trigger your configuration to begin taking effect.
+Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit. This triggers your configuration to begin taking effect.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -314,7 +315,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager, you'll need to make sure all of following is true before you can delete the resource:
+If you no longer need the Azure Virtual Network Manager, you need to make sure all of following is true before you can delete the resource:
 
 * There are no deployments of configurations to any region.
 * All configurations have been deleted.

@@ -2,15 +2,16 @@
 title: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to ServiceNow.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
-ms.reviewer: celested
+author: twimmers
+writer: twimmers
+manager: beatrizd
+ms.assetid: 5f03d8b7-c3a0-443e-91af-99cc3956fa18
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 3/10/2023
-ms.author: jeedes
+ms.author: thwimmer
 ---
 
 # Configure ServiceNow for automatic user provisioning
@@ -51,6 +52,8 @@ For more information on the Azure AD automatic user provisioning service, see [A
 1. Obtain credentials for an admin in ServiceNow. Go to the user profile in ServiceNow and verify that the user has the admin role. 
 
    ![Screenshot that shows a ServiceNow admin role.](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   
+1. Enable the SCIM v2 Plugin using the steps outlined by this [ServiceNow doc](https://docs.servicenow.com/en-US/bundle/utah-platform-security/page/integrate/authentication/task/activate-scim-plugin.html)
 
 
 ## Step 3: Add ServiceNow from the Azure AD application gallery
@@ -84,8 +87,8 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 
 1. Set **Provisioning Mode** to **Automatic**.
 
-1. In the **Admin Credentials** section, enter your ServiceNow tenant URL, Client ID, Client Secret and Authorization Endpoint. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. [This ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-security/page/administer/security/task/t_CreateEndpointforExternalClients.html) outlines how to generate these values.
-
+1. In the **Admin Credentials** section, enter your ServiceNow admin credentials and username. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. If the connection fails, ensure that your ServiceNow account has admin permissions and try again.
+   
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
 1. Select **Save**.
@@ -198,7 +201,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
 > [!NOTE] 
-> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
+> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in ServiceNow unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Additional resources
 

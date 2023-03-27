@@ -29,7 +29,7 @@ Before you can use MSIX app attach to follow the directions in this article, you
 These instructions don't require an Azure Virtual Desktop deployment because they describe a process for testing outside of Azure Virtual Desktop.
 
 >[!NOTE]
->Microsoft Support doesn't currently support this CimFS disk image module, so if you run into any problems, you'll need to submit a request on [the module's Github repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
+>Microsoft Support doesn't currently support this CimFS disk image module, so if you run into any problems, you'll need to submit a request on [the module's GitHub repository](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
 ## Phases of MSIX app attach
 
@@ -109,7 +109,8 @@ To mount a CimFS disk image:
    $mount = Mount-CimDiskimage -ImagePath $diskImage -PassThru -NoMountPath
 
    #We can now get the Device Id for the mounted volume, this will be useful for the destage step.
-   Write-Output $mount.DeviceId
+   $DeviceId = $mount.DeviceId
+   Write-Output $DeviceId
    ```
 
 2. When you're done, proceed to [Finish staging your disk image](#finish-staging-your-disk-image).
@@ -136,11 +137,11 @@ To mount a VHD(X) disk image:
 
 ### Finish staging your disk image
 
-Finally, you'll need to run the following command for all image formats to complete staging the disk image. This command will use the `$mount` variable you created when you mounted your disk image in the previous section.
+Finally, you'll need to run the following command for all image formats to complete staging the disk image. This command will use the `$DeviceId` variable you created when you mounted your disk image in the previous section.
 
 ```powershell
 #Once the volume is mounted we can retrieve the application information
-$manifest = Get-Childitem -LiteralPath $mount.DeviceId -Recurse -File AppxManifest.xml
+$manifest = Get-Childitem -LiteralPath $DeviceId -Recurse -File AppxManifest.xml
 $manifestFolder = $manifest.DirectoryName
 
 #We can now get the MSIX package full name, this will be needed for later steps.
@@ -212,7 +213,7 @@ Remove-AppxPackage -AllUsers -Package $msixPackageFullName
 Remove-AppxPackage -Package $msixPackageFullName
 ```
 
-## Dismount the disks from the system
+### Dismount the disks from the system
 
 To finish the destaging process, you'll need to dismount the disks from the system. The command you'll need to use depends on the format of your disk image.
 

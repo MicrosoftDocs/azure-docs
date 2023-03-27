@@ -26,8 +26,8 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be 
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 For more information about the coverage of the Route service, see the [Routing Coverage].
 
@@ -35,7 +35,7 @@ This article uses the [Postman] application to build REST calls, but you can cho
 
 ## Choose between Route Directions and Matrix Routing
 
-The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes that are defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. All of these APIs allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
+The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes that are defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. These API allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
 
 Consider calling Route Directions APIs if your scenario is to:
 
@@ -283,7 +283,7 @@ To learn more, please see:
 
 [Route service]: /rest/api/maps/route
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Routing Coverage]: routing-coverage.md
 [Postman]: https://www.postman.com/downloads/
 [RouteType]: /rest/api/maps/route/postroutedirections#routetype

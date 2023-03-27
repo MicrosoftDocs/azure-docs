@@ -2,7 +2,7 @@
 title: Dependency tracking in Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 03/22/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: casocha
@@ -106,7 +106,7 @@ For ASP.NET applications, the full SQL query text is collected with the help of 
 | Platform | Steps needed to get full SQL query |
 | --- | --- |
 | Web Apps in Azure App Service|In your web app control panel, [open the Application Insights pane](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET. |
-| IIS Server (Azure Virtual Machines, on-premises, and so on) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Application Insights Agent PowerShell Module to [install the instrumentation engine](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) and restart IIS. |
+| IIS Server (Azure Virtual Machines, on-premises, and so on) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Application Insights Agent PowerShell Module to [install the instrumentation engine](../../azure-monitor/app/application-insights-asp-net-agent.md?tabs=api-reference#enable-instrumentationengine) and restart IIS. |
 | Azure Cloud Services | Add a [startup task to install StatusMonitor](../../azure-monitor/app/azure-web-apps-net-core.md). <br> Your app should be onboarded to the ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](./asp-net.md) or [ASP.NET Core applications](./asp-net-core.md). |
 | IIS Express | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
 | WebJobs in Azure App Service| Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package.
@@ -204,7 +204,7 @@ This section provides answers to common questions.
 
 ### How does the automatic dependency collector report failed calls to dependencies?
 
-Failed dependency calls will have the `success` field set to False. The module `DependencyTrackingTelemetryModule` doesn't report `ExceptionTelemetry`. The full data model for dependency is described [Dependency telemetry: Application Insights data model](data-model-dependency-telemetry.md).
+Failed dependency calls will have the `success` field set to False. The module `DependencyTrackingTelemetryModule` doesn't report `ExceptionTelemetry`. The full data model for dependency is described in [Application Insights telemetry data model](data-model-complete.md#dependency).
 
 ### How do I calculate ingestion latency for my dependency telemetry?
 
@@ -276,5 +276,5 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 * Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
-* See [data model](./data-model.md) for Application Insights types and data model.
+* See [data model](./data-model-complete.md) for Application Insights types and data model.
 * Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

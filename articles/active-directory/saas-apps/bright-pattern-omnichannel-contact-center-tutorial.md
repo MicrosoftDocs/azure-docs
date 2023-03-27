@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Bright Pattern Omnichannel Contact Center | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Bright Pattern Omnichannel Contact Center'
 description: Learn how to configure single sign-on between Azure Active Directory and Bright Pattern Omnichannel Contact Center.
 services: active-directory
 author: jeevansd

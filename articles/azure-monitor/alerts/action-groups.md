@@ -125,7 +125,7 @@ When you create or update an action group in the Azure portal, you can test the 
 
 1. On the page that lists the information you entered, select **Test action group**.
 
-   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot that shows the test action group start page with the Test option.":::
+   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot that shows the test action group page with the Test option.":::
 
 1. Select a sample type and the notification and action types that you want to test. Then select **Test**.
 
@@ -161,7 +161,7 @@ The following table describes the role membership requirements that are needed f
 >
 > When you configure an action group in the portal, you can opt in or out of the common alert schema:
 >
-> - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
+> - To find common schema samples for all sample types, see [Alert payload samples](./alerts-payload-samples.md).
 > - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
 
 ## Create an action group with a Resource Manager template
@@ -479,7 +479,7 @@ If you use the webhook action, your target webhook endpoint must be able to proc
    1. Copy the `$myApp.ObjectId` value that's in the script.
    1. In the webhook action definition, in the **Object Id** box, enter the value that you copied.
 
-   :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot that shows the Secured Webhook dialog in the Azure portal with the Object Id box." border="true":::
+   :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot that shows the Secured Webhook dialog in the Azure portal with the Object ID box." border="true":::
 
 #### Secure webhook PowerShell script
 
