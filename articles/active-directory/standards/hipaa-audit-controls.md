@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 
 # Audit Controls Safeguard guidance
 
-Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, it's the responsibility of companies to implement the safeguards using this guidance along with any other configurations or processes needed.
+Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, you must implement the safeguards using this guidance along with any other configurations or processes needed.
 
-For the Audit Controls Safeguard, we recommend you:
+For the Audit Controls Safeguard:
 
 * Establish data governance for personal data storage.
 
@@ -31,18 +31,18 @@ For the Audit Controls Safeguard, we recommend you:
 
 * Enable information protection.
 
-For Safeguard, we recommend that you:
+For Safeguard:
 
 * Determine where Protected Health Information (PHI) data is stored.
 
 * Identify and mitigate any risks for data that is stored.
 
- The following table provides a list of the Audit and Monitoring Controls (AM) safeguards from the HIPAA guidance and Microsoft's recommendations to enable you to meet the safeguard implementation requirements with Azure AD.
+ The following table provides a list of the Audit and Monitoring Controls (AM) safeguards from the HIPAA guidance and Microsoft's recommendations to enable you to meet the safeguard implementation requirements using Microsoft's security services.
 
-| HIPAA safeguard | Guidance and recommendations |
-| - | - |
-| **Audit Controls** - Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.| You're responsible for establishing a data governance model to determine where electronic PHI (ePHI) data is stored. Taking key actions on labeling and enabling auditing for access reviews.<p><p>Enable Microsoft Purview<p>[Data governance with Microsoft Purview](/purview/purview)<p>[Microsoft Purview capabilities](../../purview/overview.md)<p><p>Enable Microsoft Sentinel<p>[Microsoft Sentinel](../../sentinel/overview.md)<p><p>Configure Azure Monitor<p>[Use Azure Monitor Logs](../../azure-monitor/logs/data-security.md)<p><p>Enable logging and monitoring<p>[Security Control for logging and monitoring](/security/benchmark/azure/security-control-logging-monitoring)<p>[Access activity logs in Azure AD](../reports-monitoring/howto-access-activity-logs.md)<p><p>Scan environment for ePHI data<p>[Microsoft Purview to monitor data estate](../../purview/overview.md)<p><p>Create a data loss prevention (DLP) policy<p>[Microsoft Purview DLP for managing email governance](/microsoft-365/compliance/dlp-policy-reference)<p><p>Enable monitoring through Azure Policy<p>[Using Azure Policy](../../governance/policy/overview.md)<p>[Using Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)<p><p>Application protection<p>[Using Microsoft Intune for application protection](/mem/intune/apps/app-protection-policy)<p><p>Insider risk management<p>[Using Microsoft Purview for risk management](/microsoft-365/compliance/insider-risk-management-solution-overview)<p><p>Communication compliance<p>[Using Microsoft Purview for communication compliance](/microsoft-365/compliance/communication-compliance-solution-overview) |
-| Safeguard - Conduct an accurate and thorough Safeguard of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic protected health information held by the covered entity.| You're responsible for determining a map of your data landscape to establish where PHI data is stored, and key actions to protect the data.<p><p>Scan environment for ePHI data<p>[Use Microsoft Purview for scanning](../../purview/overview.md)<p><p>Enable Priva to safeguard Microsoft 365 data<p>[Using Microsoft Priva](/privacy/priva/priva-overview)<p>Enable Azure Security benchmark<p>[Microsoft cloud security benchmark](/security/benchmark/azure/introduction)<p><p>Enable Microsoft Defender for Cloud<p>[Virtual machine (VM) management](../../defender-for-cloud/remediate-vulnerability-findings-vm.md) |
+| <p><p><p><p>HIPAA safeguard<p> | <p><p><p><p>Recommendation<p> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guidance&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| - | - | - |
+| **Audit Controls** - Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.| Establish a data governance model to determine where electronic PHI (ePHI) data is stored and take key actions on labeling and enabling auditing for access reviews. | <p><p>Enable Microsoft Purview<p>[Data governance with Microsoft Purview](/purview/purview)<p>[Microsoft Purview capabilities](../../purview/overview.md)<p><p>Enable Microsoft Sentinel<p>[Microsoft Sentinel](../../sentinel/overview.md)<p><p>Configure Azure Monitor<p>[Use Azure Monitor Logs](../../azure-monitor/logs/data-security.md)<p><p>Enable logging and monitoring<p>[Security Control for logging and monitoring](/security/benchmark/azure/security-control-logging-monitoring)<p>[Access activity logs in Azure AD](../reports-monitoring/howto-access-activity-logs.md)<p><p>Scan environment for ePHI data<p>[Microsoft Purview to monitor data estate](../../purview/overview.md)<p><p>Create a data loss prevention (DLP) policy<p>[Microsoft Purview DLP for managing email governance](/microsoft-365/compliance/dlp-policy-reference)<p><p>Enable monitoring through Azure Policy<p>[Using Azure Policy](../../governance/policy/overview.md)<p>[Using Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)<p><p>Application protection<p>[Using Microsoft Intune for application protection](/mem/intune/apps/app-protection-policy)<p><p>Insider risk management<p>[Using Microsoft Purview for risk management](/microsoft-365/compliance/insider-risk-management-solution-overview)<p><p>Communication compliance<p>[Using Microsoft Purview for communication compliance](/microsoft-365/compliance/communication-compliance-solution-overview) |
+| Safeguard - Conduct an accurate and thorough Safeguard of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic protected health information held by the covered entity.| Document a map of your data landscape to establish where PHI data is stored, and key actions to protect the data. | <p><p>Scan environment for ePHI data<p>[Use Microsoft Purview for scanning](../../purview/overview.md)<p><p>Enable Priva to safeguard Microsoft 365 data<p>[Using Microsoft Priva](/privacy/priva/priva-overview)<p>Enable Azure Security benchmark<p>[Microsoft cloud security benchmark](/security/benchmark/azure/introduction)<p><p>Enable Microsoft Defender for Cloud<p>[Virtual machine (VM) management](../../defender-for-cloud/remediate-vulnerability-findings-vm.md) |
 
 ## Learn More
 
