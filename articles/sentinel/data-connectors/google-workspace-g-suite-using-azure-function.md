@@ -3,7 +3,7 @@ title: "Google Workspace (G Suite) (using Azure Function) connector for Microsof
 description: "Learn how to install the connector Google Workspace (G Suite) (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,8 +17,6 @@ The [Google Workspace](https://workspace.google.com/) data connector provides th
 | Connector attribute | Description |
 | --- | --- |
 | **Azure function app code** | https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp |
-| **Kusto function alias** | GWorkspaceActivityReports |
-| **Kusto function url** | https://aka.ms/sentinel-GWorkspaceReportsAPI-parser |
 | **Log Analytics table(s)** | GWorkspace_ReportsAPI_admin_CL<br/> GWorkspace_ReportsAPI_calendar_CL<br/> GWorkspace_ReportsAPI_drive_CL<br/> GWorkspace_ReportsAPI_login_CL<br/> GWorkspace_ReportsAPI_mobile_CL<br/> GWorkspace_ReportsAPI_token_CL<br/> GWorkspace_ReportsAPI_user_accounts_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
@@ -95,14 +93,13 @@ To integrate with Google Workspace (G Suite) (using Azure Function) make sure yo
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to the Google Reports API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector uses Azure Functions to connect to the Google Reports API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
-> [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-GWorkspaceReportsAPI-parser) to create the Kusto functions alias, **GWorkspaceActivityReports**
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias GWorkspaceReports and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/GoogleWorkspaceReports/Parsers/GWorkspaceActivityReports), on the second line of the query, enter the hostname(s) of your GWorkspaceReports device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 **STEP 1 - Ensure the prerequisites to obtain the Google Pickel String**
@@ -118,22 +115,23 @@ To integrate with Google Workspace (G Suite) (using Azure Function) make sure yo
 
 **STEP 2 - Configuration steps for the Google Reports API**
 
- 1. In Google Workspace, create a project if one does not already exists.
- 2. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.
- 3. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:
+1. Login to Google cloud console with your Workspace Admin credentials https://console.cloud.google.com.
+2. Using the search option (available at the top middle), Search for ***APIs & Services***
+3. From ***APIs & Services*** -> ***Enabled APIs & Services***, enable **Admin SDK API** for this project.
+ 4. Go to ***APIs & Services*** -> ***OAuth Consent Screen***. If not already configured, create a OAuth Consent Screen with the following steps:
 	 1. Provide App Name and other mandatory information.
 	 2. Add authorized domains with API Access Enabled.
 	 3. In Scopes section, add **Admin SDK API** scope.
 	 4. In Test Users section, make sure the domain admin account is added.
- 4. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID
+ 5. Go to ***APIs & Services*** -> ***Credentials*** and create OAuth 2.0 Client ID
 	 1. Click on Create Credentials on the top and select Oauth client Id.
 	 2. Select Web Application from the Application Type drop down.
 	 3. Provide a suitable name to the Web App and add http://localhost:8081/ as one of the Authorized redirect URIs.
 	 4. Once you click Create, download the JSON from the pop-up that appears. Rename this file to "**credentials.json**".
- 5. To fetch Google Pickel String, run the [python script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/GoogleWorkspaceReports/Data%20Connectors/get_google_pickle_string.py) from the same folder where credentials.json is saved.
+ 6. To fetch Google Pickel String, run the [python script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/GoogleWorkspaceReports/Data%20Connectors/get_google_pickle_string.py) from the same folder where credentials.json is saved.
 	 1. When popped up for sign-in, use the domain admin account credentials to login.
 >**Note:** This script is supported only on Windows operating system.
- 6. From the output of the previous step, copy Google Pickle String (contained within single quotation marks) and keep it handy. It will be needed on Function App deployment step.
+ 7. From the output of the previous step, copy Google Pickle String (contained within single quotation marks) and keep it handy. It will be needed on Function App deployment step.
 
 
 **STEP 3 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**

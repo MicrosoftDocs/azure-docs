@@ -5,6 +5,11 @@
       "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
       "redirect_document_id": false
     },
+     {
+       "source_path": "articles/active-directory/external-identities/configure-saas-apps.md",
+       "redirect_url": "/azure/active-directory/saas-apps/dropboxforbusiness-tutorial",
+       "redirect_document_id": false
+    },
     {
       "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
@@ -11501,6 +11506,11 @@
         {
             "source_path_from_root": "/articles/firewall/active-ftp-support.md",
             "redirect_url": "/azure/firewall/ftp-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
+            "redirect_url": "/azure/firewall/firewall-diagnostics",
             "redirect_document_id": false
         },
         {

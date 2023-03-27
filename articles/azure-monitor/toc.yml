@@ -353,10 +353,15 @@ items:
       href: logs/custom-logs-migrate.md
     - name: Tutorials
       items:
-      - name: Send data to Azure Monitor Logs using REST API
+      - name: Configure with Azure portal
+        displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-portal.md
-      - name: Send data to Azure Monitor Logs with ARM templates
-        href: logs/tutorial-logs-ingestion-api.md        
+      - name: Configure with ARM templates
+        displayName: logs ingestion
+        href: logs/tutorial-logs-ingestion-api.md
+      - name: Sample code
+        displayName: logs ingestion
+        href: logs/tutorial-logs-ingestion-code.md    
     - name: Data collector API
       items:
       - name: Overview
