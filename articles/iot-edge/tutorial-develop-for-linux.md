@@ -81,46 +81,6 @@ The following table lists the supported development scenarios for **Linux contai
 | **Languages** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) <br> [Azure IoT Edge Tools for Visual Studio 2022](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) |
 
-Use the following table to understand your options for developing and deploying C# modules using Linux containers:
-
-| C# | Visual Studio Code | Visual Studio |
-| -- | ------------------ | ------------- |
-| **Linux AMD64** | ![C# modules for LinuxAMD64 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![C# modules for LinuxARM32 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM32 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM64** | ![C# modules for LinuxARM64 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-Use the following table to understand your options for developing and deploying Python modules using Linux containers:
-
-| Python | Visual Studio Code | Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use Visual Studio Code for Python modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Use Visual Studio Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM64** | ![Use Visual Studio Code for Python modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
-
-Use the following table to understand your options for developing and deploying Java modules:
-
-| Java | Visual Studio Code | Visual Studio 2017/2019 |
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use Visual Studio Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Use Visual Studio Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM64** | ![Use Visual Studio Code for Java modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
-
-Use the following table to understand your options for developing and deploying Node.js modules:
-
-| Node.js | Visual Studio Code | Visual Studio 2022 |
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use Visual Studio Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Use Visual Studio Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM64** | ![Use Visual Studio Code for Node.js modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
-
-Use the following table to understand your options for developing and deploying C modules using Linux containers:
-
-| C | Visual Studio Code | Visual Studio |
-| - | ------------------ | ------------- |
-| **Linux AMD64** | ![Use Visual Studio Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![Use Visual Studio Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM64** | ![Use Visual Studio Code for C modules on Linux ARM64](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |
-
 ## Install container engine
 
 IoT Edge modules are packaged as containers, so you need a [Docker compatible container management system](support.md#container-engines) on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can develop modules for different types of IoT Edge devices.
@@ -151,12 +111,6 @@ Use the Docker documentation to install on your development machine:
    > If you have multiple Python versions, including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you use `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
    >
    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
-
-* Install [Cookiecutter](https://github.com/audreyr/cookiecutter).
-
-   ```bash
-   pip install -U cookiecutter
-   ```
 
 ::: zone-end
 
@@ -215,6 +169,7 @@ Installing the Azure IoT C SDK isn't required for this tutorial, but can provide
 To develop an IoT Edge module in Python, install the following additional prerequisites on your development machine:
 
 - Install [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/).
+- Install [Cookiecutter](https://github.com/audreyr/cookiecutter).
 - Install the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 >[!Note]
@@ -1264,10 +1219,6 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 >
 
 ::: zone-end
-<!--iotedgedev end-->
-
-
-::: zone-end
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -1285,7 +1236,7 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
-   :::image type="content" source="./media/tutorial-develop-for-linux/view-running-modules.png" alt-text="Screenshot where to view modules running on your I o T Edge device.":::
+   :::image type="content" source="./media/tutorial-develop-for-linux/view-running-modules.png" alt-text="Screenshot where to view modules running on your IOT Edge device.":::
 
 ## View messages from device
 
@@ -1333,11 +1284,11 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you set up Visual Studio Code on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language:
+In this tutorial, you set up Visual Studio Code on your development machine and deployed your first IoT Edge module that contains code to filter raw data generated by your IoT Edge device.
+
+You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [C](tutorial-c-module.md)
-> [C#](tutorial-csharp-module.md)
-> [Java](tutorial-java-module.md)
-> [Node.js](tutorial-node-module.md)
-> [Python](tutorial-python-module.md)
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)
