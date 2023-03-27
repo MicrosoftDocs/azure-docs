@@ -20,7 +20,7 @@ You can continue to exchange VM sizes (with instance size flexibility). However,
 
 The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
 
-A compute reservation exchange for another compute reservation exchange is not the same process as a reservation [trade-in](../savings-plan/reservation-trade-in.md) for a savings plan. You can always trade-in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
+A compute reservation exchange for another compute reservation exchange is similar to, but not the same as a reservation [trade-in](../savings-plan/reservation-trade-in.md) for a savings plan. The difference is that you can always trade-in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
 
 You can continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration and need or want more savings.
 
