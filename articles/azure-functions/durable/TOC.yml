@@ -26,6 +26,9 @@
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
+  - name: Create durable function - TypeScript
+    displayName: get started, chaining
+    href: quickstart-ts-vscode.md
   - name: Create durable function - Python
     displayName: get started, chaining
     href: quickstart-python-vscode.md

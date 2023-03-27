@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/21/2023
+ms.date: 03/24/2023
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
@@ -29,10 +29,10 @@ Login-AzAccount
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *eastus* location. 
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *eastus2* location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "eastus"
+New-AzResourceGroup -Name "myResourceGroup" -Location "eastus2"
 ```
 
 ## Get your principal ID
@@ -65,7 +65,7 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 - Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "eastus" -Administrator "<your-principal-ID>"
+New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "eastus2" -Administrator "<your-principal-ID>"
 ```
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.

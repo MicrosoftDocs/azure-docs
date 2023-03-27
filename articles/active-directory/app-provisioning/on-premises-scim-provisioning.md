@@ -25,7 +25,7 @@ The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0]
 - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target application, and with outbound connectivity to login.microsoftonline.com, other Microsoft Online Services and Azure domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
 
 ## Deploying Azure AD provisioning agent
-The Azure AD Provisioning agent can be deployed on the same server hosting a SCIM enabled application, or a seperate server, providing it has line of sight to the application's SCIM endpoint. A single agent also supports provision to multiple applications hosted locally on the same server or seperate hosts, again as long as each SCIM endpoint is reachable by the agent.  
+The Azure AD Provisioning agent can be deployed on the same server hosting a SCIM enabled application, or a separate server, providing it has line of sight to the application's SCIM endpoint. A single agent also supports provision to multiple applications hosted locally on the same server or separate hosts, again as long as each SCIM endpoint is reachable by the agent.  
 
  1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that your SCIM application endpoint is hosted on.
  2. Run the provisioning agent installer, agree to the terms of service, and select **Install**.
