@@ -268,7 +268,6 @@ Now that you have a script that can perform the desired tasks, and a compute clu
 Here, you'll create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute cluster to run the command.
 * Use an *environment* that defines software and runtime libraries needed for the training script. Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. You'll use one of those environments here.  In the [Train a model](tutorial-train-model.md) tutorial, you'll learn how to create a custom environment. 
-* Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
 
@@ -293,7 +292,6 @@ job = command(
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
     compute="cpu-cluster",
-    experiment_name="train_model_credit_default_prediction",
     display_name="credit_default_prediction",
 )
 ```

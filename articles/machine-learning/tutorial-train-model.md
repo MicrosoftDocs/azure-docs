@@ -351,7 +351,6 @@ Now that you have a script that can perform the classification task, use the gen
 Here, create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
 * Use the compute created earlier to run this command.
 * Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
-* Configure some metadata like display name, experiment name etc. An *experiment* is a container for all the iterations you do on a certain project. All the jobs submitted under the same experiment name are next to each other in Azure Machine Learning studio.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 
 
@@ -375,7 +374,6 @@ job = command(
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="aml-scikit-learn@latest",
     compute="cpu-cluster",
-    experiment_name="train_model_credit_default_prediction",
     display_name="credit_default_prediction",
 )
 ```
