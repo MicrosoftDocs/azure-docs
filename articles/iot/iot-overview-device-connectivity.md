@@ -18,9 +18,9 @@ This overview introduces the key concepts around how devices connect to the clou
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article is focused on the connectivity between the devices and the IoT cloud services shown in the diagram.
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges, shown in the diagram.
 
-:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
+:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" lightbox="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
 ## Primitives
 
@@ -102,7 +102,7 @@ There are two broad categories of connection patterns that IoT devices use to co
 
 ### Persistent connections
 
-Persistent connections are required your solution needs *command and control* capabilities. In command and control scenarios, your IoT solution sends commands to devices to control their behavior in near real time. Persistent connections maintain a network connection to the cloud and reconnect whenever there's a disruption. Use either the MQTT or the AMQP protocol for persistent device connections to an IoT hub. The IoT device SDKs enable both the MQTT and AMQP protocols for creating persistent connections to an IoT hub.
+Persistent connections are required when your solution needs *command and control* capabilities. In command and control scenarios, your IoT solution sends commands to devices to control their behavior in near real time. Persistent connections maintain a network connection to the cloud and reconnect whenever there's a disruption. Use either the MQTT or the AMQP protocol for persistent device connections to an IoT hub. The IoT device SDKs enable both the MQTT and AMQP protocols for creating persistent connections to an IoT hub.
 
 ### Ephemeral connections
 
@@ -119,13 +119,13 @@ Field gateways (sometimes referred to as edge gateways) are typically deployed o
 
 You can use Azure IoT Edge to deploy a field gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage field gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
-An IoT Edge device can maintain a [persistent connection](#persistent-connections) to an IoT hub. The gateway forwards device telemetry to IoT Central. This option enables command and control of the downstream devices connected to the IoT Edge device.
+An IoT Edge device can maintain a [persistent connection](#persistent-connections) to an IoT hub. The gateway forwards device telemetry to IoT Hub. This option enables command and control of the downstream devices connected to the IoT Edge device.
 
 ## Bridges
 
 A device bridge enables devices that are connected to a third-party cloud to connect to your IoT solution. Examples of third-party clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/).
 
-The open source IoT Central Device Bridge acts as a translator that forwards telemetry to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge).
+The open source IoT Central Device Bridge acts as a translator that forwards telemetry to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge). There are third-party bridge solutions, such as [Tartabit IoT Bridge](/shows/internet-of-things-show/onboarding-constrained-devices-into-azure-using-tartabits-iot-bridge), for connecting devices to an IoT hub.
 
 ## Next steps
 

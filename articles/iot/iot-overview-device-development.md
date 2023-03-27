@@ -16,11 +16,9 @@ ms.custom: template-overview
 
 This overview introduces the key concepts around developing devices that connect to a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
 
-IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the devices and gateway shown in the diagram.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article is focused on the devices and gateway shown in the diagram.
-
-:::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
+:::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" lightbox="media/iot-overview-device-development/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
 In Azure IoT, a device developer writes the code to run on the devices in the solution. This code typically:
 
@@ -107,7 +105,7 @@ You can group these elements in interfaces to reuse across models to make collab
 
 The model is specified by using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl).
 
-The use of IoT Plug and Play, modeling, and DTDL is optional in typical IoT solutions. You can use the IoT device primitives without using IoT Plug and Play or modeling. The [Azure Digital Twins](../digital-twins/overview.md) service also uses DTDL models to create twin graphs based on digital models of environments such as buildings or factories.
+The use of IoT Plug and Play, modeling, and DTDL is optional. You can use the IoT device primitives without using IoT Plug and Play or modeling. The [Azure Digital Twins](../digital-twins/overview.md) service also uses DTDL models to create twin graphs based on digital models of environments such as buildings or factories.
 
 As a device developer, when you implement an IoT Plug and Play device there are a set of conventions to follow. These conventions provide a standard way to implement the device model in code by using the primitives available in the device SDKs.
 

@@ -13,11 +13,11 @@ ms.custom:  [amqp, mqtt]
 
 # What is Azure Internet of Things (IoT)?
 
-The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that let you connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of IoT devices that communicate with cloud services.
+The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that let you connect, monitor, and control your IoT assets at scale. In simpler terms, an IoT solution is made up of IoT devices that communicate with cloud services.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article is focused key groups of components: devices, IoT cloud services, other cloud services, and solution-wide concerns. Other articles in this section provide more detail on each of these components.
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the key groups of components: devices, IoT cloud services, other cloud services, and solution-wide concerns. Other articles in this section provide more detail on each of these components.
 
-:::image type="content" source="media/iot-introduction/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram" border="false":::
+:::image type="content" source="media/iot-introduction/iot-architecture.svg" lightbox="media/iot-introduction/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram" border="false":::
 
 ## IoT devices
 
@@ -28,7 +28,7 @@ An IoT device is typically made up of a circuit board with sensors attached that
 * An accelerometer in an elevator.
 * Presence sensors in a room.
 
-There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). For prototyping, you can use devices such as an [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) or a [Raspberry Pi](https://www.raspberrypi.org/). The Devkit has built-in sensors for temperature, pressure, humidity, and a gyroscope, accelerometer, and magnetometer. The Raspberry Pi lets you attach many different types of sensor.
+There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). For prototyping a microprocessor device, you can use a device such as a [Raspberry Pi](https://www.raspberrypi.org/). The Raspberry Pi lets you attach many different types of sensor. For prototyping a microcontroller device, you can use devices such as the [ESPRESSIF ESP32](../iot-develop/quickstart-devkit-espressif-esp32-freertos-iot-hub.md), [STMicroelectronics B-U585I-IOT02A Discovery kit](../iot-develop/quickstart-devkit-stm-b-u585i-iot-hub.md), [STMicroelectronics B-L4S5I-IOT01A Discovery kit](../iot-develop/quickstart-devkit-stm-b-l4s5i-iot-hub.md), or [NXP MIMXRT1060-EVK Evaluation kit](../iot-develop/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md). These boards typically have built-in sensors, such as temperature and accelerometer sensors.
 
 Microsoft provides open-source [Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) that you can use to build the apps that run on your devices.
 
@@ -61,16 +61,16 @@ To learn more, see [Device infrastructure and connectivity](iot-overview-device-
 
 ## Cloud services
 
-In an IoT solution, the cloud services provide functionality such as:
+In an IoT solution, the cloud services typically:
 
-* Receiving telemetry at scale from your devices, and determining how to process and store that data.
-* Analyzing the telemetry to provide insights, either in real time or after the fact.
-* Sending commands from the cloud to a specific device.
-* Provisioning devices and controlling which devices can connect to your infrastructure.
-* Controlling the state of your devices and monitoring their activities.
-* Managing the firmware installed on your devices.
+* Receive telemetry at scale from your devices, and determining how to process and store that data.
+* Analyze the telemetry to provide insights, either in real time or after the fact.
+* Send commands from the cloud to a specific device.
+* Provision devices and controlling which devices can connect to your infrastructure.
+* Control the state of your devices and monitoring their activities.
+* Manage the firmware installed on your devices.
 
-For example, in a remote monitoring solution for an oil pumping station, the cloud back end uses telemetry from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
+For example, in a remote monitoring solution for an oil pumping station, the services use telemetry from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command back to the device to take a corrective action. This process generates an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
 Some cloud services, such as IoT Hub and the Device Provisioning Service, are IoT specific. Other cloud services can provide generic services to your solution such as storage and visualizations.
 
@@ -80,7 +80,7 @@ Any IoT solution has to address the following solution-wide concerns:
 
 * [Security](iot-security-best-practices.md) including physical security, authentication, authorization, and encryption
 * Solution management including deployment and monitoring.
-* High availability and disaster recovery for all the services in your solution.
+* High availability and disaster recovery for all the components in your solution.
 * Scalability for all the services in your solution.
 
 ## Next steps
@@ -90,3 +90,9 @@ Suggested next steps to explore Azure IoT further include:
 * [IoT device development](iot-overview-device-development.md)
 * [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
 * [Azure IoT services and technologies](iot-services-and-technologies.md).
+
+To learn more about Azure IoT architecture, see:
+
+* [Well-architected framework: overview of IoT workloads](/azure/architecture/framework/iot/iot-overview)
+* [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+* [Industry specific Azure IoT reference architectures](/azure/architecture/reference-architectures/iot/industry-iot-hub-page)

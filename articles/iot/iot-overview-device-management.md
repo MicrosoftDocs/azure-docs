@@ -18,9 +18,9 @@ This overview introduces the key concepts around managing and controlling device
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article is focused on the device management and control components of an IoT solution.
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the device management and control components of an IoT solution.
 
-:::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
+:::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" lightbox="media/iot-overview-device-management/iot-architecture.svg" alt-text="High-level IoT solution architecture diagram that highlights device connectivity areas" border="false":::
 
 In Azure IoT, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
 
@@ -32,7 +32,7 @@ In Azure IoT, device management refers to processes such as provisioning and upd
 - Device monitoring
 - Enabling and disabling devices
 
-In Azure IoT, command and control refers to the processes that let you send commands to devices and receive responses from them. For example, you can send a command to a device to:
+In Azure IoT, *command and control* refers to the processes that let you send commands to devices and receive responses from them. For example, you can send a command to a device to:
 
 - Set a target temperature.
 - Request maximum and minimum temperature values for the last two hours.
@@ -43,7 +43,7 @@ In Azure IoT, command and control refers to the processes that let you send comm
 Azure IoT solutions can use the following primitives for both device management and command and control:
 
 - *Device twins* to share and synchronize state data with the cloud. For example, a device can use the device twin to report the current state of a valve it controls to the cloud and to receive a desired target temperature from the cloud.
-- *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices.
+- *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices. To learn more about the differences between device twins and digital twins, see [Understand IoT Plug and Play digital twins](../iot-pnp/concepts-digital-twin.md).
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot in 30 seconds.
 - *Cloud-to-device* messages to receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
 
@@ -65,7 +65,7 @@ IoT Central provides a UI to manage the device registry in the underlying IoT hu
 
 ## Device provisioning
 
-You must configure each device in your solution with the details of the IoT hub it should connect to. You can manually configure each device in your solution, but this may not be practical for a large number of devices. To get around this problem, you can use the Device Provisioning Service (DPS) to automatically register each device with an IoT hub, and then provision each device with the required connection information. If your IoT solution uses multiple IoT hubs, you can use DPS to provision devices to a hub based on criteria such as which is the closest hub to the device.
+You must configure each device in your solution with the details of the IoT hub it should connect to. You can manually configure each device in your solution, but this may not be practical for a large number of devices. To get around this problem, you can use the Device Provisioning Service (DPS) to automatically register each device with an IoT hub, and then provision each device with the required connection information. If your IoT solution uses multiple IoT hubs, you can use DPS to provision devices to a hub based on criteria such as which is the closest hub to the device. You can configure your DPS with rules for registering and provisioning your devices in advance of physically deploying the device in the field.
 
 If your IoT solution uses IoT Hub, then using DPS is optional. If you're using IoT Central, then your solution automatically uses a DPS instance that IoT Central manages.
 
@@ -124,7 +124,7 @@ To learn more, see [Cloud-to-device communications guidance](../iot-hub/iot-hub-
 
 In some scenarios, you can automate device control based on feedback loops. For example, if the device temperature is too high, logic running in the cloud can send a command to turn on a fan. The cloud process can then send a command to turn off the fan when the temperature is back to normal.
 
-It's also possible to run this kind of automation locally. For example, if you're using IoT Edge to implement your gateway device, you can run the logic that controls the device in an IoT Edge module. Running this kind of logic at the edge can reduce latency and provide resilience in the case of a network outage.
+It's also possible to run this kind of automation locally. For example, if you're using IoT Edge to implement your gateway device, you can run the logic that controls the device in an IoT Edge module. Running this kind of logic at the edge can reduce latency and provide resilience if there's a network outage.
 
 ## Jobs
 
