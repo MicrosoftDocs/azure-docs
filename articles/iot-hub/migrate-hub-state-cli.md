@@ -82,7 +82,7 @@ Any IoT Hub property or configuration not listed here may not be exported or imp
 
 ## Export the state of an IoT hub
 
-Use the [az iot hub state export](/cli/azure/iot/hub/state#az-iot-hub-state-export) command to export the state of an IoT hub to a file.
+Use the [az iot hub state export](/cli/azure/iot/hub/state#az-iot-hub-state-export) command to export the state of an IoT hub to a JSON file.
 
 If you want to run both the export and import steps in one command, refer to the section later in this article to [Migrate an IoT hub](#migrate-an-iot-hub).
 
@@ -93,8 +93,20 @@ When you export the state of an IoT hub, you can choose which aspects to export.
 | `--aspects` | The state aspects to export. Specify one or more of the accepted values: **arm**, **configurations**, or **devices**. If this parameter is left out, then all three aspects will be exported. |
 | `--state-file -f` | The path to the file where the state information will be written. |
 | `--replace -r` | If this parameter is included, then the export command will overwrite the contents of the state file. |
-| `--hub-name -n`<br><br>**or**<br><br>`--login -l` | The name of the origin IoT hub (`-n`) or the connection string for the origin IoT hub (`-l`). If both are provided, then the connection string takes priority. |
+| `--hub-name -n`<br>**or**<br>`--login -l` | The name of the origin IoT hub (`-n`) or the connection string for the origin IoT hub (`-l`). If both are provided, then the connection string takes priority. |
 | `--resource-group -g` | The name of the resource group for the origin IoT hub. |
+
+The following example exports all aspects of an IoT hub's state to a file named **myHub-state**:
+
+```azurecli
+az iot hub state export --hub-name myHub --state-file ./myHub-state.json
+```
+
+The following example exports only the devices and ARM aspects of an IoT hub's state, and overwrites the content of the existing file:
+
+```azurecli
+az iot hub state export --hub-name myHub --state-file ./myHub-state.json --aspects arm devices --replace
+```
 
 ### Export endpoints
 
@@ -113,8 +125,20 @@ If you want to run both the export and import steps in one command, refer to the
 | `--aspects` | The state aspects to import. Specify one or more of the accepted values: **arm**, **configurations**, or **devices**. If this parameter is left out, then all three aspects will be imported. |
 | `--state-file -f` | The path to the exported state file. |
 | `--replace -r` | If this parameter is included, then the import command will delete the current state of the destination hub. |
-| `--hub-name -n`<br><br>**or**<br><br>`--login -l` | The name of the destination IoT hub (`-n`) or the connection string for the destination IoT hub (`-l`). If both are provided, then the connection string takes priority. |
+| `--hub-name -n`<br>**or**<br>`--login -l` | The name of the destination IoT hub (`-n`) or the connection string for the destination IoT hub (`-l`). If both are provided, then the connection string takes priority. |
 | `--resource-group -g` | The name of the resource group for the destination IoT hub. |
+
+The following example imports all aspects to a new IoT hub, which will be created if it doesn't already exist:
+
+```azurecli
+az iot hub state import --hub-name myNewHub --state-file ./myHub-state.json
+```
+
+The following example imports only the devices and configurations aspects to a new IoT hub, which must exist already, and overwrites any existing devices and configurations:
+
+```azurecli
+az iot hub state import --hub-name myNewHub --state-file ./myHub-state.json --aspects devices configurations --replace
+```
 
 ### Create a new IoT Hub with state import
 
@@ -134,7 +158,7 @@ If the destination IoT hub already exists, then the `arm` aspect is not required
 * Data residency
 * Features
 
-If the `--resource-group`
+If the `--resource-group` is specified in the import command and is different than IoT hub's current resource group, the hub will be moved.
 
 If you include the `--replace` flag in the import command, then the following IoT hub aspects will be removed from the destination hub before the hub state is uploaded:
 
@@ -154,10 +178,16 @@ If you are migrating a device registry with many devices (for example, a few hun
 | --------- | ------- |
 | `--aspects` | The state aspects to migrate. Specify one or more of the accepted values: **arm**, **configurations**, or **devices**. If this parameter is left out, then all three aspects will be migrated. |
 | `--replace -r` | If this parameter is included, then the migrate command will delete the current state of the destination hub. |
-| `--destination-hub --dh`<br><br>**or**<br><br>`--destination-hub-login --dl` | The name of the destination IoT hub (`--dh`) or the connection string for the destination IoT hub (`--dl`). If both are provided, then the connection string takes priority. |
+| `--destination-hub --dh`<br>**or**<br>`--destination-hub-login --dl` | The name of the destination IoT hub (`--dh`) or the connection string for the destination IoT hub (`--dl`). If both are provided, then the connection string takes priority. |
 | `--destination-resource-group --dg` | Name of the resource group for the destination IoT hub. |
-| `--origin-hub --oh`<br><br>**or**<br><br>`--origin-hub-login --ol` | The name of the origin IoT hub (`--oh`) or the connection string for the origin IoT hub (`--ol`). If both are provided, then the connection string takes priority. Use the connection string to avoid having to log in to the Azure CLI session.  |
+| `--origin-hub --oh`<br>**or**<br>`--origin-hub-login --ol` | The name of the origin IoT hub (`--oh`) or the connection string for the origin IoT hub (`--ol`). If both are provided, then the connection string takes priority. Use the connection string to avoid having to log in to the Azure CLI session.  |
 | `--origin-resource-group --og` | The name of the resource group for the origin IoT hub. |
+
+The following example migrates all aspects of the origin hub to the destination hub, which will be created if it doesn't exist:
+
+```azurecli
+az iot hub state migrate --origin-hub myHub --destination-hub myNewHub
+```
 
 ## Troubleshoot a migration
 
