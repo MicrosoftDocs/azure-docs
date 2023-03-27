@@ -160,11 +160,32 @@ namespace MyWebApp
 > [!NOTE]
 > If you can't access `ISupportProperties`, make sure you're running the latest stable release of the Application Insights SDK. `ISupportProperties` is intended for high cardinality values. `GlobalProperties` is more appropriate for low cardinality values like region name and environment name.
 
-### Enable the telemetry initializer for ASP.NET
+
+# [.NET 6.0+](tab/framework)
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+builder.services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
+```
+
+# [.NET 5.0](tab/framework)
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
+}
+```
+
+# [ASP.NET Framework](tab/framework)
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
-
 
 namespace MyWebApp
 {
@@ -180,18 +201,7 @@ namespace MyWebApp
 
 ```
 
-### Enable the telemetry initializer for ASP.NET Core
-
-You can create your telemetry initializer the same way for ASP.NET Core as for ASP.NET. To enable the initializer, use the following example for reference:
-
-```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
- public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
-}
-```
+---
 
 # [Node.js](#tab/nodejs)
 
