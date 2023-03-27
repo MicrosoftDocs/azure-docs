@@ -91,8 +91,10 @@ When you export the state of an IoT hub, you can choose which aspects to export.
 | Parameter | Details |
 | --------- | ------- |
 | `--aspects` | The state aspects to export. Specify one or more of the accepted values: **arm**, **configurations**, or **devices**. If this parameter is left out, then all three aspects will be exported. |
-| `--state-file`, `-f` | The path to the file where the state information will be written. |
-| `--replace`, `-r` | If this parameter is included, then the export command will overwrite the contents of the state file. |
+| `--state-file -f` | The path to the file where the state information will be written. |
+| `--replace -r` | If this parameter is included, then the export command will overwrite the contents of the state file. |
+| `--hub-name -n`<br><br>**or**<br><br>`--login -l` | The name of the origin IoT hub (`-n`) or the connection string for the origin IoT hub (`-l`). If both are provided, then the connection string takes priority. |
+| `--resource-group -g` | The name of the resource group for the origin IoT hub. |
 
 ### Export endpoints
 
@@ -109,28 +111,60 @@ If you want to run both the export and import steps in one command, refer to the
 | Parameter | Details |
 | --------- | ------- |
 | `--aspects` | The state aspects to import. Specify one or more of the accepted values: **arm**, **configurations**, or **devices**. If this parameter is left out, then all three aspects will be imported. |
-| `--state-file`, `-f` | The path to the exported state file. |
-| `--replace`, `-r` | If this parameter is included, then the import command will delete the current state of the destination hub. |
+| `--state-file -f` | The path to the exported state file. |
+| `--replace -r` | If this parameter is included, then the import command will delete the current state of the destination hub. |
+| `--hub-name -n`<br><br>**or**<br><br>`--login -l` | The name of the destination IoT hub (`-n`) or the connection string for the destination IoT hub (`-l`). If both are provided, then the connection string takes priority. |
+| `--resource-group -g` | The name of the resource group for the destination IoT hub. |
+
+### Create a new IoT Hub with state import
+
+You can use the `az iot hub state import` command to create a new IoT hub or to write to an existing IoT hub.
+
+If you want to create a new IoT Hub, then you must include the `arm` aspect in the import command. If `arm` isn't included in the command, and the destination hub doesn't exist, then the import command will fail.
+
+If the destination hub doesn't exist, then the `--resource-group` parameter is also required for the import command.
+
+### Update an existing IoT hub with state import
+
+If the destination IoT hub already exists, then the `arm` aspect is not required for the `az iot hub state import` command. If you do include the `arm` aspect, all the resource properties will be overwritten except for the following properties which can't be changed after hub creation:
+
+* Location
+* SKU
+* Built-in Event Hubs partition count
+* Data residency
+* Features
+
+If the `--resource-group`
+
+If you include the `--replace` flag in the import command, then the following IoT hub aspects will be removed from the destination hub before the hub state is uploaded:
+
+* **ARM**: Any uploaded certificates on the destination hub will be deleted. If a certificate is present, it will need an etag to be updated.
+* **Devices**: All devices and modules, edge and non-edge, will be deleted.
+* **Configurations**: All ADM configurations and IoT Edge deployments will be deleted.
 
 ## Migrate an IoT hub
 
 Use the [az iot hub state migrate](/cli/azure/iot/hub/state#az-iot-hub-state-migrate) command to migrate the state of one IoT hub to a new or existing IoT hub.
 
-This command wraps the export and import steps into a single command, and has no output files. If you are migrating a device registry with many devices (for example, a few hundred or a few thousand) you may find it easier and faster to run the export and import commands separately rather than running the migrate command.
+This command wraps the export and import steps into a single command, but has no output files. All of the guidance and limitations described in the [Export the state of an IoT hub](#export-the-state-of-an-iot-hub) and [Import the state of an IoT hub](#import-the-state-of-an-iot-hub) sections apply to the `state migrate` command as well.
+
+If you are migrating a device registry with many devices (for example, a few hundred or a few thousand) you may find it easier and faster to run the export and import commands separately rather than running the migrate command.
 
 | Parameter | Details |
 | --------- | ------- |
 | `--aspects` | The state aspects to migrate. Specify one or more of the accepted values: **arm**, **configurations**, or **devices**. If this parameter is left out, then all three aspects will be migrated. |
-| `--replace`, `-r` | If this parameter is included, then the migrate command will delete the current state of the destination hub. |
-| `--destination-hub`, `--dh` |  |
-| `--destination-hub-login`, `--dl` |  |
-| `--destination-resource-group`, `--dg` |  |
-| `--origin-hub`, `--oh` |  |
-| `--origin-hub-login`, `--ol` |  |
-| `--origin-resource-group`, `--og` |  |
+| `--replace -r` | If this parameter is included, then the migrate command will delete the current state of the destination hub. |
+| `--destination-hub --dh`<br><br>**or**<br><br>`--destination-hub-login --dl` | The name of the destination IoT hub (`--dh`) or the connection string for the destination IoT hub (`--dl`). If both are provided, then the connection string takes priority. |
+| `--destination-resource-group --dg` | Name of the resource group for the destination IoT hub. |
+| `--origin-hub --oh`<br><br>**or**<br><br>`--origin-hub-login --ol` | The name of the origin IoT hub (`--oh`) or the connection string for the origin IoT hub (`--ol`). If both are provided, then the connection string takes priority. Use the connection string to avoid having to log in to the Azure CLI session.  |
+| `--origin-resource-group --og` | The name of the resource group for the origin IoT hub. |
 
 ## Troubleshoot a migration
 
 If you can't export or import devices or configurations, check that you have access to those properties. One way to verify this is by running the `az iot hub device-identity list` or `az iot hub configuration list` commands.
 
+If the `az iot hub state migrate` command fails, try running the export and import commands separately. The two commands result in the same functionality as the migrate command alone, but by running them separately you can review the state files that are created from the export command.
+
 ## Next steps
+
+For more information about performing bulk operations against the identity registry in an IoT hub, see [Import and export IoT Hub device identities](./iot-hub-bulk-identity-mgmt.md).
