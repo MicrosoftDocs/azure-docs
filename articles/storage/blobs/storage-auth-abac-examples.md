@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 03/16/2023
+ms.date: 03/27/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -28,7 +28,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 This section includes examples involving blob index tags.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Although the `Read content from a blob with tag conditions` suboperation is currently supported for compatibility with conditions implemented during the ABAC feature preview, it has been deprecated and Microsoft recommends using the [`Read a blob`](storage-auth-abac-attributes.md#read-a-blob) action instead.
 >
 > When configuring ABAC conditions in the Azure portal, you might see **DEPRECATED: Read content from a blob with tag conditions**. Microsoft recommends removing the operation and replacing it with the `Read a blob` action.
@@ -321,6 +321,8 @@ Set-AzStorageBlobTag -Container example4 -Blob "Example4.txt" -Tag $grantedTag3 
 ```
 
 ## Blob container names or paths
+
+This section includes examples showing how to restrict access to objects based on container name or blob path.
 
 ### Example: Read, write, or delete blobs in named containers
 
@@ -823,6 +825,8 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ## Blob versions or blob snapshots
 
+This section includes examples showing how to restrict access to objects based on the blob version or snapshot.
+
 ### Example: Read only current blob versions
 
 This condition allows a user to only read current blob versions. The user cannot read other blob versions.
@@ -1035,6 +1039,8 @@ Here are the settings to add this condition using the Azure portal.
 
 ## Hierarchical namespace
 
+This section includes examples showing how to restrict access to objects based on whether hierarchical namespace is enabled for a storage account.
+
 ### Example: Read only storage accounts with hierarchical namespace enabled
 
 This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or above.
@@ -1093,6 +1099,8 @@ Here are the settings to add this condition using the Azure portal.
 > | Value | True |
 
 ## Encryption scope
+
+This section includes examples showing how to restrict access to objects with an approved encryption scope.
 
 ### Example: Read blobs with specific encryption scopes
 
@@ -1190,6 +1198,8 @@ Here are the settings to add this condition using the Azure portal.
 > | Value | &lt;scopeName&gt; |
 
 ## Principal attributes
+
+This section includes examples showing how to restrict access to objects based on custom security principals.
 
 ### Example: Read or write blobs based on blob index tags and custom security attributes
 
@@ -1311,12 +1321,38 @@ Here are the settings to add this condition using the Azure portal.
 
 ## Environment attributes
 
-### Example: Allow read access to a container from only a private endpoint
+This section includes examples showing how to restrict access to objects based on the network environment or the current date and time.
+
+### Example: Allow access to a container only from a specific private endpoint
+
+This condition requires that all read, write and delete operations for storage container named `container1` must be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1` read, write, and delete access does not need to be made through the private endpoint. Without this statement, access to all other containers not named `container1` will fail. Please note that you must group expressions to enforce appropriate evaluation.
+
+This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the [blob index tag](storage-blob-index-how-to.md).
+ 
+For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+
+For more information, see [Allow read access to blobs based on tags and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes.md).
+
+![Diagram of condition showing read access to blobs based on blob index tags and multi-value custom security attributes.](./media/storage-auth-abac-examples/principal-blob-index-tags-multi-value-read.png)
 
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
  )
  OR 
  (

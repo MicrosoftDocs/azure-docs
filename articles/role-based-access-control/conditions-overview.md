@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 03/16/2023
+ms.date: 03/27/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -16,7 +16,7 @@ ms.author: rolyon
 
 # What is Azure attribute-based access control (Azure ABAC)?
 
-Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and environment. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
+Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and the environment of an access request. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
 
 ## What are role assignment conditions?
 
@@ -45,6 +45,8 @@ There are several scenarios where you might want to add a condition to your role
 - Write access to blobs in containers named Contosocorp with a path of uploads/contoso
 - Read access to blobs with the tag Program=Alpine and a path of logs
 - Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
+- Read access to blobs during a specific date/time range.
+- Write access to blobs only over a private link.
 
 For more information about how to create these examples, see [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
 
@@ -62,7 +64,9 @@ Here are some of the [blob storage attributes](../storage/blobs/storage-auth-aba
 - Encryption scope name
 - Is Current Version
 - Is hierarchical namespace enabled
+- Is private link
 - Snapshot
+- UTC now (the current date and time in Coordinated Universal Time)
 - Version ID
 
 ## What does a condition look like?

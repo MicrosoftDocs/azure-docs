@@ -1,19 +1,19 @@
 ---
-title: Actions and attributes for Azure role assignment conditions for Azure queues
+title: Actions and attributes for Azure role assignment conditions for Azure Queue Storage
 titleSuffix: Azure Storage
-description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure queues. 
+description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Queue Storage. 
 services: storage
 author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/19/2023
+ms.date: 03/27/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
 ---
 
-# Actions and attributes for Azure role assignment conditions for Azure queues
+# Actions and attributes for Azure role assignment conditions for Azure Queue Storage
 
 This article describes the supported attribute dictionaries that can be used in conditions on Azure role assignments for each Azure Storage [DataAction](../../role-based-access-control/role-definitions.md#dataactions). For the list of Queue service operations that are affected by a specific permission or DataAction, see [Permissions for Queue service operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-queue-service-operations).
 
@@ -21,9 +21,9 @@ To understand the role assignment condition format, see [Azure role assignment c
 
 [!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
-## Azure Queues storage actions
+## Azure Queue Storage actions
 
-This section lists the supported Azure Queue storage actions you can target for conditions.
+This section lists the supported Azure Queue Storage actions you can target for conditions.
 
 Storage accounts support the following actions:
 
@@ -82,7 +82,7 @@ Storage accounts support the following actions:
 > | **Resource attributes** | [Account name](#account-name)<br/>[Queue name](#queue-name) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-
+Azure queues
 ### Get or delete messages
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -95,9 +95,9 @@ Storage accounts support the following actions:
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
 
-## Azure Queues storage attributes
+## Azure Queues Storage attributes
 
-This section lists the Azure Queue storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
+This section lists the Azure Queue storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across all of the selected actions.
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
@@ -107,7 +107,7 @@ The following table summarizes the available attributes by source:
 | Attribute Source | Display name         | Description                                                        |
 | :--------------- | :------------------- | :----------------------------------------------------------------- |
 | **Environment**  | | |
-| | [Is private link](#is-private-link)   | Is access over a private link?                                     |
+| | [Is private link](#is-private-link)   | Whether access is over a private link.                             |
 | | [Private endpoint](#private-endpoint) | The name of the private endpoint from which an object is accessed. |
 | | [Subnet name](#subnet-name)           | The name of the subnet from which an object is accessed.           |
 | | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
@@ -186,7 +186,7 @@ The following table summarizes the available attributes by source:
 > | **Description** | The current date and time in Coordinated Universal Time.<br/>Use to control access to objects for a specific date and time period. |
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> *(Only operators DateTimeGreaterThan and DateTimeLessThan are supported for the UTC now attribute.)* |
+> | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> *(Only operators* ***DateTimeGreaterThan*** *and* ***DateTimeLessThan*** *are supported for the UTC now attribute.)* |
 > | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ## See also
