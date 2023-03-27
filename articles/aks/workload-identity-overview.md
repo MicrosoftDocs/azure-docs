@@ -63,6 +63,10 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 :::image type="content" source="media/workload-identity-overview/aks-workload-identity-oidc-authentication-model.png" alt-text="Diagram of the AKS workload identity OIDC authentication sequence.":::
 
+### Webhook Certificate Auto Rotation
+
+Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation](https://learn.microsoft.com/en-us/azure/aks/certificate-rotation#certificate-auto-rotation) operation.
+
 ## Service account labels and annotations
 
 Azure AD workload identity supports the following mappings related to a service account:
