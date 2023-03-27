@@ -352,7 +352,7 @@ This section describes how to connect your sensor to Defender for IoT in Azure f
 
 Before you start, make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor [SPAN traffic](traffic-mirroring/configure-mirror-span.md).
 
-### Select a multi-cloud connectivity method
+### Select a multicloud connectivity method
 
 Use the following flow chart to determine which connectivity method to use:
 
