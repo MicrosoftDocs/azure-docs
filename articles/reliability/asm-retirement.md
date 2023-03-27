@@ -12,7 +12,7 @@ ms.service: reliability
 # Azure Service Manager Retirement
 
 ## Overview
-Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. However, ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](https://learn.microsoft.com/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment
+Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. However, ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment
 
 ## Benefits of Migrating to ARM 
 Migrating from the classic resource model to ARM offers several benefits, including:  
@@ -51,11 +51,11 @@ Here is a list of classic resources being retired and their retirement dates:
 |[Classic Reserved IP addresses](https://azure.microsoft.com/updates/five-azure-classic-networking-services-will-be-retired-on-31-august-2024/) |Aug 24| 
 |[Classic ExpressRoute Gateway](https://azure.microsoft.com/updates/five-azure-classic-networking-services-will-be-retired-on-31-august-2024/) |Aug 24 |
 |[Classic VPN gateway](https://azure.microsoft.com/updates/five-azure-classic-networking-services-will-be-retired-on-31-august-2024/) | Aug 24 |
-|[API Management](https://learn.microsoft.com/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024) | Aug 24 |
-|[Azure Redis cache](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services-(classic)) | Aug 24 |
-|[Virtual WAN](https://learn.microsoft.com/azure/virtual-wan/virtual-wan-faq#update-router) | Aug 24 |
-|[Microsoft HPC Pack](https://learn.microsoft.com/powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?view=hpc19-ps) |Aug 24|
-|[Azure Active Directory Domain Services](https://learn.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Mar 23 |
+|[API Management](/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024) | Aug 24 |
+|[Azure Redis cache](/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services-(classic)) | Aug 24 |
+|[Virtual WAN](/azure/virtual-wan/virtual-wan-faq#update-router) | Aug 24 |
+|[Microsoft HPC Pack](/powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?view=hpc19-ps) |Aug 24|
+|[Azure Active Directory Domain Services](/azure/active-directory-domain-services/migrate-from-classic-vnet) | Mar 23 |
 
 ## Support
 We understand that you may have questions or concerns about this change, and we are here to help. If you have any questions or require further information, please do not hesitate to reach out to our [customer support team](https://azure.microsoft.com/support)
