@@ -308,8 +308,6 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
- **Note:** if you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step.
-
     ```bash
     sudo cloud-init clean
     sudo rm -f /var/log/waagent.log
@@ -317,6 +315,9 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
     sudo rm -f ~/.bash_history
     sudo export HISTSIZE=0
     ```
+
+> [!NOTE]
+> if you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step.
 
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
