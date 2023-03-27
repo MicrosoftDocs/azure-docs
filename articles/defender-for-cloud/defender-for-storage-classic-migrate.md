@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Migrate from Defender for Storage (classic) to the new plan
 
-If you're currently using Microsoft Defender for Storage (classic) with the per-transaction or the per-storage account pricing plan, consider upgrading to the new Defender for Storage plan, which offers several new benefits that aren't included in the classic plan. The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. It also provides a more predictable and flexible pricing structure for better control over coverage and costs.
+The new Defender for Storage plan was launched on March 28, 2023. If you're currently using Microsoft Defender for Storage (classic) with the per-transaction or the per-storage account pricing plan, consider upgrading to the new Defender for Storage plan, which offers several new benefits that aren't included in the classic plan. The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. It also provides a more predictable and flexible pricing structure for better control over coverage and costs.
 
 ## Why move to the new plan?
 
