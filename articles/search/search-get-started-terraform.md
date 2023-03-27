@@ -11,7 +11,7 @@ ms.service: cognitive-search
 
 # Quickstart: Create an Azure Search service using Terraform
 
-This article shows how to use Terraform to create an [Azure Search service](../search-what-is-azure-search.md) using [Terraform](/azure/developer/terraform/quickstart-configure).
+This article shows how to use Terraform to create an [Azure Search service](./search-what-is-azure-search.md) using [Terraform](/azure/developer/terraform/quickstart-configure).
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -98,4 +98,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Search index using Terraform](../tutorial-create-index.md)
+> [Create an Azure Search index using Terraform](./tutorial-create-index.md)
