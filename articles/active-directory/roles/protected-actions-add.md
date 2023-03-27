@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 04/05/2022
 ---
 
 # Add, remove, or use protected actions in Azure AD (preview)
@@ -78,10 +78,10 @@ Authentication context can be assigned to a permission using the [unifiedRbacRes
 https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions/
 ```
 
-The following example shows
+The following example shows how to get the authentication context ID that was set on the `microsoft.directory/conditionalAccessPolicies/delete` permission.
 
 ```http
-https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions/microsoft.directory-conditionalAccessPolicies-delete-delete?$select=authenticationContextId, isAuthenticationContextSettable
+GET https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces/microsoft.directory/resourceActions/microsoft.directory-conditionalAccessPolicies-delete-delete?$select=authenticationContextId,isAuthenticationContextSettable
 ```
 
 Resource actions with the property `isAuthenticationContextSettable` set to true support authentication context. Resource actions with the value of the property `authenticationContextId` is the authentication context ID that has been assigned to the action.
