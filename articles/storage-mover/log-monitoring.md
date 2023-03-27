@@ -17,7 +17,7 @@ Both the copy and job run logs can be sent to an Azure Analytics Workspace. Anal
 > [!IMPORTANT]
 > Before you can access migrations's log data, you need to ensure that you've created an Azure Analytics Workspace and configured your Storage Mover instance to use it. It's important to complete the steps described within this article before running your migration jobs to collect the resulting data. Any migration log data generated prior to configuration will not be accessible.
 
-This article describes the steps involved to create an analytics workspace and to configure a diagnostic setting within a storage mover resource.
+This article describes the steps involved in creating an analytics workspace and to configure a diagnostic setting within a storage mover resource.
 
 ## Configuring Azure Log Analytics and Storage Mover
 
@@ -59,11 +59,11 @@ Storage Mover generates two tables, StorageMoverCopyLogsFailed and StorageMoverJ
 
 ### Sample Kusto queries
 
-After you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information on these queries, refer to the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+After you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
 
-The sample queries provided below can be entered in the **Log search** bar to help you monitor your migration. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
+The following sample queries provided can be entered in the **Log search** bar to help you monitor your migration. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
 
-- To list all the files which failed to copy from a specific job run within the last 30 days.
+- To list all the files that failed to copy from a specific job run within the last 30 days.
 
     ```kusto
     StorageMoverCopyLogsFailed 
