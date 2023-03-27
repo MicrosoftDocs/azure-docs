@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Count Me In - Operations Dashboard | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Count Me In - Operations Dashboard"
 description: Learn how to configure single sign-on between Azure Active Directory and Count Me In - Operations Dashboard.
 services: active-directory
 author: jeevansd

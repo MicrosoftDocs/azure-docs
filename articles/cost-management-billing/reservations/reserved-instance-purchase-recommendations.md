@@ -7,7 +7,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/05/2023
+ms.date: 03/20/2023
 ---
 
 # Reservation recommendations
@@ -19,13 +19,14 @@ The following steps define how recommendations are calculated:
 1. The recommendation engine evaluates the hourly usage for your resources in the given scope over the past 7, 30, and 60 days.
 2. Based on the usage data, the engine simulates your costs with and without reservations.
 3. The costs are simulated for different quantities, and the quantity that maximizes the savings is recommended.
-4. If your resources are shut down regularly, the simulation won't find any savings, and no purchase recommendation is provided.
-5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates, such as Microsoft Azure Consumption Commitment (MACC) and Azure Commitment Discount (ACD) based solely on historic usage.
-    - The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
+4. If your resources are shut down regularly, the simulation can't find any savings, and no purchase recommendation is provided.
+5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates.
+
+The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
 
 ## Recommendations in the Azure portal
 
-Reservation purchase recommendations are also shown in the Azure portal in the purchase experience. Recommendations are shown with the **Recommended Quantity**. When purchased, the quantity that Azure recommends will give the maximum savings possible. Although you can buy any quantity that you like, if you buy a different quantity your savings won't be optimal.
+Reservation purchase recommendations are also shown in the Azure portal in the purchase experience. Recommendations are shown with the **Recommended Quantity**. When purchased, the quantity that Azure recommends gives the maximum savings possible. Although you can buy any quantity that you like, if you buy a different quantity your savings aren't optimal.
 
 Let's look at some examples why.
 
@@ -37,9 +38,9 @@ More information about the recommendation appears when you select **See details*
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Example showing details for a reservation purchase recommendation " :::
 
-The chart and estimated values change when you increase the recommended quantity. By increasing the reservation quantity, your savings will be reduced because you'll end up with reduced reservation use. In other words, you'll pay for reservations that aren't fully used.
+The chart and estimated values change when you increase the recommended quantity. When you increase the reservation quantity, your savings are reduced because you end up with reduced reservation use. In other words, you pay for reservations that aren't fully used.
 
-If you lower the reservation quantity, your savings will also be reduced. Although you'll have increased utilization, there will likely be periods when your reservations won't fully cover your use. Usage beyond your reservation quantity will be used by more expensive pay-as-you-go resources. The following example image illustrates the point. We've manually reduced the reservation quantity to 4. The reservation utilization is increased, but the overall savings are reduced because pay-as-you go costs are present.
+If you lower the reservation quantity, your savings are also reduced. Although utilization is increased, there might be periods when your reservations don't fully cover your use. Usage beyond your reservation quantity is used by more expensive pay-as-you-go resources. The following example image illustrates the point. We've manually reduced the reservation quantity to 4. The reservation utilization is increased, but the overall savings are reduced because pay-as-you go costs are present.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Example showing changed reservation purchase recommendation details" :::
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Beeline | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Beeline'
 description: Learn how to configure single sign-on between Azure Active Directory and Beeline.
 services: active-directory
 author: jeevansd

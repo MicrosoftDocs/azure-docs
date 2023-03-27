@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 02/15/2023
+ms.date: 03/27/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -29,7 +29,7 @@ The Network Watcher Agent extension can be configured for the following Linux di
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 and 8 |
-| Red Hat | 6, 7, 8.6 |
+| Red Hat | 6, 7 and 8+ |
 | Oracle Linux | 6.8+, 7 and 8+ |
 | SUSE Linux Enterprise Server | 11, 12 and 15 |
 | OpenSUSE Leap | 42.3+ |

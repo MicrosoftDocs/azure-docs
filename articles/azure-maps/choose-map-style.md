@@ -1,8 +1,8 @@
 ---
 title: Change the style of the Azure Maps Web Map Control
 description: "Learn how to change a map's style and options. See how to add a style picker control to a map in Azure Maps so that users can switch between different styles."
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -15,7 +15,7 @@ The map control supports several different map [style options](/javascript/api/a
 
 ## Set map style options
 
-Style options can be set during web control initialization. Or, you can update style options by calling the map control's `setStyle` function. To see all of the available style options, see [style options](/javascript/api/azure-maps-control/atlas.styleoptions).
+Style options can be set during web control initialization. Or, you can update style options by calling the map control's `setStyle` function. To see all available style options, see [style options](/javascript/api/azure-maps-control/atlas.styleoptions).
 
 ```javascript
 //Set the style options when creating the map.

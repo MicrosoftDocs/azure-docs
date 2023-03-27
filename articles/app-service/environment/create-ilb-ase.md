@@ -4,7 +4,7 @@ description: Learn how to create an App Service environment with an internal loa
 author: madsd
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 02/28/2023
+ms.date: 03/27/2023
 ms.author: madsd
 ms.custom: mvc, seodec18, mode-other
 ---
@@ -139,7 +139,7 @@ To learn more about how to configure your ILB ASE with a  WAF device, see [Confi
 
 ## ILB ASEs made before May 2019
 
-ILB ASEs that were made before May 2019 required you to set the domain suffix during ASE creation. They also required you to upload a default certificate that was based on that domain suffix. Also, with an older ILB ASE you can't perform single sign-on to the Kudu console with apps in that ILB ASE. When configuring DNS for an older ILB ASE, you need to set the wildcard A record in a zone that matches to your domain suffix. 
+ILB ASEs that were made before May 2019 required you to set the domain suffix during ASE creation. They also required you to upload a default certificate that was based on that domain suffix. Also, with an older ILB ASE you can't perform single sign-on to the Kudu console with apps in that ILB ASE. When configuring DNS for an older ILB ASE, you need to set the wildcard A record in a zone that matches to your domain suffix. Creating or changing ILB ASE with custom domain suffix requires you to use Azure Resource Manager templates and an api version prior to 2019. Last support api version is `2018-11-01`.
 
 ## Get started ##
 

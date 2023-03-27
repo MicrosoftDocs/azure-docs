@@ -69,7 +69,7 @@ imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=n
 
 ## Normalized content
 
-Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Microsoft Sentinel will now detect this threat.
+Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries/regions, Microsoft Sentinel will now detect this threat.
 
 For a full list of analytics rules that use normalized Authentication events, see [Authentication schema security content](normalization-content.md#authentication-security-content).
 

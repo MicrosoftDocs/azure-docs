@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with EthicsPoint Incident Management (EPIM) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with EthicsPoint Incident Management (EPIM)'
 description: Learn how to configure single sign-on between Azure Active Directory and EthicsPoint Incident Management (EPIM).
 services: active-directory
 author: jeevansd

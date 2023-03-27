@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Conditional Access using the What If tool - Azure Active Directory
+title: Troubleshoot Conditional Access using the What If tool
 description: Where to find what Conditional Access policies were applied and why
 
 services: active-directory

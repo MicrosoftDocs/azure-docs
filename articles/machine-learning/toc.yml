@@ -433,6 +433,9 @@
             - name: Manage compute sessions
               displayName: sessions, terminal, kernel
               href: how-to-manage-compute-sessions.md
+        - name: Azure Container for PyTorch
+          displayName: acpt
+          href: how-to-azure-container-for-pytorch-environment.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -442,9 +445,6 @@
         - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
-        - name: How to troubleshoot environments
-          displayName: troubleshoot, environment, debug, image
-          href: how-to-troubleshoot-environments.md
     - name: Work with data
       items:
         - name: Create datastores
@@ -500,6 +500,9 @@
         - name: Debug jobs and monitor training progress
           displayName: automl
           href: how-to-interactive-jobs.md
+        - name: Optimize Checkpoint Performance for Large Models
+          displayName: Optimize Checkpoint Performance for Large Models
+          href: reference-checkpoint-performance-for-large-models.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters
@@ -708,6 +711,8 @@
       items:
         - name: Setup MLOps with Azure DevOps
           href: how-to-setup-mlops-azureml.md
+        - name: Setup MLOps with GitHub
+          href: how-to-setup-mlops-github-azure-ml.md
         - name: Manage models
           href: how-to-manage-models.md
         - name: Automation
@@ -806,6 +811,13 @@
       href: how-to-troubleshoot-data-access.md
     - name: Troubleshoot validation for schema failed error
       href: how-to-troubleshoot-validation-for-schema-failed-error.md
+    - name: How to troubleshoot environments
+      displayName: troubleshoot, environment, debug, image
+      href: how-to-troubleshoot-environments.md
+    - name: Troubleshoot online endpoints
+      href: how-to-troubleshoot-online-endpoints.md
+    - name: Troubleshoot batch endpoints
+      href: how-to-troubleshoot-batch-endpoints.md
 - name: Reference
   items:
     - name: Python SDK v1
@@ -908,6 +920,10 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Automated ML Forecasting command job YAML schema
+      href: reference-automated-ml-forecasting.md
+    - name: Kubernetes cluster configuration
+      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
@@ -919,6 +935,9 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md
+    - name: Azure Container for PyTorch 
+      href: resource-azure-container-for-pytorch.md
+      displayName: acpt
     - name: Azure CLI
       href: /cli/azure/ml
 - name: Resources

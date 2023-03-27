@@ -68,7 +68,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
     In the **Sign on URL** textbox, type a URL using the following pattern:
-    https://InstanceName.cloud.tanium.com
+    `https://InstanceName.cloud.tanium.com`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Tanium Cloud SSO Client support team](mailto:integrations@tanium.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

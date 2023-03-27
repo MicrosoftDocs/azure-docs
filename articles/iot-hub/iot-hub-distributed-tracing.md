@@ -2,12 +2,11 @@
 title: Add correlation IDs to IoT messages with distributed tracing (preview)
 description: Learn how to use distributed tracing to trace IoT messages throughout the Azure services that your solution uses.
 author: kgremban
-manager: briz
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/26/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 01/26/2022
 ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
