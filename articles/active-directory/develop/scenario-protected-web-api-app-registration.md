@@ -84,6 +84,9 @@ If you're following along with the web API scenario described in this set of art
 - **User consent description**: _Accesses the TodoListService web API as a user_
 - **State**: _Enabled_
 
+> [!TIP] 
+> For the **Application ID URI**, you have the option to set it to the physical authority of the API, for example `https://graph.microsoft.com`. This can be useful if the URL of the API that needs to be called is known.
+
 ### If your web API is called by a service or daemon app
 
 Expose _application permissions_ instead of delegated permissions if your API should be accessed by daemons, services, or other non-interactive (by a human) applications. Because daemon- and service-type applications run unattended and authenticate with their own identity, there is no user to "delegate" their permission.
