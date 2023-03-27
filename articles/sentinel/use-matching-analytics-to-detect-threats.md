@@ -26,6 +26,8 @@ One or more of the following data sources must be connected:
 - Office activity logs
 - Azure activity logs
 
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/data-sources.png" alt-text="A screenshot showing the Microsoft Defender Threat Intelligence Analytics rule data source connections."::: 
+
 ## Configure the matching analytics rule
 
 Matching analytics is configured when you enable the **Microsoft Defender Threat Intelligence Analytics** rule. 
