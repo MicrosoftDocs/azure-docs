@@ -36,7 +36,7 @@ Azure Maps provides developers from all industries powerful geospatial capabilit
 
 ## High-level platform comparison
 
-The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all of the Azure Maps features. Additional Azure Maps features include: accessibility, geofencing, isochrones, spatial operations, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
+The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Additional Azure Maps features include: accessibility, geofencing, isochrones, spatial operations, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
 
 | Google Maps feature         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|

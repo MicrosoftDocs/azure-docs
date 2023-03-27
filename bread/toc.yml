@@ -526,6 +526,10 @@
     - name: MongoDB
       tocHref: /azure/cosmos-db/mongodb/
       topicHref: /azure/cosmos-db/mongodb/
+      items:
+        - name: vCore
+          tocHref: /azure/cosmos-db/mongodb/vcore/
+          topicHref: /azure/cosmos-db/mongodb/vcore/
     - name: MongoDB
       tocHref: /azure/cosmos-db/mongodb/cli-samples
       topicHref: /azure/cosmos-db/mongodb/cli-samples

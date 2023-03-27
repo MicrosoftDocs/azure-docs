@@ -43,6 +43,9 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
 You can install the Azure Key Vault Secrets Provider extension on your connected cluster in the Azure portal, by using Azure CLI, or by deploying ARM template.
 
 > [!TIP]
+> If the cluster is behind an outbound proxy server, ensure that you connect it to Azure Arc using the [proxy configuration](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) option before installing the extension.
+
+> [!TIP]
 > Only one instance of the extension can be deployed on each Azure Arc-enabled Kubernetes cluster.
 
 ### Azure portal
@@ -399,7 +402,7 @@ az k8s-extension update --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_
 You can use other configuration settings as needed for your deployment. For example, to change the kubelet root directory while creating a cluster, modify the az k8s-extension create command:
 
 ```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.enable secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
 ```
 
 

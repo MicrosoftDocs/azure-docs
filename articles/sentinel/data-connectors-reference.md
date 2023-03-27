@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 03/25/2023
 ms.author: cwatson
 ---
 
@@ -134,7 +134,6 @@ Data connectors are available as part of the following offerings:
 ## Citrix
 
 - [Citrix ADC (former NetScaler)](data-connectors/citrix-adc-former-netscaler.md)
-- [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
 
 ## Claroty
 
@@ -142,6 +141,7 @@ Data connectors are available as part of the following offerings:
 
 ## Cloud Software Group
 
+- [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
 - [Citrix WAF (Web App Firewall)](data-connectors/citrix-waf-web-app-firewall.md)
 
 ## Cloudflare
@@ -181,6 +181,10 @@ Data connectors are available as part of the following offerings:
 ## CyberPion
 
 - [Cyberpion Security Logs](data-connectors/cyberpion-security-logs.md)
+
+## Cybersixgill
+
+- [Cybersixgill Actionable Alerts (using Azure Function)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
 
 ## Darktrace
 
@@ -362,6 +366,7 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Defender for Identity](data-connectors/microsoft-defender-for-identity.md)
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Microsoft Defender for Office 365](data-connectors/microsoft-defender-for-office-365.md)
+- [Microsoft Defender Threat Intelligence (Preview)](data-connectors/microsoft-defender-threat-intelligence.md)
 - [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
 - [Microsoft Purview (Preview)](data-connectors/microsoft-purview.md)
@@ -554,6 +559,10 @@ Data connectors are available as part of the following offerings:
 - [Symantec Integrated Cyber Defense Exchange](data-connectors/symantec-integrated-cyber-defense-exchange.md)
 - [Symantec ProxySG](data-connectors/symantec-proxysg.md)
 - [Symantec VIP](data-connectors/symantec-vip.md)
+
+## TALON CYBER SECURITY LTD
+
+- [Talon Insights](data-connectors/talon-insights.md)
 
 ## Tenable
 
