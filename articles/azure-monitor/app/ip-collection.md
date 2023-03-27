@@ -161,7 +161,7 @@ namespace MyWebApp
 > If you can't access `ISupportProperties`, make sure you're running the latest stable release of the Application Insights SDK. `ISupportProperties` is intended for high cardinality values. `GlobalProperties` is more appropriate for low cardinality values like region name and environment name.
 
 
-# [.NET 6.0+](tab/framework)
+# [.NET 6.0+](#tab/framework)
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -170,7 +170,7 @@ namespace MyWebApp
 builder.services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
 ```
 
-# [.NET 5.0](tab/framework)
+# [.NET 5.0](#tab/dotnet5)
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -182,7 +182,7 @@ builder.services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
 }
 ```
 
-# [ASP.NET Framework](tab/framework)
+# [ASP.NET Framework](#tab/dotnet6)
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
