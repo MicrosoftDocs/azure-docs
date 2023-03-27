@@ -62,6 +62,7 @@ Learn how to [configure test fail criteria](./how-to-define-test-criteria.md) fo
 
 ## Monitor application metrics
 
+
 ### Server-side metrics in Azure Load Testing
 
 Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
