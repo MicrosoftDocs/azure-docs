@@ -1,32 +1,36 @@
 ---
-title: Troubleshoot the OT sensor and on-premises management console
-description: Troubleshoot your OT sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 06/15/2022
+title: Troubleshoot the sensor
+description: Troubleshoot your sensor to eliminate any problems you might be having.
+ms.date: 03/14/2023
 ms.topic: troubleshooting
 ---
-# Troubleshoot the sensor and on-premises management console
+# Troubleshoot the sensor
 
-This article describes basic troubleshooting tools for the sensor and the on-premises management console. In addition to the items described here, you can check the health of your system in the following ways:
+This article describes basic troubleshooting tools for the sensor. In addition to the items described here, you can check the health of your system in the following ways:
 
 - **Alerts**: An alert is created when the sensor interface that monitors the traffic is down.
 - **SNMP**: Sensor health is monitored through SNMP. Microsoft Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
 - **System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
+For any other issues, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+
+## Prerequisites
+
+To perform the procedures in this article, make sure that you have:
+
+- Access to the OT network sensor as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+
 ## Check system health
 
-Check your system health from the sensor or on-premises management console.
+Check your system health from the sensor.
 
 **To access the system health tool**:
 
-1. Sign in to the sensor or on-premises management console with the *support* user credentials.
+1. Sign in to the sensor with the *support* user credentials and select **System Settings** > :::image type="icon" source="media/tutorial-install-components/system-health-check-icon.png" border="false"::: **System health check**.
 
-1. Select **System Statistics** from the **System Settings** window.
+1. In the **System health check** pane, select a command from the menu to view more details in the box. For example:
 
-    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
-
-1. System health data appears. Select an item on the left to view more details in the box. For example:
-
-    :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+    :::image type="content" source="media/tutorial-install-components/system-health-check-sensor.png" alt-text="Screenshot that shows the system health check screen on the sensor console.":::
 
 System health checks include the following:
 
@@ -44,10 +48,10 @@ System health checks include the following:
 |- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cache layer (SQL) |
 |- Network Statistics     | Displays your network statistics.        |
 |- TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
-|- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |
+|- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there is for the extra backup files        |
 |- ifconfig     | Displays the parameters for the appliance's physical interfaces.        |
 |- CyberX nload     | Displays network traffic and bandwidth by using the six-second tests.        |
-|- Errors from Core, log     |  Displays errors from the core log file.       |
+|- Errors from core log     |  Displays errors from the core log file.       |
 
 ### Check system health by using the CLI
 
@@ -109,10 +113,42 @@ Verify that you can access the console web GUI:
 
    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
 
-## Troubleshoot sensors
+## Download a diagnostics log for support
 
+This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket.
 
-### You can't connect by using a web interface
+This feature is supported for the following sensor versions:
+
+- **22.1.1** - Download a diagnostic log from the sensor console.
+- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+**To download a diagnostics log**:
+
+1. On the sensor console, select **System settings > Sensor management > Health and troubleshooting > Backup & restore > Backup**.
+
+1. Under **Logs**, select **Support Ticket Diagnostics**, and then select **Export**.
+
+    :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
+
+1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support).
+
+## Retrieve forensics data
+
+The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
+
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
+
+Use the OT sensor's [data mining reports](how-to-create-data-mining-queries.md) or [Azure Monitor workbooks](workbooks.md) on an OT network sensor to retrieve forensic data from that sensor’s storage. Each type of data has a different retention period and maximum capacity.
+
+For more information, see [Data retention across Microsoft Defender for IoT](references-data-retention.md).
+
+## You can't connect by using a web interface
 
 1. Verify that the computer that you're trying to connect is on the same network as the appliance.
 
@@ -146,7 +182,7 @@ Verify that you can access the console web GUI:
 
 1. Try to ping and connect from the GUI again.
 
-### The appliance isn't responding
+## The appliance isn't responding
 
 1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
@@ -158,8 +194,7 @@ Verify that you can access the console web GUI:
 
 For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-
-### Investigate password failure at initial sign-in
+## Investigate password failure at initial sign-in
 
 When signing into a pre-configured sensor for the first time, you'll need to perform password recovery as follows:
 
@@ -167,7 +202,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-1. Navigate to the Azure portal and select **Sites and Sensors**.
+1. Navigate to the Azure portal and select **Sites and sensors**.
 
 1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
@@ -181,48 +216,48 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
 
-1. Select **Next**, and your user, and system-generated password for your management console will then appear.
+1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
 
     > [!NOTE]
     > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
-### Investigate a lack of traffic
+## Investigate a lack of traffic
 
 An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.
 
-
-### Check system performance
+## Check system performance
 
 When a new sensor is deployed or a sensor is working slowly or not showing any alerts, you can check system performance.
 
-1. In the Defender for IoT dashboard > **Overview**, make sure that `PPS > 0`.
-1. In *Devices** check that devices are being discovered.
-1. In **Data Mining**, generate a report.
-1. In **Trends & Statistics** window, create a dashboard.
-1. In **Alerts**, check that the alert was created.
+1. Sign in to the sensor and select **Overview**. Make sure that **PPS** is greater than 0, and that **Devices** are being discovered. 
+1. In the **Data Mining** page, generate a report.
+1. In the **Trends & Statistics** page, create a dashboard.
+1. In the **Alerts** page, check that the alert was created.
 
-
-### Investigate a lack of expected alerts
+## Investigate a lack of expected alerts
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
-1. Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert hasn't been handled yet, the sensor console does not show a new alert.
-1. Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console.
+1. Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert hasn't been handled yet, the sensor console doesn't show a new alert.
+1. Make sure you didn't exclude this alert by using the **Alert Exclusion** rules in the management console.
 
-### Investigate dashboard that shows no data
+## Investigate dashboard that shows no data
 
 When the dashboards in the **Trends & Statistics** window show no data, do the following:
+
 1. [Check system performance](#check-system-performance).
 1. Make sure the time and region settings are properly configured and not set to a future time.
 
-### Investigate a device map that shows only broadcasting devices
+## Investigate a device map that shows only broadcasting devices
 
 When devices shown on the device map appear not connected to each other, something might be wrong with the SPAN port configuration. That is, you might be seeing only broadcasting devices and no unicast traffic.
 
-1. Validate that you're only seeing the broadcast traffic. To do this, in **Data Mining**, select **Create report**. In **Create new report**,specify the report fields. In **Choose Category**, choose **Select all**.
-1. Save the report, and review it to see if only broadcast and multicast traffic (and no unicast traffic) appears. If so, asking networking to fix the SPAN port configuration so that you can see the unicast traffic as well. Alternately, you can record a PCAP directly from the switch, or connect a laptop by using Wireshark.
+1. Validate that you're only seeing the broadcast traffic. To do this, in **Data Mining**, select **Create report**. In **Create new report**, specify the report fields. In **Choose Category**, choose **Select all**.
+1. Save the report, and review it to see if only broadcast and multicast traffic (and no unicast traffic) appears. If so, contact your networking team to fix the SPAN port configuration so that you can see the unicast traffic as well. Alternately, you can record a PCAP directly from the switch, or connect a laptop by using Wireshark. 
 
-### Connect the sensor to NTP
+For more information, see [Upload and play PCAP files](how-to-manage-individual-sensors.md#upload-and-play-pcap-files).
+
+## Connect the sensor to NTP
 
 You can configure a standalone sensor and a management console, with the sensors related to it, to connect to NTP.
 
@@ -234,20 +269,22 @@ To connect a sensor controlled by the management console to NTP:
 
 - The connection to NTP is configured on the management console. All the sensors that the management console controls get the NTP connection automatically.
 
-### Investigate when devices aren't shown on the map, or you have multiple internet-related alerts
+## Investigate when devices aren't shown on the map, or you have multiple internet-related alerts
 
-Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
+Sometimes ICS devices are configured with external IP addresses. These ICS devices aren't shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list. Learn more about [configuring subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
+1. Copy the public ranges that are private, and add them to the subnet list.
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Clearing sensor data
+## Clearing sensor data
 
 In cases where the sensor needs to be relocated or erased, all learned data can be cleared from the sensor.
 
-### Export logs from the sensor console for troubleshooting
+For more information on how to clear system data, see [Clear OT sensor data](how-to-manage-individual-sensors.md#clear-ot-sensor-data).
+
+## Export logs from the sensor console for troubleshooting
 
 For further troubleshooting, you may want to export logs to send to the support team, such as database or operating system logs.
 
@@ -264,7 +301,7 @@ For further troubleshooting, you may want to export logs to send to the support 
     1. Select **Export**.
 
     The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog.
-    
+
     For example:
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png" alt-text="Screenshot of the export troubleshooting information dialog in the sensor console. " lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png":::
@@ -276,90 +313,12 @@ For further troubleshooting, you may want to export logs to send to the support 
     To keep your logs secure, make sure to forward the password separately from the downloaded log.
 
 > [!NOTE]
-> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal.
-
-## Troubleshoot an on-premises management console
-
-### Investigate a lack of expected alerts
-
-If you don't see an expected alert on the on-premises **Alerts** page, do the following to troubleshoot:
-
-- Verify whether the alert is already listed as a reaction to a different security instance. If it has, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
-
-- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
-
-### Tweak the Quality of Service (QoS)
-
-To save your network resources, you can limit the number of alerts sent to external systems (such as emails or SIEM) in one sync operation between an appliance and the on-premises management console.
-
-The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems.
-
-To limit the number of alerts, use the `notifications.max_number_to_report` property available in `/var/cyberx/properties/management.properties`. No restart is needed after you change this property.
-
-**To tweak the Quality of Service (QoS)**:
-
-1. Sign in as a Defender for IoT user.
-
-1. Verify the default values:
-
-   ```bash
-   grep \"notifications\" /var/cyberx/properties/management.properties
-   ```
-
-   The following default values appear:
-
-   ```bash
-   notifications.max_number_to_report=50
-   notifications.max_time_to_report=10 (seconds)
-   ```
-
-1. Edit the default settings:
-
-   ```bash
-   sudo nano /var/cyberx/properties/management.properties
-   ```
-
-1. Edit the settings of the following lines:
-
-   ```bash
-   notifications.max_number_to_report=50
-   notifications.max_time_to_report=10 (seconds)
-   ```
-
-1. Save the changes. No restart is required.
-
-### Export logs from the on-premises management console for troubleshooting
-
-For further troubleshooting, you may want to export logs to send to the support team, such as audit or database logs.
-
-**To export log data**:
-
-1. In the on-premises management console, select **System Settings > Export**.
-
-1. In the **Export Troubleshooting Information** dialog:
-
-    1. In the **File Name** field, enter a meaningful name for the exported log. The default filename uses the current date, such as **13:10-June-14-2022.tar.gz**.
-
-    1. Select the logs you would like to export.
-
-    1. Select **Export**.
-
-    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog.
-
-    For example:
-
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
-
-1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
-
-1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
-
-    To keep your logs secure, make sure to forward the password separately from the downloaded log.
+> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support).
 
 ## Next steps
 
 - [View alerts](how-to-view-alerts.md)
 
-- [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
+- [Set up SNMP MIB health monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md)
 
-- [Track on-premises user activity](track-user-activity.md)
+- [Monitor disconnected OT sensors](how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)

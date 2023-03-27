@@ -789,7 +789,6 @@ Now you can get a summary of the log and system information that gets added to y
 
 :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup and Restore dialog showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
-
 ### Alert updates
 
 **In the Azure portal**:
