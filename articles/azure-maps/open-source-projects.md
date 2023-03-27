@@ -79,7 +79,7 @@ A longer list of open-source projects for Azure Maps that includes community cre
 
 ## Supportability of open-source projects
 
-The following statements apply across all of the Azure Maps created and maintained open-source projects and samples:
+The following statements apply across all Azure Maps open-source projects and samples:
 
 - Azure Maps open-source projects and samples are created by Microsoft and the community.
 - Azure Maps open-source projects and samples are maintained by Microsoft and the community.
