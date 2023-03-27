@@ -27,7 +27,7 @@ Defender for IoT's device inventory supports the following device classes:
 |Devices  |For example ... |
 |---------|---------|
 |**Manufacturing**| Industrial and operational devices, such as pneumatic devices,  packaging systems, industrial packaging systems, industrial robots        |
-|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators , smart lighting systems    |
+|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators, smart lighting systems    |
 |**Health care**     |  Glucose meters, monitors       |
 |**Transportation / Utilities**     |  Turnstiles, people counters, motion sensors, fire and safety systems, intercoms       |
 |**Energy and resources**     |  DCS controllers, PLCs, historian devices, HMIs      |

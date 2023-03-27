@@ -7,7 +7,7 @@ ms.date: 12/25/2022
 
 # Add an OT plan to your Azure subscription
 
-This article describes how to how to set up a trial plan for OT security monitoring with Microsoft Defender for IoT.
+This article describes how to set up a trial plan for OT security monitoring with Microsoft Defender for IoT.
 
 A trial plan for OT monitoring provides 30-day support for 1000 devices. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
 
