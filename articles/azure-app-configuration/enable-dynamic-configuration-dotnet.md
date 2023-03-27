@@ -25,13 +25,13 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-a-key-valuee).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
 ## Add a key-value
 
-Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key                        | Value                               |
 |----------------------------|-------------------------------------|
