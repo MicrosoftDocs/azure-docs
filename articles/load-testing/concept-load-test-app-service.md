@@ -1,72 +1,73 @@
 ---
 title: Load test apps on Azure App Service
 titleSuffix: Azure Load Testing
-description: 'Learn how to run a load test with Azure Load Testing for an Azure App Service web app. Monitor application metrics to identify application issues.'
+description: 'Learn how to use Azure Load Testing on Azure App Service apps. Run load tests, use environment variables, and gain insights with server metrics and diagnostics.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
 ms.date: 03/23/2023
-ms.topic: how-to
+ms.topic: conceptual
 
 ---
 
 # Load test web apps on Azure App Service with Azure Load Testing
 
-Azure Load Testing collects detailed resource metrics across your Azure app components to help identify performance bottlenecks. In this article, you learn how to use App Service Diagnostics to get additional insights when load testing Azure App Service workloads.
+This article shows how to use Azure Load Testing with applications hosted on Azure App Service. You learn how to run a load test to validate your application's performance. Use environment variables to make your load test more configurable. This feature allows you to reuse your load test across different deployment slots. During and after the test, you can get detailed insights by using server-side metrics and App Service diagnostics, which helps you to identify and troubleshoot any potential issues.
 
-[App Service diagnostics](/azure/app-service/overview-diagnostics) is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
+[Azure App Service](/azure/app-service/overview) is a fully managed HTTP-based service that enables you to build, deploy, and scale web applications and APIs in the cloud. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
-## Prerequisites  
+## Why load test Azure App Service web apps?
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
-- An Azure App Service workload that you're running a load test against and that you've added to the app components to monitor during the load test.
+Even though Azure App Service is a fully managed service for running applications, load testing can offer significant benefits in terms of reliability, performance, and cost optimization:
+
+- Validate that your application and all dependent application components can handle your expected load
+- Verify that your application meets your performance requirements, such as maximum response time or latency
+- Identify performance bottlenecks within your application
+- Do more with less: right-size your computing resources
+- Ensure that new releases don't introduce performance regressions
+
+Often, applications consist of multiple application components besides the app service application. For example, the application might use a database or other data storage solution, invoke dependent serverless functions, or use a caching solution for improving performance. Each of these application components contributes to the availability and performance of your overall application. By running a load test, you can validate that the entire application can support the expected user load without failures. Also, you can verify that the requests meet your performance and availability requirements.
+
+The application implementation and algorithms might affect application performance and stability under load. For example, storing data in memory might lead to excessive memory consumption and application stability issues. You can use load testing to perform a *soak test* and simulate sustained user load over a longer period of time, to identify such problems in the application implementation.
+
+Each application component has different options for allocating computing resources and scalability settings. For example, an app service always runs in an [App Service plan](/azure/app-service/overview-hosting-plans). An App Service plan defines a set of compute resources for a web app to run. Optionally, you can choose to enable [autoscaling](/azure/azure-monitor/autoscale/autoscale-overview) to automatically add more resources, based on specific metrics. With load testing, you can ensure that you add the right resources to match the characteristics of your application. For example, if your application is memory-intensive, you might choose compute instances that have more memory. Also, by [monitoring application metrics](./how-to-monitor-server-side-metrics.md) during the load test, you can also optimize costs by allocating the right type and amount of computing resources.
+
+By integrating load testing in your CI/CD pipeline and by [adding fail criteria to your load test](./how-to-define-test-criteria.md), you can quickly identify performance regressions introduced by application changes. For example, adding an external service call in the application might result in the overall response time to surpass your maximum response time requirement.
 
 ## Create a load test for an app on Azure App Service
 
 - Quick test
 - Upload a JMeter script (e.g. multiple requests, authenticated requests, configurable test)
+- Use test criteria to dertermine if meets your expectations
 
 ## Monitor application metrics
 
-- server-side metrics
+### Server-side metrics in Azure Load Testing
+
+Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
+
+Azure Load Testing collects detailed resource metrics across your Azure app components to help identify performance bottlenecks.
+
     - Add application component (App Service Plan, App Service)
     - Default metrics added
     - You can select additional metrics
     - Link to server-side metrics docs
 
-- App Service Diagnostics
+### App Service Diagnostics
+
+<!--     
     - What is?
     - How to access
     - Link to App Service Diagnostics docs
-
-## Parameterize your test for deployment slots
-
-- Requires a JMeter script
-- Deployment slots -> different endpoint
-- Avoid hard-coding 
-- Use env vars to pass deployment slot and make URL configurable in JMeter script
-- Also use for other configuration parameters (e.g. number of virtual users, ramp-up time, and so on.)
-
-## Authenticated endpoints
-
-- Use shared secrets or certificates
-- Pass secrets into the JMeter script (store in Azure Key Vault or in CI/CD secrets store)
-- [Azure AD authentication config](/azure/app-service/configure-authentication-provider-aad)
-- Blogpost
-
-## Next steps
-
-- Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
-- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
-
-## Use App Service diagnostics for your load test
-
-Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
-
+    - What extra info do you get?
+ -->
 When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics).
+
+App Service diagnostics is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
+
+Azure Load Testing provides a direct link from the test results dashboard, if you have added an App Service app component to your test configuration.
+
 
 To view the App Service diagnostics information for your application under load test:
 
@@ -100,3 +101,24 @@ To view the App Service diagnostics information for your application under load 
 
     > [!NOTE]
     > It can take up to 45 minutes for the insights data to be displayed on this page.
+
+## Parameterize your test for deployment slots
+
+- Requires a JMeter script
+- Deployment slots -> different endpoint
+- Avoid hard-coding 
+- Use env vars to pass deployment slot and make URL configurable in JMeter script
+- Also use for other configuration parameters (e.g. number of virtual users, ramp-up time, and so on.)
+
+## Authenticated endpoints
+
+- Use shared secrets or certificates
+- Pass secrets into the JMeter script (store in Azure Key Vault or in CI/CD secrets store)
+- [Azure AD authentication config](/azure/app-service/configure-authentication-provider-aad)
+- [Blog post](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/authentication-with-azure-load-testing-series-azure-active/ba-p/3718002)
+
+## Next steps
+
+- Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
