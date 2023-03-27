@@ -54,7 +54,7 @@ Here is a list of classic resources being retired and their retirement dates:
 |[API Management](/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024) | Aug 24 |
 |[Azure Redis cache](/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services-(classic)) | Aug 24 |
 |[Virtual WAN](/azure/virtual-wan/virtual-wan-faq#update-router) | Aug 24 |
-|[Microsoft HPC Pack](/powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?view=hpc19-ps) |Aug 24|
+|[Microsoft HPC Pack](/powershell/high-performance-computing/burst-to-cloud-services-retirement-guide) |Aug 24|
 |[Azure Active Directory Domain Services](/azure/active-directory-domain-services/migrate-from-classic-vnet) | Mar 23 |
 
 ## Support
