@@ -28,7 +28,7 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) and in the [Defender plans page](#azure-portal) in the Azure portal |
+|Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) and in the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) in the Azure portal |
 |Protected storage types:|[Blob Storage](../storage/blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../storage/files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
 |Clouds:|:::image type="icon" source="media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="media/icons/no-icon.png"::: Connected AWS accounts|
 
@@ -36,7 +36,7 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 
 ### Set up per-transaction pricing for a subscription
 
-For the Defender for Storage per-transaction pricing, we recommend that you enable Defender for Storage for each subscription so that all existing and new storage accounts are protected. If you want to only protect specific accounts, [configure Defender for Storage for each account](#set-up-per-transaction-pricing-for-an-account).
+For the Defender for Storage per-transaction pricing, we recommend that you enable Defender for Storage for each subscription so that all existing and new storage accounts are protected. If you want to only protect specific accounts, [configure Defender for Storage for each account](#set-up-per-transaction-pricing-for-a-storage-account).
 
 You can configure Microsoft Defender for Storage on your subscriptions in several ways:
 

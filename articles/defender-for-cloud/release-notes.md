@@ -20,32 +20,14 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in March include:
 
-- [New experience for managing the Azure default security policy](#new-experience-for-managing-the-azure-default-security-policy)
-- [New alert in Azure Defender for Key Vault](#new-alert-in-azure-defender-for-key-vault)
-
-### New experience for managing the Azure default security policy
-
-We introduce an improved Azure security policy management experience for built-in recommendations that simplifies the way Defender for Cloud customers fine tune their security requirements. The new experience includes the following new capabilities:
-
-- A simple interface allows better performance and fewer clicks when managing default security policies within Defender for Cloud, including enabling/disabling, denying, setting parameters and managing exemptions.
-- A single view of all built-in security recommendations offered by the Microsoft cloud security benchmark (formerly the Azure security benchmark). Recommendations are organized into logical groups, making it easier to understand the types of resources covered, and the relationship between parameters and recommendations.
-- New features such as filters and search have been added.
-
-Learn how to  [manage security policies](tutorial-security-policy.md). 
-
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
-
-
-## March 2023
-
-Updates in March include:
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
+- [New experience for managing the Azure default security policy](#new-experience-for-managing-the-azure-default-security-policy)
 - [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
 - [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
-- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)  
+- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
 
 ### A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection
 
@@ -77,10 +59,23 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 
 [Learn more](concept-data-security-posture.md) about data-aware security posture.
 
+### New experience for managing the Azure default security policy
+
+We introduce an improved Azure security policy management experience for built-in recommendations that simplifies the way Defender for Cloud customers fine tune their security requirements. The new experience includes the following new capabilities:
+
+- A simple interface allows better performance and fewer clicks when managing default security policies within Defender for Cloud, including enabling/disabling, denying, setting parameters and managing exemptions.
+- A single view of all built-in security recommendations offered by the Microsoft cloud security benchmark (formerly the Azure security benchmark). Recommendations are organized into logical groups, making it easier to understand the types of resources covered, and the relationship between parameters and recommendations.
+- New features such as filters and search have been added.
+
+Learn how to  [manage security policies](tutorial-security-policy.md). 
+
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
+
 ### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.
 This feature is part of the Defender CSPM (Cloud Security Posture Management) plan. Learn how to [create custom recommendations and standards](creating-custom-recommendations.md).
+
 ### Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)
 
 Microsoft Defender for Cloud is announcing that the Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA). 
@@ -125,26 +120,6 @@ Defender for Key Vault has the following new alert:
 | **Denied access from a suspicious IP to a key vault**<br>(KV_SuspiciousIPAccessDenied) | An unsuccessful key vault access has been attempted by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. Though this attempt was unsuccessful, it indicates that your infrastructure might have been compromised. We recommend further investigations. | Credential Access | Low |
 
 You can see a list of all of the [alerts available for Key Vault](alerts-reference.md).
-
-### New Defender for Storage plan
-
-A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection. 
-
-Cloud storage plays a key role in the organization and stores large volumes of valuable and sensitive data. Today we are announcing a new Defender for Storage plan. If you’re using the previous plan, now renamed to “Defender for Storage classic”, you'll need to proactively migrate to the new plan in order to use the new features and benefits.  
-
-The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. It also provides a more predictable and flexible pricing structure for better control over coverage and costs.  
-
-The new plan has new capabilities now in public preview:
-+	Detecting sensitive data exposure and exfiltration events
-+	Near real-time blob on-upload malware scanning across all file types
-+	Detecting entities with no identities using SAS tokens
-
-These capabilities enhance the existing Activity Monitoring     capability, based on control and data plane log analysis and behavioral modeling to identify early signs of breach.  
-
-All of these capabilities are available in a new predictable and flexible pricing plan that provides granular control over data protection at both the subscription and resource levels.  
- 
-Learn more at [Overview of Microsoft Defender for Storage](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction). 
-
 
 ## February 2023
 
