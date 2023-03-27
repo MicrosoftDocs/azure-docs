@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/12/2023
+ms.date: 03/23/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -117,6 +117,9 @@ SELECT * FROM [databaseName].schemaName.tableName
 ## Role definition detail
 This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
+>[!NOTE]
+> The roles below may be expanded in the future to include additional actions that become available as long as they are are consistent with the spirit of the role.
+
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
@@ -132,6 +135,34 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
 ||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
+
+>[!NOTE]
+> The role definition for SQL Performance Monitor will be expanded around April 2023 to include the following actions.
+
+- /Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select
+- /Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select
+- /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select
+- /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select
+- /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute
+- /Sqlservers/DBCCs/ViewServerPerformanceState/Execute
+- /Sqlservers/Databases/ExtendedEventSessions/Create
+- /Sqlservers/Databases/ExtendedEventSessions/Options/Alter
+- /Sqlservers/Databases/ExtendedEventSessions/Events/Add
+- /Sqlservers/Databases/ExtendedEventSessions/Events/Drop
+- /Sqlservers/Databases/ExtendedEventSessions/State/Enable
+- /Sqlservers/Databases/ExtendedEventSessions/State/Disable
+- /Sqlservers/Databases/ExtendedEventSessions/Drop
+- /Sqlservers/Databases/ExtendedEventSessions/Target/Add
+- /Sqlservers/Databases/ExtendedEventSessions/Target/Drop
+- /Sqlservers/ExtendedEventSessions/Create
+- /Sqlservers/ExtendedEventSessions/Options/Alter
+- /Sqlservers/ExtendedEventSessions/Events/Add
+- /Sqlservers/ExtendedEventSessions/Events/Drop
+- /Sqlservers/ExtendedEventSessions/State/Enable
+- /Sqlservers/ExtendedEventSessions/State/Disable
+- /Sqlservers/ExtendedEventSessions/Drop
+- /Sqlservers/ExtendedEventSessions/Target/Add
+- /Sqlservers/ExtendedEventSessions/Target/Drop
 
 
 ## Next steps

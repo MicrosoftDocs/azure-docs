@@ -41,7 +41,7 @@ At the end of this quickstart, you have a working Spring app running on Azure Sp
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Provision an instance of Azure Spring Apps
 
@@ -239,7 +239,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one business app. Apps run in an Azure Spring Apps service instance, or simply service instance, as shown in the following diagram.
 
-:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
+:::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to specify the app name on Azure Spring Apps and to allocate required resources:
 
@@ -304,7 +304,7 @@ Deploying the application can take a few minutes.
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Generate a Spring project
 
@@ -419,7 +419,7 @@ Use the following steps to build and deploy your app.
 
 ## Prerequisites
 
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Prerequisites](./how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Deploy a Spring Boot web app to Azure Spring Apps with Visual Studio Code
 
