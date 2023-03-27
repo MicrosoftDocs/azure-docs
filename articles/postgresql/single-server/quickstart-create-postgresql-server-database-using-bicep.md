@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgreSQL - Bicep'
+title: 'Quickstart: Create an Azure Database for PostgreSQL - Bicep'
 description: In this quickstart, learn how to create an Azure Database for PostgreSQL single server using Bicep.
 ms.service: postgresql
 ms.subservice: single-server
