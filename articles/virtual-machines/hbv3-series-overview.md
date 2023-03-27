@@ -19,7 +19,7 @@ author: mamccrea
 
 An [HBv3-series](hbv3-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
 
-```bash
+```output
 Nodes per Socket (NPS) = 2
 L3 as NUMA = Disabled
 NUMA domains within VM OS = 4
