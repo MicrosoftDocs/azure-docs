@@ -9,7 +9,7 @@ ms.author: yelevin
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules
 
-This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by analytics rules to being invoked by automation rules.
+This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by **analytics rules** to being invoked by **automation rules**.
 
 ## Why to migrate
 
@@ -23,6 +23,8 @@ If you have already created and built playbooks to respond to alerts (rather tha
 - Support scenarios that set an expiration date for running a playbook.
 
 It's important to understand that the playbook itself won't change at all. Only the mechanism that invokes it to run will change.
+
+Finally, the ability to invoke playbooks from analytics rules will be **deprecated effective March 2026**. Until then, playbooks invoked from analytics rules will continue to run, but as of **April 2023** it will no longer be possible to add playbooks to the list of those invoked from analytics rules. The only remaining option will be to invoke them from automation rules.
 
 ## How to migrate
 
@@ -72,7 +74,7 @@ It's important to understand that the playbook itself won't change at all. Only 
 
 1. Under **Conditions**, select the analytics rules you want to run a particular playbook or a set of playbooks on.
 
-1. Under **Actions**, for each playbook you want this rule to invoke, select **+ Add action**. The **Run playbook** action will be automatically selected and grayed out. Select from the list of available playbooks in the drop-down list in the line below. Order the actions according to the order in which you want the playbooks to run.
+1. Under **Actions**, for each playbook you want this rule to invoke, select **+ Add action**. The **Run playbook** action will be automatically selected and grayed out. Select from the list of available playbooks in the drop-down list in the line below. Order the actions according to the order in which you want the playbooks to run. You can change the order of actions by selecting the up/down arrows next to each action.
 
 1. Select **Apply** to save the automation rule.
 
