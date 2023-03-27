@@ -22,8 +22,8 @@ The procedure described in this article was performed using a different version 
 
 The current update is Update 2303. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2310 (2.2.2162.730)
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2301 (2.2.2162.730)
+- Device software version: Azure Stack Edge 2303 (2.2.2162.730)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2303 (2.2.2162.730)
 - Kubernetes server version: v1.24.6
 - IoT Edge version: 0.1.0-beta15
 - Azure Arc version: 1.8.14
