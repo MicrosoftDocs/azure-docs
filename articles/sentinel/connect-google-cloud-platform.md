@@ -110,7 +110,7 @@ You can set up the GCP environment in one of two ways:
 
 ## Verify that the GCP data is in the Microsoft Sentinel environment 
 
-1. To ensure that the GCP logs were successfully ingested into Microsoft Sentinel, run the following query 30 minutes after you finish to [set up the connector](#set-up-the-gcp-pubsub-audit-logs-connector-in-microsoft-sentinel). 
+1. To ensure that the GCP logs were successfully ingested into Microsoft Sentinel, run the following query 30 minutes after you finish to [set up the connector](#set-up-the-gcp-pubsub-connector-in-microsoft-sentinel). 
 
     ```    
     GCPAuditLogs 
