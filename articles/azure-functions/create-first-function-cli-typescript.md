@@ -14,13 +14,13 @@ In this article, you use command-line tools to create a TypeScript function that
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
 
-Note that completion will incur a small cost of a few USD cents or less in your Azure account.
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [Visual Studio Code-based version](create-first-function-vs-code-typescript.md) of this article.
 
 ## Configure your local environment
 
-Before you begin, you must have the following:
+Before you begin, you must have the following prerequisites:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -153,7 +153,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     func new
     ```
 
-    Choose the template for "HTTP trigger". You can keep the default name (*httpTrigger*) or give it a new name (*HttpExample*). Your function name must be unique, or you'll be asked to confirm if your intention is to replace an existing function. 
+    Choose the template for "HTTP trigger". You can keep the default name (*httpTrigger*) or give it a new name (*HttpExample*). Your function name must be unique, or you're asked to confirm if your intention is to replace an existing function. 
 
     You can find the function you added in the *src/functions* directory. 
 
@@ -191,12 +191,12 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     ```
     ::: zone-end
 
-    Toward the end of the output, the following should appear:
+    Toward the end of the output, the following logs should appear:
 
     ![Screenshot of terminal window output when running function locally.](./media/functions-create-first-azure-function-azure-cli/functions-test-local-terminal.png)
 
     >[!NOTE]
-    > If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
+    > If HttpExample doesn't appear as shown in the logs, you likely started the host from outside the root folder of the project. In that case, use <kbd>Ctrl</kbd>+<kbd>c</kbd> to stop the host, navigate to the project's root folder, and run the previous command again.
 
 1. Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 
@@ -204,7 +204,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
     The terminal in which you started your project also shows log output as you make requests.
 
-1. When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.
+1. When you're ready, use <kbd>Ctrl</kbd>+<kbd>c</kbd> and choose <kbd>y</kbd> to stop the functions host.
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
 
@@ -230,7 +230,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 ::: zone pivot="nodejs-model-v4" 
 ## Update app settings
@@ -264,7 +264,7 @@ Before you use Core Tools to deploy your project to Azure, you create a producti
     npm run build
     ```
 
-1. With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
+1. With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
 
     ```console
     func azure functionapp publish <APP_NAME>
