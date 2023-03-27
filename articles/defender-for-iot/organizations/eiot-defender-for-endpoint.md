@@ -69,8 +69,6 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
 
-
-
 ## Next steps
 
 Learn how to set up an Enterprise IoT network sensor (Public preview) and gain more visibility into more IoT segments of your corporate network that aren't otherwise covered by Defender for Endpoint.
