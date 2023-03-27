@@ -25,24 +25,24 @@ Site Recovery automatically configures the failover of your Primary IP Configura
 
 1. Navigate to the **Network** blade on the Replicated Items page.
 
-    :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-tab.png" alt-text="Image showing Replicated Items Blade.":::
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-tab.png" alt-text="Screenshot of Replicated Items Blade.":::
     
 
 2. You will see the following highlighted text.  Click on **Edit** to modify it.
  
-    :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-edit.png" alt-text="Image showing Network Tab Edit Mode." lightbox="./media/concepts-multiple-ip-address-failover/network-edit-expanded.png":::    
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-edit.png" alt-text="Screenshot of Network Tab Edit Mode." lightbox="./media/concepts-multiple-ip-address-failover/network-edit-expanded.png":::    
 
 3. Click on "+ IP Configurations". You will see two options, Either add all IP Configurations, or selectively add IP Configurations.
 
-    :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-ip-configurations.png" alt-text="Image showing how to Add IP Configurations.":::
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-ip-configurations.png" alt-text="Screenshot of Add IP Configurations.":::
 
 4. On clicking **Add all secondary IP Configurations**, all of them will appear in the grid below, and then you can configure them as you like.
 
-    :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations.png" alt-text="Image showing how to add All IP Configurations." lightbox="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations-expanded.png":::    
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations.png" alt-text="Screenshot of All IP Configurations." lightbox="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations-expanded.png":::    
 
 5. Alternatively, on clicking **Select and add secondary IP Configurations**, a blade will open where you can pick and add IP Configurations you'd like to configure for failover.
 
-    :::image type="content" source="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png" alt-text="Image showing how to Select and Add IP Configurations." lightbox="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png":::
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png" alt-text="Screenshot of Select and Add IP Configurations." lightbox="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png":::
 
 Now, for each IP Configuration that you've added, you can configure the values for Private IP, Public IP, and Backend Pool for Failover and Test Failover separately. After you've done it all, don't forget to Save changes.
 
