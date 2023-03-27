@@ -500,7 +500,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container from only a private endpoint](storage-auth-abac-examples.md#example-allow-read-access-to-a-container-from-only-a-private-endpoint) |
+> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container only from a specific private endpoint](storage-auth-abac-examples.md#example-allow-read-access-to-a-container-only-from-a-specific-private-endpoint) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Snapshot
