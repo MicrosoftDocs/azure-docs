@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 02/08/2022
+ms.date: 04/24/2023
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -165,16 +165,16 @@ If you've already installed Visual Studio 2022:
 1. In **Create a new project**, find, and select **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
-   :::image type="content" source="./media/quickstart-dotnet/configure-webapp-net.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 6.0 web app." lightbox="media/quickstart-dotnet/configure-webapp-net.png" border="true":::
+   :::image type="content" source="./media/quickstart-dotnetcore/configure-webapp-net.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 6.0 web app." lightbox="media/quickstart-dotnetcore/configure-webapp-net.png" border="true":::
 
 1. Select **.NET 6.0 (Long-term support)**.
 1. Ensure **Authentication Type** is set to **None**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net60.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 6.0." lightbox="media/quickstart-dotnet/vs-additional-info-net60.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/vs-additional-info-net60.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 6.0." lightbox="media/quickstart-dotnetcore/vs-additional-info-net60.png" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Screenshot of Visual Studio - ASP.NET Core 6.0 running locally." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio - ASP.NET Core 6.0 running locally." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
@@ -191,7 +191,7 @@ If you've already installed Visual Studio 2022:
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-local-webapp-netframework48.png" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 running locally." lightbox="media/quickstart-dotnet/vs-local-webapp-netframework48.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 running locally." lightbox="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" border="true":::
 
 ---
 
@@ -245,7 +245,7 @@ If you've already installed Visual Studio 2022:
     
     You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Screenshot of Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
+    :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net48.png" alt-text="Screenshot of Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
     
     ---
 
@@ -338,7 +338,7 @@ Follow these steps to create your App Service resources and publish your project
 1. In **Solution Explorer**, right-click the **MyFirstAzureWebApp** project and select **Publish**.
 1. In **Publish**, select **Azure** and then **Next**.
 
-    :::image type="content" source="media/quickstart-dotnet/vs-publish-target-Azure.png" alt-text="Screenshot of Visual Studio - Publish the web app and target Azure." lightbox="media/quickstart-dotnet/vs-publish-target-Azure.png" border="true":::
+    :::image type="content" source="media/quickstart-dotnetcore/vs-publish-target-Azure.png" alt-text="Screenshot of Visual Studio - Publish the web app and target Azure." lightbox="media/quickstart-dotnetcore/vs-publish-target-Azure.png" border="true":::
 
 1. Choose the **Specific target**, either **Azure App Service (Linux)** or **Azure App Service (Windows)**. Then, select **Next**.
 
@@ -347,11 +347,11 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
-    :::image type="content" source="media/quickstart-dotnet/sign-in-azure.png" border="true" alt-text="Screenshot of Visual Studio - Select sign in to Azure dialog." lightbox="media/quickstart-dotnet/sign-in-azure.png" :::
+    :::image type="content" source="media/quickstart-dotnetcore/sign-in-azure.png" border="true" alt-text="Screenshot of Visual Studio - Select sign in to Azure dialog." lightbox="media/quickstart-dotnetcore/sign-in-azure.png" :::
 
 1. To the right of **App Service instances**, select **+**.
 
-    :::image type="content" source="media/quickstart-dotnet/publish-new-app-service.png" border="true" alt-text="Screenshot of Visual Studio - New App Service app dialog." lightbox="media/quickstart-dotnet/publish-new-app-service.png" :::
+    :::image type="content" source="media/quickstart-dotnetcore/publish-new-app-service.png" border="true" alt-text="Screenshot of Visual Studio - New App Service app dialog." lightbox="media/quickstart-dotnetcore/publish-new-app-service.png" :::
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 1. For **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**.
@@ -364,16 +364,15 @@ Follow these steps to create your App Service resources and publish your project
     | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
     | **Size**         | *Free*                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
 
-    :::image type="content" source="media/quickstart-dotnet/create-new-hosting-plan.png" border="true" alt-text="Screenshot of Create new Hosting Plan screen in the Azure portal." lightbox="media/quickstart-dotnet/create-new-hosting-plan.png" :::
-
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 1. Select **Create** to create the Azure resources.
 
-    :::image type="content" source="media/quickstart-dotnet/web-app-name.png" border="true" alt-text="Screenshot of Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnet/web-app-name.png" :::
+    :::image type="content" source="media/quickstart-core/web-app-name.png" border="true" alt-text="Screenshot of Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnetcore/web-app-name.png" :::
 
    Once the wizard completes, the Azure resources are created for you and you're ready to publish your ASP.NET Core project.
 
-1. In the **Publish** dialog, ensure your new App Service app is selected in **App Service instance**, then select **Finish**. Visual Studio creates a publish profile for you for the selected App Service app.
+1. In the **Publish** dialog, ensure your new App Service app is selected, then select **Finish**, then select **Close**. Visual Studio creates a publish profile for you for the selected App Service app.
+
 1. In the **Publish** page, select **Publish**. If you see a warning message, select **Continue**.
 
     Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
@@ -388,7 +387,7 @@ Follow these steps to create your App Service resources and publish your project
 
     You'll see the ASP.NET Framework 4.8 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/vs-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/vs-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 web app in Azure.":::
 
     ---
 
@@ -674,7 +673,7 @@ Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vs"
 
-1. In **Solution Explorer**, under your project, open *Index.cshtml*.
+1. In **Solution Explorer**, under your project, open *Views/Home/Index.cshtml*.
 1. Replace the first `<div>` element with the following code:
 
     ```razor
@@ -701,7 +700,7 @@ Follow these steps to update and redeploy your web app:
 
     You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/vs-updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Framework 4.8 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/vs-updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnetcore/vs-updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Framework 4.8 web app in Azure.":::
 
     ---
 
