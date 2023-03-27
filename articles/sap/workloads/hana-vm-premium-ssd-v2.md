@@ -51,6 +51,9 @@ Not having Azure Write Accelerator support or support by other caches makes the 
 > [!NOTE]
 > For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;iaas;ve:24).
 
+> [!NOTE]
+> When deploying Premium SSD v2 use a logical sector size of 4096 bytes.
+
 When you look up the price list for Azure managed disks, then it becomes apparent that the cost scheme introduced with Premium SSD v2, gives you two general paths to pursue:
 
 - You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for more IOPS and throughput as needed to achieve the levels we recommend below. With the awareness that a single disk has a throughput level of 1,200 MBps and 80,000 IOPS.
