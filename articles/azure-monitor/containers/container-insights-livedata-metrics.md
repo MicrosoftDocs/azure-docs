@@ -9,7 +9,7 @@ ms.reviewer: aul
 
 # View metrics in real time
 
-With Container insights Live Data, you can visualize metrics about node and pod state in a cluster in real time. The feature emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this insight.
+With Container insights Live Data, you can visualize metrics about node and pod state in a cluster in real time. The feature emulates direct access to the `kubectl top nodes`, `kubectl get pods --all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this insight.
 
 This article provides a detailed overview and helps you understand how to use this feature.
 
@@ -68,7 +68,7 @@ Nodes are reported either in a **Ready** or **Not Ready** state and they're coun
 
 ### Active pod count
 
-This performance chart maps to an equivalent of invoking `kubectl get pods –all-namespaces` and maps the **STATUS** column the chart grouped by status types.
+This performance chart maps to an equivalent of invoking `kubectl get pods --all-namespaces` and maps the **STATUS** column the chart grouped by status types.
 
 ![Screenshot that shows the kubectl get pods example results.](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
 
