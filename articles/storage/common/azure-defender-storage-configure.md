@@ -38,43 +38,33 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 
 \* Azure DNS Zone is not supported for Malware Scanning and sensitive data threat detection.
 
-## Prerequisites
+### Prerequisites for Malware Scanning
 
-- Networking
+#### Networking configuration
 
-    Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. “Public network access” disabled is not supported and Malware Scanning won't scan the data.
+Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. 
+Malware Scanning is not supported for storage accounts with “Public network access” set to disabled disabled.
 
-- Permissions
+#### Permissions
 
-    To enable Malware Scanning feature on the entire subscription you will need the Owner role on the subscription. Alternatively, you can use a role that has the following actions:
+To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](support-matrix-defender-for-storage.md).
 
-    - Microsoft.Security/pricings/write
-    - Microsoft.Security/pricings/read
-    - Microsoft.Security/pricings/SecurityOperator/read
-    - Microsoft.Security/pricings/SecurityOperator/write
-    - Microsoft.Authorization/roleAssignments/read
-    - Microsoft.Authorization/roleAssignments/write
-    - Microsoft.Authorization/roleAssignments/delete
+#### Event Grid resource provider
 
-    To enable Malware Scanning feature on a specific storage account you will need the Storage Account Owner role.
+Event Grid resource provider must be registered to be able to create the Event Grid System Topic used for detect upload triggers.
+Follow [these steps](../../event-grid/blob-event-quickstart-portal.md#register-the-event-grid-resource-provider) to verify Event Grid is registered on your subscription.
 
-- Event Grid resource provider
+:::image type="content" source="media/azure-defender-storage-configure/register-event-grid-resource-provider.png" alt-text="Diagram showing how to register Event Grid as a resource provider." lightbox="media/azure-defender-storage-configure/register-event-grid-resource-provider.png":::
 
-    Event Grid resource provider must be registered to be able to create the Event Grid System Topic used for detect upload triggers.
-
-    Follow [these steps](../../event-grid/blob-event-quickstart-portal.md#register-the-event-grid-resource-provider) to verify Event Grid is registered on your subscription.
-
-    :::image type="content" source="media/azure-defender-storage-configure/register-event-grid-resource-provider.png" alt-text="Diagram showing how to register Event Grid as a resource provider." lightbox="media/azure-defender-storage-configure/register-event-grid-resource-provider.png":::
-
-    You must have permission to the `/register/action` operation for the resource provider. This permission is included in the Contributor and Owner roles.
+You must have permission to the `/register/action` operation for the resource provider. This permission is included in the Contributor and Owner roles.
 
 ## Set up Microsoft Defender for Storage
 
 To enable and configure Microsoft Defender for Storage to ensure maximum protection and cost optimization, the following configuration options are available:
 
-- Enable Microsoft Defender for Storage.
-- Enable the malware scanning or sensitive data threat detection configurable features.
-- Set a monthly cap on the malware scanning per storage account to control costs. (Default value is 5000GB per storage account per month)
+- Enable/disable Microsoft Defender for Storage.
+- Enable/disable the Malware Scanning or sensitive data threat detection configurable features.
+- Set a monthly cap on the Malware Scanning per storage account to control costs (Default value is 5000GB per storage account per month).
 - Configure additional methods for saving malware scanning results and logging.
 
     > [!TIP]
@@ -106,7 +96,6 @@ There are several ways to enable Defender for Storage on subscriptions:
 To enable Defender for Storage at the subscription level using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select the subscription for which you want to enable Defender for Storage.
 
@@ -126,31 +115,27 @@ If you want to change the malware scanning size cap per storage account per mont
 
 If you want to disable the plan, toggle the status button to **Off** for the Storage plan on the Defender plans page.
 
-### Enable Defender for Storage at scale
+### Enable and configure at scale with an Azure built-in policy 
 
-#### Azure built-in policy
+> [!NOTE] 
+> The built-in policies of the new plan will be available on April 1st. 
 
 To enable and configure Defender for Storage at scale with an Azure built-in policy to ensure that consistent security policies are applied across all existing and new storage accounts within the subscriptions, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to the Policy dashboard.
-
 1. In the Policy dashboard, select **Definitions** from the left-side menu.
-
 1. In the “Security Center” category, search for and then select the **Configure Microsoft Defender for Storage to be enabled**. This policy will enable all Defender for Storage capabilities: Activity Monitoring, Malware Scanning and Sensitive Data Threat Detection. You can also get it here: [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#security-center)
-
     If you want to enable a policy without the configurable features, use **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only)**.
-
 1. Choose the policy and review it.
-
 1. Select **Assign** and edit the policy details. You can fine-tune, edit, and add custom rules to the policy.
-
 1. Once you have completed reviewing, select **Review + create**.
-
 1. Select **Create** to assign the policy.
+
+### Enable and configure with IaC templates
 
 #### Bicep template
 
-To enable Microsoft Defender for Storage at the subscription level using [Bicep](../../azure-resource-manager/bicep/overview.md), make sure your [target scope is set to `subscription`](../../azure-resource-manager/bicep/deploy-to-subscription.md#scope-to-subscription), and add the following to your Bicep template:
+To enable and configure Microsoft Defender for Storage at the subscription level using [Bicep](../../azure-resource-manager/bicep/overview.md), make sure your [target scope is set to `subscription`](../../azure-resource-manager/bicep/deploy-to-subscription.md#scope-to-subscription), and add the following to your Bicep template:
 
 ```bicep
 resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
@@ -177,7 +162,7 @@ resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
 
 To modify the monthly cap for malware scanning per storage account, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
 
-If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `False` under Sensitive data discovery.
 
 To disable the entire Defender for Storage plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
@@ -213,13 +198,13 @@ To enable and configure Microsoft Defender for Storage at the subscription level
 
 To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
 
-If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `False` under Sensitive data discovery.
 
 To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 
 Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
 
-#### REST API
+### Enable and configure with REST API 
 
 To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint (replace the `subscriptionId` in the endpoint URL with your own Azure subscription ID):
 
@@ -253,7 +238,7 @@ And add the following request body:
 
 To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value `-1`. The default limit is set at 5,000 GB.
 
-If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `false` under Sensitive data discovery.
+If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection** features, you can change the `isEnabled` value to `False` under Sensitive data discovery.
 
 To disable the entire Defender plan, set the `pricingTier` property value to `Free` and remove the `subPlan` and `extensions` properties.
 
@@ -264,8 +249,7 @@ Learn more about the [updating Defender plans with the REST API](/rest/api/def
 You can enable and configure Microsoft Defender for Storage on specific storage accounts in several ways:
 
 - [Azure Portal](#azure-portal-1)
-- [ARM template](#arm-template-1)
-- [Bicep template](#bicep-template-1)
+- IaC templates, including [Bicep](#bicep-template-1) and [ARM](#arm-template-1)
 - [REST API](#rest-api-1)
 
 The steps below include instructions on how to set up logging and an Event Grid for the Malware Scanning.
@@ -287,9 +271,11 @@ Microsoft Defender for Storage is now enabled on this storage account.
 
 If you want to disable Defender for Storage on the storage account or disable one of the features (On-upload malware scanning or Sensitive data threat detection), select **Settings**, edit the settings, and select **Save**.
 
-### ARM template
+### Enable and configure with IaC templates
 
-To enable Microsoft Defender for Storage at the storage account level using an ARM template, add this JSON snippet to the resources section of your ARM template:
+#### ARM template
+
+To enable and configure Microsoft Defender for Storage at the storage account level using an ARM template, add this JSON snippet to the resources section of your ARM template:
 
 ```json
 {
@@ -320,9 +306,9 @@ To disable the entire Defender plan, set the `pricingTier` property value to `Fr
 
 Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.security/pricings?pivots=deployment-language-arm-template).
 
-### Bicep template
+#### Bicep template
 
-To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
+To enable and configure Microsoft Defender for Storage at the subscription level with per-transaction pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
 ```bicep
 param accountName string
@@ -389,11 +375,9 @@ To disable the entire Defender plan, set the `pricingTier` property value to `Fr
 
 Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
----
+### Configure Malware Scanning
 
-## Configure Malware Scanning
-
-### Setting Up Logging for Malware Scanning
+#### Setting Up Logging for Malware Scanning
 
 For each storage account enabled with Malware Scanning, you can define a Log Analytics workspace destination to store every scan result in a centralized log repository that is easy to query.
 
@@ -441,7 +425,7 @@ For each storage account enabled with Malware Scanning, you can configure to sen
 1. To configure the Event Grid custom topic destination, go to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.
 
 > [!NOTE]
-> When you set a Event Grid custom topic, you should set “Override Defender for Storage subscription-level settings” to “ON” to make sure it overrides the subscription-level settings.
+> When you set a Event Grid custom topic, you should set “**Override Defender for Storage subscription-level settings**” to “**ON**” to make sure it overrides the subscription-level settings.
 
 This configuration can be performed using REST API as well:
 
@@ -473,6 +457,8 @@ Request Body:
     } 
 }
 ```
+
+---
 
 ### Override Defender for Storage subscription-level settings
 
@@ -511,7 +497,7 @@ To override Defender for Storage subscription-level settings to configure settin
 
     1. To modify the settings of malware scanning:
 
-        1. Switch the On-upload malware scanning to **On** if it’s not already enabled.
+        1. Switch the "**On-upload malware scanning**" to **On** if it’s not already enabled.
 
         1. Check the relevant boxes underneath and change the settings. If you wish to permit unlimited scanning, assign the value `-1`.
 
