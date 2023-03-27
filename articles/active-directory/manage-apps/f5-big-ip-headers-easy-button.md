@@ -257,9 +257,9 @@ To select a policy to be applied to the application being published:
 
 ### Virtual Server Properties
 
-A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
+A virtual server is a BIG-IP data plane object, represented by a virtual IP address, that listens for clients requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Traffic is directed according to policy.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
+1. For **Destination Address**, enter an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS, which enables clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
 
 2. Enter **Service Port** as *443* for HTTPS
 
