@@ -26,7 +26,7 @@ sections:
       - question: |
           What audio formats does Text-to-Speech support?
         answer: |
-          The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. See [Audio outputs](rest-text-to-speech?tabs=streaming#audio-outputs).
+          The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. See [Audio outputs](rest-text-to-speech.md?tabs=streaming#audio-outputs).
       - question: |
           How can we balance dynamic and static content to limit cost?
         answer: |
@@ -38,7 +38,7 @@ sections:
       - question: |
           Is there a mapping between Viseme IDs and mouth shape?
         answer: |
-          Yes. See [Get facial position with viseme](how-to-speech-synthesis-viseme?tabs=visemeid#map-phonemes-to-visemes).
+          Yes. See [Get facial position with viseme](how-to-speech-synthesis-viseme.md?tabs=visemeid#map-phonemes-to-visemes).
       - question: |
           Can the Visemes be mapped to UE5 MetaHuman blend shapes weights?
         answer: |
@@ -53,7 +53,7 @@ sections:
       - question: |
           Can we have multiple strength for each emotions, like very sad, slightly sad and so on in?
         answer: |
-          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice#speaking-styles-and-roles).
+          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
   - name: Custom Neural Voice
     questions:
@@ -84,7 +84,7 @@ sections:
       - question: |
           Is the model version the same as the engine version?
         answer: |
-          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text-to-speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice?tabs=neural#update-engine-version-for-your-voice-model).
+          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text-to-speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
       - question: |
           What kind of script should be prepared for a domain specific scenario such as gaming?
         answer: |
@@ -96,7 +96,7 @@ sections:
       - question: |
           Switching styles via SSML only works for prebuilt neural voices, right?
         answer: |
-          Switching styles via SSML is only for prebuilt multi-style voices. Custom Neural Voice does support [multi-style training](how-to-custom-voice-create-voice?tabs=multistyle#train-your-custom-neural-voice-model) for the same model, so you can also adjust the styles via SSML. Only for the speaking styles you have created for CNV.
+          Switching styles via SSML is only for prebuilt multi-style voices. Custom Neural Voice does support [multi-style training](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) for the same model, so you can also adjust the styles via SSML. Only for the speaking styles you have created for CNV.
       - question: |
           Is it correct that after one training we can't train again unless we upload a corpus file?
         answer: |
@@ -128,7 +128,7 @@ sections:
       - question: |
           Do we need to return the written permission from the voice talent back to Microsoft?
         answer: |
-          Microsoft doesn't need the written permission, but you must obtain consent from your voice talent. The voice talent will also be required to record the consent statement and it must be uploaded into Speech Studio before training can begin. See [Set up voice talent for Custom Neural Voice](how-to-custom-voice-talent).
+          Microsoft doesn't need the written permission, but you must obtain consent from your voice talent. The voice talent will also be required to record the consent statement and it must be uploaded into Speech Studio before training can begin. See [Set up voice talent for Custom Neural Voice](how-to-custom-voice-talent.md).
 
       
 additionalContent: |
