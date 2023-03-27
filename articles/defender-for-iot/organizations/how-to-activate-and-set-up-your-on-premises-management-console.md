@@ -219,6 +219,6 @@ No configuration is needed on the sensor.
 
 For more information, see:
 
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-sensor-and-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
 - [Manage individual sensors](how-to-manage-individual-sensors.md)
 - [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md)

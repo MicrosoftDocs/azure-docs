@@ -88,10 +88,10 @@ index.html.1        100%[===================>]  97.62K  --.-KB/s    in 0.02s
 >
 ```
 
-For more information, see [Check system health](../how-to-troubleshoot-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
+For more information, see [Check system health](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Troubleshoot an OT sensor or on-premises management console](../how-to-troubleshoot-sensor-and-on-premises-management-console.md)
+> [Troubleshoot an OT sensor or on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
 > 
