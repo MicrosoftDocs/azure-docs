@@ -2,6 +2,44 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: ASM Retirement
+  items:
+  - name: Overview
+    href: asm-retirement.md
+  - name: Migration guides by service
+    items:
+      - name: VM (classic)
+        href: /azure/virtual-machines/classic-vm-deprecation
+      - name: Azure Batch Cloud Service Pools  
+        href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration
+      - name: Cloud Services (classic)
+        href: /azure/cloud-services-extended-support/in-place-migration-overview
+      - name: Azure App Service
+        href: /azure/app-service/environment/migrate
+      - name: API Management
+        href: /azure/api-management/compute-infrastructure#how-do-i-migrate-to-the-stv2-platform
+      - name: Azure Redis Cache  
+        href: /azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services--classic
+      - name: Classic Resource Providers
+        href: /azure/azure-resource-manager/management/deployment-models
+      - name: Integration Services Environment 
+        href: /azure/logic-apps/export-from-ise-to-standard-logic-app
+      - name: Microsoft HPC Pack  
+        href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide
+      - name: Virtual WAN  
+        href: /azure/virtual-wan/virtual-wan-faq#update-router
+      - name: Classic Storage  
+        href: /azure/storage/common/storage-account-migrate-classic?tabs=azure-portal
+      - name: Classic Virtual Network  
+        href: /azure/virtual-network/migrate-classic-vnet-powershell
+      - name: Classic Application Gateway  
+        href: /azure/application-gateway/classic-to-resource-manager
+      - name: Classic Reserved IP addresses  
+        href: /azure/virtual-network/ip-services/public-ip-upgrade-classic
+      - name: Classic ExpressRoute Gateway  
+        href: /azure/expressroute/expressroute-migration-classic-resource-manager
+      - name: Classic VPN gateway 
+        href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration
 - name: Availability zone support
   items:
   - name: What are Azure availability zones and regions?
