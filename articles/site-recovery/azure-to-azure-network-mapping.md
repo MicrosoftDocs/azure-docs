@@ -59,7 +59,7 @@ The subnet of the target VM is selected based on the name of the subnet of the s
 - If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
 - You can modify the target subnet in the **Network** settings for the VM.
 
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png" alt-text="Screenshot of Network compute properties window" lightbox="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png":::
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png" alt-text="Screenshot of Network compute properties window." lightbox="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png":::
 
 ## Set up IP addressing for target VMs
 
