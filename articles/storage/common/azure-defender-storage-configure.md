@@ -45,6 +45,8 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. 
 Malware Scanning is not supported for storage accounts with “Public network access” set to disabled.
 
+:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/Networking.png" alt-text="Screenshot showing where to configure Public network access.":::
+
 ### Permissions
 
 To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](../../defender-for-cloud/support-matrix-defender-for-storage.md).
@@ -112,6 +114,8 @@ Microsoft Defender for Storage is now enabled for this subscription, and is full
 If you want to turn off the **On-upload malware scanning** or **Sensitive data threat detection**, you can select **Settings** and change the status of the relevant feature to Off.
 
 If you want to change the malware scanning size cap per storage account per month for malware, change the settings in **Edit configuration**.
+
+:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/Configuration.png" alt-text="Screenshot showing where to enable Malware Scanning and Sensitive data threat protection.":::
 
 If you want to disable the plan, toggle the status button to **Off** for the Storage plan on the Defender plans page.
 
@@ -264,10 +268,13 @@ To enable and configure Microsoft Defender for Storage for a specific account us
 1. **On-upload Malware Scanning** and **Sensitive data threat detection** are enabled by default. You can disable the features by unselecting them.
 1. Select **Enable on storage account**.
 
+:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/Storage-Account-Enablement.png" alt-text="Screenshot showing where to enable On-upload malware scanning and Sensitive data threat detection for a specific storage account.":::
+
 Microsoft Defender for Storage is now enabled on this storage account.
 
 > [!TIP]
 > To configure **On-upload malware scanning** settings, such as monthly cap, select **Settings** after Defender for Storage was enabled.
+> :::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/Capping.png" alt-text="Screenshot showing where to configure a monthly cap for Malware Scanning.":::
 
 If you want to disable Defender for Storage on the storage account or disable one of the features (On-upload malware scanning or Sensitive data threat detection), select **Settings**, edit the settings, and select **Save**.
 
@@ -381,6 +388,8 @@ Learn more about the [updating Defender plans with the REST API](/rest/api/defen
 
 For each storage account enabled with Malware Scanning, you can define a Log Analytics workspace destination to store every scan result in a centralized log repository that is easy to query.
 
+:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/LogAnalytics-Settings.png" alt-text="Screenshot showing where to configure a Log Analytics destination for scan logs.":::
+
 1. Before sending scan results to Log Analytics, [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) or use an existing one.
 
 1. To configure the Log Analytics destination, navigate to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and select the settings to configure.
@@ -426,6 +435,8 @@ For each storage account enabled with Malware Scanning, you can configure to sen
 
 > [!NOTE]
 > When you set a Event Grid custom topic, you should set “**Override Defender for Storage subscription-level settings**” to “**ON**” to make sure it overrides the subscription-level settings.
+
+:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/EventGrid-Settings.png" alt-text="Screenshot showing where to enable an Event Grid destination for scan logs.":::
 
 This configuration can be performed using REST API as well:
 
@@ -504,6 +515,8 @@ To override Defender for Storage subscription-level settings to configure settin
     Learn more about [malware scanning settings](../../defender-for-cloud/defender-for-storage-configure-malware-scan.md).
 
 1. To disable Defender for Storage on this storage accounts, set the status of Microsoft Defender for Storage to **Off**.
+
+    :::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/Settings.png" alt-text="Screenshot showing where to turn off Defender for Storage in the Azure portal.":::
 
 1. Select **Save**.
 

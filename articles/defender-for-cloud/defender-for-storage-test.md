@@ -35,6 +35,8 @@ Follow these steps to test Malware Scanning after enabling the feature:
 
 1. If you don't see the new blob index tags, select the **Refresh** button.
 
+:::image type="content" source="../../defender-for-cloud/media/defender-for-storage-test/Testing-malware.png" alt-text="Screenshot showing how to upload a file to test the Malware Scan.":::
+
 > [!NOTE]
 > Index tags are not supported for ADLS Gen. To test and validate your protection for premium block blobs, look at the generated security alert.
 
@@ -102,9 +104,13 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Add the following string to the file: `ASD 100-22-3333 SSN Text` - this is a test US (United States) SSN (Social Security Number).
 
+        :::image type="content" source="../../defender-for-cloud/media/defender-for-storage-test/Testing-sensitivity-2.png" alt-text="Screenshot showing how to test a file in Malware Scanning for Social Security Number information.":::
+
     1. Save the file with the updated information.
 
     1. Upload the file you created to the **test-container** in the storage account.
+
+        :::image type="content" source="../../defender-for-cloud/media/defender-for-storage-test/Testing-sensitivity-3.png" alt-text="Screenshot showing how to upload a file in Malware Scanning to test for Social Security Number information.":::
 
 1. Enable Defender for Storage:
 
@@ -120,6 +126,8 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     1. Right-click on the **test-container** and select **Change the access level**.
 
+        :::image type="content" source="../../defender-for-cloud/media/defender-for-storage-test/Testing-sensitivity-1.png" alt-text="Screenshot showing how change the access level for a test of Malware Scanning.":::
+
     1. Choose the **Container (anonymous read access for containers and blobs)** option and select **OK**.
 
     The previous step exposes the blob container's content to the internet, which will trigger a security alert within 30-60 minutes.
@@ -131,6 +139,8 @@ To test the sensitive data threat detection feature by uploading test data that 
     1. Look for the alert titled **The access level of a sensitive storage blob container was changed to allow unauthenticated public access**.
 
     1. Select on the alert’s **View full details** button to see all the related details.
+
+        :::image type="content" source="../../defender-for-cloud/media/defender-for-storage-test/sensitive-data-alert.png" alt-text="Screenshot showing how to see an alert for a test file in Malware Scanning.":::
 
 Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 

@@ -23,6 +23,8 @@ Defender for Storage includes:
 - Sensitive data threat detection (preview feature, new plan only)
 - Malware Scanning (preview feature, new plan only)
 
+:::image type="content" source="media/defender-for-storage-introduction/DF-Storage-Overview.gif" alt-text="Animated diagram showing how Defender for Storage protects against common threats to data.":::
+
 ## Getting started
 
 With a simple agentless setup at scale, you can [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md) at the subscription or resource levels through the portal or programmatically. When enabled at the subscription level, all existing and newly created storage accounts under that subscription will be automatically protected. You can also exclude specific storage accounts from protected subscriptions. 
@@ -45,6 +47,8 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](..
 
 ## What are the benefits of Microsoft Defender for Storage?
 
+:::image type="content" source="media/defender-for-storage-introduction/DF-Storage Benefits.png" alt-text="Diagram showing the benefits of using Defender for Storage to protect your data.":::
+
 Defender for Storage provides the following:
 
 - **Better protection against malware**: The Malware Scanning scans and detects in near real-time all file types, including archives of every uploaded blob, and provides fast and reliable results, helping you prevent your storage accounts from acting as an entry and distribution point for threats. Learn more about [Malware Scanning](defender-for-storage-malware-scan.md).
@@ -64,6 +68,8 @@ Defender for Storage provides the following:
 ### Activity monitoring 
 
 Defender for Storage continuously analyzes data and control plane logs from protected storage accounts when enabled. There's no need to turn on resource logs for security benefits. Using Microsoft Threat Intelligence, it identifies suspicious signatures such as malicious IP addresses, Tor exit nodes, and potentially dangerous apps. It also builds data models and uses statistical and machine-learning methods to spot baseline activity anomalies, which may indicate malicious behavior. You'll receive security alerts for suspicious activities, but Defender for Storage ensures you won't get too many similar alerts. Activity monitoring won't affect performance, ingestion capacity, or access to your data.
+
+:::image type="content" source="media/defender-for-storage-introduction/Activity-monitoring.png" alt-text="Diagram showing how activity monitoring identifies threats to your data.":::
 
 ### Malware Scanning (powered by Microsoft Defender Antivirus)
 
