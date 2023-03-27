@@ -11,7 +11,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 03/27/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
@@ -28,7 +28,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 ## Configure NFSv4.1 domain for server
 
-Using the Azure portal, you can update the account settings to set NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that subscription and region. 
+Using the Azure portal, you can update the account settings to set or modify the NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that subscription and region. 
 
 ### Register the feature
 
@@ -57,7 +57,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. To use the default domain, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
-1. Select **Save**.
+1. Select **Add**.
 
 <!-- 
 #### Edit the NFSv4 domain
