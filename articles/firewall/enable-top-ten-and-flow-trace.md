@@ -106,4 +106,4 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## Next steps
 
-- [[Azure Firewall logs and metrics](logs-and-metrics.md)](firewall-structured-logs.md)
+- [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md)
