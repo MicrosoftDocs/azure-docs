@@ -103,16 +103,14 @@ You must complete specific configuration steps in the operating system for the v
    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
 10. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
-1. 11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
+11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
 
-
-        
-    
-```bash
+    ```bash
          sudo yum install WALinuxAgent
     ```
 
-        Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
+    Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
+
 12. Do not create swap space on the OS disk.
     
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
@@ -211,7 +209,8 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
 10. Once you are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
-1. ```bash
+
+    ```bash
        sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
@@ -258,7 +257,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 
     if [[ -f /mnt/resource/swapfile ]]; then
-    echo Removing swapfile - RHEL uses a swapfile by default
+    echo Removing swapfile - Oracle Linux uses a swapfile by default
     swapoff /mnt/resource/swapfile
     rm /mnt/resource/swapfile -f
     fi
@@ -309,14 +308,14 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-1. **Note:** if you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step.
+ **Note:** if you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step.
 
-1. ```bash
-        sudo cloud-init clean
-        sudo rm -f /var/log/waagent.log
-        sudo waagent -force -deprovision
-        sudo rm -f ~/.bash_history
-        sudo export HISTSIZE=0
+    ```bash
+    sudo cloud-init clean
+    sudo rm -f /var/log/waagent.log
+    sudo waagent -force -deprovision
+    sudo rm -f ~/.bash_history
+    sudo export HISTSIZE=0
     ```
 
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
