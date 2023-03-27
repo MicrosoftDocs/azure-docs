@@ -16,8 +16,8 @@ A persistent volume represents a piece of storage that has been provisioned for 
 
 This article shows you how to:
 
-* Work with a dynamic persistent volume (PV) by installing the Container Storage Interface (CSI) driver and dynamically creating one or more Azure managed disk to attach to a pod.
-* Work with a static PV by creating one or more Azure managed disk, or use an existing one and attach it to a pod.
+* Work with a dynamic persistent volume (PV) by installing the Container Storage Interface (CSI) driver and dynamically creating one or more Azure managed disks to attach to a pod.
+* Work with a static PV by creating one or more Azure managed disks, or use an existing one and attach it to a pod.
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
