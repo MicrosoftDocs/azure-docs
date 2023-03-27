@@ -7,7 +7,7 @@ ms.date: 03/29/2021
 
 # Work with user identities in Azure App Service authentication
 
-This article shows you how to work with user identities when using the the built-in [authentication and authorization in App Service](overview-authentication-authorization.md). 
+This article shows you how to work with user identities when using the built-in [authentication and authorization in App Service](overview-authentication-authorization.md). 
 
 ## Access user claims in app code
 
