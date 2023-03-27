@@ -381,9 +381,11 @@ items:
     - name: Calling hero sample
       href: samples/calling-hero-sample.md
     - name: Xamarin calling sample
-      href: samples/ui-library-cross-platform.md
+      href: samples/ui-library-cross-platform.md?pivots=platform-xamarin
     - name: React Native calling sample
-      href: samples/ui-library-cross-platform.md
+      href: samples/ui-library-cross-platform.md?pivots=platform-react
+    - name: MAUI calling sample
+      href: samples/ui-library-cross-platform.md?pivots=platform-maui
     - name: Web calling sample
       href: samples/web-calling-sample.md
     - name: Authentication service hero sample
