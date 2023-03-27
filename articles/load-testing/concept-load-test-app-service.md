@@ -37,9 +37,27 @@ By integrating load testing in your CI/CD pipeline and by [adding fail criteria 
 
 ## Create a load test for an app on Azure App Service
 
-- Quick test
-- Upload a JMeter script (e.g. multiple requests, authenticated requests, configurable test)
-- Use test criteria to dertermine if meets your expectations
+Azure Load Testing enables you to create load tests for your application in two ways:
+
+- Create a URL-based quick test
+- Use an existing Apache JMeter script (JMX file)
+
+Use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page. You can specify a number of basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time). Azure Load Testing then generates the corresponding JMeter test script, and runs it against your endpoint. You can modify the test script and configuration settings at any time.
+
+Alternately, create a new load test by uploading an existing JMeter script. Use this approach to load test multiple pages or endpoints in a single test, to test authenticated endpoints, use parameters in the test script, or to use more advanced load patterns. Azure Load Testing provides high-fidelity support of JMeter to enable you to reuse existing load test scripts.
+
+If you get started with load testing, you might first create a quick test, and then further modify and extend the test script that Azure Load Testing generated.
+
+After you create and run your load test, Azure Load Testing provides a dashboard with test run statistics, such as response time, error percentage and throughput.
+
+## Use test fail criteria
+
+
+
+
+- Quick test (for example, to test the home page or specific page of the web app. Grab from the App Service endpoint)
+- Upload a JMeter script (for example, multiple requests, authenticated requests, configurable test)
+- Use test criteria to determine if meets your expectations
 
 ## Monitor application metrics
 
@@ -66,7 +84,7 @@ When the application you're load testing is hosted on Azure App Service, you can
 
 App Service diagnostics is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
 
-Azure Load Testing provides a direct link from the test results dashboard, if you have added an App Service app component to your test configuration.
+Azure Load Testing provides a direct link from the test results dashboard, if you've added an App Service app component to your test configuration.
 
 
 To view the App Service diagnostics information for your application under load test:
@@ -108,7 +126,7 @@ To view the App Service diagnostics information for your application under load 
 - Deployment slots -> different endpoint
 - Avoid hard-coding 
 - Use env vars to pass deployment slot and make URL configurable in JMeter script
-- Also use for other configuration parameters (e.g. number of virtual users, ramp-up time, and so on.)
+- Also use for other configuration parameters (for example, number of virtual users, ramp-up time, and so on.)
 
 ## Authenticated endpoints
 
