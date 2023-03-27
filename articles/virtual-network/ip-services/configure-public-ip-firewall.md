@@ -59,6 +59,11 @@ In this section, you create an Azure firewall. Use the first IP address you crea
 
 5. Select **Create**.
 
+The following image shows the **Create firewall** page with the example information.
+
+:::image type="content" source="./media/create-public-ip-firewall/create-an-azure-firewall.png" alt-text="Screenshot that shows the Create firewall page with the example information.":::
+
+
 ## Change the public IP address for a firewall
 
 In this section, you change the public IP address associated with the firewall. A firewall must have at least one public IP address associated with its configuration.  You can't update the IP address if the firewall's existing IP has any destination network address translation (DNAT) rules associated with it.
@@ -72,6 +77,8 @@ In this section, you change the public IP address associated with the firewall. 
 4. In **Public IP configuration**, select **myStandardPublicIP-1**.
 
 5. Select the **Public IP address** dropdown, and then select **myStandardPublicIP-2**.
+
+:::image type="content" source="./media/create-public-ip-firewall/edit-public-ip-configuration.png" alt-text="Screenshot that shows the Edd public IP configuration pane and highlights the Public IP address field.":::
 
 6. Select **Save**.
 
@@ -90,6 +97,8 @@ In this section, you add a public IP configuration to Azure Firewall. For more i
 5. In **Name**, enter **myNewPublicIPconfig**.
 
 6. In **Public IP address**, select **myStandardPublicIP-3**.
+
+:::image type="content" source="./media/create-public-ip-firewall/add-public-ip-configuration.png" alt-text="Screenshot that shows the Add public IP configuration pane and highlights the Name and Public IP address fields.":::
 
 7. Select **Add**.
 
