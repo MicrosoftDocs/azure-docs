@@ -12,11 +12,11 @@ ms.author: allensu
 
 This article describes a test setup you can use to analyze how Azure networking services interoperate at the control plane level and data plane level. Let's look briefly at the Azure networking components:
 
--   **Azure ExpressRoute**: Use private peering in Azure ExpressRoute to directly connect private IP spaces in your on-premises network to your Azure Virtual Network deployments. ExpressRoute can help you achieve higher bandwidth and a private connection. Many ExpressRoute eco partners offer ExpressRoute connectivity with SLAs. To learn more about ExpressRoute and to learn how to configure ExpressRoute, see [Introduction to ExpressRoute](../expressroute/expressroute-introduction.md).
+- **Azure ExpressRoute**: Use private peering in Azure ExpressRoute to directly connect private IP spaces in your on-premises network to your Azure Virtual Network deployments. ExpressRoute can help you achieve higher bandwidth and a private connection. Many ExpressRoute eco partners offer ExpressRoute connectivity with SLAs. To learn more about ExpressRoute and to learn how to configure ExpressRoute, see [Introduction to ExpressRoute](../expressroute/expressroute-introduction.md).
 
--   **Site-to-site VPN**: You can use Azure VPN Gateway as a site-to-site VPN to securely connect an on-premises network to Azure over the internet or by using ExpressRoute. To learn how to configure a site-to-site VPN to connect to Azure, see [Configure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Site-to-site VPN**: You can use Azure VPN Gateway as a site-to-site VPN to securely connect an on-premises network to Azure over the internet or by using ExpressRoute. To learn how to configure a site-to-site VPN to connect to Azure, see [Configure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
--   **Virtual network peering**: Use virtual network peering to establish connectivity between virtual networks in Azure Virtual Network. For more information about virtual network peering,[Tutorial: Connect virtual networks with VNet peering - Azure portal](../virtual-network/tutorial-connect-virtual-networks-portal.md).
+- **Virtual network peering**: Use virtual network peering to establish connectivity between virtual networks in Azure. For more information about virtual network peering,[Tutorial: Connect virtual networks with VNet peering - Azure portal](../virtual-network/tutorial-connect-virtual-networks-portal.md).
 
 ## Test setup
 
@@ -26,15 +26,15 @@ The following figure illustrates the test setup:
 
 The centerpiece of the test setup is the hub virtual network in Azure Region 1. The hub virtual network is connected to different networks in the following ways:
 
--   The hub virtual network is connected to the spoke virtual network by using virtual network peering. The spoke virtual network has remote access to both gateways in the hub virtual network.
+- The hub virtual network is connected to the spoke virtual network by using virtual network peering. The spoke virtual network has remote access to both gateways in the hub virtual network.
 
--   The hub virtual network is connected to the branch virtual network by using site-to-site VPN. The connectivity uses eBGP to exchange routes.
+- The hub virtual network is connected to the branch virtual network by using site-to-site VPN. The connectivity uses eBGP to exchange routes.
 
--   The hub virtual network is connected to the on-premises Location 1 network by using ExpressRoute private peering as the primary path. It uses site-to-site VPN connectivity as the backup path. In the rest of this article, we refer to this ExpressRoute circuit as ExpressRoute 1. By default, ExpressRoute circuits provide redundant connectivity for high availability. On ExpressRoute 1, the secondary customer edge (CE) router's subinterface that faces the secondary Microsoft Enterprise edge router (MSEE) is disabled. A red line over the double-line arrow in the preceding figure represents the disabled CE router subinterface.
+- The hub virtual network is connected to the on-premises Location 1 network by using ExpressRoute private peering as the primary path. It uses site-to-site VPN connectivity as the backup path. In the rest of this article, we refer to this ExpressRoute circuit as ExpressRoute 1. By default, ExpressRoute circuits provide redundant connectivity for high availability. On ExpressRoute 1, the secondary customer edge (CE) router's subinterface that faces the secondary Microsoft Enterprise edge router (MSEE) is disabled. A red line over the double-line arrow in the preceding figure represents the disabled CE router subinterface.
 
--   The hub virtual network is connected to the on-premises Location 2 network by using another ExpressRoute private peering. In the rest of this article, we refer to this second ExpressRoute circuit as ExpressRoute 2.
+- The hub virtual network is connected to the on-premises Location 2 network by using another ExpressRoute private peering. In the rest of this article, we refer to this second ExpressRoute circuit as ExpressRoute 2.
 
--   ExpressRoute 1 also connects both the hub virtual network and the on-premises Location 1 network to a remote virtual network in Azure Region 2.
+- ExpressRoute 1 also connects both the hub virtual network and the on-premises Location 1 network to a remote virtual network in Azure Region 2.
 
 ## ExpressRoute and site-to-site VPN connectivity in tandem
 
@@ -56,7 +56,7 @@ For more information about how to configure coexisting connections for ExpressRo
 
 Hub and spoke virtual network architecture is widely used. The hub is a virtual network in Azure that acts as a central point of connectivity between your spoke virtual networks and to your on-premises network. The spokes are virtual networks that peer with the hub, and which you can use to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN connection. For more information about the architecture, see [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
-In VNet peering within a region, spoke virtual networks can use hub virtual network gateways (both VPN and ExpressRoute gateways) to communicate with remote networks.
+In virtual network peering within a region, spoke virtual networks can use hub virtual network gateways (both VPN and ExpressRoute gateways) to communicate with remote networks.
 
 ### Branch virtual network connectivity by using site-to-site VPN
 
@@ -74,8 +74,8 @@ Learn about the [data plane analysis](connectivty-interoperability-data-plane.md
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 
--   Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+- Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
 
--   Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+- Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
 
--   Learn about other scale limits of ExpressRoute.
+- Learn about other scale limits of ExpressRoute.
