@@ -101,10 +101,10 @@ fs.ls() # list folders/files in datastore datastorename
 # output example:
 # folder1
 # folder2
-# file1.csv
+# file3.csv
 
 # use an open context
-with fs.open('./folder/file1.csv') as f:
+with fs.open('./folder1/file1.csv') as f:
     # do some process
     process_file(f)
 ```
@@ -116,18 +116,22 @@ from azureml.fsspec import AzureMachineLearningFileSystem
 # instantiate file system using following URI
 fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
 
-fs.upload(lpath='./data/upload_files/crime-spring.csv', rpath=f'data/fsspec', recursive=False, **{'overwrite': True})
-fs.upload(lpath='./data/upload_folder/', rpath=f'data/fsspec_folder', recursive=True, **{'overwrite': True})
+# you can specify recursive as False to upload a file
+fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': True})
+
+# you need to specify recursive as True to upload a folder
+fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': True})
 
 ```
 
 ### Download files via AzureMachineLearningFileSystem
 ```python
 # you can specify recursive as False to download a file
-fs.download(rpath=f'data/fsspec/crime-spring.csv', lpath='./data/download_files/, recursive=False)
+# Downloading overwrite option is set to be MERGE_WITH_OVERWRITE
+fs.download(rpath='data/fsspec/crime-spring.csv', lpath='data/download_files/, recursive=False)
 
 # you need to specify recursive as True to download a folder
-fs.download(rpath=f'data/fsspec_folder', lpath=f'./data/download_folder/', recursive=True)
+fs.download(rpath='data/fsspec_folder', lpath='data/download_folder/', recursive=True)
 ```
 
 ### Examples
@@ -153,14 +157,14 @@ import pandas as pd
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/*.csv'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
 # append csv files in folder to a list
 dflist = []
-for path in fs.ls():
+for path in fs.ls('/<folder>/*.csv'):
     with fs.open(path) as f:
         dflist.append(pd.read_csv(f))
 
@@ -192,14 +196,14 @@ import pandas as pd
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/*.parquet'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
 # append csv files in folder to a list
 dflist = []
-for path in fs.ls():
+for path in fs.ls('/<folder>/*.parquet'):
     with fs.open(path) as f:
         dflist.append(pd.read_parquet(f))
 
@@ -247,14 +251,14 @@ from PIL import Image
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/<image.jpeg>'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
-with fs.open() as f:
+with fs.open('/<folder>/<image.jpeg>') as f:
     img = Image.open(f)
-    img.show()
+    img.show(
 ```
 
 #### PyTorch custom dataset example
@@ -328,7 +332,7 @@ from azureml.fsspec import AzureMachineLearningFileSystem
 from torch.utils.data import DataLoader
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
@@ -336,8 +340,8 @@ fs = AzureMachineLearningFileSystem(uri)
 # create the dataset
 training_data = CustomImageDataset(
     filesystem=fs,
-    annotations_file='<datastore_name>/<path>/annotations.csv', 
-    img_dir='<datastore_name>/<path_to_images>/'
+    annotations_file='/annotations.csv', 
+    img_dir='/<path_to_images>/'
 )
 
 # Preparing your data for training with DataLoaders
