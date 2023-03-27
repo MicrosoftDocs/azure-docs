@@ -90,7 +90,7 @@ az postgres server-arc create -n <name> --k8s-namespace <namespace> --extensions
 ```
 *NOTE:* After extensions are enabled thus added to shared_preload_libraries, these must be installed in your database before you can use them. To install a particular extension, you should run the [`CREATE EXTENSION`](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
-You can connect to database and issue the following PostgreSql command to install extension, for example to install pgaudit:
+You can connect to your database and issue the following PostgreSQL command to install extension, for example to install pgaudit:
 
 ```SQL
 CREATE EXTENSION pgaudit;
@@ -109,7 +109,7 @@ If there are extensions enabled the output contains a section like this:
     postgreSqlExtensions: pgaudit,pg_partman
 ```
 
-Check whether the extension is installed after connecting to the database by running following PostgreSql command:
+Check whether the extension is installed after connecting to the database by running following PostgreSQL command:
 ```SQL
 select * from pg_extension;
 ```
@@ -126,7 +126,7 @@ Once allowed extensions list is updated. Connect to the database and install new
 CREATE EXTENSION pgcrypto;
 ```
 
-Similarly, to remove an extension from existing database issue a command [`DROP EXTENSION`](https://www.postgresql.org/docs/current/sql-dropextension.html) :
+Similarly, to remove an extension from an existing database issue the command [`DROP EXTENSION`](https://www.postgresql.org/docs/current/sql-dropextension.html) :
 
 ```SQL
 DROP EXTENSION pg_partman;
