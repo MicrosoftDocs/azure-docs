@@ -21,7 +21,7 @@ Ingress supports:
 - [IP restrictions](#ip-restrictions)
 - [Authentication](#authentication)
 - [Traffic splitting between revisions](#traffic-splitting)
-- [Session affinity](#sticky-sessions)
+- [Session affinity](#session-affinity)
 
 > [!NOTE]
 > Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
