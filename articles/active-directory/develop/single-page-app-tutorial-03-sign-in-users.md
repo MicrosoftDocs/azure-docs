@@ -256,6 +256,3 @@ reactspalocal/
 
 > [!div class="nextstepaction"]
 > [Tutorial: Call an API from a React single-page app](single-page-app-tutorial-04-call-api.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Call an API from a React single-page app](single-page-app-tutorial-04-call-api.md)
