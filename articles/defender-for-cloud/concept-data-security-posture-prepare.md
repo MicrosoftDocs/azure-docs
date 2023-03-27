@@ -17,7 +17,7 @@ Sensitive data discovery is available in the Defender CSPM and Defender for Stor
 
 - When you enable one of the plans, the sensitive data discovery extension is turned on as part of the plan.
 - If you have existing plans running, the extension is available, but turned off by default.
-- Existing plan status will show as “Partial” rather than “Full” until the feature is turned on manually.
+- Existing plan status shows as “Partial” rather than “Full” until the feature is turned on manually.
 - The feature is turned on at the subscription level.
 
 
@@ -39,16 +39,16 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 ## Scanning
 
 - It takes up to 24 hours to see the results for a first scan.
-- Refreshed results for a resource that's previously been scanned take up to 8 days.
-- A new Azure storage account that's added to an already scanned subscription will be scanned within 24 hours or less.
-- A new AWS S3 bucket that's added to an already scanned AWS account will be scanned within 48 hours or less.
+- Refreshed results for a resource that's previously been scanned take up to eight days.
+- A new Azure storage account that's added to an already scanned subscription is scanned within 24 hours or less.
+- A new AWS S3 bucket that's added to an already scanned AWS account is scanned within 48 hours or less.
 
 
 
 ## Configuring data sensitivity settings
 
 The main steps for configuring data sensitivity setting include:
-- [Import custom sensitive info types/labels from Microsoft Purview portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-purview-portal)
+- [Import custom sensitive info types/labels from Microsoft Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-microsoft-purview-compliance-portal)
 - [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
 - [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 
@@ -59,7 +59,7 @@ The main steps for configuring data sensitivity setting include:
 Defender for Cloud starts discovering and scanning data immediately after enabling a plan, or after turning on the feature in plans that are already running.
 
 - After you onboard the feature, results appear in the Defender for Cloud portal within 24 hours. 
-- After files are updated in the scanned resources, data is refreshed within 8 days.
+- After files are updated in the scanned resources, data is refreshed within eight days.
 
 ## Scanning AWS storage
 

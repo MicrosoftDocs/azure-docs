@@ -47,7 +47,7 @@ Malware Scanning is not supported for storage accounts with “Public network ac
 
 ### Permissions
 
-To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](support-matrix-defender-for-storage.md).
+To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](../../defender-for-cloud/support-matrix-defender-for-storage.md).
 
 ### Event Grid resource provider
 
@@ -84,7 +84,7 @@ We recommend that you enable Defender for Storage on the subscription level. Doi
 There are several ways to enable Defender for Storage on subscriptions:
 
 - [Azure portal](#azure-portal)
-- [Azure built-in policy](#azure-built-in-policy)
+- [Azure built-in policy](#enable-and-configure-at-scale-with-an-azure-built-in-policy)
 - IaC templates, including [Bicep](#bicep-template) and [ARM](#arm-template)
 - [REST API](#rest-api)
 
