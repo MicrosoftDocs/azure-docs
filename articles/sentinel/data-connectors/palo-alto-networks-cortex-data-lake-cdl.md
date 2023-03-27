@@ -3,7 +3,7 @@ title: "Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentin
 description: "Learn how to install the connector Palo Alto Networks Cortex Data Lake (CDL) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The [Palo Alto Networks CDL](https://www.paloaltonetworks.com/cortex/cortex-data
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (PaloAltoNetworksCDL)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

@@ -130,7 +130,7 @@ To stop protection, navigate to the Backup center and select the **Backup Instan
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
 - [Learn more](backup-azure-manage-vms.md#stop-protecting-a-vm) about stopping backup for Azure Virtual Machines.
-- [Learn more](manage-azure-managed-disks.md#stop-protection-preview) about stopping backup for a disk.
+- [Learn more](manage-azure-managed-disks.md#stop-protection) about stopping backup for a disk.
 - [Learn more](manage-azure-database-postgresql.md#stop-protection) about stopping backup for Azure Database for PostgreSQL Server.
 
 ## Resume backup
