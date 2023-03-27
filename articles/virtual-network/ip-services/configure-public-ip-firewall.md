@@ -65,7 +65,7 @@ In this section, you change the public IP address associated with the firewall. 
 
 1. In the Azure portal, search for and select *Firewalls*.
 
-2. One the **Firewalls** page, select **myFirewall**.
+2. On the **Firewalls** page, select **myFirewall**.
 
 3. On the **myFirewall** page, go to **Settings**, and then select **Public IP configuration**. 
 
@@ -85,9 +85,9 @@ In this section, you add a public IP configuration to Azure Firewall. For more i
 
 3. On the **myFirewall** page, go to **Settings**, and then select **Public IP configuration**.
 
-4. Select **Add a public IP configuration** 
+4. Select **Add a public IP configuration**.
 
-5. In Name, enter **myNewPublicIPconfig**.
+5. In **Name**, enter **myNewPublicIPconfig**.
 
 6. In **Public IP address**, select **myStandardPublicIP-3**.
 
