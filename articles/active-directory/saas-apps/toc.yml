@@ -472,6 +472,8 @@
         href: cisco-unified-communications-manager-tutorial.md
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
+      - name: CITI Program
+        href: citi-program-tutorial.md
       - name: Citrix ADC SAML Connector for Azure AD
         href: citrix-netscaler-tutorial.md
       - name: Citrix Cloud SAML SSO
