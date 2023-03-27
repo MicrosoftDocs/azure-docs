@@ -4,6 +4,7 @@ description: This article outlines the process to register an Azure Cosmos DB in
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/14/2022
 ms.custom: template-how-to, ignite-fall-2021, ignite-2022

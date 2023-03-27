@@ -9,8 +9,6 @@ author: GabstaMSFT
 ms.reviewer: erd
 ms.collection: windows
 ms.date: 03/06/2023 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Custom Script Extension for Windows
 

@@ -6,9 +6,10 @@ ms.topic: include
 ms.date: 12/7/2022
 ---
 
-<!--
 At this time, a test or preview build is not available for the next release.
---->
+
+<!---
+
 March 2023 preview release is now available.
 
 |Component|Value|
@@ -40,3 +41,5 @@ March 2023 preview release is now available.
 - Azure Arc-enabled PostgreSQL 
   - Require client connections to use SSL
   - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL 
+
+--->

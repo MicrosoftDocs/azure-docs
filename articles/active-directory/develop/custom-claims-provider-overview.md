@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2023
+ms.date: 03/13/2023
 ms.author: davidmu
 ms.reviewer: JasSuri
 ms.custom: aaddev 
@@ -23,6 +23,9 @@ This article provides an overview to the Azure Active Directory (Azure AD) custo
 When a user authenticates to an application, a custom claims provider can be used to add  claims into the token. A custom claims provider is made up of a custom extension that calls an external REST API, to fetch claims from external systems. A custom claims provider can be assigned to one or many applications in your directory.
 
 Key data about a user is often stored in systems external to Azure AD. For example, secondary email, billing tier, or sensitive information. Some applications may rely on these attributes for the application to function as designed. For example, the application may block access to certain features based on a claim in the token.
+
+The following short video provides an excellent overview of the Azure AD custom extensions and custom claims providers:
+> [!VIDEO https://www.youtube.com/embed/BYOMshjlwbc]
 
 Use a custom claims provider for the following scenarios:
 

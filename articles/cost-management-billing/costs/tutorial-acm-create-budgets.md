@@ -106,7 +106,7 @@ Budgets require at least one cost threshold (% of budget) and a corresponding em
 
 ## Configure forecasted budget alerts
 
-Forecasted alerts provide advanced notification that your spending trends are likely to exceed your budget. The alerts use [forecasted cost predictions](quick-acm-cost-analysis.md#understand-forecast). Alerts are generated when the forecasted cost projection exceeds the set threshold. You can configure a forecasted threshold (% of budget). When a forecasted budget threshold is met, notifications are normally sent within an hour of the evaluation.
+Forecasted alerts provide advanced notification that your spending trends are likely to exceed your budget. The alerts use forecasted cost predictions. Alerts are generated when the forecasted cost projection exceeds the set threshold. You can configure a forecasted threshold (% of budget). When a forecasted budget threshold is met, notifications are normally sent within an hour of the evaluation.
 
 To toggle between configuring an Actual vs Forecasted cost alert, use the `Type` field when configuring the alert as shown in the following image.
 

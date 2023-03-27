@@ -5,6 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 02/13/2022
 ms.reviewer: lualderm
 ---
@@ -43,7 +44,10 @@ Information on these newer features is included in this article.
 
 ## Sources
 
-Here are the source options.
+There are three sources for diagnostic information:
+* Metrics
+* Resource Logs 
+* Activity logs
 
 ### Metrics
 

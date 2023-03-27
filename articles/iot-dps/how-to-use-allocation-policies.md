@@ -1,13 +1,13 @@
 ---
-title: How to use allocation policies with Device Provisioning Service (DPS)
+title: How to use allocation policies with DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This article shows how to use the Device Provisioning Service (DPS) allocation policies to  automatically provision device  across one or more IoT hubs.
 author: kgremban
+
 ms.author: kgremban
 ms.date: 10/24/2022
 ms.topic: how-to
 ms.service: iot-dps
-services: iot-dps
-ms.custom: mvc
 ---
 
 # How to use allocation policies to provision devices across IoT hubs

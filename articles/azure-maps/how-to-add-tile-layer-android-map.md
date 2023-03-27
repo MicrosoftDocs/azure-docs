@@ -1,8 +1,8 @@
 ---
 title: Add a tile layer to Android maps | Microsoft Azure Maps
 description: Learn how to add a tile layer to a map. See an example that uses the Azure Maps Android SDK to add a weather radar overlay to a map.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -14,7 +14,7 @@ zone_pivot_groups: azure-maps-android
 
 This article shows you how to render a tile layer on a map using the Azure Maps Android SDK. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. More information on Azure Maps tiling system can be found in the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
 
-A Tile layer loads in tiles from a server. These images can be pre-rendered and stored like any other image on a server, using a naming convention that the tile layer understands. Or, these images can be rendered with a dynamic service that generates the images near real time. There are three different tile service naming conventions supported by Azure Maps TileLayer class:
+A Tile layer loads in tiles from a server. These images can be prerendered and stored like any other image on a server, using a naming convention that the tile layer understands. Or, these images can be rendered with a dynamic service that generates the images near real time. There are three different tile service naming conventions supported by Azure Maps TileLayer class:
 
 * X, Y, Zoom notation - Based on the zoom level, x is the column and y is the row position of the tile in the tile grid.
 * Quadkey notation - Combination x, y, zoom information into a single string value that is a unique identifier for a tile.
@@ -39,7 +39,7 @@ To complete the process in this article, you need to install [Azure Maps Android
 
 ## Add a tile layer to the map
 
-This sample shows how to create a tile layer that points to a set of tiles. This sample uses the "x, y, zoom" tiling system. The source of this tile layer is the [OpenSeaMap project](https://openseamap.org/index.php), which contains crowd sourced nautical charts. Often when viewing tile layers it is desirable to be able to clearly see the labels of cities on the map. This behavior can be achieved by inserting the tile layer below the map label layers.
+This sample shows how to create a tile layer that points to a set of tiles. This sample uses the "x, y, zoom" tiling system. The source of this tile layer is the [OpenSeaMap project](https://openseamap.org/index.php), which contains crowd sourced nautical charts. Often when viewing tile layers it's desirable to be able to clearly see the labels of cities on the map. This behavior can be achieved by inserting the tile layer below the map label layers.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -79,7 +79,7 @@ The following screenshot shows the above code displaying a tile layer of nautica
 
 ## Add an OGC web-mapping service (WMS)
 
-A web-mapping service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving images of map data. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` coordinate reference system (CRS). When using a WMS service, set the width and height parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, set the `BBOX` parameter of the service with the `{bbox-epsg-3857}` placeholder.
+A web-mapping service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving images of map data. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` coordinate reference system (CRS). When using a WMS service, set the width and height parameters to the value supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, set the `BBOX` parameter of the service with the `{bbox-epsg-3857}` placeholder.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -113,7 +113,7 @@ The following screenshot shows the above code overlaying a web-mapping service o
 
 ## Add an OGC web-mapping tile service (WMTS)
 
-A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving tiled based overlays for maps. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` or `GoogleMapsCompatible` coordinate reference system (CRS). When using a WMTS service, set the width and height parameters to the same value that is supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, replace the following placeholders accordingly:
+A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standard for serving tiled based overlays for maps. There are many open data sets available in this format that you can use with Azure Maps. This type of service can be used with a tile layer if the service supports the `EPSG:3857` or `GoogleMapsCompatible` coordinate reference system (CRS). When using a WMTS service, set the width and height parameters to the value supported by the service, be sure to set this same value in the `tileSize` option. In the formatted URL, replace the following placeholders accordingly:
 
 * `{TileMatrix}` => `{z}`
 * `{TileRow}` => `{y}`

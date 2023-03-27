@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 08/11/2022
+ms.date: 03/15/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -14,45 +14,19 @@ ms.custom: references_regions, ignite-fall-2021
 
 ## General
 
-### What regions are available in public preview?
+> [!IMPORTANT]
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)..
 
-* North Central US
+### Which Azure regions support Azure Virtual Network Manager?
 
-* South Central US
-
-* West US
-
-* West US 2
-
-* East US
-
-* East US 2
-
-* Canada Central
-
-* North Europe
-
-* West Europe
-
-* UK South
-
-* Switzerland North
-
-* Southeast Asia
-
-* Japan East
-
-* Japan West
-
-* Australia East
-
-* Central India
-
-* All regions have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
+For current region support, refer to [products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 > [!NOTE]
-> Even if an Azure Virtual Network Manager instance isn't available because all zones are down, configurations applied to resources will still persist.
->
+> All regions have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
 
 ### What are common use cases for using Azure Virtual Network Manager?
 
@@ -60,7 +34,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 * You can apply connectivity configurations to create a mesh or a hub-and-spoke network topology for a large number of virtual networks across your organization's subscriptions.
 
-* You can deny high-risk traffic: As an administrator of an enterprise, you can block specific protocols or sources that will override any NSG rules that would normally allow the traffic.
+* You can deny high-risk traffic: As an administrator of an enterprise, you can block specific protocols or sources that override any NSG rules that would normally allow the traffic.
 
 * Always allow traffic: You want to permit a specific security scanner to always have inbound connectivity to all your resources, even if there are NSG rules configured to deny the traffic.
 
@@ -80,11 +54,11 @@ There's no limit to how many network groups can be created.
 
 ### How do I remove the deployment of all applied configurations?
 
-You'll need to deploy a **None** configuration to all regions that have you have a configuration applied.
+You need to deploy a **None** configuration to all regions that have you have a configuration applied.
 
 ### Can I add virtual networks from another subscription not managed by myself?
 
-Yes, you'll need to have the appropriate permissions to access those virtual networks.
+Yes, you need to have the appropriate permissions to access those virtual networks.
 
 ### What is dynamic group membership?
 
@@ -102,11 +76,15 @@ For more information, see [remove components checklist](concept-remove-component
 No. Azure Virtual Network Manager doesn't store any customer data.
 
 ### Can an Azure Virtual Network Manager instance be moved?
-No. Resource move is not supported currently. If you need to move it, you can consider deleting the existing AVNM instance and using the ARM template to create another one in another location.
+No. Resource move isn't supported currently. If you need to move it, you can consider deleting the existing virtual network manager instance and using the ARM template to create another one in another location.
 
 ### How can I see what configurations are applied to help me troubleshoot?
 
 You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. You can see both connectivity and security admin configuration that are applied. For more information, see [view applied configuration](how-to-view-applied-configurations.md).
+
+### What happens when all zones are down in a region with a virtual network manager instance?
+
+Should a regional outage occur, all configurations applied to current resources managed persist, and you can't modify existing configurations, or create new configuration.
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
@@ -138,7 +116,7 @@ Azure SQL Managed Instance has some network requirements. If your security admin
 No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 
-### Can an Azure Virtual WAN be used as the hub in AVNM's hub and spoke topology configuration?
+### Can an Azure Virtual WAN be used as the hub in virtual network manager's hub and spoke topology configuration?
 
 No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topology at this time.
 
@@ -147,11 +125,14 @@ No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topol
 #### Have you deployed your configuration to the VNet's region?
 
 Configurations in Azure Virtual Network Manager don't take effect until they're deployed. Make a deployment to the virtual networks region with the appropriate configurations.
+
 #### Is your virtual network in scope?
-A network manager is only delegated enough access to apply configurations to virtual networks within your scope. Even if a resource is in your network group but out of scope, it will not receive any configurations.
+
+A network manager is only delegated enough access to apply configurations to virtual networks within your scope. Even if a resource is in your network group but out of scope, it doesn't receive any configurations.
 
 #### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
-Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, the application of Admin rules will be skipped on VNets containing any of these Intent Policies. Since allow rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
+
+Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
 ## Limits
 
@@ -170,7 +151,7 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
     * A virtual network can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
     * A virtual network can be part of two network groups with direct connectivity enabled in the same or different hub-and-spoke configuration.
 
-* You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address will be dropped.
+* You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address is dropped.
 
 * The maximum number of IP prefixes in all admin rules combined is 1000. 
 
@@ -178,8 +159,8 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
 
 * Azure Virtual Network Manager doesn't have cross-tenant support in the public preview.
 
-* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the subscription and resource group scopes. Management groups cannot be applied over the 15k subscription limit.
-   * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15K subscriptions.
+* Customers with more than 15,000 Azure subscriptions can apply Azure Virtual Network Policy only at the subscription and resource group scopes. Management groups can't be applied over the 15 k subscription limit.
+   * If this is your scenario, you would need to create assignments at lower level management group scope that have less than 15,000 subscriptions.
 
 * Virtual networks can't be added to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
 

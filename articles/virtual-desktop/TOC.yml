@@ -159,6 +159,8 @@
         href: compare-remote-desktop-clients.md
       - name: Supported RDP properties
         href: rdp-properties.md
+      - name: Uniform Resource Identifier schemes
+        href: uri-scheme.md
     - name: Multimedia redirection
       href: multimedia-redirection-intro.md
     - name: Printing using Universal Print
