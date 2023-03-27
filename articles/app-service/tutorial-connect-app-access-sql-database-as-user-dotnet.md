@@ -198,8 +198,6 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 
 1. Publish your changes in Visual Studio. In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
-    ![Publish from Solution Explorer]()
-
     :::image type="content" source="./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png" alt-text="Screenshot showing how to publish from the Solution Explorer in Visual Studio." lightbox="./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png":::
 
 1. In the publish page, select **Publish**. 
