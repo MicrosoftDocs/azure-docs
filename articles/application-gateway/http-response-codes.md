@@ -7,7 +7,6 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/19/2022
 ms.author: greglin
-ms.custom: devx-track-azurepowershell
 ---
 
 # HTTP response codes in Application Gateway

@@ -11,7 +11,7 @@ ms.date: 02/09/2023
 ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 

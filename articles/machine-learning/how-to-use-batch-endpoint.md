@@ -88,7 +88,7 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 # [Studio](#tab/azure-studio)
 
-Open the [Azure ML studio portal](https://ml.azure.com) and sign in using your credentials.
+Open the [Azure Machine Learning studio portal](https://ml.azure.com) and sign in using your credentials.
 
 ---
 
@@ -295,7 +295,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Studio](#tab/azure-studio)
     
-    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
@@ -383,7 +383,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Studio](#tab/azure-studio)
    
-    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__ > __Create__.
@@ -404,7 +404,7 @@ A deployment is a set of resources required for hosting the model that does the 
     1. On the section __Compute__, select the compute cluster you created in a previous step.
 
         > [!WARNING]
-        > Azure Kubernetes cluster are supported in batch deployments, but only when created using the Azure ML CLI or Python SDK.
+        > Azure Kubernetes cluster are supported in batch deployments, but only when created using the Azure Machine Learning CLI or Python SDK.
 
     1. On __Instance count__, enter the number of compute instances you want for the deployment. In this case, we'll use 2.
     1. Select __Next__.
@@ -415,7 +415,7 @@ A deployment is a set of resources required for hosting the model that does the 
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
+    ::: az ml batch-deployment create --file mnist-torch-deployment.yml --endpoint-name $ENDPOINT_NAME --set-default :::
 
     > [!TIP]
     > The `--set-default` parameter sets the newly created deployment as the default deployment of the endpoint. It's a convenient way to create a new default deployment of the endpoint, especially for the first deployment creation. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later. For more information, see the [Deploy a new model](#adding-deployments-to-an-endpoint) section.
@@ -519,7 +519,7 @@ job = ml_client.batch_endpoints.invoke(
 Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
 
 > [!TIP]
-> Local data folders/files can be used when executing batch endpoints from the Azure ML CLI or Azure ML SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
+> Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
 
 > [!IMPORTANT]
 > __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
@@ -655,7 +655,7 @@ You can use CLI `job show` to view the job. Run the following code to check job 
 
 # [Python](#tab/python)
 
-The following code checks the job status and outputs a link to the Azure ML studio for further details.
+The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
 
 ```python
 ml_client.jobs.get(job.name)
@@ -706,7 +706,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
 
     # [Azure CLI](#tab/azure-cli)
    
-    *No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file as an anonymous environment.*
+    *No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file as an anonymous environment.*
    
     # [Python](#tab/python)
    

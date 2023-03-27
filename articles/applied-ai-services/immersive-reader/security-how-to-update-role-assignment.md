@@ -8,6 +8,7 @@ manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/06/2022
 ms.author: rwaller

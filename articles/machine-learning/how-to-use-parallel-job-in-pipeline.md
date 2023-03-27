@@ -9,7 +9,7 @@ ms.topic: how-to
 author: alainli
 ms.author: alainli
 ms.reviewer: lagayhar
-ms.date: 09/27/2022
+ms.date: 03/13/2023
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
@@ -17,14 +17,14 @@ ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you're running an object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure ML parallel job you can simplify and automate your process to make it more efficient.
+Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you're running an object detection model on large set of images. With Azure Machine Learning Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure Machine Learning parallel job you can simplify and automate your process to make it more efficient.
 
 ## Prerequisite
 
-Azure ML parallel job can only be used as one of steps in a pipeline job. Thus, it's important to be familiar with using pipelines. To learn more about Azure ML pipelines, see the following articles.
+Azure Machine Learning parallel job can only be used as one of steps in a pipeline job. Thus, it's important to be familiar with using pipelines. To learn more about Azure Machine Learning pipelines, see the following articles.
 
 - Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
-- Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
+- Understand how to use Azure Machine Learning pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Why are parallel jobs needed?
 
@@ -33,12 +33,12 @@ In the real world, ML engineers always have scale requirements on their training
 - Delay pressure caused by long execution time.
 - Manual intervention to handle unexpected issues to keep the task proceeding.
 
-The core value of Azure ML parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs, we can:
+The core value of Azure Machine Learning parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs, we can:
 
  - Significantly reduce end-to-end execution time.
- - Use Azure ML parallel job's automatic error handling settings.
+ - Use Azure Machine Learning parallel job's automatic error handling settings.
 
-You should consider using Azure ML Parallel job if:
+You should consider using Azure Machine Learning Parallel job if:
 
  - You plan to train many models on top of your partitioned data.
  - You want to accelerate your large scale batch inferencing task.
@@ -47,23 +47,24 @@ You should consider using Azure ML Parallel job if:
 
 Unlike other types of jobs, a parallel job requires preparation. Follow the next sections to prepare for creating your parallel job.
 
-### Declare the inputs to be distributed and partition setting
+### Declare the inputs to be distributed and data division setting
 
-Parallel job requires only one **major input data** to be split and processed with parallel. The major input data can be either tabular data or a set of files. Different input types can have a different partition method.
+Parallel job requires only one **major input data** to be split and processed with parallel. The major input data can be either tabular data or a set of files. Different input types can have a different data division method.
 
-The following table illustrates the relation between input data and partition setting:
+The following table illustrates the relation between input data and data division method:
 
-| Data format | AML input type | AML input mode | Partition method |
+| Data format | Azure Machine Learning input type | Azure Machine Learning input mode | Data division method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
-| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) |
-| Tabular data | `mltable` | direct | By size (estimated physical size) |
+| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files)<br>By partitions |
+| Tabular data | `mltable` | direct | By size (estimated physical size)<br>By partitions |
 
-You can declare your major input data with `input_data` attribute in parallel job YAML or Python SDK. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then to define the partition method for your major input.
+You can declare your major input data with `input_data` attribute in parallel job YAML or Python SDK. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then you need to define the data division method for your major input by filling different attribute:
 
-For example, you could set numbers to `mini_batch_size` to partition your data **by size**.
+| Data division method | Attribute name | Attribute type | Job example |
+|: ---------- |: ------------- |: ------------- |: --------------- |
+| By size | mini_batch_size | string | [Iris batch prediction](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/parallel/2a_iris_batch_prediction) |
+| By partitions | partition_keys | list of string | [Orange juice sales prediction](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/parallel/1a_oj_sales_prediction) |
 
-- When using file list input, this value defines the number of files for each mini-batch.
-- When using tabular input, this value defines the estimated physical size for each mini-batch.
 
 # [Azure CLI](#tab/cliv2)
 
@@ -81,7 +82,7 @@ Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
 
 ---
 
-Once you have the partition setting defined, you can configure parallel setting by using two attributes below:
+Once you have the data division setting defined, you can configure how many resources for your parallelization by filling two attributes below:
 
 | Attribute name | Type | Description | Default value |
 |:-|--|:-|--|
@@ -113,7 +114,7 @@ Sample code to set two attributes:
 
 ### Implement predefined functions in entry script
 
-Entry script is a single Python file where user needs to implement three predefined functions with custom code. Azure ML parallel job follows the diagram below to execute them in each processor.
+Entry script is a single Python file where user needs to implement three predefined functions with custom code. Azure Machine Learning parallel job follows the diagram below to execute them in each processor.
 
 :::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png" alt-text="Diagram showing how entry script works in parallel job." lightbox ="./media/how-to-use-parallel-job-in-pipeline/how-entry-script-works-in-parallel-job.png":::
 
@@ -156,9 +157,12 @@ Sample code to set two attributes:
 > [!IMPORTANT]
 > If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See the [iris_score](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py) example for entry script with argument parser.
 
+> [!IMPORTANT]
+> If you use `mltable` as your major input data, you need to install 'mltable' library into your environment. See the line 9 of this [conda file](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/parallel/1a_oj_sales_prediction/src/parallel_train/conda.yml) example.
+
 ### Consider automation settings
 
-Azure ML parallel job exposes numerous settings to automatically control the job without manual intervention. See the following table for the details.
+Azure Machine Learning parallel job exposes numerous settings to automatically control the job without manual intervention. See the following table for the details.
 
 | Key | Type | Description | Allowed values | Default value | Set in attribute | Set in program arguments |
 |--|--|--|--|--|--|--|
@@ -247,19 +251,16 @@ Once you submit your pipeline job, the SDK or CLI widget will give you a web URL
 
 To check the settings of your parallel job, navigate to **Parameters** tab, expand **Run settings**, and check **Parallel** section:
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job settings." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot of Azure Machine Learning studio on the jobs tab showing the parallel job settings." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
 
 To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, expand **logs** folder from output directories on the left, and check **job_result.txt** to understand why the parallel job is failed. For more detail about logging structure of parallel job, see the **readme.txt** under the same folder.
 
-:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job results." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
+:::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot of Azure Machine Learning studio on the jobs tab showing the parallel job results." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
 
 ## Parallel job in pipeline examples
 
-- Azure CLI + YAML:
-    - [Iris prediction using parallel](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines/iris-batch-prediction-using-parallel) (tabular input)
-    - [mnist identification using parallel](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines/mnist-batch-identification-using-parallel) (file list input)
-- SDK:
-    - [Pipeline with parallel run function](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb)
+- [Azure CLI + YAML example repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/parallel)
+- [SDK example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/parallel)
 
 ## Next steps
 

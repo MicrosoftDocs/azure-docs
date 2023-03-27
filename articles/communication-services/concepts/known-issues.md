@@ -101,6 +101,9 @@ This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-be
 
 * iOS Safari version: 15.1
 
+### MacOS Ventura Safari(v16.3 and below) screen sharing.
+Screen sharing does not work in MacOS Ventura Safari(v16.3 and below). Known issue from Safari and will be fixed in v16.4+ 
+
 ### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
@@ -188,10 +191,6 @@ The environment in which this problem occurs is the following:
 - Operating system: iOS
 
 The cause of this problem might be that acquiring your own stream from the same device will have a side effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
-
-### Support for simulcast
-
-Simulcast is a technique by which a client encodes the same video stream twice, in different resolutions and bitrates. The client then lets Communication Services decide which stream a client should receive. The Communication Services calling library SDK for Windows, Android, or iOS supports sending simulcast streams. The Communication Services Web SDK doesn't currently support sending simulcast streams out.
 
 ## Communication Services Call Automation APIs
 

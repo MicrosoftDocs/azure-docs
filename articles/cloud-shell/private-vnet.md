@@ -4,7 +4,6 @@ description: Deploy Cloud Shell into an Azure virtual network
 manager: mkluck
 ms.author: sewhee
 ms.contributor: jahelmic
-ms.custom: devx-track-azurepowershell
 ms.date: 11/14/2022
 ms.service: cloud-shell
 ms.tgt_pltfrm: vm-linux

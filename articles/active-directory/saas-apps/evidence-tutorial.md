@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Evidence.com | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Evidence.com'
 description: Learn how to configure single sign-on between Azure Active Directory and Evidence.com.
 services: active-directory
 author: jeevansd

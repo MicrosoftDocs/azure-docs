@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 03/17/2023
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
@@ -96,7 +96,7 @@ The following information is passed to the server in the query:
 
     Then you need to restart the `rpcbind` service on your host or reboot the host. 
 
-6.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
+6. Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
 
     ![Screenshot that shows Create a Volume page with LDAP option.](../media/azure-netapp-files/create-nfs-ldap.png)  
 
@@ -114,6 +114,8 @@ The following information is passed to the server in the query:
 
     * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. 
     * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. 
+    * If a user is a member of more than 256 groups, only 256 groups will be listed. 
+    * Refer to [errors for LDAP volumes](troubleshoot-volumes.md#errors-for-ldap-volumes) if you run into errors.
 
     ![Screenshot that shows options related to LDAP Search Scope](../media/azure-netapp-files/ldap-search-scope.png)  
 

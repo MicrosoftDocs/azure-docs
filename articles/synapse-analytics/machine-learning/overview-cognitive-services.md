@@ -471,7 +471,7 @@ display(
 
 ## Arbitrary web APIs
 
-With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
+With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries/regions around the world.
 
 
 ```python
@@ -484,7 +484,7 @@ def world_bank_request(country):
     )
 
 
-# Create a dataframe with specifies which countries we want data on
+# Create a dataframe with specifies which countries/regions we want data on
 df = spark.createDataFrame([("br",), ("usa",)], ["country"]).withColumn(
     "request", http_udf(world_bank_request)(col("country"))
 )

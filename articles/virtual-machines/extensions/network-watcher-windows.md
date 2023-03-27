@@ -8,7 +8,7 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
 ms.date: 02/15/2023
-ms.custom: devx-track-azurepowershell, template-concept, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Network Watcher Agent virtual machine extension for Windows

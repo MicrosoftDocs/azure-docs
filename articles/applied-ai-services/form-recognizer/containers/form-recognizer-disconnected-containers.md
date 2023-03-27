@@ -135,9 +135,6 @@ After you've configured the container, use the next section to run the container
 
 ## Form Recognizer container models and configuration
 
-> [!IMPORTANT]
-> If you're using the Translator, Neural text-to-speech, or Speech-to-text containers, read the **Additional parameters** section for information on commands or additional parameters you will need to use.
-
 After you've [configured the container](#configure-the-container-to-be-run-in-a-disconnected-environment), the values for the downloaded translation models and container configuration will be generated and displayed in the container output:
 
 ```bash

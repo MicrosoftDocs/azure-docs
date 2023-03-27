@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with askSpoke | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with askSpoke'
 description: Learn how to configure single sign-on between Azure Active Directory and askSpoke.
 services: active-directory
 author: jeevansd

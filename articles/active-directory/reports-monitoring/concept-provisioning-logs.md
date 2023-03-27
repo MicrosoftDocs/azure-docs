@@ -1,5 +1,5 @@
 ---
-title: Provisioning logs in Azure Active Directory | Microsoft Docs
+title: Provisioning logs in Azure Active Directory
 description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3

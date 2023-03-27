@@ -38,7 +38,15 @@ To specify session-scoped Python packages:
 
 You can use the popular *%pip* and *%conda* commands to install additional third party libraries or your custom libraries during your Apache Spark notebook session. In this section, we use *%pip* commands to demonstrate several common scenarios.
 
-### Install a third party package
+> [!NOTE]
+>
+> - We recommend to put the *%pip* and *%conda* commands at the first cell of your notebook if you want to install new libraries. The Python interpreter will be restarted after the session-level library being managed to bring the changes effective.
+> - These commands of managing Python libraries will be disabled when running pipeline jobs. If you want to install a package within a pipeline, you must leverage the library management capabilities at the pool level.
+> - Session-scoped Python libraries are automatically installed across both the driver and worker nodes.
+> - The following *%conda* commands are not supported: *create*, *clean*, *compare*, *activate*, *deactivate*, *run*, *package*.
+> - You can refer to [%pip commands](https://pip.pypa.io/en/stable/cli/) and [%conda commands](https://docs.conda.io/projects/conda/en/latest/commands.html) for the full list of commands.
+
+#### Install a third party package
 
 You can easily install a Python library from [PyPI](https://pypi.org/).
 
@@ -64,7 +72,7 @@ alt.Chart(cars).mark_point().encode(
 ).interactive()
 ```
 
-### Install a wheel package from storage account
+#### Install a wheel package from storage account
 
 In order to install library from storage, you need to mount to your storage account by running following commands.
 
@@ -84,7 +92,7 @@ And then, you can use the *%pip install* command to install the required wheel p
 %pip install /<<path to wheel file>>/<<wheel package name>>.whl
 ```
 
-### Install another version of built-in library
+#### Install another version of built-in library
 
 You can use the following command to see what's the built-in version of certain package. We use *pandas* as an example
 
@@ -108,7 +116,7 @@ You can use the following command to switch *pandas* to another version, let's s
 %pip install pandas==1.2.4
 ```
 
-### Uninstall a session-scoped library
+#### Uninstall a session-scoped library
 
 If you want to uninstall a package, which installed on this notebook session, you may refer to following commands. However, you cannot uninstall the built-in packages.
 
@@ -116,16 +124,11 @@ If you want to uninstall a package, which installed on this notebook session, yo
 %pip uninstall altair vega_datasets --yes
 ```
 
-### Using *%pip* command to install libraries from a *requirement.txt* file
+#### Using *%pip* command to install libraries from a *requirement.txt* file
 
 ```python
 %pip install -r  /<<path to requirement file>>/requirements.txt
 ```
-
-> [!NOTE]
->
-> - We recommend you to put the *%pip* and *%conda* commands at the beginning of your notebook if you want to install new libraries. The python interpreter will be restarted after the session-level library being managed to bring the changes effective.
-> - You can refer to this [%pip commands](https://pip.pypa.io/en/stable/cli/) and [%conda commands](https://docs.conda.io/projects/conda/en/latest/commands.html) for the full list of available commands.
 
 ## Session-scoped Java or Scala packages
 

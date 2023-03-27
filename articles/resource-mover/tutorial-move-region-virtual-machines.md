@@ -5,12 +5,12 @@ manager: evansma
 author: ankitaduttaMSFT 
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/21/2022
+ms.date: 02/10/2023
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
-
 ---
+
 # Move Azure VMs across regions
 
 This tutorial shows you how to move Azure VMs and related network/storage resources to a different Azure region using [Azure Resource Mover](overview.md).
@@ -37,11 +37,10 @@ Before you begin, verify the following:
 | Requirement | Description |
 |------------ | ------------|
 | **Resource Mover support** | [Review](common-questions.md) the supported regions and other common questions. |
-| **Subscription permissions** | Check that you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.|
+| **Subscription permissions** | Check that you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as Managed Service Identify (MSI) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.|
 | **VM support** | - Check that the VMs you want to move are supported.<br/> - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<br/> - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<br/> - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
-| **Destination subscription** | The subscription in the destination region needs enough quota to create the resources you're moving in the target region. If it doesn't have a quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
-**Destination region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.|
- 
+| **Destination subscription** | The subscription in the destination region needs enough quota to create the resources you're moving in the target region. If it doesn't have a quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).|
+|**Destination region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.|
 
 ## Prepare VMs
 
@@ -101,7 +100,7 @@ To select the resources you want to move, follow these steps:
 
 To resolve dependencies before the move, follow these steps:
 
-1. If any resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button. Doing so starts the validation process.
+1. Dependencies are automatically validated in the background when you add the resources. If  you still see the **Validate dependencies** option, select it to trigger the validation manually.
 2. If dependencies are found, select **Add dependencies** to add them. 
 3. On **Add dependencies**, retain the default **Show all dependencies** option. 
 
@@ -112,7 +111,7 @@ To resolve dependencies before the move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-dependencies.png" alt-text="Screenshot displays add dependencies page." lightbox="./media/tutorial-move-region-virtual-machines/add-dependencies.png":::
 
-4. Validate the dependencies again. 
+4. Dependencies are automatically validated in the background once you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation. 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png" alt-text="Screenshot displays page to add additional dependencies." lightbox="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png":::
 
 
@@ -134,7 +133,6 @@ During the Prepare process, Resource Mover generates Azure Resource Manager (ARM
 > [!NOTE]
 > After preparing the resource group, it's in the *Initiate move pending* state. 
 
- 
 ### Move the source resource group
 
 **To start the move, follows these steps:**
@@ -278,3 +276,4 @@ To delete the additional resources created for the move, follow these steps:
 ## Next steps
 
 [Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region.
+

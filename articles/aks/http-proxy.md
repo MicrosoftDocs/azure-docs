@@ -1,7 +1,6 @@
 ---
 title: Configuring Azure Kubernetes Service (AKS) nodes with an HTTP proxy
 description: Use the HTTP proxy configuration feature for Azure Kubernetes Service (AKS) nodes.
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 author: asudbring
 ms.topic: how-to

@@ -76,7 +76,7 @@ By default, an HTTP(S) response with status code between 200 and 399 is consider
 The following are matching criteria: 
 
 - **HTTP response status code match** - Probe matching criterion for accepting user specified http response code or response code ranges. Individual comma-separated response status codes or a range of status code is supported.
-- **HTTP response body match** - Probe matching criterion that looks at HTTP response body and matches with a user specified string. The match only looks for presence of user specified string in response body and isn't a full regular expression match.
+- **HTTP response body match** - Probe matching criterion that looks at HTTP response body and matches with a user specified string. The match only looks for presence of user specified string in response body and isn't a full regular expression match. The specified match must be 4090 characters or less.
 
 Match criteria can be specified using the `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 

@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create an Azure DB for MySQL - Bicep'
+title: 'Quickstart: Create an Azure Database for MySQL - Bicep'
 description: In this Quickstart, learn how to create an Azure Database for MySQL server with virtual network integration using Bicep.
 author: rothja
 ms.author: jroth
 ms.reviewer: maghan
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ms.date: 05/02/2022
 ---
 

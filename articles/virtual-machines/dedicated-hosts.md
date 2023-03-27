@@ -41,6 +41,7 @@ Reserving the entire host provides several benefits beyond those of a standard s
 
 ![View of the new resources for dedicated hosts.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
+
 A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it.
 
 A **host** is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VM sizes can be created. Each host can host multiple VMs, of different sizes, as long as they are from the same size series.
@@ -81,14 +82,14 @@ When creating a new host group, make sure the setting for automatic VM placement
 
 Host groups that are enabled for automatic placement don't require all the VMs to be automatically placed. You'll still be able to explicitly pick a host, even when automatic placement is selected for the host group.
 
-### Limitations
+### Automatic placement limitations
 
 Known issues and limitations when using automatic VM placement:
 
 - You won't be able to redeploy your VM.
 - You won't be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
 
-## Host Service Healing
+## Host service healing
 
 In case of any failure relating to the underlying node, network connectivity or software issues can push the host and VMs on the host to a non-healthy state causing disruption and downtime to your workloads. The default action is for Azure to automatically service heal the impacted host to a healthy node and move all VMs to the healthy host. Once the VMs are service healed and restarted the impacted host will be deallocated. During the service healing process the host and VMs would become unavailable incurring a slight downtime. 
 
@@ -159,6 +160,7 @@ Provisioning a dedicated host will consume both dedicated host vCPU and the VM f
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
+
 For more information, see [Virtual machine vCPU quotas](./windows/quotas.md).
 
 Free trial and MSDN subscriptions don't have quota for Azure Dedicated Hosts.
@@ -184,7 +186,7 @@ The *type* is the hardware generation. Different hardware types for the same VM 
 The sizes and hardware types vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 > [!NOTE]
-> Once a Dedicated host is provisoned, you can't change the size or type. If you need a different size of type, you will need to create a new host.
+> Once a Dedicated host is provisioned, you can't change the size or type. If you need a different size of type, you will need to create a new host.
 
 ## Host life cycle
 
@@ -194,10 +196,25 @@ Azure monitors and manages the health status of your hosts. The following states
 | Health State   | Description       |
 |----------|----------------|
 | Host Available     | There are no known issues with your host.   |
-| Host Under Investigation  | We’re having some issues with the host that we’re looking into. This transitional state is required for Azure to try to identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
+| Host Under Investigation| We’re having some issues with the host that we’re looking into. This transitional state is required for Azure to try to identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
 | Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
-| Host deallocated  | All virtual machines have been removed from the host. You're no longer being charged for this host since the hardware was taken out of rotation.   |
+| Host Deallocated| All virtual machines have been removed from the host. You're no longer being charged for this host since the hardware was taken out of rotation.   |
 
+## Frequently Asked Questions
+
+**Q**. What happens to my dedicated host in case of a live migration?
+
+**A**. As of today, Azure dedicated hosts do not live migration and in case of a hardware failure, we service heal the host to a different node.
+
+
+**Q**. Can I run VMs from multiple VM families on the same dedicated host?
+
+**A**. No, you would be able to run only VMs as the same family as the underlying dedicated host. For e.g., a Dsv3-Type4 host will only support VMs of Dsv3 VM family.
+
+
+**Q**. Would I be able to run different VM sizes on a single dedicated host?
+
+**A**. Yes, you can run multiple sizes of VMs on the same dedicated host as long as the all the VMs belong to the same family as the underlying dedicated host and there is enough capacity on the host to support the VMs sizes. For e.g., on a Dsv3-Type4 host you could run D2sv3, D8sv3, D16sv3 VMs at the same time.
 
 ## Next steps
 
@@ -206,3 +223,6 @@ Azure monitors and manages the health status of your hosts. The following states
 - There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
+
+
+
