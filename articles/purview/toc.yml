@@ -267,8 +267,6 @@ items:
             href: how-to-lineage-purview-data-sharing.md
           - name: Power BI lineage
             href: how-to-lineage-powerbi.md
-          - name: Spark lineage
-            href: how-to-lineage-spark-atlas-connector.md
           - name: SQL Server Integration Services lineage
             href: how-to-lineage-sql-server-integration-services.md
   - name: Data catalog

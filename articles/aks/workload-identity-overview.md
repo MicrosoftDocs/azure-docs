@@ -2,7 +2,7 @@
 title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 03/14/2023
+ms.date: 03/27/2023
 
 ---
 
@@ -72,12 +72,6 @@ Azure AD workload identity supports the following mappings related to a service 
 
 If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a [Custom Resource Definition][custom-resource-definition] (CRD). The following describes a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
 
-### Service account labels
-
-|Label |Description |Recommended value |Required |
-|------|------------|------------------|---------|
-|`azure.workload.identity/use` |Represents the service account<br> is to be used for workload identity. |true |Yes |
-
 ### Service account annotations
 
 |Annotation |Description |Default |
@@ -93,13 +87,12 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 |Label |Description |Recommended value |Required |
 |------|------------|------------------|---------|
-|`azure.workload.identity/use` | Represents the pod is to be used for workload identity. |true |Yes |
+|`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
 
 |Annotation |Description |Default |
 |-----------|------------|--------|
-|`azure.workload.identity/use` |Represents the service account<br> is to be used for workload identity. |  |
 |`azure.workload.identity/service-account-token-expiration` |Represents the `expirationSeconds` field for the projected service account token. It's an optional field that you configure to prevent any downtime caused by errors during service account token refresh. Kubernetes service account token expiry isn't correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they're issued. <sup>1</sup> |3600<br> Supported range is 3600-86400. |
 |`azure.workload.identity/skip-containers` |Represents a semi-colon-separated list of containers to skip adding projected service account token volume. For example `container1;container2`. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
 |`azure.workload.identity/inject-proxy-sidecar` |Injects a proxy init container and proxy sidecar into the pod. The proxy sidecar is used to intercept token requests to IMDS and acquire an Azure AD token on behalf of the user with federated identity credential. |true |
