@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 03/17/2023
+ms.date: 03/27/2023
 ms.custom: devx-track-js, ignite-2022
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage API for NoSQL account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
@@ -53,7 +53,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 ## <a name="create-account"></a>Create an Azure Cosmos DB account
 
-Start by creating an Azure Cosmos DB account. If you already have an account or if you use the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#create-new-app).
+Start by creating an Azure Cosmos DB account. If you already have an account or if you use the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new Node.js application](#create-new-app).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
@@ -86,7 +86,7 @@ Now, learn how create a basic Hello World Node.js project by using the Express f
    npm start
    ```
 
-1. You can view your new application by navigating your browser to `http://localhost:3000`.
+1. To view your new application in a browser, go to `http://localhost:3000`.
 
    :::image type="content" source="./media/tutorial-nodejs-web-app/cosmos-db-node-js-express.png" alt-text="Screenshot of the Hello World application in a browser window.":::
 
@@ -104,7 +104,7 @@ The *package.json* file is one of the files created in the root of the project. 
 
 ## <a name="connect-to-database"></a>Connect the Node.js application to Azure Cosmos DB
 
-Now that you've completed the initial setup and configuration, learn how to write the code that the todo application requires to communicate with Azure Cosmos DB.
+After you've completed the initial setup and configuration, learn how to write the code that the todo application requires to communicate with Azure Cosmos DB.
 
 ### Create the model
 
@@ -361,7 +361,7 @@ Now that you've completed the initial setup and configuration, learn how to writ
     module.exports = app
    ```
 
-1. Finally, save and close the **app.js** file.
+1. Finally, save and close the *app.js* file.
 
 ## <a name="build-ui"></a>Build a user interface
 
@@ -389,7 +389,7 @@ Now build the user interface so that a user can interact with the application. T
 
     This code tells the **Jade** engine to render some HTML for the application and creates a **block** called **content** where you can supply the layout for the content pages. Save and close the *layout.jade* file.
 
-1. Now open the *index.jade* file, the view that is used by the application, and replace the content of the file with the following code:
+1. Open the *index.jade* file, the view used by the application. Replace the content of the file with the following code:
 
    ```html
    extends layout
@@ -433,19 +433,19 @@ Now build the user interface so that a user can interact with the application. T
           button.btn(type="submit") Add item
    ```
 
-This code extends layout and provides content for the **content** placeholder you saw in the *layout.jade* file earlier. In that layout, you created two HTML forms.
+This code extends layout and provides content for the **content** placeholder you saw in the *layout.jade* file. In that layout, you created two HTML forms.
 
-The first form contains a table for your data and a button that allows you to update items by posting to */completeTask* method of the controller.
+The first form contains a table for your data and a button that allows you to update items by posting to the */completeTask* method of the controller.
 
 The second form contains two input fields and a button that allows you to create a new item by posting to the */addtask* method of the controller, which is all you need for the application to work.
 
 ## <a name="run-app-locally"></a>Run your application locally
 
-Now that you've built the application, you can run it locally by using the following steps:
+After you've built the application, you can run it locally by using the following steps:
 
-1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the `http://localhost:3000` browser page. The page should now look as shown in the following screenshot:
+1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the `http://localhost:3000` page. The page should now look like the following screenshot:
 
-    :::image type="content" source="./media/tutorial-nodejs-web-app/cosmos-db-node-js-localhost.png" alt-text="Screenshot of the My Todo List application in a browser window.":::
+    :::image type="content" source="./media/tutorial-nodejs-web-app/cosmos-db-node-js-localhost.png" alt-text="Screenshot of the My Todo List application in a browser.":::
 
     > [!TIP]
     > If you receive an error about the indent in the *layout.jade* file or the *index.jade* file, ensure that the first two lines in both files are left-justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, and then refresh your browser window.
@@ -456,7 +456,7 @@ Now that you've built the application, you can run it locally by using the follo
 
     :::image type="content" source="./media/tutorial-nodejs-web-app/cosmos-db-node-js-added-task.png" alt-text="Screenshot of the application with a new item in the ToDo list.":::
 
-1. To complete a task, select the check box in the Complete column, and then select **Update tasks** to update the document you already created and removes it from the view.
+1. To complete a task, select the check box in the Complete column, and then select **Update tasks** to update the document you already created and remove it from the view.
 
 1. To stop the application, press CTRL+C in the terminal window and then select **y** to terminate the batch job.
 
