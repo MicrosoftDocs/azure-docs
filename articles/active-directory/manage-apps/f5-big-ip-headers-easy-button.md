@@ -259,11 +259,10 @@ To select a policy to be applied to the application being published:
 
 A virtual server is a BIG-IP data plane object, represented by a virtual IP address, that listens for clients requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Traffic is directed according to policy.
 
-1. For **Destination Address**, enter an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS, which enables clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
-
-2. Enter **Service Port** as *443* for HTTPS
-
-3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
+1. For **Destination Address**, enter an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS that enables clients to resolve the external URL, of the BIG-IP published application, to this IP. You can use computer's localhost DNS for testing.
+2. For **Service Port**, enter **443**, and select **HTTPS**.
+3. Check the box for **Enable Redirect Port**.
+4. Enter a value for **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
 
 4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
 
@@ -281,30 +280,34 @@ The **Application Pool tab** details the services behind a BIG-IP that are repre
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
-Our backend application sits on HTTP port 80 but obviously switch to 443 if yours is HTTPS.
+   > [!NOTE]
+   > The Microsoft back-end application is on HTTP Port 80. If you select HTTPS, use **443**.
 
 #### Single Sign-On & HTTP Headers
 
-Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
+With SSO, users access BIG-IP published services without entering credentials. The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO.
 
-* **Header Operation:** Insert
-* **Header Name:** upn
-* **Header Value:** %{session.saml.last.identity}
+1. On Single Sign-On & HTTP Headers, in SSO Headers, for **Header Operation**, select **insert**
+2. For **Header Name**, use **upn**.
+3. For **Header Value**, use **%{session.saml.last.identity}**.
+4. For **Header Operation**, select **insert**.
+5. For **Header Name**, use **employeeid**.
+6. For **Header Value**,use **%{session.saml.last.attr.name.employeeid}**.
 
-* **Header Operation:** Insert
-* **Header Name:** employeeid
-* **Header Value:** %{session.saml.last.attr.name.employeeid}
+   ![Screenshot of entries and selctions for SSO Headers.](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
 
-   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
-
->[!NOTE]
->APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure
+   >[!NOTE]
+   >APM session variables in curly brackets are case-sensitive. Inconsistencies cause aattribute mapping failures.
 
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to [F5's docs](https://support.f5.com/csp/article/K18390492) for details on these settings.
+Use BIG-IP session management settings to define conditions for user sessions termination or continuation. 
 
-What isn’t covered here however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
+To learn more, go to support.f5.com for [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492)
+
+Single log-out (SLO) ensures IdP, BIG-IP, and user agent sessions terminate when users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign out URL, with the APM SLO endpoint. IdP-initiated sign out from My Apps terminate BIG-IP and client sessions.
+
+Learn more: see, [My Apps](https://myapplications.microsoft.com/)
 
 Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
 
