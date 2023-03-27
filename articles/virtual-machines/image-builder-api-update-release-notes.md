@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/04/2022
+ms.date: 03/27/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
@@ -17,9 +17,22 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This article contains all major API changes and feature updates for the Azure VM Image Builder service.
+This article contains all major API changes and feature updates for the Azure VM Image Builder (AIB) service.
 
 ## API releases
+
+
+### Version 2022-07-01
+
+**Improvements**
+- Added support to pull the latest image version stored in Azure Compute Gallery to AIB templates
+- Added support for [shared image galleries](/azure/virtual-machines/shared-image-galleries#sharing)
+
+
+**Changes**
+- Added new 'File' validation type
+- `replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](https://learn.microsoft.com/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples)
+- VHDs can now be distributed to a custom blob or container in a custom storage account
 
 
 ### Version 2022-02-14
