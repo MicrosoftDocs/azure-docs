@@ -183,7 +183,7 @@ Prepare a workstation from where you can run Defender for IoT deployment activit
 
 - A supported browser for connecting to sensor consoles and the Azure portal. For more information, see [recommended browsers for the Azure portal](../../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
-- Required firewall rules configured, with access open for required interfaces.
+- Required firewall rules configured, with access open for required interfaces. For more information, see [Networking requirements](../networking-requirements.md).
 
 ## Prepare CA-signed certificates
 
@@ -196,6 +196,7 @@ If you decide to deploy with the built-in, self-signed certificate, we recommend
 For more information, see:
 
 - [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
+- [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates)
 
 ## Next steps
 
