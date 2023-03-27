@@ -296,13 +296,17 @@ This problem happens for one of the following reasons:
 
   **Solution**: Add a valid credit card to your subscription.
 
-- You're not the subscription owner, so you don't have permission to purchase a domain.
-
-  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
-
 - Your Azure subscription type does not support the purchase of an App Service domain.
 
   **Solution**: Upgrade your Azure subscription to another subscription type, such as a Pay-As-You-Go subscription.
+  
+- Depending on the subscription type, a sufficient payment history may be required prior to purchasing an App Service domain.
+
+  **Solution**: Either purchase with a different subscription that has a payment history or wait until you have a payment history with current subscription.
+  
+- You're not the subscription owner, so you don't have permission to purchase a domain.
+
+  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
 
 ### You can't add a host name to an app 
 
