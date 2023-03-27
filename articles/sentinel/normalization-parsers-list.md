@@ -36,6 +36,7 @@ To use ASIM authentication parsers, deploy the parsers from the [Microsoft Senti
     - reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
 - **Linux sign-ins** 
     - reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
+    - `su`, `sudu`, and `sshd` activity reported using Syslog.
     - reported by Microsoft Defender to IoT Endpoint.
 - **Azure Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
@@ -135,9 +136,10 @@ ASIM Web Session parsers are available in every workspace. Microsoft Sentinel pr
 
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
+| **Palo Alto PanOS threat logs** | Collected using CEF. | `_Im_WebSession_PaloAltoCEF` |
 | **Squid Proxy** | | `_Im_WebSession_SquidProxyVxx` |
 | **Vectra AI Streams** | Supports the [pack](normalization-about-parsers.md#the-pack-parameter) parameter. | `_Im_WebSession_VectraAIVxx`  |
-| **Zscaler ZIA** | Collected using CEF | `_Im_WebSessionZscalerZIAVxx` |
+| **Zscaler ZIA** | Collected using CEF. | `_Im_WebSessionZscalerZIAVxx` |
 
 Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
 

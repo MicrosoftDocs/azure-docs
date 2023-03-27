@@ -38,7 +38,7 @@ Other cost resources for App Service are (see [App Service pricing](https://azur
 
 - [App Service domains](manage-custom-dns-buy-domain.md)  Your subscription is charged for the domain registration on a yearly basis, if you enable automatic renewal.
 - [App Service certificates](configure-ssl-certificate.md#buy-and-import-app-service-certificate)  One-time charge at the time of purchase. If you have multiple subdomains to secure, you can reduce cost by purchasing one wildcard certificate instead of multiple standard certificates.
-- [IP-based certificate bindings](configure-ssl-bindings.md#create-binding)  The binding is configured on a certificate at the app level. Costs are accrued for each binding. For **Standard** tier and above, the first IP-based binding is not charged.
+- [IP-based SSL binding](configure-ssl-bindings.md)  The binding is configured on a certificate at the app level. Costs are accrued for each binding. For **Standard** tier and above, the first IP-based binding is not charged.
 
 At the end of your billing cycle, the charges for each VM instance. Your bill or invoice shows a section for all App Service costs. There's a separate line item for each meter.
 

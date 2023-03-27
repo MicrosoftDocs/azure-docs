@@ -190,7 +190,7 @@ One potential cause is a lack of SMB multi-channel support for standard file sha
 - Obtaining a VM with a bigger core might help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
-- For NFS file shares, nconnect is available, in preview. Not recommended for production workloads.
+- For NFS Azure file shares, `nconnect` is available. See [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
 
 
 <a id="slowperformance"></a>
