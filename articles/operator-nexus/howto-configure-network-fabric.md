@@ -321,9 +321,7 @@ az nf device update  \
 --resource-group "NFResourceGroup"  \
 --location "eastus"  \
 --resource-name "network-device-name" \
---network-device-sku "DeviceSku" \
---network-device-role "CE" \
---device-name "NFName-CR2-TOR1" \
+--host-name "NFName-CR2-TOR1" \
 --serial-number "12345"
 ```
 
@@ -332,12 +330,10 @@ Expected output:
 ```json
 {
   "annotation": null,
-  "deviceName": "NFName-CR2-TOR1",
+  "hostName": "NFName-CR2-TOR1",
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR2-TOR1",
   "location": "eastus",
   "name": "networkDevice1",
-  "networkDeviceRole": "TOR1",
-  "networkDeviceSku": "DeviceSku",
   "networkRackId": null,
   "provisioningState": "Succeeded",
   "resourceGroup": "NFResourceGroupName",
@@ -369,12 +365,10 @@ Expected output:
 ```json
 {
     "annotation": null,
-    "deviceName": "NFName-CR1-TOR1",
+    "hostName": "NFName-CR1-TOR1",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-TOR1",
     "location": "eastus",
     "name": "networkDevice1",
-    "networkDeviceRole": "TOR1",
-    "networkDeviceSku": "DeviceSku",
     "networkRackId": null,
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroupName",
@@ -393,12 +387,10 @@ Expected output:
   },
   {
     "annotation": null,
-    "deviceName": "NFName-CR1-MgmtSwitch",
+    "hostName": "NFName-CR1-MgmtSwitch",
     "id": "subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-MgmtSwitch",
     "location": "eastus",
     "name": "Network device",
-    "networkDeviceRole": "MgmtSwitch",
-    "networkDeviceSku": "DeviceSku",
     "networkRackId": null,
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroupName",
@@ -428,12 +420,10 @@ Expected output:
 ```json
 {
   "annotation": null,
-  "deviceName": "NFName-CR1-TOR1",
+  "hostName": "NFName-CR1-TOR1",
   "id": "subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/networkDevice1",
   "location": "eastus",
   "name": "networkDevice1",
-  "networkDeviceRole": "TOR1",
-  "networkDeviceSku": "DeviceSku",
   "networkRackId": null,
   "provisioningState": "Succeeded",
   "resourceGroup": "NFResourceGroupName",
