@@ -19,13 +19,25 @@ Currently, you can only enable certain resource types for Chaos Studio VNet inje
 * **Azure Kubernetes Service** targets can be enabled with VNet injection through Azure Portal and Azure CLI.
 * **Key Vault** targets can be enabled with VNet injection through the Azure CLI.
 
-
 ## Use Chaos Studio with a private AKS cluster
 
 To configure VNet injection, use the following steps.
 
 > [!NOTE]
 > These instructions assume you already have a private AKS cluster. Learn more about private clusters here: [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md)
+
+# [Azure portal](#tab/portal)
+
+1. Make sure the `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers are registered with your subscription (if applicable) by using the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md) instructions.
+![Register a resource provider](images/vnet-register-resource-provider.png)
+1. Navigate to Azure Chaos Studio and select Targets. Find your desired AKS cluster and select "Enable targets", then "Enable service-direct targets".
+![Enable targets in Chaos Studio](images/vnet-enable-targets.png)
+1. Select the cluster's Virtual Network. If the VNet already includes Subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they will be automatically created for you.
+![Select the VNet and Subnets](images/vnet-select-subnets.png)
+1. Select "Review + Enable" and "Enable".
+![Review the target enablement](images/vnet-review.png)
+
+Now your private AKS cluster can be used with Chaos Studio! Use the following instructions to learn how to install Chaos Mesh and run the experiment: [Create a chaos experiment that uses a Chaos Mesh fault with the Azure portal](chaos-studio-tutorial-aks-portal.md).
 
 # [Azure CLI](#tab/cli)
 
@@ -98,48 +110,27 @@ To configure VNet injection, use the following steps.
     BODY="{ \"properties\": { \"subnets\": { \"containerSubnetId\": \"$CONTAINER_SUBNET_ID\", \"relaySubnetId\": \"$RELAY_SUBNET_ID\" } } }"
     az rest --method put --url $URL --body "$BODY"
     ```
+    <!--
+    After creating a Target resource with VNet injection enabled, the resource's properties will include:
+    
+    ```json
+    {
+      "properties": {
+        "subnets": {
+          "containerSubnetId": "/subscriptions/.../subnets/ChaosStudioContainerSubnet",
+          "relaySubnetId": "/subscriptions/.../subnets/ChaosStudioRelaySubnet"
+        }
+      }
+    }
+    ```
+    -->
 
 Now your private AKS cluster can be used with Chaos Studio! Use the following instructions to learn how to install Chaos Mesh and run the experiment: [Create a chaos experiment that uses a Chaos Mesh fault with the Azure CLI](chaos-studio-tutorial-aks-cli.md).
-
-# [Azure portal](#tab/portal)
-
-1. Make sure the `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers are registered with your subscription (if applicable) by using the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md) instructions.
-<!--
-![Register a resource provider](images/vnet-register-resource-provider.png)
--->
-1. Navigate to Azure Chaos Studio and select Targets. Find your desired AKS cluster and select "Enable targets", then "Enable service-direct targets".
-<!--
-![Enable targets in Chaos Studio](images/vnet-enable-targets.png)
--->
-1. Select the cluster's Virtual Network. If your VNet already includes Subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they will be automatically created for you.
-<!--
-![Select the VNet and Subnets](images/vnet-select-subnets.png)
--->
-1. Select "Review + Enable" and "Enable".
-<!--
-![Review the target enablement](images/vnet-review.png)
--->
-
-Now your private AKS cluster can be used with Chaos Studio! Use the following instructions to learn how to install Chaos Mesh and run the experiment: [Create a chaos experiment that uses a Chaos Mesh fault with the Azure portal](chaos-studio-tutorial-aks-portal.md).
-
-
 
 ## Limitations
 * VNet injection is currently only possible in subscriptions/regions where Azure Container Instances and Azure Relay are available. They're deployed to target regions.
 * When you create a Target resource that you'll enable with VNet injection, you need `Microsoft.Network/virtualNetworks/subnets/write` access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster. You have to specify a subnet (in VNet_A) that the container will be deployed to.
 
-After creating a Target resource with VNet injection enabled, you can expect the following response:
-
-```json
-{
-  "properties": {
-    "subnets": {
-      "containerSubnetId": "/subscriptions/.../subnets/ChaosStudioContainerSubnet",
-      "relaySubnetId": "/subscriptions/.../subnets/ChaosStudioRelaySubnet"
-    }
-  }
-}
-```
 <!--
 ![Target resource with VNet Injection](images/chaos-studio-rp-vnet-injection.png)
 -->
