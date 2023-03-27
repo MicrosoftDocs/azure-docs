@@ -1,6 +1,6 @@
 ---
 title: Integrate Fortinet with Microsoft Defender for IoT
-description: In this article, you'll learn how to integrate Microsoft Defender for IoT with Fortinet.
+description: In this article, you learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
 ms.date: 01/01/2023
 ms.custom: how-to
@@ -8,31 +8,31 @@ ms.custom: how-to
 
 # Integrate Fortinet with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use Fortinet with Microsoft Defender for IoT.
+This tutorial helps you learn how to integrate and use Fortinet with Microsoft Defender for IoT.
 
-Microsoft Defender for IoT mitigates IIoT and ICS and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
+Microsoft Defender for IoT mitigates IIoT, ICS, and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
 
-Defender for IoT, and Fortinet have established a technological partnership that detects, and stop attacks on IoT, and ICS networks.
+Defender for IoT and Fortinet have established a technological partnership that detects and stop attacks on IoT and ICS networks.
 
-Fortinet, and Microsoft Defender for IoT prevent:
+Fortinet and Microsoft Defender for IoT prevent:
 
 - Unauthorized changes to programmable logic controllers (PLC).
 
-- Malware that manipulates ICS, and IoT devices via their native protocols.
+- Malware that manipulates ICS and IoT devices via their native protocols.
 
 - Reconnaissance tools from collecting data.
 
-- Protocol violations caused by misconfigurations, or malicious attackers.
+- Protocol violations caused by misconfigurations or malicious attackers.
 
-Defender for IoT detects anomalous behavior in IoT, and ICS networks and delivers that information to FortiGate, and FortiSIEM, as follows:
+Defender for IoT detects anomalous behavior in IoT and ICS networks and delivers that information to FortiGate and FortiSIEM, as follows:
 
 - **Visibility:** The information provided by Defender for IoT gives FortiSIEM administrators visibility into previously invisible IoT and ICS networks.
 
-- **Blocking malicious attacks:** FortiGate administrators can use the information discovered by Defender for IoT to create rules to stop anomalous behavior, regardless of whether that behavior is caused by chaotic actors, or misconfigured devices, before it causes damage to production, profits, or people.
+- **Blocking malicious attacks:** FortiGate administrators can use the information discovered by Defender for IoT to create rules to stop anomalous behavior, regardless of whether that behavior is caused by chaotic actors or misconfigured devices, before it causes damage to production, profits, or people.
 
-FortiSIEM, and Fortinet’s multivendor security incident, and events management solution brings visibility, correlation, automated response, and remediation to a single scalable solution.
+FortiSIEM and Fortinet’s multivendor security incident and events management solution brings visibility, correlation, automated response, and remediation to a single scalable solution.
 
-Using a Business Services view, the complexity of managing network and security operations is reduced, freeing resources, improving breach detection. FortiSIEM provides cross correlation while applying machine learning, and UEBA to improve response, in order to stop breaches before they occur.
+Using a Business Services view, the complexity of managing network and security operations is reduced, freeing resources and improving breach detection. FortiSIEM provides cross correlation, while applying machine learning and UEBA, to improve the response in order to stop breaches before they occur.
 
 In this tutorial, you learn how to:
 
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 > - Send Defender for IoT alerts to FortiSIEM
 > - Block a malicious source using the Fortigate firewall
 
-If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
@@ -84,12 +84,12 @@ An application programming interface (API) key is a uniquely generated code that
     | --------- | ----------- |
     | **Username** | Enter the forwarding rule name. |
     | **Comments** | Enter the minimal security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Administrator Profile** | From the dropdown list, select the profile name that you have defined in the previous step. |
+    | **Administrator Profile** | From the dropdown list, select the profile name that you've defined in the previous step. |
     | **PKI Group** | Toggle the switch to **Disable**. |
     | **CORS Allow Origin** | Toggle the switch to **Enable**. |
-    | **Restrict login to trusted hosts** | Add the IP addresses of the sensors, and management consoles that will connect to FortiGate. |
+    | **Restrict login to trusted hosts** | Add the IP addresses of the sensors and on-premises management consoles that will connect to FortiGate. |
 
-When the API key is generated, save it as it will not be provided again.
+Save the API key when it's generated, as it will not be provided again.
 
 :::image type="content" source="media/tutorial-fortinet/api-key.png" alt-text="Screenshot of the description automatically generates New API Key.":::
 
@@ -97,7 +97,7 @@ When the API key is generated, save it as it will not be provided again.
 
 The FortiGate firewall can be used to block suspicious traffic.
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
 **To set a forwarding rule to block malware-related alerts**:
 
@@ -115,7 +115,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     | **Select Severity** | From the drop-down menu, select the minimal security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
     | **Protocols** | To select a specific protocol, select **Specific**, and select the protocol for which this rule is applied. By default, all the protocols are selected. |
     | **Engines** | To select a specific security engine for which this rule is applied, select **Specific**, and select the engine. By default, all the security engines are involved. |
-    | **System Notifications** | Forward the sensor's *online* and *offline* status. This option is only available if you have logged into the on-premises management console. |
+    | **System Notifications** | Forward the sensor's *online* and *offline* status. This option is only available if you've logged into the on-premises management console. |
 
 1. In the Actions section, select **Add**, and then select **Send to FortiGate** from the drop-down menu.
 
@@ -123,7 +123,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. To configure the FortiGate forwarding rule, set the following parameters:
 
-    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the configure the Create Forwarding Rule window.":::
+    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of how to configure the Create Forwarding Rule window.":::
 
     | Parameter | Description |
     |--|--|
@@ -141,7 +141,7 @@ The source of suspicious alerts can be blocked in order to prevent further occur
 
 **To block the source of suspicious alerts**:
 
-1. Sign in to the management console and select **Alerts** from the left side menu.
+1. Sign in to the on-premises management console, then select **Alerts**.
 
 1. Select the alert related to Fortinet integration.
 
@@ -169,17 +169,17 @@ You can configure Defender for IoT to send alerts to the FortiSIEM server, where
 
 :::image type="content" source="media/tutorial-fortinet/analytics.png" alt-text="Screenshot of the Analytics window.":::
 
-Each Defender for IoT alert is then parsed without any other configuration on the FortiSIEM, side and they are presented in the FortiSIEM as security events. The following event details appear by default:
+Each Defender for IoT alert is then parsed without any other configuration on the FortiSIEM side, and they're presented in the FortiSIEM as security events. The following event details appear by default:
 
 :::image type="content" source="media/tutorial-fortinet/event-detail.png" alt-text="Screenshot of the view your event details in the Event Details window.":::
 
 You can then use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM.
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
 **To use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM**:
 
-1. From the sensor, or management console left pane, select **Forwarding**.
+1. From the sensor or on-premises management console, select **Forwarding**.
 
     [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
 
@@ -191,15 +191,15 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     | **Select Severity** | Select the minimum security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
     | **Protocols** | To select a specific protocol, select **Specific**, and select the protocol for which this rule is applied. By default, all the protocols are selected. |
     | **Engines** | To select a specific security engine for which this rule is applied, select **Specific** and select the engine. By default, all the security engines are involved. |
-    | **System Notifications** | Forward a sensor's *online*, or *offline* status. This option is only available if you have logged into the on-premises management console. |
+    | **System Notifications** | Forward a sensor's *online*, or *offline* status. This option is only available if you've logged into the on-premises management console. |
 
 3. In the actions section, select **Send to FortiSIEM**.
 
-    :::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of the create a Forwarding Rule and select send to Fortinet.":::
+    :::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of how to create a Forwarding Rule and select send to Fortinet.":::
 
 4. Enter the FortiSIEM server details.
 
-    :::image type="content" source="media/tutorial-fortinet/details.png" alt-text="Screenshot of the add the FortiSIEm details to the forwarding rule.":::
+    :::image type="content" source="media/tutorial-fortinet/details.png" alt-text="Screenshot of how to add the FortiSIEm details to the forwarding rule.":::
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -211,7 +211,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 ## Block a malicious source using the Fortigate firewall
 
-You can set policies to automatically block malicious sources in the FortiGate firewall using alerts in Defender for IoT.
+You can set policies to automatically block malicious sources in the FortiGate firewall, using alerts in Defender for IoT.
 
 :::image type="content" source="media/tutorial-fortinet/firewall.png" alt-text="Screenshot of the view of the FortiGate Firewall window view.":::
 
@@ -223,19 +223,19 @@ For example, the following alert can block the malicious source:
 
 1. In FortiGate, [create an API key](#create-an-api-key-in-fortinet).
 
-1. Sign in to the Defender for IoT sensor, or the management console, and select **Forwarding**, [set a forwarding rule that blocks malware-related alerts](#set-a-forwarding-rule-to-block-malware-related-alerts).
+1. Sign in to the Defender for IoT sensor, or the on-premises management console, and select **Forwarding**, [set a forwarding rule that blocks malware-related alerts](#set-a-forwarding-rule-to-block-malware-related-alerts).
 
-1. In the Defender for IoT sensor, or the management console, and select **Alerts**, and [block a malicious source](#block-a-malicious-source-using-the-fortigate-firewall).
+1. In the Defender for IoT sensor, or the on-premises management console, select **Alerts**, and [block a malicious source](#block-a-malicious-source-using-the-fortigate-firewall).
 
 1. Navigate to the FortiGage **Administrator** window, and locate the malicious source address you blocked.
 
    :::image type="content" source="media/tutorial-fortinet/administrator.png" alt-text="Screenshot of the FortiGate Administrator window view.":::
 
-   The blocking policy will be automatically created, and appears in the FortiGate IPv4 Policy window.
+   The blocking policy is automatically created, and appears in the FortiGate IPv4 Policy window.
 
    :::image type="content" source="media/tutorial-fortinet/policy.png" alt-text="Screenshot of the FortiGate IPv4 Policy window view.":::
 
-1. Select the policy and ensure that Enable this policy is toggled to on position.
+1. Select the policy and ensure that **Enable this policy** is toggled on.
 
    :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view.":::
 
