@@ -144,7 +144,25 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Infor CloudSuite for update operations. Select the **Save** button to commit any changes.
 
-	![Infor CloudSuite User Attributes](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
+   |Attribute|Type|Supported for filtering|Required by Infor CloudSuite|
+	|---|---|---|---|
+	|userName|String|&check;|&check;
+	|active|Boolean||
+	|displayName|String||
+	|externalId|String||
+	|name.familyName|String||
+	|name.givenName|String||
+	|displayName|String||
+	|title|String||
+	|emails[type eq "work"].value|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:actorId|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:federationId|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:ifsPersonId|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:inUser|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:userAlias|String||
+
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Infor CloudSuite**.
 
@@ -152,7 +170,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Infor CloudSuite for update operations. Select the **Save** button to commit any changes.
 
-	![Infor CloudSuite Group Attributes](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
+	|Attribute|Type|Supported for filtering|Required by Infor CloudSuite|
+	|---|---|---|---|
+	|displayName|String|&check;|&check;
+	|members|Reference||
+	|externalId|String||
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -168,11 +190,20 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Infor CloudSuite.
+This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
 
-## Additional resources
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+
+## Change log
+02/15/2023 - Added support for custom extension user attributes **urn:ietf:params:scim:schemas:extension:infor:2.0:User:actorId**, **urn:ietf:params:scim:schemas:extension:infor:2.0:User:federationId**, **urn:ietf:params:scim:schemas:extension:infor:2.0:User:ifsPersonId**, **urn:ietf:params:scim:schemas:extension:infor:2.0:User:inUser**,  and **urn:ietf:params:scim:schemas:extension:infor:2.0:User:userAlias**.
+
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

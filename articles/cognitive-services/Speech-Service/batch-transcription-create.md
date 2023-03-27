@@ -246,3 +246,4 @@ The [Trusted Azure services security mechanism](batch-transcription-audio-data.m
 - [Batch transcription overview](batch-transcription.md)
 - [Locate audio files for batch transcription](batch-transcription-audio-data.md)
 - [Get batch transcription results](batch-transcription-get.md)
+- [See batch transcription code samples at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch/)

@@ -32,6 +32,10 @@ The guidance helps:
 
 This guide assumes that your cloud only or hybrid identities have been established in Azure AD already. For help with choosing your identity type see the article, [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md) 
 
+### Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Set up Azure AD](https://go.microsoft.com/fwlink/?linkid=2221308) guide.
+
 ## Guidance for Azure AD Free, Office 365, or Microsoft 365 customers.
 
 There are many recommendations that Azure AD Free, Office 365, or Microsoft 365 app customers should take to protect their user identities. The following table is intended to highlight key actions for the following license subscriptions:

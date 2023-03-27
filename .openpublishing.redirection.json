@@ -5,6 +5,11 @@
       "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
       "redirect_document_id": false
     },
+     {
+       "source_path": "articles/active-directory/external-identities/configure-saas-apps.md",
+       "redirect_url": "/azure/active-directory/saas-apps/dropboxforbusiness-tutorial",
+       "redirect_document_id": false
+    },
     {
       "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
@@ -11504,6 +11509,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
+            "redirect_url": "/azure/firewall/firewall-diagnostics",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security/governance-in-azure.md",
             "redirect_url": "/azure/governance/",
             "redirect_document_id": false
@@ -12510,12 +12520,12 @@
         },
         {
             "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+            "redirect_url": "/azure/iot/iot-security-architecture",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security/fundamentals/iot-best-practices.md",
-            "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+            "redirect_url": "/azure/iot/iot-security-best-practices",
             "redirect_document_id": false
         },
         {
@@ -22469,6 +22479,11 @@
         {
             "source_path_from_root": "/articles/communication-services/concepts/bring-your-own-storage.md",
             "redirect_url": "/azure/communication-services/concepts/call-automation/call-recording/bring-your-own-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
+            "redirect_url": "/azure/sentinel/understand-threat-intelligence",
             "redirect_document_id": false
         }
        
