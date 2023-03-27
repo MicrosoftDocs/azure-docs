@@ -20,10 +20,10 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This article discusses Keywords and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature: 
+This article discusses Keywords and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying Keywords Extraction into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
-- Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur. 
+- Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
 
 ## View the insight
 
@@ -112,20 +112,20 @@ During the Keywords procedure, audio and images in a media file are processed, a
 Below are some considerations to keep in mind when using keywords extraction: 
 
 - When uploading a file always use high-quality video content. The recommended maximum frame size is HD and frame rate is 30 FPS. A frame should contain no more than 10 people. When outputting frames from videos to AI models, only send around 2 or 3 frames per second. Processing 10 and more frames might delay the AI result.   
-- When uploading a file always use high quality audio and video content. At least 1 minute of spontaneous conversational speech is required to perform analysis. Audio effects are detected in non-speech segments only. The minimal duration of a non-speech section is 2 seconds. Voice commands and singing are not supported.  
+- When uploading a file always use high quality audio and video content. At least 1 minute of spontaneous conversational speech is required to perform analysis. Audio effects are detected in non-speech segments only. The minimal duration of a non-speech section is 2 seconds. Voice commands and singing aren't supported.  
 
 When used responsibly and carefully Keywords is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Always respect an individual’s right to privacy, and only ingest media for lawful and justifiable purposes.   
-- Do not purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
+- Don't purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
 - Commit to respecting and promoting human rights in the design and deployment of your analyzed media.   
 - When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
 - Always seek legal advice when using media from unknown sources.  
 - Always obtain appropriate legal and professional advice to ensure that your uploaded media is secured and have adequate controls to preserve the integrity of your content and to prevent unauthorized access.     
 - Provide a feedback channel that allows users and individuals to report issues with the service.   
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people.  
-- Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.   
-- Fully examine and review the potential of any AI model you are using to understand its capabilities and limitations.  
+- Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.   
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations.  
 
 ## Next steps
 
