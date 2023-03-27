@@ -43,6 +43,8 @@
   - name: ARM template
     displayName: Resource Manager 
     href: search-get-started-arm.md
+  - name: Terraform
+    href: search-get-started-terraform.md
 - name: Tutorials
   items:
   - name: Add search to static web apps
