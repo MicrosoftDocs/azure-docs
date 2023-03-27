@@ -17,12 +17,12 @@ Microsoft Defender for Cloud provides the option of creating custom recommendati
 
 There are three types of resources to create and manage custom recommendations: 
 
-1. **Recommendations** – contains: 
-    1. Recommendation details (name, description, severity, remediation logic, etc.) 
-    1. Recommendation logic in KQL. 
-    1. The standard it belongs to. 
-1.  **Standard** – defines a set of recommendations. 
-1.  **Standard assignment** – defines the scope that the standard evaluates (for example, specific AWS accounts). 
+- **Recommendations** – contains: 
+    - Recommendation details (name, description, severity, remediation logic, etc.) 
+    - Recommendation logic in KQL. 
+    - The standard it belongs to. 
+- **Standard** – defines a set of recommendations. 
+- **Standard assignment** – defines the scope that the standard evaluates (for example, specific AWS accounts). 
 
 ## Prerequisites
 
@@ -85,9 +85,9 @@ To create a new query using the query editor, select the 'open query editor' but
 
 ### Steps for building a query
 
-- The first row of the query should include the environment and resource type. For example: | where Environment == 'AWS' and Identifiers.Type == 'ec2.instance'
-- The query must contain an "iff" statement that defines the healthy or unhealthy conditions. Use this template and edit only the "condition": "| extend HealthStatus = iff(condition, 'UNHEALTHY','HEALTHY')".
-- The last row should return all the original columns: "| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus".
+1. The first row of the query should include the environment and resource type. For example: | where Environment == 'AWS' and Identifiers.Type == 'ec2.instance'
+1. The query must contain an "iff" statement that defines the healthy or unhealthy conditions. Use this template and edit only the "condition": "| extend HealthStatus = iff(condition, 'UNHEALTHY','HEALTHY')".
+1. The last row should return all the original columns: "| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus".
 
     >[!Note]
     >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of Record filed using a dot notation. <br>

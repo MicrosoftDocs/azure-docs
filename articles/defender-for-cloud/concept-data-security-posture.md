@@ -1,6 +1,6 @@
 ---
 title: Data-aware security posture in Microsoft Defender for Cloud
-description: Learn how Defender for Cloud helps improve data security posture in a multi-cloud environment.
+description: Learn how Defender for Cloud helps improve data security posture in a multicloud environment.
 author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
@@ -39,7 +39,7 @@ You can discover risk of data breaches by attack paths of internet-exposed VMs t
 
 Cloud Security Explorer helps you identify security risks in your cloud environment by running graph-based queries on Cloud Security Graph (Defender for Cloud's context engine). You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.
 
-You can leverage Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multi-cloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
+You can leverage Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multicloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
 
 
 ## Data security in Defender for Storage
@@ -60,7 +60,7 @@ Defender for Cloud uses smart sampling to scan a selected number of files in you
 Data sensitivity settings define what's considered sensitive data in your organization. Data sensitivity values in Defender for Cloud are based on:
 
 - **Predefined sensitive information types**: Defender for Cloud uses the built-in sensitive information types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can modify these defaults.
-- **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in the Purview portal.
+- **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in the Microsoft Purview compliance portal.
 - **Sensitive data thresholds**: In Defender for Cloud you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
 
 When scanning resources for data sensitivity, scan results are based these settings.

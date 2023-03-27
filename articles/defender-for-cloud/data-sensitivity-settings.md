@@ -12,7 +12,7 @@ This article describes how to customize data sensitivity settings in Microsoft D
 
 Data sensitivity settings are used to identify and focus on managing the critical sensitive data in your organization.
 
-- The sensitive info types and sensitivity labels that come from Microsoft Microsoft Purview compliance portal and which you can select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about) provided by Microsoft Microsoft Purview compliance portal. A selection of these info types and labels are enabled by default, and you can modify as needed.
+- The sensitive info types and sensitivity labels that come from Microsoft Purview compliance portal and which you can select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about) provided by Microsoft Purview compliance portal. Some of the info types and labels are enabled by default, and you can modify them as needed.
 - You can optionally allow the import of custom sensitive info types and allow the import of [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in Microsoft Purview.
 - If you import labels, you can set sensitivity thresholds that determine the minimum threshold sensitivity level for a label to be marked as sensitive in Defender for Cloud. 
 
@@ -27,13 +27,13 @@ You need one of these permissions in order to sign in and edit sensitivity setti
 
 Changes in sensitivity settings take effect the next time that resources are scanned.
 
-## Import custom sensitive info types/labels from Microsoft Microsoft Purview compliance portal
+## Import custom sensitive info types/labels from Microsoft Purview compliance portal
 
-Defender for Cloud uses built-in sensitive info types. You can optionally import your own custom sensitive info types and labels from Microsoft Microsoft Purview compliance portal to align with your organization's needs. 
+Defender for Cloud uses built-in sensitive info types. You can optionally import your own custom sensitive info types and labels from Microsoft Purview compliance portal to align with your organization's needs. 
 
 Import as follows (Import only once):
 
-1. Log into Microsoft Microsoft Purview compliance portal.
+1. Log into Microsoft Purview compliance portal.
 1. Navigate to Information Protection > [Labels](https://compliance.microsoft.com/informationprotection/labels).
 1. In the consent notice message, select **Turn on** and then select **Yes** to share your custom info types and sensitivity labels with Defender for Cloud.
 
@@ -51,7 +51,7 @@ To customize data sensitivity settings that appear in Defender for Cloud, review
 1. Select **Data sensitivity**.
 1. Select the info type category that you want to customize:
     - The **Finance**, **PII**, and **Credentials** categories contain the default info type data that are typically sought out by attackers.
-    - The **Custom** category contains custom info types from your Microsoft Microsoft Purview compliance portal configuration.
+    - The **Custom** category contains custom info types from your Microsoft Purview compliance portal configuration.
     - The **Other** category contains all of the rest of the built-in available info types.
 1. Select the info types that you want to be marked as sensitive.
 1. Select **Apply** and **Save**.

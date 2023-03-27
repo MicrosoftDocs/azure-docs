@@ -48,8 +48,7 @@ Defender for Storage (classic) provides:
 
 - **Response at scale** - Defender for Cloud's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
 
-:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="High-level overview of the features of Microsoft Defender for Storage (classic).":::
-
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Diagram that shows a high-level overview of the features of Microsoft Defender for Storage (classic).":::
 
 ## Security threats in cloud-based storage services 
 
@@ -90,7 +89,7 @@ Alerts include details of the incident that triggered them, and recommendations 
 
 - [Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?](#are-there-differences-in-features-between-the-new-defender-for-storage-plan-and-the-legacy-defender-for-storage-classic-plan)
 - [How do I estimate charges at the account level?](#how-do-i-estimate-charges-at-the-account-level)
-- [Can i exclude a specific Azure storage account from a protected subscription?](#can-i-exclude-a-specific-azure-storage-account-from-a-protected-subscription)
+- [Can I exclude a specific Azure storage account from a protected subscription?](#can-i-exclude-a-specific-azure-storage-account-from-a-protected-subscription)
 - [Can I switch from the per-transaction pricing in Defender for Storage (classic) to the new Defender for Storage plan?](#can-i-switch-from-the-per-transaction-pricing-in-defender-for-storage-classic-to-the-new-defender-for-storage-plan)
 - [Can I exclude specific storage accounts from protection in the new Defender for Storage plan?](#can-i-exclude-specific-storage-accounts-from-protection-in-the-new-defender-for-storage-plan)
 

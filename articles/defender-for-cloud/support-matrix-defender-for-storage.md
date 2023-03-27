@@ -13,7 +13,7 @@ This article lists the permissions required to [enable Defender for Storage](../
 
 To enable Defender for Storage and its features - Malware Scanning and Sensitive data threat detection, various permission levels are required. Below is a breakdown of the required permissions for each scenario.
 
-### Subscription level enablement and configuration (action set 1)
+## Subscription level enablement and configuration (action set 1)
 
 * Microsoft.Security/pricings/write
 * Microsoft.Security/pricings/read
@@ -23,7 +23,7 @@ To enable Defender for Storage and its features - Malware Scanning and Sensitive
 * Microsoft.Authorization/roleAssignments/write
 * Microsoft.Authorization/roleAssignments/delete
 
-### Storage account level enablement and configuration (action set 2)
+## Storage account level enablement and configuration (action set 2)
 
 * Microsoft.Storage/storageAccounts/write
 * Microsoft.Storage/storageAccounts/read
@@ -36,7 +36,7 @@ To enable Defender for Storage and its features - Malware Scanning and Sensitive
 * Microsoft.Authorization/roleAssignments/write
 * Microsoft.Authorization/roleAssignments/delete
 
-### Permissions for enabling scenarios
+## Permissions for enabling scenarios
 
 | Scenario | Activity monitoring | Malware Scanning | Sensitive data threat detection | Required Permissions<br>(role / action set) |
 |--|--|--|--|--|

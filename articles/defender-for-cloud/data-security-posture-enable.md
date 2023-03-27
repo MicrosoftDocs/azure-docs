@@ -16,8 +16,8 @@ This article describes how to enable [data-aware security posture](data-security
 ## Before you start
 
 - Before you enable data-aware security posture, [review support and prerequisites](concept-data-security-posture-prepare.md).
-- When you enable Defender CSPM or Defender for Storage plans, the sensitive data discovery extension is automatically enabled. You can disable this setting if you don't want to use data-aware security posture, but we recommend that use the feature to get the most value from Defender for Cloud.
-- Sensitive data is identified based on the data sensitivity settings in Defender for Clouod. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
+- When you enable Defender CSPM or Defender for Storage plans, the sensitive data discovery extension is automatically enabled. You can disable this setting if you don't want to use data-aware security posture, but we recommend that you use the feature to get the most value from Defender for Cloud.
+- Sensitive data is identified based on the data sensitivity settings in Defender for Cloud. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
 - It takes up to 24 hours to see the results of a first scan after enabling the feature.
 
 ## Enable in Defender CSPM (Azure)
@@ -42,7 +42,7 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 1. Enable data security posture as described above
 1. Proceed with the instructions to download the CloudFormation template and to run it in AWS.
 
-Automatic discovery of S3 buckets in the AWS account starts automatically. The Defender for Cloud scanner runs in your AWS account and connects to the your S3 buckets.
+Automatic discovery of S3 buckets in the AWS account starts automatically. The Defender for Cloud scanner runs in your AWS account and connects to your S3 buckets.
 
 ### Check for blocking policies
 

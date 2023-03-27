@@ -225,6 +225,8 @@
     - name: Build interactive reports with Azure Monitor workbooks
       displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
       href: custom-dashboards-azure-workbooks.md
+    - name: Create custom recommendations and security standards
+      href: create-custom-recommendations.md
     - name: View recommendations and alerts in Windows Admin Center
       displayName: windows, admin, center
       href: windows-admin-center-integration.md

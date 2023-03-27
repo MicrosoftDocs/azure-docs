@@ -10,7 +10,7 @@ ms.custom: template-how-to-pattern
 ---
 # Explore risks to sensitive data
 
-After [discovering resources with sensitive data](data-security-posture-enable.md), Microsoft Defender for Cloud lets you explore sensitive data risk for those resources in a number of ways:
+After you [discover resources with sensitive data](data-security-posture-enable.md), Microsoft Defender for Cloud lets you explore sensitive data risk for those resources with these features:
 
 - **Attack paths**: When sensitive data discovery is enabled in the Defender Cloud Security Posture Management (CSPM) plan, you can use attack paths to discover risk of data breaches. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
 - **Security Explorer**: When sensitive data discovery is enabled in the Defender CSPM plan, you can use Cloud Security Explorer to find sensitive data insights. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
@@ -45,7 +45,7 @@ Other examples of attack paths for sensitive data include:
 Explore data risks and exposure in cloud security graph insights using a query template, or by defining a manual query.
 
 1. In Defender for Cloud, open **Cloud Security Explorer**.
-1. Select a query template, or build your own query. Here;s an example:
+1. Select a query template, or build your own query. Here's an example:
 
     :::image type="content" source="./media/data-security-review-risks/query.png" alt-text="Insights data query.":::
 

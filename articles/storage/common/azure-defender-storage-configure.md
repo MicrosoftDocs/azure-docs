@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Enable and configure Microsoft Defender for Storage
 
-**Microsoft Defender for Storage** is an Azure-native solution offering an advanced layer of intelligence for threat detection and mitigation in storage accounts, powered by Microsoft Threat Intelligence, Microsoft Defender Antimalware technologies, and Sensitive Data Discovery. Covering Azure Blob Storage, Azure Files, and Azure Data Lake Storage services, it provides a comprehensive alert suite, near real-time Malware Scanning (add-on), and sensitive data threat detection (no extra cost), allowing quick detection, triage, and response to potential security threats with contextual information.
+**Microsoft Defender for Storage** is an Azure-native solution offering an advanced layer of intelligence for threat detection and mitigation in storage accounts, powered by Microsoft Threat Intelligence, Microsoft Defender Antimalware technologies, and Sensitive Data Discovery. With protection for Azure Blob Storage, Azure Files, and Azure Data Lake Storage services, it provides a comprehensive alert suite, near real-time Malware Scanning (add-on), and sensitive data threat detection (no extra cost), allowing quick detection, triage, and response to potential security threats with contextual information.
 
 With Microsoft Defender for Storage, organizations can customize their protection and enforce consistent security policies by enabling it on subscriptions and storage accounts with granular control and flexibility.
 
@@ -43,7 +43,7 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 ### Networking configuration
 
 Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. 
-Malware Scanning is not supported for storage accounts with “Public network access” set to disabled disabled.
+Malware Scanning is not supported for storage accounts with “Public network access” set to disabled.
 
 ### Permissions
 
@@ -248,13 +248,13 @@ Learn more about the [updating Defender plans with the REST API](/rest/api/def
 
 You can enable and configure Microsoft Defender for Storage on specific storage accounts in several ways:
 
-- [Azure Portal](#azure-portal-1)
+- [Azure portal](#azure-portal-1)
 - IaC templates, including [Bicep](#bicep-template-1) and [ARM](#arm-template-1)
 - [REST API](#rest-api-1)
 
 The steps below include instructions on how to set up logging and an Event Grid for the Malware Scanning.
 
-### Azure Portal
+### Azure portal
 
 To enable and configure Microsoft Defender for Storage for a specific account using the Azure portal:
 
@@ -418,11 +418,11 @@ Request Body:
 
 ### Setting Up Event Grid for Malware Scanning
 
-For each storage account enabled with Malware Scanning, you can configure to send every scan result using event grid event for automation purposes.
+For each storage account enabled with Malware Scanning, you can configure to send every scan result using Event Grid event for automation purposes.
 
 1. To configure Event Grid for sending scan results, you'll first need to create a custom topic in advance. Refer to the Event Grid documentation on creating custom topics for guidance. Ensure that the destination Event Grid custom topic is created in the same region as the storage account from which you want to send scan results.
 
-1. To configure the Event Grid custom topic destination, go to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and click on settings to configure.
+1. To configure the Event Grid custom topic destination, go to the relevant storage account, open the "Microsoft Defender for Cloud" tab, and select the settings to configure.
 
 > [!NOTE]
 > When you set a Event Grid custom topic, you should set “**Override Defender for Storage subscription-level settings**” to “**ON**” to make sure it overrides the subscription-level settings.

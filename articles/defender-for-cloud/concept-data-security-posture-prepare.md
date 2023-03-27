@@ -1,11 +1,12 @@
 ---
-title: Support and prerequisites for data-aware security posture
+title: Support and prerequisites for data-aware security posture - Microsoft Defender for Cloud
 description: Learn about the requirements for data-aware security posture
 author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
+ms.custom: references_regions
 ---
 # Support and prerequisites for data-aware security posture
 
