@@ -39,12 +39,7 @@ Defender for IoT's integration with Active Directory supports LDAP v3 and the fo
 
 - **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
 
-For more information, see:
-
-- [Integrate OT sensor users with Active Directory](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory)
-- [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory)
-- [Other firewall rules for external services (optional)](how-to-set-up-your-network.md#other-firewall-rules-for-external-services-optional).
-
+For more information, see [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory).
 
 ### On-premises global access groups
 
@@ -59,7 +54,7 @@ For example, the following diagram shows how you can allow security analysts fro
 For more information, see [Define global access permission for on-premises users](manage-users-on-premises-management-console.md#define-global-access-permission-for-on-premises-users).
 
 > [!TIP]
-> Access groups and rules help to implement zero-trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md).
+> Access groups and rules help to implement Zero Trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Zero Trust and your OT/IoT networks](concept-zero-trust.md).
 >
 
 ## Next steps
