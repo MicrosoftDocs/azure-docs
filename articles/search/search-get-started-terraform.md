@@ -98,4 +98,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Search index using Terraform](./tutorial-create-index.md)
+> [Create an Azure Search index using the Azure portal](./search-get-started-portal.md)
