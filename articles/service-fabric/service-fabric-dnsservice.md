@@ -12,7 +12,7 @@ ms.date: 07/14/2022
 # DNS service in Azure Service Fabric
 DNS service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
 
-Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portability of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service.
+Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portability of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather rewriting code to use the Naming Service.
 
 DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how DNS service works for stateless services. For brevity, the diagrams only show one endpoint for the services, although each service can have multiple endpoints. 
 
@@ -31,7 +31,7 @@ The following diagram shows how DNS service works for partitioned stateful servi
 For more information on partitioned queries, refer to the [section below](#making-dns-queries-on-a-stateful-service-partition).
 
 ## OS support
-DNS service is supported on both Windows and Linux clusters, although support for Linux is currently limited to containerized services and cannot be enabled through Azure Portal. Windows, however, supports all of the service types and deployment models. 
+DNS service is supported on both Windows and Linux clusters, although support for Linux is currently limited to containerized services and cannot be enabled through Azure portal. Windows, however, supports all of the service types and deployment models. 
 
 ## Enabling DNS service
 > [!NOTE]
@@ -41,7 +41,7 @@ DNS service is supported on both Windows and Linux clusters, although support fo
 #### Clusters using ARM templates
 To deploy a new cluster with ARM templates, you can either use the [sample templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) or write your own. If not done already, DNS service can be enabled in the templates by using the minimum supported API versions and by adding the appropriate settings. Details on how to accomplish this can be [seen below](#existing-clusters) in points 1 and 2 of the numbered list. 
 
-#### Clusters using Azure Portal
+#### Clusters using Azure portal
 If you are creating a standard cluster in the portal, DNS service is enabled by default in the **Include DNS service** option under the **Add on features** section.
 
 ![Enabling DNS service through the portal (standard)](./media/service-fabric-dnsservice/enable-dns-service-sfrp.png)
@@ -51,7 +51,7 @@ If you are creating a managed cluster in the portal, DNS service is enabled by d
 ![Enabling DNS service through the portal (managed)](./media/service-fabric-dnsservice/enable-dns-service-sfmc.png)
 
 ### Existing clusters
-If you are updating an existing managed cluster to enable DNS service, you can do so from the portal by visiting the **Add-on services** page from the cluster resource page. Otherwise, you can enable DNS service using alternative methods which are referenced below:
+If you are updating an existing managed cluster to enable DNS service, you can do so from the portal by visiting the **Add-on services** page from the cluster resource page. Otherwise, you can enable DNS service using alternative methods that are referenced below:
   - Use the ARM template that was used to deploy the cluster, if applicable.
   - Navigate to the cluster on [Azure Resource Explorer](https://resources.azure.com/) and update the cluster resource, as seen in the steps further below (from step 2 and onward).
   - Navigate to the cluster on the portal and click **Export Template**. To learn more, see [Export the template from resource group](../azure-resource-manager/templates/export-template-portal.md).
@@ -250,7 +250,7 @@ Beginning with Service Fabric version 6.3, DNS service supports queries for serv
 For partitions that will be used in DNS queries, the following naming restrictions apply:
 
    - Partition names should be DNS-compliant.
-   - Multi-label partition names (that include dot, '.', in the name) should not be used.
+   - Multi-label partition names including dot or '.' should not be used.
    - Partition names should be lower-case.
 
 DNS queries that target a partition are formatted as follows:
@@ -341,11 +341,11 @@ For DNS names that DNS service can't resolve on its own (for example, a public D
 
 Prior to Service Fabric 9.0, these servers were queried serially until a response was received, with a fixed timeout period of 5 seconds in between. If a server didn't respond within the timeout period, the next server (if available) would be queried. In the case that these DNS servers were encountering any issues, completion of DNS queries would take longer than 5 seconds, which is not ideal. 
 
-Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This will result in quicker responses in the scenario previously mentioned. This option is not enabled by default, although this may change in a future update.
+Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This results in quicker responses in the scenario previously mentioned. This option is not enabled by default, although this may change in a future update.
 
 Fine-grained options are also introduced in Service Fabric 9.0 to control the behavior of the recursive queries, including the timeout periods and query attempts. These options can be set in the [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice):
 
-- **RecursiveQuerySerialMaxAttempts** - The number of serial queries that will be attempted, at most. If this number is higher than the amount of forwarding DNS servers, querying will stop once all the servers have been attempted exactly once. 
+- **RecursiveQuerySerialMaxAttempts** - The number of serial queries that will be attempted, at most. If this number is higher than the number of forwarding DNS servers, querying will stop once all the servers have been attempted exactly once. 
 - **RecursiveQuerySerialTimeout** - The timeout value in seconds for each attempted serial query.
 - **RecursiveQueryParallelMaxAttempts** - The number of times parallel queries will be attempted. Parallel queries are executed after the max attempts for serial queries have been exhausted. 
 - **RecursiveQueryParallelTimeout** - The timeout value in seconds for each attempted parallel query.
@@ -353,7 +353,7 @@ Fine-grained options are also introduced in Service Fabric 9.0 to control the be
 ## Limitations and known issues
 * Dynamic ports are not supported by DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 * Support for Linux is currently limited to containerized services. Process-based services on Linux currently cannot use DNS service.
-* DNS service for Linux clusters cannot be enabled through Azure Portal.
+* DNS service for Linux clusters cannot be enabled through Azure portal.
 * If a DNS name is changed for a service, the name updates may not be immediately visible in some scenarios. To resolve the issue, DNS service instances should be restarted across the cluster. 
 
 ## Next steps
