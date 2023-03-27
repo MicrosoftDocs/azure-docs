@@ -14,7 +14,7 @@ ms.custom: include file
 > [!NOTE]
 > Version 4 of the Node.js programming model is currently in public preview.
 
-- During preview, the v4 model requires you to set the app setting `AzureWebJobsFeatureFlags` to `EnableWorkerIndexing`. For more information, see [Enable v4 programming model](../articles/azure-functions/functions-reference-node.md#enable-v4-programming-model).
+- During preview, the v4 model requires you to set the app setting `AzureWebJobsFeatureFlags` to `EnableWorkerIndexing`. For more information, see [Enable v4 programming model](../articles/azure-functions/functions-node-upgrade-v4.md#enable-v4-programming-model).
 - The Node.js "programming model" shouldn't be confused with the Azure Functions "runtime".
     - _**Programming model**_: Defines how you author your code and is specific to JavaScript and TypeScript.
     - _**Runtime**_: Defines underlying behavior of Azure Functions and is shared across all languages.
