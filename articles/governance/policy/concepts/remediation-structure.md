@@ -4,7 +4,7 @@ description: Describes the policy remediation task definition used by Azure Poli
 ms.date: 11/03/2022
 ms.topic: conceptual
 ms.author: kenieva
-author: kenieva-msft
+author: kenieva
 ---
 # Azure Policy remediation task structure
 
@@ -23,7 +23,7 @@ You use JavaScript Object Notation (JSON) to create a policy remediation task. T
 - [failure threshold](#failure-threshold)
 - [remediation filters](#remediation-filters)
 - [resource discovery mode](#resource-discovery-mode)
-- [provisioning state and deployment summary](#provising-state-and-deployment-summary)
+- [provisioning state and deployment summary](#provisioning-state-and-deployment-summary)
 
 
 For example, the following JSON shows a policy remediation task for policy definition named `requiredTags` a part of
