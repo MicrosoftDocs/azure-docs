@@ -181,6 +181,8 @@
       href: cache-configure.md
     - name: Import/Export data
       href: cache-how-to-import-export-data.md
+    - name: Configure active encryption for Enterprise
+      href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
     - name: Schedule updates

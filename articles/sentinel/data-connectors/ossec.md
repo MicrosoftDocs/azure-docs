@@ -3,23 +3,21 @@ title: "OSSEC connector for Microsoft Sentinel"
 description: "Learn how to install the connector OSSEC to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # OSSEC connector for Microsoft Sentinel
 
-OSSEC data connector provides the capability to ingest [OSSEC](https://www.ossec.net/) events into Azure Sentinel. Refer to [OSSEC documentation](https://www.ossec.net/docs) for more information.
+OSSEC data connector provides the capability to ingest [OSSEC](https://www.ossec.net/) events into Microsoft Sentinel. Refer to [OSSEC documentation](https://www.ossec.net/docs) for more information.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | OSSECEvent |
-| **Kusto function url** | https://aka.ms/sentinel-OSSEC-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (OSSEC)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
@@ -38,21 +36,22 @@ OSSECEvent
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-OSSEC-parser) to create the Kusto Functions alias, **OSSECEvent**
+> [!NOTE]
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias OSSEC and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/OSSEC/Parsers/OSSECEvent.txt), on the second line of the query, enter the hostname(s) of your OSSEC device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Linux Syslog agent configuration
 
-Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Azure Sentinel.
+Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
 
 > Notice that the data from all regions will be stored in the selected workspace
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Azure Sentinel will use as the proxy between your security solution and Azure Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
-Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Azure Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
+Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
 
 > 1. Make sure that you have Python on your machine using the following command: python -version.
 
