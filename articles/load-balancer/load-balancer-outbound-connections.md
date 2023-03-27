@@ -50,7 +50,7 @@ Calculate ports per instance as follows:
 
 **Number of frontend IPs * 64K / Number of backend instances** 
 
-If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, scale out of virtual machine scale set could be blocked, or the new VMs won't receive sufficient SNAT ports. 
+If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, scale out of Virtual Machine Scale Sets could be blocked, or the new VMs won't receive sufficient SNAT ports. 
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
@@ -89,7 +89,7 @@ Default outbound access is when An Azure resource is allocated a minimal number 
 
 - doesn't have a public IP associated to it.
 - doesn't have a load balancer with outbound Rules in front of it.
-- isn't part of virtual machine scale sets flexible orchestration mode.
+- isn't part of Virtual Machine Scale Sets flexible orchestration mode.
 - doesn't have a NAT gateway resource associated to its subnet. 
 
 Some other examples of default outbound access are:
