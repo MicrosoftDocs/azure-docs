@@ -198,7 +198,7 @@ This article lists supported human languages for Immersive Reader features.
 | Thai | th |
 | Thai (Thailand) | th-TH |
 | Turkish | tr |
-| Turkish (Turkey) | tr-TR |
+| Turkish (Türkiye) | tr-TR |
 | Ukrainian | uk |
 | Ukrainian (Ukraine) | uk-UA |
 | Urdu | ur |
@@ -371,7 +371,7 @@ This article lists supported human languages for Immersive Reader features.
 | Tigrinya | ti |
 | Tongan | to |
 | Turkish | tr |
-| Turkish (Turkey) | tr-TR |
+| Turkish (Türkiye) | tr-TR |
 | Turkmen | tk |
 | Ukrainian | uk |
 | UpperSorbian | hsb |
@@ -485,7 +485,7 @@ This article lists supported human languages for Immersive Reader features.
 | Thai | th |
 | Thai (Thailand) | th-TH |
 | Turkish | tr |
-| Turkish (Turkey) | tr-TR |
+| Turkish (Türkiye) | tr-TR |
 | Ukrainian | uk |
 | Vietnamese | vi |
 | Vietnamese (Vietnam) | vi-VN |
@@ -565,7 +565,7 @@ This article lists supported human languages for Immersive Reader features.
 | Swedish | sv |
 | Swedish (Sweden) | sv-SE |
 | Turkish | tr |
-| Turkish (Turkey) | tr-TR |
+| Turkish (Türkiye) | tr-TR |
 | Ukrainian | uk |
 | Welsh | cy |
 

@@ -59,7 +59,7 @@ If you haven't already done so, create the following encryption keys. To automat
         
             <BuildingBlocks>
                 <!-- Building Blocks Here-->
-            <BuildingBlocks>
+            </BuildingBlocks>
     
             <ClaimsProviders>
                 <!-- Claims Providers Here-->

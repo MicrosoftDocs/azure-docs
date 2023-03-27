@@ -68,8 +68,10 @@ landingContent:
             url: create-a-site.md
           - text: Create a site - ARM template
             url: create-site-arm-template.md
-          - text: Modify a site plan
-            url: modify-site-plan.md
+          - text: Create additional Packet Core instances for a site - Azure portal
+            url: create-additional-packet-core.md
+          - text: Modify a service plan
+            url: modify-service-plan.md
           - text: Delete a site
             url: delete-a-site.md
           - text: Modify a packet core instance
