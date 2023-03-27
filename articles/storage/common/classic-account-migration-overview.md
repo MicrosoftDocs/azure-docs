@@ -57,9 +57,13 @@ To migrate your classic storage accounts, you should:
 
 For step-by-step instructions, see [Migrate a classic storage account to Azure Resource Manager](storage-account-migrate-classic.md).
 
-## Known issues
+## Unsupported features and known issues
 
-
+- [Customer-managed failover](https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496078/Storage-Account-Failover_Storage?anchor=unsupported-storage-accounts)
+- Challenges locating classic OS disks or images - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496154/Locate-Classic-OS-Disks-VM-Images-in-Storage-Account_Storage
+- Classic artifacts blocking storage account deletion - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496138/Delete-Classic-Storage-Account-Portal_Storage
+- Customers that only have internal billable Classic Storage and have no visibility into those resources and no ability to migrate those resources to ARM - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/606146/Classic-Storage-Account-Retirement-Message_Storage 
+- Classic StgAcct not showing in the portal - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496225/Storage-Account-Not-Visible-in-Portal-or-PowerShell_Storage
 
 ## See also
 

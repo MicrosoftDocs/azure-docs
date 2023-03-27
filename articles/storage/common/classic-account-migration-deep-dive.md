@@ -15,10 +15,9 @@ ms.subservice: common
 # Technical deep dive on migration from classic accounts to Azure Resource Manager
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
-???do we want similar stats for storage?
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. ???do we want similar stats for storage?
 
-Let's take a deep-dive on migrating storage accounts from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md).
+Let's take a deep-dive on migrating storage accounts from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md)
 
 ## Understand the data plane and management plane
 
@@ -82,7 +81,7 @@ If the storage account is not capable of migration, Azure stops the migration pr
 If the storage account is capable of migration, Azure blocks management plane operations for the storage account under migration. For example, you cannot regenerate the storage account keys while the Prepare phase is underway ???true? and what about data operations - not blocked at this step???. Azure then creates a new resource group ???in the same region??? as the classic storage account. The name of the new resource group follows the pattern `<classic-account-name>-Migrated`.
 
 > [!NOTE]
-> It is not possible to select the name of the resource group that is created for a migrated storage account. After migration is complete, however, you can use the move feature of Azure Resource Manager to move your migrated storage account to a different resource group. For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+> It is not possible to select the name of the resource group that is created for a migrated storage account. After migration is complete, however, you can use the move feature of Azure Resource Manager to move your migrated storage account to a different resource group. For more information, see [Move resources to a new subscription or resource group](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Finally, Azure migrates the storage account and all of its data and configurations to a new storage account in Azure Resource Manager in the same region as the classic storage account. At this point your classic storage account still exists and contains all of your data. If there are any problems reported during the Prepare step, you can correct them or abort the process.
 
