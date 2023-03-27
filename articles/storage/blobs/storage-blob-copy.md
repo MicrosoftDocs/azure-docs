@@ -1,7 +1,7 @@
 ---
-title: Copy a blob with .NET
+title: Copy a blob asynchronously with .NET
 titleSuffix: Azure Storage
-description: Learn how to copy a blob in Azure Storage by using the .NET client library.
+description: Learn how to copy a blob asynchronously in Azure Storage by using the .NET client library.
 author: pauljewellmsft
 
 ms.author: pauljewell
@@ -13,9 +13,9 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Copy a blob with .NET
+# Copy a blob asynchronously with .NET
 
-This article shows how to copy a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and how to abort an asynchronous copy operation.
+This article shows how to perform a [Copy Blob](/rest/api/storageservices/copy-blob#authorization) operation to copy a blob asynchronously using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and how to abort a pending copy operation.
 
 ## Prerequisites
 
@@ -24,20 +24,12 @@ To work with the code examples in this article, make sure you have:
 - An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 - Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
-    - [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url#authorization)
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
 - Packages installed to your project directory. These examples use **Azure.Storage.Blobs**. If you're using `DefaultAzureCredential` for authorization, you also need **Azure.Identity**. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
 [!INCLUDE [storage-dev-guide-about-blob-copy](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-copy.md)]
 
-## Copy a blob
-
-Starting in version 2018-03-28, you can use the following methods to begin a synchronous copy of data for source blob sizes up to 256 MiB:
-
-- [SyncCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.synccopyfromuri)
-- [SyncCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.synccopyfromuriasync)
-
-The source for these methods can be any committed block blob that is authorized with a shared access signature. If the size of the source blob is greater than 256 MiB, the request fails with a 409 (Conflict) error. These methods wrap the [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) REST API operation.
+## Copy a blob asynchronously
 
 The following methods begin an asynchronous copy of data from the source blob:
 
@@ -127,14 +119,13 @@ The following code example shows how to abort a pending copy operation:
 
 ## Resources
 
-To learn more about copying blobs using the Azure Blob Storage client library for .NET, see the following resources.
+To learn more about copying blobs asynchronously using the Azure Blob Storage client library for .NET, see the following resources.
 
 #### REST API operations
 
-The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for copying blobs use the following REST API operations:
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods covered in this article use the following REST API operations:
 
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
-- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
 #### Code samples

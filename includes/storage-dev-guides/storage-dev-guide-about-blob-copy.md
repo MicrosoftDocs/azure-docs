@@ -10,9 +10,9 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-## About copying blobs
+## About the Copy Blob operation
 
-A copy operation can perform any of the following actions:
+The `Copy Blob` operation can finish asynchronously, and is performed on a best-effort basis. The operation can complete synchronously if the copy occurs within the same storage account. A `Copy Blob` operation can perform any of the following actions:
 
 - Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or it can be a new blob created by the copy operation.
 - Copy a source blob to a destination blob with the same name, which replaces the destination blob. This type of copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
@@ -34,7 +34,7 @@ A copy operation only reads from the source blob, so the source blob lease state
 
 #### Billing considerations
 
-The destination account of a `Copy Blob` or `Copy Blob From URL` operation is charged for one transaction to start the copy. The destination account also incurs one transaction for each request to the copy operation.
+The destination account of a `Copy Blob` operation is charged for one transaction to start the copy. The destination account also incurs one transaction for each request to the copy operation.
 
 When the source blob is in another account, the source account incurs transaction costs. In addition, if the source and destination accounts reside in different regions, bandwidth that you use to transfer the request is charged to the source storage account as egress. Egress between accounts within the same region is free.
 
