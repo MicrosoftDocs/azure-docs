@@ -65,7 +65,7 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ### Webhook Certificate Auto Rotation
 
-Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation](https://learn.microsoft.com/en-us/azure/aks/certificate-rotation#certificate-auto-rotation) operation.
+Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation](https://learn.microsoft.com/azure/aks/certificate-rotation#certificate-auto-rotation) operation.
 
 ## Service account labels and annotations
 
