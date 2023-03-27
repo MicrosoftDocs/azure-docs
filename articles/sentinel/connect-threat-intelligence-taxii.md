@@ -41,13 +41,21 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 
 1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
 
-1. Select **Content hub** from the menu, select the **Threat Intelligence** solution, and select the :::image type="icon" source="media/connect-threat-intelligence-taxii/install-update-button.png"::: **Install/Update** button.
+1. Select **Content hub** from the menu.
 
-For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+1. Find and select the **Threat Intelligence** solution.
+
+1. Select the :::image type="icon" source="media/connect-threat-intelligence-taxii/install-update-button.png"::: **Install/Update** button.
+
+    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Enable the Threat intelligence - TAXII data connector
 
-1. Select the **Data connectors** menu > **Threat intelligence - TAXII** > **Open connector page** button.
+1. To configure the TAXII data connector, select the **Data connectors** menu. 
+
+1. Find and select the **Threat Intelligence - TAXII** data connector > **Open connector page** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
 
 1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 

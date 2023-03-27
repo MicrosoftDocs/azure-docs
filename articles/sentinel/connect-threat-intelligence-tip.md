@@ -122,11 +122,19 @@ The last step in the integration process is to enable the **Threat Intelligence 
 
 1. Choose the **workspace** to which you want to import the threat indicators sent from your TIP or custom solution.
 
-1. Select **Content hub** from the menu, select the **Threat Intelligence** solution, and select the :::image type="icon" source="media/connect-threat-intelligence-taxii/install-update-button.png"::: **Install/Update** button.
+1. Select **Content hub** from the menu.
+
+1. Find and select the **Threat Intelligence** solution.
+
+1. Select the :::image type="icon" source="media/connect-threat-intelligence-tip/install-update-button.png"::: **Install/Update** button.
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
-1. Select the **Data connectors** menu > **Threat Intelligence Platforms** > and select the **Open connector page** button.
+1. To configure the TIP data connector, select the **Data connectors** menu. 
+
+1. Find and select the **Threat Intelligence Platforms** data connector > **Open connector page** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-tip/tip-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TIP data connector listed." lightbox="media/connect-threat-intelligence-tip/tip-data-connector-config.png":::
 
 1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
 
