@@ -41,7 +41,7 @@ Before you get started, make sure you have the following requirements in place:
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ [Azure Functions Core Tools v4.0.5085 or above](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools v4.0.5095 or above](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
