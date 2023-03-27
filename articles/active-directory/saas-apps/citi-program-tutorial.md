@@ -69,7 +69,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://www.citiprogram.org/Shibboleth.sso/SAML2/POST`
 
 	c. In the **Sign on URL** textbox, type a URL using the following pattern:
-	`https://www.citiprogram.org/Shibboleth.sso/Login?target=https%3A%2F%2Fwww.citiprogram.org%2FSecure%2FWelcome.cfm%3finst%3d<InstitutionID>&entityID=<EntityID>`
+	`https://www.citiprogram.org/Shibboleth.sso/Login?target=https://www.citiprogram.org/Secure/Welcome.cfm?inst=<InstitutionID>&entityID=<EntityID>`
 
 	> [!NOTE]
 	> This value is not real. Update this value with the actual Sign on URL. Contact [CITI Program support team](mailto:shibboleth@citiprogram.org) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
