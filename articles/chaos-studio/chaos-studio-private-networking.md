@@ -127,6 +127,8 @@ Now your private AKS cluster can be used with Chaos Studio! Use the following in
 
 Now your private AKS cluster can be used with Chaos Studio! Use the following instructions to learn how to install Chaos Mesh and run the experiment: [Create a chaos experiment that uses a Chaos Mesh fault with the Azure CLI](chaos-studio-tutorial-aks-cli.md).
 
+---
+
 ## Limitations
 * VNet injection is currently only possible in subscriptions/regions where Azure Container Instances and Azure Relay are available. They're deployed to target regions.
 * When you create a Target resource that you'll enable with VNet injection, you need `Microsoft.Network/virtualNetworks/subnets/write` access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster. You have to specify a subnet (in VNet_A) that the container will be deployed to.
