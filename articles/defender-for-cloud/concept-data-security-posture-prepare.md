@@ -49,7 +49,7 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 ## Configuring data sensitivity settings
 
 The main steps for configuring data sensitivity setting include:
-- [Import custom sensitive info types/labels from Microsoft Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-microsoft-purview-compliance-portal)
+- [Import custom sensitive info types/labels from Microsoft Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-purview-compliance-portal)
 - [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
 - [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 
