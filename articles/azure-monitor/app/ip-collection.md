@@ -128,11 +128,7 @@ Content-Length: 54
 
 ## Telemetry initializer
 
-If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field.
-
-# [.NET](#tab/net)
-
-### ASP.NET or ASP.NET Core
+If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field. The code for this class is the same across .NET versions.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
