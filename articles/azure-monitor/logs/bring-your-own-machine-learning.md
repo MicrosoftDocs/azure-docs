@@ -52,7 +52,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 If the richness of native KQL functions doesn't meet your business needs, you can implement custom machine learning models. For example, if you need to perform hunting for security attacks when data requires more sophisticated models than linear or other regressions supported by KQL, or if you need to correlate data in Azure Monitor Logs with data from other sources. 
 
-This table compares the advantages and limitations of the three using machine learning pipeline implementation approaches:
+This table compares the advantages and limitations of the various machine learning pipeline implementation approaches:
 
 ||Integrated environment|External machine learning pipeline|Hybrid pipeline<br>(Scoring in an integrated environment, external model training)|
 |-|-|-|-|
