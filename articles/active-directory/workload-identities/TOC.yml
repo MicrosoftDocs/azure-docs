@@ -47,6 +47,12 @@
         href: ../reports-monitoring/recommendation-remove-unused-credential-from-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: Renew expiring application credentials
         href: ../reports-monitoring/recommendation-renew-expiring-application-credential.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  - name: Enforce app management restrictions
+    items:
+      - name: All apps and service principals in a tenant
+        href: /graph/api/resources/tenantappmanagementpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+      - name: Specific apps and service principals
+        href: /graph/api/resources/appmanagementpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   - name: Reference
     items:
     - name: Federated identity credentials considerations and limitations

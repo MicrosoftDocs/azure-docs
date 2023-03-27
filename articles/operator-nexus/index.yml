@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-           - text: What is Operator Nexus ?
+           - text: What is Operator Nexus?
              url: overview.md
       - linkListType: concept
         links:

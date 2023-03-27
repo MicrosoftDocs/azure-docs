@@ -73,8 +73,6 @@ items:
       href: logs-and-metrics.md
     - name: Structured Firewall Logs
       href: firewall-structured-logs.md
-    - name: Network rule name logging
-      href: firewall-network-rule-logging.md
     - name: Threat intelligence
       href: threat-intel.md
     - name: Policy rule sets

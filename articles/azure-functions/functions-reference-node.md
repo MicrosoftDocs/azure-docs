@@ -68,40 +68,6 @@ At the root of the project, there's a shared [host.json](functions-host-json.md)
 
 ::: zone pivot="nodejs-model-v4"
 
-## Enable v4 programming model
-
-The following application setting is required to run the v4 programming model while it is in preview: 
-- Name: `AzureWebJobsFeatureFlags`
-- Value: `EnableWorkerIndexing`
-
-If you're running locally using [Azure Functions Core Tools](functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
-
-# [Azure CLI](#tab/azure-cli-set-indexing-flag)
-
-Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-```azurecli 
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
-```
-
-# [Azure PowerShell](#tab/azure-powershell-set-indexing-flag)
-
-Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-```azurepowershell
-Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
-```
-
-# [VS Code](#tab/vs-code-set-indexing-flag)
-
-1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed
-1. Press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-1. Choose your subscription and function app when prompted
-1. For the name, type `AzureWebJobsFeatureFlags` and press <kbd>Enter</kbd>. 
-1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
-
----
-
 ## Folder structure
 
 The recommended folder structure for a JavaScript project looks like the following example:
