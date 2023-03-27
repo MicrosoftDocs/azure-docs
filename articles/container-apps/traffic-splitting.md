@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 03/28/2023
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -63,6 +63,8 @@ az containerapp ingress traffic set \
 1. Select **Active** for the revisions you want to route traffic to.
 1. Enter the percentage of traffic you want to route to each revision in the **Traffic** column. The combined percentage of all traffic must equal 100%.
 1. Select **Save**.
+
+
 
 ::: zone-end
 

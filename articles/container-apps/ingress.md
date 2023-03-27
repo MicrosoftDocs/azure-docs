@@ -26,6 +26,7 @@ You can set the following ingress properties:
 | `exposedPort` | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 | `external` | Allow ingress to your app from outside its Container Apps environment. |`true` or `false`(default) | Yes |
 | `ipSecurityRestrictions` | IP ingress restrictions. See [Set up IP ingress restrictions](ip-restrictions.md) | array of rules | No |
+| `stickySessions.affinity` | Enables [session affinity](#session-affinity). | `none` (default), `sticky` | No |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. For HTTP ingress, your application ingress endpoint is always exposed on port `443`. | Yes |
 | `traffic` | Traffic weights based on revision name or labels. See [Traffic splitting](traffic-splitting.md) | array of rules | No |
 | `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |

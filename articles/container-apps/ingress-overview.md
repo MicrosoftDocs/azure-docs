@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 03/28/2023
 ms.author: cshoe
 ---
 
@@ -21,6 +21,7 @@ Ingress supports:
 - [IP restrictions](#ip-restrictions)
 - [Authentication](#authentication)
 - [Traffic splitting between revisions](#traffic-splitting)
+- [Session affinity](#sticky-sessions)
 
 > [!NOTE]
 > Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
@@ -101,6 +102,10 @@ You can configure your app to support client certificates (mTLS) for authenticat
 ## Traffic splitting
 
 Containers Apps allows you to split incoming traffic between active revisions.  When you define a splitting rule, you assign the percentage of inbound traffic to go to different revisions.  For more information, see [Traffic splitting](traffic-splitting.md).
+
+## Session affinity
+
+Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](session-affinity.md).
 
 ## Next steps
 

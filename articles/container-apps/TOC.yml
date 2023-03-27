@@ -108,6 +108,8 @@
         href: client-certificate-authorization.md
       - name: Configure traffic-splitting
         href: traffic-splitting.md
+      - name: Session affinity
+        href: sticky-sessions.md
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain
