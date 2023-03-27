@@ -19,7 +19,7 @@ ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes four different ways to save your cost on Azure Spring Apps. At the end of this overview, you should have a clear understanding on how to save on your cost. Azure Spring Apps offers the following cost-saving options:
+This article describes four different ways to save your costs on Azure Spring Apps. Azure Spring Apps offers the following cost-saving options:
 
 - Save on memory with Monthly Free grants
 - Ability to start and stop instances
@@ -36,10 +36,10 @@ If your Azure Spring Apps don't need to run continuously, you can save costs by 
 
 ## Standard Consumption Plan
 
-Unlike other plans, the Standard Consumption plan offers a pure consumption-based pricing model. Resources can be dynamically added and removed based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and number of requests. For more information, see the [Standard consumption plan](/azure/spring-apps/overview#standard-consumption-plan) section of [What is Azure Spring Apps](/azure/spring-apps/overview).
+Unlike other plans, the Standard Consumption plan offers a pure consumption-based pricing model. Resources can be dynamically added and removed based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption plan](/azure/spring-apps/overview#standard-consumption-plan) section of [What is Azure Spring Apps](/azure/spring-apps/overview).
 
 ## Autoscale
 
-Autoscale refers to setting up rules to increase or decrease computing capacities according to the changing environment. It reduces operating costs by terminating redundant resources once no longer needed. For more information, see [Set up autoscale for applications](/azure/spring-apps/how-to-setup-autoscale).
+Autoscale refers to setting up rules to increase or decrease computing capacities according to the changing environment. It reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](/azure/spring-apps/how-to-setup-autoscale).
 
 ## Next steps
