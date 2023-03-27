@@ -19,7 +19,7 @@ ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes four different ways to save your costs on Azure Spring Apps. Azure Spring Apps offers the following cost-saving options:
+This article describes four different ways to save costs on Azure Spring Apps. Azure Spring Apps offers the following cost-saving options:
 
 - Save on memory with Monthly Free grants
 - Ability to start and stop instances
@@ -30,9 +30,9 @@ This article describes four different ways to save your costs on Azure Spring Ap
 
 The first 50 vCPU hours and 100-GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058).
 
-## Start and stop instance
+## Start and stop instances
 
-If your Azure Spring Apps don't need to run continuously, you can save costs by reducing the number of running instances. For more information, see [Start or stop your Azure Spring Apps service instance](/azure/spring-apps/how-to-start-stop-service).
+If your Azure Spring Apps instances don't need to run continuously, you can save costs by reducing the number of running instances. For more information, see [Start or stop your Azure Spring Apps service instance](/azure/spring-apps/how-to-start-stop-service).
 
 ## Standard Consumption Plan
 
