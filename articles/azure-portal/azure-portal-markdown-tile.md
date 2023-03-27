@@ -1,7 +1,7 @@
 ---
 title: Use a custom markdown tile on Azure dashboards
 description: Learn how to add a markdown tile to an Azure dashboard to display static content
-ms.date: 01/11/2022
+ms.date: 03/27/2023
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
