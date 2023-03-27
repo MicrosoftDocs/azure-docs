@@ -115,7 +115,7 @@ Congratulations you've trained a custom classification model in the Form Recogni
 
 ## Troubleshoot
 
-The [classification model](concept-custom-classifier.md) requires results from the [layout model](concept-layout.md) for each training document. If you haven't provided the layout results, the Studio attempts to run the layout model for each document prior to training the classifier. This process is throttled and can result in a 429 response. 
+The [classification model](../concept-custom-classifier.md) requires results from the [layout model](../concept-layout.md) for each training document. If you haven't provided the layout results, the Studio attempts to run the layout model for each document prior to training the classifier. This process is throttled and can result in a 429 response. 
 
 In the Studiio, prior to training with the classification model, run the [layout model](https://formrecognizer.appliedai.azure.com/studio/layout) on each document and upload it to the same location as the original document. Once the layout results are added, you can train the classifier model with your documents. 
 
