@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/21/2023
+ms.date: 03/27/2023
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ This article provides an overview of the MedTech service device mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API.
 
-The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub endpoint to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls the mapping for FHIR Observations.
+The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub endpoint to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls the mapping for [FHIR Observations](https://www.hl7.org/fhir/observation.html).
 
 > [!NOTE]
 > The device and FHIR destination mappings are reevaluated each time a message is processed. Any updates to either mapping will take effect immediately.
@@ -28,7 +28,7 @@ The device mapping is the first type and is responsible for mapping values in th
 The device mapping contains collections of expression templates used to extract device message data into an internal, normalized format for further evaluation. Each device message received is evaluated against **all** expression templates in the collection. This evaluation means that a single device message can be separated into multiple outbound messages that can be mapped to multiple FHIR Observations in the FHIR service.
 
 > [!TIP]
-> For more information about how the MedTech service processes device message data into FHIR Observation resources for persistence on the FHIR service, see [Understand the MedTech service device message data transformation](understand-service.md).
+> For more information about how the MedTech service processes device message data into FHIR Observations for persistence on the FHIR service, see [Understand the MedTech service device message processing stages](understand-service.md).
 
 This diagram provides an illustration of what happens during the normalization processing stage within the MedTech service.
 
@@ -52,7 +52,7 @@ The validation process validates the device mapping before allowing it to be sav
 > [!NOTE] 
 > `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. This is used when the telemetry being sent is an event.
 >
-> For example, some scenarios may require creating an Observation resource in the FHIR service that does not contain a value.
+> For example, some scenarios may require creating a FHIR Observation in the FHIR service that does not contain a value.
 
 ## CollectionContent
 
