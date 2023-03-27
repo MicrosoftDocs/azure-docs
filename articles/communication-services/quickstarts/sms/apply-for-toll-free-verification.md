@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ms.custom: mode-other
 ---
-# Quickstart: Apply for Toll-Free Verification
+# Quickstart: Apply for toll-free verification
 Get started with reliable SMS service using toll-free numbers by submitting a toll-free verification. Toll-free verification maximizes deliverability of messages with low to no traffic filtering.
 
 ## Prerequisites
@@ -33,38 +33,38 @@ To begin toll-free verification, go to your Communication Services resource on t
 ## Apply for a toll-free verification
 Navigate to the Regulatory Documents blade in the resource menu and click on "Add" button to launch the toll-free verification application wizard. For detailed guidance on how to fill out the program brief application check the [toll-free verification filling guidelines](../../concepts/sms/toll-free-verification-guidelines.md). 
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen1.png" alt-text="Screenshot showing Regulatory Documents Blade.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-1.png" alt-text="Screenshot showing Regulatory Documents Blade.":::
 
 A toll-free verification application consists of the following five sections:
-### Application Type
+### Application type
 You first need to choose country/region and toll-free numbers you would like to get verified. If you have not acquired a toll-free number, then you need to first acquire the number and then come back to this application. If you have selected more than one toll-free number to verify, you need to provide justification on how the multiple numbers are used for the campaign. 
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen2.png" alt-text="Screenshot showing Application type section.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-2.png" alt-text="Screenshot showing Application type section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-2.png":::
 
-### Contact Details
+### Contact details
 This section requires you to provide information about your company and point of contact in the case we need additional information for this application.
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen3.png" alt-text="Screenshot showing contact details section.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-3.png" alt-text="Screenshot showing contact details section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-3.png":::
 
-### Program Content
+### Program content
 This section requires you to provide description of the SMS campaign, opt-in method (how you plan to get consent from the customer to receive SMS), and screenshots of the selected opt-in method.  
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen4.png" alt-text="Screenshot showing Program content section.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-4.png" alt-text="Screenshot showing Program content section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-4.png":::
 
-### Volume Details
+### Volume details
 This section requires you to provide an estimate of the number of messages you plan on sending per month.
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen5.png" alt-text="Screenshot showing Volume details section.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-5.png" alt-text="Screenshot showing Volume details section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-5.png":::
 
-### Template Information
+### Template information
 This section captures sample messages related to your campaign. Provide samples of each type of message you are sending out to recipients.
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen6.png" alt-text="Screenshot showing Template details section.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-6.png" alt-text="Screenshot showing Template details section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-6.png":::
 
 ### Review 
-Once completed, review the toll-free verification details and submit the completed application through the Azure Portal. 
+Once completed, review the toll-free verification details and submit the completed application through the Azure portal. 
 
-:::image type="content" source="./media/toll-free-verification/Regulatory-screen7.png" alt-text="Screenshot showing review section.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-7.png" alt-text="Screenshot showing review section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-7.png":::
  
 This program brief is automatically sent to the toll-free messaging aggregator for review. The toll-free aggregator then reviews the details of the toll-free verification application, a process that can typically take between 5-6 weeks. Once they approve the application, you are notified via application status change in the Azure portal. You can now start sending and receiving messages with low filtering on this toll-free number for your messaging programs.
 

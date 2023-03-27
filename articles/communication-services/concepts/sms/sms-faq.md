@@ -55,7 +55,7 @@ Below is a list with examples of common URL shorteners you should avoid to maxim
 Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
 - **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop", which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
 - **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP’ to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
-- Azure Communication Services detects STOP messages and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
+- Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
 - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 ### How does Azure Communication Services handle opt-outs for short codes?
@@ -66,7 +66,7 @@ Azure communication service offers an opt-out management service for short codes
 - **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
-Azure Communication Services detects STOP messages and block all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 ## Short codes
 ### What is the eligibility to apply for a short code?
@@ -128,7 +128,9 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 - **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state automatically get shut off if any spam or unwanted traffic is detected.
 
 ### What happens after I submit the toll-free verification form?
-:::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses.":::
+:::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses." lightbox="./media/tf-status-blue.png":::
+
+
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 
