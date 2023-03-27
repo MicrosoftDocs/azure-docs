@@ -543,7 +543,7 @@
       href: defender-for-storage-threats-alerts.md
     - name: Defender for Storage (classic)
       items:
-      - name: Overview
+      - name: Overview (classic)
         href: defender-for-storage-classic.md
       - name: Enable and configure Defender for Storage (classic)
         href: defender-for-storage-classic-enable.md
