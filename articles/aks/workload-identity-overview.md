@@ -87,7 +87,7 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 |Label |Description |Recommended value |Required |
 |------|------------|------------------|---------|
-|`azure.workload.identity/use` | Represents the pod is to be used for workload identity. |true |Yes |
+|`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
 
