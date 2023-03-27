@@ -170,6 +170,30 @@
     - name: Extra deployment steps and samples
       href: extra-deploy-enterprise-iot.md
       displayName: Enterprise IoT sensor
+  - name: Deploy air-gapped OT sensor management
+    items:
+    - name: Air-gapped management deployment path
+      href: ot-deploy/air-gapped-deploy.md
+    - name: Install an on-premises management console
+      href: ot-deploy/install-software-on-premises-management-console.md
+    - name: Activate and set up an on-premises management console
+      href: ot-deploy/activate-deploy-management.md
+    - name: Connect OT sensors to an on-premises management console
+      href: ot-deploy/connect-sensors-to-management.md
+    - name: Configure on-premises sites and zones
+      href: ot-deploy/sites-and-zones-on-premises.md
+      displayName: site, zone, Zero Trust
+  - name: Deploy Enterprise IoT monitoring
+    items:
+    - name: Enable Enterprise IoT security
+      href: eiot-defender-for-endpoint.md
+      displayName: onboard
+    - name: Discover Enterprise IoT devices
+      href: eiot-sensor.md
+      displayName: Enterprise IoT sensor
+    - name: Extra deployment steps and samples
+      href: extra-deploy-enterprise-iot.md
+      displayName: Enterprise IoT sensor
 - name: Tutorials
   expanded: false
   items:
