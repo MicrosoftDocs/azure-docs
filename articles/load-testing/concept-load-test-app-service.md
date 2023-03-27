@@ -48,16 +48,17 @@ Alternately, create a new load test by uploading an existing JMeter script. Use 
 
 If you get started with load testing, you might first create a quick test, and then further modify and extend the test script that Azure Load Testing generated.
 
-After you create and run your load test, Azure Load Testing provides a dashboard with test run statistics, such as response time, error percentage and throughput.
+After you create and run your load test, Azure Load Testing provides a dashboard with test run statistics, such as [response time](./concept-load-testing-concepts.md#response-time), error percentage and [throughput](./concept-load-testing-concepts.md#requests-per-second-rps).
 
 ## Use test fail criteria
 
+The Azure Load Testing dashboard provides insights about a specific load test run and how the application responds to simulated load. To verify that your application can meet your performance and availability requirements, specify *load test fail criteria*.
 
+Test fail criteria enable you to configure conditions for load test *client-side metrics*. If a load test run doesn't meet these conditions, the test is considered to fail. For example, specify that the average response time of requests, or that the percentage of failed requests is above a given threshold. You can add fail criteria to your load test at any time, regardless if it's a quick test or if you uploaded a JMeter script.
 
+When you run load tests as part of your CI/CD pipeline, you can use test fail criteria to quickly identify performance regressions with an application build.
 
-- Quick test (for example, to test the home page or specific page of the web app. Grab from the App Service endpoint)
-- Upload a JMeter script (for example, multiple requests, authenticated requests, configurable test)
-- Use test criteria to determine if meets your expectations
+Learn how to [configure test fail criteria](./how-to-define-test-criteria.md) for your load test.
 
 ## Monitor application metrics
 
