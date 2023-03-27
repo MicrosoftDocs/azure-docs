@@ -63,6 +63,8 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Internet exposed VM has high severity vulnerabilities and a hosted database installed  | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
 | Private Azure blob storage container replicates data to internet exposed and publicly accessible Azure blob storage container (Preview) | An internal Azure storage container replicates its data to another Azure storage container which is reachable from the internet and allows public access, and poses this data at risk. |
 | Internet exposed Azure Blob Storage container with sensitive data is publicly accessible | A blob storage account container with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender for CSPM](data-security-posture-enable.md).|
+| Internet exposed managed database allows basic (local user/password) authentication (Preview) | A database can be accessed through the internet and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
+| Internet exposed Azure Blob Storage container with sensitive data is publicly accessible (Preview) | Azure Blob storage container with sensitive data is reachable from the internet and allows public read access without authorization required |
 
 ### AWS data
 
@@ -77,6 +79,14 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 |Internet exposed EC2 instance has high severity vulnerabilities and a hosted database installed | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
 | Private AWS S3 bucket replicates data to internet exposed and publicly accessible AWS S3 bucket (Preview) | An internal AWS S3 bucket replicates its data to another S3 bucket which is reachable from the internet and allows public access, and poses this data at risk. |
 | RDS snapshot is publicly available to all AWS accounts | A snapshot of an RDS instance or cluster is publicly accessible by all AWS accounts. |
+| Internet exposed managed database allows basic (local user/password) authentication (Preview) | A database can be accessed through the internet and allows user/password authentication only which exposes the DB to brute force attacks. |
+| Internet exposed SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute (Preview) | SQL on EC2 instance is reachable from the internet, has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying compute |
+| Internet exposed SQL on EC2 instance has a user account with commonly used username and known vulnerabilities (Preview) | SQL on EC2 instance is reachable from the internet, has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
+| SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute (Preview) | SQL on EC2 instance has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying compute |
+| SQL on EC2 instance has a user account with commonly used username and known vulnerabilities (Preview) | SQL on EC2 instance has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs) |
+| Private AWS S3 bucket replicates data to internet exposed and publicly accessible AWS S3 bucket (Preview) | Private AWS S3 bucket is replicating data to internet exposed and publicly accessible AWS S3 bucket |
+| Private AWS S3 bucket with sensitive data replicates data to internet exposed and publicly accessible AWS S3 bucket (Preview) | Private AWS S3 bucket with sensitive data is replicating data to internet exposed and publicly accessible AWS S3 bucket|
+| RDS snapshot is publicly available to all AWS accounts (Preview) | RDS snapshot is publicly available to all AWS accounts |
 
 ### Azure containers
 

@@ -12,13 +12,12 @@ One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud S
 
 Defender for Cloud continually assesses your resources, subscriptions and organization for security issues. Defender for Cloud shows your security posture in secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
 
-## Availability
+## Prerequisites
 
-|Aspect|Details|
-|----|:----|
-|Release state:| Foundational CSPM capabilities: GA <br> Defender Cloud Security Posture Management (CSPM): Preview |
-| Prerequisites | - **Foundational CSPM capabilities** - None <br> <br> - **Defender Cloud Security Posture Management (CSPM)** - Agentless scanning requires the **Subscription Owner** to enable the plan. Anyone with a lower level of authorization can enable the Defender CSPM plan but the agentless scanner won't be enabled by default due to lack of permissions. Attack path analysis and security explorer won't populate with vulnerabilities because the agentless scanner is disabled. |
-|Clouds:|   **Foundational CSPM capabilities** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. <br> <br> **Defender Cloud Security Posture Management (CSPM)** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. |
+- **Foundational CSPM capabilities** - None 
+- **Defender Cloud Security Posture Management (CSPM)** - Agentless scanning requires the **Subscription Owner** to enable the plan. Anyone with a lower level of authorization can enable the Defender CSPM plan but the agentless scanner won't be enabled by default due to lack of permissions. Attack path analysis and security explorer won't be populated with vulnerabilities because the agentless scanner is disabled. 
+
+For commercial and national cloud coverage, see the [features supported in different Azure cloud environments](support-matrix-defender-for-cloud.md#features-supported-in-different-azure-cloud-environments).
 
 ## Defender CSPM plan options
 
@@ -44,6 +43,8 @@ Refer to the following table:
 |Defender for DBs / Defender for Storage | 5% | **$14.25/** Compute or Data workload / month  
 
 ## Plan Availability
+
+Learn more about [Defender CSPM pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 The following table summarizes each plan and their cloud availability.
 
