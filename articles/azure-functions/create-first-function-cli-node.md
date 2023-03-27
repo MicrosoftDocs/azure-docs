@@ -29,7 +29,7 @@ Before you begin, you must have the following:
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.5085 or above
++ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.5095 or above
 ::: zone-end
 
 + One of the following tools for creating Azure resources:
@@ -57,7 +57,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.5095 or above.
 ::: zone-end
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
@@ -71,7 +71,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.5095 or above.
 ::: zone-end
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
