@@ -13,7 +13,7 @@ ms.workload: storage
 ms.custom: references_regions
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 03/27/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes (preview)
@@ -39,6 +39,7 @@ To enroll in the preview for large volumes, use the [large volumes preview sign-
 * Large volumes aren't currently supported with cross-zone replication.
 * The SDK for large volumes isn't currently available. 
 * Large volumes aren't currently supported with cool access tier.
+* Currently, large volumes are not suited for database (HANA, Oracle, SQL Server, etc) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes.
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to 500 TiB with the throughput ceiling per the following table:
 
 | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |

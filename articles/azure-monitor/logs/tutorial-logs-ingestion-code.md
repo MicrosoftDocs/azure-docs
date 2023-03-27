@@ -283,51 +283,58 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
 4. Replace the variables in the following sample code with values from your DCE and DCR. You may also want to replace the sample data with your own.
 
     ```java
-    public static void main(String[] args) { 
-        
-        LogsIngestionClient client = new LogsIngestionClientBuilder()
-            .endpoint("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com") 
-            .credential(new DefaultAzureCredentialBuilder().build()) 
-            .buildClient(); 
+    import com.azure.identity.DefaultAzureCredentialBuilder; 
+    import com.azure.monitor.ingestion.models.LogsUploadException;
+
+    import java.time.OffsetDateTime; 
+    import java.util.Arrays; 
+    import java.util.List; 
+
+    public class LogsUploadSample {
+        public static void main(String[] args) { 
             
-        List<Object> dataList = Arrays.asList( 
-            new Object() { 
-                OffsetDateTime time = OffsetDateTime.now(); 
-                String computer = "Computer1"; 
-                Object additionalContext = new Object() { 
-                    String instanceName = "user4"; 
-                    String timeZone = "Pacific Time"; 
-                    int level = 4; 
-                    String counterName = "AppMetric1"; 
-                    double counterValue = 15.3; 
-                }; 
-            }, 
-            new Object() { 
-                OffsetDateTime time = OffsetDateTime.now(); 
-                String computer = "Computer2"; 
-                Object additionalContext = new Object() { 
-                    String instanceName = "user2"; 
-                    String timeZone = "Central Time"; 
-                    int level = 3; 
-                    String counterName = "AppMetric2"; 
-                    double counterValue = 43.5; 
-                }; 
-            }); 
-            
-        try { 
-            client.upload("dcr-00000000000000000000000000000000", "Custom-MyTableRawData", dataList);  
-            System.out.println("Logs uploaded successfully"); 
-        } catch (LogsUploadException exception) { 
-            System.out.println("Failed to upload logs "); 
-            exception.getLogsUploadErrors() 
-                .forEach(httpError -> System.out.println(httpError.getMessage())); 
+            LogsIngestionClient client = new LogsIngestionClientBuilder()
+                .endpoint("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com") 
+                .credential(new DefaultAzureCredentialBuilder().build()) 
+                .buildClient(); 
+                
+            List<Object> dataList = Arrays.asList( 
+                new Object() { 
+                    OffsetDateTime time = OffsetDateTime.now(); 
+                    String computer = "Computer1"; 
+                    Object additionalContext = new Object() { 
+                        String instanceName = "user4"; 
+                        String timeZone = "Pacific Time"; 
+                        int level = 4; 
+                        String counterName = "AppMetric1"; 
+                        double counterValue = 15.3; 
+                    }; 
+                }, 
+                new Object() { 
+                    OffsetDateTime time = OffsetDateTime.now(); 
+                    String computer = "Computer2"; 
+                    Object additionalContext = new Object() { 
+                        String instanceName = "user2"; 
+                        String timeZone = "Central Time"; 
+                        int level = 3; 
+                        String counterName = "AppMetric2"; 
+                        double counterValue = 43.5; 
+                    }; 
+                }); 
+                
+            try { 
+                client.upload("dcr-00000000000000000000000000000000", "Custom-MyTableRawData", dataList);  
+                System.out.println("Logs uploaded successfully"); 
+            } catch (LogsUploadException exception) { 
+                System.out.println("Failed to upload logs "); 
+                exception.getLogsUploadErrors() 
+                    .forEach(httpError -> System.out.println(httpError.getMessage())); 
             } 
         }
+    }
     ```
 
 5. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
-
-
 
 
 ## [.NET](#tab/net)

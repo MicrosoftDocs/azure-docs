@@ -22480,6 +22480,11 @@
             "source_path_from_root": "/articles/communication-services/concepts/bring-your-own-storage.md",
             "redirect_url": "/azure/communication-services/concepts/call-automation/call-recording/bring-your-own-storage",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
+            "redirect_url": "/azure/sentinel/understand-threat-intelligence",
+            "redirect_document_id": false
         }
        
     ]

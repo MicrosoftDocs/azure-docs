@@ -44,8 +44,6 @@ items:
         href: use-azure-purview-studio.md
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default account
-        href: concept-default-purview-account.md
       - name: Asset lifecycle best practices
         href: concept-best-practices-asset-lifecycle.md
       - name: Automation best practices
@@ -269,8 +267,6 @@ items:
             href: how-to-lineage-purview-data-sharing.md
           - name: Power BI lineage
             href: how-to-lineage-powerbi.md
-          - name: Spark lineage
-            href: how-to-lineage-spark-atlas-connector.md
           - name: SQL Server Integration Services lineage
             href: how-to-lineage-sql-server-integration-services.md
   - name: Data catalog
