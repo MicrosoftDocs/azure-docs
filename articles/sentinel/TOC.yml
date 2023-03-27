@@ -177,6 +177,8 @@
     items:
     - name: Solution overview
       href: sap/solution-overview.md
+    - name: Working with the solution across multiple workspaces
+      href: sap/cross-workspace.md
 - name: How-tos
   items:
   - name: Plan architecture
