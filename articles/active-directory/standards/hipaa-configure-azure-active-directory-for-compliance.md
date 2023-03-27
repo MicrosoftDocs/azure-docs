@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configuring Azure Active Directory for HIPAA compliance
+# Configuring Azure Active Directory for HIPAA Compliance
 
-Azure Active Directory helps you meet identity-related requirements for the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Act.
+Microsoft services such as Azure Active Directory can help you meet identity-related requirements for the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Act.
 
 The HIPAA Security Rule (HSR) establishes national standards to protect individuals’ electronic personal health information that is created, received, used, or maintained by a covered entity. The HSR is managed by the U.S. Department of Health and Human Services (HHS) and requires appropriate administrative, physical, and technical safeguards to ensure the confidentiality, integrity, and security of electronic protected health information.
 
