@@ -35,7 +35,10 @@ Follow these steps to test Malware Scanning after enabling the feature:
 
 1. If you don't see the new blob index tags, select the **Refresh** button.
 
-## Upload an EICAR test file to simulate malware upload:
+> [!NOTE]
+> Index tags are not supported for ADLS Gen. To test and validate your protection for premium block blobs, look at the generated security alert.
+
+### Upload an EICAR test file to simulate malware upload:
 
 To simulate a malware upload using an EICAR test file, follow these steps:
 
