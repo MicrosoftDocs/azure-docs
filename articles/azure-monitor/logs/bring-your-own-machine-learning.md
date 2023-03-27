@@ -62,7 +62,7 @@ This table compares the advantages and limitations of the various machine learni
 |**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which are possible to overcome by splitting query execution into chunks.|Cost of export and storage, increased latency due to export.|**Training**: Cost of export and training. |
 | |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Supports several GBs of data, or a few million records. |
 
-### Implement the machine learning lifecycle in your Azure Monitor Logs pipeline
+### Implement the machine learning lifecycle in Azure Monitor Logs
 
 Setting up a machine learning pipeline typically involves all or some of these tasks:
  
