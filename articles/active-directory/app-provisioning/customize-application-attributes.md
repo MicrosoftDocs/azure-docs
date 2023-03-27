@@ -114,7 +114,7 @@ Applications and systems that support customization of the attribute list includ
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
 - Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). For more information about creating extensions, see [Syncing extension attributes for Azure Active Directory Application Provisioning](./user-provisioning-sync-attributes-for-mapping.md) and [Known issues for provisioning in Azure Active Directory](./known-issues.md). 
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
-- For Azure Active Directory writeback to Workday or SuccessFactors, it's supported to update relevant metadata for supported attributes (XPATH and JSONPath), but isn't supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
+- Azure Active Directory supports writeback to Workday or SuccessFactors for XPATH and JSONPath metadata. Azure Active Directory does not support new Workday or SuccessFactors attributes beyond those included in the default schema.
 
 
 > [!NOTE]
