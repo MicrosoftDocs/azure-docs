@@ -42,19 +42,37 @@ In this mode, you choose when to initiate an update to the scale set instances. 
 The Upgrade Policy can be set during scale set creation. Include the Upgrade Policy flag and set it to either Automatic, Rolling or Manual. If using Rolling, include the MaxSurge flag and set it to either true or false. 
 
 ### CLI
-Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create).
+Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create). 
 
 ```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+
+#Create a load balancer
+az network lb create --resource-group MyResourceGroup --name MyLoadBalancer --sku Standard
+
+# Create a health probe
+az network lb probe create --resource-group MyResourceGroup --lb-name MyLoadBalancer --name MyProbe --protocol tcp --port 80
+
+# Create a load balancing rule and assign the health probe
+az network lb rule create --resource-group MyResourceGroup --lb-name myLoadBalancer --name MyLbRule --protocol Tcp --frontend-ip-name LoadBalancerFrontEnd --frontend-port 80 --backend-pool-name MyLoadBalancerbepool --backend-port 80 --probe myProbe
+
+# Create the scale set
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image UbuntuLTS \
+    --lb myLoadBalancer \
+    --health-probe myProbe \
     --upgrade-policy-mode Rolling \
-    --max-surge True \
+    --max-surge true \
     --instance-count 2 \
+    --disable-overprovision \
     --admin-username azureuser \
     --generate-ssh-keys
+
 ```
+
 
 ### PowerShell
 Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.compute/new-azvmss).
@@ -68,10 +86,6 @@ New-AzVmss `
     -Location "East US" `
     -InstanceCount "2" `
     -ImageName "Win2019Datacenter"
-
-Set-AzVmssRollingUpgradePoilicy -VirtualMachineScaleSet "myScaleSet" -MaxSurge "True"
-
-Update-AzVmss -ResourcegroupName "myResourceGroup" -VirtualMachineScaleSet "myScaleSet"
 
 ```
 
@@ -101,6 +115,8 @@ Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/v
 
 ```azurecli-interactive
 az vmss update \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
     --upgrade-policy-mode Rolling \
     --max-unhealthy-instance-percent 40 \
     --max-unhealthy-upgraded-instance-percent 30 \
