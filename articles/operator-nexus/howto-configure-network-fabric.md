@@ -68,7 +68,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 ## Create a Network Fabric
 
-Resource group must be created before Network Fabric creation. It's recommended to create a separate resource group for each Network Fabric. Resource group can be created by the following command:
+Resource group must be created before Network Fabric creation. It's recommended to create a separate resource group for each Network Fabric. Resource group is created with the following command:
 
 ```azurecli
 az group create -n NFResourceGroup -l "East US"
