@@ -70,4 +70,4 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 ## Next steps
 
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+For more information, see [Prepare an OT site deployment](best-practices/plan-prepare-deploy.md).

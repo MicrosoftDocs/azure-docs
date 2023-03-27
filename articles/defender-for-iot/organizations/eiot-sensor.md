@@ -56,7 +56,7 @@ Your machine must also have:
 
 - Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
 
-Your Enterprise IoT sensor must have access to the Azure cloud using a [direct connection](architecture-connections.md#direct-connections). Direct connections are configured for Enterprise IoT sensors using the same procedure as for OT sensors.
+Your Enterprise IoT sensor must have access to the Azure cloud using a [direct connection](architecture-connections.md#direct-connections). Direct connections are configured for Enterprise IoT sensors using the same procedure as for OT sensors. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
 ## Prepare a physical appliance or VM
 

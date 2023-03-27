@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # About high availability
 
-Increase the resiliency of your Defender for IoT deployment by configuring high availability on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by configuring [high availability](ot-deploy/air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
 
@@ -22,7 +22,7 @@ Before you perform the procedures in this article, verify that you've met the fo
     - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
     - You must be able to access both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
 
-- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two OT network sensors connected and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
+- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](ot-deploy/connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
 - Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md).
 
@@ -193,4 +193,4 @@ For more information, see [Upload a new activation file](how-to-manage-the-on-pr
 
 ## Next steps
 
-For more information, see [Maintain the on-premises management console](how-to-manage-the-on-premises-management-console.md).
+For more information, see [Activate and set up an on-premises management console](ot-deploy/activate-deploy-management.md).

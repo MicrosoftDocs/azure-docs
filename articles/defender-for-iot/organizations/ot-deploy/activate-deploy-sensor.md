@@ -40,7 +40,7 @@ We recommend using the **Support** credentials when signing into the OT sensor f
 1. In a browser, go to the OT sensor's IP address, and enter the username and password.
 
     > [!NOTE]
-    > If you forgot your password, select **Reset Password**.
+    > If you forgot your password, select **Reset Password**. For more information, see [Investigate password failure at initial sign-in](../how-to-troubleshoot-sensor.md#investigate-password-failure-at-initial-sign-in).
     >
 
     If you're working with a pre-configured appliance, you're prompted to enter a new password.
@@ -89,7 +89,7 @@ Activate your OT sensor to connect it to your [Azure subscription and OT plan](.
 
 The following procedures describe how to deploy an SSL/TLS certificate on your OT sensor. We recommend that you use a [CA-signed certificate](create-ssl-certificates.md) for all production environments.
 
-If you're working on a testing environment, you can also use the self-signed certificate that's generated during installation.
+If you're working on a testing environment, you can also use the self-signed certificate that's generated during installation. For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 **In the deployment wizard's *SSL/TLS Certificate* screen**:
 
@@ -103,6 +103,7 @@ If you're working on a testing environment, you can also use the self-signed cer
 
 1. Select **Save** to open your OT sensor console.
 
+For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors).
 
 ## Next steps
 

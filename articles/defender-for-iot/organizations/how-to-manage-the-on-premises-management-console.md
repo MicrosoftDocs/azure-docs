@@ -15,11 +15,11 @@ This article describes extra on-premises management console activities that you 
 
 Before performing the procedures in this article, make sure that you have:
 
-- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and activated.
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md).
 
 - Access to the on-premises management console as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- An SSL/TLS certificate prepared if you need to update your sensor's certificate.
+- An [SSL/TLS certificate prepared](ot-deploy/create-ssl-certificates.md) if you need to update your sensor's certificate.
 
 - If you're adding a secondary NIC, you'll need access to the CLI as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
 
@@ -93,7 +93,7 @@ You may need to reactivate your on-premises management console as part of mainte
 
 ## Manage SSL/TLS certificates
 
-If you're working with a production environment, you'd deployed a CA-signed SSL/TLS certificate as part of your on-premises management console deployment. We recommend using self-signed certificates only for testing purposes.
+If you're working with a production environment, you'd deployed a [CA-signed SSL/TLS certificate](ot-deploy/activate-deploy-management.md#deploy-an-ssltls-certificate) as part of your on-premises management console deployment. We recommend using self-signed certificates only for testing purposes.
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
@@ -117,11 +117,12 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
    :::image type="content" source="media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
 
-   If the upload fails, contact your security or IT administrator. 
+   If the upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
-1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing Certificate Authority and Certificate Revocation Lists.
+1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing [Certificate Authority](ot-deploy/create-ssl-certificates.md#create-a-ca-signed-ssltls-certificate) and [Certificate Revocation Lists](ot-deploy/create-ssl-certificates.md#verify-crl-server-access).
 
-    If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. 
+    If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
+
 1. Select **Save** to save your changes.
 
 # [Create and deploy a self-signed certificate](#tab/windows)
@@ -138,6 +139,12 @@ To create a self-signed certificate, download the certificate file from your on-
 
 [!INCLUDE [self-signed-certificate](includes/self-signed-certificate.md)]
 
+When you're done, use the following procedures to validate your certificate files:
+
+- [Verify CRL server access](ot-deploy/create-ssl-certificates.md#verify-crl-server-access)
+- [Import the SSL/TLS certificate to a trusted store](ot-deploy/create-ssl-certificates.md#import-the-ssltls-certificate-to-a-trusted-store)
+- [Test your SSL/TLS certificates](ot-deploy/create-ssl-certificates.md#test-your-ssltls-certificates)
+
 **To deploy a self-signed certificate**:
 
 1. Sign into your on-premises management console and select **System settings** > **SSL/TLS Certificates**.
@@ -146,9 +153,9 @@ To create a self-signed certificate, download the certificate file from your on-
 
 1. Select **I CONFIRM** to acknowledge the warning.
 
-1. Select the **Enable certificate validation** option to validate the certificate against a CRL server. The certificate is checked once during the import process.
+1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](ot-deploy/create-ssl-certificates.md#verify-crl-server-access). The certificate is checked once during the import process.
 
-   If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. 
+   If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your certificate settings.
 
@@ -212,7 +219,7 @@ The on-premises management console's hostname must match the hostname configured
 
 ## Define VLAN names
 
-VLAN names aren't synchronized between an OT sensor and the on-premises management console. If you've defined VLAN names on your OT sensor, we recommend that you define identical VLAN names on the on-premises management console.
+VLAN names aren't synchronized between an OT sensor and the on-premises management console. If you've [defined VLAN names on your OT sensor](how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name), we recommend that you define identical VLAN names on the on-premises management console.
 
 **To define VLAN names**:
 

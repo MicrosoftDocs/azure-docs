@@ -9,17 +9,24 @@ ms.topic: how-to
 
 In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
 
-This article describes how to configure Defender for IoT to detect Windows workstations and servers with local surveying, performed by distributing and running a script on each device. While you can use [active scanning](configure-active-monitoring.md) and scheduled WMI scans to obtain this data, working with local scripts bypasses the risks of running WMI polling on an endpoint. Running a local script is also useful for regulated networks that have waterfalls and one-way elements.
+This article describes how to use a Defender for IoT Windows-based WMI tool to get extended information from Windows devices, such as workstations, servers, and more. Run the WMI script on your Windows devices to get extended information, increasing your device inventory and security coverage. While you can also use [scheduled WMI scans](configure-windows-endpoint-monitoring.md) to obtain this data, scripts can be run locally for regulated networks with waterfalls and one-way elements if WMI connectivity isn't possible.
+
+The script described in this article returns the following details about each detected device:
+
+- IP address
+- MAC address
+- Operating system
+- Service pack
+- Installed programs
+- Last knowledge base update
 
 If an OT network sensor has already learned the device, running the script outlined in this article retrieves the device's information and enrichment data.
-
-For more information, see [Configure Windows Endpoint Monitoring](configure-windows-endpoint-monitoring.md).
 
 ## Prerequisites
 
 Before performing the procedures in this article, you must have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), activated, and configured, and monitoring the network where your device is connected.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), and monitoring the network where your device is connected.
 
 - Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

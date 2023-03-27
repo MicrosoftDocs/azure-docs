@@ -178,12 +178,15 @@ For more information, see:
 - Your virtual machine software documentation
 - [OT network sensor VM (VMware ESXi)](../appliance-catalog/virtual-sensor-vmware.md)
 - [OT network sensor VM (Microsoft Hyper-V)](../appliance-catalog/virtual-sensor-hyper-v.md)
+- [Networking requirements](../networking-requirements.md)
 
 > [!NOTE]
-> If you're working with an air-gapped sensor and are deploying an on-premises management console, configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
+> If you're working with an air-gapped sensor and are [deploying an on-premises management console](air-gapped-deploy.md), configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
 >
 
 ## Next steps
+
+For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-sensor.md).
 
 > [!div class="step-by-step"]
 > [« Provision OT sensors for cloud management](provision-cloud-management.md)

@@ -352,7 +352,7 @@ This section describes how to connect your sensor to Defender for IoT in Azure f
 
 Before you start, make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor [SPAN traffic](traffic-mirroring/configure-mirror-span.md).
 
-### Select a multicloud connectivity method
+### Select a multi-cloud connectivity method
 
 Use the following flow chart to determine which connectivity method to use:
 
@@ -389,6 +389,7 @@ We recommend that you configure an Active Directory connection for managing on-p
 If you don't configure these settings during deployment, you can also return and configure them later on. For more information, see:
 
 - [Set up SNMP MIB monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md)
+- [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
 
 > [!div class="step-by-step"]
 > [« Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md)

@@ -37,6 +37,8 @@ This article describes how to configure your OT sensor or on-premises management
 
 - You'll also need to define SMTP settings on the OT sensor or on-premises management console.
 
+    For more information, see [Configure SMTP mail server settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-mail-server-settings) and [Configure SMTP mail server settings on the on-premises management console](how-to-manage-the-on-premises-management-console.md#configure-smtp-mail-server-settings).
+
 ## Create forwarding rules on an OT sensor
 
 1. Sign into the OT sensor and select **Forwarding** on the left-hand menu > **+ Create new rule**.

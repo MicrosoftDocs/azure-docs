@@ -13,9 +13,9 @@ This article describes how you can manage OT sensors from an on-premises managem
 
 To perform the procedures in this article, make sure you have:
 
-- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and activated
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md)
 
-- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), activated, and connected to your on-premises management console
+- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md)
 
 - Access to the on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -48,7 +48,7 @@ The selected settings are applied across all connected OT sensors.
 
 ## Monitor disconnected OT sensors
 
-If you're working with locally managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
+If you're working with locally-managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
 
 ### View OT sensor connection statuses
 
@@ -81,9 +81,9 @@ Each type of data has a different retention period and maximum capacity. For mor
 
 ### Turn off learning mode from your on-premises management console
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically after your first sign-in. Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically after your [first sign-in](ot-deploy/activate-deploy-sensor.md#sign-in-to-your-ot-sensor). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's baseline traffic.
+Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 
 This procedure describes how to turn off learning mode manually for all connected sensors if you feel that the current alerts accurately reflect your network activity.
 

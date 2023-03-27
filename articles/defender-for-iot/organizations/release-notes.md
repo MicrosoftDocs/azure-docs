@@ -269,7 +269,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- Diagnostic logs automatically available to support for cloud-connected sensors
+- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
 - [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
@@ -288,7 +288,7 @@ This version includes the following new updates and fixes:
 
 - [Enhanced sensor Overview page](how-to-manage-individual-sensors.md)
 
-- New sensor diagnostics log
+- [New sensor diagnostics log](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 
 - [Alert updates](how-to-view-alerts.md):
 
@@ -310,7 +310,7 @@ This version includes the following new updates and fixes:
 
 - [New connectivity models](architecture-connections.md)
 
-- New firewall requirements
+- [New firewall requirements](networking-requirements.md#sensor-access-to-azure-portal)
 
 - [Improved support for Profinet DCP, Honeywell, and Windows endpoint detection protocols](concept-supported-protocols.md)
 
@@ -367,7 +367,7 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- Export logs from the on-premises management console for troubleshooting
+- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 

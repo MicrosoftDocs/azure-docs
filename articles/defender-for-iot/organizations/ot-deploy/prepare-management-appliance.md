@@ -12,7 +12,7 @@ This article is one in a series of articles describing the [deployment path](air
 
 :::image type="content" source="../media/deployment-paths/management-prepare.png" alt-text="Diagram of a progress bar with Prepare your appliance highlighted." border="false" lightbox="../media/deployment-paths/management-prepare.png":::
 
-Just as you'd prepared an on-premises appliance for your OT sensors, prepare an appliance for your on-premises management console.
+Just as you'd [prepared an on-premises appliance](../best-practices/plan-prepare-deploy.md#prepare-on-premises-appliances) for your OT sensors, prepare an appliance for your on-premises management console.
 
 ## Prepare a virtual appliance
 
@@ -42,15 +42,19 @@ If you're using physical appliances, make sure that you have the following extra
 
 While the on-premises management console is installed with a default, self-signed SSH/TLS certificate, we recommend using CA-signed certificates in production deployments.
 
-SSH/TLS certificate requirements are the same for on-premises management consoles as they are for OT network sensors.
+[SSH/TLS certificate requirements](../best-practices/certificate-requirements.md) are the same for on-premises management consoles as they are for OT network sensors.
 
 If you want to deploy a CA-signed certificate during initial deployment, make sure to have the certificate prepared. If you decide to deploy with the built-in, self-signed certificate, we recommend that you still deploy a CA-signed certificate in production environments later on.
 
+For more information, see:
+
+- [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
+- [Manage SSL/TLS certificates](../how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Deploy air-gapped OT sensor management](air-gapped-deploy.md)
+> [« Defender for IoT OT deployment path](ot-deploy-path.md)
 
 > [!div class="step-by-step"]
 > [Install Microsoft Defender for IoT on-premises management console software »](install-software-on-premises-management-console.md)

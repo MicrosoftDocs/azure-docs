@@ -33,6 +33,7 @@ Defender for IoT network sensors discover and continuously monitor network traff
 
 Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management, either to the Azure portal or an on-premises management console.
 
+For more information, see [Defender for IoT OT deployment path](ot-deploy/ot-deploy-path.md).
 
 ### Cloud-connected vs. local OT sensors
 
@@ -93,6 +94,8 @@ Defender for IoT provides hybrid network support using the following management 
 - **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console, using extra maintenance tools and reporting features.
 
     The software version on your on-premises management console must be equal to that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
+
+    For more information, see [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
 
 ## What is a Defender for IoT committed device?
 

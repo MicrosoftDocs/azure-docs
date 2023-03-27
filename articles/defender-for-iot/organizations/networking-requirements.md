@@ -50,4 +50,4 @@ Open these ports to allow extra services for Defender for IoT.
 
 ## Next steps
 
-For more information, see [OT sensor cloud connection methods](architecture-connections.md).
+For more information, see [Plan and prepare for deploying a Defender for IoT site](best-practices/plan-prepare-deploy.md).

@@ -18,7 +18,7 @@ Network sensors connect to Azure to provide data about detected devices, alerts,
 
 All connection methods provide:
 
-- **Improved security**, without additional security configurations. Connect to Azure using specific and secure endpoints, without the need for any wildcards.
+- **Improved security**, without additional security configurations. [Connect to Azure using specific and secure endpoints](networking-requirements.md#sensor-access-to-azure-portal), without the need for any wildcards.
 
 - **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
 

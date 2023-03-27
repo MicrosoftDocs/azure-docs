@@ -125,6 +125,8 @@ Use the following table to learn more about each alert status and triage option.
 
 Use learning mode to perform an initial triage on the alerts in your network, *learning* those you want to mark as authorized, expected activity. Learned traffic doesn't generate new alerts the next time the same traffic is detected.
 
+For more information, see [Create a learned baseline of OT alerts](ot-deploy/create-learned-baseline.md).
+
 ## Next steps
 
 Review alert types and messages to help you understand and plan remediation actions and playbook integrations. For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
