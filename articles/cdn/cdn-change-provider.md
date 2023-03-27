@@ -87,7 +87,7 @@ If you have multiple Azure CDN profiles, you can improve availability and perfor
 
 In a typical failover scenario, all client requests are directed to the primary CDN profile. If the profile is unavailable, requests are sent to the secondary profile. Requests resume to your primary profile when it becomes available again. Using Azure Traffic Manager in this manner ensures your web application is always available. 
 
-For more information, see [priority traffic routing with Traffic Manager](../traffic-manager/traffic-manager-configure-priority-routing-method.md).
+For more information, see [Failover CDN endpoints with Traffic Manager](cdn-traffic-manager.md).
 
 ## Next Steps
 
