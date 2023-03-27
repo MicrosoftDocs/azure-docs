@@ -192,6 +192,8 @@ When using our embeddings models, keep in mind their limitations and risks.
 <br><sup>2</sup> East US and West Europe are currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for fine-tuning. 
 <br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
+[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
+
 ### GPT-4 Models
 
 |  Model ID                | Supports Completions | Supports Embeddings |  Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
@@ -211,6 +213,8 @@ When using our embeddings models, keep in mind their limitations and risks.
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
 <br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
+
+[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
 
 ### Embeddings Models
 |  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
