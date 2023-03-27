@@ -88,7 +88,7 @@ Use `az mobile-network pccp create` to create a new **Packet Core Control Plane*
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 | `<CONTROLPLANE>`   | Enter the name for the packet core control plane.      |
 | `<SITE>`   | Enter the name of the site.      |
-| `<IPV4ADDRESS>`   | Enter the IPV4 address of the site.      |
+| `<IPV4ADDRESS>`   | Enter the IPv4 address of the site.      |
 
 Obtain the ASE ID and assign it to a variable.
 
