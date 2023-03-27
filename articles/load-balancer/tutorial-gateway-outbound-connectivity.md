@@ -23,10 +23,12 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
+- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
     - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
 - An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md).
     - For the purposes of this tutorial, the gateway load balancer in the examples is name **myGatewayLoadBalancer**.
+- A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+    - For the purposes of this tutorial, the virtual machine is named **myVM1**.
 
 ## Chain a virtual machine to a gateway load balancer
 
@@ -39,8 +41,8 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
     :::image type="content" source="media/gateway-configure-outbound-connectivity/confirm-sku.png" alt-text="Screenshot of virtual machine overview highlighting standard sku." lightbox="media/gateway-configure-outbound-connectivity/confirm-sku-thumb.png":::
 
 1. Return to your virtual machine.
-1. In **Overview of the virtual machine, select **Networking** under **Settings**.
-1. Select the network interface attached to the virtual machine. This example uses **myvm1229**.
+1. In **Overview** of the virtual machine, select **Networking** under **Settings**.
+1. Select the network interface attached to the virtual machine. This example uses **myvm1185_z1**.
 
     :::image type="content" source="media/gateway-configure-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
 
