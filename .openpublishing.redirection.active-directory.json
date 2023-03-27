@@ -4492,6 +4492,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-user-profile-info",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/customize-branding.md",
       "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
       "redirect_document_id": false
