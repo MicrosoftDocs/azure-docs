@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: virtual-network
 author: greg-lindsay
 manager: twooley
-ms.service: virtual-network
+ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure

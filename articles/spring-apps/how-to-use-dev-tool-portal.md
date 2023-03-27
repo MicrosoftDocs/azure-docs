@@ -72,7 +72,7 @@ Use the following command to update the SSO configuration using the Azure CLI:
 ```azurecli
 az spring dev-tool update \
     --resource-group <resource-group-name> \
-    --name <Azure-Spring-Apps-service-instance-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --client-id "<client-id>" \
     --scopes "scope1,scope2" \
     --client-secret "<client-secret>" \
@@ -101,7 +101,7 @@ Use the following command to assign a public endpoint using the Azure CLI:
 ```azurecli
 az spring dev-tool update \
     --resource-group <resource-group-name> \
-    --name <Azure-Spring-Apps-service-instance-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --assign-endpoint
 ```
 

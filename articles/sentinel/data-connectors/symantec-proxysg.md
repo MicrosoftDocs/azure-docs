@@ -3,7 +3,7 @@ title: "Symantec ProxySG connector for Microsoft Sentinel"
 description: "Learn how to install the connector Symantec ProxySG to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,10 +16,8 @@ The [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | SymantecProxySG |
-| **Kusto function url** | https://aka.ms/sentinelgithubparserssymantecproxysg |
 | **Log Analytics table(s)** | Syslog (SymantecProxySG)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
@@ -58,7 +56,8 @@ To integrate with Symantec ProxySG make sure you have:
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinelgithubparserssymantecproxysg) to create the Kusto functions alias, **SymantecProxySG**
+> [!NOTE]
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Symantec Proxy SG and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SymantecProxySG/Parsers/SymantecProxySG/SymantecProxySG.txt), on the second line of the query, enter the hostname(s) of your Symantec Proxy SG device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux
 
