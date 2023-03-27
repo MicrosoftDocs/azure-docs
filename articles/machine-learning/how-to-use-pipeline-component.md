@@ -17,39 +17,39 @@ ms.custom: sdkv2, cliv2,
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-When developing a complex machine learning pipeline, it is common to have sub-pipelines that use multi-step  to perform tasks such as data preprocessing and model training. These sub-pipelines can be developed and tested standalone. Pipeline component groups multi-step as a component that can be used as a single step to create complex pipelines. Which will will help you share your work and better collaborate with team members.
+When developing a complex machine learning pipeline, it's common to have sub-pipelines that use multi-step  to perform tasks such as data preprocessing and model training. These sub-pipelines can be developed and tested standalone. Pipeline component groups multi-step as a component that can be used as a single step to create complex pipelines. Which will help you share your work and better collaborate with team members.
 
-By using a pipeline component, the author can focus on developing sub-tasks and easily integrate them with the entire pipeline job. Furthermore, a pipeline component has a well-defined interface in terms of inputs and outputs, which means that user of the pipeline component does not need to know the implementation details of the component.
+By using a pipeline component, the author can focus on developing sub-tasks and easily integrate them with the entire pipeline job. Furthermore, a pipeline component has a well-defined interface in terms of inputs and outputs, which means that user of the pipeline component doesn't need to know the implementation details of the component.
 
 In this article, you'll learn how to use pipeline component in Azure Machine Learning pipeline.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Prerequisites 
+## Prerequisites
 
-- Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
+- Understand how to use Azure Machine Learning pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 - Understand what is [component](concept-ml-pipelines.md) and how to use component in Azure Machine Learning pipeline.
 - Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
 
 ## The difference between pipeline job and pipeline component
 
-In general, pipeline component is similar to pipeline job. They are both consist of a group of jobs/components. 
+In general, pipeline component is similar to pipeline job. They're both consist of a group of jobs/components. 
 
-Here are some main difference you need aware when defining pipeline component:
+Here are some main differences you need aware when defining pipeline component:
 
 - Pipeline component only defines the interface of inputs/outputs, which means when defining a pipeline component you need to explicitly define the type of inputs/outputs instead of directly assigning values to them.
 - Pipeline component can't have runtime settings, you can't hard-code compute, or data node in the pipeline component. Instead you need to promote them as pipeline level inputs and assign values during runtime.
-- Pipeline level settings such as default_datastore and default_compute are also runtime settings. They are not part of pipeline component definition.
+- Pipeline level settings such as default_datastore and default_compute are also runtime settings. They aren't part of pipeline component definition.
 
 ### CLI v2
 
 The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *[azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component* to check the example.
 
-You can use multi-components to built a pipeline component. Much similar like how you built pipeline job with component. This is two step pipeline component.
+You can use multi-components to build a pipeline component. Similar to how you built pipeline job with component. This is two step pipeline component.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/components/train_pipeline_component.yml" highlight="7-48":::
 
-When reference pipeline component to define child job in pipeline job, just like reference other type of component. You can provide runtime settings such as default_datastore, default_compute in pipeline job level, any parameter you want to change during run time need promote as pipeline job inputs, otherwise, they will be hard-code in next pipeline component. We are support to promote compute as pipeline component input to support heterogenous pipeline which may need different compute target in different steps.
+When reference pipeline component to define child job in a pipeline job, just like reference other type of component. You can provide runtime settings such as default_datastore, default_compute in pipeline job level, any parameter you want to change during run time need promote as pipeline job inputs, otherwise, they'll be hard-code in next pipeline component. We're support to promote compute as pipeline component input to support heterogenous pipeline, which may need different compute target in different steps.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline.yml" highlight="11-16,23-25,60":::
 
