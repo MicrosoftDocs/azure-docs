@@ -5,22 +5,24 @@ description: How to configure a custom domain for Azure Web PubSub Service
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 03/25/2023
 ms.author: dayshen
 ---
 
 # Configure a custom domain for Azure Web PubSub Service
 
-In addition to the default domain provided Azure Web PubSub Service, you can also add custom domains.
+In addition to the default domain provided by the Azure Web PubSub Service, you can also add a custom domains.  A custom domain is a domain name that you own and manage. You can use a custom domain to access your Azure Web PubSub Service resource. For example, you can use `contoso.example.com` instead of `contoso.webpubsub.azure.com` to access your Azure Web PubSub Service resource.
 
 ## Prerequisites
 
-* Resource must be Premium tier
-* A custom certificate matching custom domain is stored in Azure Key Vault
+* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
+* An Azure Web PubSub service (must be Premium tier).
+* An Azure Key Vault resource.
+* A custom certificate matching custom domain that is stored in Azure Key Vault.
 
 ## Add a custom certificate
 
-Before you can add a custom domain, you need add a matching custom certificate first. A custom certificate is a sub resource of your Azure Web PubSub Service. It references a certificate in your Azure Key Vault. For security and compliance reasons, Azure Web PubSub Service doesn't permanently store your certificate. Instead it fetches it from your Key Vault on the fly and keeps it in memory.
+Before you can add a custom domain, you need to add a matching custom certificate first. A custom certificate is a resource of your Azure Web PubSub Service. It references a certificate in your Azure Key Vault. For security and compliance reasons, Azure Web PubSub Service doesn't permanently store your certificate. Instead it fetches it from your Key Vault on the fly and keeps it in memory.
 
 ### Step 1: Grant your Azure Web PubSub Service resource access to Key Vault
 
@@ -28,6 +30,17 @@ Azure Web PubSub Service uses Managed Identity to access your Key Vault. In orde
 
 1. In the Azure portal, go to your Azure Web PubSub Service resource.
 1. In the menu pane, select **Identity**.
+1. You can select **System assigned** or **User assigned** identity. If you want to use **User assigned** identity, you need to create one first.
+    1. To add a System assigned identity
+        1. Select **On**.
+        1. Select **Yes** to confirm.
+        1. Select **Save**.
+    1. To add a User assigned identity;
+        1. Click **Add user assigned managed identity**. 
+        1. Select an existing identity.
+        1. Select **Add**.
+
+   :::image type="content" alt-text="Screenshot of enabling managed identity." source="media\howto-custom-domain\portal-identity.png" :::
 1. Turn on either **System assigned** or **User assigned** identity. Click **Save**.
 
    :::image type="content" alt-text="Screenshot of enabling managed identity." source="media\howto-custom-domain\portal-identity.png" :::
@@ -41,17 +54,23 @@ If you're using Key Vault built-in access policy as Key Vault permission model:
    :::image type="content" alt-text="Screenshot of built-in access policy selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-access-policy.png" :::
 
 1. Go to your Key Vault resource.
-1. In the menu pane, select **Access configuration**. Click **Go to access policies**.
-1. Click **Create**. Select **Secret Get** permission and **Certificate Get** permission. Click **Next**.
+1. In the menu pane, select **Access configuration**.
+1. Select **Vault access policy**.
+1. Select **Go to access policies**.
+1. Select **Create**.
+1. Select **Secret Get** permission .
+1. Select **Certificate Get** permission. 
+1. Select **Next**.
 
    :::image type="content" alt-text="Screenshot of permissions selection in Key Vault." source="media\howto-custom-domain\portal-key-vault-permissions.png" :::
 
-1. Search for the Azure Web PubSub Service resource name or the user assigned identity name. Click **Next**.
+1. Search for the Azure Web PubSub Service resource name. 
+1. Select **Next**.
 
    :::image type="content" alt-text="Screenshot of principal selection in Key Vault." source="media\howto-custom-domain\portal-key-vault-principal.png" :::
 
-1. Skip **Application (optional)**. Click **Next**.
-1. In **Review + create**, click **Create**.
+1. Select **Next** on the **Application** tab.
+1. Select **Create**.
 
 #### [Azure role-based access control](#tab/azure-rbac)
 
@@ -60,7 +79,8 @@ If you're using Azure role-based access control as Key Vault permission model:
    :::image type="content" alt-text="Screenshot of Azure RBAC selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
 
 1. Go to your Key Vault resource.
-1. In the menu pane, select **Access control (IAM)**.
+1. Select **Access configuration** from the menu.
+1. Select **go to access control (IAM)**.
 1. Click **Add**. Select **Add role assignment**.
 
    :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
