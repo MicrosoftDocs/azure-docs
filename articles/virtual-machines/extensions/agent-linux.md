@@ -120,7 +120,6 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
   * Resets host name to localhost.localdomain
 
 > [!WARNING]
-
 > Deprovisioning does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
 >
