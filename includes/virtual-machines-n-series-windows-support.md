@@ -44,7 +44,18 @@ For Windows Server 2012 R2:
 - [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
 
 > [!Note]
->The Azure NVads A10 v5 VMs only support vGPU 14.1(512.78). vGPU 15.1 support is expected by early March. 
+> vGPU 15.1 installer process makes an additional remote call to ngx.download.nvidia.com. This is an unexpected change in behavior and NVIDIA will disable this by default starting with vGPU 15.3. In the meantime, update the following regkey before installing vGPU 15.1 driver.
+> >
+> To disable the remote call to ngx. 
+>
+>
+>[HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\NGXCore]
+>
+>"EnableOTA"=dword:00000000
+>
+>To enable the remote call again, change the setting to 1 or simply delete the regkey.
+
+
 
 
 For links to all previous Nvidia GRID driver versions, visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json).

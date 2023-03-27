@@ -388,6 +388,8 @@ items:
       href: samples/ui-library-cross-platform.md?pivots=platform-maui
     - name: Web calling sample
       href: samples/web-calling-sample.md
+    - name: Web calling - Push notifications sample
+      href: samples/web-calling-push-notifications-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
   - name: Chat
@@ -398,7 +400,7 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Phone calling
     items:
-    - name: Appointment remainder sample
+    - name: Appointment reminder sample
       href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
