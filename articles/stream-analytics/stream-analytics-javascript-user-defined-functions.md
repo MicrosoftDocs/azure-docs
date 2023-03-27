@@ -218,6 +218,16 @@ console.log('my error message');
 ```
 
 You can access log messages through the [diagnostic logs](data-errors.md).
+
+## atob() and btoa()
+The method btoa() can be used to encode an ASCII string into Base64. This is usually done to transfer data in a binary format. The atob() method can be used to decode a string of data encoded in Base64 to an ASCII string format.
+
+```javascript
+var myAsciiString = 'ascii string';
+var encodedString = btoa(myAsciiString);
+var decodedString = atob(encodedString);
+```
+
 ## Next steps
 
 * [Machine Learning UDF](./machine-learning-udf.md)
