@@ -74,4 +74,5 @@ For more information, see [Azure DDoS Protection reference architectures](./ddos
 ## Next steps
 
 * [Azure DDoS Protection features](ddos-protection-features.md)
-* [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
+* [Reference architectures](ddos-protection-reference-architectures.md)
+

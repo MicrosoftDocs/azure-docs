@@ -1411,6 +1411,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/concepts-custom-role-definition.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/overview",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/managed-applications/concepts-managed-applications-built-in-policy.md",
             "redirect_url": "/azure/azure-resource-manager/managed-applications/concepts-built-in-policy",
             "redirect_document_id": false
