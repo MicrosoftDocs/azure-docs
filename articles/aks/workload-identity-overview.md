@@ -2,7 +2,7 @@
 title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 03/14/2023
+ms.date: 03/27/2023
 
 ---
 
@@ -71,12 +71,6 @@ Azure AD workload identity supports the following mappings related to a service 
 > If the service account annotations are updated, you need to restart the pod for the changes to take effect.
 
 If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a [Custom Resource Definition][custom-resource-definition] (CRD). The following describes a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
-
-### Service account labels
-
-|Label |Description |Recommended value |Required |
-|------|------------|------------------|---------|
-|`azure.workload.identity/use` |Represents the service account<br> is to be used for workload identity. |true |Yes |
 
 ### Service account annotations
 
