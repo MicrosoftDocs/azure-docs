@@ -126,7 +126,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
     kubectl -n kube-system delete po metrics-server-pod-name
     ```
 
-4. To verify the updated resources took affect, run the following command to review the Metrics Server VPA log.
+4. To verify the updated resources took effect, run the following command to review the Metrics Server VPA log.
 
     ```bash
     kubectl -n kube-system logs metrics-server-pod-name -c metrics-server-vpa
