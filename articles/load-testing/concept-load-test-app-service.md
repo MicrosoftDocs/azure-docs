@@ -101,21 +101,33 @@ App Service diagnostics enables you to view in-depth information and dashboard a
 
 ## Parameterize your test for deployment slots
 
-- Requires a JMeter script
-- Deployment slots -> different endpoint
-- Avoid hard-coding 
-- Use env vars to pass deployment slot and make URL configurable in JMeter script
-- Also use for other configuration parameters (for example, number of virtual users, ramp-up time, and so on.)
+[Azure App Service deployment slots](/azure/app-service/deploy-staging-slots) enable you to set up staging environments for your application. Each deployment slot has a separate URL. You can easily reuse your load testing script across multiple slots by using environment variables in the load test configuration.
 
-## Authenticated endpoints
+When you create a quick test, Azure Load Testing generates a generic JMeter script and uses environment variables to pass the target URL to the script. 
 
-- Use shared secrets or certificates
-- Pass secrets into the JMeter script (store in Azure Key Vault or in CI/CD secrets store)
-- [Azure AD authentication config](/azure/app-service/configure-authentication-provider-aad)
-- [Blog post](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/authentication-with-azure-load-testing-series-azure-active/ba-p/3718002)
+:::image type="content" source="media/concept-load-test-app-service/quick-test-parameters.png" alt-text="Screenshot that shows the Parameters page of a quick test in the Azure portal, highlighting the parameters for the target URL." lightbox="media/concept-load-test-app-service/quick-test-parameters.png":::
+
+To use environment variables for passing the deployment slot URL to your JMeter test script, perform the following steps:
+
+1. Add an environment variable in the load test configuration.
+
+1. Reference the environment variable in your test script by using the `System.getenv` function.
+
+    ```xml
+    <elementProp name="domain" elementType="Argument">
+    <stringProp name="Argument.name">domain</stringProp>
+    <stringProp name="Argument.value">${__BeanShell( System.getenv("domain") )}</stringProp>
+    <stringProp name="Argument.metadata">=</stringProp>
+    </elementProp>
+    ```
+
+Learn how to [parameterize a load test by using environment variables](./how-to-parameterize-load-tests.md).
+
+You can also use environment variables to pass other configuration settings to the JMeter test script. For example, you might pass the number of virtual users, or the file name of a [CSV input file](./how-to-read-csv-data.md) to the test script.
 
 ## Next steps
 
+- Get started by [creating a URL-based load test](./quickstart-create-and-run-load-test.md).
+- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
 - Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
 - Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
-- Learn how to [identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
