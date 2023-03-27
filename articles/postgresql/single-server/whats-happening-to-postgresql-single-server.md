@@ -1,186 +1,194 @@
 ---
-title: What's happening to Azure Database for PostgreSQL Single Server?
-description: The Azure Database for PostgreSQL Single Server service is being deprecated.
+title: What's happening to Azure Database for PostgreSQL single server?
+description: The Azure Database for PostgreSQL single server service is being deprecated.
 author: markingmyname
 ms.author: maghan
 ms.reviewer: sunila
-ms.date: 03/30/2023
+ms.date: 03/29/2023
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: overview
 ms.custom: single server deprecation announcement
 ---
 
-# What's happens to Azure Database for PostgreSQL - Single Server after the retirement announcemnt?
+# What happens to Azure Database for PostgreSQL - Single Server after the retirement announcement?
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-**Azure Database for PostgreSQL - Single Server is on the retirement path** and is scheduled for retirement by **March 31, 2025**.
+**Azure Database for PostgreSQL - Single Server is on the retirement path** is on the retirement path and is scheduled for retirement by March 28, 2025.
 
-As part of this retirement, we no longer support creating new Single Server instances from the Azure portal beginning **November 30, 2023**. If you need to create Single Server instances to meet business continuity needs, you can use [Azure CLI](quickstart-create-server-up-azure-cli.md). You can use your Terraform template to create single server instances. You can still make read replicas for your existing single server instance from the **Replication blade**, which continues to be supported until the sunset date of **March 31, 2025**.
+Azure Database for PostgreSQL - Single Server generally became available in 2018. However, given customer feedback and new advancements in the computation, availability, scalability, and performance capabilities in the Azure database landscape, the single server offering needs to be retired and upgraded with a new architecture – Azure Database for PostgreSQL flexible server to bring you the best of Azure’s open-source database platform.
 
-After years of evolving the Azure Database for PostgreSQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for PostgreSQL - Flexible Server.
+As part of this retirement, we no longer support creating new single server instances from the Azure portal beginning November 30, 2023. If you need to create single server instances to meet business continuity needs, you can continue to use  Azure CLI,
 
-Azure Database for PostgreSQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for PostgreSQL - Flexible Server](../flexible-server/overview.md)**.
+If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to inform you that you can migrate your Azure Database for PostgreSQL - Single Server servers to the Azure Database for PostgreSQL - Flexible Server service. 
+
+Azure Database for PostgreSQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about flexible server, visit **[Azure Database for PostgreSQL - Flexible Server](../flexible-server/overview.md)**.
 
 If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to let you know that you can migrate your Azure Database for PostgreSQL - Single Server servers to the Azure Database for PostgreSQL - Flexible Server service free of cost using Azure Database Migration Service (classic). Review the different migrating methods using Azure Data Migration Service (DMS) in the section below.
 
-## Migrate from Single Server to Flexible Server
+## Migrate from single server to flexible server
 
-Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server using the S[ingle to Flexible Server Migration tool](../migrate/concepts-single-to-flexible.md).
+Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server using the [Single to Flexible Server Migration Tool](../migrate/concepts-single-to-flexible.md).
 
 ## Frequently Asked Questions (FAQs)
 
-**Q. Why is Azure Database for PostgreSQL-Single Server being retired?**
+**Q. Why is Azure Database for PostgreSQL-single server being retired?**
 
-A. Azure Database for PostgreSQL: Single Server Generally became Available in 2018. However, given customer feedback and new advancements in the computation, availability, scalability, and performance capabilities in the Azure database landscape, the Single Server offering needs to be retired and upgraded with a new architecture – Azure Database for PostgreSQL Flexible Server to bring you the best of Azure’s open-source database platform. 
+**A.**  Azure Database for PostgreSQL -  single server generally became available in 2018. However, given customer feedback and new advancements in the computation, availability, scalability, and performance capabilities in the Azure database landscape, the single server offering needs to be retired and upgraded with a new architecture – Azure Database for PostgreSQL flexible server to bring you the best of Azure's open-source database platform.
 
-**Q. Why am I being asked to migrate to Azure Database for PostgreSQL - Flexible Server?** 
+**Q. Why am I being asked to migrate to Azure Database for PostgreSQL - Flexible Server?**
 
-[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is the best platform for running all your PostgreSQL workloads on Azure. Azure PostgreSQL- Flexible server is both economical and provides better performance across all service tiers and more ways to control your costs for cheaper and faster disaster recovery: 
+**A.** [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is the best platform for running all your open-source PostgreSQL workloads on Azure. Azure Database for PostgreSQL- flexible server is economical, provides better performance across all service tiers, and more ways to control your costs for cheaper and faster disaster recovery. Additional improvements to flexible server include:
 
-- More ways to optimize costs, including support for burstable tier compute options. 
-- high concurrency, fast failover, and high scalability. 
-- Improved uptime by configuring a hot standby on the same or a different zone and a one-hour time window for planned server maintenance. 
-   
-**Q. How soon do I need to migrate my Single Server to a Flexible Server?** 
+- Support for Postgres version 11 and newer, plus built-in security enhancements
+- Better price performance with support for burstable tier compute options.
+- Improved uptime by configuring hot standby on the same or a different availability zone and user-controlled maintenance windows.
+- A simplified developer experience for high-performance data workloads.
 
-A. Azure Database for PostgreSQL: Single Server is scheduled for retirement by March 31, 2025, so we strongly recommend migrating your single server to a flexible server at your earliest opportunity to ensure ample time on March 31, 2025, to run through the migration lifecycle, leverage the benefits offered by Flexible Server, and ensure the continuity of your business. 
+**Q. How soon must I migrate my single server to flexible server?**
 
-**Q. What happens to my existing Azure Database for PostgreSQL Single Server instances?** 
+**A.**  Azure Database for PostgreSQL - Single Server is scheduled for retirement by March 28, 2025, so we strongly recommend migrating your single server to flexible server at the earliest opportunity to ensure ample time to run through the migration lifecycle and use the benefits offered by flexible server.
 
-A. Your existing Azure Database for PostgreSQL Single Server workloads will continue functioning as before and be officially supported until March 2025. However, PostgreSQL-11 is the terminal version on Single Server, and its open-source community support for engine defects ends in Nov’2023. We'll continue to support Single Server [through our versioning support policy.](/azure/postgresql/single-server/concepts-version-policy) We strongly advise you to start migrating to Azure Database for PostgreSQL Flexible Server at the earliest. 
+**Q. What happens to my existing Azure Database for PostgreSQL - Single Server instances?**
 
-**Q. Can I continue running Single Server beyond the sunset date?** 
+**A.**  Your existing Azure Database for PostgreSQL - Single Server workloads continue to be supported until March'2025.
 
-A. We plan to support Single Server at the sunset date of March 31, 2025. We strongly advise that you start planning your migration as soon as possible. 
+**Q. Can I still create a new version 11 Azure Database for PostgreSQL single servers after the community EOL date in November 2023?**
 
-**Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?** 
+**A.**  Beginning November 9, 2023, you'll no longer be able to create new single server instances for PostgreSQL version 11 through the Azure portal. However, you can still [make them via CLI until November 2024](https://azure.microsoft.com/updates/singlepg11-retirement/). We'll continue to support single server through our [versioning support policy.](/azure/postgresql/single-server/concepts-version-policy) It would be best to start migrating to Azure Database for PostgreSQL - Flexible Server immediately.
 
-A. We are stopping new single server creations after some time, so you can provision new single servers to meet your business needs. We'll provide the ability to create Single Server with PG11 until the community retires, but we'll continue to support it through CLI.  
+**Q. Can I continue running my Azure Database for PostgreSQL - Single Server instances beyond the sunset date of March 28, 2025?**
 
-**Q. Are there any additional costs associated with performing the migration?** 
+**A.**  We plan to support single server at the sunset date of March 28, 2025, and we strongly advise that you start planning your migration as soon as possible.
 
-A. You pay for the target flexible server and the single source server while running the migration. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). Once you've decommissioned the source single server post successful migration, you only pay to run the flexible server. There are no additional costs for running the migration through the migration tooling.  
+**Q. After the single server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 
-**Q. Will my billing be affected by running Flexible Server as compared to a Single Server?** 
+**A.**  We aren't stopping the ability to create new single servers immediately, so you can continue to provision new single servers through CLI to meet your business needs for all Postgres versions supported on Azure Database for PostgreSQL – single server. We strongly encourage you to explore a flexible server for the scenario and see if that can meet the need. Don't hesitate to coflexible serverntact us if necessary so we can better guide you in these scenarios and suggest the best path forward.
 
-A. If you select the same zone or zone redundant high availability for the target flexible server, your bill is higher than on a single server. Same zone or zone redundant high availability requires a hot standby server to be spun up, storing redundant backup and hence the added cost. This architecture enables reduced downtime during unplanned outages and planned maintenance. In addition, depending on your workload, flexible servers can provide better performance than single servers. You may be able to run your workload with a lower SKU on flexible servers. Hence, your overall cost may be like that of a single server. 
+**Q. Are there any additional costs associated with performing the migration?**
 
-**Q. Do I need to incur downtime to migrate Single Server to Flexible Server?** 
+**A.** You pay for the target flexible server and the source single server during the migration. The configuration and computing of the target flexible server determine the additional costs incurred (see [Pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/) for more details). Once you've decommissioned the source single server after a successful migration, you only pay for your flexible server. There's no additional cost to use the single server to flexible server migration tool. If you have questions or concerns about the cost of migrating your single server to a flexible server, contact your Microsoft account representative.
 
-A. We have custom-built a tool to simplify [migration from Single Server to Flexible](/azure/postgresql/migrate/concepts-single-to-flexible) Server. The tool offers offline and online migrations and is built into the managed service. Online migration has some Open-Source PostgreSQL engine-specific [limitations](https://www.postgresql.org/docs/13/logical-replication-restrictions.html), and the tool provide an assessment for you to help you decide which option to choose. 
+**Q. Will my billing be affected by running Azure Database for PostgreSQL - Flexible Server instead of Azure Database for PostgreSQL - Single Server?**
 
-**Q. Will there be future updates to Single Server to support the latest PostgreSQL versions?** 
+**A.**  The billing should be comparable if you choose a similar configuration to your Azure Database for PostgreSQL - Single Server. However, if you select the same zone or zone redundant with high availability for the target flexible server, your bill is higher than it was on single server. Same zone or zone redundant high availability requires an additional hot standby server to be spun up and store redundant backup data, hence the added cost for the second server. This architecture enables reduced downtime during unplanned outages and planned maintenance. Generally speaking, flexible server provides better price performance. However, this is dependent on your workload.
 
-A. No. We recommend you migrate to Flexible Server if you must run on the latest PostgreSQL engine versions. However,  we'll continue to deploy minor versions released by the community for PG11 until it's retired in Nov’2023. Consider migrating to Flexible Server to use the benefits of the latest version upgrades. 
+**Q. Will I incur downtime when I migrate my Azure Database from PostgreSQL - single server to flexible server?**
 
-**Q. How does the flexible server’s 99.99% availability SLA differ from a single server?** 
+**A.**  Currently, The Single to Flexible Server Migration Tool only supports offline migrations, and support for online migration is coming soon. Offline migration requires downtime to your applications during the migration process. [Learn more about The Single to Flexible Server Migration Tool](/azure/postgresql/migrate/concepts-single-to-flexible).
 
-A. Flexible server’s zone-redundant deployment provides 99.99% availability with zonal-level resiliency, whereas the single server provides resiliency in a single availability zone. Flexible Server’s High Availability (HA) architecture deploys a warm standby with redundant compute and storage (with each site’s data stored in 3x copies) compared to a single server’s HA architecture, which doesn't have a passive hot standby to help recover from zonal failures. The flexible server’s HA architecture reduces downtime during unplanned outages and planned maintenance.  
+Downtime depends on several factors, including the number of databases, size of your databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server and the IOPS available on the source and target server.
 
-**Q. My single server is deployed in a region that doesn’t support a flexible Server. How should I proceed with migration?** 
+Given the many factors involved in a migration, the best approach to estimate downtime to your application is to try the migration on a PITR server restored from the primary server to plan for your production migration.
 
-A. We're close to regional parity with Single Server. However, a few regions like ChinaEast (CE and CE2), China North (CN and CN2), or West India are capacity constrained. We plan to support something other than Flexible Server in those regions. We recommend you migrate to regions CN3/CE3 and Central India. 
+Offline migrations are less complex, with few chances of failure, and are the recommended way to perform migrations from single server to flexible server for workloads with service windows.
 
-**Q. I have a private Link configured for my single server, and this feature is not currently supported in Flexible Server. How do I migrate?** 
+You can contact your account teams if downtime requirements aren't met by the Offline migrations provided by single server to Flexible migration tool.
 
-A. Flexible Server support for private Links is on our roadmap as our highest priority. The launch of the feature is planned for Q4 2023. Additionally, you can migrate now and perform VNet injection via a point-in-time restore operation to move to the private access network connectivity method. 
+**Q. Will there be future updates to single server to support the latest PostgreSQL versions?**
 
-**Q. Is there an option to rollback a Single Server to a Flexible Server migration?** 
+**A.**  We recommend you migrate to flexible server if you must run on the latest PostgreSQL engine versions. We'll continue to deploy minor versions released by the community for Postgres version 11 until it's retired by the community in Nov'2023.
 
-A. You can perform any test migrations and complete the final migration after gaining confidence through testing. A test migration doesn’t affect the single source server, which remains operational and replicates until you perform the actual migration. If there are any errors during the test migration, you can postpone the final migration and keep your source server running. You can then reattempt the last migration after you resolve the errors. After you've performed a final migration to Flexible Server and the single source server has been shut down, you can't perform a rollback from Flexible Server to Single Server. 
+> [!NOTE]
+> We're extending support for Postgres version 11 past the community retirement date and will support PostgreSQL version 11 on both [single server](https://azure.microsoft.com/updates/singlepg11-retirement/) and [flexible server](https://azure.microsoft.com/updates/flexpg11-retirement/) to ease this transition. Consider migrating to flexible server to use the benefits of the latest Postgres engine versions.
+    
+**Q. How does the flexible server's 99.99% availability SLA differ from single server?**
 
-**Q. The size of my database is greater than 1 TB, so how should I proceed with the migration?** 
+**A.**  flexible server's zone-redundant deployment provides 99.99% availability with zonal-level resiliency, and single server delivers 99.99% availability but without zonal resiliency. flexible server's High Availability (HA) architecture deploys a hot standby server with redundant compute and storage (with each site's data stored in 3x copies). single server's HA architecture doesn't have a passive hot standby to help recover from zonal failures. flexible server's HA architecture reduces downtime during unplanned outages and planned maintenance.
 
-A. [The Single to Flex migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) can be used to migrate databases of any size from a single server to a flexible server. The tool doesn't have any restrictions in terms of the size of the databases it can handle.  
+**Q. My single server is deployed in a region that doesn't support flexible server. How should I proceed with migration?**
 
-**Q. Is cross-region migration supported?** 
+**A.**  We're close to regional parity with single server. However, these are the regions with no flexible server presence.
 
-A. Currently, the Single to Flex migration tool doesn't support cross-region migrations. It is kept at a later point in time. You can use the **pg_dump/pg_restore** to perform migrations across regions.  
+- China East (CE and CE2),
+- China North (CN and CN2)
+- West India
+- Sweden North
 
-In general, cross-region data migrations should be avoided since the migration takes a long time to complete.    
+We recommend migrating to CN3/CE3, Central India, and Sweden South regions.
 
-**Q. Is cross-subscription migration supported?** 
+**Q. I have a private link configured for my single server, and this feature is not currently supported in flexible server. How do I migrate?**
 
-A. The Single to Flex migration tool does support cross-subscription migrations. 
+**A.**  flexible server support for private-link is our highest priority and on the roadmap. This feature is planned to launch in Q4 2023. Another option is to consider migrating to VNET injected flexible server.
 
-**Q. Is cross-resource group subscription-supported?** 
+**Q. Is there an option to roll back a single server to a flexible server migration?**
 
-A. The Single to Flex migration tool does support cross-resource group migrations. 
+**A.**  You can perform any number of test migrations, test the success of your migration, and perform the final migration once you're ready. Test migrations don't affect the single server source, which remains operational until you perform the migration. If there are any errors during the test migration, you can postpone the final migration and keep your source server running. You can then reattempt the final migration after you resolve the errors. After you've performed a final migration to flexible server and opened it up for the production workload, you'll lose the ability to go back to single server without incurring a data loss.
 
-**Q. Is there cross-version support?** 
+**Q. How should I migrate my DB (> 1TB)**
 
-A. Yes, migration from lower version PostgreSQL servers (PG 9.5 and above) to higher versions is supported through Single àFlexible Migration Service. 
+**A.** [The Single to Flexible Server Migration Tool](/azure/postgresql/migrate/concepts-single-to-flexible) can migrate databases of all sizes from single server to flexible server. The new version of the tool has no restrictions regarding the size of the databases.
 
-**[Single Server àFlexible Server Migration Tool](/azure/postgresql/migrate/concepts-single-to-flexible)** 
+**Q. Is cross-region migration supported?**
 
-**Q. Which data, schema, and metadata components are migrated as part of the migration?** 
+**A.**  Currently, The Single to Flexible Server Migration Tool doesn't support cross-region migrations. It will be supported at a later point in time. You can use the pg_dump/pg_restore to perform migrations across regions.
 
-A. Single to Flexible Server migration tool migrates schema, data, and metadata from the source to the destination. All of the following data, schema and metadata components are migrated as part of the database migration: 
+Cross-region data migrations should be avoided because the migration takes a long time to complete. A simpler way to do this will be to start a read-replica in the target GeoRegion, failover your application, and follow the steps outlined earlier.
 
-Data Migration 
+**Q. Is cross-subscription migration supported?**  
+**A.**  The Single to Flexible Server Migration Tool supports cross-subscription migrations.
 
-- All tables from all databases/schemas. 
-   
-Schema Migration 
+**Q. Is cross-resource group subscription-supported?**  
+**A.**  The Single to Flexible Server Migration Tool supports cross-resource group migrations.
 
-- Naming 
-- Primary key 
-- Data type 
-- Ordinal position 
-- Default value 
-- Nullability 
-- Auto-increment attributes 
-- Secondary indexes 
-   
-Metadata Migration 
+**Q. Is there cross-version support?**  
+**A.** The single to flexible server Migration Service supports migrating from a lower PostgreSQL version (PG 9.5 and above) to any higher version. As always, application compatibility with higher PostgreSQL versions should be checked beforehand.
 
-- Stored Procedures 
-- Functions 
-- Triggers 
-- Views 
-- Foreign key constraints 
+### Single to Flexible Server Migration Tool
 
-**Q. What’s the difference between an offline and an online migration?**
+The [Single to Flexible Server Migration Tool](/azure/postgresql/migrate/concepts-single-to-flexible) is a powerful tool that allows you to migrate your SQL Server database from a single server to a flexible server with ease. With this tool, you can easily move your database from an on-premises server or a virtual machine to a flexible server in the cloud, allowing you to take advantage of the scalability and flexibility of cloud computing.
 
-A. **Single to Flexible Server migration tool** supports both offline and online (preview) migrations. With an offline migration, application downtime starts when the migration starts. With an online migration, downtime is limited to the time required to cut over at the end of migration but uses logical replication mechanism. Your Data/Schema must pass these open-source PG engine restrictions for online migration. We suggest that you test an offline migration to determine whether the downtime is acceptable. 
+**Q. Which data, schema, and metadata components are migrated as part of the migration?**
 
-Online and Offline migrations are compared in the following table:  
+**A.**  The Single to Flexible Server Migration Tool migrates schema, data, and metadata from the source to the destination. All the following data, schema, and metadata components are migrated as part of the database migration:
 
-| Area | Online migration (preview) | Offline migration |
-|-------|:----------------:|:-----------------:|
-| Database availability for reads during migration | Available | Available |
-| Database availability for writing during migration | Available | NOT RECOMMENDED. </br> Any ‘writes’ initiated after the migration is not captured or migrated. |
-| Application Suitability | Applications that need maximum uptime | Applications that can afford a planned downtime window or have schema/workload [restrictions](https://www.postgresql.org/docs/13/logical-replication-restrictions.html) that prohibit online migration. |
-| Suitability for write-heavy workloads | Suitable but expected to reduce the workload during migration | NOT APPLICABLE. </br> This is only a recommended solution if you can disable writes during the migration. Any writes on the source server after the migration begins are lost.   |
-| Manual Cutover | Required | Not required |
-| Downtime required | Less | More |
-| Migration time | Depends on Database size and the write activity until cutover | Depends on Database size. |
+Data Migration
 
-**Q. When using Azure Database Migration Service, what’s the difference between an offline and an online migration?** 
+- All tables from all databases/schemas.
 
-A. Azure Database Migration Service supports both offline and online migrations. With an offline migration, application downtime starts when the migration begins. With an online migration, downtime is limited to the time required to cut over at the end of migration but uses a logical replication mechanism. Your Data/Schema must pass these [open-source PG engine restrictions](https://www.postgresql.org/docs/13/logical-replication-restrictions.html) for online migration. We suggest you test an offline migration to determine whether the downtime is acceptable. 
+Schema Migration:
+- Naming
+- Primary key
+- Data type
+- Ordinal position
+- Default value
+- Nullability
+- Autoincrement attributes
+- Secondary indexes
 
-Online and Offline migrations are compared in the following table:  
+Metadata Migration:
+- Stored Procedures
+- Functions
+- Triggers
+- Views
+- Foreign key constraints
+
+**Q. What's the difference between offline and online migration?**
+
+**A.** The Single to Flexible Server Migration Tool supports offline migration now, with online migrations coming soon. With an offline migration, application downtime starts when the migration begins. With an online migration, downtime is limited to the time required to cut over at the end of migration but uses a logical replication mechanism. Your Data/Schema must pass these [open-source PG engine restrictions](https://www.postgresql.org/docs/13/logical-replication-restrictions.html) for online migration. We suggest you test offline migration to determine whether the downtime is acceptable.
+
+Online and Offline migrations are compared in the following table:
 
 | Area | Online migration | Offline migration |
 | ---- | ---------------- | ----------------- |
-| Database availability for reads during migration  |Available  |Available   |
-| Database availability for writing during migration  |Available  |Generally, not recommended. Any ‘writes’ initiated after the migration isn't captured or migrated |
-| Application Suitability  |Applications that need maximum uptime  |Applications that can afford a planned downtime window or have schema/workload  [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) that prohibit online migration |
-| Suitability for Write-heavy workloads  | Suitable but expected to reduce the workload during migration  |Not Applicable. Writes at source after the migration begins aren't replicated to the target.  |
+| Database availability for reads during migration | Available | Available |
+| Database availability for writing during migration | Available | Generally, not recommended. Any 'writes' initiated after the migration isn't captured or migrated |
+| Application Suitability | Applications that need maximum uptime | Applications that can afford a planned downtime window or have schema/workload [restrictions](https://www.postgresql.org/docs/13/logical-replication-restrictions.html) that prohibit online migration |
+| Suitability for Write-heavy workloads | Suitable but expected to reduce the workload during migration | This is only a recommended solution if you can disable writes during the migration. Any writes at the source aren't migrated to the target server after the migration begins. |
 | Manual Cutover | Required | Not required |
-| Downtime required | Less | More |
-| Migration time | Depends on Database size and the writing activity until cutover. | Depends on the database size. |
+| Downtime required | Small and fixed irrespective of the data size | Proportional to the data size and other factors. It could be as small as a few mins for smaller databases to a few hours for larger databases |
+| Migration time | Depends on the Database size and the write activity until cutover | Depends on the Database size |
 
-**Q. Are there any recommendations for optimizing the performance of the Single to Flex migration tool?** 
+**Q. Are there any recommendations for optimizing the performance of The Single to Flexible Server Migration Tool?**
 
-A. Yes. To perform faster migrations, pick a higher SKU for your flexible server. Pick a minimum 4VCore or higher to complete the migration quickly. You can always change the SKU to match the application needs post-migration. 
+**A.** Yes. To perform faster migrations, pick a higher SKU for your flexible server. Pick a minimum 4VCore or higher to complete the migration quickly. You can always change the SKU to match the application needs post-migration.
 
-**Q. How long does it take to perform an offline migration with Azure Database Migration Service?** 
+**Q. How long does performing an offline migration with The Single to Flexible Server Migration Tool take?**
 
-A. The following table shows the time for performing offline migrations for databases of various sizes using the single-to-flex migration tool. The migration was performed using a flexible server with the SKU – **Standard_D4ds_v4(4 cores, 16GB Memory, 128GB disk, and 500 IOPS)** 
+**A.** The following table shows the time for performing offline migrations for databases of various sizes using The Single to Flexible Server Migration Tool. The migration was performed using a flexible server with the SKU:
+
+**Standard_D4ds_v4(4 cores, 16GB Memory, 128GB disk and 500 IOPS)**
 
 | Database Size | Time (HH:MM) |
 | ------------- | ------------ |
@@ -192,40 +200,44 @@ A. The following table shows the time for performing offline migrations for data
 | 500 GB | 04:00 |
 | 1,000 GB | 07:00 |
 
-The above numbers give you an approximation of the time taken to complete the migration. To get the precise time required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. 
+> [!NOTE]  
+> The numbers above approximate the time taken to complete the migration. To get the precise time required for migrating to your Server, we strongly recommend taking a PITR (point in time restore) of your single server and running it against The Single to Flexible Server Migration Tool.
 
-**Q. How long does it take to perform an online migration with Azure Database Migration Service?** 
+**Q. How long does performing an online migration with The Single to Flexible Server Migration Tool take?**
 
-A. Online migrations involve the following steps: 
+**A.** Online migration involves the following steps:
 
-1. Initial copy of databases 
-1. change data capture - Replaying all the transactions on the source during step #1 to the target.  
-    
-The time taken for step #1 is the same as for offline migrations (refer to the previous question). 
+1. Initial copy of databases
+1. Change data capture - Replaying all the transactions on the source during step #1 to the target.
 
-The time taken for step #2 depends on the transactions that occur on the source. If it's a write-intensive workload, the time taken for step #2 is more extended. 
+The time taken in step #1 is the same as for offline migrations (refer to the previous question).
 
-**Q. I have further questions on retirement. How can I get assistance with it?** 
+The time taken for step #2 depends on the transactions that occur on the source. If it's a write-intensive workload, the time taken for step #2 will be longer.
 
-A. If you have questions, get answers from community experts in Microsoft Q&A. If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):  
+### Additional support
 
-1. For *Summary*, type a description of your issue.  
-1. For *Issue type*, select **Technical**.    
-1. For *Subscription*, select your subscription.    
-1. For *Service*, select **My services**.  
-1. For *Service type*, select **Azure Database for PostgreSQL Single Server**.    
-1. For *Resource*, select your resource.    
-1. For *Problem type*, select **Migrating to Azure DB for PostgreSQL**.  
-1. For *Problem subtype*, select **Migrating from single to flexible server**.  
-    
-Contact the Azure Database for PostgreSQL product team at [AskAzureDBforPostgreSQL@service.microsoft.com](mailto:AskAzureDBforMySQL@service.microsoft.com). 
+**Q. I have further questions about retirement.**  
+**A.**
+- Get answers from community experts in [Microsoft Q&A](/answers/tags/214/azure-database-postgresql).
+
+- You can contact the [Azure Database for PostgreSQL product team](mailto:AskAzureDBforMySQL@service.microsoft.com?subject=Azure%20Database%20for%20PostgreSQL%20-%20Single%20Server%20retirement).
+
+- If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+    - For Summary, type a description of your issue.
+    - For Issue type, select Technical.
+    - For Subscription, select your subscription.
+    - For Service, select My services.
+    - For Service type, select Azure Database for PostgreSQL single server.
+    - For Resource, select your resource.
+    - For Problem type, select Migrating to Azure DB for PostgreSQL.
+    - For Problem subtype, select Migrating from single to flexible server.
 
 > [!WARNING]  
-> This article is not for Azure Database for PostgreSQL - Flexible Server users. It is for Azure Database for PostgreSQL - Single Server customers who need to upgrade to PostgreSQL - Flexible Server.
+> This article is not for Azure Database for PostgreSQL - Flexible Server users. It is for Azure Database for PostgreSQL - Single Server customers who need to upgrade to PostgreSQL - flexible server.
 
 We know migrating services can be a frustrating experience, and we apologize in advance for any inconvenience this might cause you. You can choose what scenario best works for you and your environment.
 
 ## Next steps
 
 - [Migration tool](../migrate/concepts-single-to-flexible.md)
-- [What is Flexible Server](../flexible-server/overview.md)
+- [What is flexible server](../flexible-server/overview.md)
