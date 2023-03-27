@@ -79,13 +79,13 @@ Here is the initial set of permissions:
 
 ## What happens with protected actions and applications?
 
-If an application or service attempts to perform a protection action, it may need to be able to make a step-up authentication request, so the user is able to satisfy the required Conditional Access policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
+If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
 
 - Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
 - [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 
-There are some known and expected limitations. The following applications will fail if they attempt to perform a protected action. In the case that step-up authentication is required to perform the protected action, the following clients will fail to authenticate.
+There are some known and expected limitations. The following applications will fail if they attempt to perform a protected action.
  
 - [Azure PowerShell](/powershell/azure/what-is-azure-powershell?branch=main) 
 - [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
