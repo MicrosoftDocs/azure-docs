@@ -16,6 +16,8 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Launch your first event-driven app
+    href: quickstart-deploy-event-driven-app-standard-consumption.md
   - name: Run apps on Standard consumption plan
     expanded: true
     items:
@@ -25,8 +27,6 @@ items:
       href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
     - name: Access apps in a VNet
       href: quickstart-access-standard-consumption-within-virtual-network.md
-    - name: Launch your first event-driven app
-      href: quickstart-deploy-event-driven-app-standard-consumption.md
     - name: Set up autoscale
       href: quickstart-apps-autoscale-standard-consumption.md
     - name: Map a custom domain to Azure Spring Apps
