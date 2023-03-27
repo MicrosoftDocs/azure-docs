@@ -3,7 +3,7 @@ title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: madsd
 ms.topic: article
-ms.date: 02/14/2022
+ms.date: 03/27/2023
 ms.author: madsd
 ---
 
