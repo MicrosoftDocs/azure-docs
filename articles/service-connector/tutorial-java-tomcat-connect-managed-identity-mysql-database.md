@@ -162,6 +162,7 @@ This Service Connector command will do the following tasks in the background:
   > [!NOTE]
   > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
 
+
 ## Deploy the application to App Service
 Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using a WAR packaging.
 
@@ -175,9 +176,8 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
 
     ```azurecli-interactive
     AZURE_MYSQL_CONNECTIONSTRING=$(az webapp config appsettings list --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME | jq -c '.[] | select ( .name == "AZURE_MYSQL_CONNECTIONSTRING" ) | .value' | sed 's/"//g')
-    # Create a new environment variable with the connection string including the passwordless authentication plugin
-    az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings 'CATALINA_OPTS=-DdbUrl="${AZURE_MYSQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin"'
 
+    az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings 'CATALINA_OPTS=-DdbUrl="${AZURE_MYSQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin"'
     ```
 
 1. Deploy the WAR package to App Service.
