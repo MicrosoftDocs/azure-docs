@@ -43,26 +43,24 @@ A BIG-IP in front of the application enables uoverlay of the service with Azure 
 
 The SHA solution contains:
 
-* **Application** - BIG-IP published service to be protected by Azure AD SHA. 
-* **Azure AD** - Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
-* **BIG-IP** - reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
+* **Application** - BIG-IP published service protected by Azure AD SHA
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with session attributes.
+* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
-SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+For this scenario, SHA supports SP- and IdP-initiated flows. The following diagram illustrates the SP-initiated flow.
 
-   ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
+   ![Diagram of the configuration with an SP-initiated flow.](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
-| Steps| Description |
-| - |----|
-| 1| User connects to application endpoint (BIG-IP) |
-| 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
-| 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
-| 4| User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
-| 5| BIG-IP injects Azure AD attributes as headers in request to the application |
-| 6| Application authorizes request and returns payload |
+1. User connects to application endpoint (BIG-IP).
+2. BIG-IP APM access policy redirects user to Azure AD (SAML IdP).
+3. Azure AD preauthenticates user and applies Conditional Access policies.
+4. User is redirected to BIG-IP (SAML SP) and SSO occurs using issued SAML token.
+5. BIG-IP injects Azure AD attributes as headers in application request.
+6. Application authorizes request and returns payload.
 
 ## Prerequisites
 
-Prior BIG-IP experience isn’t necessary, but you’ll need:
+For the scenario you need:
 
 * An Azure AD free subscription or above
 
