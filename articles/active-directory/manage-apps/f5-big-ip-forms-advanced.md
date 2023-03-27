@@ -29,7 +29,7 @@ Learn more:
 
 ## Scenario description
 
-For the scenario, there's an internal legacy application configured for form-based authentication (FBA). Ideally, Azure AD manages application access, because legacy lacks modern authentication protocols. Modernization takes time and effort, introducing the risk of downtime. Instead, deploy a BIG-IP between the public internet and the internal application. This configuraion gates inbound access to the application.
+For the scenario, there's an internal legacy application configured for form-based authentication (FBA). Ideally, Azure AD manages application access, because legacy lacks modern authentication protocols. Modernization takes time and effort, introducing the risk of downtime. Instead, deploy a BIG-IP between the public internet and the internal application. This configuration gates inbound access to the application.
 
 With a BIG-IP in front of the application, you can overlay the service with Azure AD preauthentication and header-based SSO. The overlay improves application security posture.
 
@@ -82,7 +82,7 @@ You need the following components:
 
 ## BIG-IP configuration
 
-The configuration in this article is a flexible SHA implemention: manual creation of BIG-IP configuration objects. Use this approach for scenarios the Guided Configuration templates don't cover.
+The configuration in this article is a flexible SHA implementation: manual creation of BIG-IP configuration objects. Use this approach for scenarios the Guided Configuration templates don't cover.
 
    >[!NOTE]
    >Replace example strings or values with those from your environment.
@@ -153,7 +153,7 @@ Use the following instructions to configure BIG-IP.
 
 ### Configure SAML service provider settings
 
-SAML SP settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication. To configure them:
+SAML SP settings define the SAML SP properties that the APM uses to overlay the legacy application with SAML preauthentication. To configure them:
 
 1. Select **Access** > **Federation** > **SAML Service Provider**.
 2. Select **Local SP Services**.
@@ -204,32 +204,32 @@ To configure the connector:
 
 Create an APM SSO object for FBA SSO to back-end applications. 
 
-Perform FBA SSO in client-initiated mode or BIG-IP-initiated mode. Both methods emulate a user sign on by injecting credentials into the username and password tags. The form is then auto-submitted. Users provide password to access an FBA application. The password is cached and reused for other FBA applications.
+Perform FBA SSO in client-initiated mode or BIG-IP-initiated mode. Both methods emulate a user sign-on by injecting credentials into the username and password tags. The form is then autosubmitted. Users provide password to access an FBA application. The password is cached and reused for other FBA applications.
 
 1. Select **Access** > **Single Sign-on**.
 2. Select **Forms Based**.
 3. Select **Create**.
 4. For **Name**, enter a descriptive name. For example, Contoso\FBA\sso.
 5. For **Use SSO Template**, select **None**.
-6. For **Username Source**, enter the username source to pre-fill the password collection form. The default `session.sso.token.last.username` works well, because it has the signed-in user Azure AD UPN.
+6. For **Username Source**, enter the username source to prefill the password collection form. The default `session.sso.token.last.username` works well, because it has the signed-in user Azure AD UPN.
 7. For **Password Source**, keep the default `session.sso.token.last.password`, the APM variable BIG-IP uses to cache user passwords. 
 
    ![Screenshot of Name and Use SSO Template options under New SSO Configuration.](./media/f5-big-ip-forms-advanced/new-sso-configuration.png)
 
 8. For **Start URI**, enter the FBA application logon URI. If the request URI matches this URI value, the APM form-based authentication executes SSO.
 9. For **Form Action**, leave it blank. Then, the original request URL is used for SSO.
-10. For **Form Parameter for Username**, enter the logon form username field element. Use the browser dev tools to determine the element.
-11. For **Form Parameter for Password**, enter the logon form password field element. Use the browser dev tools to determine the element.
+10. For **Form Parameter for Username**, enter the sign in form username field element. Use the browser dev tools to determine the element.
+11. For **Form Parameter for Password**, enter the sign in form password field element. Use the browser dev tools to determine the element.
 
    ![Screenshot of Start URI, Form Parameter For User Name, and Form Parameter For Password fields.](./media/f5-big-ip-forms-advanced/sso-method-configuration.png)
 
    ![Screenshot of the sign in page with callouts for username field and password field.](./media/f5-big-ip-forms-advanced/contoso-example.png)
 
-To learn more, go to techdocs.f5.com for [Manual Chapter: Single Sign-On Methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449)
+To learn more, go to techdocs.f5.com for [Manual Chapter: Single sign-on methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449)
 
 ### Configure an Access profile
 
-An access profile binds APM elements that manage access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
+An access profile binds the APM elements that manage access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
 
 1. Select **Access** > **Profiles / Policies**.
 2. Select **Access Profiles (Per-Session Policies)**.
@@ -272,7 +272,7 @@ An access profile binds APM elements that manage access to BIG-IP virtual server
 
    ![Screenshot of the Yes option in the username row on the Properties tab.](./media/f5-big-ip-forms-advanced/set-read-only-as-yes.png)
 
-21. For the logon page fallback, select the **+** sign. This action adds an SSO credential mapping object.
+21. For the sign in page fallback, select the **+** sign. This action adds an SSO credential mapping object.
 
 22. In the pop-up, select the **Assignment** tab.
 23. Select **SSO Credential Mapping**.
@@ -377,13 +377,13 @@ BIG-IP session management settings define conditions for sessions termination an
 3. Select **Access Profile**.
 4. From the list, select your application.
 
-If you defined a single logout URI value in Azure AD, IdP-initiated sign-out from MyApps ends the client and the BIG-IP APM session. The imported application federation metadata XML file provides the APM with the Azure AD SAML endpoint for SP-initiated sign-outs. Ensure the APM responds correctly to a user sign out.
+If you defined a single logout URI value in Azure AD, IdP-initiated sign out from MyApps ends the client and the BIG-IP APM session. The imported application federation metadata XML file provides the APM with the Azure AD SAML endpoint for SP-initiated sign out. Ensure the APM responds correctly to a user sign out.
 
-If there's no BIG-IP web portal, users can't instruct the APM to sign out. If the user signs out of the application, BIG-IP is oblivious. The application session can be reinstated through SSO. For SP-initiated sign-out, ensure sessions terminate securely.
+If there's no BIG-IP web portal, users can't instruct the APM to sign out. If the user signs out of the application, BIG-IP is oblivious. The application session can be reinstated through SSO. For SP-initiated sign out, ensure sessions terminate securely.
 
-You can add an SLO function to your application **sign out** button. This function redirects the client to the Azure AD SAML sign out endpoint. To locate SAML sign-out endpoint, go to **App Registrations > Endpoints**.
+You can add an SLO function to your application **sign out** button. This function redirects the client to the Azure AD SAML sign out endpoint. To locate SAML sign out endpoint, go to **App Registrations > Endpoints**.
 
-If you can't change the app, have the BIG-IP listen for the app sign-out call and trigger SLO.
+If you can't change the app, have the BIG-IP listen for the app sign out call and trigger SLO.
 
 Learn more:
 
@@ -409,7 +409,7 @@ For increased security, block direct access to the application, enforcing a path
    ![Screenshot of the sign in page.](./media/f5-big-ip-forms-advanced/secured-sso.png)
 
 6. The information is submitted.
-7. You are signed in to the application.
+7. You're signed in to the application.
 
    ![Screenshot of Welcome page.](./media/f5-big-ip-forms-advanced/welcome-message.png)
 
@@ -425,7 +425,7 @@ When troubleshooting, consider the following information
   * You can specify form name and customize the JavaScript form handler logic
 * Both FBA SSO methods optimize user experience and security by hiding form interactions:
   * You can validate if the credentials are injected 
-  * In client-initiated mode, disable form auto-submission in your SSO profile
+  * In client-initiated mode, disable form autosubmission in your SSO profile
   * Use dev tools to disable the two style properties that prevent the sign in page from appearing
 
   ![Screenshot of the Properties page.](./media/f5-big-ip-forms-advanced/properties.png)
