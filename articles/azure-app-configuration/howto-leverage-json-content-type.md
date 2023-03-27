@@ -8,7 +8,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 03/27/2023
 ms.custom: devdivchpfy22
 ms.author: avgupta
 
@@ -74,17 +74,17 @@ JSON key-values can be created using Azure portal, Azure CLI, or by importing fr
 
 ### Create JSON key-values using Azure portal
 
-1. Browse to your App Configuration store, and select **Operations** > **Configuration Explorer** > **Create** > **Key-value** to add the following key-values:
+Add the following key-values to the App Configuration store. Leave **Label** with its default value. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    | Key                        | Value                                                     | Label  | Content Type     |
-    |----------------------------|-----------------------------------------------------------|--------|------------------|
-    | *Settings:BackgroundColor*   | *"Green"*                                               | Leave empty | *application/json* |
-    | *Settings:FontSize*          | *24*                                                    | Leave empty | *application/json* |
-    | *Settings:UseDefaultRouting* | *false*                                                 | Leave empty | *application/json* |
-    | *Settings:BlockedUsers*      | *null*                                                  | Leave empty | *application/json* |
-    | *Settings:ReleaseDate*       | *"2020-08-04T12:34:56.789Z"*                            | Leave empty | *application/json* |
-    | *Settings:RolloutPercentage* | *[25,50,75,100]*                                        | Leave empty | *application/json* |
-    | *Settings:Logging*           | *{"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}}* | Leave empty | *application/json* |
+| Key                          | Value                                                   | Content Type       |
+| ---------------------------- | ------------------------------------------------------- | ------------------ |
+| *Settings:BackgroundColor*   | *"Green"*                                               | *application/json* |
+| *Settings:FontSize*          | *24*                                                    | *application/json* |
+| *Settings:UseDefaultRouting* | *false*                                                 | *application/json* |
+| *Settings:BlockedUsers*      | *null*                                                  | *application/json* |
+| *Settings:ReleaseDate*       | *"2020-08-04T12:34:56.789Z"*                            | *application/json* |
+| *Settings:RolloutPercentage* | *[25,50,75,100]*                                        | *application/json* |
+| *Settings:Logging*           | *{"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}}* | *application/json* |
 
 1. Select **Apply**.
 

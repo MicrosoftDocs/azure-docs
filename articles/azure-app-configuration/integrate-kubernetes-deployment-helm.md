@@ -6,7 +6,7 @@ author: maud-lv
 
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 03/14/2023
+ms.date: 03/27/2023
 ms.author: malev
 
 #Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm.
@@ -38,14 +38,12 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 
 ## Add key-values
 
-1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values to your App Configuration store:
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    | Key | Value |
-    |---|---|
-    | settings.color | White |
-    | settings.message | Data from Azure App Configuration |
-
-1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
+| Key | Value |
+|---|---|
+| *settings.color* | *White* |
+| *settings.message* | *Data from Azure App Configuration* |
 
 ## Add a Key Vault reference to App Configuration
 

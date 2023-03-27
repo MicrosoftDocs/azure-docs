@@ -5,7 +5,7 @@ ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/27/2023
 
 #Customer intent: I want to move my App Configuration resource from one Azure region to another. 
 
@@ -26,39 +26,9 @@ Before you begin, keep in mind the following concepts:
 
 ## Create a target configuration store
 
-### [Portal](#tab/portal)
-
 1. Create a new App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md#create-an-app-configuration-store). For **Location** select the target region you want to move your configuration store to, and for **Pricing tier** select **Standard**.
 1. Once the resource has been deployed, recreate the access policies and network configuration settings of your source store. These will not be transferred with the configuration. This can include using managed identities, virtual networks, and public network access.
 
-#### [Azure CLI](#tab/azcli)
-
-To create a new App Configuration store in the CLI, follow these steps:
-
-1. Log in to the Azure CLI with your credentials.
-
-    ```azurecli
-    az login
-    ```
-
-1. Create a new configuration store with the `create` command,
-
-    ```azurecli
-    az appconfig create -g MyResourceGroup -n MyResourceName -l targetlocation --sku Standard 
-    ```
-
-    and enter the following settings:
-
-    | Setting | Suggested value | Description |
-    |---|---|---|
-    | **Resource group** | Your resource group | Select the Azure resource group of your original store |
-    | **Resource name** | Globally unique name | Enter a unique resource name to use for the target App Configuration store. This can not be the same name as the previous configuration store. |
-    | **Location** | Your target Location | Select the target region you want to move your configuration store to. |
-    | **Sku** | *Standard* | Select the desired pricing tier. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration). |
-
-1. The deployment might take a few minutes. Once it is complete, recreate the access policies and network configuration settings of our source store. These will not be transferred with the configuration values. This can include using manage identities, virtual networks, and public network access. For more information, reference the [CLI documentation](./cli-samples.md).
-
----
 
 ## Transfer your configuration key-values  
 
@@ -73,8 +43,6 @@ Follow these steps to export your configuration to the target store using the Az
 1. Select **Apply** to verify your target configuration store.
 1. Leave the **From label**, **Time**, and **Label** fields with their default values and select **Apply**. For more information about labels, go to [Keys and values](concept-key-value.md).
 1. To verify that your configurations have been successfully transferred from your source to your target store, navigate to your target configuration store in the portal. Select **Configuration Explorer** under **Operations** and verify that this contains the same key-values as those in your original store.
-    > [!NOTE]
-    > This process only allows for configuration key-values to be exported by one label at a time. To export multiple, repeat steps 2-5 for each label.
 
 ### [Azure CLI](#tab/azcli)
 

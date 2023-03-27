@@ -26,12 +26,10 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Add a feature flag
 
-1. Select **Operations** > **Feature Manager** > **Create** to add a feature flag called `Beta` to the App Configuration store.
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-1. Leave **Label** and **Description** with their default values, then select **Apply**. For more information about labels, go to [Keys and values](concept-key-value.md#label-keys).
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
 ## Create a Spring Boot app
 

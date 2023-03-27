@@ -82,7 +82,7 @@ If you're following another tutorial to use the App Configuration store, you can
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
-    | `TestApp:Settings:TextAlign`       | *center*                             |
+    |*TestApp:Settings:TextAlign*        | *center*                            |
   
 1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
 

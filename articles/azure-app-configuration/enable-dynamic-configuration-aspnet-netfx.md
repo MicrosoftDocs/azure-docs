@@ -31,17 +31,15 @@ In this tutorial, you learn how to:
 
 ## Add key-values
 
-1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-valuee).
 
-    | Key                                | Value                               | Label       | Content Type |
-    |------------------------------------|-------------------------------------|-------------|--------------|
-    | *TestApp:Settings:BackgroundColor* | *White*                             | Leave empty | Leave empty  |
-    | *TestApp:Settings:FontColor*       | *Black*                             | Leave empty | Leave empty  |
-    | *TestApp:Settings:FontSize*        | *40*                                | Leave empty | Leave empty  |
-    | *TestApp:Settings:Message*         | *Data from Azure App Configuration* | Leave empty | Leave empty  |
-    | *TestApp:Settings:Sentinel*        | *v1*                                | Leave empty | *Leave empty |
-
-1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
+| Key                                | Value                               |
+|------------------------------------|-------------------------------------|
+| *TestApp:Settings:BackgroundColor* | *White*                             |
+| *TestApp:Settings:FontColor*       | *Black*                             |
+| *TestApp:Settings:FontSize*        | *40*                                |
+| *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
+| *TestApp:Settings:Sentinel*        | *v1*                                |
 
 ## Create an ASP.NET Web Application
 

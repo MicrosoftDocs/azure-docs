@@ -25,15 +25,13 @@ The Python App Configuration provider is a library running on top of the [Azure 
 
 ## Add key-values
 
-1. Select **Operations** > **Configuration Explorer** > **Create** > **Key-value** to add the following key-values to the App Configuration store:
+Add the following key-values to the App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    | Key            | Value             | Label       | Content type       |
-    |----------------|-------------------|-------------|--------------------|
-    | *message*      | *Hello*           | Leave empty | Leave empty        |
-    | *test.message* | *Hello test*      | Leave empty | Leave empty        |
-    | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
-
-1. Select **Apply**.
+| Key            | Value             | Label       | Content type       |
+|----------------|-------------------|-------------|--------------------|
+| *message*      | *Hello*           | Leave empty | Leave empty        |
+| *test.message* | *Hello test*      | Leave empty | Leave empty        |
+| *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
 ## Set up the Python app
 

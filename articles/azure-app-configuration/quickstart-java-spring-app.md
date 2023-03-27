@@ -26,13 +26,11 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 ## Add a key-value
 
-1. Select **Operations** > **Configuration Explorer** > **Create** > **Key-value** to add the following key-value to the App Configuration store:
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-    | Key | Value |
-    |---|---|
-    | /application/config.message | Hello |
-
-1. Leave **Label** and **Content Type** with their default values, then select **Apply**. For more information about labels and content types, go to [Keys and values](concept-key-value.md).
+| Key | Value |
+|---|---|
+| /application/config.message | Hello |
 
 ## Connect to an App Configuration store
 
