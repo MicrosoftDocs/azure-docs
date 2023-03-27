@@ -52,20 +52,20 @@ In addition to consolidating and improving upon legacy Log Analytics agents, Azu
     
         - For **Defender for Cloud**, [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you rung both agents side by side. 
         - For **Sentinel**, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
-    - Running two telemetry agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
+    - Running two agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
 
 <sup>1</sup> Start testing your scenarios during the preview phase. This will save time, avoid surprises later, and ensure you're ready to deploy to production as soon as the service becomes generally available. You also benefit from added security and reduced costs immediately.  
 
 ### Migration steps
 ![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
 
-1. **[Create data collection rules](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)**. You can use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator)<sup>1</sup> to **automatically convert your legacy agent configuration into data collection rule templates**. Review the generated rules before you create them, to leverage benefits like filtering, granular targeting (per machine), and other optimizations.  
+1. **[Create data collection rules](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)**. You can use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator)<sup>1</sup> to **convert your legacy agent configuration into data collection rule templates automatically**. Review the generated rules before you create them, to leverage benefits like [filtering](../essentials/data-collection-transformations.md), granular targeting (per machine), and other optimizations.  
 
-2. Deploy extensions and DCR-associations: 
-    1. **Test first** by deploying extensions<sup>2</sup> and DCR-Associations on a few non-production machines. You can also deploy side-by-side on machines running legacy agents (see the section above for agent coexistence).
-    2. Once data starts flowing via Azure Monitor agent, **compare it with legacy agent data** to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table which indicates 'Azure Monitor Agent' for the new data collection
-    3. Post testing, you can **roll out broadly**<sup>3</sup> using [built-in policies]() for at-scale deployment of extensions and DCR-associations. **Using policy will also ensure automatic deployment of extensions and DCR-associations for any new machines in future.**
-    4. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
+1. Deploy extensions and DCR associations: 
+    1. **Test first** by deploying agent extensions<sup>2</sup> and DCR associations on a few non-production machines. You can also deploy side-by-side on machines running legacy agents.
+    1. Compare the data ingested by Azure Monitor Agent it with legacy agent data to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates 'Azure Monitor Agent' for the new data collection.
+    1. After testing, deploy agents and data collection rules broadly<sup>3</sup> using [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) for at-scale deployment of extensions and DCR associations. Using policy will also ensure automatic deployment of extensions and DCR associations for new machines.
+    1. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
     
 3. **Validate** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly:
     1. Look at the **Overview** and **Usage** tabs of [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview) for spikes or dips in ingestion rates following the migration. Check both the overall workspace ingestion and the table-level ingestion rates.  
