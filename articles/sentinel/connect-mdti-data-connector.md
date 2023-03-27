@@ -47,9 +47,11 @@ For more information about how to manage the solution components, see [Discover 
 
     :::image type="content" source="media/connect-mdti-data-connector/mdti-data-connector-connect.png" alt-text="Screenshot displaying the MDTI data connector page and the connect button." lightbox="media/connect-mdti-data-connector/mdti-data-connector-connect.png"::: 
 
-1. When indicators start populating the Microsoft Sentinel workspace, the connector status displays **Connected**.
+1. When MDTI indicators start populating the Microsoft Sentinel workspace, the connector status displays **Connected**.
 
-At this point, the ingested indicators are now available for use in the *TI map...* analytics rules. For more information, see [Use threat indicators in analytics rules](use-threat-indicators-in-analytics-rules.md). You can find the new indicators in the **Threat intelligence** blade or directly in **Logs** by querying the **ThreatIntelligenceIndicator** table. For more information, see [Work with threat indicators](work-with-threat-indicators.md).
+At this point, the ingested indicators are now available for use in the *TI map...* analytics rules. For more information, see [Use threat indicators in analytics rules](use-threat-indicators-in-analytics-rules.md). 
+
+You can find the new indicators in the **Threat intelligence** blade or directly in **Logs** by querying the **ThreatIntelligenceIndicator** table. For more information, see [Work with threat indicators](work-with-threat-indicators.md).
 
 ## Next steps
 
