@@ -16,9 +16,9 @@ Artificial Intelligence for IT Operations (AIOps) offers powerful ways to improv
 
 Azure Monitor's built-in machine learning capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
 
-You can also create your own machine learning pipeline to act on data in Azure Monitor Logs. Azure Monitor provides tools that let work with data in Azure Monitor Logs in an integrated environment, or using Azure machine learning services, to train your own machine learning models and introduce new analysis and response capabilities to address your IT and business goals.    
+Azure Monitor also provides tools that let you create your own machine learning pipeline to introduce new analysis and response capabilities and act on data in Azure Monitor Logs.    
 
-This article describes Azure Monitor's built-in AIOps capabilities and explains how you can create and run customized machine learning models on data in Azure Monitor Logs. 
+This article describes Azure Monitor's built-in AIOps capabilities and explains how you can create and run customized machine learning models and build an automated machine learning pipeline on data in Azure Monitor Logs. 
 
 ## Built-in Azure Monitor AIOps capabilities 
 
@@ -90,7 +90,7 @@ For example:
 - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib) uses Spark DataFrames 
 - [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats. 
 
-Here are a some of the available conversion methods:
+Here are some of the available conversion methods:
 
 - [Create an Azure Machine Learning dataset from a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
 - [Convert JSON to Spark DataFrame](https://sparkbyexamples.com/pyspark/different-ways-to-create-dataframe-in-pyspark/#from-json) 
