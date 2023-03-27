@@ -127,7 +127,7 @@ fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=Tru
 ### Download files via AzureMachineLearningFileSystem
 ```python
 # you can specify recursive as False to download a file
-# Downloading overwrite option is set to be MERGE_WITH_OVERWRITE
+# downloading overwrite option is set to be MERGE_WITH_OVERWRITE
 fs.download(rpath='data/fsspec/crime-spring.csv', lpath='data/download_files/, recursive=False)
 
 # you need to specify recursive as True to download a folder
