@@ -304,16 +304,16 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     For example:
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png" alt-text="Screenshot of the export troubleshooting information dialog in the sensor console. " lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png":::
+    :::image type="content" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/export-logs-sensor.png" alt-text="Screenshot of the export troubleshooting information dialog in the sensor console. " lightbox="media/how-to-troubleshoot-sensor-and-on-premises-management-console/export-logs-sensor.png":::
 
-1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
 
 1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
 
     To keep your logs secure, make sure to forward the password separately from the downloaded log.
 
 > [!NOTE]
-> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-troubleshoot-the-sensor.md#download-a-diagnostics-log-for-support).
+> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support).
 
 ## Next steps
 

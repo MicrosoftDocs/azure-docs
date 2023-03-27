@@ -236,13 +236,13 @@
       - name: Backup and restore
         items:
         - name: OT sensors from the sensor console
-          href: backup-restore-sensor.md
+          href: back-up-restore-sensor.md
           displayName: backup, restore, back up
         - name: OT sensors from an on-premises management console
-          href: backup-sensors-from-management.md
+          href: back-up-sensors-from-management.md
           displayName: backup, back up
         - name: On-premises management console
-          href: backup-restore-management.md
+          href: back-up-restore-management.md
           displayName: backup, restore, back up
       - name: OT sensor maintenance
         items:
@@ -259,7 +259,7 @@
         - name: Maintain threat intelligence packages
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
-          href: how-to-troubleshoot-the-sensor.md
+          href: how-to-troubleshoot-sensor.md
       - name: System maintenance with an on-premises management console
         items:
         - name: Set up high availability
@@ -270,7 +270,7 @@
           displayName: activation, SMTP, VLAN, hostname
           href: how-to-manage-the-on-premises-management-console.md
       - name: Troubleshoot on-premises management consoles
-        href: how-to-troubleshoot-the-on-premises-management-console.md
+        href: how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
   - name: Data retention

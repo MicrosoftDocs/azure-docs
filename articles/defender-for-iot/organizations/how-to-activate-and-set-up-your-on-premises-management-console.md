@@ -1,6 +1,6 @@
 ---
 title: Activate and set up your on-premises management console 
-description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
+description: Activating the management console ensures that sensors are registered with Azure and sending information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
 ms.date: 06/06/2022
 ms.topic: install-set-up-deploy
 ---
@@ -25,7 +25,7 @@ To sign in to the on-premises management console:
 If you forgot your password, select the **Recover Password** option.
 ## Activate the on-premises management console
 
-After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file. Activation files on the on-premises management console enforces the number of committed devices configured for your subscription and Defender for IoT plan. For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
+After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file. Activation files on the on-premises management console enforce the number of committed devices configured for your subscription and Defender for IoT plan. For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 
 **To activate the on-premises management console**:
 
@@ -69,7 +69,7 @@ After activating an on-premises management console, you'll need to apply new act
 |Location  |Activation process  |
 |---------|---------|
 |**On-premises management console**     |  Apply a new activation file on your on-premises management console if you've [modified the number of committed devices](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks) in your subscription.      |
-|**Cloud-connected and locally-managed sensors**     | Cloud-connected and locally-managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor.  |
+|**Cloud-connected and locally managed sensors**     | Cloud-connected and locally managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor.  |
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 
@@ -219,6 +219,6 @@ No configuration is needed on the sensor.
 
 For more information, see:
 
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-sensor-and-on-premises-management-console.md)
 - [Manage individual sensors](how-to-manage-individual-sensors.md)
 - [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md)

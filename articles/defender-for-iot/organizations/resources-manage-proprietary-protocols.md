@@ -70,7 +70,7 @@ The **Protocols DPI (Horizon Plugins)** lists the following data per plugin:
 |**Warnings**     | The number of warnings detected, such as when packets match the structure and specifications, but unexpected behavior is detected, based on the plugin warning configuration.        |
 | **Errors** | The number of errors detected in the last five seconds for packets that failed basic protocol validations for the packets that match protocol definitions. |
 
-Horizon log data is available for export in the **Dissection statistics** and **Dissection Logs**, log files. For more information, see [Export troubleshooting logs](how-to-troubleshoot-the-sensor.md).
+Horizon log data is available for export in the **Dissection statistics** and **Dissection Logs**, log files. For more information, see [Export troubleshooting logs](how-to-troubleshoot-sensor.md).
 
 ## Create custom alert rules for Horizon-based traffic
 

@@ -155,4 +155,4 @@ Make sure that your sensor is connected to your network, and then you can sign i
 > [Install software on an on-premises management console](install-software-on-premises-management-console.md)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [Troubleshooting](../how-to-troubleshoot-sensor-and-on-premises-management-console.md)

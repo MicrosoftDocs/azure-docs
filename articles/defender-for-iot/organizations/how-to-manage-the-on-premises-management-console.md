@@ -256,4 +256,4 @@ For more information, see:
 
 - [Update OT system software](update-ot-software.md)
 - [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-the-on-premises-management-console.md)
+- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)

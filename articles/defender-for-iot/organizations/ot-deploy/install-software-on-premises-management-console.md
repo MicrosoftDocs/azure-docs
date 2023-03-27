@@ -153,4 +153,4 @@ This command will cause the light on the port to flash for the specified time pe
 > [Validate after installing software](post-install-validation-ot-software.md)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [Troubleshooting](../how-to-troubleshoot-sensor-and-on-premises-management-console.md)

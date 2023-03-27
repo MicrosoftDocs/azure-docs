@@ -23,7 +23,7 @@ The on-premises management console can store up to nine backup files for each co
 
 Backup files are copied from the OT sensor to the on-premises management console over an encrypted channel.
 
-For more information, see [Set up backup and restore files](backup-restore-sensor.md#set-up-backup-and-restore-files).
+For more information, see [Set up backup and restore files](back-up-restore-sensor.md#set-up-backup-and-restore-files).
 
 ## Configure OT sensor backup settings
 
@@ -146,4 +146,4 @@ For more information, see:
 
 [Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
-[Back up and restore OT network sensors from the sensor console](backup-restore-sensor.md)
+[Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md)

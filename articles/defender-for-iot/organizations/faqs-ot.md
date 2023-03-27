@@ -61,9 +61,9 @@ For more information, see [Activate and set up your sensor](how-to-activate-and-
 
 After installing the software for your sensor or on-premises management console, you'll want to perform the [Post-installation validation](ot-deploy/post-install-validation-ot-software.md).
 
-You can also use our [UI and CLI tools](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) to check system health and review your overall system statistics.
+You can also use our [UI and CLI tools](how-to-troubleshoot-sensor-and-on-premises-management-console.md#check-system-health) to check system health and review your overall system statistics.
 
-For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-sensor-and-on-premises-management-console.md).
 
 ## Next steps
 

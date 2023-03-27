@@ -77,9 +77,9 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 ## Upload a new activation file
 
-Each OT sensor is onboarded as a cloud-connected or locally-managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
+Each OT sensor is onboarded as a cloud-connected or locally managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
 
-You'll need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally-managed sensor to a cloud-connected sensor, or if you're [updating from a legacy software version](update-legacy-ot-software.md#update-legacy-ot-sensor-software). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
+You'll need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a legacy software version](update-legacy-ot-software.md#update-legacy-ot-sensor-software). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
@@ -224,9 +224,9 @@ This procedure describes how to turn off learning mode manually if you feel that
 
     - **Learning**. Toggle off this option about two-six weeks after you've deployed your sensor, when you feel that the OT sensor detections accurately reflect your network activity.
 
-    - **Smart IT Learning**. Keep this option toggled on to keep the number of *non-deterministic* alerts and notifications low. <!--ask meir about this-->
+    - **Smart IT Learning**. Keep this option toggled on to keep the number of *non deterministic* alerts and notifications low. 
   
-    Non-deterministic behavior includes changes that are the result of normal IT activity, such as DNS and HTTP requests. Toggling off the **Smart IT Learning** option can trigger many false positive policy violation alerts.
+    Non deterministic behavior includes changes that are the result of normal IT activity, such as DNS and HTTP requests. Toggling off the **Smart IT Learning** option can trigger many false positive policy violation alerts.
 
 1. In the confirmation message, select **OK**, and then select **Close** to save your changes.
 
@@ -314,7 +314,7 @@ The **Play PCAP** option is now available in the sensor console's settings, unde
 
 ## Turn off specific analytics engines
 
-By default, each OT network sensor analyzes ingested data using [built-in analytics engines](architecture.md#defender-for-iot-analytics-engines), and triggers alerts based on both real-time and pre-recorded traffic.
+By default, each OT network sensor analyzes ingested data using [built-in analytics engines](architecture.md#defender-for-iot-analytics-engines), and triggers alerts based on both real-time and prerecorded traffic.
 
 While we recommend that you keep all analytics engines on, you may want to turn off specific analytics engines on your OT sensors to limit the type of anomalies and risks monitored by that OT sensor.
 
@@ -384,4 +384,4 @@ For more information, see:
 
 - [Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
-- [Troubleshoot the sensor](how-to-troubleshoot-the-sensor.md)
+- [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)

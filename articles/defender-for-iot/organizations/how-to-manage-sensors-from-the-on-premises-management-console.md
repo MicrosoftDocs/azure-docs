@@ -48,7 +48,7 @@ The selected settings are applied across all connected OT sensors.
 
 ## Monitor disconnected OT sensors
 
-If you're working with locally-managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
+If you're working with locally managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
 
 ### View OT sensor connection statuses
 
@@ -103,7 +103,7 @@ For more information, see:
 - [Connect your OT sensors to the cloud](connect-sensors.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Update OT system software](update-ot-software.md)
-- [Troubleshoot on-premises management console](how-to-troubleshoot-the-on-premises-management-console.md)
+- [Troubleshoot on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage threat intelligence packages on OT sensors](how-to-work-with-threat-intelligence-packages.md)
 - [Control the OT traffic monitored by Microsoft Defender for IoT](how-to-control-what-traffic-is-monitored.md)
