@@ -76,7 +76,7 @@ Once you've completed your proof of concept testing, you can begin the migration
 > Items to verify prior to migrating production workloads
 > 1. Verify configuration settings such as cache objects, TTLs and other potential custom settings at the CDN profile level are being accommodated. 
 > 2. Origin application customizations are adjusted:
->    * Update Access Control List (ACL) if one is being used to whitelist CDN egress ranges. 
+>    * Update Access Control List (ACL) if one is being used to allow CDN egress ranges. 
 >    * Traffic management tools such as a load balancer has the correct policies and rules for the CDN.
 > 3. Validate origin workloads and CDN caching performance. 
 >     * Changing between CDNs can increase traffic to origin for a period of time until the new provider caches the content.
@@ -92,4 +92,4 @@ For more information, see [Failover CDN endpoints with Traffic Manager](cdn-traf
 ## Next Steps
 
 * Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
-* Create [Azure CDN from Verizon](cdn-create-endpoint-how-to.md) profile.
+* Create an [Azure CDN from Verizon](cdn-create-endpoint-how-to.md) profile.
