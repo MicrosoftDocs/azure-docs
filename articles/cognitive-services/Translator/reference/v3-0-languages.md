@@ -41,7 +41,7 @@ Request parameters passed on the query string are:
   </tr>
 </table>
 
-*See*, [response object](#response-body).
+*See* [response body](#response-body).
 
 Request headers are:
 
