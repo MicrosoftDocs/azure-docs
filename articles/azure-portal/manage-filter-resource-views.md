@@ -19,7 +19,7 @@ Start exploring **All resources** by using filters to focus on a subset of your 
 
 You can combine filters, including those based on text searches. For example, after selecting specific resource groups, you can enter text in the filter box, or select a different filter option.
 
-To change which columns are included in a view, select **Manage view** then **Edit columns**.
+To change which columns are included in a view, select **Manage view**, then select**Edit columns**.
 
 :::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Edit columns shown in view":::
 
@@ -27,9 +27,9 @@ To change which columns are included in a view, select **Manage view** then **Ed
 
 You can save views that include the filters and columns you've selected. To save and use a view:
 
-1. Select **Manage view** then **Save view**.
+1. Select **Manage view**, then select **Save view**.
 
-1. Enter a name for the view then select **OK**. The saved view now appears in the **Manage view** menu.
+1. Enter a name for the view, then select **OK**. The saved view now appears in the **Manage view** menu.
 
     :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Saved view":::
 
@@ -39,9 +39,9 @@ You can also select **Choose favorite view** to use one of your views as the def
 
 To delete a view you've created:
 
-1. Select **Manage view** then **Browse all views for "All resources"**.
+1. Select **Manage view**, then select **Browse all views for "All resources"**.
 
-1. In the **Saved views** pane, select the view then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png). Select **OK** to confirm the deletion.
+1. In the **Saved views** pane, select the view, then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png). Select **OK** to confirm the deletion.
 
 ## Export information from a view
 
@@ -51,7 +51,7 @@ You can export the resource information from a view. To export information in CS
 
     :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Screenshot of exporting to CSV format":::
 
-1. Save the file locally, then open in Excel or another application that supports the CSV format.
+1. Save the file locally, then open the file in Excel or another application that supports the CSV format.
 
 As you move around the portal, you'll see other areas where you can export information, such as an individual resource group.
 
@@ -71,7 +71,7 @@ To save and use a summary view:
 
     :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Type summary showing a bar chart":::
 
-1. Select **Manage view**, then **Save view** to save this view like you did with the list view.
+1. Select **Manage view**, then select **Save view** to save this view, just like you did with the list view.
 
 1. In the summary view, under **Type summary**, select a bar in the chart. Selecting the bar provides a list filtered down to one type of resource.
 
