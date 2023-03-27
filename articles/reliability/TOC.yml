@@ -25,7 +25,7 @@
       - name: Integration Services Environment 
         href: /azure/logic-apps/export-from-ise-to-standard-logic-app
       - name: Microsoft HPC Pack  
-        href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?view=hpc19-ps
+        href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide
       - name: Virtual WAN  
         href: /azure/virtual-wan/virtual-wan-faq#update-router
       - name: Classic Storage  
