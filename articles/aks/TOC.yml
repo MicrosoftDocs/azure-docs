@@ -205,7 +205,7 @@
           href: cluster-container-registry-integration.md
         - name: Use Vertical Pod Autoscaler
           href: vertical-pod-autoscaler.md
-        - name: Metrics Server VPA Throttling
+        - name: Configure Metrics Server VPA
           href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
