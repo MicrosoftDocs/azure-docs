@@ -7,7 +7,7 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: seo-lt-2019
 ms.date: 08/09/2022
 ---
 

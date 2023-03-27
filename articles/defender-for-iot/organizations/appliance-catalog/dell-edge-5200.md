@@ -16,6 +16,10 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
 |**Status** | Supported, Not available pre-configured|
 
+The following image shows the hardware elements on the Dell Edge 5200 that are used by Defender for IoT:
+
+:::image type="content" source="../media/tutorial-install-components/dell-5200-panel.png" alt-text="Diagram of ports on the Dell Edge 5200 appliance." border="false":::
+
 ## Specifications
 
 |Component |Technical specifications|

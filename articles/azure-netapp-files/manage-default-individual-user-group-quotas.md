@@ -89,8 +89,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
             For individual user quota using the NFS protocol, specify a value in the range of `0` to `4294967295`.
 
     * **Quota limit**:    
-        Specify the limit in the range of `4` to `1125899906842620`.  
-        Select `KiB`, `MiB`, `GiB`, or `TiB` from the pulldown. 
+        Specify the limit in the range of `1` to `1125899906842620`.  
+        Select `KiB`, `MiB`, `GiB`, or `TiB` from the pulldown. The minimum configurable quota limit is 4 KiB.
 
 ## Edit or delete quota rules
 

@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/09/2022
+ms.date: 03/01/2023
 ms.custom: ignite-2022
 ---
 
@@ -30,7 +30,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No | No|
 || [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | No | No |
 || [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | No | No |
-|| [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | [Yes](register-scan-azure-databricks.md#scan) | [Yes](register-scan-azure-databricks.md#lineage) | No | No |
+|| [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | No | [Yes](register-scan-azure-databricks.md#lineage) | No | No |
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No |
 ||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No | No |
 ||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) (Preview) | No |

@@ -3,7 +3,7 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/13/2022
+ms.date: 03/21/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -43,12 +43,13 @@ The key benefits of enhanced soft delete are:
 
 ## Supported regions
 
-Enhanced soft delete is currently available in the following regions: East US, West US, West US 2, West Central US, Japan East, Brazil South, Australia East, and North Europe.
+Enhanced soft delete is available in all Azure public regions.
 
 ## Supported scenarios
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
 - All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
+- Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
 
 ## States of soft delete settings
 

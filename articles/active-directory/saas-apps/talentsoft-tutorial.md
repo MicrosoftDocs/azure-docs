@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Talentsoft | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Talentsoft'
 description: Learn how to configure single sign-on between Azure Active Directory and Talentsoft.
 services: active-directory
 author: jeevansd

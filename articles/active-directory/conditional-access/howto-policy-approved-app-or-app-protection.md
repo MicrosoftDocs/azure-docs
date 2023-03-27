@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Require approved app or app protection policy - Azure Active Directory
+title: Conditional Access - Require approved app or app protection policy
 description: Create a custom Conditional Access policy require approved app or app protection policy
 
 services: active-directory

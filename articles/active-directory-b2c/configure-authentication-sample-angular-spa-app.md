@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 03/09/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -35,7 +35,7 @@ The sign-in flow involves the following steps:
 
 ### App registration
 
-To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in the Azure AD B2C directory:  
+To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in your Azure AD B2C tenant:  
 
 - The *single-page application* (Angular) registration enables your app to sign in with Azure AD B2C. During app registration, you specify the *redirect URI*. The redirect URI is the endpoint to which the user is redirected after they authenticate with Azure AD B2C. The app registration process generates an *application ID*, also known as the *client ID*, that uniquely identifies your app. This article uses the example **App ID: 1**.
 
@@ -57,7 +57,7 @@ The following diagram describes the app registrations and the app architecture.
 
 Before you follow the procedures in this article, make sure that your computer is running:
 
-* [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
+* [Visual Studio Code](https://code.visualstudio.com/) or any other code editor.
 * [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 * [Angular CLI](https://angular.io/cli).
 
@@ -82,8 +82,9 @@ In this step, you create the registrations for the Angular SPA and the web API a
 Follow these steps to create the Angular app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **MyApp**.
@@ -203,7 +204,7 @@ Your final configuration file should look like the following JSON:
 
 ## Step 5: Run the Angular SPA and web API
 
-You're now ready to test the Angular scoped access to the API. In this step, run both the web API and the sample Angular application on your local machine. Then, log in to the Angular application, and select the **TodoList** button to start a request to the protected API.
+You're now ready to test the Angular scoped access to the API. In this step, run both the web API and the sample Angular application on your local machine. Then, sign in to the Angular application, and select the **TodoList** button to start a request to the protected API.
 
 ### Run the web API
 
@@ -252,8 +253,8 @@ You're now ready to test the Angular scoped access to the API. In this step, run
 
     ![Screenshot that shows the Angular sample app with the login link.](./media/configure-authentication-sample-angular-spa-app/sample-app-sign-in.png)
 
-1. Complete the sign-up or login process.
-1. Upon successful login, you should see your profile. From the menu, select **TodoList**.
+1. Complete the sign-up or sign-in process.
+1. Upon successful sign-in, you should see your profile. From the menu, select **TodoList**.
 
     ![Screenshot that shows the Angular sample app with the user profile, and the call to the to-do list.](./media/configure-authentication-sample-angular-spa-app/sample-app-result.png)
 

@@ -187,7 +187,7 @@ Languages supported by a culture code:
 | zh-tw	| Chinese (Traditional, Taiwan) |
 | cs-cz	| Czech (Czech Republic) |
 | pl-pl | Polish (Poland) |
-| tr-tr	| Turkish (Turkey) |
+| tr-tr	| Turkish (Türkiye) |
 | da-dk	| Danish (Denmark) |
 | en-gb	| English (United Kingdom) |
 | hu-hu	| Hungarian (Hungary) |

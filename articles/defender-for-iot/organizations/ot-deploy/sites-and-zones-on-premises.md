@@ -3,6 +3,8 @@ title: Create OT sites and zones on an on-premises management console - Microsof
 description: Learn how to create OT networking sites and zones on an on-premises management console to support Zero Trust principles while monitoring OT networks.
 ms.date: 02/15/2023
 ms.topic: how-to
+ms.collection:
+  -       zerotrust-services
 ---
 
 # Create OT sites and zones on an on-premises management console

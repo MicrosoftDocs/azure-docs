@@ -6,7 +6,7 @@ ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines 
-ms.custom: subject-resourcegraph-sample
+ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell
 ---
 # Azure Resource Graph sample queries for Azure Virtual Machines
 

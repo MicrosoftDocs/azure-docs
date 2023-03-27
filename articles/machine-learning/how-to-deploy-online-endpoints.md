@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 11/03/2022
+ms.date: 02/23/2023
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -379,7 +379,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 Currently, you can specify only one model per deployment in the YAML. If you have more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel).
 
 > [!TIP]
-> If you have more than 1500 files to register, you may consider compressing the files or subdirectories as .tar.gz when registering the model. To consume the models, you can uncompress the files or subdirectories in the init() function from the scoring script. In this case, uncompression happens once in the initialization stage.
+> If you have more than 1500 files to register, you may consider compressing the files or subdirectories as .tar.gz when registering the model. To consume the models, you can uncompress the files or subdirectories in the init() function from the scoring script. Alternatively, when you register the model, set the `azureml.unpack` property to `True`, which will allow automatic uncompression. In either case, uncompression happens once in the initialization stage.
 
 ## Understand the scoring script
 
@@ -426,6 +426,7 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
 > - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
 > - Local endpoints support only one deployment per endpoint. 
+> - Local endpoints do *not* support registered models. To use models already registered, you can download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download) and refer to them in the deployment definition.
 
 > [!TIP]
 > You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.

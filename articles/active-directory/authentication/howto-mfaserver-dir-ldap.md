@@ -1,5 +1,5 @@
 ---
-title: LDAP Authentication and Azure Multi-Factor Authentication Server - Azure Active Directory
+title: LDAP Authentication and Azure Multi-Factor Authentication Server
 description: Deploying LDAP Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication

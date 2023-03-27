@@ -2,6 +2,7 @@
 title: Use Azure CLI and Azure PowerShell with Azure Virtual Desktop
 description: Learn about Azure CLI and Azure PowerShell with Azure Virtual Desktop and some useful example commands you can run.
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 02/01/2023
@@ -124,7 +125,7 @@ Some PowerShell cmdlets require you to provide the object ID of Azure Virtual De
 - To retrieve the object IDs of all RemoteApp applications in an application group, run the following command:
 
    ```azurepowershell
-   Get-AzWvdApplication -ApplicationGroupName <ApplicationGroupName> -ResourceGroupName <ResourceGroupName> | FT Name, FilePath, ObjectId
+   Get-AzWvdApplication -ApplicationGroupName <ApplicationGroupName> -ResourceGroupName <ResourceGroupName> | Select-Object Name, FilePath, ObjectId
    ```
 
 ---

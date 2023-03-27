@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Configuring DNS forwarding for Azure Files

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-how-to
+ms.custom: devx-track-azurecli, template-how-to
 ms.devlang: azurecli
 ---
 

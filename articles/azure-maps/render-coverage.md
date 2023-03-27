@@ -138,7 +138,7 @@ The render coverage tables below list the countries that support Azure Maps road
 | Spain              |    ✓     |
 | Sweden             |    ✓     |
 | Switzerland        |    ✓     |
-| Turkey             |    ✓     |
+| Türkiye            |    ✓     |
 | Ukraine            |    ✓     |
 | United Kingdom     |    ✓     |
 | Vatican City       |    ✓     |
