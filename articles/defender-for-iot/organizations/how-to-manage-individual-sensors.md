@@ -224,9 +224,9 @@ This procedure describes how to turn off learning mode manually if you feel that
 
     - **Learning**. Toggle off this option about two-six weeks after you've deployed your sensor, when you feel that the OT sensor detections accurately reflect your network activity.
 
-    - **Smart IT Learning**. Keep this option toggled on to keep the number of *non deterministic* alerts and notifications low. 
+    - **Smart IT Learning**. Keep this option toggled on to keep the number of *nondeterministic* alerts and notifications low. 
   
-    Non deterministic behavior includes changes that are the result of normal IT activity, such as DNS and HTTP requests. Toggling off the **Smart IT Learning** option can trigger many false positive policy violation alerts.
+    Nondeterministic behavior includes changes that are the result of normal IT activity, such as DNS and HTTP requests. Toggling off the **Smart IT Learning** option can trigger many false positive policy violation alerts.
 
 1. In the confirmation message, select **OK**, and then select **Close** to save your changes.
 
