@@ -106,7 +106,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - Create a virtual switch on port 4 with the name **vswitch-port4**.
 
     You should now see something similar to the following image:
-    :::image type="content" source="media/commission-cluster/commission-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
+    :::image type="content" source="media/commission-cluster/commission-cluster-virtual-switch-ase-2.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
 
@@ -138,7 +138,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
     1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
     The page should now look like the following image:
 
-  :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
+  :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
 3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
@@ -173,8 +173,12 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 
 The page should now look like the following image:
 
+:::zone pivot="ase-pro-2"
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled-ase-2.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
+:::zone-end
+:::zone pivot="ase-pro-gpu"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
-
+:::zone-end
 ## Start the cluster and set up Arc
 
 Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
