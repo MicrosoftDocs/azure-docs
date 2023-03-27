@@ -7,7 +7,7 @@ author: amibp
 ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 05/02/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
