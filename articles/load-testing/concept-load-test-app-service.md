@@ -68,10 +68,10 @@ Azure Load Testing lets you monitor server-side metrics for your Azure app compo
 
 Azure Load Testing collects detailed resource metrics across your Azure app components to help identify performance bottlenecks.
 
-    - Add application component (App Service Plan, App Service)
-    - Default metrics added
-    - You can select additional metrics
-    - Link to server-side metrics docs
+- Add application component (App Service Plan, App Service)
+- Default metrics added
+- You can select additional metrics
+- Link to server-side metrics docs
 
 ### App Service Diagnostics
 
