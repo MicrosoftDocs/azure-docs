@@ -9,7 +9,7 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 02/22/2023
+  ms.date: 03/27/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
@@ -111,6 +111,43 @@ sections:
         answer: |
           No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Azure AD subservice hits its retry allowance and does not indicate your tenant is being throttled. These errors are usually resolved by Azure AD internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
 
+      - question: |
+          In Service Principal sign-in logs, what does it mean if I see “00000000-0000-0000-0000-000000000000” or “” for Service Principal ID or Resource Service Principal ID in my sign-in logs?
+        answer: |
+          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there is no Service Principal for the client application in that instance of authentication (Azure AD no longer issues access tokens without a client Service Principal except for a small number of Microsoft and 3rd party applications).
+
+          If the Resource Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there is no Service Principal for the resource application in that instance of authentication.
+
+          > [!NOTE]
+          > Authentication without a client Service Principal is a deprecated behavior in Azure AD and is not commonly expected. This behavior is currently allowed only for a limited number of resource apps.
+ 
+      - question: |
+          In Service Principal sign-in logs, how can I query for instances of authentication without a client or resource Service Principal in my tenant? (That is, Service Principal ID or Resource Service Principal ID is “00000000-0000-0000-0000-000000000000” or “”)
+        answer: |
+          - To find instances of sign-in logs for your tenant where a client Service Principal is missing, use the following query:
+            ```http
+            https://graph.microsoft.com/beta/auditLogs/signIns?$filter=signInEventTypes/any(t: t eq 'servicePrincipal') and servicePrincipalId eq '00000000-0000-0000-0000-000000000000'
+            ```
+          - To find instances of sign-in logs for your tenant where a resource Service Principal is missing, use the following query:
+            ```http
+            https://graph.microsoft.com/beta/auditLogs/signIns?$filter=signInEventTypes/any(t: t eq 'servicePrincipal') and resourceServicePrincipalId eq '00000000-0000-0000-0000-000000000000'
+            ```
+          
+          You can also find these sign-in logs in Azure AD Portal.
+
+          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Active Directory**.
+          - Navigate to Sign in Logs under **Monitoring**,
+          - Select the **Service Principal Sign ins**. 
+          - Make sure you select an appropriate time frame in the Date field (last 24 hours, 7 days etc.).
+          -	Add a filter and select **Service Principal ID** and provide the value ‘00000000-0000-0000-0000-000000000000' to get instances of authentication with no client Service Principal.
+            
+            :::image type="content" source="media/reports-faq/service-principal-sign-ins.png" alt-text="Screenshot of service principal sign-in.":::
+
+      - question: |
+          How can I restrict sign-in (authentication) for various apps that I see in the Service Principal sign-in logs?
+        answer:
+          If you wish to control how authentication works in your tenant for specific client or resource apps, follow instructions in the [Restrict Azure AD app to a set of users](../develop/howto-restrict-your-app-to-a-set-of-users.md) article.
+                  
   - name: Conditional Access
     questions:
       - question: |
@@ -120,9 +157,9 @@ sections:
 
           To get started:
           
-          * Sign in to the [Azure portal](https://portal.azure.com) and got to **Azure AD** > **Sign-ins log**.
-          * Select the sign-in that you want to troubleshoot.
-          * Navigate to the **Conditional Access** tab.
+          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Active Directory** then select **Sign-ins log**.
+          - Select the sign-in that you want to troubleshoot.
+          - Navigate to the **Conditional Access** tab.
           Here, you can view all the policies that impacted the sign-in and the result for each policy. 
               
       - question: |
@@ -130,19 +167,19 @@ sections:
         answer: |
           Conditional Access status can have the following values:
           
-          * **Not Applied**: There was no CA policy with the user and app in scope. 
-          * **Success**: There was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
-          * **Failure**: The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
+          - **Not Applied**: There was no CA policy with the user and app in scope. 
+          - **Success**: There was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
+          - **Failure**: The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
               
       - question: |
           What are all possible values for the Conditional Access policy result?
         answer: |
           A CA policy can have the following results:
           
-          * **Success**: The policy was successfully satisfied.
-          * **Failure**: The policy wasn't satisfied.
-          * **Not applied**: The policy conditions may not have been met.
-          * **Not enabled**: The policy may be in a disabled state. 
+          - **Success**: The policy was successfully satisfied.
+          - **Failure**: The policy wasn't satisfied.
+          - **Not applied**: The policy conditions may not have been met.
+          - **Not enabled**: The policy may be in a disabled state. 
               
       - question: |
           The policy name in the sign-ins log doesn't match the policy name in Conditional Access. Why?
