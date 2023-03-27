@@ -2,7 +2,7 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 09/06/2022
+ms.date: 03/28/2023
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
@@ -28,15 +28,20 @@ Encryption is part of a layered approach to security and should be used with oth
 
 Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidential disk encryption.
 
-| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Does not use your VM's CPU | Works for custom images | Enhanced Key Protection | Microsoft Defender for Cloud disk encryption status |
+| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Does not use your VM's CPU | Works for custom images | Enhanced Key Protection | Microsoft Defender for Cloud disk encryption status[^1] |
 |--|--|--|--|--|--|--|--|--|--|
-| **Azure Disk Storage Server-Side Encryption at rest** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; When configured with DES | &#x2705; | &#x2705; | &#10060; | Unhealthy, not applicable if exempt |
+| **Azure Disk Storage Server-Side Encryption at rest** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; When configured with DES | &#x2705; | &#x2705; | &#10060; | Unhealthy |
 | **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom Linux images | &#10060; | Healthy |
-| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#10060; | Unhealthy, not applicable if exempt |
-| **Confidential disk encryption** | &#x2705; For the OS disk only | &#10060; | &#x2705; For the OS disk only | &#x2705; For the OS disk only| &#x2705; For the OS disk only |&#10060; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
+| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#10060; | Healthy |
+| **Confidential disk encryption** | &#x2705; For the OS disk only | &#10060; | &#x2705; For the OS disk only | &#x2705; For the OS disk only| &#x2705; For the OS disk only |&#10060; | &#x2705; | &#x2705; | Not applicable|
 
 > [!IMPORTANT]
-> For Encryption at host and Confidential disk encryption, Microsoft Defender for Cloud does not detect the encryption state. We are in the process of updating Microsoft Defender
+> For Confidential disk encryption, Microsoft Defender for Cloud does not currently have a recommendation that is applicable.
+
+[^1] Microsoft Defender for Cloud has the following disk encryption recommendations:
+* [\[Preview\]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost.](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)
+* [\[Preview\]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)
+
 
 ## Next steps
 
