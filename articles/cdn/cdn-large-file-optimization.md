@@ -67,7 +67,7 @@ Large file optimization features for **Azure CDN Standard from Verizon** and **A
 ## Optimize for delivery of large files with Azure CDN Standard from Akamai
 
 > [!IMPORTANT]
-> Azure CDN from Akamai is scheduled to retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
 **Azure CDN Standard from Akamai** profile endpoints offer a feature that delivers large files efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers.
 

@@ -33,7 +33,7 @@ If you don't migrate your workloads by October 31, we'll migrate your Azure CDN 
 
 Switching between CDN profiles may introduce changes to your content delivery overall cost. For more information about service pricing, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) and [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
-## Comparing Azure CDN profiles and features
+## Compare Azure CDN profiles and features
 
 For a features comparison between the different Azure CDN services, see [Compare Azure CDN product features](cdn-features.md).
 
@@ -48,7 +48,7 @@ Review your existing CDN utilizations and network architecture. Including the fo
 *  Create an inventory of each endpoint, custom domains and their use cases.
 *  Review your existing endpoint configurations and capture caching, compression rules and other applicable settings, such caching rule and their scenarios.
 
-### Proof of Concept
+### Proof of concept
 
 Create a small-scale proof of concept testing environment with your potential replacement CDN profile.
 
