@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for header-based SSO
 
-Learn to secure header-based applications with Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration.
+Learn to secure header-based applications with Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration v16.1.
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 * Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
@@ -62,48 +62,47 @@ For this scenario, SHA supports SP- and IdP-initiated flows. The following diagr
 
 For the scenario you need:
 
-* An Azure AD free subscription or above
-
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
-
-* Any of the following F5 BIG-IP license SKUs
-
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* For the account, have Azure AD Application Administrator permissions
+* A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
+  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+* Any of the following F5 BIG-IP license SKUs:
   * F5 BIG-IP® Best bundle
-
   * F5 BIG-IP Access Policy Manager™ (APM) standalone license
+  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php)
+* User identities synchronized from an on-premises directory to Azure AD
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+* An SSL web certificate to publish services over HTTPS, or use default BIG-IP certs for testing
+  * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
+* A header-based application or set up an IIS header app for testing
+  * See, [Set up an IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) 
 
-  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+## BIG-IP configuration
 
-  * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
+This tutorial uses Guided Configuration v16.1 with an Easy button template. With the Easy Button, admins no longer go back and forth to enable SHA services. The Guided Configuration wizard and Microsoft Graph handle deployment and policy management. The BIG-IP APM and Azure AD integration ensures applications support identity federation, SSO, and Conditional Access.
 
-* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD
-
-* An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
-
-* An [SSL Web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
-
-* An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
-
-## BIG-IP configuration methods
-
-There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. With the Easy Button, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures that applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
-
-> [!NOTE] 
-> All example strings or values referenced throughout this guide should be replaced with those for your actual environment.
+   > [!NOTE] 
+   > Replace example strings or values with those in your environment.
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
+Before a client or service caaccesses Microsoft Graph, the Microsoft identity platform must trust it.
 
-This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
+Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
-2. From the left navigation pane, select the **Azure Active Directory** service
-3. Under Manage, select **App registrations > New registration**
-4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button*
-5. Specify who can use the application > **Accounts in this organizational directory only**
-6. Select **Register** to complete the initial app registration
-7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
+Create a tenant app registration to authorize the Easy Button access to Graph. With these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
+
+1. Sign-in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+2. In the left navigation, select **Azure Active Directory**.
+3. Under **Manage**, select **App registrations > New registration**.
+4. Enter an applciation **Name**.
+5. Specify who uses the application.
+6. Select **Accounts in this organizational directory only**.
+7. Select **Register**.
+8. Navigate to **API permissions**.
+9. Authorize the following Microsoft Graph **Application permissions**:
 
     * Application.Read.All
     * Application.ReadWrite.All
@@ -116,32 +115,35 @@ This first step creates a tenant app registration that will be used to authorize
     * Policy.ReadWrite.ConditionalAccess
     * User.Read.All
 
-8. Grant admin consent for your organization
-9. In the **Certificates & Secrets** blade, generate a new **client secret** and note it down
-10. From the **Overview** blade, note the **Client ID** and **Tenant ID**
+8. Grant admin consent for your organization.
+9. On **Certificates & Secrets**, generate a new **Client Secret**. Make a note of the Client Secret.
+10. On **Overview**, note the Client ID and Tenant ID.
 
 ## Configure Easy Button
 
-Initiate the APM's **Guided Configuration** to launch the **Easy Button** Template.
+1. Start the APM Guided Configuration. 
+2. Start the **Easy Button** template.
+3. Navigate to **Access > Guided Configuration.
+4. Select **Microsoft Integration**
+5. Select **Azure AD Application**.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+   ![Screenshot of the Azure AD Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-   ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
+6. Review the configuration steps.
+7. Select **Next**.
 
-2. Review the list of configuration steps and select **Next**
+   ![Screenshot of configuration steps.](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
-   ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
+8. Use the illustrated steps sequence to publish your application.
 
-3. Follow the sequence of steps required to publish your application.
-
-   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
+   ![Diagram of the publication sequence.](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
 
 
 ### Configuration Properties
 
-The **Configuration Properties** tab creates a BIG-IP application config and SSO object. Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
+Use the **Configuration Properties** tab to create a BIG-IP application config and SSO object. Azure Service Account Details represent the client you registered in the Azure AD tenant. Use the settings for BIG-IP OAuth client to register a SAML SP in your tenant, with SSO properties. Easy Button performs this action for BIG-IP services published and enabled for SHA.
 
-Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
+You can reuse settings to publish more applications.
 
 1. Enter a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations.
 
