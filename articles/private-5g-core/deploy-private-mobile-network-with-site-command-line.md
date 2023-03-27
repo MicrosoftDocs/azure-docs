@@ -38,7 +38,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - [az mobile-network pcdp create](/cli/azure/mobile-network/pcdp#az-mobile-network-pcdp-create)
 - [az mobile-network data-network create](/cli/azure/mobile-network/data-network#az-mobile-network-data-network-create)
 - [az mobile-network sim group create](/cli/azure/mobile-network/sim/group#az-mobile-network-sim-group-create)
-- [az mobile-network  slice create](/cli/azure/mobile-network/slice#az-mobile-network-slice-create)
+- [az mobile-network slice create](/cli/azure/mobile-network/slice#az-mobile-network-slice-create)
 - [az mobile-network service create](/cli/azure/mobile-network/service#az-mobile-network-service-create)
 - [az mobile-network sim policy create](/cli/azure/mobile-network/sim/policy#az-mobile-network-sim-policy-create)
 - [az mobile network sim create](/cli/azure/mobile-network/sim#az-mobile-network-sim-create)
@@ -83,10 +83,24 @@ Use `az mobile-network pccp create` to create a new **Packet Core Control Plane*
 
 |Placeholder|Value|
 |-|-|
-| `<MOBILENETWORK>`   | Enter the name for the mobile network.      |
+| `<MOBILENETWORK>`   | Enter the name of the ASE.      |
+| `<MOBILENETWORK>`   | Enter the name of the mobile network.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 | `<CONTROLPLANE>`   | Enter the name for the packet core control plane.      |
 | `<SITE>`   | Enter the name of the site.      |
+| `<IPV4ADDRESS>`   | Enter the IPV4 address of the site.      |
+
+Obtain the ASE ID and assign it to a variable.
+
+```azurecli
+ASE_ID=$(databoxedge device show --device-name <ASE> -g <RESOURCEGROUP> --query "id")
+```
+
+Obtain the custom location ID and assign it to a variable.
+
+```azurecli
+ASE_ID=$(customlocation show --name <CUSTOMLOCATION> -g <RESOURCEGROUP> --query "id")
+```
 
 Obtain the site ID and assign it to a variable.
 
@@ -97,7 +111,7 @@ SITE_ID=$(mobile-network site show --mobile-network-name <MOBILENETWORK> -g <RES
 Create the site.
 
 ```azurecli
-az mobile-network pccp create -n <CONTROLPLANE> -g <RESOURCEGROUP> --access-interface "{name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}" --local-diagnostics "{authentication-type:AAD}" --platform "{type:AKS-HCI}" --sites "[{id:$SITE_ID}]" --sku G0 --location eastus
+az mobile-network pccp create -n <CONTROLPLANE> -g <RESOURCEGROUP> --access-interface name=N2 ipv4Address=<IPV4ADDRESS> --local-diagnostics authentication-type=Password --platform type=AKS-HCI azure-stack-edge-device="{id:$ASE_ID}"  customLocation="{id:$CUSTOM_LOCATION_ID}" --sites "[{id:$SITE_ID}]" --sku G0 --location eastus
 ```
 
 ### Create a Packet Core Data Plane resource
@@ -242,7 +256,7 @@ Use `az mobile-network attached-data-network create` to attach the **Data Networ
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```azurecli
-az mobile-network attached-data-network create -n <DATANETWORK> -g <RESOURCEGROUP> --pccp-name <CONTROLPLANE> --pcdp-name <DATAPLANE> --dns-addresses "[1.1.1.1]" --data-interface " {name:N2,ipv4Address:10.28.128.2,ipv4Subnet:10.28.128.0/24,ipv4Gateway:10.28.128.1}"
+az mobile-network attached-data-network create -n <DATANETWORK> -g <RESOURCEGROUP> --pccp-name <CONTROLPLANE> --pcdp-name <DATAPLANE> --dns-addresses "[1.1.1.1]" --data-interface name=N6 --address-pool 192.168.1.0/24
 ```
 
 ## Clean up resources
