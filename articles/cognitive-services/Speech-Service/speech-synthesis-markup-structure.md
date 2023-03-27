@@ -30,7 +30,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="string">
     <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
     <voice name="string" effect="string">
-        <audio src="string"/></audio>
+        <audio src="string"></audio>
         <bookmark mark="string"/>
         <break strength="string" time="string" />
         <emphasis level="value"></emphasis>
