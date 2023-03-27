@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 03/27/2023
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh
 ms.custom: aaddev 
