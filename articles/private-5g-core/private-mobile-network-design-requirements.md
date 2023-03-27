@@ -49,9 +49,9 @@ Azure Private 5G Core Packet Core supports deployments with or without L3 router
 
 - It is possible to connect ASE port 5 to RAN nodes directly (back-to-back) or via an L2 switch. When using this topology, it is required to configure the eNodeB/gNodeB address as the default gateway in the ASE network interface configuration.
 - Similarly, it is possible to connect ASE port 6 to your core network via an L2 switch. When using this topology, it is required to set up an application or an arbitrary address on the subnet as gateway on the ASE side.  
-- Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it - Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it as the gateway in ASE configuration.
+- Alternatively, you can combine these approaches. For example: using a router on ASE port 6 with a flat L2 network on ASE port 5. If a L3 router is present in local network topology, you must set it.
 
-Unless your AP5GC Packet core is using NAT, there must be a L3 router configured with static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network.
+Unless your packet core is using NAT, there must be a L3 router configured with static routes to the UE IP pools via the appropriate N6 IP address for the corresponding Attached Data Network.
 
 #### Sample network topologies
 
@@ -73,6 +73,12 @@ There are multiple ways to set up your network for use with AP5GC packet core. T
   - Packet Core can support multiple Attached Data Networks, each with its own configuration for DNS, UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more DN and apply DN-specific policy and QoS.
   - This topology requires that the N6 is split into subnets per-DN or that all DNs exist in the same subnet. Due to this, this topology requires careful planning and configuration to prevent overlapping DN IP ranges or UE IP ranges that result in routing problems.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of L3 network topology with multiple D N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
+
+- Layer 3 network with VLAN separation
+  - You can also separate ASE traffic into VLANs, whether or not you choose to add L3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
+  - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
+  - VLANs must be configured on the local L2 or L3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
+  
 
 ### Subnets and IP addresses
 
