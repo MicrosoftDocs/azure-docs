@@ -1,5 +1,5 @@
 ---
-title: Stream Google Cloud Platform audit logs into Microsoft Sentinel 
+title: Stream Google Cloud Platform into Microsoft Sentinel 
 description: This article describes how to stream audit log data from the Google Cloud Platform (GCP) into Microsoft Sentinel.
 author: limwainstein
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author: lwainstein
 #Customer intent: As a security operator, I want to ingest GCP audit log data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in my multicloud environment.
 ---
 
-# Stream Google Cloud Platform audit logs with the GCP Pub/Sub Audit Logs connector
+# Stream Google Cloud Platform logs into Microsoft Sentinel
 
 Organizations are increasingly moving to multicloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
 
@@ -97,7 +97,7 @@ You can set up the GCP environment in one of two ways:
 
 1. Wait five minutes before moving to the next step. 
 
-## Set up the GCP Pub/Sub Audit Logs connector in Microsoft Sentinel
+## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 1. In the **Content hub**, in the search bar, type *Google Cloud Platform Audit Logs*.
