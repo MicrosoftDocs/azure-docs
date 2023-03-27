@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/08/2023
+ms.date: 03/27/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -18,7 +18,7 @@ Azure Container Storage is a service built natively for containers that enables 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Sign up for the public preview.
+- Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 

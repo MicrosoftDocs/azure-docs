@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage, a service built natively fo
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 03/23/2023
+ms.date: 03/27/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
@@ -19,7 +19,7 @@ ms.custom: references_regions
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing customers to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-To get started using Azure Container Storage, see [Quickstart: Use Azure Container Storage with AKS](container-storage-aks-quickstart.md).
+To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Quickstart: Use Azure Container Storage with AKS](container-storage-aks-quickstart.md).
 
 ## Supported storage types
 
