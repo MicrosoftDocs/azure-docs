@@ -1,29 +1,26 @@
 ---
-title: Technical deep dive on migration from classic accounts to Azure Resource Manager
+title: Understand storage account migration from classic to Azure Resource Manager
 titleSuffix: Azure Storage
 description: Deep dive - migrate your classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: how-to
-ms.date: 03/17/2023
+ms.topic: conceptual
+ms.date: 03/27/2023
 ms.author: tamram
 ms.subservice: common
 ---
 
-# Technical deep dive on migration from classic accounts to Azure Resource Manager
+# Understand storage account migration from the classic deployment model to Azure Resource Manager
 
-> [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. ???do we want similar stats for storage?
-
-Let's take a deep-dive on migrating storage accounts from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md)
+Let's take an in-depth look at the process of migrating storage accounts from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article: [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md)
 
 ## Understand the data plane and management plane
 
 First, it's helpful to understand the basic architecture of Azure Storage. Azure Storage offers services that store data, including Blob Storage, Azure Data Lake Storage, Azure Files, Queue Storage, and Table Storage. These services and the operations they expose comprise the *data plane* for Azure Storage. Azure Storage also exposes operations for managing an Azure Storage account and related resources, such as redundancy SKUs, account keys, and certain policies. These operations comprise the *management* or *control* plane.
 
-:::image type="content" source="media/classic-account-migration-deep-dive/storage-architecture-diagram.png" alt-text="Diagram showing the Azure Storage data and management plane architecture.":::
+:::image type="content" source="media/classic-account-migration-process/storage-architecture-diagram.png" alt-text="Diagram showing the Azure Storage data and management plane architecture.":::
 
 During the migration process, Microsoft translates the representation of the storage account resource from the classic deployment model to the Azure Resource Manager deployment model. As a result, you need to use new tools, APIs, and SDKs to manage your storage accounts and related resources after the migration.
 
@@ -37,12 +34,12 @@ Before you start the migration:
 
 - Ensure that the storage accounts that you want to migrate don't use any unsupported features or configurations. Usually the platform detects these issues and generates an error.
 - Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
-- Evaluate any Azure role-based access control (Azure RBAC) roles that are configured on the classic storage account, and plan for after the migration is complete. ???is this even possible with classic accts?
+- Evaluate any Azure role-based access control (Azure RBAC) roles that are configured on the classic storage account, and plan for after the migration is complete.
 - If possible, halt write operations to the storage account for the duration of the migration.
 
 There are four steps to the migration process, as shown in the following diagram:
 
-:::image type="content" source="media/classic-account-migration-deep-dive/migration-workflow.png" alt-text="Screenshot showing the account migration workflow.":::
+:::image type="content" source="media/classic-account-migration-process/migration-workflow.png" alt-text="Screenshot showing the account migration workflow.":::
 
 1. **Validate**. During the Validation phase, Azure checks the storage account to ensure that it can be migrated.
 1. **Prepare**. In the Prepare phase, Azure creates a new general-purpose v1 storage account and alerts you to any problems that may have occurred. The new account is created in a new resource group in the same region as your classic account. All of your data has been migrated to the new account.
@@ -93,18 +90,14 @@ There is no set window of time before which you need to commit or abort the migr
 
 ### Abort
 
-To revert your changes to the classic deployment model, you can choose to abort the migration. Aborting the migration deletes the new storage account and new resource group.
-
-???This operation deletes the Resource Manager metadata (created in the prepare step) for your resources.
+To revert your changes to the classic deployment model, you can choose to abort the migration. Aborting the migration deletes the new storage account and new resource group. Your classic storage account is not affected if you choose to abort the migration.
 
 > [!CAUTION]
-> You cannot choose to abort the migration after you have committed the migration. Make sure that you have checked your migrated storage account carefully for errors before you commit.
+> You cannot abort the migration after you have committed the migration. Make sure that you have checked your migrated storage account carefully for errors before you commit.
 
 ### Commit
 
 After you are satisfied that your classic storage account has been migrated successfully, you can commit the migration. Committing the migration deletes your classic storage account. You data is now available only in the newly migrated account in the Resource Manager deployment model.
-
-???The migrated storage account can be managed only in the new portal. - do we want to say this???
 
 > [!NOTE]
 > Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html)
@@ -113,5 +106,9 @@ After you are satisfied that your classic storage account has been migrated succ
 
 After the migration is complete, your new storage account is a general-purpose v1 storage account. We recommend upgrading to a general-purpose v2 account to take advantage of the newest features that Azure Storage has to offer for security, data protection, lifecycle management, and more. To learn how to upgrade to a general-purpose v2 storage account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
 
+You can manage your migrated storage accounts in the [Azure portal](https://portal.azure.com). You will not be able to use the classic portal to manage your migrated storage accounts.
+
 ## See also
 
+- [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md)
+- [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md)

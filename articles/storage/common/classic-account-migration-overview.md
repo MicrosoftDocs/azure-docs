@@ -6,8 +6,8 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: how-to
-ms.date: 03/17/2023
+ms.topic: conceptual
+ms.date: 03/27/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -67,4 +67,5 @@ For step-by-step instructions, see [Migrate a classic storage account to Azure R
 
 ## See also
 
-[Migrate a classic storage account to Azure Resource Manager](storage-account-migrate-classic.md)
+- [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md)
+- [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md)
