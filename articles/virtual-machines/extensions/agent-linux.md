@@ -175,7 +175,7 @@ Default: y
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
 
 > [!NOTE]
-> The `Provisioning.Enabled` parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+> The `Provisioning.Enabled` parameter defaults to "n" on Linux Images that use cloud-init for provisioning.
 >
 >
 
@@ -244,7 +244,7 @@ Default: n
 
 This option allows the password for the sys user to be reset; default is disabled.
 
-**Provisioning.PasswordCryptId:** 
+**Provisioning.PasswordCryptId:**
 
 ```txt
 Type: String  
@@ -282,7 +282,7 @@ Type: String
 Default: ext4
 ```
 
-This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image. SLES 11 images should typically use 'ext3'. FreeBSD images should use 'ufs2' here.
+This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image.
 
 **ResourceDisk.MountPoint:**  
 
@@ -363,7 +363,7 @@ Type: String
 Default: None
 ```
 
-If set, the agent uses this proxy server to access the internet. 
+If set, the agent uses this proxy server to access the internet.
 
 **AutoUpdate.Enabled:**
 
