@@ -52,19 +52,21 @@ Ensure to add the *PowerShell* file to the PATH environment variable and restart
 
 **Python 3.10**
 
-To run Python 3.10 runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html)
+To run Python 3.10 runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html).
 
 After Python 3.10 installation is complete, create an environment variable with Variable name as python_3_10_path and Variable value as location of the executable *Python*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **Python 3.8**
 
 To run Python 3.8 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_3_PATH* for Python 3.8 runbooks and ensure to add the location of executable Python as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
+
 If the *Python* executable file is at the default location *C:\WPy64-3800\python-3.8.0.amd64\python.exe*, then you do not have to create the environment variable.
 
 
 **Python 2.7**
 
 To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_2_PATH* for Python 2.7 runbooks and ensure to add the location of executable Python file as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
+
 If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
 
 
@@ -78,12 +80,14 @@ Ensure to add the *PowerShell* file to the PATH environment variable and restart
 **Python 3.8**
 
 To run Python 3.8 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_3_PATH* for Python 3.8 runbooks and ensure to add the location of executable Python as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
+
 If the *Python* executable file is at the default location *C:\WPy64-3800\python-3.8.0.amd64\python.exe*, then you do not have to create the environment variable.
 
 
 **Python 2.7**
 
 To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_2_PATH* for Python 2.7 runbooks and ensure to add the location of executable Python file as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
+
 If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
 
 ---
@@ -112,7 +116,9 @@ To run Python 3.10 runbooks on a Linux Hybrid Worker, install *Python* on the Hy
 After Python 3.10 installation is complete, create an environment variable with **Variable name** as *python_3_10_path* and **Variable value** as location of the executable *Python* file. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **Python 3.8**
-To run Python 3.8 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. Ensure to add the executable *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
+
+To run Python 3.8 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. 
+Ensure to add the executable *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **Python 2.7**
 
