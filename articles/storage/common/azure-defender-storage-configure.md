@@ -38,18 +38,18 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 
 \* Azure DNS Zone is not supported for Malware Scanning and sensitive data threat detection.
 
-### Prerequisites for Malware Scanning
+## Prerequisites for Malware Scanning
 
-#### Networking configuration
+### Networking configuration
 
 Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. 
 Malware Scanning is not supported for storage accounts with “Public network access” set to disabled disabled.
 
-#### Permissions
+### Permissions
 
 To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](support-matrix-defender-for-storage.md).
 
-#### Event Grid resource provider
+### Event Grid resource provider
 
 Event Grid resource provider must be registered to be able to create the Event Grid System Topic used for detect upload triggers.
 Follow [these steps](../../event-grid/blob-event-quickstart-portal.md#register-the-event-grid-resource-provider) to verify Event Grid is registered on your subscription.
