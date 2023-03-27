@@ -32,6 +32,10 @@
     href: howto-configure-cluster.md
   - name: BareMetal Functions
     href: howto-baremetal-functions.md
+  - name: BareMetal Run-Read Execution
+    href: howto-baremetal-run-read.md
+  - name: BareMetal Review Output Run-Read
+    href: howto-baremetal-review-read-output.md
   - name: Isolation Domain
     href: howto-configure-isolation-domain.md
   - name: AKS-Hybrid
