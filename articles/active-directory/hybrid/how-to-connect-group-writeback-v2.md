@@ -81,7 +81,7 @@ To see the default behavior in your environment for newly created groups, use th
 
 You can also use the PowerShell cmdlet [AzureADDirectorySetting](../enterprise-users/groups-settings-cmdlets.md). 
 
-> Example: `(Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"} | FL *).values` 
+> Example: `(Get-AzureADDirectorySetting | ? { $_.DisplayName -eq "Group.Unified"} | Select-Object -ExpandProperty Values` 
 
 > If nothing is returned, you're using the default directory settings. Newly created Microsoft 365 groups *will automatically* be written back. 
 
