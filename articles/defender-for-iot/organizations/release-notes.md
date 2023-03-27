@@ -270,7 +270,6 @@ This version includes the following new updates and fixes:
 This version includes the following new updates and fixes:
 
 - Diagnostic logs automatically available to support for cloud-connected sensors
-
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
 - [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
@@ -311,13 +310,13 @@ This version includes the following new updates and fixes:
 
 - [New connectivity models](architecture-connections.md)
 
-- [New firewall requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+- New firewall requirements
 
 - [Improved support for Profinet DCP, Honeywell, and Windows endpoint detection protocols](concept-supported-protocols.md)
 
 - [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
 
-- Updated process for sensor name changes
+- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
@@ -368,7 +367,7 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
+- Export logs from the on-premises management console for troubleshooting
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 
