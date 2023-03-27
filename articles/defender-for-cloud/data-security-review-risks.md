@@ -24,7 +24,7 @@ View predefined attack paths to discover data breach risks, and get remediation 
 1. In Defender for Cloud, open **Recommendations** > **Attack paths**.
 1. In **Risk category filter**, select **Data exposure** or **Sensitive data exposure** to filter the data-related attack paths.
 
-    :::image type="content" source="./media/data-security-review-risks/attack-paths.png" alt-text="Attack paths for data risk.":::
+    :::image type="content" source="./media/data-security-review-risks/attack-paths.png" alt-text="Screenshot that shows attack paths for data risk.":::
 
 1. Review the data attack paths.
 1. To view sensitive information detected in data resources, select the resource name > **Insights**. Then, expand the **Contain sensitive data** insight.
@@ -47,7 +47,7 @@ Explore data risks and exposure in cloud security graph insights using a query t
 1. In Defender for Cloud, open **Cloud Security Explorer**.
 1. Select a query template, or build your own query. Here's an example:
 
-    :::image type="content" source="./media/data-security-review-risks/query.png" alt-text="Insights data query.":::
+    :::image type="content" source="./media/data-security-review-risks/query.png" alt-text="Screenshot that shows an Insights data query.":::
 
 ## Explore sensitive data security alerts
 

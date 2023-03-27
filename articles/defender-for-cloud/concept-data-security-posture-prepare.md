@@ -1,6 +1,6 @@
 ---
 title: Support and prerequisites for data-aware security posture - Microsoft Defender for Cloud
-description: Learn about the requirements for data-aware security posture
+description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud
 author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
@@ -49,7 +49,7 @@ What's the cost? | The feature is included with the Defender CSPM and Defender f
 ## Configuring data sensitivity settings
 
 The main steps for configuring data sensitivity setting include:
-- [Import custom sensitive info types/labels from Microsoft Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-purview-compliance-portal)
+- [Import custom sensitive info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-purview-compliance-portal)
 - [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
 - [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 
