@@ -31,7 +31,7 @@ items:
   expanded: true
   items: 
     - name: Explore a free trial (portal)
-      href: quickstart-explore-free-trial.md
+      href: quickstart-explore-free-customer-trial.md
     - name: Customer tenant and sign-in (portal)
       href: quickstart-customer-tenant-portal.md
     - name: Add sign-in to your app (developers)
