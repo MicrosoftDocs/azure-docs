@@ -7,14 +7,20 @@ ms.topic: limits-and-quotas
 
 # Which appliances do I need?
 
-This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs.
+This article is intended to help you choose the right OT appliances for your appliances and which hardware profile best fits your organization's network monitoring needs.
 
-[Physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances can be used; results depend on hardware and resources available to the monitoring sensor.
+You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances. Results depend on hardware and resources available to the monitoring sensor.
 
-> [!NOTE]
+:::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
+
+> [!IMPORTANT]
 > The performance, capacity, and activity of an OT/IoT network may vary depending on its size, capacity, protocols distribution, and overall activity. For deployments, it is important to factor in raw network speed, the size of the network to monitor, and application configuration. The selection of processors, memory, and network cards is heavily influenced by these deployment configurations. The amount of space needed on your disk will differ depending on how long you store data, and the amount and type of data you store.
 >
 >*Performance values are presented as upper thresholds under the assumption of intermittent traffic profiles, such as those found in OT/IoT systems and machine-to-machine communication networks.*
+
+> [!NOTE]
+> This article also includes information relevant for on-premises management consoles.
+>
 
 ## IT/OT mixed environments
 
@@ -54,14 +60,4 @@ On-premises management consoles allow you to manage and monitor large, multiple-
 
 ## Next steps
 
-Continue understanding system requirements, including options for ordering pre-configured appliances, or required specifications to install software on your own appliances:
-
-- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
-- [Resource requirements for virtual appliances](ot-virtual-appliances.md)
-
-Then, use any of the following procedures to continue:
-
-- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](how-to-install-software.md)
-
-Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or reinstall software on preconfigured appliances.
+For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).

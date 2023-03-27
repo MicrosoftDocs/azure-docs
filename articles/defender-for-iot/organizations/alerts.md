@@ -8,7 +8,7 @@ ms.custom: enterprise-iot
 
 # Microsoft Defender for IoT alerts
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are messages that a Defender for IoT engine triggers when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 For example:
 
@@ -118,6 +118,12 @@ Use the following table to learn more about each alert status and triage option.
 >
 > For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 >
+
+### Triage OT alerts during learning mode
+
+*Learning mode* refers to the initial period after an OT sensor is deployed, when your OT sensor learns your network's baseline activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices.
+
+Use learning mode to perform an initial triage on the alerts in your network, *learning* those you want to mark as authorized, expected activity. Learned traffic doesn't generate new alerts the next time the same traffic is detected.
 
 ## Next steps
 
