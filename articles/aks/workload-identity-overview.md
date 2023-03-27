@@ -2,7 +2,7 @@
 title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 03/14/2023
+ms.date: 03/27/2023
 
 ---
 
@@ -41,6 +41,10 @@ This article helps you understand this new authentication feature, and reviews t
 
 - You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
+
+## Language SDK examples
+  - [Azure Identity SDK](https://azure.github.io/azure-workload-identity/docs/topics/language-specific-examples/azure-identity-sdk.html)
+  - [MSAL](https://azure.github.io/azure-workload-identity/docs/topics/language-specific-examples/msal.html)
 
 ## How it works
 
