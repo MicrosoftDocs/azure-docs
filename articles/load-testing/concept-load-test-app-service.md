@@ -42,13 +42,13 @@ Azure Load Testing enables you to create load tests for your application in two 
 - Create a URL-based quick test
 - Use an existing Apache JMeter script (JMX file)
 
-Use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page. You can specify basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time). Azure Load Testing then generates the corresponding JMeter test script, and runs it against your endpoint. You can modify the test script and configuration settings at any time.
+Use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page. You can specify basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time). Azure Load Testing then generates the corresponding JMeter test script, and runs it against your endpoint. You can modify the test script and configuration settings at any time. Get started by [creating a URL-based load test](./quickstart-create-and-run-load-test.md).
 
 :::image type="content" source="./media/concept-load-test-app-service/create-quick-test-app-service.png" alt-text="Screenshot that shows the Create quick test in the Azure portal." lightbox="./media/concept-load-test-app-service/create-quick-test-app-service.png":::
 
-Alternately, create a new load test by uploading an existing JMeter script. Use this approach to load test multiple pages or endpoints in a single test, to test authenticated endpoints, use parameters in the test script, or to use more advanced load patterns. Azure Load Testing provides high-fidelity support of JMeter to enable you to reuse existing load test scripts.
+Alternately, create a new load test by uploading an existing JMeter script. Use this approach to load test multiple pages or endpoints in a single test, to test authenticated endpoints, use parameters in the test script, or to use more advanced load patterns. Azure Load Testing provides high-fidelity support of JMeter to enable you to reuse existing load test scripts. Learn how to [create a load test by using an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
 
-If you get started with load testing, you might first create a quick test, and then further modify and extend the test script that Azure Load Testing generated.
+If you're just getting started with Azure Load Testing, you might [create a quick test](./quickstart-create-and-run-load-test.md) first, and then further modify and extend the test script that Azure Load Testing generated.
 
 After you create and run your load test, Azure Load Testing provides a dashboard with test run statistics, such as [response time](./concept-load-testing-concepts.md#response-time), error percentage and [throughput](./concept-load-testing-concepts.md#requests-per-second-rps).
 
