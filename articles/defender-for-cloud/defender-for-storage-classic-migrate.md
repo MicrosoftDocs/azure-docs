@@ -21,7 +21,7 @@ The new plan includes more advanced capabilities that can help improve the secur
     The Malware Scanning capability is an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
     Learn more about [Malware Scanning](defender-for-storage-malware-scan.md).
 
-- Sensitive data threat detection
+### Sensitive data threat detection
 
     The ‘sensitive data threat detection’ capability enables security teams to efficiently prioritize and examine security alerts by considering the sensitivity of the data that could be at risk, leading to better detection and preventing data breaches.
     ‘Sensitive data threat detection’ is powered by the “Sensitive Data Discovery” engine, an agentless engine that uses a smart sampling method to find resources with sensitive data.
