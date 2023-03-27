@@ -210,9 +210,9 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Message**: `"Disable chunking" is not compatible with "ZipDeflate" decompression.`
 
-- **Cause**:"Disable chunking" is not compatible with "ZipDeflate" decompression.
+- **Cause**:**Disable chunking** is not compatible with **ZipDeflate** decompression.
 
-- **Recommendation**: Please load the binary data to a staging area (for example: Azure Blob) and decompress in another copy activity
+- **Recommendation**: Load the binary data to a staging area (for example: Azure Blob Storage) and decompress them in another copy activity.
 
 ## HTTP
 
