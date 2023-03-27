@@ -56,7 +56,7 @@ You can use Azure Arc-enabled VMware vSphere (preview) in these supported region
 - UK South
 - West Europe
 
-For the most up-to-date information abour region availability of Azure Arc-enabled VMware vSphere, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all) page
+For the most up-to-date information about region availability of Azure Arc-enabled VMware vSphere, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all) page
 
 ## Data Residency
 
