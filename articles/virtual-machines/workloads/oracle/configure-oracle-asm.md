@@ -1,16 +1,3 @@
----
-title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
-description: Quickly get Oracle ASM up and running in your Azure environment.
-author: dbakevlar
-ms.service: virtual-machines
-ms.subservice: oracle
-ms.collection: linux
-ms.topic: article
-ms.date: 07/13/2022
-ms.author: kegorman
-
----
-
 # Set up Oracle ASM on an Azure Linux virtual machine
 
 **Applies to:** :heavy_check_mark: Linux VMs 
@@ -418,7 +405,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
    groupadd -g 54346 asmdba 
    groupadd -g 54347 asmoper 
    useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid 
-   usermod -g oinstall -G dba,asmdba,asmadmin oracle
+   usermod -g oinstall -G oinstall,dba,asmdba,asmadmin,asmoper oracle
    ```
 
 5. Verify users and groups were created correctly:
@@ -432,7 +419,22 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
     ```output
     uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
     ```
- 
+
+   ```bash
+   grep oracle /etc/group
+   ```
+
+    The output of this command should list the following users and groups:
+
+    ```output
+   oinstall:x:54321:oracle
+   dba:x:54322:oracle,grid
+   asmadmin:x:54345:grid,oracle
+   asmdba:x:54346:grid,oracle
+   asmoper:x:54347:grid,oracle
+   ```
+
+
 6. Create a folder for user *grid* and change the owner:
 
    ```bash
@@ -451,7 +453,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 The output of command should look like
 
    ```output
-   oracle : oinstall dba asmadmin asmdba
+   oracle : oinstall dba asmadmin asmdba asmoper
    ```
 
 To set up Oracle ASM, complete the following steps:
@@ -798,6 +800,10 @@ To install Oracle Grid Infrastructure, complete the following steps:
 7. On the **Specify Installation Location** page, use the default settings. Click `next` to continue.
 
    ![Screenshot of the installer's Specify Installation Location page](./media/oracle-asm/gridinstall_06.png)
+
+If you receive a warning like below, click **Yes** to continue.
+
+   ![Screenshot of the installer's installer space warning page](./media/oracle-asm/gridinstall_06_2.png)
 
 8. On the **Root script execution configuration** page, select the **Automatically run configuration scripts** check box. Then, select the **Use "root" user credential** option, and enter the root user password.
 
