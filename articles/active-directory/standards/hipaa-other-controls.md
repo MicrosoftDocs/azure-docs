@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Other Safeguard guidance
+# Other Safeguard guidance 
 
 Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, it's the responsibility of companies to implement the safeguards using this guidance along with any other configurations or processes needed. This article contains guidance for achieving HIPAA compliance for the following three controls:
 
