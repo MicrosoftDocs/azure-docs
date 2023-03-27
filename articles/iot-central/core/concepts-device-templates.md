@@ -23,8 +23,7 @@ A device template includes the following sections:
   - _Root component_. Every device model has a root component. The root component's interface describes capabilities that are specific to the device model.
   - _Components_. A device model may include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example, several phone device models could use the same camera interface.
   - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the root component.
-- _Cloud properties_. This part of the device template lets the solution developer specify any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. Cloud properties don't affect the code that a device developer writes to implement the device model.
-- _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the device model, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the device model.
+- _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. Views don't affect the code that a device developer writes to implement the device model.
 
 ## Assign a device to a device template
 
@@ -326,6 +325,30 @@ Don't use properties to send telemetry from your device. For example, a readonly
 
 For writable properties, the device application returns a desired state status code, version, and description to indicate whether it received and applied the property value.
 
+### Cloud properties
+
+You can also add cloud properties to the root component of the model. Cloud properties let you specify any device metadata to store in the IoT Central application. Cloud property values are stored in the IoT Central application and are never synchronized with a device. Cloud properties don't affect the code that a device developer writes to implement the device model.
+
+A solution developer can add cloud properties to device views and forms alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
+
+The following DTDL snippet shows an example cloud property definition:
+
+```json
+{
+    "@id": "dtmi:azureiot:Thermostat:CustomerName",
+    "@type": [
+        "Property",
+        "Cloud",
+        "StringValue"
+    ],
+    "displayName": {
+        "en": "Customer Name"
+    },
+    "name": "CustomerName",
+    "schema": "string"
+}
+```
+
 ## Telemetry
 
 IoT Central lets you view telemetry in device views and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values. You can also display telemetry values on application and personal dashboards.
@@ -347,12 +370,6 @@ Offline commands are one-way notifications to the device from your solution. Off
 > [!NOTE]
 > Offline commands are marked as `durable` if you export the model as DTDL.
 
-## Cloud properties
-
-Cloud properties are part of the device template, but aren't part of the device model. Cloud properties let the solution developer specify any device metadata to store in the IoT Central application. Cloud properties don't affect the code that a device developer writes to implement the device model.
-
-A solution developer can add cloud properties to device views and forms alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
-
 ## Views
 
 A solution developer creates views that let operators monitor and manage connected devices. Views are part of the device template, so a view is associated with a specific device type. A view can include:
@@ -360,11 +377,9 @@ A solution developer creates views that let operators monitor and manage connect
 - Charts to plot telemetry.
 - Tiles to display read-only device properties.
 - Tiles to let the operator edit writable device properties.
-- Tiles to let the operator edit  cloud properties.
+- Tiles to let the operator edit cloud properties.
 - Tiles to let the operator call commands, including commands that expect a payload.
 - Tiles to display labels, images, or markdown text.
-
-The telemetry, properties, and commands that you can add to a view are determined by the device model, cloud properties, and customizations in the device template.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/03/2023
 author: lauradolan
 ms.author: ladolan
-#Customer intent: As a developer, I want to configure my Virtual Instance for SAP solutions resource so that I can find system properties and connect to databases.
+#Customer intent: As a SAP Basis Admin, I want to view and manage my SAP systems using Virtual Instance for SAP solutions resource where I can find SAP system properties.
 ---
 
 # Manage a Virtual Instance for SAP solutions (preview)
@@ -20,9 +20,8 @@ In this article, you'll learn how to view the *Virtual Instance for SAP solution
 
 ## Prerequisites
 
-- An Azure subscription. 
-- **Contributor** role access to the subscription or resource groups where you plan to deploy the SAP system.
-- A **User-assigned managed identity** with **Contributor** role access to the Subscription or resource groups of the SAP system.
+- An Azure subscription in which you have a successfully created Virtual Instance for SAP solutions(VIS) resource.
+- An Azure account with **Azure Center for SAP solutions administrator** role access to the subscription or resource groups where you have the VIS resources.
 
 ## Open VIS in portal
 
@@ -50,7 +49,7 @@ To view properties for the instances within your VIS, first [open the VIS in the
 
 In the sidebar menu, look under the section **SAP resources**:
 
-- To see properties of ASCS instances, select **Central server instances**.
+- To see properties of ASCS instances, select **Central service instances**.
 - To see properties of application server instances, select **App server instances**.
 - To see properties of database instances, select **Databases**.
 
@@ -127,7 +126,7 @@ If you get the warning **The operation 'List' is not enabled in this key vault's
 
 ## Delete VIS
 
-When you delete a VIS, you also delete the managed resource group and all instances that are attached to the VIS. For example, the VIS, ASCS, Application Server, and Database instances are deleted.
+When you delete a VIS, you also delete the managed resource group and all instances that are attached to the VIS. That is, the VIS, ASCS, Application Server, and Database instances are deleted.
 Any Azure physical resources aren't deleted when you delete a VIS. For example, the VMs, disks, NICs, and other resources aren't deleted.
 
 > [!WARNING]
