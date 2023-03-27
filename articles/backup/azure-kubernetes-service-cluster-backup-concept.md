@@ -24,11 +24,11 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You need to install Backup Extension on both the source cluster to be backed up and the target cluster where the restore will happen.
 
-- Backup Extension can be installed in the cluster from the *AKS portal* blade on the **Backup** tab under **Settings**. You can also use the Azure CLI commands to [manage the installation and other operations on the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
+- Backup Extension can be installed in the cluster from the *AKS portal* blade on the **Backup** tab under **Settings**. You can also use the Azure CLI commands to [manage the installation and other operations on the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 
-- Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#register-the-resource-provider).
+- Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#resource-provider-registrations).
 
-Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#manage-operations).
+Learn [how to manage the operation to install Backup Extension using Azure CLI](azure-kubernetes-service-cluster-manage-backups.md#backup-extension-related-operations).
 
 ## Trusted Access
 
@@ -40,7 +40,7 @@ For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access t
 
 To enable Trusted Access between a Backup vault and an AKS cluster, you must [register the `TrustedAccessPreview`  feature flag on `Microsoft.ContainerService` at the subscription level. Learn how to register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#enable-the-feature-flag).
 
-Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#enable-trusted-access).
+Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#register-the-trusted-access).
 
 >[!Note]
 >- You can install the Backup Extension on your AKS cluster directly from the Azure portal under the *Backup* section in AKS portal.

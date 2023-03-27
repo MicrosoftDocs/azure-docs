@@ -33,7 +33,7 @@ The registration may take up to *10 minutes*. To monitor the registration proces
    az provider show -n Microsoft.KubernetesConfiguration -o table
    ```
 
-### Register Trusted Access
+### Register the Trusted Access
 
 To enable Trusted Access between the Backup vault and AKS cluster, you must register *TrustedAccessPreview* feature flag on *Microsoft.ContainerService* over the subscription. To perform the registration, run the following commands:
 
