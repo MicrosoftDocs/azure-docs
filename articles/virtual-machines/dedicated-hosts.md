@@ -204,12 +204,12 @@ Azure monitors and manages the health status of your hosts. The following states
 
 **Q**. What happens to my dedicated host in case of a live migration?
 
-**A**. As of today, Azure dedicated hosts do not live migration and in case of a hardware failure, we service heal the host to a different node.
+**A**. As of today, Azure dedicated hosts do not support live migration and in case of a hardware failure, we service heal the host to a different node.
 
 
 **Q**. Can I run VMs from multiple VM families on the same dedicated host?
 
-**A**. No, you would be able to run only VMs as the same family as the underlying dedicated host. For e.g., a Dsv3-Type4 host will only support VMs of Dsv3 VM family.
+**A**. No, you would be able to run only VMs from the same family as the underlying dedicated host. For e.g., A Dsv3-Type4 host only supports VMs of Dsv3 VM family.
 
 
 **Q**. Would I be able to run different VM sizes on a single dedicated host?
@@ -223,6 +223,7 @@ Azure monitors and manages the health status of your hosts. The following states
 - There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
+
 
 
 
