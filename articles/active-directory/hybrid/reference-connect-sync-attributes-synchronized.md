@@ -158,7 +158,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Synced to M365 profile photo periodically, Admins can set the frequency of the sync by changing the AAD Connect value. Please note that if users change their photo both on prem and in cloud in a time span that is less than the AAD Connect value we do not guarantee that the latest photo will be served.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
@@ -240,7 +240,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Synced to M365 profile photo periodically, Admins can set the frequency of the sync by changing the AAD Connect value. Please note that if users change their photo both on prem and in cloud in a time span that is less than the AAD Connect value we do not guarantee that the latest photo will be served.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -291,7 +291,7 @@ In this case, start with the list of attributes in this topic and identify those
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |Synced to M365 profile photo periodically, Admins can set the frequency of the sync by changing the AAD Connect value. Please note that if users change their photo both on prem and in cloud in a time span that is less than the AAD Connect value we do not guarantee that the latest photo will be served.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
