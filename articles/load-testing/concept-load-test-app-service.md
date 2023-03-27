@@ -42,9 +42,9 @@ Azure Load Testing enables you to create load tests for your application in two 
 - Create a URL-based quick test
 - Use an existing Apache JMeter script (JMX file)
 
-Use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page. You can specify a number of basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time). Azure Load Testing then generates the corresponding JMeter test script, and runs it against your endpoint. You can modify the test script and configuration settings at any time.
+Use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page. You can specify basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time). Azure Load Testing then generates the corresponding JMeter test script, and runs it against your endpoint. You can modify the test script and configuration settings at any time.
 
-:::image type="content" source="./media/concept-load-test-app-service/create-quick-test-app-service.png" alt-text="Screenshot that show the create quick test in the Azure portal." lightbox="./media/concept-load-test-app-service/create-quick-test-app-service.png":::
+:::image type="content" source="./media/concept-load-test-app-service/create-quick-test-app-service.png" alt-text="Screenshot that shows the Create quick test in the Azure portal." lightbox="./media/concept-load-test-app-service/create-quick-test-app-service.png":::
 
 Alternately, create a new load test by uploading an existing JMeter script. Use this approach to load test multiple pages or endpoints in a single test, to test authenticated endpoints, use parameters in the test script, or to use more advanced load patterns. Azure Load Testing provides high-fidelity support of JMeter to enable you to reuse existing load test scripts.
 
@@ -58,7 +58,7 @@ The Azure Load Testing dashboard provides insights about a specific load test ru
 
 Test fail criteria enable you to configure conditions for load test *client-side metrics*. If a load test run doesn't meet these conditions, the test is considered to fail. For example, specify that the average response time of requests, or that the percentage of failed requests is above a given threshold. You can add fail criteria to your load test at any time, regardless if it's a quick test or if you uploaded a JMeter script.
 
-:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-test-criteria.png" alt-text="Screenshot that show the test criteria page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-test-criteria.png":::
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-test-criteria.png" alt-text="Screenshot that shows the test criteria page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-test-criteria.png":::
 
 When you run load tests as part of your CI/CD pipeline, you can use test fail criteria to quickly identify performance regressions with an application build.
 
@@ -68,19 +68,19 @@ Learn how to [configure test fail criteria](./how-to-define-test-criteria.md) fo
 
 During a load test, Azure Load Testing collects [metrics](./concept-load-testing-concepts.md#metrics) about the test execution. The client-side metrics provide information about the test run, from a test-engine perspective. For example, the end-to-end response time, requests per second, or error percentage. These metrics give an overall indication whether the application can support the simulated user load.
 
-To get insights insights into the performance and stability of the application and its components, Azure Load Testing enables you to monitor application metrics, also referred to as *server-side metrics*. Monitoring application metrics help identify performance bottlenecks in your application, or indicate which components have too many or too few compute resources allocated.
+To get insights into the performance and stability of the application and its components, Azure Load Testing enables you to monitor application metrics, also referred to as *server-side metrics*. Monitoring application metrics help identify performance bottlenecks in your application, or indicate which components have too many or too few compute resources allocated.
 
-For applications hosted on Azure App Service, use App Service diagnostics to get additional insights into the performance and health of the application.
+For applications hosted on Azure App Service, use App Service diagnostics to get extra insights into the performance and health of the application.
 
 ### Server-side metrics in Azure Load Testing
 
 Azure Load Testing lets you monitor server-side metrics for your Azure app components when you run a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard. Learn more about the [Azure resource types that Azure Load Testing supports](./resource-supported-azure-resource-types.md).
 
-:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-components.png" alt-text="Screenshot that show the Configure metrics page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-components.png":::
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-components.png" alt-text="Screenshot that shows the Configure app components page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-components.png":::
 
-In the load test configuration, select the list of Azure resources for your application components. When you add an Azure resource to your load test, Azure Load Testing automatically selects a number of default resource metrics to monitor while running the load test. For example, when you add a App Service plan, Azure Load Testing monitors average CPU percentage and average memory percentage. You can add or remove resource metrics for your load test.
+In the load test configuration, select the list of Azure resources for your application components. When you add an Azure resource to your load test, Azure Load Testing automatically selects default resource metrics to monitor while running the load test. For example, when you add an App Service plan, Azure Load Testing monitors average CPU percentage and average memory percentage. You can add or remove resource metrics for your load test.
 
-:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-metrics.png" alt-text="Screenshot that show the Configure metrics page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-metrics.png":::
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-metrics.png" alt-text="Screenshot that shows the Configure metrics page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-metrics.png":::
 
 Learn more about how to [monitor server-side metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
