@@ -215,30 +215,19 @@ This example workflow starts with the built-in [Request trigger](../connectors/c
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-### [Standard (preview)](#tab/standard-preview)
+### [Standard (Preview)](#tab/standard-preview)
 
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-1. Follow the steps to [add a built-in trigger]() Request trigger by searching for **when a http request**.
-
-1. Next to the designer surface, in the **Add a trigger** pane, under the **Choose an operation** search box, check that the **Built-in** tab is selected. This tab shows triggers that run natively in Azure Logic Apps.
-
-1. In the **Choose an operation** search box, enter **when a http request**, and select the built-in Request trigger that's named **When an HTTP request is received**.
-
-   ![Screenshot that shows the designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
+1. Follow the [steps to find the built-in Request trigger named **When an HTTP request is received** using **request** as the search term](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-a-trigger-to-start-your-workflow).
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
-
-   ![Screenshot that shows the designer with the "When an HTTP request is received" trigger selected and trigger information pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
    > [!NOTE]
    >
    > If the information pane doesn't appear, makes sure that the trigger is selected on the designer.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
-
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
-
 
 ---
 
