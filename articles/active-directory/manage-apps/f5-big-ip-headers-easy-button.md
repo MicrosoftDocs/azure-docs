@@ -240,19 +240,20 @@ Conditional Access policies control access based on device, application, locatio
 
 * In **Available Policies**, find Conditional Access policies with no user actions
 * In **Selected Policies**, find cloud app policy
-  * You can't deselect these policies or move them to Available Policies because they're enforced at a tenant level.
+  * You can't deselect these policies or move them to Available Policies because they're enforced at a tenant level
 
 To select a policy to be applied to the application being published:
 
-1.	Select the desired policy in the **Available Policies** list
-2.	Select the right arrow and move it to the **Selected Policies** list
+1.	On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
+2.	Select the **right arrow** and move it to the **Selected Policies** list.
 
-Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
+  > [!NOTE]
+  > You can select the **Include** or **Exclude** option for a policy. If both options are selected, the policy is unenforced.
 
-   ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
+   ![Screenshot of the Exclude option selected for policies in Selected Polices.](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
-> [!NOTE]
-> The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+   > [!NOTE]
+   > The policy list appears when you select the **Conditional Access Policy** tab. Select **refresh**, and the wizard queries the tenant. Refresh appears after an application is deployed.
 
 ### Virtual Server Properties
 
