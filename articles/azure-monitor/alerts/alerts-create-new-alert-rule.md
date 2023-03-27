@@ -287,7 +287,7 @@ Then you define these elements for the resulting alert actions by using:
          - Read access for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have access to all of them.
          - Read access for all data sources accessed by the query. For example, if the query is calling a remote Azure Data Explorer cluster using the adx() function, it needs read access on that ADX cluster.
 
-        For detailed information on managed identities, see [managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+        For detailed information on managed identities, see [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
         Select one of the following options for the identity used by the alert rule:
 
