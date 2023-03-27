@@ -1,23 +1,23 @@
 ---
-title: Understand the MedTech service device message data transformation - Azure Health Data Services
-description: This article provides an overview of the MedTech service device messaging data transformation into FHIR Observation resources. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
+title: Understand the MedTech service device message data processing stages - Azure Health Data Services
+description: This article provides an overview of the MedTech service device message processing stages. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 03/21/2023
+ms.date: 03/24/2023
 ms.author: jasteppe
 ---
 
-# Understand the MedTech service device message data transformation 
+# Understand the MedTech service device message processing stages 
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article provides an overview of the device message data processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into FHIR [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence in the [FHIR service](../fhir/overview.md).
+This article provides an overview of the device message processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into FHIR [Observation](https://www.hl7.org/fhir/observation.html) resources for persistence in the [FHIR service](../fhir/overview.md).
 
-The MedTech service device message data processing follows these steps and in this order:
+The MedTech service device message data processing follows these stages and in this order:
 
 * Ingest
 * Normalize - Device mapping applied.
@@ -73,7 +73,7 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 > [!NOTE]
 > The **Resolution type** can also be adjusted post deployment of the MedTech service if a different **Resolution type** is later required.
 
-The MedTech service provides near real-time processing and will also attempt to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after ~five minutes. This means that when there's fewer than 300 normalized messages to be processed, there may be a delay of ~five minutes before FHIR Observations are created or updated in the FHIR service.
+The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after ~five minutes. This means that when there's fewer than 300 normalized messages to be processed, there may be a delay of ~five minutes before FHIR Observations are created or updated in the FHIR service.
 
 > [!NOTE]
 > When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message batch (for example, within the ~five minute window or in groups of 300 normalized messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
