@@ -44,6 +44,8 @@ Azure Load Testing enables you to create load tests for your application in two 
 
 Use the quick test experience to create a load test for a specific endpoint URL, directly from within the Azure portal. For example, use the App Service web app *default domain* to perform a load test of the web application home page. You can specify a number of basic load test configuration settings, such as the number of [virtual users](./concept-load-testing-concepts.md#virtual-users), test duration, and [ramp-up time](./concept-load-testing-concepts.md#ramp-up-time). Azure Load Testing then generates the corresponding JMeter test script, and runs it against your endpoint. You can modify the test script and configuration settings at any time.
 
+:::image type="content" source="./media/concept-load-test-app-service/create-quick-test-app-service.png" alt-text="Screenshot that show the create quick test in the Azure portal." lightbox="./media/concept-load-test-app-service/create-quick-test-app-service.png":::
+
 Alternately, create a new load test by uploading an existing JMeter script. Use this approach to load test multiple pages or endpoints in a single test, to test authenticated endpoints, use parameters in the test script, or to use more advanced load patterns. Azure Load Testing provides high-fidelity support of JMeter to enable you to reuse existing load test scripts.
 
 If you get started with load testing, you might first create a quick test, and then further modify and extend the test script that Azure Load Testing generated.
@@ -56,71 +58,46 @@ The Azure Load Testing dashboard provides insights about a specific load test ru
 
 Test fail criteria enable you to configure conditions for load test *client-side metrics*. If a load test run doesn't meet these conditions, the test is considered to fail. For example, specify that the average response time of requests, or that the percentage of failed requests is above a given threshold. You can add fail criteria to your load test at any time, regardless if it's a quick test or if you uploaded a JMeter script.
 
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-test-criteria.png" alt-text="Screenshot that show the test criteria page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-test-criteria.png":::
+
 When you run load tests as part of your CI/CD pipeline, you can use test fail criteria to quickly identify performance regressions with an application build.
 
 Learn how to [configure test fail criteria](./how-to-define-test-criteria.md) for your load test.
 
 ## Monitor application metrics
 
+During a load test, Azure Load Testing collects [metrics](./concept-load-testing-concepts.md#metrics) about the test execution. The client-side metrics provide information about the test run, from a test-engine perspective. For example, the end-to-end response time, requests per second, or error percentage. These metrics give an overall indication whether the application can support the simulated user load.
+
+To get insights insights into the performance and stability of the application and its components, Azure Load Testing enables you to monitor application metrics, also referred to as *server-side metrics*. Monitoring application metrics help identify performance bottlenecks in your application, or indicate which components have too many or too few compute resources allocated.
+
+For applications hosted on Azure App Service, use App Service diagnostics to get additional insights into the performance and health of the application.
 
 ### Server-side metrics in Azure Load Testing
 
-Azure Load Testing lets you monitor server-side metrics for your Azure app components for a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard.
+Azure Load Testing lets you monitor server-side metrics for your Azure app components when you run a load test. You can then visualize and analyze these metrics in the Azure Load Testing dashboard. Learn more about the [Azure resource types that Azure Load Testing supports](./resource-supported-azure-resource-types.md).
 
-Azure Load Testing collects detailed resource metrics across your Azure app components to help identify performance bottlenecks.
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-components.png" alt-text="Screenshot that show the Configure metrics page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-components.png":::
 
-- Add application component (App Service Plan, App Service)
-- Default metrics added
-- You can select additional metrics
-- Link to server-side metrics docs
+In the load test configuration, select the list of Azure resources for your application components. When you add an Azure resource to your load test, Azure Load Testing automatically selects a number of default resource metrics to monitor while running the load test. For example, when you add a App Service plan, Azure Load Testing monitors average CPU percentage and average memory percentage. You can add or remove resource metrics for your load test.
+
+:::image type="content" source="./media/concept-load-test-app-service/load-test-configure-metrics.png" alt-text="Screenshot that show the Configure metrics page for a load test in the Azure portal." lightbox="./media/concept-load-test-app-service/load-test-configure-metrics.png":::
+
+Learn more about how to [monitor server-side metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
 ### App Service Diagnostics
 
-<!--     
-    - What is?
-    - How to access
-    - Link to App Service Diagnostics docs
-    - What extra info do you get?
- -->
-When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics).
+When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics). App Service diagnostics is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
 
-App Service diagnostics is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
+When you add an App Service application component to your load test configuration, the load testing dashboard provides a direct link to the App Service diagnostics dashboard for your App service resource.
 
-Azure Load Testing provides a direct link from the test results dashboard, if you've added an App Service app component to your test configuration.
+:::image type="content" source="media/concept-load-test-app-service/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal." lightbox="media/concept-load-test-app-service/test-result-app-service-diagnostics.png":::
 
+App Service diagnostics enables you to view in-depth information and dashboard about the performance, resource usage, and stability of your app service. In the screenshot, you notice that there are concerns about the CPU usage, app performance, and failed requests.
 
-To view the App Service diagnostics information for your application under load test:
+:::image type="content" source="media/concept-load-test-app-service/app-diagnostics-overview.png" alt-text="Screenshot that shows the App Service diagnostics overview page, with a list of interactive reports on the left pane." lightbox="media/concept-load-test-app-service/app-diagnostics-overview.png":::
 
-1. Go to the [Azure portal](https://portal.azure.com).
-
-1. Add your App Service resource to the load test app components. Follow the steps in [monitor server-side metrics](./how-to-monitor-server-side-metrics.md) to add your app service.
-
-    :::image type="content" source="media/how-to-appservice-insights/test-monitoring-app-service.png" alt-text="Screenshot of the Monitoring tab when editing a load test in the Azure portal, highlighting the App Service resource.":::
-
-1. Select **Run** to run the load test.
-
-    After the test finishes, you'll notice a section about App Service on the test result dashboard.
-
-    :::image type="content" source="media/how-to-appservice-insights/test-result-app-service-diagnostics.png" alt-text="Screenshot that shows the 'App Service' section on the load testing dashboard in the Azure portal.":::
-
-1. Select the link in **Additional insights** to view the App Service diagnostics information.
-
-    App Service diagnostics enables you to view in-depth information and dashboard about the performance, resource usage, and stability of your app service.
-
-    In the screenshot, you notice that there are concerns about the CPU usage, app performance, and failed requests.
-
-    :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-overview.png" alt-text="Screenshot that shows the App Service diagnostics overview page, with a list of interactive reports on the left pane.":::
-
-    On the left pane, you can drill deeper into specific issues by selecting one the diagnostics reports. For example, the following screenshot shows the **High CPU Analysis** report.
-
-    :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-high-cpu.png" alt-text="Screenshot that shows the App Service diagnostics CPU usage report.":::
-
-    The following screenshot shows the **Web App Slow** report, which gives details and recommendations about application performance.
-
-    :::image type="content" source="media/how-to-appservice-insights/app-diagnostics-web-app-slow.png" alt-text="Screenshot that shows the App Service diagnostics slow application report.":::
-
-    > [!NOTE]
-    > It can take up to 45 minutes for the insights data to be displayed on this page.
+> [!NOTE]
+> It can take up to 45 minutes for the insights data to be available in App Service diagnostics.
 
 ## Parameterize your test for deployment slots
 
