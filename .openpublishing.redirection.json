@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/storage-php-how-to-use-queues.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/storage-php-how-to-use-queues",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/tables/table-storage-design-encrypt-data.md",
       "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
       "redirect_document_id": false
