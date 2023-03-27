@@ -18,7 +18,22 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |---------|----------------|----------|
 | Public  | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.4153 (Insider)
+
+*Date published: March 28, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following changes:
+
+- Redesigned the connection bar for session desktops.
+- Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
+- Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
+- Fixed a bug that caused users to be unable to update the client if their version of the client has the *ALLUSERS=2* and *MSIINSTALLPERUSER=!* flags.
+- Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues .
 
 ## Updates for version 1.2.4065
 
