@@ -636,20 +636,21 @@ To mirror 10% of the traffic to the `green` deployment:
 1. Select the **green** deployment in the "Deployment name" dropdown menu.
 1. Keep the default traffic allocation of 10%.
 1. Select **Update**.
- 
+
 :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/mirror-traffic-to-green-deployment.png" alt-text="Screenshot showing how to mirror a percentage of traffic to the green deployment." lightbox="media/how-to-safely-rollout-managed-endpoints/mirror-traffic-to-green-deployment.png":::
 
 The endpoint details page now shows mirrored traffic allocation of 10% to the `green` deployment.
 
 :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png" alt-text="Endpoint details page showing mirrored traffic allocation in the deployment summary." lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png":::
 
-<!-- M.A.: Invoke the endpoint several times and confirm that the specific percentage of traffic was mirrored to the green deployment -->
-
-After testing, you can disable mirroring:
+Now, when you send requests to the endpoint's URI, 10% of those requests will be routed to the `green` deployment. After testing, you can disable mirroring:
 
 1. From the endpoint Details page, Select **Update traffic**.
 1. Slide the button next to **Enable mirrored traffic (Preview)** again to disable mirrored traffic.
 1. Select **Update**.
+
+:::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-disabled-mirrored-traffic.png" alt-text="Endpoint details page showing no mirrored traffic in the deployment summary." lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-disabled-mirrored-traffic.png":::
+
 ---
 
 ## Allocate a small percentage of live traffic to the new deployment
