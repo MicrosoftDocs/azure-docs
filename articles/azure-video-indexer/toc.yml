@@ -80,12 +80,6 @@
       href: observed-matched-people.md
     - name: Topics inference
       href: topics-inference.md
-  - name: Slate detection
-    href: slate-detection-insight.md
-    displayName: Slate detection insights description, following slate detection insights, Textless slate detection, movie post-production process, advanced indexing option, Digital patterns detection, The Timeline tab, The Insight tab, indexing process, post-production insights, slate insight, audio indexing, Advanced** presets, advanced setting, slate metadata, post-production checkmark, clapper board, color bars, Next steps, metadata extraction, Juliako manager, scene matching, clapperboard instances, title, author, femila, topic, article, video, customers, wikipedia, org, information, example, SMPTE_color_bars, order, image, media/slate-detection-process, advanced-setting, file, list, post-production-checkmark, details, color-bars
-  - name: Compare Azure Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md
-    displayName: Azure Media Services v3 presets, Azure Video Indexer Video Analysis, Microsoft%20Azure%20Compliance%20Offerings, capabilities, APIs, Audio Analyzer Presets, Cognitive Services availability, Media Services availability, current compliance updates, Video Analyzer, presets description, Microsoft.Media, video insights, Media Insights, current guideline, following table, full list, East US, Region availability, Next steps, title, Comparison, article, conceptual, juliako, overlap, features, github, api-specs, specification, resource-manager, json, deprecation, media-services, release, notes, retirement, azure-media-redactor-video-analyzer, september, functionality, differences, similarities, Fundamentals, video-audio-files, Experiences, Pricing, details, analytics, technet, certificate, interest, Trial, global-infrastructure/services, cognitive-services, overview
   - name: Customizing content models
     displayName: customize, customizing
     items:
@@ -103,6 +97,12 @@
     - name: Customize person model overview
       href: customize-person-model-overview.md
       displayName: multiple Person model support, multiple custom Person models, Azure Video Indexer website, top LinkedIn influencers, to 1 million people, multiple Person models, specific custom model, celebrity recognition feature, separate Person model, specific Person model, one million faces, Person model ID, default Person model, 50 Person models, Azure  description, ms.author, Gate notice, data source, image files, different use-cases, different channels, ms.topic, new face, title, article, overview, conceptual, videos, IMDB, Wikipedia, Customers, name, account, example, content, NOTE, limit, API
+  - name: Slate detection
+    href: slate-detection-insight.md
+    displayName: Slate detection insights description, following slate detection insights, Textless slate detection, movie post-production process, advanced indexing option, Digital patterns detection, The Timeline tab, The Insight tab, indexing process, post-production insights, slate insight, audio indexing, Advanced** presets, advanced setting, slate metadata, post-production checkmark, clapper board, color bars, Next steps, metadata extraction, Juliako manager, scene matching, clapperboard instances, title, author, femila, topic, article, video, customers, wikipedia, org, information, example, SMPTE_color_bars, order, image, media/slate-detection-process, advanced-setting, file, list, post-production-checkmark, details, color-bars
+  - name: Compare Azure Video Indexer and Media Services presets
+    href: compare-video-indexer-with-media-services-presets.md
+    displayName: Azure Media Services v3 presets, Azure Video Indexer Video Analysis, Microsoft%20Azure%20Compliance%20Offerings, capabilities, APIs, Audio Analyzer Presets, Cognitive Services availability, Media Services availability, current compliance updates, Video Analyzer, presets description, Microsoft.Media, video insights, Media Insights, current guideline, following table, full list, East US, Region availability, Next steps, title, Comparison, article, conceptual, juliako, overlap, features, github, api-specs, specification, resource-manager, json, deprecation, media-services, release, notes, retirement, azure-media-redactor-video-analyzer, september, functionality, differences, similarities, Fundamentals, video-audio-files, Experiences, Pricing, details, analytics, technet, certificate, interest, Trial, global-infrastructure/services, cognitive-services, overview
 - name: How to guides
   items:
   - name: Manage accounts
