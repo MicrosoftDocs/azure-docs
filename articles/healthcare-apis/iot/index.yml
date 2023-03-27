@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 03/07/2023
+  ms.date: 03/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: Understand the device message data transformation
+          - text: Understand the device message processing stages
             url: understand-service.md
       - linkListType: quickstart
         links:
