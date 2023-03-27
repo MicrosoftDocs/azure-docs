@@ -27,7 +27,7 @@ View predefined attack paths to discover data breach risks, and get remediation 
     :::image type="content" source="./media/data-security-review-risks/attack-paths.png" alt-text="Attack paths for data risk.":::
 
 1. Review the data attack paths.
-1. To view sensitive information detected in data resources, select the resource name > **Insights**.Then, expand the **Contain sensitive data** insight.
+1. To view sensitive information detected in data resources, select the resource name > **Insights**. Then, expand the **Contain sensitive data** insight.
 1. For risk mitigation steps, open **Active Recommendations**.
 
 Other examples of attack paths for sensitive data include:

@@ -5,7 +5,7 @@ ms.topic: how-to
 author: AlizaBernstein
 ms.date: 03/26/2023
 ---
-# Create custom recommendations and security standards in Microsoft Defender for Cloud
+# Create custom recommendations and security standards
 
 Recommendations give you suggestions on how to better secure your resources. 
 
