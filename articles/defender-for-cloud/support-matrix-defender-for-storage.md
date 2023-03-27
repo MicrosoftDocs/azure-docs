@@ -44,7 +44,7 @@ To enable Defender for Storage and its features - Malware Scanning and Sensitive
 | Subscription level | Yes | Yes | No | Subscription Owner or action set 1 |
 | Subscription level | Yes | No | Yes | Subscription Owner or action set 1 |
 | Subscription level | Yes | Yes | Yes | Subscription Owner or action set 1 |
-| Storage account level | Yes | No | No | Security Admin or Microsoft.Security/defenderforstoragesettings/read, Microsoft.Security | defenderforstoragesettings/write |
+| Storage account level | Yes | No | No | Security Admin or Microsoft.Security/defenderforstoragesettings/read, Microsoft.Security/defenderforstoragesettings/write |
 | Storage account level | Yes | Yes | No | Storage Account Owner or action set 2 |
 | Storage account level | Yes | No | Yes | Storage Account Owner or action set 2 |
 | Storage account level | Yes | Yes | Yes | Storage Account Owner or action set 2 |
