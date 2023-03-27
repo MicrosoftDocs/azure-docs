@@ -1692,13 +1692,13 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [satellite tiles]: /rest/api/maps/render/getmapimagerytile
 [Cesium]: https://www.cesium.com/?azure-portal=true
 <!--[Cesium code samples]: https://samples.azuremaps.com/?search=Cesium&azure-portal=true-->
-[Cesium plugin]: samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
+[Cesium plugin]: /samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
 [Leaflet]: https://leafletjs.com/?azure-portal=true
 [Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet&azure-portal=true
-[Leaflet plugin]: samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
+[Leaflet plugin]: /samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
 [OpenLayers]: https://openlayers.org/?azure-portal=true
 <!--[OpenLayers code samples]: https://samples.azuremaps.com/?search=openlayers&azure-portal=true-->
-[OpenLayers plugin]: samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin?azure-portal=true
+[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin?azure-portal=true
 
 <!--- If developing using a JavaScript framework, one of the following open-source projects may be useful ---->
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps?azure-portal=true
@@ -1742,10 +1742,10 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Add a Symbol layer]: map-add-pin.md
 [Add a Bubble layer]: map-add-bubble-layer.md
 [Cluster point data]: clustering-point-data-web-sdk.md
-[Symbol layer icon options]: javascript/api/azure-maps-control/atlas.iconoptions
-[Symbol layer text option]: javascript/api/azure-maps-control/atlas.textoptions
-[HTML marker class]: javascript/api/azure-maps-control/atlas.htmlmarker
-[HTML marker options]: javascript/api/azure-maps-control/atlas.htmlmarkeroptions
+[Symbol layer icon options]: /javascript/api/azure-maps-control/atlas.iconoptions
+[Symbol layer text option]: /javascript/api/azure-maps-control/atlas.textoptions
+[HTML marker class]: /javascript/api/azure-maps-control/atlas.htmlmarker
+[HTML marker options]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions
 [Add HTML Markers]: map-add-custom-html.md
 
 [Add lines to the map]: map-add-line-layer.md
