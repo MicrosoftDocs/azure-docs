@@ -1,10 +1,10 @@
 - name: Azure Queue storage documentation
   href: ./index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What are Azure queues?
     href: storage-queues-introduction.md
+  expanded: true
 - name: Quickstarts
   items:
   - name: Manage queues without code
@@ -81,7 +81,7 @@
       - name: Encryption with customer-managed keys
         href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/queues/toc.json
     - name: Use Azure Private Endpoints
-      href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json  
+      href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
@@ -176,10 +176,10 @@
               href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/queues/toc.json
           - name: Configure customer-managed keys in a different tenant
             items:
-              - name: Configure customer-managed keys for a new account
-                href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/queues/toc.json
-              - name: Configure customer-managed keys for an existing account
-                href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/queues/toc.json
+            - name: Configure customer-managed keys for a new account
+              href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/queues/toc.json
+            - name: Configure customer-managed keys for an existing account
+              href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/queues/toc.json
         - name: Configure customer-managed keys in a managed HSM
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/queues/toc.json
       - name: Enable infrastructure encryption for the account
@@ -187,7 +187,7 @@
     - name: Configure client-side encryption
       href: client-side-encryption.md
     - name: Configure network security
-      items:         
+      items:
       - name: Configure firewalls and virtual networks
         href: ../common/storage-network-security.md?toc=/azure/storage/queues/toc.json
       - name: Require secure transfer
@@ -195,7 +195,7 @@
       - name: Manage Transport Layer Security (TLS)
         items:
         - name: Enforce minimum TLS version for incoming requests
-          href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/queues/toc.json 
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/queues/toc.json
         - name: Configure TLS version for a client application
           href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/queues/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
@@ -206,10 +206,10 @@
       href: ../common/redundancy-migration.md?toc=/azure/storage/queues/toc.json
     - name: Design highly available applications
       items:
-        - name: .NET (v12 SDK)
-          href: ../common/geo-redundant-design.md?toc=/azure/storage/queues/toc.json
-        - name: .NET (v11 SDK)
-          href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
+      - name: .NET (v12 SDK)
+        href: ../common/geo-redundant-design.md?toc=/azure/storage/queues/toc.json
+      - name: .NET (v11 SDK)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property
@@ -234,10 +234,6 @@
       href: storage-nodejs-how-to-use-queues.md
     - name: C++
       href: storage-c-plus-plus-how-to-use-queues.md
-    - name: PHP
-      href: storage-php-how-to-use-queues.md
-    - name: Ruby
-      href: storage-ruby-how-to-use-queue-storage.md
   - name: Manage queues
     items:
     - name: PowerShell for Azure Queues
@@ -340,7 +336,7 @@
     - name: .NET
       items:
       - name: Azure Storage client library
-        items: 
+        items:
         - name: Version 12.x
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
         - name: Version 11.x and earlier
@@ -361,13 +357,13 @@
       items:
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
-      - name: Azure Storage client library version 10.x     
+      - name: Azure Storage client library version 10.x
         href: https://github.com/Azure/azure-storage-node
     - name: Python
-      items: 
+      items:
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
-      - name: Azure Storage client library version 2.1     
+      - name: Azure Storage client library version 2.1
         href: https://github.com/Azure/azure-storage-python
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md
