@@ -38,7 +38,7 @@ This article applies to API version 2022-11-01-preview.
     "filters": [array<SnapshotFilter>],
     "composition_type": [string, enum("all", "group_by_key")],
     "created": [datetime ISO 8601],
-    "size": [number],
+    "size": [number, bytes],
     "items_count": [number],
     "tags": [object with string properties],
     "retention_period": [number, timespan in seconds],
@@ -252,15 +252,15 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 **parameters**
 
-| Property Name            | Required | Default value                                                       |
-|--------------------------|----------|---------------------------------------------------------------------|
-| name                     | yes      | n/a                                                                 |
-| filters                  | yes      | n/a                                                                 |
-| filters[\<index\>].key   | yes      | n/a                                                                 |
-| tags                     | no       | {}                                                                  |
-| filters[\<index\>].label | no       | null                                                                |
-| composition_type         | no       | group_by_key                                                        |
-| retention_period         | no       | 2592000 (30 days) (standard tier) <br/> 604800 (7 days) (free tier) |
+| Property Name | Required | Default value | Validation |
+|-|-|-|-|
+| name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 256 | 
+| filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
+| filters[\<index\>].key | yes | n/a | |
+| tags | no | {} | |
+| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") are not supported with 'group_by_key' composition type. |
+| composition_type | no | group_by_key | |
+| retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
