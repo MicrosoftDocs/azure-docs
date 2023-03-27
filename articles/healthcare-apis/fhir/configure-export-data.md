@@ -14,7 +14,7 @@ ms.author: kesheth
 
 The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html) for exporting FHIR data from a FHIR server. In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into a pre-configured Azure storage account.
 
-Ensure you are granted with application roles - 'FHIR Data Contributor role' and 'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](https://learn.microsoft.com/azure/healthcare-apis/authentication-authorization).
+Ensure you are granted with application role -  'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](https://learn.microsoft.com/azure/healthcare-apis/authentication-authorization).
 
 Below are three steps in setting up the `$export` operation for the FHIR service-
 
