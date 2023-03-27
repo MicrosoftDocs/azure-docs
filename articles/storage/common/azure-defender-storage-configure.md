@@ -14,7 +14,7 @@ ms.reviewer: ozgun
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Enable Microsoft Defender for Storage
+# Enable and configure Microsoft Defender for Storage
 
 **Microsoft Defender for Storage** is an Azure-native solution offering an advanced layer of intelligence for threat detection and mitigation in storage accounts, powered by Microsoft Threat Intelligence, Microsoft Defender Antimalware technologies, and Sensitive Data Discovery. Covering Azure Blob Storage, Azure Files, and Azure Data Lake Storage services, it provides a comprehensive alert suite, near real-time Malware Scanning (add-on), and sensitive data threat detection (no extra cost), allowing quick detection, triage, and response to potential security threats with contextual information.
 

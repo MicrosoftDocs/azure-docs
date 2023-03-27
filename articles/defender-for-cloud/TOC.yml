@@ -531,11 +531,11 @@
       href: defender-for-storage-data-sensitivity.md
     - name: Enable and configure with Defender for Storage
       items:
-      - name: Enable Defender for Storage
+      - name: Enable and configure Defender for Storage
         href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
       - name: Required permissions
         href: support-matrix-defender-for-storage.md
-      - name: Configure Malware Scanning
+      - name: Setting up response to Malware Scanning
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a Proof of Concept
         href: defender-for-storage-test.md
