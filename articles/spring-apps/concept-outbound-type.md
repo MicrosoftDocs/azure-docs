@@ -2,7 +2,7 @@
 title:  Customize Azure Spring Apps egress with a user-defined route
 description: Learn how to customize Azure Spring Apps egress with a user-defined route.
 author: karlerickson
-ms.author: yinglzh
+ms.author: KarlErickson
 ms.service: spring-apps
 ms.topic: article
 ms.date: 10/20/2022
