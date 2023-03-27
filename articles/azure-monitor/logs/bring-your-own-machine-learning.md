@@ -1,5 +1,5 @@
 ---
-title: AIOps and machine learning in Azure Monitor Logs
+title: AIOps and machine learning in Azure Monitor
 description: Use machine learning to improve your ability to predict IT needs and identify and respond to anomalous patterns in log data. 
 author: guywi-ms
 ms.author: guywild
@@ -7,7 +7,7 @@ ms.reviewer: ilanawaitser
 ms.topic: conceptual 
 ms.date: 02/28/2023
 
-#customer-intent: As a data scientist, I want to understand how to use machine learning to improve my ability to predict IT needs and identify and respond to anomalous patterns in log data.
+#customer-intent: As a DevOps manager or data scientist, I want to understand which AIOps features Azure Monitor offers and how to implement a machine learning pipeline on data in Azure Monitor Logs so that I can use artifical intelligence to to improve service quality and reliability of my IT environment.
 
 ---
 # AIOps and machine learning in Azure Monitor 
@@ -91,7 +91,7 @@ There are various open source machine learning libraries you can use to build an
 
 **Option 1: Directly in Azure Monitor Logs**
 
-- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data)
+- [Train and test a machine model on historical data in a Log Analytics workspace](../logs/jupyter-notebook-ml-azure-monitor-logs.md#train-and-test-regression-models-on-historical-data)
 
 
 **Option 2: Export data**
@@ -105,7 +105,9 @@ Scoring is the process of applying a machine learning model on new data to get
 
 **Option 1: Directly in Azure Monitor Logs**
 
-- [Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#score-new-data-using-the-trained-model-and-identify-anomalies)
+Query new data in Azure Monitor Logs Use [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) to .
+
+- [Score new data based on values in a Log Analytics workspace](../logs/jupyter-notebook-ml-azure-monitor-logs.md#score-new-data-using-the-trained-model-and-identify-anomalies)
 
 **Option 2: Export data**
 
@@ -137,5 +139,7 @@ Here are a some of the available conversion methods:
 
 ## Next steps
 
-- [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
-- [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times](search-jobs.md).
+Learn more about:
+
+- [Azure Monitor Logs](../logs/data-platform-logs.md).
+- [Azure Monitor Insights and curated visualizations](../insights/insights-overview.md).
