@@ -1,6 +1,6 @@
 ---
 
-title: Add Facebook as an identity provider - Azure AD
+title: Add Facebook as an identity provider
 description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
 
 services: active-directory

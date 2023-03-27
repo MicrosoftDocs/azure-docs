@@ -39,14 +39,14 @@ Every workflow starts with a single [*trigger*](logic-apps-overview.md#logic-app
 
 After you add the trigger, continue building your workflow by adding one or more actions. The following quickstarts help you build your first Consumption logic app workflow, which runs in global, multi-tenant Azure Logic Apps:
 
-* [Quickstart: Create your first automated workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md)
 * [Quickstart: Create automated tasks, processes, and workflows by using Azure Logic Apps - Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Quickstart: Create and manage automated logic app workflows by using Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 The following how-to guides help you build a Standard logic app workflow that runs in single-tenant Azure Logic Apps:
 
-* [Create a Standard logic app workflow for single-tenant Azure Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md)
-* [Create a Standard logic app workflow for single-tenant Azure Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md)
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 ## Control flow and error handling capabilities
 

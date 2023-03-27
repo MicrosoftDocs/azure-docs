@@ -4,7 +4,7 @@ description: Workload identity risk in Azure Active Directory Identity Protectio
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: identity-protection
+ms.subservice: workload-identities
 ms.topic: conceptual
 ms.date: 11/10/2022
 
@@ -16,7 +16,7 @@ ms.reviewer: etbasser
 ms.collection: M365-identity-device-management
 ---
 
-# Securing workload identities with Identity Protection
+# Securing workload identities
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
 

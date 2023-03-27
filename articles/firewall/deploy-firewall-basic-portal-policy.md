@@ -25,7 +25,7 @@ One way you can control both inbound and outbound network access from an Azure s
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this how-to, you create a simplified single VNet with three subnets for easy deployment. The Firewall Basic Preview has a mandatory requirement to be configured with a management NIC.
+For this how-to, you create a simplified single VNet with three subnets for easy deployment. Firewall Basic has a mandatory requirement to be configured with a management NIC.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **AzureFirewallManagementSubnet** - for service management traffic.

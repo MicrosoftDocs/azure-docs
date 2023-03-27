@@ -45,9 +45,7 @@ For information about encryption, security, and authorization for inbound calls 
 
 * The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) as appropriate
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
-
-* The logic app where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP Webhook action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, create a blank logic app workflow. To use the HTTP Webhook action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
 ## Add an HTTP Webhook trigger
 

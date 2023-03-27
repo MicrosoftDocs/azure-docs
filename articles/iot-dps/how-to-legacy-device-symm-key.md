@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Provision devices using a symmetric key enrollment group in Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision devices using a symmetric key enrollment group in DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
 author: kgremban
+
 ms.author: kgremban
 ms.date: 10/14/2022
 ms.topic: tutorial
 ms.service: iot-dps
-services: iot-dps
-manager: lizross
 zone_pivot_groups: iot-dps-set1
 ---
 

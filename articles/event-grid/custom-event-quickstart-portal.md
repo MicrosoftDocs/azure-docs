@@ -20,7 +20,7 @@ In this article, you use the Azure portal to do the following tasks:
 ## Prerequisites
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
 ## Create a custom topic
 An Event Grid topic provides a user-defined endpoint that you post your events to. 
@@ -28,7 +28,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 1. Sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the topic, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-topics.png" alt-text="Screenshot showing the Azure port search bar to search for Event Grid topics.":::
 3. On the **Event Grid Topics** page, select **+ Create** on the toolbar. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/create-topic-button.png" alt-text="Screenshot showing the Create Topic button on Event Grid topics page.":::
@@ -45,7 +45,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
         :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Review settings and create":::
 5. After the deployment succeeds, select **Go to resource** to navigate to the **Event Grid Topic** page for your topic. Keep this page open. You use it later in the quickstart. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Screenshot showing the Event Grid topic home page.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/topic-home-page.png" alt-text="Screenshot showing the Event Grid topic home page.":::
 
     > [!NOTE]
     > To keep the quickstart simple, you'll be using only the **Basics** page to create a topic. For detailed steps about configuring network, security, and data residency settings on other pages of the wizard, see [Create a custom topic](create-custom-topic.md).
@@ -193,7 +193,7 @@ The second example uses PowerShell to do similar steps.
 ### Verify in the Event Grid Viewer
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Event Grid Viewer":::
+:::image type="content" source="./media/custom-event-quickstart-portal/viewer-end.png" alt-text="Event Grid Viewer":::
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, delete the resources you created in this article.

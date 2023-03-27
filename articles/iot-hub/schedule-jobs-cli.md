@@ -1,13 +1,13 @@
 ---
-title: Schedule jobs with Azure IoT Hub (Azure CLI)
-description: How to schedule an Azure IoT Hub job to invoke a direct method and update device twin properties. You use the Azure CLI to simulate a device and schedule jobs for that simulated device.
+title: Use jobs to schedule tasks for groups of devices (CLI)
+titleSuffix: Azure IoT Hub
+description: Use the Azure CLI to schedule jobs that invoke a direct method and update device twin properties of a simulated device.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2023
 ms.custom: mqtt, devx-track-azurecli
 ---
@@ -26,7 +26,7 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 
 Learn more about each of these capabilities in these articles:
 
-* Device twin and properties: [Get started with device twins](iot-hub-node-node-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+* Device twin and properties: [Get started with device twins](device-twins-node.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs)
 

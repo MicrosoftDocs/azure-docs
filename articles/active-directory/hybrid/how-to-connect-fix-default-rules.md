@@ -1,5 +1,5 @@
 ---
-title: 'How to fix modified default rules - Azure AD Connect | Microsoft Docs'
+title: 'How to fix modified default rules - Azure AD Connect'
 description: Learn how to fix modified default rules that come with Azure AD Connect.
 services: active-directory
 author: billmath

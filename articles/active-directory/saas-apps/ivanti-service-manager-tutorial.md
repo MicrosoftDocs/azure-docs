@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM)'
 description: Learn how to configure single sign-on between Azure Active Directory and Ivanti Service Manager (ISM).
 services: active-directory
 author: jeevansd

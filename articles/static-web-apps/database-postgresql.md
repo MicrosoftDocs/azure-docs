@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.date: 03/15/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -62,7 +62,11 @@ To use your Azure database for local development, you need to retrieve the conne
 
 1. From the *ADO.NET* box, copy the connection string and set it aside in a text editor.
 
-Make sure to replace the `{your_password}` placeholder in the connection string with your password, and the `{your_database}` placeholder with the database name `MyTestPersonDatabase`, which is the name of the database you create in the following steps. Append `Trust Server Certificate=True;` to the connection string to use this connection string for local development.
+1. Replace the `{your_password}` placeholder in the connection string with your password.
+
+1. Replace the `{your_database}` placeholder with the database name `MyTestPersonDatabase`. You'll create the `MyTestPersonDatabase` in the coming steps.
+
+1. Append `Trust Server Certificate=True;` to the connection string to use this connection string for local development.
 
 ## Create sample data
 
@@ -106,15 +110,35 @@ The rest this tutorial focuses on editing your static web app's source code to m
 
 1. Switch to the `main` branch.
 
+    # [Bash](#tab/bash)
+
     ```bash
     git checkout main
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    git checkout main
+    ```
+
+    ---
+
 1. Synchronize your local version with what's on GitHub by using `git pull`.
+
+    # [Bash](#tab/bash)
 
     ```bash
     git pull origin main
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    git pull origin main
+    ```
+
+    ---
 
 ### Create the database configuration file
 
