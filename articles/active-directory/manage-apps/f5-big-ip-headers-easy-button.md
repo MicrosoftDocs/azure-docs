@@ -15,38 +15,37 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for header-based SSO
 
-In this article, learn to secure headers based applications with Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+Learn to secure header-based applications with Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration.
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
+* Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
+  * See, [What is Conditional Access?](../conditional-access/overview.md)
+  * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
+* Full SSO between Azure AD and BIG-IP published services
+* Managed identities and access from one control plane
+  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
- * [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
+Learn more:
 
-  * Full SSO between Azure AD and BIG-IP published services
-
-  * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
-
-To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
 
-This scenario looks at the classic legacy application using **HTTP authorization headers** to manage access to protected content.
+This scenario covers the legacy application using HTTP authorization headers to manage access to protected content. Legacy lacks modern protocols to support direct integration with Azure AD. Modernization is costly, time consuming, and introduces downtime risk. Instead, use an F5 BIG-IP Application Delivery Controller (ADC) to bridge the gap between the legacy application and the modern ID control plane, with protocol transitioning. 
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
+A BIG-IP in front of the application enables uoverlay of the service with Azure AD preauthentication and headers-based SSO This configuration improves overall applicatoin security posture.
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
-
-> [!NOTE] 
-> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](../app-proxy/application-proxy.md)
+   > [!NOTE] 
+   > Organizations can have remote access to this application type with Azure AD Application Proxy. Learn more: [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
 
 ## Scenario architecture
 
-The SHA solution for this scenario is made up of:
+The SHA solution contains:
 
-**Application:** BIG-IP published service to be protected by Azure AD SHA. 
-
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
-
-**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
+* **Application** - BIG-IP published service to be protected by Azure AD SHA. 
+* **Azure AD** - Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
+* **BIG-IP** - reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
