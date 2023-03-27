@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning SDK (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.author: balapv
 author: balapv
 ms.reviewer: mopeakande

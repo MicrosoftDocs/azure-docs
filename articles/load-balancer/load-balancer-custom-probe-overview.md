@@ -157,7 +157,7 @@ The **AzureLoadBalancer** service tag identifies this source IP address in your 
 
 In addition to load balancer health probes, the [following operations use this IP address](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
-* Enables the VM Agent to communicating with the platform to signal it is in a “Ready” state
+* Enables the VM Agent to communicate with the platform to signal it is in a “Ready” state
 
 * Enables communication with the DNS virtual server to provide filtered name resolution to customers that don't define custom DNS servers.  This filtering ensures that customers can only resolve the hostnames of their deployment.
 * Enables the VM to obtain a dynamic IP address from the DHCP service in Azure.

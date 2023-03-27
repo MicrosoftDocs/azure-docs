@@ -177,6 +177,8 @@
     items:
     - name: Solution overview
       href: sap/solution-overview.md
+    - name: Working with the solution across multiple workspaces
+      href: sap/cross-workspace.md
 - name: How-tos
   items:
   - name: Plan architecture
@@ -343,7 +345,7 @@
         href: data-connectors/blackberry-cylanceprotect.md
       - name: Box (using Azure Function)
         href: data-connectors/box-using-azure-function.md
-      - name: Braodcom Symantec DLP
+      - name: Broadcom Symantec DLP
         href: data-connectors/braodcom-symantec-dlp.md
       - name: Cisco Application Centric Infrastructure
         href: data-connectors/cisco-application-centric-infrastructure.md
@@ -401,6 +403,8 @@
         href: data-connectors/cyberarkepm.md
       - name: Cyberpion Security Logs
         href: data-connectors/cyberpion-security-logs.md
+      - name: Cybersixgill Actionable Alerts (using Azure Function)
+        href: data-connectors/cybersixgill-actionable-alerts-using-azure-function.md
       - name: Darktrace Connector for Microsoft Sentinel REST API
         href: data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md
       - name: Delinea Secret Server
@@ -527,6 +531,8 @@
         href: data-connectors/microsoft-defender-for-iot.md
       - name: Microsoft Defender for Office 365
         href: data-connectors/microsoft-defender-for-office-365.md
+      - name: Microsoft Defender Threat Intelligence (Preview)
+        href: data-connectors/microsoft-defender-threat-intelligence.md
       - name: Microsoft PowerBI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
@@ -649,6 +655,8 @@
         href: data-connectors/symantec-vip.md
       - name: Syslog
         href: data-connectors/syslog.md
+      - name: Talon Insights
+        href: data-connectors/talon-insights.md
       - name: Tenable.io Vulnerability Management (using Azure Function)
         href: data-connectors/tenable-io-vulnerability-management-using-azure-function.md
       - name: TheHive Project - TheHive (using Azure Function)

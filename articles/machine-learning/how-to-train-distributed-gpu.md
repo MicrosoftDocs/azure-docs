@@ -6,7 +6,7 @@ author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.date: 11/30/2022
 ms.custom: sdkv2, event-tier1-build-2022
