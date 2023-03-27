@@ -145,98 +145,102 @@ Use the **Configuration Properties** tab to create a BIG-IP application config a
 
 You can reuse settings to publish more applications.
 
-1. Enter a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations.
+1. Enter a **Configuration Name**.
+2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
+3. For **Tenant ID**, **Client ID**, and **Client Secret**, enter what you noted.
+4. Confirm the BIG-IP connects to your tenant.
+5. Select **Next**
 
-2. Enable **Single Sign-On (SSO) & HTTP Headers**
-
-3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
-
-4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
-
-   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-ldap/config-properties.png)
+   ![Screenshot of entries and options for Configuration Properties.](./media/f5-big-ip-easy-button-ldap/config-properties.png)
 
 ### Service Provider
 
-The Service Provider settings define the properties for the SAML SP instance of the application protected through SHA
+In Service Provider settings, define SAML SP instance settings for the SHA-protected application.
 
-1. Enter **Host**. This is the public FQDN of the application being secured
+1. Enter a **Host**, the application public FQDN.
+2. Enter an **Entity ID**, the identifier Azure AD uses to identify the SAML SP requesting a token.
 
-2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
+   ![Screenshot of input fields for Service Provider.](./media/f5-big-ip-easy-button-ldap/service-provider.png)
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-ldap/service-provider.png)
+3. (Optional) In Security Settings, select **Enable Encryption Assertion** to enable Azure AD to encrypt issued SAML assertions. Azure AD and BIG-IP APM encryption assertions help assure content tokens aren't intercepted, nor personal or corporate data compromised.
 
-The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
-
-3.	From the **Assertion Decryption Private Key** list, select **Create New**
+4.	In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
  
-   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
+   ![Screenshot of the Create New option in the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
+5.	Select **OK**. 
+6.	The **Import SSL Certificate and Keys** dialog appears. 
+7.	For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
+8.	For **Certificate and Key Name**, select **New** and enter the input.
+9.	Enter the **Password**.
+10.	Select **Import**.
+11.	Close the browser tab to return to the main tab.
 
-6.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+   ![Screenshot of selections and entries for SSL Certificate Key Source.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
-
-6.	Check **Enable Encrypted Assertion**
-7.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
-8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
+12.	Check the box for **Enable Encrypted Assertion**.
+13.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. This is the private key for the certificate BIG-IP APM uses to decrypt Azure AD assertions.
+14.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. This is the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
    
-   ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
+   ![Screenshot of two entries and one option for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **F5 BIG-IP APM Azure AD Integration > Add**.
+Use the following instructions to configure a new BIG-IP SAML application in your Azure AD tenant. Easy Button has application templates for Oracle PeopleSoft, Oracle E-Business Suite, Oracle JD Edwards, SAP ERP, and a generic SHA template.
 
-   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
+1. In **Azure Configuration**, under **Configuration Properties**, select **F5 BIG-IP APM Azure AD Integration**.
+2. Select **Add**.
+
+   ![Screenshot of the F5 BIG-IP APM Azure AD Integration option under Configuration Properties.](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see on [MyApps portal](https://myapplications.microsoft.com/)
-
-2. Do not enter anything in the **Sign On URL (optional)** to enable IdP initiated sign-on
+1. Enter an app **Display Name** BIG-IP creates in the Azure AD tenant. Users see the name, with an icon, on Microsoft [My Apps](https://myapplications.microsoft.com/).
+2. Skip **Sign On URL (optional)**.
    
-   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-ldap/azure-configuration-properties.png)
+   ![Screenshot of Display Name input under Configuration Properties.](./media/f5-big-ip-easy-button-ldap/azure-configuration-properties.png)
 
-3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
- 
-5. Enter the certificate’s password in **Signing Key Passphrase**
+3. Next to **Signing Key** and **Signing Certificate**, select **refresh** to locate the certificate you imported.
+4. In **Signing Key Passphrase**, enter the certificate password.
 
-6. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD
+6. (Optional) Enable **Signing Option** to ensure BIG-IP accepts tokens and claims signed by Azure AD.
    
    ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
+7. Input for **User And User Groups** is dynamically queried. 
+
+   > [!IMPORTANT]
+   > Add a user or group for testing, otherwise all access is denied. On **User And User Groups**, select **+ Add**.
    
-   ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+   ![Screenshot of the Add option on User And User Groups.](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
-When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
+When a user authenticates, Azure AD issues a SAML token with claims and attributes that identify the user. The **User Attributes & Claims** tab has default claims for the application. Use the tab to configure more claims.
 
-For this example, you can include one more attribute:
+Include one more attribute:
 
-1. Enter **Header Name** as *employeeid
+1. For **Header Name**, enter **employeeid**.
+2. For **Source Attribute**, enter **user.employeeid**.
 
-2. Enter **Source Attribute** as *user.employeeid
-
-   ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
+   ![Screenshot of values under Additional Claims.](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
 
 #### Additional User Attributes
 
-In the **Additional User Attributes tab**, you can enable session augmentation required by a variety of distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
+In the **Additional User Attributes** tab, enable session augmentation. Use this feature for distributed systems such as Oracle, SAP, and other JAVA implementations that require attributes to be stored in other directories. Attributes fetched from an LDAP source are injected as more SSO headers. This action helps control access based on roles, Partner IDs, etc. 
 
-   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+   ![Screenshot of options under Additional User Attributes.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
->[!NOTE] 
->This feature has no correlation to Azure AD but is another source of attributes. 
+   >[!NOTE] 
+   >This feature has no correlation to Azure Active Directory. It's an attribute source. 
 
 #### Conditional Access Policy
 
-CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies control access based on device, application, location, and risk signals. 
 
-The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
-
-The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
+* In **Available Policies**, find Conditional Access policies with no user actions
+* In **Selected Policies**, find cloud app policy
+  * You can't deselect these policies or move them to Available Policies because they're enforced at a tenant level.
 
 To select a policy to be applied to the application being published:
 
