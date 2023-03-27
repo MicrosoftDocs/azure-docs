@@ -40,7 +40,7 @@ Then you define these elements for the resulting alert actions by using:
 1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
 1. (Optional.) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
-    - **Signal source**: The service sending the signal. The list is pre-populated based on the type of alert rule you selected.
+    - **Signal source**: The service sending the signal. The list is prepopulated based on the type of alert rule you selected.
 
     This table describes the services available for each type of alert rule:
 
@@ -275,6 +275,28 @@ Then you define these elements for the resulting alert actions by using:
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
+    1. In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule exectues the log query.
+
+        - A managed identity is required if you're sending a query to Azure Data Explorer.
+        - Use a managed identity if you want to be able to see or edit the permissions of the user associated with the alert rule.
+        - If you don't use a managed identity, the alert rule permissions are based on the permissions of the user who created or edited the rule at the time the rule was last edited.
+        - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for resources added to the scope of the rule.
+
+       The identity associated with the rule must have these permissions: 
+         - Read access for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have access to all of them.
+         - Read access for all data sources accessed by the query. For example, if the query is calling a remote Azure Data Explorer cluster using the adx() function, it needs read access on that ADX cluster.
+
+        For detailed information on managed identities, see [managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+        Select one of the following options for the identity used by the alert rule:
+
+        |Identity  |Description  |
+        |---------|---------|
+        |None|Alert rule permissions are based on the permissions of the user who created or edited the rule at the time the rule was last edited.|
+        |System assigned managed identity| Azure creates a new, dedicated identity for this alert rule. This identity has no permissions and is automatically deleted when the rule is deleted. After creating the rule, you must assign permissions to this identity to access the workspace and data sources needed for the query. For more information about assigning permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). |
+        |User assigned managed identity|Before you create the alert rule, you [create an identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) and assign it appropriate permissions for the log query. This is a regular Azure identity. You can use one identity in multiple alert rules. The identity isn't deleted when the rule is deleted. When you select this type of identity, a pane opens for you to select the associated identity for the rule. |
+
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
+
     1. (Optional) In the **Advanced options** section, you can set several options:
 
         |Field |Description |
@@ -289,7 +311,7 @@ Then you define these elements for the resulting alert actions by using:
         > [!NOTE]
         > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-advanced.png" alt-text="Screenshot that shows the advanced options section of the Details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
 
@@ -437,7 +459,7 @@ ARM templates for activity log alerts contain additional properties for the cond
 |resourceProvider     |For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).         |
 |status     |String describing the status of the operation in the activity event. Possible values are `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.         |
 |subStatus     |Usually, this field is the HTTP status code of the corresponding REST call. This field can also include other strings describing a sub-status. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.         |
-|resourceType     |The type of the resource that was affected by the event. An example is `Microsoft.Resources/deployments`.         |
+|resourceType     |The type of the resource affected by the event. An example is `Microsoft.Resources/deployments`.         |
 
 For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
 
