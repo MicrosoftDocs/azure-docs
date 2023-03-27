@@ -148,7 +148,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    4. Select **Edit attribute list for AppName**.
    5. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
 
-For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+For SCIM applications, the attribute name must follow the pattern shown in the example. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce aren't integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 
@@ -196,7 +196,7 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 
 
 ## Provisioning a role to a SCIM app
-Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
+Use the steps in the example to provision roles for a user to your application. Note that the description is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
 - Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
@@ -253,7 +253,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
   
     ![Add roles](./media/customize-application-attributes/add-roles.png)<br>
 
-    Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below:
+    Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image:
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
@@ -296,7 +296,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
 
 
 ## Provisioning a multi-value attribute
-Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
+Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
 
 * phoneNumbers[type eq "work"].value
 * phoneNumbers[type eq "mobile"].value
