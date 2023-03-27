@@ -6,7 +6,7 @@ author: halkazwini
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 03/27/2023
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-concept, engagement-fy23
 ---
