@@ -31,7 +31,7 @@ This article contains all major API changes and feature updates for the Azure VM
 
 **Changes**
 - Added new 'File' validation type
-- `replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples)
+- `replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
 - VHDs can now be distributed to a custom blob or container in a custom storage account
 
 
