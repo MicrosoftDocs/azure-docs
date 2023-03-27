@@ -28,7 +28,7 @@ If you're a Services Partner and would like to be considered into Entra Verified
 | ![Screenshot of DXC logo](media/services-partners/dxc.png) | [Digital Identity - Connect with DXC](https://dxc.com/us/en/services/security/digital-identity) |
 | ![Screenshot of CTC logo](media/services-partners/ctc.png) | [CTC's  SELMID offering](https://ctc-insight.com/selmid) |
 | ![Screenshot of Kocho logo](media/services-partners/kocho.png) | [Connect with Kocho. See Verified Identity in Action](https://kocho.co.uk/contact-us/)<br/>[See Verified Identity in Action](https://kocho.co.uk/verified-id-in-action/) |
-| ![Screenshot of Predica logo](media/services-partners/predica.png) | [Verified ID - Predica Group](https://www.predicagroup.com/en/verified-id/) |
+| ![Screenshot of Predica logo]((media/services-partners/Predica_SoftwareOne.png) | [Verified ID - Predica Group](https://www.predicagroup.com/en/verified-id/) |
 | ![Screenshot of Sphereon logo](media/services-partners/sphereon.png) | [Sphereon supports customers on Microsoft's Entra Verified ID](https://sphereon.com/sphereon-supports-microsofts-entra-verified-id/) |
 | ![Screenshot of Unify logo](media/services-partners/unify.png) | [Microsoft Entra Verified ID - UNIFY Solutions](https://unifysolutions.net/entra/verified-id/) |
 | ![Screenshot of Whoiam logo](media/services-partners/whoiam.png) | [Microsoft Entra Verified ID - WhoIAM](https://www.whoiam.ai/product/microsoft-entra-verified-id/#:~:text=Verifiable%20credentials%20are%20identity%20attestations%2C%20such%20as%20proof,obtain%20and%20manage%20their%20verified%20credentials.%20Let%E2%80%99s%20Talk) |
