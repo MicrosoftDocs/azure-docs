@@ -45,7 +45,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
     1. Sign in to the secondary on-premises management console, and select **System Settings**.
 
-    1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
+    1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
     1.  The connection string is composed of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 

@@ -267,9 +267,9 @@ For further troubleshooting, you may want to export logs to send to the support 
     
     For example:
 
-    :::image type="content" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/export-logs-sensor.png" alt-text="Screenshot of the export troubleshooting information dialog in the sensor console. " lightbox="media/how-to-troubleshoot-sensor-and-on-premises-management-console/export-logs-sensor.png":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png" alt-text="Screenshot of the export troubleshooting information dialog in the sensor console. " lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-sensor.png":::
 
-1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
 
 1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
 
@@ -348,9 +348,9 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     For example:
 
-    :::image type="content" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="media/how-to-troubleshoot-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
 
-1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
 
 1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
 
