@@ -184,29 +184,14 @@ To disable the plan, set the `-pricingTier` property value to `Free` and remove 
 
 Learn more about the [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
-### Set up per-transaction pricing for an account
+### Set up per-transaction pricing for a storage account
 
 You can configure Microsoft Defender for Storage with per-transaction pricing on your accounts in several ways:
 
-- [Azure portal](#azure-portal)
 - [ARM template](#arm-template-1)
 - [PowerShell](#powershell)
 - [Azure CLI](#azure-cli)
 
-#### Azure portal
-
-To enable Microsoft Defender for Storage for a specific account with per-transaction pricing using the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to your storage account.
-1. In the **Security + networking** section of the Storage account menu, select **Microsoft Defender for Cloud**.
-1. Select **Enable Defender on this storage account only**.
-
-:::image type="content" source="media/defender-for-storage-classic-enable/storage-enable-defender-for-account.png" alt-text="Screenshot showing how to enable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/defender-for-storage-classic-enable/storage-enable-defender-for-account.png":::
-
-Microsoft Defender for Storage is now enabled for this storage account. If you want to disable Defender for Storage on the account, select **Disable**.
-
-:::image type="content" source="media/defender-for-storage-classic-enable/storage-disable-defender-for-account.png" alt-text="Screenshot showing how to disable the Defender for Storage per-transaction pricing on a specific account." lightbox="media/defender-for-storage-classic-enable/storage-disable-defender-for-account.png":::
 
 #### ARM template
 
@@ -284,15 +269,14 @@ We recommend that you enable Defender for Storage on the entire subscription to 
 Exclusion of storage accounts from protected subscriptions requires you to:
 
 1. Add a tag to block inheriting the subscription enablement.
-1. Disable Defender for Storage.
+1. Disable Defender for Storage (classic).
 
 ### Exclude an Azure Storage account protection on a subscription with per-transaction pricing
 
-To exclude an Azure Storage account from Microsoft Defender for Storage, you can use:
+To exclude an Azure Storage account from Microsoft Defender for Storage (classic), you can use:
 
 - [PowerShell](#use-powershell-to-exclude-an-azure-storage-account)
 - [Azure CLI](#use-azure-cli-to-exclude-an-azure-storage-account)
-- [Azure portal](#use-the-azure-portal-to-exclude-an-azure-storage-account)
 
 #### Use PowerShell to exclude an Azure Storage account
 
@@ -348,26 +332,6 @@ To exclude an Azure Storage account from Microsoft Defender for Storage, you can
 
     [Learn more about this command](/cli/azure/security/atp/storage).
 
-#### Use the Azure portal to exclude an Azure Storage account
-
-1. Define the AzDefenderPlanAutoEnable tag on the storage account:
-
-    1. From the Azure portal, open the storage account and select the **Tags** page.
-    1. Enter the tag name **AzDefenderPlanAutoEnable** and set the value to **off**.
-    1. Select **Apply**.
-
-    :::image type="content" source="media/defender-for-storage-exclude/define-tag-storage-account.png" alt-text="Screenshot of how to add a tag to a storage account in the Azure portal." lightbox="media/defender-for-storage-exclude/define-tag-storage-account.png":::
-
-1. Verify that the tag has been added successfully. It should look similar to this diagram:
-
-    :::image type="content" source="media/defender-for-storage-exclude/define-tag-storage-account-success.png" alt-text="Screenshot of a tag on a storage account in the Azure portal." lightbox="media/defender-for-storage-exclude/define-tag-storage-account-success.png":::
-
-1. Disable and then enable the Microsoft Defender for Storage on the subscription:
-
-    1. From the Azure portal, open **Microsoft Defender for Cloud**.
-    1. Open **Environment settings** > select the relevant subscription > **Defender plans** > toggle the Defender for Storage plan off > select **Save** > turn it back on > select **Save**.
-
-    :::image type="content" source="media/defender-for-storage-exclude/defender-plan-toggle.png" alt-text="Screenshot of disabling and enabling the Microsoft Defender for Storage plan from Microsoft Defender for Cloud." lightbox="media/defender-for-storage-exclude/defender-plan-toggle.png":::
 
 ### Exclude an Azure Databricks Storage account
 
@@ -391,8 +355,7 @@ Microsoft Defender for Storage can exclude specific active Databricks workspace 
     :::image type="content" source="media/defender-for-storage-exclude/storage-off.png" alt-text="Screenshot showing how to switch the Defender for Storage plan to off.":::
 
 1. Select **Save**.
-1. Toggle the Defender for Storage plan to **On**.
-1. Select **Save**.
+1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal). 
 
 The tags are inherited by the Storage account of the Databricks workspace and prevent Defender for Storage from turning on.
 
