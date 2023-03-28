@@ -63,25 +63,24 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
 1. Open an SAP GUI connection to the SAP server.
 1. Sign in with an administrative account.
 1. Execute transaction **RZ10**.
-1. Select the appropriate profile (recommended Instance Profile - no restart needed, *DEFAULT.PFL* requires restart of SAP system).
+1. Select the appropriate profile (recommended Instance Profile).
 1. Select **Extended Maintenance**  &gt;  **Change**.
 1. Select the profile parameter `service/protectedwebmethods`.
 1. Change the value to:    
     ```Value field 
-    SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
+    SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList -GetEnvironment
 1. Select **Copy**.
 1. Select **Profile** &gt; **Save** to save the changes.
 1. Restart the **SAPStartSRV** service on each instance in the SAP system. Restarting the services doesn't restart the entire system. This process only restarts **SAPStartSRV** (on Windows) or the daemon process (in Unix or Linux).
 
     1. On Windows systems, use the SAP Microsoft Management Console (MMC) or SAP Management Console (MC) to restart the service. Right-click each instance. Then, choose **All Tasks** &gt; **Restart Service**.
     
-    1. On Linux systems, use the following commands to restart the host. Replace `<instance number` with your SAP system's instance number.
+    2. On Linux systems, use the following commands to restart the host. Replace `<instance number>` with your SAP system's instance number.
     
     ```Command to restart the service 
     sapcontrol -nr <instance number> -function RestartService
-    ```
-    
-
+    ```    
+    3. Repeat the previous steps for each instance profile.
 
 ### Prerequisite to enable RFC metrics  
 
@@ -190,7 +189,7 @@ After you restart the SAP service, check that your updated rules are applied to 
     sapcontrol -nr <instance number> -function ParameterValue service/protectedwebmethods -user "<admin user>" "<admin password>"
     ```
 
-1. Review the output. Ensure in the output you see the name of methods **GetQueueStatistic ABAPGetWPTable EnqGetStatistic GetProcessList**
+1. Review the output. Ensure in the output you see the name of methods **GetQueueStatistic ABAPGetWPTable EnqGetStatistic GetProcessList GetEnvironment**
 
 1. Repeat the previous steps for each instance profile.
 
