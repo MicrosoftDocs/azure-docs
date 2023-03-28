@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: payment-hsm
 ms.workload: security
 ms.topic: article
-ms.date: 12/01/2022
+ms.date: 03/25/2023
 ms.author: mbaldwin
 
 ---
@@ -37,19 +37,6 @@ For High Availability, customer must allocate HSMs between stamp 1 and stamp 2 (
 :::image type="content" source="./media/deployment-2.png" alt-text="Architecture diagram for disaster recovery deployment.":::
 
 This scenario caters to regional-level failure. The usual strategy is to completely switch the application stack (and its HSMs), rather than trying to reach an HSM in Region 2 from application in Region 1 due to latency.
-
-## fastpathenabled
-
-The fastpathenabled tag is an Azure Feature Exposure Control (AFEC) flag, which will enable subscriptions to connect to Payment HSM.
-
-The fastpathenabled tag must be added/registered to all subscriptions that connect to Payment HSM. Enabling the fastpathenabled tag on the subscriptions with existing resources will have **no** impact on the existing resources. Follow the steps outlined in Register the [Azure Payment HSM resource providers](register-payment-hsm-resource-providers.md?tabs=azure-cli).
-
-> [!NOTE]
-> If you have multiple subscriptions that require access to a Payment HSM, contact [Mirosoft support](support-guide.md#microsoft-support) to have all subscription IDs enabled.
-
-The fastpathenabled tag must be enabled on any virtual networks that the Payment HSM uses, peered or otherwise. For instance, to peer a virtual network of a payment HSM with a virtual network of a VM, you must first add the fastpathenabled tag to the latter. Unfortunately, adding the fastpathenabled tag through the Azure portal is insufficient -- it must be done from the commandline. To o so, follow the steps outlined in [How to peer Azure Payment HSM virtual networks](peer-vnets.md?tabs=azure-cli)
-
-For an MNAT scenario, ensure that you add the fastpathenabled tag with a value of `True` when creating the NAT gateway (not after the NAT gateway is created).
 
 ## Next steps
 

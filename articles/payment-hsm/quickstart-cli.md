@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.date: 09/12/2022
+ms.date: 03/25/2023
 ---
 
 # Quickstart: Create an Azure Payment HSM with the Azure CLI
@@ -20,6 +20,9 @@ This article describes how to create, update, and delete an Azure Payment HSM by
 [!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
+
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
 
   To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
 

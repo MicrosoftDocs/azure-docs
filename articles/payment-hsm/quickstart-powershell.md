@@ -21,6 +21,9 @@ This article describes how you can create an Azure Payment HSM using the [Az.Ded
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
+
   To quickly ascertain if the resource providers and features are already registered, use the Azure PowerShell [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet:
 
 ```azurepowershell-interactive
