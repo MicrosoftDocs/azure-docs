@@ -206,7 +206,7 @@ Use the steps in the example to provision roles for a user to your application. 
 
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
-    - Ensure that multiple roles aren't assigned to a user. We can't guarantee which role will be provisioned.
+    - Ensure that multiple roles aren't assigned to a user. There is no guarantee which role is provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
@@ -257,7 +257,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
-    - All roles will be provisioned as primary = false.
+    - All roles are provisioned as primary = false.
     - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups." 
     
