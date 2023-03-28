@@ -210,7 +210,7 @@
           - name: Set up the MSIXMGR tool
             href: app-attach-msixmgr.md
           - name: MSIXMGR Tool Parameters
-            href: ../../../../MicrosoftDocs/azure-docs-pr/articles/virtual-desktop/msixmgr-tool-syntax-description.md 
+            href: msixmgr-tool-syntax-description.md 
             displayName: MSIXMGR Tool Parameters, Syntax
         - name: Use Microsoft Teams
           href: teams-on-avd.md
