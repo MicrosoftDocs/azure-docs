@@ -33,7 +33,7 @@ Use these sections of this article to update both the runtime and application la
 1. [Update the runtime containers](#update-the-runtime-containers)
 1. [Verify versions match](#verify-versions-match)
 
-You can [troubleshoot](#troubleshoot-during-the-upgrade) the upgrade process at any time.
+You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
 ### Recommended update order
 
