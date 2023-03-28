@@ -86,10 +86,9 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-Once you create your Data Flow, you'll be automatically sent to the data flow canvas. 
-In case you are not redirected to data flow canvas , in the panel below canvas , go to settings-> click "open", located beside Data flow field. It will open the dataflow canvas.
-<img width="655" alt="image" src="https://user-images.githubusercontent.com/127795382/227237495-7f6a827b-5f1b-40c4-bd42-a2e6212fb53f.png">
-<img width="406" alt="image" src="https://user-images.githubusercontent.com/127795382/227237624-5b576e6a-e6f6-4fdd-8da3-44703ad7cea4.png">
+Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In case you are not redirected to data flow canvas, in the panel below the canvas, go to **Settings** and select **Open**, located beside data flow field. This will open the dataflow canvas.
+
+:::image type="content" source="media/tutorial-data-flow/open-data-flow-from-pipeline.png" alt-text="Screenshot showing how to open the data flow editor from the pipeline editor.":::
 
 In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
 
