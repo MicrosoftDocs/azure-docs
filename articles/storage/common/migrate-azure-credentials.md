@@ -84,7 +84,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 #### Create a managed identity
 
-[!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-managed-identity-portal.md)]
+[!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
