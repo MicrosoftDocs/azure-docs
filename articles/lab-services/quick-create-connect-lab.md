@@ -58,7 +58,7 @@ Follow these steps to add a lab to the lab plan you created earlier:
     By default, all the lab VMs use the same credentials.
 
     > [!IMPORTANT]
-    > Make a note of user name and password. They won't be shown again.
+    > Make a note of username and password. They won't be shown again.
 
     :::image type="content" source="./media/quick-create-connect-lab/new-lab-credentials.png" alt-text="Screenshot of the Virtual machine credentials page in the Azure Lab Services website.":::
 
