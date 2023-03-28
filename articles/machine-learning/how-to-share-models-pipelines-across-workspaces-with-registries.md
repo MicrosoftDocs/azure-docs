@@ -509,8 +509,8 @@ Next, you'll now copy the model from the workspace to the registry. Note now the
 
 
 ```azurecli
-# copy model registered in workspace to registry
-az ml model create --registry-name <registry-name> --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
+# share model registered in workspace to registry
+az ml model share --name nyc-taxi-model --version 1 --registry-name <registry-name> --share-with-name <new-name> --share-with-version <new-version>
 ```
 
 > [!TIP]
@@ -560,14 +560,8 @@ Next, you'll now copy the model from the workspace to the registry. Construct th
 
 
 ```python
-# fetch the model from workspace
-model_in_workspace = ml_client_workspace.models.get(name="nyc-taxi-model", version=version)
-print(model_in_workspace )
-# change the format such that the registry understands the model (when you print the model_ready_to_copy object, notice the asset id 
-model_ready_to_copy = ml_client_workspace.models._prepare_to_copy(model_in_workspace)
-print(model_ready_to_copy)
-# copy the model from registry to workspace
-ml_client_registry.models.create_or_update(model_ready_to_copy)
+# share the model from registry to workspace
+ml_client.models.share(name="nyc-taxi-model", version=1, registry_name=<registry_name>, share_with_name=<new-name>, share_with_version=<new-version>)
 ```
 
 > [!TIP]
