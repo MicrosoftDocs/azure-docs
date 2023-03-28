@@ -28,7 +28,7 @@ This article covers the various types of outbound connectivity that are availabl
 You can configure an AKS cluster using the following outbound types: load balancer, NAT gateway, or user-defined routing. The outbound type impacts only the egress traffic of your cluster. For more information, see [setting up ingress controllers](ingress-basic.md).
 
 > [!NOTE]
-> You can use your own [route table][byo-route-table] with UDR and [kubenet networking](/configure-kubenet.md). Make sure your cluster identity (service principal or managed identity) has Contributor permissions to the custom route table.
+> You can use your own [route table][byo-route-table] with UDR and [kubenet networking](../aks/configure-kubenet.md). Make sure your cluster identity (service principal or managed identity) has Contributor permissions to the custom route table.
 
 ### Outbound type of `loadBalancer`
 
