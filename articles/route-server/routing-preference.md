@@ -1,12 +1,12 @@
 ---
 title: Routing preference
 titleSuffix: Azure Route Server
-description: Learn about Azure Route Server Routing Preference. 
-author: mialdrid
-ms.author: mialdrid
+description: Learn about Azure Route Server routing preference feature. 
+author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 03/28/2023
 ms.custom: template-concept
 ---
 
