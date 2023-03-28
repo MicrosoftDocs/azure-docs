@@ -5,7 +5,7 @@ description: How to access key vault in private network through Shared Private E
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 03/14/2023
 ms.author: dayshen
 ---
 

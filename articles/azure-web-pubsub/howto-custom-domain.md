@@ -5,7 +5,7 @@ description: How to configure a custom domain for Azure Web PubSub Service
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 03/25/2023
 ms.author: dayshen
 ---
 
@@ -35,12 +35,15 @@ Azure Web PubSub Service uses Managed Identity to access your Key Vault. In orde
         1. Select **On**.
         1. Select **Yes** to confirm.
         1. Select **Save**.
+
    :::image type="content" alt-text="Screenshot of enabling system assigned managed identity." source="media\howto-custom-domain\portal-identity.png" :::
 
     1. To add a User assigned identity;
         1. Select **Add user assigned managed identity**. 
         1. Select an existing identity.
         1. Select **Add**.
+
+   :::image type="content" alt-text="Screenshot of enabling user assigned managed identity." source="media\howto-custom-domain\portal-user-assigned-identity.png" :::
 
 1. Select **Save**.
 
