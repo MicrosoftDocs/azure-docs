@@ -45,7 +45,7 @@ After confirming your settings using [report-only mode](howto-conditional-access
 Repeat the previous steps on all of your policies that use the approved client app grant. 
 
 > [!WARNING] 
-> Not all applications that are supported as approved applications or support application protection policies. For a list of some common client apps, see [App protection policy requirement](concept-conditional-access-grant#require-app-protection-policy.md). If your application is not listed there, contact the application developer. 
+> Not all applications that are supported as approved applications or support application protection policies. For a list of some common client apps, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy). If your application is not listed there, contact the application developer. 
 
 ## Create a Conditional Access policy
 
