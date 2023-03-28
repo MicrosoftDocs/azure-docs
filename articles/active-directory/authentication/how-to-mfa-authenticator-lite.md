@@ -103,6 +103,10 @@ If enabled for Authenticator Lite, users are prompted to register their account 
 
 :::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/registration.png" alt-text="Screenshot of how to register Authenticator Lite.":::
 
+>[!NOTE]
+>Users with no MFA methods registered will be prompted to download the Authenticator App when they begin registration flow. For the most seamless Authenticator Lite registration experience, [provision your users a TAP](https://learn.microsoft.com/azure/active-directory/authentication/howto-authentication-temporary-access-pass) (temporary access pass) which they can use during registration.
+
+
 ## Monitoring Authenticator Lite usage
 [Sign-in logs](/graph/api/signin-list) can show which app was used to complete user authentication. To view the latest sign-ins, use the following call on the beta API endpoint:
 
@@ -150,6 +154,16 @@ Users can only register for Authenticator Lite from mobile Outlook. Authenticato
 ### Can users register Microsoft Authenticator and Authenticator Lite?
 
 Users that have Microsoft Authenticator on their device can't register Authenticator Lite. If a user has an Authenticator Lite registration and then later downloads Microsoft Authenticator, they can register both. If a user has two devices, they can register Authenticator Lite on one and Microsoft Authenticator on the other.
+
+
+## Known Issues (Public preview)
+
+### SSPR Notifications
+TOTP codes from Outlook will work for SSPR, but the push notification will not work and will return an error.
+
+### Conditional Access Registration Policies
+CA policies for registration do not currently apply in Outlook registration flows.
+
 
 ## Next steps
 

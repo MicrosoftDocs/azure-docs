@@ -1,8 +1,8 @@
 ---
 title: Create a data source for Android maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Android SDK uses: GeoJSON sources and vector tiles."
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -86,7 +86,7 @@ source.add(feature)
 
 ::: zone-end
 
-Alternatively the properties can be loaded into a JsonObject first then passed into the feature when creating it, as shown below.
+Alternatively the properties can be loaded into a JsonObject first then passed into the feature when creating it, as shown in the following sample code.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -207,7 +207,7 @@ val featureCollection = FeatureCollection.fromFeatures(listOfFeatures)
 
 ### Serialize and deserialize GeoJSON
 
-The feature collection, feature, and geometry classes all have `fromJson()` and `toJson()` static methods, which help with serialization. The formatted valid JSON String passed through the `fromJson()` method will create the geometry object. This `fromJson()` method also means you can use Gson or other serialization/deserialization strategies. The following code shows how to take a stringified GeoJSON feature and deserialize it into the Feature class, then serialize it back into a GeoJSON string.
+The feature collection, feature, and geometry classes all have `fromJson()` and `toJson()` static methods, which help with serialization. The formatted valid JSON String passed through the `fromJson()` method creates the geometry object. This `fromJson()` method also means you can use Gson or other serialization/deserialization strategies. The following code shows how to take a stringified GeoJSON feature and deserialize it into the Feature class, then serialize it back into a GeoJSON string.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -261,7 +261,7 @@ val featureString = feature.toJson()
 
 Most GeoJSON files contain a FeatureCollection. Read GeoJSON files as strings and used the `FeatureCollection.fromJson` method to deserialize it.
 
-The `DataSource` class has a built in method called `importDataFromUrl` that can load in GeoJSON files using a URL to a file on the web or in the asset folder. This method **must** be called before the data source is added to the map.
+The `DataSource` class has a built-in method called `importDataFromUrl` that can load in GeoJSON files using a URL to a file on the web or in the asset folder. This method **must** be called before the data source is added to the map.
 
 zone_pivot_groups: azure-maps-android
 
@@ -303,7 +303,7 @@ map.sources.add(source)
 
 ::: zone-end
 
-The `importDataFromUrl` method provides an easily way to load a GeoJSON feed into a data source but provides limited control on how the data is loaded and what happens after its been loaded. The following code is a reusable class for importing data from the web or assets folder and returning it to the UI thread via a callback function. In the callback you can then add additional post load logic to process the data, add it to the map, calculate its bounding box, and update the maps camera.
+The `importDataFromUrl` method provides an easy way to load a GeoJSON feed into a data source but provides limited control on how the data is loaded and what happens after it's been loaded. The following code is a reusable class for importing data from the web or assets folder and returning it to the UI thread via a callback function. Next, add additional post load logic in the callback to process the data, add it to the map, calculate its bounding box, and update the maps camera.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -549,7 +549,7 @@ class Utils {
 
 ::: zone-end
 
-The code below shows how to use this utility to import GeoJSON data as a string and return it to the UI thread via a callback. In the callback, the string data can be serialized into a GeoJSON Feature collection and added to the data source. Optionally, update the maps camera to focus in on the data.
+The following code demonstrates how to use this utility to import GeoJSON data as a string and return it to the UI thread via a callback. In the callback, the string data can be serialized into a GeoJSON Feature collection and added to the data source. Optionally, update the maps camera to focus in on the data.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -617,7 +617,7 @@ Utils.importData("SamplePoiDataSet.json", this) {
 
 ### Update a feature
 
-The `DataSource` class makes its easy to add and remove features. Updating the geometry or properties of a feature requires replacing the feature in the data source. There are two methods that can be used to update a feature(s):
+The `DataSource` class makes it easy to add and remove features. Updating the geometry or properties of a feature requires replacing the feature in the data source. There are two methods that can be used to update a feature(s):
 
 1. Create the new feature(s) with the desired updates and replace all features in the data source using the `setShapes` method. This method works well when you want to update all features in a data source.
 
@@ -915,7 +915,7 @@ map.sources.add(source)
 
 ::: zone-end
 
-There are additional rendering layers that don't connect to these data sources, but they directly load the data for rendering.
+There are more rendering layers that don't connect to these data sources, but they directly load the data for rendering.
 
 - [Tile layer](how-to-add-tile-layer-android-map.md) - superimposes a raster tile layer on top of the map.
 
@@ -927,7 +927,7 @@ Multiple layers can be connected to a single data source. There are many differe
 
 In most mapping platforms, you would need a polygon object, a line object, and a pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins, which can quickly become complex.
 
-With Azure Maps, all you need is a single polygon in a data source as shown in the code below.
+With Azure Maps, all you need is a single polygon in a data source as shown in the following code.
 
 ::: zone pivot="programming-language-java-android"
 
