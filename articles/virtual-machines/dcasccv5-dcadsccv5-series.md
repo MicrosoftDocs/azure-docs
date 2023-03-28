@@ -11,7 +11,7 @@ ms.date: 03/17/2022
 
 ---
 
-# DCas_cc_v5 and DCads_cc_v5-series (preview)
+# DCas_cc_v5 and DCads_cc_v5-series (Preview)
 
 **Applies to:** :heavy_check_mark: Linux VMs in Azure Kubernetes Service
 

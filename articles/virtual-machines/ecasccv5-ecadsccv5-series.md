@@ -11,7 +11,7 @@ ms.date: 03/17/2022
 
 ---
 
-# ECas_cc_v5 and ECads_cc_v5-series (preview)
+# ECas_cc_v5 and ECads_cc_v5-series (Preview)
 
 **Applies to:** :heavy_check_mark: Linux VMs in Azure Kubernetes Service
 
