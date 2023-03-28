@@ -24,7 +24,7 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 This article discusses audio effects detection and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
-* Will this feature perform well in my scenario? Before deploying audio effects detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
+* Does this feature perform well in my scenario? Before deploying audio effects detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
 * Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
 
 ## View the insight
@@ -79,7 +79,7 @@ During the audio effects detection procedure, audio in a media file is processed
 |Component|Definition|
 |---|---|
 |Source file |	The user uploads the source file for indexing. |
-|Segmentation|  	The audio is analyzed, non-speech audio is identified and then split into short overlapping internals. |
+|Segmentation|  	The audio is analyzed, nonspeech audio is identified and then split into short overlapping internals. |
 |Classification| 	An AI process analyzes each segment and classifies its contents into event categories such as crowd reaction or laughter. A probability list is then created for each event category according to department-specific rules. |
 |Confidence level|	The estimated confidence level of each audio effect is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
@@ -91,7 +91,7 @@ During the audio effects detection procedure, audio in a media file is processed
 
 ## Considerations and limitations when choosing a use case 
 
-- Avoid use of very short or low-quality audio, audio effects detection provides probabilistic and partial data on detected nonspeech audio events. For accuracy, audio effects detection requires at least 2 seconds of clear nonspeech audio. Voice commands or singing aren't supported.   
+- Avoid use of short or low-quality audio, audio effects detection provides probabilistic and partial data on detected nonspeech audio events. For accuracy, audio effects detection requires at least 2 seconds of clear nonspeech audio. Voice commands or singing aren't supported.   
 - Avoid use of audio with loud background music or music with repetitive and/or linearly scanned frequency, audio effects detection is designed for nonspeech audio only and therefore can't classify events in loud music. Music with repetitive and/or linearly scanned frequency many be incorrectly classified as an alarm or siren. 
 - Carefully consider the methods of usage in law enforcement and similar institutions, to promote more accurate probabilistic data, carefully review the following: 
 
@@ -110,7 +110,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 - Always respect an individual’s right to privacy, and only ingest audio for lawful and justifiable purposes.   
 - Don't purposely disclose inappropriate audio of young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
 - Commit to respecting and promoting human rights in the design and deployment of your analyzed audio.   
-- When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
+- When using third party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
 - Always seek legal advice when using audio from unknown sources.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing audio containing people.  
 - Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.   

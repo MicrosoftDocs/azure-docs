@@ -12,7 +12,7 @@ ms.topic: article
 
 # Labels identification  
 
-Labels identification is an Azure Video Indexer AI feature that identifies visual objects like sunglasses or actions like swimming, appearing in the video footage of a media file. There are many labels identification categories and once extracted, labels identification instances are displayed in the Insights tab and can be translated into over 50 languages. Clicking a Label opens the instance in the media file, click Play Previous or Play Next to see more instances. 
+Labels identification is an Azure Video Indexer AI feature that identifies visual objects like sunglasses or actions like swimming, appearing in the video footage of a media file. There are many labels identification categories and once extracted, labels identification instances are displayed in the Insights tab and can be translated into over 50 languages. Clicking a Label opens the instance in the media file, select Play Previous or Play Next to see more instances. 
 
 ## Prerequisites  
 
@@ -22,8 +22,8 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 This article discusses labels identification and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature:
 
-- Will this feature perform well in my scenario? Before deploying labels identification into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
-- Are we equipped to identify and respond to errors? AI-powered products and features will not be 100% accurate, so consider how you will identify and respond to any errors that may occur.
+- Does this feature perform well in my scenario? Before deploying labels identification into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need.
+- Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur.
 
 ## View the insight
 
@@ -82,8 +82,6 @@ To display labels identification insights in a JSON file, do the following:
     ```
 
 To download the JSON file via the API, [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
-
-<!-- For more information, see [Azure Video Indexer Labels]().-->
 
 ## Labels components 
 

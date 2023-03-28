@@ -14,7 +14,7 @@ ms.topic: article
 
 Azure Video Indexer transcription, translation and language identification automatically detects, transcribes, and translates the speech in media files into over 50 languages. 
 
-- Azure Video Indexer processes the speech in the audio file to extract the transcription which is then translated into many languages. When selecting to translate into a specific language, both the transcription and the insights like keywords, topics, labels or OCR are translated into the specified language. Transcription can be used as is or be combined with speaker insights which maps and assigns the transcripts into speakers. Multiple speakers can be detected in an audio file. An ID is assigned to each speaker and is displayed under their transcribed speech. 
+- Azure Video Indexer processes the speech in the audio file to extract the transcription that is then translated into many languages. When selecting to translate into a specific language, both the transcription and the insights like keywords, topics, labels or OCR are translated into the specified language. Transcription can be used as is or be combined with speaker insights that maps and assigns the transcripts into speakers. Multiple speakers can be detected in an audio file. An ID is assigned to each speaker and is displayed under their transcribed speech. 
 -	Azure Video Indexer language identification (LID) automatically recognizes the supported dominant spoken language in the video file. For more information, see [Applying LID](/azure/azure-video-indexer/language-identification-model). 
 -	Azure Video Indexer multi-language identification (MLID) automatically recognizes the spoken languages in different segments in the audio file and sends each segment to be transcribed in the identified languages. At the end of this process, all transcriptions are combined into the same file. For more information, see [Applying MLID](/azure/azure-video-indexer/multi-language-identification-transcription).
 The resulting insights are generated in a categorized list in a JSON file that includes the ID, language, transcribed text, duration and confidence score. 
@@ -38,7 +38,7 @@ To view the insights on the website:
 
 To view language insights in `insights.json`, do the following:
 
-1. Click Download -> Insights (JSON). 
+1. Select Download -> Insights (JSON). 
 1. Copy the desired element, under `insights`, and paste it into your online JSON viewer. 
     
     ```json
@@ -95,13 +95,13 @@ During the transcription, translation and language identification procedure, spe
 |Component|Definition|
 |---|---|
 |Source language |	The user uploads the source file for indexing, and either:<br/>- Specifies the video source language.<br/>- Selects auto detect single language (LID) to identify the language of the file. The output is saved separately.<br/>- Selects auto detect multi language (MLID) to identify multiple languages in the file. The output of each language is saved separately.|
-|Transcription API|	The audio file is sent to Cognitive Services to get the transcribed and translated output. If a language has been specified it is processed accordingly. If no language is specified, a LID or MLID process is run to identify the language afterwhich the file is processed. |
+|Transcription API|	The audio file is sent to Cognitive Services to get the transcribed and translated output. If a language has been specified, it's processed accordingly. If no language is specified, a LID or MLID process is run to identify the language after which the file is processed. |
 |Output unification	|The transcribed and translated files are unified into the same file. The outputted data includes the speaker ID of each extracted sentence together with its confidence level.|
-|Confidence value	|The estimated confidence level of each sentence is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
+|Confidence value	|The estimated confidence level of each sentence is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
--	Promoting accessibility by making content available for people with hearing disabilities using Azure Video Indexer to generate speech to text transcription as well as translation into multiple languages.
+-	Promoting accessibility by making content available for people with hearing disabilities using Azure Video Indexer to generate speech to text transcription and translation into multiple languages.
 - Improving content distribution to a diverse audience in different regions and languages by delivering content in multiple languages using Azure Video Indexer’s transcription and translation capabilities. 
 - Enhancing and improving manual closed captioning and subtitles generation by leveraging Azure Video Indexer’s transcription and translation capabilities and by using the closed captions generated by Azure Video Indexer in one of the supported formats.
 - Using language identification (LID) or multi language identification (MLID) to transcribe videos in unknown languages to allow Azure Video Indexer to automatically identify the languages appearing in the video and generate the transcription accordingly. 
@@ -112,15 +112,15 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 - Carefully consider the accuracy of the results, to promote more accurate data, check the quality of the audio, low quality audio might impact the detected insights.  
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
-- Do not purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
+- Don't purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
 - Commit to respecting and promoting human rights in the design and deployment of your analyzed media.  
-- When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them. 
+- When using third party materials, be aware of any existing copyrights or permissions required before distributing content derived from them. 
 - Always seek legal advice when using media from unknown sources. 
 - Always obtain appropriate legal and professional advice to ensure that your uploaded videos are secured and have adequate controls to preserve the integrity of your content and to prevent unauthorized access.    
 - Provide a feedback channel that allows users and individuals to report issues with the service.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
-- Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.  
-- Fully examine and review the potential of any AI model you are using to understand its capabilities and limitations. 
+- Keep a human in the loop. Don't use any solution as a replacement for human oversight and decision-making.  
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
 
 For more information, see: guidelines and limitations in [language detection and transcription](/azure/azure-video-indexer/multi-language-identification-transcription).  
 

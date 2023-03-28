@@ -22,7 +22,7 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 ## General principles 
 
-This article discusses optical character recognition (OCR) and the key considerations for making use of this technology responsibly. There are a number of things you need to consider when deciding how to use and implement an AI-powered feature: 
+This article discusses optical character recognition (OCR) and the key considerations for making use of this technology responsibly. There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying OCR into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
 - Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
@@ -34,13 +34,13 @@ When working on the website the insights are displayed in the **Timeline** tab. 
 To see the instances on the website, do the following: 
 
 1. Go to View and check OCR.  
-1. Click Timeline to display the extracted text. 
+1. Select Timeline to display the extracted text. 
 
-Insights can also be generated in a categorized list in a JSON file which includes the ID, language, text together with each instance’s confidence score.  
+Insights can also be generated in a categorized list in a JSON file that includes the ID, language, text together with each instance’s confidence score.  
 
 To see  the insights in a JSON file, do the following: 
 
-1. Click Download -> Insight (JSON).  
+1. Select Download -> Insight (JSON).  
 1. Copy the `ocr` element, under `insights`, and paste it into your online JSON viewer. 
     
     ```json
@@ -95,7 +95,7 @@ To download the JSON file via the API, use the [Azure Video Indexer developer po
 
 ## OCR components 
 
-During the OCR procedure, text images in a media file is processed, as follows:  
+During the OCR procedure, text images in a media file are processed, as follows:  
 
 |Component|Definition|
 |---|---|
@@ -111,22 +111,22 @@ For more information, see [OCR technology](/azure/cognitive-services/computer-
 - Deep searching media footage for images with signposts, street names or car license plates, for example, in law enforcement. 
 - Extracting text from images in media files and then translating it into multiple languages in labels for accessibility, for example in media or entertainment. 
 - Detecting brand names in images and tagging them for translation purposes, for example in advertising and branding. 
-- Extracting text in images which is then automatically tagged and categorized for accessibility and future usage, for example to generate content at a news agency. 
+- Extracting text in images that is then automatically tagged and categorized for accessibility and future usage, for example to generate content at a news agency. 
 - Extracting text in warnings in online instructions and then translating the text to comply with local standards, for example, e-learning instructions for using equipment.     
 
 ## Considerations and limitations when choosing a use case 
 
 - Carefully consider the accuracy of the results, to promote more accurate detections, check the quality of the image, low quality images might impact the detected insights.  
 - Carefully consider when using for law enforcement that OCR can potentially misread or not detect parts of the text. To ensure fair and high-quality decisions, combine OCR-based automation with human oversight. 
-- When extracting handwritten text, avoid using the OCR results of signatures which are hard to read for both humans and machines. A better way to use OCR is to use it for detecting the presence of a signature for further analysis. 
+- When extracting handwritten text, avoid using the OCR results of signatures that are hard to read for both humans and machines. A better way to use OCR is to use it for detecting the presence of a signature for further analysis. 
 - Don't use OCR for decisions that may have serious adverse impacts. Machine learning models that extract text can result in undetected or incorrect text output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it's advisable to include human review of decisions that have the potential for serious impacts on individuals. 
 
 When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.   
-- Do not purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
+- Don't purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
 - Commit to respecting and promoting human rights in the design and deployment of your analyzed media.   
-- When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
+- When using third party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
 - Always seek legal advice when using content from unknown sources.  
 - Always obtain appropriate legal and professional advice to ensure that your uploaded videos are secured and have adequate controls to preserve the integrity of your content and to prevent unauthorized access.     
 - Provide a feedback channel that allows users and individuals to report issues with the service.   
