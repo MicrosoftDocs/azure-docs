@@ -133,11 +133,17 @@ The output looks similar to the following example:
 
 Next, open the **/etc/fstab** file in a text editor. Add a line to the end of the file, using the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Using the example from this article, the new line would look like the following:
 
-```bash
+```output
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
 When you're done editing the file, save and close the editor.
+
+Alternatively, you can run the following command to add the disk to the `/etc/fstab` file:
+
+```bash
+echo "UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2" >> /etc/fstab
+```
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
