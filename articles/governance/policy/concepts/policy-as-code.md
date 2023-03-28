@@ -18,28 +18,30 @@ in the cloud are:
   end users.
 
 Azure Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test, and validate that change. However, that
+source control and whenever a change is made, test and validate that change. However, that
 shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
-deployment workflows. Examples include deploying an application environment or virtual
-infrastructure. By making Azure Policy validation an early component of the build and deployment
-process the application and operations teams discover if their changes are non-compliant, long
+deployment (CI/CD) workflows, like deploying an application environment or virtual infrastructure. By making Azure Policy validation an early component of the build and deployment process, the application and operations teams discover if their changes are behaving as expected long
 before it's too late and they're attempting to deploy in production.
 
 ## Definitions and foundational information
 
-Before getting into the details of Azure Policy as Code workflow, review the following definitions
-and examples:
+Before getting into the details of Azure Policy as Code workflow, it's important to understand how to author policydefinitions and initiative definitions:
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
 
-The file names align to portions of either the policy or initiative definition:
-- `policy(set).json` - The entire definition
-- `policy(set).parameters.json` - The `properties.parameters` portion of the definition
-- `policy.rules.json` - The `properties.policyRule` portion of the definition
-- `policyset.definitions.json` - The `properties.policyDefinitions` portion of the definition
+The file names correspond with certain portions of policy or initiative definitions:
+
+| File format                   | File contents                       |
+| :--                           | :--                                 |
+| `policy.json`                 | The entire policy definition        |
+| `policyset.json`              | The entire initiative definition    |
+| `policy.parameters.json`      | The `properties.parameters` portion of the policy definition               |
+| `policyset.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
+| `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
+| `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
 
 Examples of these file formats are available in the
 [Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
@@ -84,9 +86,7 @@ in source control.
 When a new policy is added or an existing one updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
 
-Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
-definitions and assignments into the source code management environment
-[GitHub](https://www.github.com).
+Existing definitions can be exported through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops). 
 
 ### Create and update initiative definitions
 
