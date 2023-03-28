@@ -41,7 +41,7 @@ Here is a list of classic resources being retired and their retirement dates:
 |[VM (classic)](https://azure.microsoft.com/updates/classicvmretirment) | Sep 23 |
 |[Azure Batch Cloud Service Pools](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024) | Feb 24 |
 |[Cloud Services (classic)](https://azure.microsoft.com/updates/cloud-services-retirement-announcement) | Aug 24 |
-|[App Services](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement) | Aug 24 |
+|[App Service Environment v1/v2](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement) | Aug 24 |
 |[Classic Resource Providers](https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/) | Aug 24 |
 |[Integration Services Environment](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/) | Aug 24 |
 |[Classic Storage](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/) | Aug 24 |
