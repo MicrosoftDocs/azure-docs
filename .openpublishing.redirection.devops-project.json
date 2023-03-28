@@ -86,12 +86,7 @@
             "redirect_document_id": false
           },
           {
-            "source_path": "articles/devops-project/index.yml",
-            "redirect_url": "/previous-versions/azure/devops-project/overview",
-            "redirect_document_id": false
-          },
-          {
-            "source_path": "articles/devops-project/",
+            "source_path": "articles/devops-project/index.md",
             "redirect_url": "/previous-versions/azure/devops-project/overview",
             "redirect_document_id": false
           },
