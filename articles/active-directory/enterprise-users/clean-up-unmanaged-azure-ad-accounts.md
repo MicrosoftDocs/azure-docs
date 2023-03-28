@@ -38,7 +38,7 @@ Learn more: [Invitation redemption flow](../external-identities/redemption-exper
 
 It's possible to convert some unmanaged tenants to managed tenants. 
 
-Learn more: [Take over an unmanaged directory as administrator in Azure AD](./domains-admin-takeover.md).
+Learn more: [Take over an unmanaged directory as administrator in Azure AD](./domains-admin-takeover.md)
 
 Some overtaken domains might not be updated. For example, a missing DNS TXT record indicates an unmanaged state. Implications are:
 
