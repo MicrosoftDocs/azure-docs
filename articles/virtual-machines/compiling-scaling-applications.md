@@ -4,8 +4,8 @@ description: Learn how to scale HPC applications on Azure VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/10/2023
-ms.reviewer: cynthn
+ms.date: 03/28/2023
+ms.reviewer: cynthn, mattmcinnes
 ms.author: mamccrea
 author: mamccrea
 ---
@@ -42,13 +42,13 @@ The following suggestions apply for optimal application scaling efficiency, perf
    ```
 
 ## Adaptive Routing
-Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting more optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more details, see [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
+Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more details, see [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
 
 ## Process pinning
 
 - Pin processes to cores using a sequential pinning approach (as opposed to an autobalance approach). 
 - Binding by Numa/Core/HwThread is better than default binding.
-- For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per CCX on HB and HBv2 VM sizes.
+- For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per [CCX]([HB-series virtual machines overview including info on CCXs](/azure/virtual-machines/hb-series-overview)) on HB and HBv2 VM sizes.
 - For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
 - Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this approach.
 - For larger scale runs, it's recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries does this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
@@ -85,7 +85,6 @@ $ gfortran [gFortran flags]
    FortranPlugin/dragonegg.so [plugin optimization flags]     
    -c xyz.f90 $ clang -O3 -lgfortran -o xyz xyz.o $./xyz
 ```
-   
 ### PGI Compiler
 PGI Community Edition 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. A sample CLI to compiler optimally with the Intel Compiler:
 
@@ -114,3 +113,4 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.
+
