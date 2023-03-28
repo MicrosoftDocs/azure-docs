@@ -41,8 +41,7 @@ const clickPluginConfig = {
 };
 // Application Insights Configuration
 const configObj = {
-  connectionString: "YOUR_CONNECTION_STRING",
-  // Alternatively, you can pass in the instrumentation key, but support for instrumentation key ingestion will end on March 31, 2025.  
+  connectionString: "YOUR_CONNECTION_STRING", // Alternatively, you can pass in the instrumentation key, but support for instrumentation key ingestion will end on March 31, 2025.  
   // instrumentationKey: "YOUR INSTRUMENTATION KEY",
   extensions: [clickPluginInstance],
   extensionConfig: {
@@ -69,8 +68,7 @@ appInsights.loadAppInsights();
   }
   // Application Insights Configuration
   var configObj = {
-    connectionString: "YOUR_CONNECTION_STRING",
-    // Alternatively, you can pass in the instrumentation key, but support for instrumentation key ingestion will end on March 31, 2025.
+    connectionString: "YOUR_CONNECTION_STRING", // Alternatively, you can pass in the instrumentation key, but support for instrumentation key ingestion will end on March 31, 2025.
     // instrumentationKey: "YOUR INSTRUMENTATION KEY",
     extensions: [
       clickPluginInstance
