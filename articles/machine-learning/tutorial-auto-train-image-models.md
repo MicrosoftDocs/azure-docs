@@ -40,7 +40,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Python 3.6 or 3.7 are supported for this feature
 
@@ -70,7 +70,7 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
    ```
    * Install the Azure Machine Learning Python SDK v2:
    ```python
-   pip install azure-ai-ml
+   pip install azure-ai-ml azure-identity
    ```
 
     > [!NOTE]

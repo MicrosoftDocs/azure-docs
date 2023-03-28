@@ -205,7 +205,7 @@ To use the Data Science VM as a development environment:
 
     ```bash
     conda activate py310
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ``` 
 
 1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
