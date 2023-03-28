@@ -15,7 +15,7 @@ Azure Web PubSub Service can access your Key Vault in a private network through 
 
    :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
-Private endpoints of secured resources created through Azure Web PubSub Service APIs are referred to as *shared private-link resources*. This is because you're "sharing" access to a resource, such as an Azure Key Vault, that has been integrated with the [Azure Private Link service](../private-link/private-link-overview.md). These private endpoints are created inside the Azure Web PubSub Service execution environment and aren't directly visible to you.
+Private endpoints of secured resources created through Azure Web PubSub Service APIs are referred to as *shared private-link resources*.  This is because you're "sharing" access to a resource, such as an Azure Key Vault, that has been integrated with the [Azure Private Link service](../private-link/private-link-overview.md). These private endpoints are created inside the Azure Web PubSub Service execution environment and aren't directly visible to you.
 
 > [!NOTE]
 > The examples in this article use the following resource IDs:
@@ -44,13 +44,13 @@ Private endpoints of secured resources created through Azure Web PubSub Service 
    :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
 
 1. Enter a **Name** for the shared private endpoint.
-1. Enter your key vault resource by choosing **Select from your resources** and selecting your resource from the lists, or by choosing **Specify resource ID** and entering you key vault resource ID.
+1. Enter your key vault resource by choosing **Select from your resources** and selecting your resource from the lists, or by choosing **Specify resource ID** and entering your key vault resource ID.
 1. Enter *please approve* for the **Request message**.
 1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
-The shared private endpoint resource provisioning state will be **Succeeded**. The connection state is **Pending** approval at target resource side.
+The shared private endpoint resource provisioning state is **Succeeded**. The connection state is **Pending** approval at target resource side.
 
    :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
@@ -75,7 +75,7 @@ The contents of the *create-pe.json* file, which represents the request body to 
 }
 ```
 
-The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following:
+The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following output:
 
 ```output
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2022-08-01-preview"
@@ -162,7 +162,7 @@ It takes a few minutes for the approval to be propagated to Azure Web PubSub Ser
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2022-08-01-preview
 ```
 
-This would return a JSON, where the connection state would show up as "status" under the "properties" section.
+This command would return a JSON, where the connection state would show up as "status" under the "properties" section.
 
 ```json
 {
@@ -178,11 +178,11 @@ This would return a JSON, where the connection state would show up as "status" u
 
 ```
 
-When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional and Azure Web PubSub Service can communicate over the private endpoint.
+When the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, the shared private link resource is functional, and Azure Web PubSub Service can communicate over the private endpoint.
 
 -----
 
-Now you can configure features like a custom domain as usual. You don't have to use a special domain for Key Vault. DNS resolution is automatically handled by Azure Web PubSub Service.
+Now you can configure features like a custom domain as usual. You don't have to use a special domain for Key Vault. The Azure Web PubSub Service automatically handles DNS resolution.
 
 ## Next steps
 

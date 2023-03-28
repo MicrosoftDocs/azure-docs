@@ -71,7 +71,7 @@ You use the following API call with the [Azure CLI](/cli/azure/) to create a sha
 az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json --debug
 ```
 
-The *create-pe.json* file contains the request body to the API.  It will be similar to the following example:
+The *create-pe.json* file contains the request body to the API.  It is similar to the following example:
 
 ```json
 {
