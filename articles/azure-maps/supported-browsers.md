@@ -67,7 +67,7 @@ You might want to target older browsers that don't support WebGL or that have on
 
 For code samples using Azure Maps in Leaflet, see [Azure Maps Samples](https://samples.azuremaps.com/?search=leaflet).
 
-For a list of Third party map control plugins, see [Azure Maps community - Open-source projects](open-source-projects.md#third-part-map-control-plugins).
+For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects](open-source-projects.md#third-part-map-control-plugins).
 
 ## Next steps
 
