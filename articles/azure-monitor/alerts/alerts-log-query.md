@@ -1,10 +1,9 @@
 ---
 title: Optimize log alert queries | Microsoft Docs
 description: This article gives recommendations for writing efficient alert queries.
-author: yanivlavi
-ms.author: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: yalavi
 ---
 # Optimize log alert queries
 
