@@ -20,29 +20,23 @@ Optimal scale-up and scale-out performance of HPC applications on Azure requires
 The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of:
 - Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
 - Configuration of [file systems, and clusters](https://github.com/Azure/azurehpc/tree/master/examples).
-- [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
+- - [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
 
 ## Optimally scaling MPI 
 
 The following suggestions apply for optimal application scaling efficiency, performance, and consistency:
 
-- For smaller scale jobs (that is, < 256K connections) use the option:
-   ```bash
-   UCX_TLS=rc,sm
-   ```
-
-- For larger scale jobs (that is, > 256K connections) use the option:
-   ```bash
-   UCX_TLS=dc,sm
-   ```
-
+- For smaller scale jobs (< 256 K connections) use the option:
+   ```bash  UCX_TLS=rc,sm  ```
+- For larger scale jobs (> 256 K connections) use the option:
+   ```bash  UCX_TLS=dc,sm  ```
 - In the above, to calculate the number of connections for your MPI job, use:
    ```bash
    Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
    ```
 
 ## Adaptive Routing
-Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more details, see [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
+Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more information, see [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
 
 ## Process pinning
 
@@ -50,9 +44,9 @@ Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR In
 - Binding by Numa/Core/HwThread is better than default binding.
 - For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per [CCX]([HB-series virtual machines overview including info on CCXs](/azure/virtual-machines/hb-series-overview)) on HB and HBv2 VM sizes.
 - For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
-- Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this approach.
-- For larger scale runs, it's recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries does this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
-
+- Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using three or two cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI 'Allreduce' may benefit from this approach.
+- For larger scale runs, it's recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
+   
 ## Compiling applications
 <br>
 <details>
@@ -71,7 +65,7 @@ Clang supports the  `-march=znver1` flag to enable best code generation and tuni
 
 ### FLANG
 
-The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and other number of FLANG-specific compiler options.
+The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in prerelease for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and other number of FLANG-specific compiler options.
 
 ### DragonEgg
 
@@ -100,7 +94,7 @@ icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=lar
 ```
 
 ### GCC Compiler 
-For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, aren't recommended. GCC 7.3, and newer, delivers higher performance on HPL, HPCG, and DGEMM tests.
+For HPC workloads, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, aren't recommended. GCC 7.3, and newer, delivers higher performance on HPL, HPCG, and DGEMM tests.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
