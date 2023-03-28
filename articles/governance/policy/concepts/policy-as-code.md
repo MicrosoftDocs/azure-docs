@@ -57,6 +57,10 @@ The recommended general workflow of Azure Policy as Code looks like this diagram
    The diagram showing the Azure Policy as Code workflow boxes. Create covers creation of the policy and initiative definitions. Test covers assignment with enforcement mode disabled. A gateway check for the compliance status is followed by granting the assignments M S I permissions and remediating resources. Deploy covers updating the assignment with enforcement mode enabled.
 :::image-end:::
 
+### Source control
+
+Existing policy and initiative definitions can be exported through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
+
 ### Create and update policy definitions
 
 The policy definitions are created using JSON, and stored in source control. Each policy has its
@@ -83,15 +87,12 @@ in source control.
 |
 ```
 
-When a new policy is added or an existing one updated, the workflow should automatically update the
+When a new policy is added or an existing one is updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
-
-Existing definitions can be exported through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops). 
 
 ### Create and update initiative definitions
 
-Likewise, initiatives have their own JSON file and related files that should be stored in the same
-folder. The initiative definition requires the policy definition to already exist, so can't be
+Initiative definitions are also created using JSON files that should be stored in the same folder as policy definitions. The initiative definition requires the policy definition to already exist, so it can't be
 created or updated until the source for the policy has been updated in source control and then
 updated in Azure. The following structure is a recommended way of keeping your initiative
 definitions in source control:
@@ -116,8 +117,8 @@ definitions in source control:
 |
 ```
 
-Like policy definitions, when adding or updating an existing initiative, the workflow should
-automatically update the initiative definition in Azure. Testing of the new or updated initiative
+Like with policy definitions, the workflow should
+automatically update the initiative definition in Azure when an existing initiative is added or updated. Testing of the new or updated initiative
 definition comes in a later step.
 
 > [!NOTE]
@@ -146,10 +147,7 @@ specifically for validating policies.
 > the resource.
 
 After the assignment is deployed, use the Azure Policy SDK, the
-[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan),
-or the
-[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy)
-to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
+[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](../samples/resource-graph-samples.md)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
 used to test the policies and assignments should have both compliant and non-compliant resources.
 Like a good unit test for code, you want to test that resources are as expected and that you also
 have no false-positives or false-negatives. If you test and validate only for what you expect, there
