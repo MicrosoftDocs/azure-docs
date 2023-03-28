@@ -2,7 +2,7 @@
     "redirections": [
     {
         "source_path_from_root": "/articles/machine-learning/quickstart-run-notebooks.md",
-        "redirect_url": "/articles/machine-learning/tutorial-cloud-workstation",
+        "redirect_url": "/azure/machine-learning/tutorial-cloud-workstation",
         "redirect_document_id": true
     },
     {
