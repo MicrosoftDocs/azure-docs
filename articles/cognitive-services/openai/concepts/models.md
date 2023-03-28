@@ -198,8 +198,8 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 
 These models can only be used with the Chat Completion API.
 
-|  Model ID                |   Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  ----------------------- |  ------------------------- | ------------------- | -------------------- | ---------------------- |
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
 | `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, South Central US |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, South Central US |  N/A                | 32,768               | September 2021         |
 
