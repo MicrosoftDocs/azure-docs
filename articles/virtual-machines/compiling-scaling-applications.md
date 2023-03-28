@@ -18,7 +18,7 @@ Optimal scale-up and scale-out performance of HPC applications on Azure requires
 
 ## Application setup
 The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of:
-- Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
+- - Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
 - Configuration of [file systems, and clusters](https://github.com/Azure/azurehpc/tree/master/examples).
 - - [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
 
@@ -26,9 +26,9 @@ The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of
 
 The following suggestions apply for optimal application scaling efficiency, performance, and consistency:
 
-- For smaller scale jobs (< 256 K connections) use:
+- For smaller scale jobs (< 256K connections) use:
    ```bash  UCX_TLS=rc,sm  ```
-- For larger scale jobs (> 256 K connections) use:
+- For larger scale jobs (> 256K connections) use:
    ```bash  UCX_TLS=dc,sm  ```
 - To calculate the number of connections for your MPI job, use:
    ```bash  Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job)   ```
@@ -40,8 +40,8 @@ Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR In
 
 - Pin processes to cores using a sequential pinning approach (as opposed to an autobalance approach). 
 - Binding by Numa/Core/HwThread is better than default binding.
-- For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per [CCX]([HB-series virtual machines overview including info on CCXs](/azure/virtual-machines/hb-series-overview)) on HB and HBv2 VM sizes.
-- For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
+- For hybrid parallel applications (OpenMP+MPI), use four threads and one MPI rank per [CCX]([HB-series virtual machines overview including info on CCXs](/azure/virtual-machines/hb-series-overview)) on HB and HBv2 VM sizes.
+- For pure MPI applications, experiment with between one to four MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
 - Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using three or two cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI 'Allreduce' may benefit from this approach.
 - For larger scale runs, it's recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries use these transports internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
    
