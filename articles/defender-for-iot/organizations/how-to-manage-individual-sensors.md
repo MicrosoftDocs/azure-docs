@@ -1,11 +1,11 @@
 ---
 title: Maintain Defender for IoT OT network sensors from the GUI - Microsoft Defender for IoT
-description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor GUI.
+description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor console.
 ms.date: 03/09/2023
 ms.topic: how-to
 ---
 
-# Maintain OT network sensors from the GUI
+# Maintain OT network sensors from the sensor console
 
 This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
 
