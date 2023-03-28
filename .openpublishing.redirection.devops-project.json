@@ -91,6 +91,11 @@
             "redirect_document_id": false
           },
           {
+            "source_path": "articles/devops-project/",
+            "redirect_url": "/previous-versions/azure/devops-project/overview",
+            "redirect_document_id": false
+          },
+          {
             "source_path": "articles/devops-project/retirement-and-migration.md",
             "redirect_url": "/previous-versions/azure/devops-project/retirement-and-migration",
             "redirect_document_id": false
