@@ -3,8 +3,8 @@ title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: eriklindeman
-ms.author: eriklind
-ms.date: 3/10/2023
+ms.author: sipa
+ms.date: 3/15/2023
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
@@ -16,7 +16,26 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
-### [3.0.0-preview.4] (March 10, 2023)
+### [3.0.0-preview.5](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5) (March 15, 2023)
+
+#### Installation (3.0.0-preview.5)
+
+The preview is available on [npm][3.0.0-preview.5] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.5][3.0.0-preview.5]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.5/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.5/atlas.min.js"></script>
+    ```
+
+#### New features (3.0.0-preview.5)
+
+- Support dynamically updating mapConfiguration via `map.setServiceOptions({ mapConfiguration: 'MAP_CONFIG' })` 
+
+### [3.0.0-preview.4] (March 10, 2023)  
 
 #### Installation (3.0.0-preview.4)
 
@@ -156,6 +175,12 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
   ```
 
 ## v2 (latest)
+
+### [2.2.5](https://www.npmjs.com/package/azure-maps-control/v/2.2.5)
+
+#### New features (2.2.5)
+
+- Support dynamically updating mapConfiguration via `map.setServiceOptions({ mapConfiguration: 'MAP_CONFIG' })` 
 
 ### [2.2.4]
 
