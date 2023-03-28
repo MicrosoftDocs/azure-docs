@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 03/28/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -528,7 +528,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow read access to blobs based on a subnet and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-a-subnet-and-tags) |
+> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow access to blobs in specific containers from a specific subnet](storage-auth-abac-examples.md#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) |
 > | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
 
 ### UTC now
