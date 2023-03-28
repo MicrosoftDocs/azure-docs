@@ -106,7 +106,7 @@ You must complete specific configuration steps in the operating system for the v
 11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
 
     ```bash
-         sudo yum install WALinuxAgent
+    sudo yum install WALinuxAgent
     ```
 
     Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
@@ -211,16 +211,16 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 10. Once you are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
 
     ```bash
-       sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 11. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 12. Install the Azure Linux Agent and dependencies:
 
-	```bash
-	sudo yum install WALinuxAgent
-        sudo systemctl enable waagent
-	```
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent
+    ```
 
 13. Install cloud-init to handle the provisioning
 
