@@ -25,28 +25,28 @@ You need to be part of the Azure Communication Services TAP program. It's likely
 
 - An Azure account with an active subscription.
 - A Microsoft Teams tenant with administrative privileges.
-- A deployed [Communication Service resource](../../create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
-- [Acquire a PSTN phone number from the Communication Service resource](../../telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
+- A deployed [Communication Service resource](../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
+- [Acquire a PSTN phone number from the Communication Service resource](../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - An Azure Event Grid subscription to receive the `IncomingCall` event.
-- The latest [Azure Communication Service Call Automation API library](./callflows-for-customer-interactions.md#install-the-nuget-package) for your operating system.
+- The latest [Azure Communication Service Call Automation API library](./callflows-for-customer-interactions.md) for your operating system.
 - A web service that implements the Call Automation API library, follow [this tutorial](./callflows-for-customer-interactions.md).
 
 ## Step 1: Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users
 
-To enable calling through Call Automation APIs, a [Microsoft Teams Administrator](~/azure/active-directory/roles/permissions-reference#teams-administrator) or [Global Administrator](~/en-us/azure/active-directory/roles/permissions-reference#global-administrator) must explicitly enable the ACS resource(s) access to their tenant to allow calling.
+To enable calling through Call Automation APIs, a [Microsoft Teams Administrator](/azure/active-directory/roles/permissions-reference#teams-administrator) or [Global Administrator](/en-us/azure/active-directory/roles/permissions-reference#global-administrator) must explicitly enable the ACS resource(s) access to their tenant to allow calling.
 
-[Set-CsTeamsAcsFederationConfiguration (MicrosoftTeamsPowerShell)](~/powershell/module/teams/set-csteamsacsfederationconfiguration?view=teams-ps)
+[Set-CsTeamsAcsFederationConfiguration (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csteamsacsfederationconfiguration)
 Tenant level setting that enables/disables federation between their tenant and specific ACS resources.
 
-[Set-CsExternalAccessPolicy (SkypeForBusiness)](~/powershell/module/skype/set-csexternalaccesspolicy?view=skype-ps)
+[Set-CsExternalAccessPolicy (SkypeForBusiness)](/powershell/module/skype/set-csexternalaccesspolicy)
 User policy that allows the admin to further control which users in their organization can participate in federated communications with ACS users.
 
 ## Step 2: Use the Graph API to get AAD object ID for Teams users and optionally check their presence
 A Teams user’s Azure Active Directory (AAD) object ID (OID) is required to add them to or transfer to them from an ACS call. The OID can be retrieved through 1) Office portal, 2) Azure AD portal, 3) Azure AD Connect; or 4) Graph API. The example below uses Graph API.
 
-Consent must be granted by an AAD admin before Graph can be used to search for users, learn more by following on the [Microsoft Graph Security API overview](~/graph/security-concept-overview) document. The OID can be retrieved using the list users API to search for users. The following shows a search by display name, but other properties can be searched as well:
+Consent must be granted by an AAD admin before Graph can be used to search for users, learn more by following on the [Microsoft Graph Security API overview](/graph/security-concept-overview) document. The OID can be retrieved using the list users API to search for users. The following shows a search by display name, but other properties can be searched as well:
 
-[List users using Microsoft Graph v1.0](~/graph/api/user-list?view=graph-rest-1.0&tabs=http):
+[List users using Microsoft Graph v1.0](/graph/api/user-list):
 ```rest
 Request:
 	https://graph.microsoft.com/v1.0/users?$search="displayName:Art Anderson"
@@ -61,7 +61,7 @@ Response:
             "id": "fc4ccb5f-8046-4812-803f-6c344a5d1560"
         }
 ```
-Optionally, Presence for a user can be retrieved using the get presence API and the user ObjectId. Learn more on the [Microsoft Graph v1.0 documentation](~/graph/api/presence-get?view=graph-rest-1.0&tabs=http).
+Optionally, Presence for a user can be retrieved using the get presence API and the user ObjectId. Learn more on the [Microsoft Graph v1.0 documentation](/graph/api/presence-get).
 ```rest
 Request:
 https://graph.microsoft.com/v1.0/users/fc4ccb5f-8046-4812-803f-6c344a5d1560/presence

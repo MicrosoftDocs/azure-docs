@@ -2,7 +2,7 @@
 title: Call Automation Teams Interop overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Teams interoperability with Azure Communication Services Call Automation.
-author: Vishesh Oberoi
+author: ovishesh
 
 ms.service: azure-communication-services
 ms.topic: include
