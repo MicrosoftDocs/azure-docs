@@ -26,10 +26,11 @@ The new VM property introduced allows you to have complete control over your pat
 # [Azure portal](#tab/new-prereq-portal)
 
 **Patch mode = Azure-orchestrated with user managed schedules (Preview)**.
+
 The new patch mode enables the following VM properties on your behalf after receiving your consent:
 
-    - Azure-orchestrated using Automatic guest patching
-    - BypassPlatformSafetyChecksOnUserSchedule = TRUE
+- Azure-orchestrated using Automatic guest patching
+- BypassPlatformSafetyChecksOnUserSchedule = TRUE
 
 
 # [REST API](#tab/new-prereq-rest-api)
