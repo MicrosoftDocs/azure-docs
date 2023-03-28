@@ -79,7 +79,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 2. Unmount any currently mounted NFS volumes.
 3. Update the `/etc/idmapd.conf` file.
-4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or simply reboot the host.
+4. Clear the keyring of the NFS `idmapper` (`nfsidmap -c`).
 5. Mount the NFS volumes as required.   
 
     See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
