@@ -5,7 +5,7 @@ description: How to configure a custom domain for Azure Web PubSub Service
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 03/27/2023
 ms.author: dayshen
 ---
 
