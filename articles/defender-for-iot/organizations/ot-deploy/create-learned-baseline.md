@@ -53,6 +53,9 @@ For more information, see [View and manage alerts on your OT sensor](../how-to-v
 
 ## Next steps
 
+> [!div class="step-by-step"]
+> [« Verify and update your detected device inventory](update-device-inventory.md)
+
 After learning mode is turned off, you've moved from *learning* mode to *operation* mode. Continue with any of the following:
 
 - [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](../workbooks.md)

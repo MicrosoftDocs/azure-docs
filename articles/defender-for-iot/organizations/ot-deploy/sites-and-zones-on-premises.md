@@ -171,5 +171,8 @@ For each site or zone, select the options menu to make changes, or to delete a s
 > [!div class="step-by-step"]
 > [« Connect OT network sensors to the on-premises management console](connect-sensors-to-management.md)
 
-> [!div class="step-by-step"]
-> [Tutorial: Monitor your OT networks with Zero Trust principles »](../monitor-zero-trust.md)
+You've now finished deploying your on-premises management console. For more information, see:
+
+- [Tutorial: Monitor your OT networks with Zero Trust principles](../monitor-zero-trust.md)
+- [Maintain the on-premises management console](../how-to-manage-the-on-premises-management-console.md)
+- [Manage sensors from the on-premises management console](../how-to-manage-sensors-from-the-on-premises-management-console.md)

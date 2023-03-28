@@ -132,6 +132,8 @@
     items:
     - name: Air-gapped management deployment path
       href: ot-deploy/air-gapped-deploy.md
+    - name: Prepare an appliance
+      href: ot-deploy/prepare-management-appliance.md
     - name: Install an on-premises management console
       href: ot-deploy/install-software-on-premises-management-console.md
     - name: Activate and set up an on-premises management console
