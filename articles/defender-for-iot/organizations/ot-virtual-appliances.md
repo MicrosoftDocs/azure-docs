@@ -11,6 +11,10 @@ This article is one in a series of articles describing the [deployment path](ot-
 
 :::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
 
+> [!NOTE]
+> This article also includes information relevant for on-premises management consoles. For more information, see the [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
+>
+
 ## About hypervisors
 
 The virtualized hardware used to run guest operating systems is supplied by virtual machine hosts, also known as *hypervisors*. Defender for IoT supports the following hypervisor software:
