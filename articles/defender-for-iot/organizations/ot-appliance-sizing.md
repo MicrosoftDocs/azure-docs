@@ -7,7 +7,7 @@ ms.topic: limits-and-quotas
 
 # Which appliances do I need?
 
-This article is intended to help you choose the right OT appliances for your appliances and which hardware profile best fits your organization's network monitoring needs.
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes is intended to help you choose the right appliances for your system and which hardware profile best fits your organization's network monitoring needs.
 
 You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances. Results depend on hardware and resources available to the monitoring sensor.
 
@@ -60,4 +60,5 @@ On-premises management consoles allow you to manage and monitor large, multiple-
 
 ## Next steps
 
-For more information, see [Prepare an OT site deployment](best-practices/plan-prepare-deploy.md).
+> [!div class="step-by-step"]
+> [« Prepare an OT site deployment](plan-prepare-deploy.md)

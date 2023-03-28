@@ -51,14 +51,6 @@
       displayName: Microsoft Defender for Endpoint, MDE
     - name: Azure security baseline for Defender for IoT
       href: /security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline?bc=%2fazure%2defender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2fTOC.json       
-    - name: OT monitoring appliance catalog
-      items:
-      - name: Which appliances do I need?
-        href: ot-appliance-sizing.md
-      - name: Pre-configured appliances
-        href: ot-pre-configured-appliances.md
-      - name: OT monitoring with virtual appliances
-        href: ot-virtual-appliances.md 
 - name: Deploy
   items:
   - name: Deploy OT monitoring
@@ -84,6 +76,14 @@
         - name: Choose a traffic mirroring method
           href: best-practices/traffic-mirroring-methods.md
           displayName: SPAN port, TAP
+        - name: OT monitoring appliance catalog
+          items:
+          - name: Which appliances do I need?
+            href: ot-appliance-sizing.md
+          - name: Pre-configured appliances
+            href: ot-pre-configured-appliances.md
+          - name: OT monitoring with virtual appliances
+            href: ot-virtual-appliances.md 
         - name: Create SSL/TLS certificates
           href: ot-deploy/create-ssl-certificates.md  
     - name: Onboard OT sensors to Azure
