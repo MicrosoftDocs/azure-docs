@@ -34,7 +34,7 @@ Learn more:
 
 This scenario covers the legacy application using HTTP authorization headers to manage access to protected content. Legacy lacks modern protocols to support direct integration with Azure AD. Modernization is costly, time consuming, and introduces downtime risk. Instead, use an F5 BIG-IP Application Delivery Controller (ADC) to bridge the gap between the legacy application and the modern ID control plane, with protocol transitioning. 
 
-A BIG-IP in front of the application enables uoverlay of the service with Azure AD preauthentication and headers-based SSO This configuration improves overall applicatoin security posture.
+A BIG-IP in front of the application enables overlay of the service with Azure AD preauthentication and headers-based SSO. This configuration improves overall application security posture.
 
    > [!NOTE] 
    > Organizations can have remote access to this application type with Azure AD Application Proxy. Learn more: [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
@@ -88,7 +88,7 @@ This tutorial uses Guided Configuration v16.1 with an Easy button template. With
 
 ## Register Easy Button
 
-Before a client or service caaccesses Microsoft Graph, the Microsoft identity platform must trust it.
+Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
@@ -97,7 +97,7 @@ Create a tenant app registration to authorize the Easy Button access to Graph. W
 1. Sign-in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
 2. In the left navigation, select **Azure Active Directory**.
 3. Under **Manage**, select **App registrations > New registration**.
-4. Enter an applciation **Name**.
+4. Enter an application **Name**.
 5. Specify who uses the application.
 6. Select **Accounts in this organizational directory only**.
 7. Select **Register**.
@@ -179,8 +179,8 @@ In Service Provider settings, define SAML SP instance settings for the SHA-prote
    ![Screenshot of selections and entries for SSL Certificate Key Source.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
 12.	Check the box for **Enable Encrypted Assertion**.
-13.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. This is the private key for the certificate BIG-IP APM uses to decrypt Azure AD assertions.
-14.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. This is the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
+13.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
+14.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
    
    ![Screenshot of two entries and one option for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -257,7 +257,7 @@ To select a policy to be applied to the application being published:
 
 ### Virtual Server Properties
 
-A virtual server is a BIG-IP data plane object, represented by a virtual IP address, that listens for clients requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Traffic is directed according to policy.
+A virtual server is a BIG-IP data plane object, represented by a virtual IP address. The server listens for clients requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Traffic is directed according to policy.
 
 1. For **Destination Address**, enter an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS that enables clients to resolve the external URL, of the BIG-IP published application, to this IP. You can use computer's localhost DNS for testing.
 2. For **Service Port**, enter **443**, and select **HTTPS**.
@@ -284,7 +284,7 @@ The **Application Pool** tab has services behind a BIG-IP, represented as a pool
 
 With SSO, users access BIG-IP published services without entering credentials. The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO.
 
-1. On Single Sign-On & HTTP Headers, in SSO Headers, for **Header Operation**, select **insert**
+1. On **Single Sign-On & HTTP Headers**, in **SSO Headers**, for **Header Operation**, select **insert**
 2. For **Header Name**, use **upn**.
 3. For **Header Value**, use **%{session.saml.last.identity}**.
 4. For **Header Operation**, select **insert**.
@@ -302,11 +302,11 @@ Use BIG-IP session management settings to define conditions for user sessions te
 
 To learn more, go to support.f5.com for [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492)
 
-Single log-out (SLO) ensures IdP, BIG-IP, and user agent sessions terminate when users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign out URL, with the APM SLO endpoint. IdP-initiated sign out from My Apps terminates BIG-IP and client sessions.
+Single log-out (SLO) ensures IdP, BIG-IP, and user agent sessions terminate when users sign out. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign out URL, with the APM SLO endpoint. IdP-initiated sign out from My Apps terminates BIG-IP and client sessions.
 
 Learn more: see, [My Apps](https://myapplications.microsoft.com/)
 
-The SAML federation metadata for the published application is imported from your tenant. The import provides the APM with the SAML sign out endpoint for Azure AD. This ensures SP-initiated sign out terminates client and Azure AD sessions. Ensure the APM knows when user sign out occurs.
+The SAML federation metadata for the published application is imported from your tenant. The import provides the APM with the SAML sign out endpoint for Azure AD. This action ensures SP-initiated sign out terminates client and Azure AD sessions. Ensure the APM knows when user sign out occurs.
 
 If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
 
@@ -324,7 +324,7 @@ Learn more:
 Deployment provides a breakdown of your configurations. 
 
 1. To commit settings, select **Deploy**.
-2. Verify the application in in your tenant list of Enterprise applications.
+2. Verify the application in your tenant list of Enterprise applications.
 3. The application is published and accessible via SHA, with its URL, or on Microsoft application portals. 
 
 ## Test
