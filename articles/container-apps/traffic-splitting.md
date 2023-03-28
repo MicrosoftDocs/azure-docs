@@ -21,30 +21,31 @@ Traffic splitting is based on the weight (percentage) of traffic that is routed 
 This article shows you how to configure traffic splitting rules for your container app. 
 To run the following examples, you need a container app with multiple revisions.  
 
+
 ## Configure traffic splitting
 
 ::: zone pivot="azure-cli"
 
-Configure traffic splitting between revisions using the `az containerapp ingress traffic set` command.  You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
+Configure traffic splitting between revisions using the `[az containerapp ingress traffic set`](/cli/azure/containerapp/revision#az-containerapp-ingress-traffic-set) command.  You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
 
-The following command set the traffic weight for revision `v1` to 50% and revision `v2` to 50%:
+The following command set the traffic weight for each revision to 50%:
 
 ```azurecli
 az containerapp ingress traffic set \
     --name <APP_NAME> \
     --resource-group <RESOURCE_GROUP> \
-    --revision-weight v1=50 v2=50
+    --revision-weight <REVISION_1>=50 <REVISION_2>=50
 ```
 
 Make sure to replace the placeholder values surrounded by `<>` with your own values.
 
-This command sets the traffic weight for revision labeled `label-1` to 50% and revision `label-2` to 50%:
+This command sets the traffic weight for revision <LABEL_1> to 80% and revision <LABEL_2> to 20%:
 
 ```azurecli
 az containerapp ingress traffic set \
     --name <APP_NAME> \
     --resource-group <RESOURCE_GROUP> \
-    --label-weight label-1=50 label-2=50
+    --label-weight <LABEL_1>=80 <LABEL_2>=20
 
 ```
 
@@ -59,18 +60,27 @@ az containerapp ingress traffic set \
     1. Select **Multiple: Several revisions active simultaneously**.
     1. Select **Apply**.
     1. Wait for the **Revision Mode** to update to **Multiple**.
+    :::image type="content" source="media/ingress/screenshot-revision-management-mode.png" alt-text="Screenshot of the revision management revision mode setting.":::
 1. Select **Show inactive revisions**.
+1. If you don't have multiple revisions, your can create a new revision.
+    1. Select **Create new revision**.
+    1. You can use the default settings or customize the revision.
+    1. Enter a **Name/Suffix** for the revision.
+    1. Select **Create**.
+    :::image type="content" source="media/ingress/screenshot-create-deploy-new-revision.png" alt-text="Screenshot of Create and deploy new revision.":::
+    1. Wait for the revision to deploy.
 1. Select **Active** for the revisions you want to route traffic to.
 1. Enter the percentage of traffic you want to route to each revision in the **Traffic** column. The combined percentage of all traffic must equal 100%.
 1. Select **Save**.
-
-
+:::image type="content" source="media/ingress/screenshot-traffic-splitting.png" alt-text="Screenshot of traffic splitting in Revision management.":::
 
 ::: zone-end
 
 ::: zone pivot="azure-resource-manager"
 
-Enable traffic splitting by setting the `ingress` settings in your container ARM template.
+Enable traffic splitting by  adding the `configuration.ingress.traffic` properties to the `ingress` section of your container app template.  You can specify the revisions by name with the `revisionName` property or by revision label with the `label` property.
+
+The following example sets 100% of traffic to the latest deployed revision:
 
 ```json
 {
@@ -126,15 +136,13 @@ The following example shows traffic splitting between two revision labels:
       "allowInsecure": false,
       "traffic": [
           {
-              "revisionName": "my-example-app--5g3ty20",
               "weight": 50,
               "label": "v-2"
           },
           {
-              "revisionName": "my-example-app--qcfkbsv",
               "weight": 50,
               "label": "v-1"
-            }
+          }
         ],
     },
   },
@@ -225,4 +233,4 @@ The following example template applies labels to different revisions.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure ingress](ingress.md)
+> [Configure ingress](ingress-how-to.md)

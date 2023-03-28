@@ -30,7 +30,7 @@ Anthony mentioned that the customer will be able to obtain a client certificate 
 
 ## Configure client certificate authorization
 
-The client certificate mode property available as you enable [ingress](./ingress.md) on your container app.  The property can be set to one of the following values:
+The client certificate mode property available as you enable [ingress](./ingress-how-to.md) on your container app.  The property can be set to one of the following values:
 
 - `require`: The client certificate is required for all requests to the container app.
 - `accept`: The client certificate is optional. If the client certificate isn't provided, the request is still accepted.
@@ -83,4 +83,4 @@ To configure client certificate authorization in the Azure portal, follow these 
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Configure ingress](ingress.md)
+> [Configure ingress](ingress-how-to.md)

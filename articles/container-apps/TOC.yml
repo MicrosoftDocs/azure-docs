@@ -101,7 +101,7 @@
     - name: Ingress
       items:
       - name: Configure ingress
-        href: ingress.md
+        href: ingress-how-to.md
       - name: Configure IP restrictions
         href: ip-restrictions.md
       - name: Add client certificates
@@ -110,6 +110,7 @@
         href: traffic-splitting.md
       - name: Session affinity
         href: sticky-sessions.md
+        displayName: Sticky sessions
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain

@@ -24,7 +24,7 @@ Note session affinity is only supported when your app is in [single revision mod
 
 ## Configure session affinity
 
-::: zone pivot="arm-portal"
+::: zone pivot="azure-resource-manager"
 
 Session affinity is configured by setting the `affinity` property in the `ingress.stickySessions` configuration section. The following example shows how to configure session affinity for a container app:
 
@@ -71,4 +71,4 @@ You can also enable or disable session affinity after your container app is crea
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure ingress](ingress.md)
+> [Configure ingress](ingress-how-to.md)

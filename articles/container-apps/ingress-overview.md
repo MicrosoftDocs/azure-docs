@@ -11,11 +11,11 @@ ms.author: cshoe
 
 # Ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests or TCP traffic.
+Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic.
 
 Ingress supports:
 
-- [Public and private ingress](#public-and-private-ingress)
+- [External and internal ingress](#external-and-internal-ingress)
 - [HTTP and TCP ingress types](#protocol-types)
 - [Domain names](#domain-names)
 - [IP restrictions](#ip-restrictions)
@@ -26,16 +26,14 @@ Ingress supports:
 > [!NOTE]
 > Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
 
-For configuration details, see [Configure ingress](ingress.md).
+For configuration details, see [Configure ingress](ingress-how-to.md).
 
-## Public and private ingress
+## External and internal ingress
 
 When you enable ingress, you can choose between two types of ingress:
 
-- Public: Allows external access from the public internet and from apps within the same environment.
-- Private: Allows only internal access from with your container app's environment.
-
-Ingress external to your environment uses a [fully qualified domain name](#domain-names) (FQDN) to route traffic to your container app.  In addition to the FQDN, container apps can access another app in the same environment by using its name.  The name of the container app is defined in `name` property in the container app's resource.  
+- External: Accepts traffic from both the public internet and your container app's internal environment.
+- Internal: Allows only internal access from within your container app's environment.
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you may have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
@@ -80,11 +78,11 @@ With TCP ingress enabled, your container app:
 
 ## Domain names
 
-Each app in a Container Apps environment is automatically assigned a fully qualified domain name (FQDN) based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+You can access your app in the following ways:
 
-You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
-
-VNET-scope ingress requires more DNS configuration. For more information, see [DNS configuration for VNET-scope ingress](./networking.md#dns).
+- The default fully qualified domain name (FQDN).  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+- A custom domain name:  You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
+- The app name: You can use the app name for communication between apps in the same environment.
 
 ## IP restrictions
 
@@ -105,9 +103,9 @@ Containers Apps allows you to split incoming traffic between active revisions.  
 
 ## Session affinity
 
-Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](session-affinity.md).
+Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](sticky-sessions.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure ingress](ingress.md)
+> [Configure ingress](ingress-how-to.md)
