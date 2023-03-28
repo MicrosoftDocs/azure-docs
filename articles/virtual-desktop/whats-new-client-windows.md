@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 03/07/2023
+ms.date: 03/28/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -31,9 +31,9 @@ In this release, we've made the following changes:
 - Redesigned the connection bar for session desktops.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
 - Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
-- Fixed a bug that caused users to be unable to update the client if their version of the client has the *ALLUSERS=2* and *MSIINSTALLPERUSER=!* flags.
+- Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
 - Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues .
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.4065
 
