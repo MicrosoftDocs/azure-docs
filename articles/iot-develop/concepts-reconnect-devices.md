@@ -18,11 +18,11 @@ The following are the most common reasons that devices disconnect from IoT Hub:
 - Expired SAS token or X.509 certificate. The device's SAS token or X.509 authentication certificate expired. 
 - Network interruption. The device's connection to the network is interrupted.
 - Service disruption. The Azure IoT Hub service experiences errors or is temporarily unavailable. 
-- Service reconfiguration. After you reconfigure IoT Hub service settings, it can causes devices require reprovisioning or reconnection. 
+- Service reconfiguration. After you reconfigure IoT Hub service settings, it can cause devices to require reprovisioning or reconnection. 
 
 ## Why you need a reconnect strategy
 
-It's important to have a strategy to reconnect devices as described in the following sections.  Without a reconnection strategy, you could see a negative impact on your solution's performance, availability, and cost. 
+It's important to have a strategy to reconnect devices as described in the following sections.  Without a reconnection strategy, you could see a negative affect on your solution's performance, availability, and cost. 
 
 ### Mass reconnection attempts could cause a DDoS
 
