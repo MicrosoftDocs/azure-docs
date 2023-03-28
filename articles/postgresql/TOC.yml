@@ -542,8 +542,6 @@
           displayName: logical decoding, logical replication
     - name: App Development
       items: 
-        - name: Best practices
-          href: flexible-server/application-best-practices.md
         - name: Connection libraries
           href: flexible-server/concepts-connection-libraries.md
         - name: Connection resilience

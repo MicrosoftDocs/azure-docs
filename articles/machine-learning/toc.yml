@@ -581,9 +581,6 @@
           displayName: pip, Conda, anaconda
           href: ./v1/how-to-use-private-python-packages.md
         # end v1
-        - name: How to troubleshoot environments
-          displayName: troubleshoot, environment, debug, image
-          href: how-to-troubleshoot-environments.md
     - name: Work with data
       items:
         - name: Create datastores
@@ -1167,6 +1164,13 @@
       href: how-to-troubleshoot-data-access.md
     - name: Troubleshoot validation for schema failed error
       href: how-to-troubleshoot-validation-for-schema-failed-error.md
+    - name: How to troubleshoot environments
+      displayName: troubleshoot, environment, debug, image
+      href: how-to-troubleshoot-environments.md
+    - name: Troubleshoot online endpoints
+      href: how-to-troubleshoot-online-endpoints.md
+    - name: Troubleshoot batch endpoints
+      href: how-to-troubleshoot-batch-endpoints.md
     # v1
     - name: Pipeline issues
       items:
