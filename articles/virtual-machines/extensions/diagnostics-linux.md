@@ -97,13 +97,13 @@ The `python2` executable file must be aliased to *python*. Here's one way to ach
 
 1. Run the following command to remove any existing aliases.
 
-    ```
+    ```bash
     sudo update-alternatives --remove-all python
     ```
 
 2. Run the following command to create the new alias.
 
-    ```
+    ```bash
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
 
