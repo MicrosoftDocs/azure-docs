@@ -26,8 +26,8 @@ For each Office 365 product and category, Azure Firewall automatically retrieves
    - **Service tag** represents only the required IPv4 addresses and ranges for the specific product and category and can be used in Network Rules to secure traffic to these IP addresses and to any required port.
 
 You should accept a tag being available for a specific combination of product, category and required / not required in the following cases:
-1. For a Service Tag – this specific combination exists and has required IPv4 addresses listed.
-2. For an FQDN Rule – this specific combination exists and has required FQDNs listed which communicate to ports 80/443.
+- For a Service Tag – this specific combination exists and has required IPv4 addresses listed.
+- For an FQDN Rule – this specific combination exists and has required FQDNs listed which communicate to ports 80/443.
 
 Tags are updated automatically with any modifications to the required IPv4 addresses and FQDNs. New tags might be created automatically in the future as well if new combinations of product and category are added.
 
@@ -46,7 +46,7 @@ When you create the rules, ensure you define the required TCP ports (for network
 ## Limitations
 
 If a specific combination of product, category and required/not required has only FQDNs required, but uses TCP ports that aren't 80/443, an FQDN tag isn't be created for this combination. Application Rules can only cover HTTP, HTTPS or MSSQL. To allow communication to these FQDNs, create your own network rules with these FQDNs and ports. 
-For more information, see [Use FQDN filtering in network rules](fqdn-filtering-network-rules.md)
+For more information, see [Use FQDN filtering in network rules](fqdn-filtering-network-rules.md).
 
 ## Next steps
 
