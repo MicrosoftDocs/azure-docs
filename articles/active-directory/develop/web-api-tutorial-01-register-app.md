@@ -1,5 +1,5 @@
 ---
-title: "Tutorial:  Register an application with the Microsoft identity platform"
+title: "Tutorial:  Register a web API with the Microsoft identity platform"
 description: In this tutorial, you learn how to register a web API with the Microsoft identity platform.
 author: cilwerner
 ms.author: cwerner
@@ -10,7 +10,7 @@ ms.date: 11/1/2022
 #Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
 ---
 
-# Tutorial: Register an application with the Microsoft identity platform 
+# Tutorial: Register a web API with the Microsoft identity platform 
 
 To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must be made aware of the application you create. This tutorial shows you how to register an application in a tenant on the Azure portal. 
 

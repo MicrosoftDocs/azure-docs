@@ -447,6 +447,14 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
+- id: web-api-howto-prereq
+  title: web-api-howto-prereq
+  prompt: Make a selection
+  pivots: 
+  - id: no-api
+    title: I don't have an API
+  - id: api
+    title: I have an API
 ## Mobile app ##
 - id: mobile-app-quickstart
   title: desktop-app-quickstart
