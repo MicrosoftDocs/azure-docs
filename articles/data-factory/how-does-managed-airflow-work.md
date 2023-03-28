@@ -46,10 +46,11 @@ The following steps describe how to import DAGs into Managed Airflow.
 
 ### Prerequisites
 
-You'll need to upload a sample DAG onto an accessible Storage account.
+You'll need to upload a sample DAG onto an accessible Storage account (Should be under dags folder).
 
 > [!NOTE]
-> Blob Storage behind VNet are not supported during the preview.
+> Blob Storage behind VNet are not supported during the preview.<br>
+> KeyVault configuration in storageLinkedServices not supported to import dags.
 
 [Sample Apache Airflow v2.x DAG](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 [Sample Apache Airflow v1.10 DAG](https://airflow.apache.org/docs/apache-airflow/1.10.11/_modules/airflow/example_dags/tutorial.html).

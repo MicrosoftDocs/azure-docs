@@ -43,12 +43,12 @@ From the list view, you can select the certificate name or three-dot menu option
 
 * Changing the key vault association of a certificate – You can change a certificate’s reference from one key vault resource to another. When doing so, ensure the User-Assigned Managed Identity of your application gateway has sufficient access controls on the new key vault.  
 
-* Renewal of an uploaded certificate – When an existing uploaded certificate is due for renewal, you can upload a new PFX file to update your application gateway. 
+* Renewal of an uploaded certificate – When an existing uploaded certificate is due for renewal, you can upload a new PFX file to the existing certificate object of your application gateway. 
 
 * Changing the certificate type from "key vault" to "uploaded" (or vice-versa) – You can easily transition your certificate provision from the one stored on your Application Gateway to the purpose-built Key Vault service.
 
 > [!NOTE]
-> A change in certificate associated with multiple listeners would reflect on all the listeners.
+> A change in certificate associated with multiple listeners would reflect on all the listeners. You can view the individual listener information to identify the related listeners.
   
 ### Deletion of an SSL certificate 
 
@@ -65,6 +65,19 @@ There are two primary scenarios when deleting a certificate from portal:
 | Redirection | If a redirection is configured with a rule, the associated redirection is also removed. | 
 | Port | The port associated with the listener gets updated to reflect the new state. | 
 | Frontend IP | The frontend IP of the gateway gets updated to reflect the new state. | 
+
+### Bulk update
+The bulk operation feature is helpful for large gateways having multiple SSL certificates for separate listeners. Similar to individual certificate management, this option allows you to change the type from "Uploaded" to "Key Vault" or vice-versa. This utility is also helpful in recovering a gateway when facing misconfigurations for multiple certificate objects simultaneously.
+
+To use the Bulk update option,
+1. Choose the certificates to be updated using the checkboxes and select the "Bulk update" menu option.
+
+1. On the next page, you can modify the settings for each certificate as needed. Based on your selection in Step 1, you will see different options for Step 2 and Step 3. Thus, it would be best to go step by step for each certificate row. The certificates you see here will be as per your selection. You may use the three-dot menu option to remove a wrongly selected certificate from the list.
+
+1. Once all the settings are updated, select Save.
+
+> [!NOTE]
+> Be aware of the listeners associated with each certificate when making a bulk change. Depending on your configuration, this single operation could update multiple certificates and many more listeners. Refer to the individual certificate information blade to identify the related listeners.
 
 #### Caveats
 
