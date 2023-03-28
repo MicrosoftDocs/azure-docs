@@ -11,9 +11,9 @@ ms.date: 06/20/2022
 
 # Best practices for building an application with Azure Database for MySQL
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
 
 Here are some best practices to help you build a cloud-ready application by using Azure Database for MySQL. These best practices can reduce development time for your app. 
 

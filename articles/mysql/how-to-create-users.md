@@ -9,11 +9,12 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
 ---
+
 # Create users in Azure Database for MySQL
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
 
 This article describes how to create users for Azure Database for MySQL.
 
@@ -41,7 +42,7 @@ After you create an Azure Database for MySQL server, you can use the first serve
 1. Use the admin account and password to connect to your database server. Use your preferred client tool, such as MySQL Workbench, mysql.exe, or HeidiSQL.
 
 > [!NOTE]  
-> If you're not sure how to connect, see [connect and query data for Single Server](./connect-workbench.md) or [connect and query data for Flexible Server](../flexible-server/connect-workbench.md).
+> If you're not sure how to connect, see [connect and query data for Single Server](single-server/connect-workbench.md) or [connect and query data for Flexible Server](flexible-server/connect-workbench.md).
 
 1. Edit and run the following SQL code. Replace the placeholder value `db_user` with your intended new user name. Replace the placeholder value `testdb` with your database name.
 

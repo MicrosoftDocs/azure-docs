@@ -14,6 +14,8 @@ ms.date: 06/21/2022
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
+
 This page describes the Azure Database for MySQL versioning policy, and is applicable to Azure Database for MySQL - Single Server and Azure Database for MySQL - Flexible Server (Preview) deployment modes.
 
 ## Supported MySQL versions

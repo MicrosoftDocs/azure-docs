@@ -66,11 +66,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/app-development-best-practices.md",
-        "redirect_url": "/azure/mysql/single-server/app-development-best-practices",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/concept-monitoring-best-practices.md",
         "redirect_url": "/azure/mysql/single-server/concept-monitoring-best-practices",
         "redirect_document_id": false
@@ -703,11 +698,6 @@
     {
         "source_path_from_root": "/articles/mysql/security-controls-policy.md",
         "redirect_url": "/azure/mysql/single-server/security-controls-policy",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/mysql/select-right-deployment-type.md",
-        "redirect_url": "/azure/mysql/single-server/select-right-deployment-type",
         "redirect_document_id": false
     },
     {
