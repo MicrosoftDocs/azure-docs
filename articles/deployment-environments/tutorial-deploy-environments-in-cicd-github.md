@@ -2,7 +2,7 @@
 title: |
     Tutorial: Deploy environments in CI/CD with GitHub
 description: |
-    In this tutorial you'll learn to integrate Azure Deployment Environments into your CI/CD pipeline using GitHub Actions.
+    In this tutorial, you'll learn to integrate Azure Deployment Environments into your CI/CD pipeline using GitHub Actions.
 author: colbylwilliams
 ms.author: colbyw
 ms.service: deployment-environments
@@ -21,7 +21,7 @@ will complete.
 # Tutorial: Deploy environments in CI/CD with GitHub
 TODO: Add your heading
 
-- The repos _main_ branch will always considered production
+- The repo's _main_ branch is always considered production
 - Feature branches are created from the _main_ branch
 - Pull requests are created to merge feature branches into _main_
 
@@ -29,9 +29,9 @@ Note: your real workflow may be more complex...
 
 A dev center and project will be created with three environment types; Dev, Test and Prod
 
-- The Prod environment type will only ever contain the single production environment
-- A new environment will be created in Dev for each feature branch
-- A new environment will be created in Test for each pull request
+- The Prod environment type contains the single production environment
+- A new environment is created in Dev for each feature branch
+- A new environment is created in Test for each pull request
 
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -120,7 +120,7 @@ az provider register --namespace Microsoft.DevCenter
 > [!TIP]
 > Throughout this tutorial, you'll save several values as environment variables to use later. You may also want to record these value elsewhere to ensure they are available when needed.
 
-Get your user's id and set it to an environment variable for later:
+Get your user's ID and set it to an environment variable for later:
 
 ```azurecli
 MY_AZURE_ID=$(az ad signed-in-user show --query id -o tsv)
@@ -164,7 +164,7 @@ az devcenter admin devcenter create \
   --location $LOCATION
 ```
 
-The previous command will output JSON. Save the values for `id` and `identity.principalId` as environment variables to use later.
+The previous command outputs JSON. Save the values for `id` and `identity.principalId` as environment variables to use later.
 
 ```azurecli
 AZURE_DEVCENTER_ID=<id>
@@ -224,7 +224,7 @@ az devcenter admin project create \
   --dev-center-id $AZURE_DEVCENTER_ID
 ```
 
-The previous command will output JSON. Save the `id` value as an environment variable to use later.
+The previous command outputs JSON. Save the `id` value as an environment variable to use later.
 
 ```azurecli
 AZURE_PROJECT_ID=<id>
@@ -284,7 +284,7 @@ az devcenter admin project-environment-type create \
 
 ## Create a key vault
 
-Next, create a new key vault. You'll use this later in the tutorial to save a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) from GitHub.
+Next, create a new key vault. You use this key vault later in the tutorial to save a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) from GitHub.
 
 ```azurecli
 az keyvault create \
@@ -332,14 +332,14 @@ az role assignment create \
 
 ## Protect the repository's _main_ branch
 
-You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.
+You can protect important branches by setting branch protection rules. Protection rules define whether collaborators can delete or force push to the branch. They also set requirements for any pushes to the branch, such as passing status checks or a linear commit history.
 
 > [!NOTE]
-> Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see "[GitHub’s products](https://docs.github.com/en/get-started/learning-about-github/githubs-products)."
+> Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see "[GitHub’s products](https://docs.github.com/en/get-started/learning-about-github/githubs-products)".
 
 1. If it's not already open, navigate to the main page of your newly created repository on GitHub.com.
 
-2. Under your repository name, select **Settings**. If you cannot see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
+2. Under your repository name, select **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
 
     TODO: Screenshots of this can be found [here](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)
 
@@ -377,19 +377,19 @@ You can protect important branches by setting branch protection rules, which def
     | AZURE_PROJECT         | Project name                 |
     | AZURE_CATALOG         | Set to: _Environments_       |
     | AZURE_CATALOG_ITEM    | Set to: _FunctionApp_        |
-    | AZURE_SUBSCRIPTION_ID | Azure subscription Id (GUID) |
-    | AZURE_TENANT_ID       | Azure tenant Id (GUID)       |
+    | AZURE_SUBSCRIPTION_ID | Azure subscription ID (GUID) |
+    | AZURE_TENANT_ID       | Azure tenant ID (GUID)       |
 
 > TODO: Screenshot would probably be good here.
 
 ## Create a GitHub personal access token
 
-Next you'll create a [fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) to enable your dev center to connect to your repository and consume the environment catalog.
+Next, create a [fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) to enable your dev center to connect to your repository and consume the environment catalog.
 
 > [!NOTE]
 > Fine-grained personal access token are currently in beta and subject to change. To leave feedback, see the [feedback discussion](https://github.com/community/community/discussions/36441).
 
-1. In the upper-right corner of any page on GitHub.com, click your profile photo, then click **Settings**.
+1. In the upper-right corner of any page on GitHub.com, select your profile photo, then select **Settings**.
 
     TODO: Screenshots of this can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)
 
@@ -403,7 +403,7 @@ Next you'll create a [fine-grained personal access token](https://docs.github.co
 
 6. Select your GitHub user under **Resource owner**.
 
-7. Under **Repository access**, select **Only select repositories**, then, in the **Selected repositories** dropdown, search and select the repository you just created.
+7. Under **Repository access**, select **Only select repositories** then in the **Selected repositories** dropdown, search and select the repository you created.
 
 8. Under **Permissions**, select **Repository permissions**, and change **Contents** to **Read-only**.
 
@@ -431,7 +431,7 @@ az keyvault secret set \
 
 The template you used to create your GitHub repository contains a catalog in the _Environments_ folder.
 
-Add the catalog to your dev center. Be sure to replace `< Organization/Repository >` in the command below with your GitHub organization and repository name.
+Add the catalog to your dev center. Be sure to replace `< Organization/Repository >` in the following command with your GitHub organization and repository name.
 
 ```azurecli
 az devcenter admin catalog create \
@@ -443,7 +443,7 @@ az devcenter admin catalog create \
 
 ## Generate deployment identities
 
-[OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is an authentication method that uses short-lived tokens to offer hardened security. It is the recommended way to authenticate GitHub Actions to Azure.
+[OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is an authentication method that uses short-lived tokens to offer hardened security. It's the recommended way to authenticate GitHub Actions to Azure.
 
 You can also authenticate a service principal directly using a secret, but that is out of scope for this tutorial.
 
@@ -455,7 +455,7 @@ You can also authenticate a service principal directly using a secret, but that 
     az ad app create --display-name "$AZURE_PROJECT-Dev"
     ```
 
-    This command will output JSON with an `id` that you'll use when creating federated credentials with Graph API, and an `appId` (also called client ID).
+    This command outputs JSON with an `id` that you use when creating federated credentials with Graph API, and an `appId` (also called client ID).
 
     Set the following environment variables:
 
@@ -524,7 +524,7 @@ You can also authenticate a service principal directly using a secret, but that 
 
 3. Run the following commands to [create a new federated identity credentials](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for each active directory application.
 
-    Be sure to replace `< Organization/Repository >` in the three commands below with your GitHub organization and repository.
+    Be sure to replace `< Organization/Repository >` in the three following commands with your GitHub organization and repository.
 
     Create the federated identity credential for **Dev**:
 
@@ -608,14 +608,14 @@ You can also authenticate a service principal directly using a secret, but that 
 
 With GitHub environments, you can configure environments with protection rules and secrets. A workflow job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
 
-You'll create three environments: Dev, Test, and Prod to map to the project's environment types.
+Create three environments: Dev, Test, and Prod to map to the project's environment types.
 
 > [!NOTE]
 > Environments, environment secrets, and environment protection rules are available in public repositories for all products. For access to environments, environment secrets, and deployment branches in **private** or **internal** repositories, you must use GitHub Pro, GitHub Team, or GitHub Enterprise. For access to other environment protection rules in **private** or **internal** repositories, you must use GitHub Enterprise. For more information, see "[GitHub’s products.](https://docs.github.com/en/get-started/learning-about-github/githubs-products)"
 
 1. On GitHub.com, navigate to the main page of your repository.
 
-2. Under your repository name, select  **Settings**. If you cannot see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
+2. Under your repository name, select  **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
 
     TODO: Screenshots of this can be found [here](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#creating-an-environment)
 
@@ -625,11 +625,11 @@ You'll create three environments: Dev, Test, and Prod to map to the project's en
 
 1. Select **New environment** and enter _Dev_ for the environment name, then select **Configure environment**.
 
-2. Under **Environment secrets**, click **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
+2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Dev** AAD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Dev** Azure AD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
 
-4. Click **Add secret**.
+4. Select **Add secret**.
 
 ### Create the Test environment
 
@@ -637,11 +637,11 @@ Return to the main environments page by selecting **Environments** in the left s
 
 1. Select **New environment** and enter _Test_ for the environment name, then select **Configure environment**.
 
-2. Under **Environment secrets**, click **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
+2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Test** AAD app you created earlier (saved as the `$TEST_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Test** Azure AD app you created earlier (saved as the `$TEST_AZURE_CLIENT_ID` environment variable).
 
-4. Click **Add secret**.
+4. Select **Add secret**.
 
 ### Create the Prod environment
 
@@ -649,21 +649,21 @@ Once more, return to the main environments page by selecting **Environments** in
 
 1. Select **New environment** and enter _Prod_ for the environment name, then select **Configure environment**.
 
-2. Under **Environment secrets**, click **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
+2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Prod** AAD app you created earlier (saved as the `$PROD_AZURE_CLIENT_ID` environment variable).
+3. For **Value**, enter the client ID (`appId`) for the **Prod** Azure AD app you created earlier (saved as the `$PROD_AZURE_CLIENT_ID` environment variable).
 
-4. Click **Add secret**.
+4. Select **Add secret**.
 
-Next, set yourself as a [required reviewer](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments) for this environment. When attempting to deploy to Prod, the GitHub Actions will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, it will automatically fail.
+Next, set yourself as a [required reviewer](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments) for this environment. When attempting to deploy to Prod, the GitHub Actions wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job isn't approved within 30 days, it automatically fails.
 
 For more information about environments and required approvals, see "[Using environments for deployment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
 1. Select **Required reviewers**.
 
-2. Search for and select your GitHub user.  Your may enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
+2. Search for and select your GitHub user.  You may enter up to six people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
 
-3. Click **Save protection rules**.
+3. Select **Save protection rules**.
 
 Finally configure _main_ as the deployment branch:
 
@@ -677,7 +677,7 @@ Finally configure _main_ as the deployment branch:
 
 1. In your terminal, cd into a folder where you'd like to clone your repository locally.
 
-2. Clone the repository. Be sure to replace `< Organization/Repository >` in the command below with your GitHub organization and repository name.
+2. Clone the repository. Be sure to replace `< Organization/Repository >` in the following command with your GitHub organization and repository name.
 
     ```azurecli
     git clone https://github.com/< Organization/Repository >.git
@@ -699,7 +699,7 @@ Finally configure _main_ as the deployment branch:
     git push -u origin feature1
     ```
 
-    This will create a new environment in Azure specific to this branch.
+    A new environment is created in Azure specific to this branch.
 
 5. Navigate to the main page of your newly created repository on GitHub.com.
 
@@ -727,15 +727,15 @@ Back on your repositories **Actions** page, you should see a new Update Environm
 
 Create a pull request on GitHub.com `main <- feature1`.
 
-This will start a new workflow to create an environment specific to the PR using the Test environment type.
+A new workflow is started to create an environment specific to the PR using the Test environment type.
 
 ## Merge the PR
 
-1. On Github.com, navigate to the pull request you just created.
+1. On Github.com, navigate to the pull request you created.
 
 2. Merge it.
 
-    This will publish your changes into the production environment, and delete the branch and pull request environments.
+    Your changes are published into the production environment, and delete the branch and pull request environments.
 
 
 <!-- 8. Clean up resources ------------------------------------------------------------------------
@@ -751,7 +751,7 @@ If you're not going to continue to use this application, delete
 \<resources\> with the following steps:
 
 1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+2. ...select Delete, type...and then select Delete
 
 TODO: Add steps for cleaning up the resources created in this tutorial.
 
