@@ -37,9 +37,9 @@ Threat Intelligence also provides useful context within other Microsoft Sentinel
 
 Just like all the other event data in Microsoft Sentinel, threat indicators are imported using data connectors. There are three data connectors in Microsoft Sentinel provided specifically for threat indicators.
 
-1. **Microsoft Defender Threat Intelligence data connector** to ingest Microsoft's threat indicators 
-1. **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds and 
-1. **Threat Intelligence Platforms** for integrated and curated TI feeds. 
+- **Microsoft Defender Threat Intelligence data connector** to ingest Microsoft's threat indicators 
+- **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds and 
+- **Threat Intelligence Platforms** for integrated and curated TI feeds. 
  
 You can use any of these data connectors in any combination together, depending on where your organization sources threat indicators. All three of these are available in **Content hub** as part of the **Threat Intelligence** solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
 
