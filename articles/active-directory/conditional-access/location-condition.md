@@ -35,7 +35,7 @@ The location found using the public IP address a client provides to Azure Active
 
 Locations exist in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
-![Named locations in the Azure portal](./media/location-condition/new-named-location.png)
+> [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
 ### IPv4 and IPv6 address ranges
 
