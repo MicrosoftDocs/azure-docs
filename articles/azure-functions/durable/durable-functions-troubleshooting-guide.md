@@ -107,8 +107,8 @@ traces
 | sort by timestamp asc 
 ```
 
-| Column | Description |
-|--------|-------------|
+|Column |Description |
+|-------|------------|
 |EventName|The name of the event.|
 |EventId|An auto-incrementing integer value that identifies an activity, timer, or sub-orchestration for a particular orchestration instance.|
 |Account|The storage account name under which function runs.|
