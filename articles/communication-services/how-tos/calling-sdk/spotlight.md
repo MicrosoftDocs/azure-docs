@@ -16,7 +16,12 @@ ms.custom: template-how-to
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-In this article, you will learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone.
+In this article, you will learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone. 
+
+Since a the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/video-constraints) also applies to spotlight
+
+
+
 
 ## Prerequisites
 
@@ -25,9 +30,20 @@ In this article, you will learn how to implement Microsoft Teams spotlight capab
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-Communication Services or Microsoft 365 users can call the spotlight APIs based on role type 
+Communication Services or Microsoft 365 users can call the spotlight APIs based on role type and conversation type
+##### In a one to one call or a group call scenerio, the following APIs are supported for both Communication Services and Microsoft 365 users
 |                                    | Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|
+|----------------------------------------------|--------|--------|--------|
+| startSpotlight | ✔️ | ✔️  | ✔️ |
+| startParticipantsSpotlight | ✔️ | ✔️ | ✔️ |
+| stopSpotlight | ✔️ | ✔️ | ✔️ |
+| stopParticipantsSpotlight | ✔️ | ✔️ | ✔️ |
+| stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
+| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
+
+##### For meeting scenerio the following APIs are supported for both Communication Services and Microsoft 365 users
+|                                    | Organizer | Presenter | Attendee |
+|----------------------------------------------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  |  |
 | startParticipantsSpotlight | ✔️ | ✔️ |  |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
