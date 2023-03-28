@@ -37,7 +37,7 @@ This article discusses faces detection and the key considerations for making use
 |Insight  |The information and knowledge derived from the processing and analysis of video and audio files that generate different types of insights and can include detected objects, people, faces, animated characters, keyframes and translations or transcriptions. |
 |Face recognition  |The analysis of images to identify the faces that appear in the images. This process is implemented via the Azure Cognitive Services Face API. |
 |Template |Enrolled images of people are converted to templates, which are then used for facial recognition. Machine-interpretable features are extracted from one or more images of an individual to create that individual’s template. The enrollment or probe images aren't stored by Face API and the original images can't be reconstructed based on a template. Template quality is a key determinant on the accuracy of your results. |
-|Enrolment |The process of enrolling images of individuals for template creation so they can be recognized. When a person is enrolled to a verification system used for authentication, their template is also associated with a primary identifier2 that is used to determine which template to compare with the probe template. High-quality images and images representing natural variations in how a person looks (for instance wearing glasses, not wearing glasses) generate high-quality enrollment templates. |
+|Enrollment |The process of enrolling images of individuals for template creation so they can be recognized. When a person is enrolled to a verification system used for authentication, their template is also associated with a primary identifier2 that is used to determine which template to compare with the probe template. High-quality images and images representing natural variations in how a person looks (for instance wearing glasses, not wearing glasses) generate high-quality enrollment templates. |
 |Deep search  |The ability to retrieve only relevant video and audio files from a video library by searching for specific terms within the extracted insights.|
 
 ## View the insight
@@ -103,14 +103,14 @@ During the Faces Detection procedure, images in a media file are processed, as f
 |---|---|
 |Source file  |	The user uploads the source file for indexing. |
 |Detection and aggregation	|The face detector identifies the faces in each frame. The faces are then aggregated and grouped.   |
-|Recognition	|The celebrities module runs over the aggregated groups to recognize celebrities. If the customer has created their own **persons** module it's also run to recognize people. When people aren't recognized, they're labelled Unknown1, Unknown2 and so on. |
+|Recognition	|The celebrities module runs over the aggregated groups to recognize celebrities. If the customer has created their own **persons** module it's also run to recognize people. When people aren't recognized, they're labeled Unknown1, Unknown2 and so on. |
 |Confidence value	|Where applicable for well-known faces or faces identified in the customizable list, the estimated confidence level of each label is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
 ## Example use cases 
 
 * Summarizing where an actor appears in a movie or reusing footage by deep searching for specific faces in organizational archives for insight on a specific celebrity. 
 * Improved efficiency when creating feature stories at a news or sports agency, for example deep searching for a celebrity or football player in organizational archives. 
-* Using faces appearing in the video to create promos, trailers or highlights. Azure Video Indexer can assist by adding keyframes, scene markers, timestamps and labelling so that content editors invest less time reviewing numerous files.   
+* Using faces appearing in the video to create promos, trailers or highlights. Azure Video Indexer can assist by adding keyframes, scene markers, timestamps and labeling so that content editors invest less time reviewing numerous files.   
 
 ## Considerations when choosing a use case 
 

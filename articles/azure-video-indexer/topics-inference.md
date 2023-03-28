@@ -90,7 +90,7 @@ During the topics indexing procedure, topics are extracted, as follows:
 |---|---|
 |Source language	|The user uploads the source file for indexing.|
 |Pre-processing|Transcription, OCR and facial recognition AIs extract insights from the media file.|
-|Insights processing|	Topics AI analyze the transcription, OCR and facial recognition insights extracted during pre-processing: <br/>-	Transcribed text, each line of transcribed text insight is examined using ontology-based AI technologies. <br/>-	OCR and Facial Recognition insights are examined together using ontology-based AI technologies.  |
+|Insights processing|	Topics AI analyzes the transcription, OCR and facial recognition insights extracted during pre-processing: <br/>-	Transcribed text, each line of transcribed text insight is examined using ontology-based AI technologies. <br/>-	OCR and Facial Recognition insights are examined together using ontology-based AI technologies.  |
 |Post-processing	|- Transcribed text, insights are extracted and tied to a Topic category together with the line number of the transcribed text. For example, Politics in line 7.<br/>- OCR and Facial Recognition, each insight is tied to a Topic category together with the time of the topic’s instance in the media file. For example, Freddie Mercury in the People and Music categories at 20.00. |
 |Confidence value	|The estimated confidence level of each topic is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score.|
 
