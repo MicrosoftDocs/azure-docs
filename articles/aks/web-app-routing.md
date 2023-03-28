@@ -51,6 +51,7 @@ openssl req -new -x509 -nodes -out aks-ingress-tls.crt -keyout aks-ingress-tls.k
 
 # Export the SSL certificate, skipping the password prompt
 openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out aks-ingress-tls.pfx
+
 ```
 
 ### Create an Azure Key Vault to store the certificate
@@ -66,7 +67,7 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName>
 Import the SSL certificate into Azure Key Vault.
 
 ```azurecli-interactive
-az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
+az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx --password <password you created>
 ```
 
 ### Create an Azure DNS zone
