@@ -14,7 +14,7 @@
         href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration
       - name: Cloud Services (classic)
         href: /azure/cloud-services-extended-support/in-place-migration-overview
-      - name: Azure App Service
+      - name: App Service Environment v1/v2
         href: /azure/app-service/environment/migrate
       - name: API Management
         href: /azure/api-management/compute-infrastructure#how-do-i-migrate-to-the-stv2-platform
