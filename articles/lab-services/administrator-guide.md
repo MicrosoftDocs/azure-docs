@@ -195,7 +195,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
 - **Lab Creator**
 
-  When set on the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They'll have full control over any labs they create as they're assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+  When set on the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They'll have full control over any labs they create as they're assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./quick-create-resources.md#add-a-user-to-the-lab-creator-role).
 
 - **Lab Contributor**
 
@@ -267,6 +267,8 @@ Creating a compute gallery and attaching it to your lab plan is free. No cost is
 #### Storage charges
 
 To store image versions, a compute gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using compute gallery with Lab Services.  The size of the HDD-managed disk that is used depends on the size of the image version that is being stored.  Lab Services supports image and disk sizes up to 128 GB.  To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+Azure Lab Services doesn't support attaching additional disks to a lab template or lab VM.
 
 #### Replication and network egress charges
 

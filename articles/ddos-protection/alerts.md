@@ -126,9 +126,5 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 1. Select the alerts created in this tutorial, then select **Delete**. 
 ## Next steps
 
-In this article, you learned how to configure metric alerts through Azure Monitor.
-
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
-
-> [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+* [Test through simulations](test-through-simulations.md)
+* [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md)

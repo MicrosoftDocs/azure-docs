@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ArcGIS Online | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ArcGIS Online'
 description: Learn how to configure single sign-on between Azure Active Directory and ArcGIS Online.
 services: active-directory
 author: jeevansd

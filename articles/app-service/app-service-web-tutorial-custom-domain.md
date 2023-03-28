@@ -74,7 +74,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
+Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service. When your function app is hosted in a [Consumption plan](../azure-functions/consumption-plan.md), only the CNAME option is supported.
 
 ### [Root domain (e.g. contoso.com)](#tab/root)
 
@@ -157,7 +157,7 @@ Browse to the DNS names that you configured earlier.
 If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most-likely causes are:
 
 - The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
-- You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#remap-records-for-ip-ssl) in your DNS entries to the new IP address.
+- You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#2-remap-records-for-ip-based-ssl) in your DNS entries to the new IP address.
 
 If you receive a `Page not secure` warning or error, it's because your domain doesn't have a certificate binding yet. [Add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
 

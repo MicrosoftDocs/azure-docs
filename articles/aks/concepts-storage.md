@@ -103,7 +103,7 @@ Like using a secret:
 
 Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
 
-You can use [Azure Disks](/azure-csi-disk-storage-provision.md) or [Azure Files](/azure-csi-files-storage-provision.md) to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
+You can use [Azure Disks](azure-csi-disk-storage-provision.md) or [Azure Files](azure-csi-files-storage-provision.md) to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
 
 ![Persistent volumes in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volumes.png)
 
