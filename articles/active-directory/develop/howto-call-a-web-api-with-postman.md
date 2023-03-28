@@ -179,8 +179,8 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 
 1. Navigate to `ms-identity-docs-code-dotnet/web-api` folder and open `appsettings.json`, replace the `{APPLICATION_CLIENT_ID}` and `{DIRECTORY_TENANT_ID}` with:  
 
-  - `{APPLICATION_CLIENT_ID}` is the web API **Application (client) ID** on the app's **Overview** pane **App registrations** in the Azure portal.  
-  - `{DIRECTORY_TENANT_ID}` is the web API **Directory (tenant) ID** on the app's **Overview** pane **App registrations** in the Azure portal.  
+   - `{APPLICATION_CLIENT_ID}` is the web API **Application (client) ID** on the app's **Overview** pane **App registrations** in the Azure portal.  
+   - `{DIRECTORY_TENANT_ID}` is the web API **Directory (tenant) ID** on the app's **Overview** pane **App registrations** in the Azure portal.  
 
 1. Execute the following command to start the app: 
 
