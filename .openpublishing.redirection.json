@@ -22322,6 +22322,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
