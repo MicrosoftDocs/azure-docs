@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Explore the free customer trial
+title: Quickstart - Explore a free trial
 description: Use our quickstart to explore the free customer tenant.
 services: active-directory
 author: csmulligan
@@ -28,7 +28,7 @@ This article gives you an overview where to find these main functions in an Azur
 ## Prerequisites
 - If you haven't already created your own Azure AD customer tenant, create one now. We highly recommend utilizing the new free customer tenant wizard. This wizard does a quick setup for you by creating a trial tenant and a default user flow. It also lets you do some customization of the sign-in look and feel, and lets you see what the sign-in would look like to a customer signing up for the app. You can stop there, or you can select a sample app and try out the sign-in flow.   
 
-:::image type="content" source="media/quickstart-explore-free-customer-trial/ciam-wizard.png" alt-text="Screenshot of the customer tenant creation wizard." :::
+   :::image type="content" source="media/quickstart-explore-free-customer-trial/ciam-wizard.png" alt-text="Screenshot of the customer tenant creation wizard." :::
 
 Alternatively you can also set up your customer tenant by following the steps in the [Create a customer tenant](quickstart-customer-tenant-portal.md) article. 
 
@@ -41,11 +41,11 @@ To start using your new Azure AD for customer tenant, you need to switch to the 
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 1. In the Azure portal, search for and select **Azure Active Directory**. 
 
-:::image type="content" source="media/quickstart-explore-free-customer-trial/explore-customer-trial.png" alt-text="Screenshot of the free customer trial start page." :::
+   :::image type="content" source="media/quickstart-explore-free-customer-trial/explore-customer-trial.png" alt-text="Screenshot of the free customer trial start page." :::
 
 5. Switch to the **Overview** tab to find basic information about your customer tenant. 
 
-:::image type="content" source="media/quickstart-explore-free-customer-trial/customer-tenant-overview.png" alt-text="Screenshot of the customer tenant overview page." :::
+   :::image type="content" source="media/quickstart-explore-free-customer-trial/customer-tenant-overview.png" alt-text="Screenshot of the customer tenant overview page." :::
 
 ## Configure apps
 
@@ -66,7 +66,7 @@ After creating a new customer tenant, you can customize the end-user experience.
 
 The sign-in experience process is grouped into sections. At the end of each section, select the **Review + save** button to review what you have selected and submit your changes or the **Next** button to move to the next section. 
 
-:::image type="content" source="media/quickstart-explore-free-customer-trial/customize-branding.png" alt-text="Screenshot of the company branding page." :::
+   :::image type="content" source="media/quickstart-explore-free-customer-trial/customize-branding.png" alt-text="Screenshot of the company branding page." :::
 
 To learn more about app customizable branding, follow the [Customize user experience for your customers](how-to-customize-branding-customers.md) article.
 
