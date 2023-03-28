@@ -425,13 +425,13 @@ To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomati
     sudo su - nxautomation
     ```
 
-1. Once you are using **nxautomation**, generate the GPG keypair. GPG guides you through the steps. You must provide name, email address, expiration time, and passphrase. Then you wait until there is enough entropy on the machine for the key to be generated.
+1. Once you are using **nxautomation**, generate the GPG keypair as root. GPG guides you through the steps. You must provide name, email address, expiration time, and passphrase. Then you wait until there is enough entropy on the machine for the key to be generated.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-1. Because the GPG directory was generated with sudo, you must change its owner to **nxautomation** using the following command.
+1. Because the GPG directory was generated with sudo, you must change its owner to **nxautomation** using the following command as root.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg
@@ -447,7 +447,7 @@ gpg_public_keyring_path = /home/nxautomation/run/.gnupg/pubring.kbx
 
 ### Verify that signature validation is on
 
-If signature validation has been disabled on the machine, you must turn it on by running the following sudo command. Replace `<LogAnalyticsworkspaceId>` with your workspace ID.
+If signature validation has been disabled on the machine, you must turn it on by running the following command as root. Replace `<LogAnalyticsworkspaceId>` with your workspace ID.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
