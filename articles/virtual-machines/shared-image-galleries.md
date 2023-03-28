@@ -71,17 +71,17 @@ Image definition contains metadata of the image to allow grouping of images that
  - Accelerated Networking: Image supports Accelerated Networking
 
 -Architecture
- - x64 or ARM64 [Architecture](https://learn.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-create)
+ - x64 or ARM64 [Architecture](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 -SecurityType
  - TrustedLaunch - Image is capable of creating Trusted VMs 
  - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
- - [Confidential VM](create-confidential-vm-from-compute-gallery.md#confidential-vm-images) - Image capable of creating Confidential VMs
- - [ConfidentialVMSupported](create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
+ - [Confidential VM](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-images) - Image capable of creating Confidential VMs
+ - [ConfidentialVMSupported](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
  - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) Trusted VM (or) Confidential VM
 
 -Examples
- - CLI examples for adding [Image Definition features](https://learn.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest&branch=main#az-sig-image-definition-create)
+ - CLI examples for adding [Image Definition features](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 ## Image versions
 
