@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2023
+ms.date: 03/23/2023
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -378,6 +378,8 @@ When you create an Azure disk for use with AKS, you can create the disk resource
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: disk.csi.azure.com
       name: pv-azuredisk
     spec:
       capacity:

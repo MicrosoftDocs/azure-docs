@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 03/24/2023
 ms.author: lajanuar
 ---
 
@@ -17,13 +17,15 @@ Managed identities for Azure resources are service principals that create an Azu
 
    :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body). 
+* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
 
 * To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
 > [!IMPORTANT]
+>
+> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
 >
 > * To use managed identities for Document Translation operations, you must [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a specific geographic Azure region such as **East US**. If your Translator resource region is set to **Global**, then you can't use managed identity for Document Translation. You can still use [Shared Access Signature tokens (SAS)](create-sas-tokens.md) for Document Translation.
 >
@@ -36,7 +38,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **geographical** region such as **West US**. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
@@ -52,9 +54,9 @@ To get started, you need:
 
     1. Deselect all check boxes.
     1. Make sure **Microsoft network routing** is selected.
-    1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Translator resource as the instance name. 
+    1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Translator resource as the instance name.
     1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, _see_ [Configure Azure Storage firewalls and virtual networks](../../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions).
-        
+
         :::image type="content" source="../../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
     1. Select **Save**.
@@ -85,7 +87,7 @@ You must grant the Translator resource access to your storage account before it 
 
     :::image type="content" source="../../media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > User assigned managed identity won't meet requirements for the batch transcription storage account scenario. Be sure to enable system assigned managed identity.
 
 1. Select **Save**
@@ -93,7 +95,7 @@ You must grant the Translator resource access to your storage account before it 
 ## Grant storage account access for your Translator resource
 
 > [!IMPORTANT]
-> To assign a system-assigned managed identity role, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](../../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource. 
+> To assign a system-assigned managed identity role, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](../../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Translator resource.
@@ -154,12 +156,12 @@ The following headers are included with each Document Translation API request:
 * The `targetUrl` for each target language must be unique.
 
 > [!IMPORTANT]
-> If a file with the same name already exists in the destination, the job will fail. When using managed identities, don't include a SAS token URL with your HTTP requests. Otherwise your requests will fail.
+> If a file with the same name already exists in the destination, the job will fail. When using managed identities, don't include a SAS token URL with your HTTP requests. If you do so, your requests will fail.
 
 <!-- markdownlint-disable MD024 -->
 ### Translate all documents in a container
 
-This sample request body references a source container for all documents to be translated to a target language. 
+This sample request body references a source container for all documents to be translated to a target language.
 
 See the request parameters [noted previously](#post-request-body) for more details.
 
@@ -183,7 +185,7 @@ See the request parameters [noted previously](#post-request-body) for more detai
 
 ### Translate a specific document in a container
 
-This sample request body references a single source document to be translated into two target languages. 
+This sample request body references a single source document to be translated into two target languages.
 
 > [!IMPORTANT]
 > In addition to the request parameters [noted previously](#post-request-body), you must include `"storageType": "File"`. Otherwise the source URL is assumed to be at the container level.
@@ -213,7 +215,7 @@ This sample request body references a single source document to be translated in
 
 ### Translate all documents in a container using a custom glossary
 
-This sample request body references a source container for all documents to be translated to a target language using a glossary. 
+This sample request body references a source container for all documents to be translated to a target language using a glossary.
 
 See the request parameters [noted previously](#post-request-body) for more details.
 

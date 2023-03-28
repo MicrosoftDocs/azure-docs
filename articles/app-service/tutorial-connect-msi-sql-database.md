@@ -4,7 +4,7 @@ description: Secure Azure SQL Database connectivity with managed identity from a
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/16/2022
+ms.date: 04/01/2023
 ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 ---
 # Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
@@ -169,7 +169,7 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 1. In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient):
 
     ```powershell
-    Install-Package Microsoft.Data.SqlClient -Version 4.0.1
+    Install-Package Microsoft.Data.SqlClient -Version 5.1.0
     ```
 
 1. In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md), the `MyDbConnection` connection string in *appsettings.json* isn't used at all yet. The local environment and the Azure environment both get connection strings from their respective environment variables in order to keep connection secrets out of the source file. But now with Active Directory authentication, there are no more secrets. In *appsettings.json*, replace the value of the `MyDbConnection` connection string with:

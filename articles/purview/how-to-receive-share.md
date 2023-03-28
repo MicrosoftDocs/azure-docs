@@ -6,6 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
+ms.custom: references_regions
 ms.date: 02/16/2023
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
@@ -51,17 +52,12 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     ```
     The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see the [register preview feature article](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
+[!INCLUDE [share-storage-configuration](includes/share-storage-configuration.md)]
+
 * A target storage account **created after** the registration step is completed. **The target storage account must be in the same Azure region as the source storage account.** If you don't know the Azure region of the source storage account, you can find out during the share attaching step later in the process. Target storage account can be in a different Azure region from your Microsoft Purview account.
 
     > [!IMPORTANT]
     > The target storage account must be in the same Azure region as the source storage account.
-
-    > [!NOTE]
-    > The following are supported storage account configurations:
-    >
-    > - Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North 
-    > - Performance: Standard
-    > - Redundancy options: LRS, GRS, RA-GRS
  
 * You need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
 * If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share consumer attaching the share and if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located. 

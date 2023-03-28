@@ -185,6 +185,8 @@
       items:
         - name: Maintaining and upgrading an AKS cluster
           href: upgrade.md
+        - name: Stop cluster upgrades on API breaking changes (preview)
+          href: stop-api-upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
@@ -199,8 +201,10 @@
           href: aks-diagnostics.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
-        - name: Use Vertical Pod Autoscaler (preview)
+        - name: Use Vertical Pod Autoscaler
           href: vertical-pod-autoscaler.md
+        - name: Metrics Server VPA Throttling
+          href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -219,6 +223,8 @@
           href: free-standard-pricing-tiers.md
         - name: Use Draft (preview)
           href: draft.md
+        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+          href: draft-devx-extension-aks.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
         - name: Upgrade the node image
@@ -349,7 +355,7 @@
           items:
             - name: Create an OIDC Issuer for your cluster
               href: use-oidc-issuer.md
-            - name: Workload identity (preview)
+            - name: Workload identity
               items:
                 - name: Overview
                   href: workload-identity-overview.md
@@ -357,7 +363,7 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Modernize your app with workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity (preview)
+            - name: Use Azure AD pod identity
               href: use-azure-ad-pod-identity.md
             - name: Use Pod Sandboxing
               href: use-pod-sandboxing.md

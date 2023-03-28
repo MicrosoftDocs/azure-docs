@@ -238,7 +238,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
+      - name: Security filters with Azure AD
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:

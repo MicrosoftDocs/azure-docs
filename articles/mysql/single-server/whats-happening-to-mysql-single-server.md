@@ -40,10 +40,11 @@ For more information on migrating from Single Server to Flexible Server using ot
 
 To upgrade to Azure Database for MySQL Flexible Server, it's important to know when you're eligible to migrate your single server. Find the migration eligibility criteria in the below table.
 
-| Single Server configuration not supported for migration | How and when to migrate? |
+| Single Server configuration not supported in Flexible Server | How and when to migrate? |
 |---------------------------------------------------------|--------------------------|
-| Single servers with Private Link enabled | Private Link is on the road map for next year. You can also choose to migrate now and perform wNet injection via a point-in-time restore operation to move to private access network connectivity method. |
-| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible server (for paired region) is in private preview, and you can start migrating your single server. Cross-Region Read Replicas for flexible server (for any cross-region) is on the road map for later this year, post, which you can migrate your single server. |
+| Single servers with Private Link enabled | Private Link is on the road map for this year. You can also choose to migrate now and perform wNet injection via a point-in-time restore operation to move to private access network connectivity method. |
+| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible server (for paired region) is in private preview, and you can start migrating your single server. Cross-Region Read Replicas for flexible server (for any cross-region) is on the road map for later this year, post which you can migrate your single server. |
+| Single servers with Query Store enabled | You are eligible to migrate and you can configure slow query logs on the target flexible server by following steps [here](https://learn.microsoft.com/azure/mysql/flexible-server/tutorial-query-performance-insights#configure-slow-query-logs-by-using-the-azure-portal). You can then view query insights by using [workbooks template](https://learn.microsoft.com/azure/mysql/flexible-server/tutorial-query-performance-insights#view-query-insights-by-using-workbooks). |
 | Single server deployed in regions where flexible server isn't supported (Learn more about regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=mysql)). | Azure Database Migration Service (classic) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS (classic). |
 
 ## Frequently Asked Questions (FAQs)

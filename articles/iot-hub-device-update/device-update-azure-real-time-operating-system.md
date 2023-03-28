@@ -4,7 +4,7 @@ description: Get started with Device Update for Azure RTOS.
 author: kgremban
 ms.author: kgremban
 ms.date: 3/18/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 

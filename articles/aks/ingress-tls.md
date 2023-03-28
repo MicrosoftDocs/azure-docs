@@ -444,11 +444,11 @@ In the following example, traffic is routed as such:
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - hello-world-ingress.MY_CUSTOM_DOMAIN
         secretName: tls-secret
       rules:
-     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
         http:
           paths:
           - path: /hello-world-one(/|$)(.*)
@@ -483,11 +483,11 @@ In the following example, traffic is routed as such:
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - hello-world-ingress.MY_CUSTOM_DOMAIN
         secretName: tls-secret
       rules:
-     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
         http:
           paths:
           - path: /static(/|$)(.*)

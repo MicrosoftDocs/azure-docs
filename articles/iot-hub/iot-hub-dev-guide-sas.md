@@ -1,12 +1,11 @@
 ---
-title: Control access to IoT Hub using SAS tokens | Microsoft Docs
+title: Control access to IoT Hub using SAS tokens
 description: How to control access to IoT Hub for device apps and back-end apps using shared access signature tokens.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---

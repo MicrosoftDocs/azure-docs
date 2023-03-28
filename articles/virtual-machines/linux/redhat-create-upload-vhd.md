@@ -8,8 +8,8 @@ ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 11/10/2021
-ms.author: srijangupta
+ms.date: 03/15/2023
+ms.author: maries
 ms.reviewer: mattmcinnes
 ---
 # Prepare a Red Hat-based virtual machine for Azure
@@ -17,6 +17,9 @@ ms.reviewer: mattmcinnes
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
 In this article, you'll learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.7+ and 7.1+. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images, see [Azure Image Builder](../image-builder-overview.md).
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded image that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
+
 
 ## Hyper-V Manager
 

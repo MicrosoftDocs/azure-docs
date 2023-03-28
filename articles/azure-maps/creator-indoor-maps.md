@@ -329,7 +329,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [routeset]: /rest/api/maps/v20220901preview/routeset
 [wayfinding]: /rest/api/maps/v20220901preview/wayfinding
 [wayfinding service]: /rest/api/maps/v20220901preview/wayfinding
-[wayfinding path]: /rest/api/maps/v20220901preview/wayfinding/path
+[wayfinding path]: /rest/api/maps/v20220901preview/wayfinding/get-path
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
 [map-config-api]: /rest/api/maps/v20220901preview/map-configuration
