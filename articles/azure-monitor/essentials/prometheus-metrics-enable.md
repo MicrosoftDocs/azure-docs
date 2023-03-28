@@ -117,7 +117,7 @@ The output is similar to the following example:
 ### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in the Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider following this [documentation](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider by following [this documentation](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 - The template must be deployed in the same resource group as the Azure Managed Grafana workspace.
 - Users with the User Access Administrator role in the subscription of the AKS cluster can enable the Monitoring Data Reader role directly by deploying the template.
