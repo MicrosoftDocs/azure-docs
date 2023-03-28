@@ -83,7 +83,8 @@ Use `az mobile-network pccp create` to create a new **Packet Core Control Plane*
 
 |Placeholder|Value|
 |-|-|
-| `<MOBILENETWORK>`   | Enter the name of the ASE.      |
+| `<ASE>`   | Enter the name of the ASE.      |
+| `<CUSTOMLOCATION>`   | Enter the name of the custom location.      |
 | `<MOBILENETWORK>`   | Enter the name of the mobile network.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 | `<CONTROLPLANE>`   | Enter the name for the packet core control plane.      |
@@ -99,7 +100,7 @@ ASE_ID=$(databoxedge device show --device-name <ASE> -g <RESOURCEGROUP> --query 
 Obtain the custom location ID and assign it to a variable.
 
 ```azurecli
-ASE_ID=$(customlocation show --name <CUSTOMLOCATION> -g <RESOURCEGROUP> --query "id")
+CUSTOM_LOCATION_ID=$(customlocation show --name <CUSTOMLOCATION> -g <RESOURCEGROUP> --query "id")
 ```
 
 Obtain the site ID and assign it to a variable.
@@ -108,7 +109,7 @@ Obtain the site ID and assign it to a variable.
 SITE_ID=$(mobile-network site show --mobile-network-name <MOBILENETWORK> -g <RESOURCEGROUP> -n <SITE> --query "id")
 ```
 
-Create the site.
+Create the packet core control plane.
 
 ```azurecli
 az mobile-network pccp create -n <CONTROLPLANE> -g <RESOURCEGROUP> --access-interface name=N2 ipv4Address=<IPV4ADDRESS> --local-diagnostics authentication-type=Password --platform type=AKS-HCI azure-stack-edge-device="{id:$ASE_ID}"  customLocation="{id:$CUSTOM_LOCATION_ID}" --sites "[{id:$SITE_ID}]" --sku G0 --location eastus
