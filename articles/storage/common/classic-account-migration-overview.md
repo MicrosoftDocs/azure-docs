@@ -51,19 +51,11 @@ Storage accounts created using the classic deployment model will follow the [Mod
 
 To migrate your classic storage accounts, you should:
 
-1. Identify all classic storage accounts in your subscription(s).
+1. Identify all classic storage accounts in your subscription.
 1. Migrate any classic storage accounts to Azure Resource Manager.
 1. Check your applications and logs to determine whether you are dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you need to update your applications to use Azure Resource Manager accounts instead.
 
-For step-by-step instructions, see [Migrate a classic storage account to Azure Resource Manager](storage-account-migrate-classic.md).
-
-## Unsupported features and known issues
-
-- [Customer-managed failover](storage-disaster-recovery-guidance.md) is not supported for classic storage accounts.
-- Challenges locating classic OS disks or images - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496154/Locate-Classic-OS-Disks-VM-Images-in-Storage-Account_Storage
-- Classic artifacts blocking storage account deletion - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496138/Delete-Classic-Storage-Account-Portal_Storage
-- Customers that only have internal billable Classic Storage and have no visibility into those resources and no ability to migrate those resources to ARM - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/606146/Classic-Storage-Account-Retirement-Message_Storage 
-- Classic StgAcct not showing in the portal - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496225/Storage-Account-Not-Visible-in-Portal-or-PowerShell_Storage
+For step-by-step instructions, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
 
 ## See also
 
