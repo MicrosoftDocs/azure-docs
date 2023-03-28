@@ -96,7 +96,7 @@ Azure CNI Overlay has the following limitations:
 
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 - Windows Server 2019 node pools are not supported for overlay.
-- Traffic from host network pods are not able to reach Windows overlay pods
+- Traffic from host network pods is not able to reach Windows overlay pods.
 
 ## Install the aks-preview Azure CLI extension
 
@@ -155,7 +155,7 @@ You can update an existing Azure CNI cluster to Overlay if the cluster meets cer
 - **not** have network policies enabled
 - **not** be using any Windows node pools with docker as the container runtime
 
-The upgrade process will trigger each nodepool to be re-imaged simultaneously (i.e. upgrading each node pool separately to overlay is not supported). Any disruptions to cluster networking will be similar to a node image upgrade or Kubernetes version upgrade where each node in a nodepool is re-imaged.
+The upgrade process will trigger each node pool to be re-imaged simultaneously (i.e. upgrading each node pool separately to overlay is not supported). Any disruptions to cluster networking will be similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
 
 > [!WARNING] 
 > Due to the limitation around Windows overlay pods incorrectly SNATing packets from host network pods, this has a more detrimental effect for clusters upgrading to overlay.
