@@ -20,7 +20,7 @@ sections:
   - name: General
     questions:
       - question: |
-          How would we disclose to the end user that the voice used in the game is a synthetic voice?
+          How would we disclose to the end user that the voice is a synthetic voice?
         answer: |
           There are several ways to disclose the synthetic nature of the voice including implicit and explicit byline. Refer to [Disclosure design guidelines](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context).
       - question: |
@@ -62,14 +62,6 @@ sections:
         answer: |
           At least 300 lines of recordings (or approximately 30 minutes of speech) are required as training data for Custom Neural Voice. We recommend 2,000 lines of recordings (or approximately 2-3 hours of speech) to create a voice for production use. The more data you record the better the quality of the voice. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
       - question: |
-          Can we create multi-styles for the same custom neural voice and host multi-styles in one model to save our cost?
-        answer: |
-          The [cross lingual](how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) feature supports multi-style for the same voice in one model.
-      - question: |
-          What about languages that have different pronunciation structure and assembly? For example, English and Japanese don't form a sentence in the same way. If a voice talent has a fast to slow cadence on a phrase in English, would that map correctly across the same phrase in Japanese?
-        answer: |
-          Each neural voice is trained with audio data recorded by native speaking voice talent. For cross-lingual voice, we transfer the major features like timbre to sound like the original speaker and preserve the right pronunciation. It will use the native way to speak Japanese and still sound similar (but not exactly) like the original English speaker. 
-      - question: |
           Can we include duplicate text sentences in the same set of training data?
         answer: |
           No. The service will flag the duplicate sentences and just keep the first imported one. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
@@ -78,25 +70,21 @@ sections:
         answer: |
           We recommend that you keep the style consistent in one set of training data. If the styles are different, put them into different training sets. In this case, you may consider using the multi-style voice training feature of Custom Neural Voice. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
       - question: |
-          Do you tips for domain specific training such as gaming? 
+          Can we create multi-styles for the same custom neural voice and host multi-styles in one model to save our cost?
         answer: |
-          The training data should include as much domain specific terminology that you have for a specific scenario. We recommend the recording scripts include both general sentences and domain specific sentences. For example, if you plan to record 2,000 sentences, then 1,000 of them could be general sentences, and another 1,000 of them could be sentences from your target domain or the use case of your application.
+          The [cross lingual](how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) feature supports multi-style for the same voice in one model.
       - question: |
-          Is the model version the same as the engine version?
+          How does cross-lingual voice work with languages that have different pronunciation structure and assembly?  
         answer: |
-          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text-to-speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
+          Sentence structure and pronunciation naturally vary across languages such as English and Japanese. Each neural voice is trained with audio data recorded by native speaking voice talent. For [cross lingual](how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) voice, we transfer the major features like timbre to sound like the original speaker and preserve the right pronunciation. For example, a cross-lingual voice will use the native way to speak Japanese and still sound similar (but not exactly) like the original English speaker. 
       - question: |
-          What kind of script should be prepared for a domain specific scenario such as gaming?
-        answer: |
-          For general script, you can use the sample scripts per locale on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). For a domain specific script, you can do selection from the sentences that custom neural voice will be used to read. And you can refer to the script selection criteria [Record custom voice samples](record-custom-voice-samples.md#script-selection-criteria) to create a good corpus.
-      - question: |
-          Are there any successful cases of using custom neural voice in gaming?
-        answer: |
-          Microsoft Flight Simulator used custom neural voice service to create the voices for the air traffic controllers in several different languages using the [cross lingual](how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) feature.
-      - question: |
-          Switching styles via SSML only works for prebuilt neural voices, right?
+          Does switching styles via SSML only works for Custom Neural Voices?
         answer: |
           Switching styles via SSML is only for prebuilt multi-style voices. Custom Neural Voice does support [multi-style training](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) for the same model, so you can also adjust the styles via SSML. Only for the speaking styles you have created for CNV.
+      - question: |
+          Do you tips for domain specific training? 
+        answer: |
+          The training data should include as much domain specific terminology that you have for a specific scenario such as gaming. We recommend the recording scripts include both general sentences and domain specific sentences. For example, if you plan to record 2,000 sentences, then 1,000 of them could be general sentences, and another 1,000 of them could be sentences from your target domain or the use case of your application.
       - question: |
           Is it correct that after one training we can't train again unless we upload a corpus file?
         answer: |
@@ -105,6 +93,10 @@ sections:
           Can we have a more dynamic events system and characters that can respond to each other using equally dynamic voice lines, like "Whoa, that [plane] just crashed into that [tank]."?
         answer: |
           Yes. You can have dynamic content built in with static pattern. In some cases with large datasets it isn't feasible to pre-record all variations. 
+      - question: |
+          Is the model version the same as the engine version?
+        answer: |
+          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text-to-speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
       - question: |
           Can we limit the number of trainings using Azure Policy or other features? Or is there any way to avoid false training?
         answer: |
