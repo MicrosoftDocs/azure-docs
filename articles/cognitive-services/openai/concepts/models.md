@@ -203,7 +203,7 @@ These models can only be used with the Chat Completion API.
 | `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, South Central US |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, South Central US |  N/A                | 32,768               | September 2021         |
 
-<sup>1</sup> The model is in preview and only available by request.<br>
+<sup>1</sup> The model is in preview and [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
 
 ### Codex Models
@@ -214,7 +214,6 @@ These models can only be used with Completions API requests.
 |  --- |  --- | --- | --- | --- |
 | code-cushman-001<sup>1</sup> | South Central US, West Europe | Currently unavailable | 2,048 | |
 | code-davinci-002 | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
-| code-davinci-fine-tune-002<sup>1</sup> | N/A | Currently unavailable | | |
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
 
