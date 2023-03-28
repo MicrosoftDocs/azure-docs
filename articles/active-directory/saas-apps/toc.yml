@@ -2893,7 +2893,9 @@
       - name: Bentley - Automatic User Provisioning
         href: bentley-automatic-user-provisioning-tutorial.md
       - name: BIC Cloud Design
-        href: bic-cloud-design-provisioning-tutorial.md    
+        href: bic-cloud-design-provisioning-tutorial.md
+      - name: BIS
+        href: bis-provisioning-tutorial.md    
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
