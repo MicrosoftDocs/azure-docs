@@ -33,7 +33,7 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- `liquid` - the `set-body` policy will use the liquid templating engine |No| N/A|
-|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.|No | `blank` |
+|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.<br/></br>Policy expressions aren't allowed. |No | `blank` |
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
