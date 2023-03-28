@@ -24,16 +24,16 @@ This article list some examples of role assignment conditions for controlling ac
 
 For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](../../role-based-access-control/conditions-prerequisites.md).
 
-## Example summary
+## Summary of examples in this article
 
-Use the following table to quickly locate an example that fits your ABAC scenario. The table includes a brief description of the scenario, plus a list of attributes used by [source](../../role-based-access-control/conditions-format.md#attributes) (environment, principal, request and resource).
+Use the following table to quickly locate an example that fits your ABAC scenario. The table includes a brief description of the scenario, plus a list of attributes used in the example by [source](../../role-based-access-control/conditions-format.md#attributes) (environment, principal, request and resource).
 
 | Example | Environment | Principal | Request | Resource |
 |---------|-------------|-----------|---------|----------|
-| [Read blobs with index tag](#example-read-blobs-with-a-blob-index-tag) | | | | tags |
-| [Require index tags for new blobs](#example-new-blobs-must-include-a-blob-index-tag) | | | tags | |
-| [Require index tag keys for existing blobs](#example-existing-blobs-must-have-blob-index-tag-keys) | | | tags | |
-| [Require index tag keys and values for existing blobs](#example-existing-blobs-must-have-a-blob-index-tag-key-and-values) | | | tags | |
+| [Read blobs with a blob index tag](#example-read-blobs-with-a-blob-index-tag) | | | | tags |
+| [New blobs must include a blob index tag](#example-new-blobs-must-include-a-blob-index-tag) | | | tags | |
+| [Existing blobs must have blob index tag keys](#example-existing-blobs-must-have-blob-index-tag-keys) | | | tags | |
+| [Existing blobs must have a blob index tag key and values](#example-existing-blobs-must-have-a-blob-index-tag-key-and-values) | | | tags | |
 | [Read, write, or delete blobs in named containers](#example-read-write-or-delete-blobs-in-named-containers) | | | | container name |
 | [Read blobs in named containers with a path](#example-read-blobs-in-named-containers-with-a-path) | | | | container name</br> blob path |
 | [Read or list blobs in named containers with a path](#example-read-or-list-blobs-in-named-containers-with-a-path) | | | blob prefix | container name</br> blob path |
@@ -70,7 +70,8 @@ This section includes examples involving blob index tags.
 
 This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
 
-You must add this condition to any role assignments that include the following action.
+> [!IMPORTANT]
+> For this condition to be effective for a security principal, you must add it to all role assignments for them that include the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
