@@ -145,7 +145,7 @@ Model from forecasting training jobs can be deployed in either of the two ways:
 1. Online Endpoint
     - Please refer [this link](./how-to-deploy-automl-endpoint.md) to do online deployment.
     - Please check the scoring file used in the deployment or click on the "Test" tab on the endpoint page in the studio to understand the structure of input that is expected by the deployment.
-    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-bike-share/auto-ml-forecasting-bike-share.ipynb) to see an example.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb) to see an example.
 2. Batch Endpoint
     - Please refer [this link](./how-to-use-batch-endpoint.md) to do batch deployment.
     - It requires you to develop a custom scoring script.
