@@ -1000,6 +1000,7 @@
   ".openpublishing.redirection.security-benchmark.json",
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
+  ".openpublishing.redirection.devops-project.json",
   "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
   "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
