@@ -50,12 +50,12 @@ recommendations: false
 |**Custom models**||
 | [Custom model (overview)](#custom-models) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
 | [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured and unstructured documents.|
-| [Custom classifier model](#custom-classifier)| The **Custom classifier model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
+| [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
 ### Read OCR
 
-[:::image type="icon" source="media/studio/read-card.png" :::](https://formrecognizer.appliedai.azure.com/studio/read)
+:::image type="icon" source="media/studio/read-card.png" :::
 
 The Read API analyzes and extracts lines, words, their locations, detected languages, and handwritten style if detected.
 
@@ -68,7 +68,7 @@ The Read API analyzes and extracts lines, words, their locations, detected langu
 
 ### Layout analysis
 
-[:::image type="icon" source="media/studio/layout.png":::](https://formrecognizer.appliedai.azure.com/studio/layout)
+:::image type="icon" source="media/studio/layout.png":::
 
 The Layout analysis model analyzes and extracts text, tables, selection marks, and other structure elements like titles, section headings, page headers, page footers, and more.
 
@@ -82,9 +82,9 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 
 ### General document
 
-[:::image type="icon" source="media/studio/general-document.png":::](https://formrecognizer.appliedai.azure.com/studio/document)
+:::image type="icon" source="media/studio/general-document.png":::
 
-The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pre-trained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
+The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pretrained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 
@@ -95,7 +95,7 @@ The general document model is ideal for extracting common key-value pairs from f
 
 ### Health insurance card
 
-:::image type="content" source="media/studio/health-insurance-logo.png" alt-text="Screenshot of insurance card analysis in Form Recognizer Studio.":::
+:::image type="icon" source="media/studio/health-insurance-logo.png":::
 
 The health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards.
 
@@ -108,7 +108,7 @@ The health insurance card model combines powerful Optical Character Recognition 
 
 ### W-2
 
-[:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
+:::image type="icon" source="media/studio/w2.png":::
 
 The W-2 form model extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including single and multiple forms on one page.
 
@@ -121,7 +121,7 @@ The W-2 form model extracts key information reported in each box on a W-2 form. 
 
 ### Invoice
 
-[:::image type="icon" source="media/studio/invoice.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
+:::image type="icon" source="media/studio/invoice.png":::
 
 The invoice model automates processing of invoices to extracts customer name, billing address, due date, and amount due, line items and other key data. Currently, the model supports English, Spanish, German, French, Italian, Portuguese, and Dutch invoices.
 
@@ -134,7 +134,7 @@ The invoice model automates processing of invoices to extracts customer name, bi
 
 ### Receipt
 
-[:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
+:::image type="icon" source="media/studio/receipt.png":::
 
 Use the receipt model to scan sales receipts for merchant name, dates, line items, quantities, and totals from printed and handwritten receipts. The version v3.0 also supports single-page hotel receipt processing.
 
@@ -147,7 +147,7 @@ Use the receipt model to scan sales receipts for merchant name, dates, line item
 
 ### Identity document (ID)
 
-[:::image type="icon" source="media/studio/id-document.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
+:::image type="icon" source="media/studio/id-document.png":::
 
 Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents) to extract key fields.
 
@@ -160,7 +160,7 @@ Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 s
 
 ### Business card
 
-[:::image type="icon" source="media/studio/business-card.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
+:::image type="icon" source="media/studio/business-card.png":::
 
 Use the business card model to scan and extract key information from business card images.
 
@@ -173,7 +173,7 @@ Use the business card model to scan and extract key information from business ca
 
 ### Custom models
 
- [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
+:::image type="icon" source="media/studio/custom.png":::
 
 Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started.
 
@@ -188,7 +188,7 @@ Version v3.0 custom model supports signature detection in custom forms (template
 
 #### Custom extraction
 
-[:::image type="icon" source="media/studio/custom-extraction.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
+:::image type="icon" source="media/studio/custom-extraction.png":::
 
 Custom extraction model can be one of two types, **custom template** or **custom neural**. To create a custom extraction model, label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
@@ -204,12 +204,12 @@ Custom extraction model can be one of two types, **custom template** or **custom
 
 #### Custom classifier
 
-[:::image type="icon" source="media/studio/custom-classifier.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
+:::image type="icon" source="media/studio/custom-classifier.png":::
 
-The custom classifier model enables you to identify the document type prior to invoking the extraction model.  The classifier model is available starting with the 2023-02-28-preview. Training a custom classifier model requires at least two distinct classes and a minimum of five samples per class.
+The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the 2023-02-28-preview. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
 
 > [!div class="nextstepaction"]
-> [Learn more: custom classifier model](concept-custom-classifier.md)
+> [Learn more: custom classification model](concept-custom-classifier.md)
 
 #### Composed models
 

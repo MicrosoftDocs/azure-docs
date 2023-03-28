@@ -23,7 +23,7 @@ To set up New Relic on Azure, you need to register the `NewRelic.Observability` 
 - To register the resource provider in the Azure CLI, use this command:
 
   ```azurecli
-  az provider register \--namespace NewRelic.Observability \--subscription \<subscription-id\>
+  az provider register --namespace NewRelic.Observability --subscription <subscription-id>
   ```
 
 ## Next steps

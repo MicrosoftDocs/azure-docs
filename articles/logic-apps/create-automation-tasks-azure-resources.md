@@ -176,7 +176,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
 
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create your first integration workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create an example Consumption logic app workflow - Azure portal](quickstart-create-example-consumption-workflow.md).
 
 <a name="edit-task"></a>
 

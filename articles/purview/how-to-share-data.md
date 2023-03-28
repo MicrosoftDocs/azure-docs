@@ -52,14 +52,9 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     ```
     The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
-* A source storage account **created after the registration step is completed**. Source storage account can be in a different Azure region from your Microsoft Purview account, but needs to follow these configurations:
+[!INCLUDE [share-storage-configuration](includes/share-storage-configuration.md)]
 
-    > [!NOTE]
-    > The following are supported storage account configurations:
-    >
-    > - Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North 
-    > - Performance: Standard
-    > - Redundancy options: LRS, GRS, RA-GRS
+* A source storage account **created after the registration step is completed**. Source storage account can be in a different Azure region from your Microsoft Purview account, but needs to follow the available configurations.
 
 * You need the **Owner** or **Storage Blob Data Owner** role on the source storage account to be able to share data. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source page.
 

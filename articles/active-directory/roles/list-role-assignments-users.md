@@ -1,5 +1,5 @@
 ---
-title: List Azure AD role assignments for a user - Azure Active Directory
+title: List Azure AD role assignments for a user
 description: Learn how to list Azure AD roles assignments of a user
 services: active-directory
 author: rolyon

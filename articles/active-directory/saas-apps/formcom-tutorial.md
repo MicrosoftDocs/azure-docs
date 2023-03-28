@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Form.com | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Form.com'
 description: Learn how to configure single sign-on between Azure Active Directory and Form.com.
 services: active-directory
 author: jeevansd

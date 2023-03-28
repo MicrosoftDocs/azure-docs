@@ -93,6 +93,8 @@ items:
       href: whats-new-archive.md
   - name: Frequently asked questions
     href: active-directory-faq.yml
+  - name: Company branding CSS template reference guide
+    href: reference-company-branding-css-template.md
   - name: Compliance
     expanded: false
     items:

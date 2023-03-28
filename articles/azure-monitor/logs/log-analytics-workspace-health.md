@@ -37,15 +37,24 @@ To view your Log Analytics workspace health and set up health status alerts:
    
     :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency.png" alt-text="Screenshot that shows the Resource health screen for a Log Analytics workspace.":::  
     
-1. To set up health status alerts:
-    1. Select **Add resource health alert**.
+1. To set up health status alerts, you can either [enable recommended out-of-the-box alert](../alerts/alerts-overview.md#recommended-alert-rules) rules, or manually create new alert rules.
+    - To enable the recommended alert rules:
+        1. select **Alerts**, then select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
+        1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, you can change the default values if you would like.
+        1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
+        1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
+        1. Select **Enable**.
+
+        :::image type="content" source="../alerts/media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::
+
+    - To create a new alert rule:
+       1. Select **Add resource health alert**.
+        
+            The **Create alert rule** wizard opens, with the **Scope** and **Condition** panes pre-populated. By default, the rule triggers alerts all status changes in all Log Analytics workspaces in the subscription. If necessary, you can edit and modify the scope and condition at this stage. 
     
-        The **Create alert rule** wizard opens, with the **Scope** and **Condition** panes pre-populated. By default, the rule triggers alerts all status changes in all Log Analytics workspaces in the subscription. If necessary, you can edit and modify the scope and condition at this stage. 
+            :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::
 
-        :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::  
-
-    1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
-
+       1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
 ## Investigate Log Analytics workspace health issues
 
 To investigate Log Analytics workspace health issues:

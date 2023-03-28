@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/23/2018 
+ms.date: 03/20/2023 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -24,7 +25,7 @@ This tutorial uses Azure PowerShell within the Cloud Shell, which is constantly 
 
 In order to restrict what extensions can be installed, you need to have a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to provide the logic to identify the extension.
 
-This example shows you how to deny extensions published by 'Microsoft.Compute' by creating a rules file in Azure Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
+This example shows you how to deny extensions published by 'Microsoft. Compute' by creating a rules file in Azure Cloud Shell, but if you're working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
 In a [Cloud Shell](https://shell.azure.com/powershell), type:
 
@@ -58,13 +59,13 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
+When you're done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
 
 ## Create a parameters file
 
 You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
 
-This example shows you how to create a parameters file for VMs in Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
+This example shows you how to create a parameters file for VMs in Cloud Shell, but if you're working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
 In [Cloud Shell](https://shell.azure.com/powershell), type:
 
@@ -86,13 +87,13 @@ Copy and paste the following .json into the file.
 }
 ```
 
-When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
+When you're done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
 
 ## Create the policy
 
 A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create a policy definition using the [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition) cmdlet.
 
- The policy rules and parameters are the files you created and stored as .json files in your cloud shell.
+ The policy rules and parameter values below are the files you created and stored as .json files in your Cloud Shell. Replace the file paths as needed.
 
 
 ```azurepowershell-interactive
@@ -109,7 +110,7 @@ $definition = New-AzPolicyDefinition `
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. 
+This example assigns the policy to a resource group using [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Any VM created in the **myResourceGroup** resource group won't be able to install the VM Access Agent or Custom Script extensions. 
 
 Use the [Get-AzSubscription | Format-Table](/powershell/module/az.accounts/get-azsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
 
@@ -132,7 +133,7 @@ $assignment
 
 ## Test the policy
 
-To test the policy, try to use the VM Access extension. The following should fail with the message "Set-AzVMAccessExtension : Resource 'myVMAccess' was disallowed by policy."
+To test the policy, try to use the VM Access extension. The following should fail with the message "Set-AzVMAccessExtension: Resource 'myVMAccess' was disallowed by policy."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
