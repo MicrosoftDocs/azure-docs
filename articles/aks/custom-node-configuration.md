@@ -166,10 +166,10 @@ Create a `kubeletconfig.json` file with the following contents (for Windows node
 
 ```json
 {
-  "imageGcHighThreshold": 90,
-   "imageGcLowThreshold": 70,
-   "containerLogMaxSizeMB": 20,
-   "containerLogMaxFiles": 6
+ "imageGcHighThreshold": 90,
+ "imageGcLowThreshold": 70,
+ "containerLogMaxSizeMB": 20,
+ "containerLogMaxFiles": 6
 }
 ```
 
