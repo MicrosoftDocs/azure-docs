@@ -87,7 +87,7 @@ When a device fails to connect to IoT Hub, or is disconnected from IoT Hub, reco
 |---------|---------|
 |For errors that allow connection retries (HTTP response code 500) | Use an exponential back-off with jitter delay function. <br>  Reconnect to IoT Hub. |
 |For errors that indicate a retry is possible, but reconnection has failed 10 consecutive times | Reprovision the device to DPS. |
-|For errors that don't allow retries (HTTP responses 401, Unauthorized or 403, Forbidden or 404, Not Found) | Reprovision the device to DPS. |
+|For errors that don't allow connection retries (HTTP responses 401, Unauthorized or 403, Forbidden or 404, Not Found) | Reprovision the device to DPS. |
 
 The following diagram summarizes the reconnection flow:
 
