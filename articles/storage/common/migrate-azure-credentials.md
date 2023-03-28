@@ -98,42 +98,7 @@ To use the Azure CLI to associate an identity with your app, use the following c
 
 # [Service Connector](#tab/service-connector-identity)
 
-You can use Service Connector to create a connection between an Azure compute hosting environment and a target service using the Azure CLI. The CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [portal instructions](#create-the-managed-identity-using-the-azure-portal).
-
-If you're using an Azure App Service, use the `az webapp connection` command:
-
-```azurecli
-az webapp connection create storage-blob \
-    --resource-group <resource-group-name> \
-    --name <webapp-name> \
-    --target-resource-group <target-resource-group-name> \
-    --account <target-storage-account-name> \
-    --system-identity
-```
-
-If you're using Azure Spring Apps, use `the az spring-cloud connection` command:
-
-```azurecli
-az spring-cloud connection create storage-blob \
-    --resource-group <resource-group-name> \
-    --service <service-instance-name> \
-    --app <app-name> \
-    --deployment <deployment-name> \
-    --target-resource-group <target-resource-group> \
-    --account <target-storage-account-name> \
-    --system-identity
-```
-
-If you're using Azure Container Apps, use the `az containerapp connection` command:
-
-```azurecli
-az containerapp connection create storage-blob \
-    --resource-group <resource-group-name> \
-    --name <containerapp-name> \
-    --target-resource-group <target-resource-group-name> \
-    --account <target-storage-account-name> \
-    --system-identity
-```
+[!INCLUDE [service-connector-commands](../../../includes/passwordless/migration-guide/service-connector-commands.md)]
 
 # [Azure App Service](#tab/app-service-identity)
 
