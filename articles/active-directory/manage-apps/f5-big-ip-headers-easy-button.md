@@ -272,10 +272,10 @@ A virtual server is a BIG-IP data plane object, represented by a virtual IP addr
 The **Application Pool** tab has services behind a BIG-IP, represented as a pool, with one or more application servers.
 
 1. For **Select a Pool**, select **Create New**, or select another.
-2. Choose the **Load Balancing Method** as *Round Robin*.
-3. For **Pool Servers** select an existing node or specify an IP and port for the server hosting the header-based application
+2. For **Load Balancing Method**, select **Round Robin**.
+3. For **Pool Servers**, select a node, or select an IP address and port for the server hosting the header-based application.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
+   ![Screenshot of IP Address or Node name, and Port input on Pool Properties.](./media/f5-big-ip-oracle/application-pool.png)
 
    > [!NOTE]
    > The Microsoft back-end application is on HTTP Port 80. If you select HTTPS, use **443**.
@@ -302,46 +302,60 @@ Use BIG-IP session management settings to define conditions for user sessions te
 
 To learn more, go to support.f5.com for [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492)
 
-Single log-out (SLO) ensures IdP, BIG-IP, and user agent sessions terminate when users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign out URL, with the APM SLO endpoint. IdP-initiated sign out from My Apps terminate BIG-IP and client sessions.
+Single log-out (SLO) ensures IdP, BIG-IP, and user agent sessions terminate when users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it populates the sign out URL, with the APM SLO endpoint. IdP-initiated sign out from My Apps terminates BIG-IP and client sessions.
 
 Learn more: see, [My Apps](https://myapplications.microsoft.com/)
 
-Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
+The SAML federation metadata for the published application is imported from your tenant. The import provides the APM with the SAML sign out endpoint for Azure AD. This ensures SP-initiated sign out terminates client and Azure AD sessions. Ensure the APM knows when user sign out occurs.
 
-If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
+If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
 
-If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+If you can't change the app, enable the BIG-IP to listen for the application sign out call and trigger SLO. 
 
-## Summary
+Learn more: 
 
-This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
+* [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
+* Go to support.f5.com for:
+  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
+  * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
 
-Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. 
+## Deploy
 
-## Next steps
+Deployment provides a breakdown of your configurations. 
 
-From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapplications.microsoft.com/). After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+1. To commit settings, select **Deploy**.
+2. Verify the application in in your tenant list of Enterprise applications.
+3. The application is published and accessible via SHA, with its URL, or on Microsoft application portals. 
 
-This shows the output of the injected headers displayed by our headers-based application.
+## Test
 
-   ![Screenshot for App views](./media/f5-big-ip-easy-button-ldap/app-view.png)
+1. From a browser, connect to the application external URL or select the application icon on [My Apps](https://myapplications.microsoft.com/). 
+2. Authenticate to Azure AD.
+3. You’re redirected to the BIG-IP virtual server for the application and signed in with SSO.
 
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+The following screenshot is injected headers output from the header-based application.
+
+   ![Screenshot of UPN, employee ID, and event roles under Server Variables.](./media/f5-big-ip-easy-button-ldap/app-view.png)
+
+   > [!NOTE]
+   > You can block direct access to the application, thereby enforcing a path through the BIG-IP.
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md).
+For some scenarios, Guided Configuration templates lack flexibility. 
 
-Alternatively, the BIG-IP gives you the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md).
 
-You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+In BIG-IP, you can disable the Guided Configuration strict management mode. Then, manually change configurations, however most configurations are automated with wizard templates.
 
-   ![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+1. To disable strict mode, navigate to **Access > Guided Configuration**.
+2. On the row for the application configuration, select the **padlock** icon. 
+3. BIG-IP objects associated with the published instance of the application are unlocked for management. Changes with the wizard are no longer possible.
 
-At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+   ![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
-> [!NOTE] 
-> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+   > [!NOTE] 
+   > If you ree-enable strict mode and deploy a configuration, the action overwrites settings not in the Guided Configuration. We recommend the advanced configuration for production services.
 
 ## Troubleshooting
 
