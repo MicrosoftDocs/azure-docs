@@ -12,7 +12,7 @@ ms.date: 08/16/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
 ---
-# Collect data from models in production
+# Collect data from models in production (preview)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -27,6 +27,9 @@ Once collection is enabled, the data you collect helps you:
 * Make better decisions about when to retrain or optimize your model.
 
 * Retrain your model with the collected data.
+
+>[!NOTE]
+> The data collection feature is currently in preview, any preview features are not recommended for production workloads.
 
 ## What is collected and where it goes
 
