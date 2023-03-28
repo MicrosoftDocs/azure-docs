@@ -87,7 +87,7 @@ If the source is a blob in another storage account, the source blob must either 
 
 The following example shows a scenario for copying a blob from another storage account. In this example, we create a source blob URI with an appended SAS token by calling [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) on the blob client. To use this method, the source blob client needs to be authorized via account key. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyAcrossAccounts_PutBlobFromURL":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs" id="Snippet_CopyAcrossAccounts_PutBlobFromURL":::
 
 If you already have a SAS token, you can construct the URI for the source blob as follows:
 
