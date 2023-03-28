@@ -190,7 +190,7 @@ sudo yum install util-linux
 sudo fstrim /datadrive
 ```
 
-# [SUSE](#tab/suse)
+# [SLES](#tab/suse)
 
 ```bash
 sudo zypper in util-linux
