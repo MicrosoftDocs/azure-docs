@@ -124,7 +124,7 @@ The following example shows traffic splitting between two revisions by name:
   },
 ```
 
-The following example shows traffic splitting between two revision by label:
+The following example shows traffic splitting between two revisions by label:
 
 ```json
 {

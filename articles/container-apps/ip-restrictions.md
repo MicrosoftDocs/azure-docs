@@ -19,9 +19,9 @@ There are two types of restrictions:
 * *Allow*: Allow inbound traffic only from address ranges you specify in allow rules.
 * *Deny*: Deny all inbound traffic only from address ranges you specify in deny rules.
 
-If no IP restriction rules are defined, all inbound traffic is allowed.
+when no IP restriction rules are defined, all inbound traffic is allowed.
 
-IP restrictions are defined by one or more rules with the following properties:
+IP restrictions rules contain the following properties:
 
 | Property | Value | Description |
 |----------|-------|-------------|
@@ -30,7 +30,7 @@ IP restrictions are defined by one or more rules with the following properties:
 | ipAddressRange | IP address range in CIDR format | The IP address range in CIDR notation. |
 | action | Allow or Deny | The action to take for the rule. |
 
-The ipAddressRange parameter accepts IPv4 addresses. Define each IPv4 address block in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.  
+The `ipAddressRange` parameter accepts IPv4 addresses. Define each IPv4 address block in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.  
 
 > [!NOTE]
 > All rules must be the same type. You cannot combine allow rules and deny rules.
@@ -108,7 +108,7 @@ Add more rules by repeating the command with a different `--rule-name` and -`--i
 
 #### Create allow rules
 
-The following example `az containerapp access-restriction set` command creates a rule to restrict inbound access to a IP address range.  Note that you must delete any existing deny rules before you can add allow rules.
+The following example `az containerapp access-restriction set` command creates a rule to restrict inbound access to an IP address range.  You must delete any existing deny rules before you can add any allow rules.
 
 Replace the values in the following example with your own values.
 
@@ -126,7 +126,7 @@ You can add to the allow rules by repeating the command with a different `--ip-a
 
 #### Create deny rules
 
-The following example of the `az containerapp access-restriction set` command creates an access rule to deny inbound traffic from a specified IP range.  Note that you must delete any existing allow rules before you can add deny rules.
+The following example of the `az containerapp access-restriction set` command creates an access rule to deny inbound traffic from a specified IP range.  You must delete any existing allow rules before you can add deny rules.
 
 Replace the placeholders in the following example with your own values.
 
@@ -146,7 +146,7 @@ You can add to the deny rules by repeating the command with a different `--ip-ad
 
 You can update a rule using the `az containerapp ingress access-restriction set` command.  You can change the IP address range and the rule description, but not the rule name or action.
 
-The `--action` parameter is required, but you cannot change the action from Allow to Deny or vice versa.  
+The `--action` parameter is required, but you can't change the action from Allow to Deny or vice versa.  
 If you omit the `---description` parameter, the description is deleted.
 
 The following example updates the ip address range.

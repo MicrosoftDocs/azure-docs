@@ -23,10 +23,10 @@ Ingress supports:
 - [Traffic splitting between revisions](#traffic-splitting)
 - [Session affinity](#session-affinity)
 
-<!--
-> [!NOTE]
-> Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
--->
+Example ingress configuration showing ingress split between two revisions:
+
+:::image type="content" source="media/ingress/ingress-diagram.png" alt-text="Diagram showing an ingress configuration splitting traffic between two revisions.":::
+
 For configuration details, see [Configure ingress](ingress-how-to.md).
 
 ## External and internal ingress
@@ -84,6 +84,8 @@ You can access your app in the following ways:
 - The default fully qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 - A custom domain name:  You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 - The app name: You can use the app name for communication between apps in the same environment.
+
+To get the FQDN for your app, see [Location](connect-apps.md#location).
 
 ## IP restrictions
 

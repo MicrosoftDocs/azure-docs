@@ -18,7 +18,7 @@ Session affinity, also known as sticky sessions, is a feature that allows you to
 
 Session stickiness is enforced using HTTP cookies. This feature is available in single revision mode when HTTP ingress is enabled. A client may be routed to a new replica if the previous replica is no longer available.
 
-If your app doesn't require session affinity, we recommend that you don't enable it. This allows the ingress to distribute requests more evenly across replicas, which improves the performance of your app.
+If your app doesn't require session affinity, we recommend that you don't enable it. With session affinity disabled, ingress distributes requests more evenly across replicas improving the performance of your app.
 
 Note session affinity is only supported when your app is in [single revision mode](revisions.md#single-revision-mode) and the ingress type is HTTP.
 

@@ -161,6 +161,8 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 
 ---
 
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]
