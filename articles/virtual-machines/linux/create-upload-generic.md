@@ -184,8 +184,9 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    **Initramfs**
 
    ```bash
-   sudo cp  /boot/initramfs-<kernel-version>.img <kernel-version>.img.bak 
-   sudo dracut -f -v  /boot/initramfs-<kernel-version>.img <kernel-version> --add-drivers "hv_vmbus hv_netvsc hv_storvsc"
+   sudo cd /boot
+   sudo cp initramfs-<kernel-version>.img <kernel-version>.img.bak 
+   sudo dracut -f -v initramfs-<kernel-version>.img <kernel-version> --add-drivers "hv_vmbus hv_netvsc hv_storvsc"
    sudo grub-mkconfig -o /boot/grub/grub.cfg 
    sudo grub2-mkconfig -o /boot/grub2/grub.cfg 
    ```
@@ -193,8 +194,9 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    **Initrd**
 
    ```bash
-   sudo mv /boot/initrd.img-<kernel-version> <kernel-version>.old 
-   sudo mkinitramfs -o /boot/initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
+   sudo cd /boot
+   sudo cp initrd.img-<kernel-version>  initrd.img-<kernel-version>.bak
+   sudo mkinitramfs -o initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
    sudo update-grub 
    ```
 4. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
