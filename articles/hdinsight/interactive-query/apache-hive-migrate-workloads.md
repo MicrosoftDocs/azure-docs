@@ -51,6 +51,8 @@ HiveServer enforces allowlist and blocklist settings that you can change using `
 
 Hive now supports only a remote metastore instead of an embedded metastore (within HS2 JVM). The Hive metastore resides on a node in a cluster managed by Ambari as part of the HDInsight stack. A standalone server outside the cluster isn't supported. You no longer set key=value commands on the command line to configure Hive Metastore. Based on the value configured in "hive.metastore.uris=' ' " HMS service used and connection established.
 
+#### Execution engine change
+
 Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is deprecated starting Hive 2.0 Refer [HIVE-12300](https://issues.apache.org/jira/browse/HIVE-12300). With expressions of directed acyclic graphs (DAGs) and data transfer primitives, execution of Hive queries under Tez improves performance. SQL queries you submit to Hive are executed as follows
 
 1. Hive compiles the query.
@@ -61,15 +63,14 @@ Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is
 
 If a legacy script or application specifies MapReduce for execution, an exception occurs as follows
 
-
 :::image type="content" source="./media/apache-hive-migrate-workloads/map-reducer-exception.png" alt-text="Screenshot showing map reducer exception output." lightbox="./media/apache-hive-migrate-workloads/map-reducer-exception.png":::
 
 > [!NOTE]
 > Most user-defined functions (UDFs) require no change to execute on Tez instead of MapReduce.
 
-Mature versions of ACID transaction processing and LLAP
+**Mature versions of ACID transaction processing and LLAP**
 
-1. ACID tables are the default table type in HDP 3.0 with no performance or operational overload.
+1. ACID tables are the default table type in HDInsight 4.x with no performance or operational overload.
 1. Simplified application development, operations with stronger transactional guarantees, and simpler semantics for SQL commands
 1. Hive internal takes care of bucketing for ACID tables in HDInsight 4.1, thus removing maintenance overhead.
 1. Advanced optimizations – Upgrade in CBO
@@ -207,7 +208,7 @@ ERROR:
 Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Table work.rt failed strict managed table checks due to the following reason: Table is marked as a managed table but isn't transactional. (state=08S01,code=1)
 ```
 
-Here we're trying to change the external table first to managed table. In HDP-3.x, it should be Strictly managed table (which means it should be ACID).
+Here we're trying to change the external table first to managed table. In HDInsight 4.x, it should be Strictly managed table (which means it should be ACID).
 So, here you get a deadlock. The only way to convert the external table(NON_ACID) to managed (ACID) you have to follow the command:
 
 ```
@@ -483,7 +484,7 @@ Download these two files from the link. And copy these files to one of the head 
 1. Create a directory called "schemacompare" under "/tmp" directory.
 1. Put the "schemacompare_final.py" and "test.csv" into the folder "/tmp/schemacompare". Do "ls -ltrh /tmp/schemacompare/" and verify whether the files are present.
 1. To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete.
-The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After you update the details in the "return.csv", it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
+The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After after creating the file return.csv, it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
     Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing
     ```
