@@ -615,7 +615,7 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
 7. Ensure that the network service will start at boot time by running the following command:
 
     ```bash
-    # chkconfig network on
+    sudo chkconfig network on
     ```
 
 8. Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
