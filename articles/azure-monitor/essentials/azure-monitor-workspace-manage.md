@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 03/28/2023
 ---
 
 # Manage an Azure Monitor workspace
