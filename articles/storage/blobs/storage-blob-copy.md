@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 # Copy a blob with .NET
 
-This article shows how to copy a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and focuses on copy scenarios using the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url), [Put Block From URL](/rest/api/storageservices/put-blob-from-url), and [Copy Blob](/rest/api/storageservices/copy-blob) REST API operations. You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL.
+This article shows how to copy a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and focuses on copy scenarios using the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) and [Copy Blob](/rest/api/storageservices/copy-blob) REST API operations. You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following methods wrap the [Put Blob From URL](/rest/api/storageservices/put
 
 These methods are preferred for scenarios where you want to move data into a storage account and have a URL for the source object.
 
-For larger objects, you may choose to work with individual blocks. The following methods wrap the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation, and create a new block to be committed as part of a blob where the contents are read from a source URL:
+For larger objects, you may choose to work with individual blocks. The following methods wrap the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. These methods create a new block to be committed as part of a blob where the contents are read from a source URL:
 
 - [StageBlockFromUri](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuri)
 - [StageBlockFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuriasync)

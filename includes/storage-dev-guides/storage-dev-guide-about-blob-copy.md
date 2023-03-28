@@ -17,11 +17,11 @@ Copy operations can be used to move data within a storage account, between stora
 - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url): This operation is preferred for scenarios where you want to move data into a storage account and have a URL for the source object. For large objects, you can use a combination of [Put Block From URL](/rest/api/storageservices/put-block-from-url) and [Put Block List](/rest/api/storageservices/put-block-list). These copy operations complete synchronously.
 - [Copy Blob](/rest/api/storageservices/copy-blob): This operation is used when asynchronous scheduling is needed for a copy operation.
 
-You can also copy resources using the AzCopy command-line utility. To learn more, see [Get started with AzCopy](../../articles/storage/common/storage-use-azcopy-v10.md)
+You can also copy resources using the AzCopy command-line utility. To learn more, see [Get started with AzCopy](../../articles/storage/common/storage-use-azcopy-v10.md).
 
 ## [Put Blob From URL API](#tab/put-blob-from-url)
 
-The `Put Blob From URL` operation creates a new block blob where the contents of the blob are read from a given URL. The operation completes synchronously.
+The `Put Blob From URL` operation creates a new block blob where the contents of the blob are read from a given URL. The operation completes synchronously. For append blobs, use [Append Block From URL](/rest/api/storageservices/append-block-from-url). For page blobs, use [Put Page From URL](/rest/api/storageservices/put-page-from-url).
 
 #### Source
 
@@ -38,15 +38,13 @@ The following table shows the maximum blob size for a single write operation via
 
 #### Destination
 
-The destination is always a block blob, either an existing block blob, or a new block blob created by the operation.
+The destination is always a block blob, either an existing block blob, or a new block blob created by the operation. The contents of an existing blob are overwritten with the contents of the new blob.
 
-The source blob may be one of the following types: block blob, append blob, page blob, blob snapshot, or blob version. The operation `Put Blob From URL` operation always copies the entire source blob. Copying a range of bytes or set of blocks isn't supported.
-
-If the destination blob already exists, it must be of the same blob type as the source blob, and the existing destination blob is overwritten. The destination blob can't be modified while a copy operation is in progress, and a destination blob can only have one outstanding copy operation.
+The `Put Blob From URL` operation always copies the entire source blob. Copying a range of bytes or set of blocks isn't supported. To perform partial updates to a block blob’s contents by using a source URL, use the [Put Block From URL](/rest/api/storageservices/put-block-from-url) API along with [Put Block List](/rest/api/storageservices/put-block-list).
 
 #### Copying blob properties, tags, and metadata
 
-When a blob is copied, its system properties are copied to the destination blob with the same values. Tags are only copied from the source blob if they're specified as part of the upload options. When the source blob and destination blob are the same, any existing metadata is overwritten with the new metadata.
+When a blob is copied, its system properties are copied to the destination blob with the same values. Tags are only copied from the source blob if they're specified as part of the upload options.
 
 #### Billing considerations
 
@@ -54,10 +52,12 @@ The destination account of a `Put Blob From URL` operation is charged for one tr
 
 In addition, if the source and destination accounts reside in different regions, bandwidth that's used to transfer the request is charged to the source storage account as egress. Egress between accounts within the same region is free.
 
-Creating a new blob with a different name within the same storage account uses additional storage resources. This scenario results in a charge against the storage account's capacity usage for those additional resources.
+Creating a new blob with a different name within the same storage account uses extra storage resources. This scenario results in a charge against the storage account's capacity usage for those additional resources.
 
 
 ## [Copy Blob API](#tab/copy-blob)
+
+#### Overview
 
 The `Copy Blob` operation can finish asynchronously, and is performed on a best-effort basis. The operation can complete synchronously if the copy occurs within the same storage account. A `Copy Blob` operation can perform any of the following actions:
 
@@ -77,7 +77,7 @@ When a blob is copied, its system properties are copied to the destination blob 
 
 #### Copying a leased blob
 
-A copy operation only reads from the source blob, so the source blob lease state doesn't affect the operation. However, the `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails. You can prevent changes to the source blob by leasing it for the duration of the copy operation.
+A copy operation only reads from the source blob, so the source blob lease state doesn't affect the operation. However, the `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails. You can prevent changes to the source blob by leasing it during the copy operation.
 
 #### Billing considerations
 
