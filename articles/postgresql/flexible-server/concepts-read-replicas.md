@@ -165,6 +165,14 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 
 During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
 
+### Replication slot issues mitigation
+
+In rare cases, high lag caused by replication slots can lead to an increase in storage usage on the primary server due to the accumulation of WAL files. If the storage usage reaches 95% or the available capacity falls below 5 GiB, the server automatically switches to read-only mode to prevent disk-full errors.
+
+Since maintaining the primary server's health and functionality is a priority, in such edge cases, the replication slot may be dropped to ensure the primary server remains operational for read and write traffic. Consequently, replication will switch to log shipping mode, which could result in a higher replication lag.
+
+It is essential to monitor storage usage and replication lag closely, and take necessary actions to mitigate potential issues before they escalate.
+
 ### Server parameters
 
 You are free to change server parameters on your read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. Please ensure these parameters ale always [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery.
