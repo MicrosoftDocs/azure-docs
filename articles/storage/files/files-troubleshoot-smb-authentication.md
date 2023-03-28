@@ -4,7 +4,7 @@ description: Troubleshoot problems using identity-based authentication to connec
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 03/27/2023
+ms.date: 03/28/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -322,7 +322,7 @@ Once you've reconfigured Azure AD Kerberos, the new experience will auto-create 
 
 ### Error 1326 - The username or password is incorrect
 
-If you're connecting to a storage account using a private endpoint/private link, when attempting to mount a file share via `net use` or other method, the client is prompted for credentials. The user will likely type their credentials in, but they are rejected.
+If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, when attempting to mount a file share via `net use` or other method, the client is prompted for credentials. The user will likely type their credentials in, but the credentials are rejected.
 
 #### Cause 
 
