@@ -78,11 +78,12 @@ You can install any provider package by editing the airflow environment from the
 
 ## Limitations
 
-* Airflow availability in other regions will be available by GA (Tentative GA : Q2 2023 ).
+* Managed Airflow in other regions will be available by GA (Tentative GA is Q2 2023 ).
 * Data Sources connecting through airflow should be publicly accessible. 
-* Blob Storage behind VNet are not supported during the public preview (Tentative GA : Q2 2023)
-* KeyVault configuration in storageLinkedServices not supported to import dags.(Tentative GA : Q2 2023)
-* Airflow supports officially Blob Storage but also allows to use of ADLS with some limitations.
+* Blob Storage behind VNet are not supported during the public preview (Tentative GA is Q2 2023
+* DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
+* Azure Key Vault is not supported in LinkedServices to import dags.(Tentative GA is Q2 2023)
+* Airflow supports officially Blob Storage and ADLS with some limitations.
 
 ## Next steps
 
