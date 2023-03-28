@@ -10,13 +10,13 @@ ms.service: chaos-studio
 ---
 # VNet injection in Chaos Studio
 
-Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own data center, but brings with it additional benefits of Azure's infrastructure such as scale, availability, and isolation.
+Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own data center, but brings with it other benefits of Azure's infrastructure such as scale, availability, and isolation.
 
 VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet.
 
 ## Resource type support
 Currently, you can only enable certain resource types for Chaos Studio VNet injection.
-* **Azure Kubernetes Service** targets can be enabled with VNet injection through Azure Portal and Azure CLI.
+* **Azure Kubernetes Service** targets can be enabled with VNet injection through the Azure portal and Azure CLI.
 * **Key Vault** targets can be enabled with VNet injection through the Azure CLI.
 
 ## Use Chaos Studio with a private AKS cluster
@@ -29,11 +29,11 @@ To configure VNet injection, use the following steps.
 ### [Azure portal](#tab/azure-portal)
 
 1. Within the Azure portal, navigate to **Subscriptions**, then **Resource providers** within your subscription. 
-1. Register the `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers, if they aren't already registered, by selecting the provider and then the **Register** button. Additionally, re-register the `Microsoft.ChaosStudio` resource provider.
+1. Register the `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers, if they aren't already registered, by selecting the provider and then the **Register** button. Additionally, re-register the `Microsoft.Chaos` resource provider.
 ![Register a resource provider](images/vnet-register-resource-provider.png)
 1. Navigate to Azure Chaos Studio and select **Targets**. Find your desired AKS cluster and select **Enable targets**, then **Enable service-direct targets**.
 ![Enable targets in Chaos Studio](images/vnet-enable-targets.png)
-1. Select the cluster's Virtual Network. If the VNet already includes Subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they will be automatically created for you.
+1. Select the cluster's Virtual Network. If the VNet already includes Subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they'll be automatically created for you.
 ![Select the VNet and Subnets](images/vnet-select-subnets.png)
 1. Select **Review + Enable** and **Enable**.
 ![Review the target enablement](images/vnet-review.png)
@@ -132,7 +132,7 @@ Now your private AKS cluster can be used with Chaos Studio! Use the following in
 
 ## Limitations
 * VNet injection is currently only possible in subscriptions/regions where Azure Container Instances and Azure Relay are available.
-* When you create a Target resource that you'll enable with VNet injection, you need `Microsoft.Network/virtualNetworks/subnets/write` access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster. You have to specify a subnet (in VNet_A) that the container will be deployed to.
+* When you create a Target resource that you'll enable with VNet injection, you need `Microsoft.Network/virtualNetworks/subnets/write` access to the virtual network. For example, if the AKS cluster is deployed to VNet_A, then you must have permissions to create subnets in VNet_A in order to enable VNet injection for the AKS cluster.
 
 <!--
 ![Target resource with VNet Injection](images/chaos-studio-rp-vnet-injection.png)
