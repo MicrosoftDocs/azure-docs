@@ -95,7 +95,9 @@ Use `New-AzMobileNetworkPacketCoreControlPlane` to create a new **Packet Core Co
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```powershell
-New-AzMobileNetworkPacketCoreControlPlane -Name <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -LocalDiagnosticAccessAuthenticationType Password -Location eastus -PlatformType AKS-HCI -Site $siteResourceId -Sku G0 -ControlPlaneAccessInterfaceIpv4Address 192.168.1.10 -ControlPlaneAccessInterfaceIpv4Gateway 192.168.1.1 -ControlPlaneAccessInterfaceIpv4Subnet 192.168.1.0/24 -ControlPlaneAccessInterfaceName N2 -CoreNetworkTechnology 5GC
+$aseId = "/subscriptions/9e276fe5-9273-4474-80c6-032321ab3795/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/<ASE>"
+$customLocationId = "/subscriptions/9e276fe5-9273-4474-80c6-032321ab3795/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOMLOCATION>"
+New-AzMobileNetworkPacketCoreControlPlane -Name <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -LocalDiagnosticAccessAuthenticationType Password -Location eastus -PlatformType AKS-HCI -Site $siteResourceId -Sku G0 -ControlPlaneAccessInterfaceIpv4Address 10.232.44.56 -ControlPlaneAccessInterfaceName N2 -AzureStackEdgeDeviceId $aseId -CustomLocationId $customLocationId
 ```
 
 ### Create a Packet Core Data Plane resource
@@ -109,7 +111,7 @@ Use `New-AzMobileNetworkPacketCoreDataPlane` to create a new **Packet Core Data 
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```powershell
-New-AzMobileNetworkPacketCoreDataPlane -Name <DATAPLANE> -PacketCoreControlPlaneName <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -Location eastus -UserPlaneAccessInterfaceIpv4Address 10.0.1.10 -UserPlaneAccessInterfaceIpv4Gateway 10.0.1.1 -UserPlaneAccessInterfaceIpv4Subnet 10.0.1.0/24 -UserPlaneAccessInterfaceName N3
+New-AzMobileNetworkPacketCoreDataPlane -Name <DATAPLANE> -PacketCoreControlPlaneName <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -Location eastus -UserPlaneAccessInterfaceName N3
 ```
 
 ### Create a Data Network
@@ -242,7 +244,7 @@ Use `New-AzMobileNetworkAttachedDataNetwork` to attach the **Data Network** you 
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 
 ```powershell
-New-AzMobileNetworkAttachedDataNetwork -Name <DATANETWORK> -PacketCoreControlPlaneName <CONTROLPLANE> -PacketCoreDataPlaneName <DATAPLANE> -ResourceGroupName <RESOURCEGROUP> -DnsAddress $dns -Location eastus -UserPlaneDataInterfaceIpv4Address 10.0.0.10 -UserPlaneDataInterfaceIpv4Gateway 10.0.0.1 -UserPlaneDataInterfaceIpv4Subnet 10.0.0.0/24 -UserPlaneDataInterfaceName N6
+ New-AzMobileNetworkAttachedDataNetwork -Name <DATANETWORK> -PacketCoreControlPlaneName <CONTROLPLANE> -PacketCoreDataPlaneName <DATAPLANE> -ResourceGroupName <RESOURCEGROUP> -DnsAddress "1.1.1.1" -Location eastus -UserPlaneDataInterfaceName N6 -UserEquipmentAddressPoolPrefix "192.168.1.0/24"
 ```
 
 ## Clean up resources
