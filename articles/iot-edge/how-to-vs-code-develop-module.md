@@ -617,6 +617,26 @@ You can check your container status from your device or virtual machine by runni
 
 ::: zone pivot="iotedge-dev-cli"
 
+#### Sign in to Docker
+
+Provide your container registry credentials to Docker so that it can push your container image to storage in the registry.
+
+1. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
+
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
+
+   You may receive a security warning recommending the use of `--password-stdin`. While that is a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+
+1. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
+
+   ```azurecli
+   az acr login -n <ACR registry name>
+   ```
+>[!TIP]
+>If you get logged out at any point in this tutorial, repeat the Docker and Azure Container Registry sign in steps to continue.
+
 #### Build module Docker image
 
 Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/commandline/build/) the module Docker image.

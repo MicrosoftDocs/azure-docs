@@ -1014,7 +1014,7 @@ You've reviewed the module code and the deployment template to understand some k
 
 Provide your container registry credentials to Docker so that it can push your container image to storage in the registry.
 
-1. Open the Visual Studio Code integrated terminal by selecting **Terminal** > **New Terminal** or `Ctrl` + `Shift` + **`** (backtick).
+1. Open the Visual Studio Code integrated terminal by selecting **Terminal** > **New Terminal**.
 
 2. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
 
