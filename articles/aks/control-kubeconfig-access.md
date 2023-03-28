@@ -27,13 +27,13 @@ There are two Azure roles you can apply to an Azure Active Directory (Azure AD) 
 
 1. **Azure Kubernetes Service Cluster Admin Role**
 
-  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
-  * Downloads *kubeconfig* for the *clusterAdmin* role.
+     * Allows access to `Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action` API call. This API call [lists the cluster admin credentials][api-cluster-admin].
+     * Downloads *kubeconfig* for the *clusterAdmin* role.
 
 2. **Azure Kubernetes Service Cluster User Role**
 
-  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
-  * Downloads *kubeconfig* for *clusterUser* role.
+     * Allows access to `Microsoft.ContainerService/managedClusters/listClusterUserCredential/action` API call. This API call [lists the cluster user credentials][api-cluster-user].
+     * Downloads *kubeconfig* for *clusterUser* role.
 
 > [!NOTE]
 > On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a login. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
@@ -42,11 +42,11 @@ There are two Azure roles you can apply to an Azure Active Directory (Azure AD) 
 
 ## Assign role permissions to a user or group
 
-To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group using the following commands:
+To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group using the following steps:
 
-* Get the cluster resource ID using the [`az aks show`][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* Use the [`az account show`][az-account-show] and [`az ad user show`][az-ad-user-show] commands to get your user ID.
-* Assign a role using the [`az role assignment create`][az-role-assignment-create] command.
+1. Get the cluster resource ID using the [`az aks show`][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
+2. Use the [`az account show`][az-account-show] and [`az ad user show`][az-ad-user-show] commands to get your user ID.
+3. Assign a role using the [`az role assignment create`][az-role-assignment-create] command.
 
 The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
@@ -76,7 +76,7 @@ az ad group show --group appdev --query objectId -o tsv
 > [!IMPORTANT]
 > In some cases, such as Azure AD guest users, the *user.name* in the account is different than the *userPrincipalName*.
 >
-> ```output
+> ```azurecli-interactive
 > $ az account show --query user.name -o tsv
 > user@contoso.com
 >
@@ -102,7 +102,11 @@ You can then use the [`kubectl config view`][kubectl-config-view] command to ver
 
 ```azurecli-interactive
 $ kubectl config view
+```
 
+Your output should look similar to the following example output:
+
+```azurecli-interactive
 apiVersion: v1
 clusters:
 - cluster:
