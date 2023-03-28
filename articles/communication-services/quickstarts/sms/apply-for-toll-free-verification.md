@@ -28,7 +28,7 @@ Verification is **required** for best SMS delivery experience.
 ## Submit a toll-free verification
 To begin toll-free verification, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
 
-:::image type="content" source="./media/apply-for-short-code/manage-phone-azure-portal-start1.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/apply-for-toll-free-verification/manage-phone-azure-portal-start-1.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ## Apply for a toll-free verification
 Navigate to the Regulatory Documents blade in the resource menu and click on "Add" button to launch the toll-free verification application wizard. For detailed guidance on how to fill out the program brief application check the [toll-free verification filling guidelines](../../concepts/sms/toll-free-verification-guidelines.md). 
