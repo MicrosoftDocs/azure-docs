@@ -23,7 +23,25 @@ Required. Lead with a light intro that describes what the article covers. Answer
 fundamental “why would I want to know this?” question. Keep it short.
 -->
 
-A l
+## Create a category policy
+Create a category policy such as blocking "social media".
+	1. Go to Global Secure Access.
+	2. Click "Web filtering policies" to create a new policy.
+	3. Click "Create policy"
+	4. Click "Add rule"
+	5. Give a name and keep webCategory selected.
+
+## Create domain specific policy
+Create a Fully Qualified Domain Name (FQDN) to block specific destinations.
+	1. Go to Global Secure Access.
+	2. Click "Web filtering policies" to create a new policy.
+	3. Click "Create policy"
+	4. Click "Add rule"
+	5. Give a name and selected fqdn.
+	6. Enter a destination such as facebook.com.
+	7. Click "Add".
+	8. Click "Create policy".
+
 
 <!-- 3. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
