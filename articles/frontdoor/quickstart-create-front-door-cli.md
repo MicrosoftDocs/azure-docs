@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
 
-For this quickstart, you need a resource groups in *Central US*.
+For this quickstart, you need a resource group in *Central US*.
 
 Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
@@ -58,7 +58,7 @@ If you don't already have a web app, use the following script to set up two exam
 
 ### Create app service plans
 
-Before you can create the web app you will need an app service plans in *Central US*.
+Before you can create the web app you will need an app service plan in *Central US*.
 
 Create app service plans with [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create&preserve-view=true):
 
@@ -70,7 +70,7 @@ az appservice plan create \
 
 ### Create web apps
 
-Running the following commands will create a web app inthe app service plans in the previous step. Web app names have to be globally unique.
+Running the following commands will create a web app in the app service plans in the previous step. Web app names have to be globally unique.
 
 Create web app with [az webapp create](/cli/azure/webapp#az-webapp-create&preserve-view=true):
 
