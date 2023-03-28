@@ -145,7 +145,7 @@ az identity show --name MigrationIdentity -g <your-identity-resource-group-name>
 
 You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command.
 
-```
+```azurecli
 az webapp identity assign \
     --resource-group <resource-group-name> \
     --name <webapp-name>

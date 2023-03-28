@@ -8,4 +8,4 @@
 1. Select **Review & Create** at the bottom of the page.
 1. When the validation checks finish, select **Create**.
 
-Azure will provision a new user-assigned identity. The next step is to configure your web app to use that managed identity.
+Azure will provision a new user-assigned identity.
