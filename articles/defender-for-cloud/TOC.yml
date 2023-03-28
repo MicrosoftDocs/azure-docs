@@ -160,18 +160,26 @@
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Reference list of Azure recommendations
-        displayName: Azure, recommendations
-        href: recommendations-reference.md
-      - name: Reference list of AWS recommendations
-        displayName: AWS, recommendations
-        href: recommendations-reference-aws.md
-      - name: Reference list of GCP recommendations
-        displayName: gcp, recommendations
-        href: recommendations-reference-gcp.md
-      - name: Reference list of attack paths and cloud security graph components
-        displayName: attack, paths, security, graph, components
-        href: attack-path-reference.md
+  - name: Improve your data security posture
+    items:
+    - name: About data-aware security posture
+      href: concept-data-security-posture.md
+    - name: Support and prerequisites
+      href: concept-data-security-posture-prepare.md
+  - name: Security recommendations
+    items:
+    - name: Reference list of Azure recommendations
+      displayName: Azure, recommendations
+      href: recommendations-reference.md
+    - name: Reference list of AWS recommendations
+      displayName: AWS, recommendations
+      href: recommendations-reference-aws.md
+    - name: Reference list of GCP recommendations
+      displayName: gcp, recommendations
+      href: recommendations-reference-gcp.md
+    - name: Reference list of attack paths and cloud security graph components
+      displayName: attack, paths, security, graph, components
+      href: attack-path-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
@@ -217,6 +225,8 @@
     - name: Build interactive reports with Azure Monitor workbooks
       displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
       href: custom-dashboards-azure-workbooks.md
+    - name: Create custom recommendations and security standards
+      href: create-custom-recommendations.md
     - name: View recommendations and alerts in Windows Admin Center
       displayName: windows, admin, center
       href: windows-admin-center-integration.md
@@ -231,6 +241,14 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+  - name: Data-aware security posture
+    items:
+    - name: Enable data-aware security posture
+      href: data-security-posture-enable.md
+    - name: Explore risks to sensitive data
+      href: data-security-review-risks.md
+    - name: Customize sensitivity settings
+      href: data-sensitivity-settings.md
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
@@ -509,11 +527,30 @@
     - name: Overview
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
-    - name: Enable Defender for Storage
-      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
-    - name: Exclude a storage account (per-transaction)
-      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
-      href: defender-for-storage-exclude.md
+    - name: Malware Scanning
+      href: defender-for-storage-malware-scan.md
+    - name: Sensitive data threat detection
+      href: defender-for-storage-data-sensitivity.md
+    - name: Enable and configure with Defender for Storage
+      items:
+      - name: Enable and configure Defender for Storage
+        href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
+      - name: Required permissions
+        href: support-matrix-defender-for-storage.md
+      - name: Setting up response to Malware Scanning
+        href: defender-for-storage-configure-malware-scan.md
+      - name: Test and run a Proof of Concept
+        href: defender-for-storage-test.md
+    - name: List of security threats and security alerts
+      href: defender-for-storage-threats-alerts.md
+    - name: Defender for Storage (classic)
+      items:
+      - name: Overview (classic)
+        href: defender-for-storage-classic.md
+      - name: Enable and configure Defender for Storage (classic)
+        href: defender-for-storage-classic-enable.md
+      - name: Migrating to the new plan
+        href: defender-for-storage-classic-migrate.md
   - name: Defender for Key Vault
     items:
     - name: Overview

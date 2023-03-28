@@ -14,7 +14,7 @@ In this article, you use Visual Studio Code to create a TypeScript function that
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
 
-Note that completion will incur a small cost of a few USD cents or less in your Azure account.
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-typescript.md) of this article.
 
@@ -46,7 +46,7 @@ Before you get started, make sure you have the following requirements in place:
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you'll publish your function code to Azure. 
+In this section, you use Visual Studio Code to create a local Azure Functions project in TypeScript. Later in this article, you publish your function code to Azure. 
 
 1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
