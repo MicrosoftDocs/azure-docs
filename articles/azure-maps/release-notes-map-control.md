@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
-### [3.0.0-preview.5](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5) (March 15, 2023)
+### [3.0.0-preview.5] (March 15, 2023)
 
 #### Installation (3.0.0-preview.5)
 
@@ -176,7 +176,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
-### [2.2.5](https://www.npmjs.com/package/azure-maps-control/v/2.2.5)
+### [2.2.5]
 
 #### New features (2.2.5)
 
@@ -241,10 +241,12 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.0-preview.5]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5
 [3.0.0-preview.4]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.4
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.2.5]: https://www.npmjs.com/package/azure-maps-control/v/2.2.5
 [2.2.4]: https://www.npmjs.com/package/azure-maps-control/v/2.2.4
 [2.2.3]: https://www.npmjs.com/package/azure-maps-control/v/2.2.3
 [2.2.2]: https://www.npmjs.com/package/azure-maps-control/v/2.2.2
