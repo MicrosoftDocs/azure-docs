@@ -3,8 +3,7 @@ title: Log Analytics workspace data export in Azure Monitor
 description: Log Analytics workspace data export in Azure Monitor lets you continuously export data per selected tables in your workspace. You can export to an Azure Storage account or Azure Event Hubs as it's collected. 
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-author: yossi-y
-ms.author: yossiy
+ms.revoewer: yossiy
 ms.date: 02/09/2022
 
 ---
