@@ -7,7 +7,7 @@ title:       MSIXMGR tool parameters
 description: this article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
 author:      fiza-microsoft # GitHub alias
 ms.author:   fizaazmi # Microsoft alias
-ms.prod:     windows #ms.prod
+#ms.prod:     windows #ms.prod
 ms.topic:    concept-article
 ms.date:     03/21/2023
 ---
