@@ -45,8 +45,8 @@ You must complete specific configuration steps in the operating system for the v
     sudo rpm -e --nodeps NetworkManager
     ```
 
-> [!NOTE]
-> If the package is not already installed, this command fails with an error message. This messages is expected.
+   > [!NOTE]
+   > If the package is not already installed, this command fails with an error message. This messages is expected.
 
 4. Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
@@ -318,8 +318,8 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     sudo export HISTSIZE=0
     ```
 
-> [!NOTE]
-> if you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step.
+   > [!NOTE]
+   > If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovisioning step.
 
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
