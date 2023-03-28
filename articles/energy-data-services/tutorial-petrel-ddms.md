@@ -74,7 +74,7 @@ The Postman collection for Petrel DDMS contains requests you can use to interact
 
 This request will generate an access token and assign it as the authorization method for future requests.
 
-You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
+You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Azure Data Manager for Energy instance.
 
 ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
@@ -137,7 +137,7 @@ Method: DELETE
 
 ### Get Project Version
 
-Given a `Project ID` and a `Version ID`, gets the Petrel Version record associated with that project/version ID in your Microsoft Energy Data Services instance.
+Given a `Project ID` and a `Version ID`, gets the Petrel Version record associated with that project/version ID in your Azure Data Manager for Energy instance.
 
 API: **Project** > **Project Version**
 
@@ -178,7 +178,7 @@ Making a PUT call to this URL uploads the contents of the `body` to the blob sto
 
 ### Update Project
 
-Given a Project ID, SAS upload URL, and a Petrel Project record, updates the Petrel Project record in your Microsoft Energy Data Services with the new values provided. Can also upload data to a given project but doesn't have to.
+Given a Project ID, SAS upload URL, and a Petrel Project record, updates the Petrel Project record in your Azure Data Manager for Energy with the new values provided. Can also upload data to a given project but doesn't have to.
 
 API: **Project** > **Update Project**
 
