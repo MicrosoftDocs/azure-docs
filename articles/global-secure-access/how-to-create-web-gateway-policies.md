@@ -25,22 +25,22 @@ fundamental “why would I want to know this?” question. Keep it short.
 
 ## Create a category policy
 Create a category policy such as blocking "social media".
-	1. Go to Global Secure Access.
-	2. Click "Web filtering policies" to create a new policy.
-	3. Click "Create policy"
-	4. Click "Add rule"
-	5. Give a name and keep webCategory selected.
+1. Navigate to the Entra portal at `https://entra.microsoft.com` and select **Global Secure Access**.
+1. Select **Web filtering policies** to create a new policy.
+1. Select **Create policy**.
+1. Select **Add rule**.
+1. Provide a name for the policy and select **webCategory**.
 
 ## Create domain specific policy
 Create a Fully Qualified Domain Name (FQDN) to block specific destinations.
-	1. Go to Global Secure Access.
-	2. Click "Web filtering policies" to create a new policy.
-	3. Click "Create policy"
-	4. Click "Add rule"
-	5. Give a name and selected fqdn.
-	6. Enter a destination such as facebook.com.
-	7. Click "Add".
-	8. Click "Create policy".
+1. Navigate to the Entra portal at `https://entra.microsoft.com` and select **Global Secure Access**.
+1. Select **Web filtering policies** to create a new policy.
+1. Select **Create policy**.
+4. Select **Add rule**.
+5. Provide a name and select **Fully Qualified Domain Name (FQDN)**.
+6. Enter a FQDN destination such as `example.com`.
+7. Select **Add**.
+8. Select **Create policy**.
 
 
 <!-- 3. H2s
