@@ -11,23 +11,23 @@ ms.author: visho
 ms.custom: private_preview
 ---
 
-# Deliver expedient customer service by leveraging Microsoft Teams users in Call Automation workflows
+# Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with supp\ort for interoperability with Microsoft Teams, developers can use Call Automation to add subject matter experts, who use Microsoft Teams, into existing customer service calls to provide their expertise to resolve a customer issue.
+Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with support for interoperability with Microsoft Teams, developers can use Call Automation APIs to add subject matter experts (SMEs). These SMEs, who use Microsoft Teams, can be added to an existing customer service call to provide to resolve a customer issue.
 
-This interoperability with Microsoft Teams over VoIP makes it easy for developers to implement per-region multi-tenant trunks that maximize value and reduce telephony infrastructure overhead. Each new tenant will be able to leverage this setup in a few minutes after Microsoft Teams admin has granted necessary permissions to the Azure Communication Services resource.
+This interoperability with Microsoft Teams over VoIP makes it easy for developers to implement per-region multi-tenant trunks that maximize value and reduce telephony infrastructure overhead. Each new tenant will be able to use this setup in a few minutes after Microsoft Teams admin has granted necessary permissions to the Azure Communication Services resource.
 
 ## Use-cases
 
-1. Expert Consultation: Businesses can invite subject expert experts into their customer service workflows for expedient issue resolution, and to improve their first call resolution rate. 
-1. Extend customer service workforce with knowledge workers: Businesses can extend their customer service operation with additional capacity during peak influx of customer service calls.
+1. Expert Consultation: Businesses can invite subject matter experts into their customer service workflows for expedient issue resolution, and to improve their first call resolution rate. 
+1. Extend customer service workforce with knowledge workers: Businesses can extend their customer service operation with more capacity during peak influx of customer service calls.
 
 ## Scenario Showcase – Expert Consultation
 A customer service agent, who is using a Contact Center Agent experience, wants to now add a subject matter expert, who is knowledge worker (regular employee) at Contoso and uses Microsoft Teams, into a support call with a customer to provide some expert advice to a resolve a customer issue. 
 
-The dataflow diagram below depicts a canonical scenario where a Teams user is added to an ongoing ACS call for expert consultation.
+The dataflow diagram depicts a canonical scenario where a Teams user is added to an ongoing ACS call for expert consultation.
 
 ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)
 
@@ -66,12 +66,12 @@ The following list presents the set of features that are currently available in 
 | Microsoft Teams Web | ❌ |
 | Microsoft Teams iOS | ❌ |
 | Microsoft Teams Android | ❌ |
-| Azure Communications Services signed in with with M365 Identity | ❌ |
+| Azure Communications Services signed in with Microsoft 365 Identity | ❌ |
 
 ## Roadmap
 
 1. Support for Microsoft Teams Web coming soon.
-1. Support for Azure Communications Services signed in with with M365 Identity coming soon.
+1. Support for Azure Communications Services signed in with Microsoft 365 Identity coming soon.
 
 ## Next steps
 
@@ -79,4 +79,4 @@ The following list presents the set of features that are currently available in 
 > [Get started with Adding a Microsoft Teams user to an ongoing call using Call Automation](./../../quickstarts/call-automation/Callflows-for-customer-interactions.md)
 
 Here are some articles of interest to you: 
-- Understand how your resource will be [charged for various calling use cases](../pricing.md) with examples. 
+- Understand how your resource is [charged for various calling use cases](../pricing.md) with examples. 
