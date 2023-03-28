@@ -28,7 +28,7 @@ For more information, see [Configure active geo-replication](cache-how-to-active
 
 ### Flush operation for active geo-replicated caches (preview)
 
-Caches using active geo-replication now feature a built-in Flush operation that can be initiated at the control plane level. This is helpful because the `FLUSH ALL` and `FLUSH DB` operations in Redis server are blocked by design for active geo-replicated caches. 
+Caches using active geo-replication now include a built-in Flush operation that can be initiated at the control plane level. Use the Flush operation with your cache instead of `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches. 
 
 For more information see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation)
 
