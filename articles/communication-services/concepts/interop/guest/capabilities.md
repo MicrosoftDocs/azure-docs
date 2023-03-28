@@ -31,7 +31,6 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Send and receive Loop components                                                                                    | ❌ |
 |                   | Send and receive Emojis                                                                                             | ❌ |
 |                   | Send and receive Stickers                                                                                           | ❌ |
-|                   | Send and receive Stickers                                                                                           | ❌ |
 |                   | Send and receive Teams messaging extensions                                                                         | ❌ |
 |                   | Use typing indicators                                                                                               | ✔️ |
 |                   | Read receipt                                                                                                        | ❌ |
@@ -42,6 +41,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | [Customer Managed Keys (CMK)](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
 | Chat with Teams Interoperability             | receive inline images                                                                    | ✔️** |
 |                   | receive shared files                                                                                                |  ❌ |
+|                   | receive typing indicators                                                                                                |  ✔️ |
+|                   | receive read receipts                                                                                                |  ✔️ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
