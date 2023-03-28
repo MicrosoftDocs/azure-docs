@@ -12,4 +12,4 @@ Lab creation can fail if the lab account is peered to a virtual network but has 
 
 For example, if you have a block of /19, this address range can accommodate 8192 IP addresses and 16 labs (8192/512 = 16 labs). In this case, lab creation fails on the 17th lab creation.
 
-Learn how to [increase the IP address range for a lab account](./how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account).
+Learn how to [increase the IP address range for a lab account](../how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account).
