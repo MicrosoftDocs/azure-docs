@@ -212,12 +212,11 @@ These models can only be used with Completions API requests.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| code-cushman-001<sup>1</sup> | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe<sup>2</sup> | 2,048 | |
+| code-cushman-001<sup>1</sup> | South Central US, West Europe | Currently unavailable | 2,048 | |
 | code-davinci-002 | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
-| code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe<sup>2</sup> | | |
+| code-davinci-fine-tune-002<sup>1</sup> | N/A | Currently unavailable | | |
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
-<br><sup>2</sup> East US is currently unavailable for new customers to fine-tune due to high demand. Please use US South Central region for US based training.
 
 ### Embeddings Models
 
