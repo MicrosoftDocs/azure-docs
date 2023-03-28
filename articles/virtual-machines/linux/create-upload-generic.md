@@ -71,7 +71,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 
 ### Resizing VHDs
 VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
-   ```output
+   ```config
    The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
    ```
 In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
@@ -166,11 +166,11 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 ## General Linux System Requirements
 
 1. Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
-    ```output  
+    ```config 
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
     We also recommend *removing* the following parameters if they exist.
-    ```output
+    ```config
     rhgb quiet crashkernel=auto
     ```
     Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed, but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
@@ -235,7 +235,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    Azure Linux Agent 
    Modify the following parameters in /etc/waagent.conf
 
-   ```output
+   ```config
    ResourceDisk.Format=y
    ResourceDisk.Filesystem=ext4
    ResourceDisk.MountPoint=/mnt/resource
