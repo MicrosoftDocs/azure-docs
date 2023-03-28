@@ -32,8 +32,8 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 | Attribute | Description                | Required                | Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
-| name      | Name of custom metric. Policy expressions are not allowed.      | Yes       | N/A            |
-| namespace | Namespace of custom metric. Policy expressions are not allowed. | No        | API Management |
+| name      | A string. Name of custom metric. Policy expressions aren't allowed.      | Yes       | N/A            |
+| namespace | A string. Namespace of custom metric. Policy expressions aren't allowed. | No        | API Management |
 | value     |  Value of custom metric expressed as an integer. Policy expressions are allowed.   | No           | 1              |
 
 
