@@ -95,7 +95,7 @@ call out those versions (for example: Visual Studio 2019 or later).
 - A GitHub account.
   - If you don't have one, sign up for [free](https://github.com/join).
 - Install [Git](https://github.com/git-guides/install-git).
-- Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup the Azure CLI
 
