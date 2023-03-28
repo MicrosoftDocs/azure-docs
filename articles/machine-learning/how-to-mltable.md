@@ -95,7 +95,7 @@ Azure Machine Learning Tables are useful in the following scenarios:
 
 ## Azure Machine Learning Tables Quickstart
 
-In this quickstart, you create a Table (`mltable`) of the [NYC Green Taxi Data](../open-datasets/dataset-taxi-green?tabs=azureml-opendatasets) from Azure Open Datasets. The data has a parquet format and it covers years 2008-2021. The data files have the following folder structure on a publicly accessible blob storage account:
+In this quickstart, you create a Table (`mltable`) of the [NYC Green Taxi Data](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets) from Azure Open Datasets. The data has a parquet format and it covers years 2008-2021. The data files have the following folder structure on a publicly accessible blob storage account:
 
 ```text
 /
@@ -432,7 +432,7 @@ ml_client.jobs.create_or_update(job)
 
 ## Authoring MLTable Files
 
-To directly create the MLTable file, we recommend that you use the `mltable` Python SDK to author your MLTable files - as shown in the [Azure Machine Learning Tables Quickstart](#azure-ml-tables-quickstart) - instead of a text editor. In this section, we outline the capabilities in the `mltable` Python SDK.
+To directly create the MLTable file, we recommend that you use the `mltable` Python SDK to author your MLTable files - as shown in the [Azure Machine Learning Tables Quickstart](./how-to-mltable.md#azure-ml-tables-quickstart) - instead of a text editor. In this section, we outline the capabilities in the `mltable` Python SDK.
 
 ### Supported file types
 
@@ -446,7 +446,7 @@ You can create an MLTable using a range of different file types:
 |JSON Lines     |   `from_json_lines_files(paths=[path])`      |
 |Paths<br>(Create a table with a column of paths to stream)     |   `from_paths(paths=[path])`      |
 
-For more information, read the [MLTable reference documentation](https://learn.microsoft.com/python/api/mltable/mltable.mltable.mltable?view=azure-ml-py)
+For more information, read the [MLTable reference documentation](/python/api/mltable/mltable.mltable.mltable)
 
 
 ### Defining paths
@@ -540,7 +540,7 @@ tbl = mltable.from_delimited_files(paths=paths)
 
 ### Supported data loading transformations
 
-Find full, up-to-date details of the supported data loading transformations in the [MLTable reference documentation](https://learn.microsoft.com/python/api/mltable/mltable.mltable.mltable?view=azure-ml-py).
+Find full, up-to-date details of the supported data loading transformations in the [MLTable reference documentation](/python/api/mltable/mltable.mltable.mltable).
 
 ## Examples
 Examples in the [Azure Machine Learning examples GitHub repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/using-mltable) examples became the basis for the code snippets in this article. Use this command to clone the repository to your development environment:
