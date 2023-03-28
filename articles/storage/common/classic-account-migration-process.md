@@ -28,7 +28,7 @@ The data plane is unaffected by migration from the classic deployment model to t
 
 ## The migration experience
 
-You can migrate your classic storage account with the Azure portal, PowerShell, or Azure CLI. To learn how to migrate your account, see [Migrate your classic storage accounts to Azure Resource Manager](storage-account-migrate-classic.md).
+You can migrate your classic storage account with the Azure portal, PowerShell, or Azure CLI. To learn how to migrate your account, see [Migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
 
 Before you start the migration:
 

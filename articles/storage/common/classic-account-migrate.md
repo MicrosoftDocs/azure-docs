@@ -27,7 +27,7 @@ To list classic storage accounts in your subscription with the Azure portal:
 1. Navigate to the list of your storage accounts in the Azure portal.
 1. Select **Add filter**. In the **Filter** dialog, set the **Filter** field to **Type** and the **Operator** field to **Equals**. Then set the **Value** field to **microsoft.classicstorage/storageaccounts**.
 
-    :::image type="content" source="media/classic-account-migrate/classic-accounts-list-portal.png" alt-text="Screenshot showing how to list classic storage accounts in Azure portal" lightbox="media/storage-account-migrate-classic/classic-accounts-list-portal.png":::
+    :::image type="content" source="media/classic-account-migrate/classic-accounts-list-portal.png" alt-text="Screenshot showing how to list classic storage accounts in Azure portal" lightbox="media/classic-account-migrate/classic-accounts-list-portal.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -71,7 +71,7 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
     At this point you can compare the configuration and data in the classic storage account to the newly migrated storage account. You'll see both in the list of storage accounts in the portal. Both the classic account and the migrated account have the same name.
 
-    :::image type="content" source="media/classic-account-migrate/compare-classic-migrated-accounts.png" alt-text="Screenshot showing the results of the Prepare step in the Azure portal." lightbox=="media/classic-account-migrate/compare-classic-migrated-accounts.png":::
+    :::image type="content" source="media/classic-account-migrate/compare-classic-migrated-accounts.png" alt-text="Screenshot showing the results of the Prepare step in the Azure portal." lightbox="media/classic-account-migrate/compare-classic-migrated-accounts.png":::
 
 1. If you're not satisfied with the results of the migration, select **Abort** to delete the new storage account and resource group. You can then address any problems and try again.
 1. When you're ready to commit, type **yes** to confirm, then select **Commit** to complete the migration.
