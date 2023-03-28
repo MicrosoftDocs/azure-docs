@@ -15,16 +15,16 @@ This article lists the default targets, dashboards, and recording rules when you
 
  The default scrape frequency for all default targets and scrapes is **30 seconds**.
 
-## Targets scraped 
+## Targets scraped
 
 - `cadvisor` (`job=cadvisor`)
 - `nodeexporter` (`job=node`)
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
-   
+
 ## Metrics collected from default targets
 
-The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules. 
+The following metrics are collected by default from each default target. All other metrics are dropped through relabeling rules.
 
    **cadvisor (job=cadvisor)**<br>
    - `container_memory_rss`
@@ -37,8 +37,9 @@ The following metrics are collected by default from each default target. All oth
    - `container_fs_reads_total`
    - `container_fs_writes_total`
    - `container_fs_reads_bytes_total`
-   - `container_fs_writes_bytes_total|container_cpu_usage_seconds_total`
-  
+   - `container_fs_writes_bytes_total`
+   - `container_cpu_usage_seconds_total`
+
    **kubelet (job=kubelet)**<br>
    - `kubelet_node_name`
    - `kubelet_running_pods`
@@ -79,7 +80,7 @@ The following metrics are collected by default from each default target. All oth
    - `process_cpu_seconds_total`
    - `go_goroutines`
    - `kubernetes_build_info`
-  
+
    **nodexporter (job=node)**<br>
    - `node_memory_MemTotal_bytes`
    - `node_cpu_seconds_total`
@@ -105,7 +106,7 @@ The following metrics are collected by default from each default target. All oth
    - `node_disk_read_bytes_total`
    - `node_disk_written_bytes_total`
    - `node_uname_info`
-  
+
    **kube-state-metrics (job=kube-state-metrics)**<br>
    - `kube_node_status_allocatable`
    - `kube_pod_owner`
@@ -135,6 +136,59 @@ The following metrics are collected by default from each default target. All oth
    - `kube_node_status_condition`
    - `kube_node_spec_taint`
 
+## Targets scraped for windows
+
+There are two default jobs that can be run for windows which scrape metrics required for the dashboards specific to windows.
+
+> [!NOTE]
+> This requires an update in the ama-metrics-settings-configmap and installing windows exporter on all windows nodepools. Please refer to the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection) for more information
+
+- `windows-exporter` (`job=windows-exporter`)
+- `kube-proxy-windows` (`job=kube-proxy-windows`)
+
+## Metrics scraped for windows
+
+The following metrics are collected when windows exporter and windows kube proxy are enabled.
+
+**windows-exporter (job=windows-exporter)**<br>
+  - `windows_system_system_up_time`
+  - `windows_cpu_time_total`
+  - `windows_memory_available_bytes`
+  - `windows_os_visible_memory_bytes`
+  - `windows_memory_cache_bytes`
+  - `windows_memory_modified_page_list_bytes`
+  - `windows_memory_standby_cache_core_bytes`
+  - `windows_memory_standby_cache_normal_priority_bytes`
+  - `windows_memory_standby_cache_reserve_bytes`
+  - `windows_memory_swap_page_operations_total`
+  - `windows_logical_disk_read_seconds_total`
+  - `windows_logical_disk_write_seconds_total`
+  - `windows_logical_disk_size_bytes`
+  - `windows_logical_disk_free_bytes`
+  - `windows_net_bytes_total`
+  - `windows_net_packets_received_discarded_total`
+  - `windows_net_packets_outbound_discarded_total`
+  - `windows_container_available`
+  - `windows_container_cpu_usage_seconds_total`
+  - `windows_container_memory_usage_commit_bytes`
+  - `windows_container_memory_usage_private_working_set_bytes`
+  - `windows_container_network_receive_bytes_total`
+  - `windows_container_network_transmit_bytes_total`
+
+**kube-proxy-windows (job=kube-proxy-windows)**<br>
+  - `kubeproxy_sync_proxy_rules_duration_seconds`
+  - `kubeproxy_sync_proxy_rules_duration_seconds_bucket`
+  - `kubeproxy_sync_proxy_rules_duration_seconds_sum`
+  - `kubeproxy_sync_proxy_rules_duration_seconds_count`
+  - `rest_client_requests_total`
+  - `rest_client_request_duration_seconds`
+  - `rest_client_request_duration_seconds_bucket`
+  - `rest_client_request_duration_seconds_sum`
+  - `rest_client_request_duration_seconds_count`
+  - `process_resident_memory_bytes`
+  - `process_cpu_seconds_total`
+  - `go_goroutines`
+
 ## Dashboards
 
 Following are the default dashboards that are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [GitHub](https://aka.ms/azureprometheus-mixins)
@@ -148,6 +202,11 @@ Following are the default dashboards that are automatically provisioned and conf
 - Kubernetes / Kubelet
 - Node Exporter / USE Method / Node
 - Node Exporter / Nodes
+- Kubernetes / Compute Resources / Cluster (Windows)
+- Kubernetes / Compute Resources / Namespace (Windows)
+- Kubernetes / Compute Resources / Pod (Windows)
+- Kubernetes / USE Method / Cluster (Windows)
+- Kubernetes / USE Method / Node (Windows)
 
 ## Recording rules
 
@@ -181,6 +240,38 @@ Following are the default recording rules that are automatically configured by A
 - `instance_device:node_disk_io_time_seconds:rate5m`
 - `instance_device:node_disk_io_time_weighted_seconds:rate5m`
 - `instance:node_num_cpu:sum`
+- `node:windows_node:sum`
+- `node:windows_node_num_cpu:sum`
+- `:windows_node_cpu_utilisation:avg5m`
+- `node:windows_node_cpu_utilisation:avg5m`
+- `:windows_node_memory_utilisation:`
+- `:windows_node_memory_MemFreeCached_bytes:sum`
+- `node:windows_node_memory_totalCached_bytes:sum`
+- `:windows_node_memory_MemTotal_bytes:sum`
+- `node:windows_node_memory_bytes_available:sum`
+- `node:windows_node_memory_bytes_total:sum`
+- `node:windows_node_memory_utilisation:ratio`
+- `node:windows_node_memory_utilisation:`
+- `node:windows_node_memory_swap_io_pages:irate`
+- `:windows_node_disk_utilisation:avg_irate`
+- `node:windows_node_disk_utilisation:avg_irate`
+- `node:windows_node_filesystem_usage:`
+- `node:windows_node_filesystem_avail:`
+- `:windows_node_net_utilisation:sum_irate`
+- `node:windows_node_net_utilisation:sum_irate`
+- `:windows_node_net_saturation:sum_irate`
+- `node:windows_node_net_saturation:sum_irate`
+- `windows_pod_container_available`
+- `windows_container_total_runtime`
+- `windows_container_memory_usage`
+- `windows_container_private_working_set_usage`
+- `windows_container_network_received_bytes_total`
+- `windows_container_network_transmitted_bytes_total`
+- `kube_pod_windows_container_resource_memory_request`
+- `kube_pod_windows_container_resource_memory_limit`
+- `kube_pod_windows_container_resource_cpu_cores_request`
+- `kube_pod_windows_container_resource_cpu_cores_limit`
+- `namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate`
 
 ## Next steps
 

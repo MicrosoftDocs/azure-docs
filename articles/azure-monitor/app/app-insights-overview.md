@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ---
 
 # Application Insights overview
@@ -11,6 +11,8 @@ Application Insights is an extension of [Azure Monitor](../overview.md) and prov
 
 1. *Proactively* understand how an application is performing.
 1. *Reactively* review application execution data to determine the cause of an incident.
+
+:::image type="content" source="media/overview-dashboard/0001-dashboard.png" alt-text="Screenshot of Application Insights in the Azure portal." lightbox="media/overview-dashboard/0001-dashboard.png":::
 
 In addition to collecting [Metrics](standard-metrics.md) and application [Telemetry](data-model-complete.md) data, which describe application activities and health, Application Insights can also be used to collect and store application [trace logging data](asp-net-trace-logs.md).
 
