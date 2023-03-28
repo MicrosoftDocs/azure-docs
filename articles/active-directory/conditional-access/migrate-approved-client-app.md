@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate approved client app to application protection policy in Conditional Access
 
-In this article, you’ll learn how to migrate from the approved client app Conditional Access grant to the application protection policy grant. App protection policies provide the same data loss and protection as approved client app policies, but with other benefits. For more information about the benefits of using app protection policies, see the article [App protection policies overview](/mem/intune/apps/app-protection-policy). 
+In this article, you learn how to migrate from the approved client app Conditional Access grant to the application protection policy grant. App protection policies provide the same data loss and protection as approved client app policies, but with other benefits. For more information about the benefits of using app protection policies, see the article [App protection policies overview](/mem/intune/apps/app-protection-policy). 
 
-The approved client app grant will be retired in early March 2026. Organizations must transition all current Conditional Access policies that use only the Require Approved Client App grant to Require Approved Client App or Application Protection Policy by March 2026. Additionally, for any new Conditional Access policy, only apply the Require application protection policy grant. 
+The approved client app grant is retiring in early March 2026. Organizations must transition all current Conditional Access policies that use only the Require Approved Client App grant to Require Approved Client App or Application Protection Policy by March 2026. Additionally, for any new Conditional Access policy, only apply the Require application protection policy grant. 
 
 After March 2026, Microsoft will stop enforcing require approved client app control, and it will be as if this grant isn't selected. Use the following steps before March 2026 to protect your organization’s data. 
 
@@ -27,7 +27,7 @@ After March 2026, Microsoft will stop enforcing require approved client app cont
 
 Require approved client apps or app protection policy with mobile devices 
 
-The following steps will make an existing Conditional Access policy require an approved client app or an app protection policy when using an iOS/iPadOS or Android device. This policy works in tandem with an app protection policy created in Microsoft Intune. 
+The following steps make an existing Conditional Access policy require an approved client app or an app protection policy when using an iOS/iPadOS or Android device. This policy works in tandem with an app protection policy created in Microsoft Intune. 
 
 Organizations can choose to update their policies using the following steps.
 
@@ -51,7 +51,7 @@ Repeat the previous steps on all of your policies that use the approved client a
 
 Require app protection policy with mobile devices 
 
-The following steps will help create a Conditional Access policy requiring an approved client app or an app protection policy when using an iOS/iPadOS or Android device. This policy works in tandem with an [app protection policy created in Microsoft Intune](/mem/intune/apps/app-protection-policies). 
+The following steps help create a Conditional Access policy requiring an approved client app or an app protection policy when using an iOS/iPadOS or Android device. This policy works in tandem with an [app protection policy created in Microsoft Intune](/mem/intune/apps/app-protection-policies). 
 
 Organizations can choose to deploy this policy using the following steps.
 
