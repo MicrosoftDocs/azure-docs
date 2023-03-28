@@ -176,6 +176,10 @@ If a custom IP prefix is unable to be fully advertised, it moves to a **Commissi
 
 Before decommissioning a custom IP prefix, ensure it has no public IP prefixes or public IP addresses.
 
+### I’m unable to delete a custom IP prefix
+
+Before deleting a custom IP prefix, it must be in either Deprovisioned or ValidationFailed state.  If your range is in ProvisionFailed state, it must be Deprovsioned before it can be deleted.  If the range is "stuck" in Provisioning or Deprovisioning state for an extended period of time, please contact Microsoft support.
+
 ### How can I migrate a range from one region to another
 
 To migrate a custom IP prefix, it must first be deprovisioned from one region. A new custom IP prefix with the same CIDR can then be created in another region.
