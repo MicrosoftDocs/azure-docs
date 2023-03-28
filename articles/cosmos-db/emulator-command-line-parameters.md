@@ -38,7 +38,7 @@ To view the list of parameters, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at
 | `Shutdown` | Shuts down the emulator. | `Microsoft.Azure.Cosmos.Emulator.exe /Shutdown` |
 | `DataPath` | Specifies the path in which to store data files. The default value is `%LocalAppdata%\CosmosDBEmulator`. | `Microsoft.Azure.Cosmos.Emulator.exe /DataPath=E:\SomeDataFolder` |
 | `Port` | Specifies the port number to use for the emulator. The default value is `8081`. | `Microsoft.Azure.Cosmos.Emulator.exe /Port=65000` |
-| `ComputePort` | Specified the port number to use for the compute interop gateway service. The gateway's HTTP endpoint probe port is calculated as `ComputePort + 79`. Hence, `ComputePort` and `ComputePort + 79` must be open and available. The default value is `8900`. | `Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=65100` |
+| `ComputePort` | Specifies the port number to use for the compute interop gateway service. The gateway's HTTP endpoint probe port is calculated as `ComputePort + 79`. Hence, `ComputePort` and `ComputePort + 79` must be open and available. The default value is `8900`. | `Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=65100` |
 | `EnableMongoDbEndpoint=3.2` | Enables API for MongoDB version 3.2. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2` |
 | `EnableMongoDbEndpoint=3.6` | Enables API for MongoDB version 3.6. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6` |
 | `EnableMongoDbEndpoint=4.0` | Enables API for MongoDB version 4.0. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=4.0` |

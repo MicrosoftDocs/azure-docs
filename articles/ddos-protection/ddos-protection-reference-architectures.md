@@ -128,4 +128,4 @@ For more information about hub-and-spoke topology, see [Hub-spoke network topolo
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure Network Protection](manage-ddos-protection.md).

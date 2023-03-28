@@ -3,7 +3,7 @@ title: Migrate SQL Server failover cluster to Azure VMware Solution
 description: Learn how to migrate SQL Server failover cluster to Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/17/2023
+ms.date: 3/20/2023
 ms.custom: engagement-fy23
 ---
 
@@ -40,9 +40,9 @@ The table below indicates the downtime for each Microsoft SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | LOW | Migration will be done using vMotion, the DB will be available during migration time, but it isn't recommended to commit any critical data during it. |
-| **Always-On Availability Group** | LOW | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Failover Cluster Instance** | HIGH | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
+| **Standalone instance** | Low | Migration will be done using vMotion, the DB will be available during migration time, but it isn't recommended to commit any critical data during it. |
+| **Always-On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **Failover Cluster Instance** | High | All nodes of the cluster will be shut down and migrated using VMware HCX Cold Migration. Downtime duration will depend upon database size and private network speed to Azure cloud. |
 
 ## Windows Server Failover Cluster quorum considerations
 
@@ -73,50 +73,49 @@ For illustration purposes, in this document we're using a two-node cluster with 
 
 1. From vSphere Client shutdown the second node of the cluster.
 1. Access the first node of the cluster and open **Failover Cluster Manager**.
-    1. Verify that the second node is in **Offline** state and that all clustered services and storage are under the control of the first node.
-     
-         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Diagram showing Windows Server Failover Cluster Manager cluster storage verification." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-1.png":::
- 
-    1. Shut down the cluster.
+   - Verify that the second node is in **Offline** state and that all clustered services and storage are under the control of the first node.
+         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-1.png" alt-text="Diagram showing Windows Server Failover Cluster Manager cluster storage verification." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-1.png"::: 
+   - Shut down the cluster.
     
         :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-2.png" alt-text="Diagram showing a shut down cluster using Windows Server Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-2.png":::
   
-     1. Check that all cluster services are successfully stopped without errors.
+   - Check that all cluster services are successfully stopped without errors.
 1. Shut down first node of the cluster.
 1. From the **vSphere Client**, edit the settings of the second node of the cluster.
-    1. Remove all shared disks from the virtual machine configuration.
-    1. Ensure that the **Delete files from datastore** checkbox isn't selected as this will permanently delete the disk from the datastore, and you'll need to recover the cluster from a previous backup.
-    1. Set **SCSI Bus Sharing** from **Physical** to **None** in the virtual SCSI controllers used for the shared storage. Usually, these controllers are of VMware Paravirtual type.
+   - Remove all shared disks from the virtual machine configuration.
+   - Ensure that the **Delete files from datastore** checkbox isn't selected as this will permanently delete the disk from the datastore, and you'll need to recover the cluster from a previous backup.
+   - Set **SCSI Bus Sharing** from **Physical** to **None** in the virtual SCSI controllers used for the shared storage. Usually, these controllers are of VMware Paravirtual type.
 1. Edit the first node virtual machine settings. Set **SCSI Bus Sharing** from **Physical** to **None** in the SCSI controllers.
  
 1. From the vSphere Client,** go to the HCX plugin area. Under **Services**, select **Migration** > **Migrate**. 
-       1. Select the second node virtual machine.
-       1. Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
-       1. Select the **vSAN Datastore** as remote storage.
-       1. Select a folder if you want to place the virtual machines in specific folder, this not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
-       1. Keep **Same format as source**.
-       1. Select **Cold migration** as **Migration profile**. 
-       1. In **Extended** **Options** select **Migrate Custom Attributes**.
-       1. Verify that on-premises network segments have the correct remote stretched segment in Azure.
-       1. Select **Validate** and ensure that all checks are completed with pass status. The most common error here will be one related to the storage configuration. Verify again that there are no SCSI controllers with physical sharing setting. 
-       1. Select **Go** and the migration will initiate. 
+   - Select the second node virtual machine.
+   - Set the vSphere cluster in the remote private cloud that will run the migrated SQL cluster as the **Compute Container**.
+   - Select the **vSAN Datastore** as remote storage.
+   - Select a folder if you want to place the virtual machines in specific folder, this not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
+   - Keep **Same format as source**.
+   - Select **Cold migration** as **Migration profile**. 
+   - In **Extended** **Options** select **Migrate Custom Attributes**.
+    - Verify that on-premises network segments have the correct remote stretched segment in Azure.
+   - Select **Validate** and ensure that all checks are completed with pass status. The most common error here will be one related to the storage configuration. Verify again that there are no SCSI controllers with physical sharing setting. 
+   - Select **Go** and the migration will initiate. 
 1. Repeat the same process for the first node.
 1. Access **Azure VMware Solution vSphere Client** and edit the first node settings and set back to physical SCSI Bus sharing the SCSI controller(s) managing the shared disks.
 
 1. Edit node 2 settings in **vSphere Client**.
-       1. Set SCSI Bus sharing back to physical in the SCSI controller managing shared storage.
-       1. Add the cluster shared disks to the node as additional storage. Assign them to the second SCSI controller. 
-       1. Ensure that all the storage configuration is the same as the one recorded before the migration.
+   - Set SCSI Bus sharing back to physical in the SCSI controller managing shared storage.
+   - Add the cluster shared disks to the node as additional storage. Assign them to the second SCSI controller. 
+   - Ensure that all the storage configuration is the same as the one recorded before the migration.
 1. Power on the first node virtual machine.
 1. Access the first node VM with **VMware Remote Console**.
-       1. Verify virtual machine network configuration and ensure it can reach on-premises and Azure resources. 
-       1. Open **Failover Cluster Manager** and verify cluster services.
+   - Verify virtual machine network configuration and ensure it can reach on-premises and Azure resources. 
+   - Open **Failover Cluster Manager** and verify cluster services.
+
        :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-3.png" alt-text="Diagram showing a cluster summary in Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-3.png":::
 
 1. Power on the second node virtual machine.
 1. Access the second node VM from the **VMware Remote Console**.
-   1. Verify that Windows Server can reach the storage.
-   1. In the **Failover Cluster Manager** review that the second node appears as **Online** status.
+   - Verify that Windows Server can reach the storage.
+   - In the **Failover Cluster Manager** review that the second node appears as **Online** status.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-failover-4.png"  alt-text="Diagram showing a cluster node status in Failover Cluster Manager." border="false" lightbox="media/sql-server-hybrid-benefit/sql-failover-4.png":::
 
 1. Using the **SQL Server Management Studio** connect to the SQL Server cluster resource network name. Check the database is online and accessible.

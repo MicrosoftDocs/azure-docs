@@ -1,11 +1,11 @@
 ---
-title: Microsoft Connected Cache preview deployment scenario samples | Microsoft Docs
+title: Microsoft Connected Cache preview deployment scenario samples
 titleSuffix:  Device Update for Azure IoT Hub
 description: Microsoft Connected Cache preview deployment scenario samples tutorials
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 

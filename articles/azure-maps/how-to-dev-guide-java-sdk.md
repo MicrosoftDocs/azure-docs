@@ -393,7 +393,7 @@ public class Demo{
 ```
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication]: azure-maps-authentication.md
 
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/

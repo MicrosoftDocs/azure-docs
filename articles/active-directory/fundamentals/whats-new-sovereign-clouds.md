@@ -21,6 +21,91 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## February 2023
+
+### General Availability - Filter and transform group names in token claims configuration using regular expression
+
+**Type:** New feature  
+**Service category:** Enterprise Apps             
+**Product capability:** SSO          
+
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality will allow those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+
+---
+
+### General Availability - Filter groups in tokens using a substring match
+
+**Type:** New feature  
+**Service category:** Enterprise Apps             
+**Product capability:** SSO          
+
+Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token.This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature will unblock those challenges. 
+
+For more information, see: 
+- [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
+- [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+
+
+
+---
+
+### General Availability - New SSO claims transformation features
+
+**Type:** New feature  
+**Service category:** Enterprise Apps             
+**Product capability:** SSO        
+
+Azure AD now supports claims transformations on multi-valued attributes and can emit multi-valued claims. More functions to allow match and string operations on claims processing to enable apps to be migrated from other IdPs to Azure AD. This includes:  Match on Empty(), NotEmpty(), Prefix(), Suffix(), and extract substring operators. For more information, see: [Claims mapping policy type](../develop/reference-claims-mapping-policy-type.md).
+
+---
+
+### General Availability - New Detection for Service Principal Behavior Anomalies
+
+**Type:** New feature  
+**Service category:** Access Reviews            
+**Product capability:** Identity Security & Protection       
+
+Post-authentication anomalous activity detection for workload identities. This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior will be assessed for anomalies based on an action and/or sequence of actions occurring for the account. Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting blade. A new detection type identified as Anomalous service principal activity will appear in filter options. For more information, see: [Securing workload identities](../identity-protection/concept-workload-identity-risk.md).
+
+---
+
+### General Availability - Microsoft cloud settings for Azure AD B2B
+
+**Type:** New feature  
+**Service category:** B2B              
+**Product capability:** B2B/B2C       
+
+Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
+
+- Microsoft Azure commercial and Microsoft Azure Government
+- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+
+For more information about Microsoft cloud settings for B2B collaboration., see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+
+---
+
+### Public Preview - Support for Directory Extensions using Azure AD cloud sync
+
+**Type:** New feature   
+**Service category:** Provisioning               
+**Product capability:** Azure AD Connect Cloud Sync         
+
+Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
+
+For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
+
+
+---
+
+### General Availability - On-premises application provisioning
+
+**Type:** Changed feature   
+**Service category:** Provisioning            
+**Product capability:** Outbound to On-premises Applications        
+
+Azure AD supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Azure AD can support those as well.
+
+---
 
 ## January 2023
 

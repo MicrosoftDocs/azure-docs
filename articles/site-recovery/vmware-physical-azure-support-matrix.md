@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 02/27/2023
+ms.date: 03/27/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23 
