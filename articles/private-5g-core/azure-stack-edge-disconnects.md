@@ -12,13 +12,16 @@ ms.custom: template-concept
 
 # Azure Stack Edge disconnects
 
-There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azure Stack Edge (ASE)* disconnects. These disconnects can either be unplanned short-term [Temporary disconnects](#temporary-disconnects) or periods of [Disconnected mode for up to two days](#disconnected-mode-for-azure-private-5g-core).
+There are several reasons why your *Azure Private 5G Core (AP5GC)* may have *Azure Stack Edge (ASE)* disconnects. Disconnects can either be unplanned short-term [Temporary disconnects](#temporary-disconnects) or periods of [Disconnected mode for up to five days](#disconnected-mode-for-azure-private-5g-core).
 
 ## Temporary disconnects
 
 ASE can tolerate small periods of unplanned connectivity issues. The following sections detail the behavior expected during these times and behavior after ASE connectivity resumes.
 
-Throughout any temporary disconnects, the **Azure Stack Edge overview** will display a banner stating `The device heartbeat is missing. Some operations will not be available in this state. Critical alert(s) present. Click here to view details.`
+Throughout temporary disconnects, the **Azure Stack Edge overview** displays a banner stating `The device heartbeat is missing. Some operations will not be available in this state. Critical alert(s) present. Click here to view details.`
+
+> [!CAUTION]
+> Limited Azure AP5GC support is available if you encounter issues while disconnected. If you encounter issues during a disconnect, we recommend you reconnect to enable full support. If it is not possible to reconnect, support is provided on a best-effort basis.
 
 ### Configuration and provisioning actions during temporary disconnects
 
@@ -28,20 +31,20 @@ The **Sim overview** and **Sim Policy overview** blades display provisioning sta
 
 ### ASE behavior after connectivity resumes
 
-Once ASE connectivity resumes, several features will resume:
+Once ASE connectivity resumes, several features resume:
 
-- ASE management will resume immediately.
-- **Resource Health** will be viewable immediately.
-- **Workbooks** will be viewable immediately and will populate for the disconnected duration.
-- **Kubernetes Cluster Overview** will show as **Online** after 10 minutes.
-- **Monitoring** tabs will show metrics for sites after 10 minutes, but won't populate stats for the disconnected duration.
-- **Kubernetes Arc Insights** will show new stats after 10 minutes, but won't populate stats for the disconnected duration.
-- **Resource Health** views will be viewable immediately.
-- [Workbooks](../update-center/workbooks.md) for the ASE will be viewable immediately and will populate for the disconnected duration.
+- ASE management resume immediately.
+- **Resource Health** is viewable immediately.
+- **Workbooks** is viewable immediately and populates for the disconnected duration.
+- **Kubernetes Cluster Overview** shows as **Online** after 10 minutes.
+- **Monitoring** tabs show metrics for sites after 10 minutes, but doesn't populate stats for the disconnected duration.
+- **Kubernetes Arc Insights** shows new stats after 10 minutes, but doesn't populate stats for the disconnected duration.
+- **Resource Health** views are viewable immediately.
+- [Workbooks](../update-center/workbooks.md) for the ASE are viewable immediately and populates for the disconnected duration.
 
 ## Disconnected mode for Azure Private 5G Core
 
-*Disconnected mode* allows for ASE disconnects of up to two days. During disconnected mode, AP5GC core functionality persists through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation. During disconnects, the ASE management GUI will display several banners alerting that it's currently disconnected and the impact on functions.
+*Disconnected mode* allows for ASE disconnects of up to five days. During disconnected mode, AP5GC core functionality persists through ASE disconnects due to: network issues, network equipment resets and temporary network equipment separation. During disconnects, the ASE management GUI displays several banners alerting that it's currently disconnected and the impact on functions.
 
 ### Functions not supported while in disconnected mode
 
@@ -56,9 +59,9 @@ The following functions aren't supported while in disconnected mode:
 
 ### Monitoring and troubleshooting during disconnects
 
-While in disconnected mode, you won't be able to change the local monitoring authentication method or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Azure Active Directory. If you expect to need access to your local monitoring tools while the ASE is disconnected, you can change your authentication method to local usernames and passwords by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+While in disconnected mode, you cannot enable local monitoring authentication or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Azure Active Directory. However, you can access both distributed tracing and packet core dashboards via local access if enabled. If you expect to need access to your local monitoring tools while the ASE is disconnected, you can change your authentication method to local usernames and passwords by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
-Once the disconnect ends, log analytics on Azure will update with the stored data, excluding rate and gauge type metrics.
+Once the disconnect ends, log analytics on Azure updates with the stored data, excluding rate and gauge type metrics.
 
 ## Next steps
 
