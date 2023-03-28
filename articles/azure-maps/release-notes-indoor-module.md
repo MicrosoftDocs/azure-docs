@@ -46,7 +46,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
-[drawing package 2.0]: https://learn.microsoft.com/azure/azure-maps/drawing-package-guide?pivots=drawing-package-v2
+[drawing package 2.0]: ./drawing-package-guide?pivots=drawing-package-v2
 [0.2.0]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.0
 [Azure Maps Creator Samples]: https://samples.azuremaps.com/?search=creator
 [Azure Maps Blog]: https://techcommunity.microsoft.com/t5/azure-maps-blog/bg-p/AzureMapsBlog
