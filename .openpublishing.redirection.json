@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/storage-php-how-to-use-queues.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/storage-php-how-to-use-queues",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/tables/table-storage-design-encrypt-data.md",
       "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
       "redirect_document_id": false
@@ -22029,6 +22039,16 @@
         {
             "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
             "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-passport.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
             "redirect_document_id": false
         },
         {
