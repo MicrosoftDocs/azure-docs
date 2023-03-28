@@ -82,7 +82,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-	>![NOTE]
+	>[!NOTE]
 	>In the Tenant URL, **{Domain}** will be the country code top-level domain. For example, if the country is US, then the Tenant URL will be `https://cloud.cleanmail.com/api/v3/scim2`
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.

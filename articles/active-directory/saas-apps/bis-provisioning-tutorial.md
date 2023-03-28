@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and BIS](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure BIS to support provisioning with Azure AD
-To get your credentials for authhorization please contact  [BIS Support](mailto:help@bistrainer.com) or your Account's Manager.
+To get your credentials for authorization please contact  [BIS Support](mailto:help@bistrainer.com) or your Account's Manager.
 
 ## Step 3. Add BIS from the Azure AD application gallery
 
@@ -77,7 +77,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
+	![Screenshot of setting Provisioning Mode to automatic.](common/provisioning-automatic.png)
 
 1. Under the **Admin Credentials** section, input your BIS Tenant URL as `https://www.bistrainer.com/scim` and corresponding Secret Token. Click **Test Connection** to ensure Azure AD can connect to BIS. If the connection fails, ensure your BIS account has Admin permissions and try again.
 
