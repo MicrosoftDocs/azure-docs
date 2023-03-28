@@ -257,7 +257,7 @@ The following changes have been made for Redis (to be used in a later section):
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Uses App Setting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-To use the custom image, you'll update your docker-compose-wordpress.yml file. In Cloud Shell, type `nano docker-compose-wordpress.yml` to open the nano text editor. Change the `image: wordpress` to use `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
+To use the custom image, you'll update your docker-compose-wordpress.yml file. In Cloud Shell, open a text editor and change the `image: wordpress` to use `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
 
 ```yaml
 version: '3.3'
@@ -269,8 +269,6 @@ services:
        - "8000:80"
      restart: always
 ```
-
-Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
 ### Update app with new configuration
 
