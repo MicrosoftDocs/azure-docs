@@ -45,7 +45,10 @@ Clicking on the private endpoint we have created, you should see its private IP 
 In this example, we will verify connectivity to the Azure SQL Database from an Ubuntu virtual machine with MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
 
 ```bash
-$ nslookup wantest.database.windows.net
+nslookup wantest.database.windows.net
+```
+
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -62,9 +65,11 @@ As you can see in the previous output, the FQDN `wantest.database.windows.net` i
 After verifying the correct DNS resolution, we can attempt to connect to the database:
 
 ```bash
-$ query="SELECT CONVERT(char(15), CONNECTIONPROPERTY('client_net_address'));"
-$ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
+query="SELECT CONVERT(char(15), CONNECTIONPROPERTY('client_net_address'));"
+sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
+```
 
+```output
 10.1.3.75
 ```
 
@@ -88,7 +93,10 @@ In this example we will connect from a different VNet, so first we will attach t
 Now any virtual machine in the attached VNet should correctly resolve the Azure SQL Database FQDN to the private link's private IP address:
 
 ```bash
-$ nslookup wantest.database.windows.net
+nslookup wantest.database.windows.net
+```
+
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -105,9 +113,11 @@ In order to double-check that this VNet (10.1.1.0/24) has connectivity to the or
 As you can see, there is a route pointing to the VNet 10.1.3.0/24 injected by the Virtual Network Gateways in Azure Virtual WAN. Now we can finally test connectivity to the database:
 
 ```bash
-$ query="SELECT CONVERT(char(15), CONNECTIONPROPERTY('client_net_address'));"
-$ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
+query="SELECT CONVERT(char(15), CONNECTIONPROPERTY('client_net_address'));"
+sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
+```
 
+```output
 10.1.1.75
 ```
 
