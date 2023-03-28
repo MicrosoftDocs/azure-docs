@@ -23,6 +23,8 @@ In addition to consolidating and improving on the legacy Log Analytics agents, A
 
 ## Migration guidance
 
+Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, review the migration plan checklist.
+
 ### Migration plan checklist 
 
 [!div class="checklist"]
