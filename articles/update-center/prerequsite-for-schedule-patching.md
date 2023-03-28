@@ -16,7 +16,7 @@ This article provides an overview of a new prerequisite for schedule patching in
 
 Currently, for Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you are configuring from Azure portal, and **AutomaticByPlatform** if you are using the REST API. In Portal and REST API, you should have a schedule associated with the VM for the schedule patching to run. If the schedule is not associated, then the machine may get auto-patched. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
 
-To avoid accidental or unintentional patching when a VM is disassociated from a schedule, a new property is introduced as a prerequisite to enable schedule patching on Azure VMs.
+To avoid accidental or unintentional patching when a VM is disassociated from a schedule, a new property is introduced as a prerequisite to enable schedule patching on Azure VMs.  
 
 ## New prerequisite
 
@@ -34,20 +34,20 @@ Now, to enable schedule patching on your VMs, you must do the following:
 The new patch mode enables the following VM properties on your behalf after receiving your consent:
 
 - Azure-orchestrated using Automatic guest patching
-- BypassPlatformSafetyChecksOnUserSchedule = TRUE
+- Bypassplatformsafetychecksonuserschedule = TRUE
 
 
 # [REST API](#tab/new-prereq-rest-api)
 
 - AutomaticByPlatform (API) 
-- BypassPlatformSafetyChecksOnUserSchedule = TRUE 
+- Bypassplatformsafetychecksonuserschedule = TRUE 
 
 --- 
 
 The above settings will do the following:
 
 - **Patch Orchestration** set to **Azure orchestrated using Automatic guest patching** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
-- Setting the **Bypass platform safety checks on user schedule = True** ensures that even if the schedule is accidentally removed from the VM, the VM will not be auto-patched.
+- Setting the **Bypassplatformsafetychecksonuserschedule = True** ensures that even if the schedule is accidentally removed from the VM, the VM will not be auto-patched.
 
 >[!NOTE]
 > - This prerequisite is applicable only for Azure VMs. 
