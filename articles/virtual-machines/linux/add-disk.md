@@ -89,8 +89,8 @@ The following example uses `parted` on `/dev/sdc`, which is where the first data
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
 ```
 
 Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lsblk commands to not return the UUID for the new filesystem immediately.
