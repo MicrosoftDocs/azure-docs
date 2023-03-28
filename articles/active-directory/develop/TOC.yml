@@ -458,6 +458,10 @@
       href: sample-v2-code.md#web-api
     - name: How-to
       items:
+        - name: Call an ASP.NET API with cURL
+          href: howto-call-a-web-api-with-cur.md
+        - name: Call an ASP.NET API with Postman
+          href: howto-call-a-web-api-with-postman.md
         - name: Protected web API
           items:
             - name: Overview

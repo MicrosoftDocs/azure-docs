@@ -207,23 +207,23 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 
 1. Open a new terminal window and navigate to the folder where the web API project is located.
 
-### [.NET 6.0](#tab/dotnet6)
-
-1. Execute the following command to start the app: 
-
-   ```bash
-   dotnet run
-   ``` 
-
-### [.NET 7.0](#tab/dotnet7)
-
-1. Open a new terminal and execute the following command to start the app on the `https` profile: 
-   
-   ```bash
-   dotnet run -launch-profile https`
-   ``` 
----
-
+    ### [.NET 6.0](#tab/dotnet6)
+    
+    1. Execute the following command to start the app: 
+    
+       ```bash
+       dotnet run
+       ``` 
+    
+    ### [.NET 7.0](#tab/dotnet7)
+    
+    1. Open a new terminal and execute the following command to start the app on the `https` profile: 
+       
+       ```bash
+       dotnet run -launch-profile https`
+       ``` 
+    ---
+    
 1. An output similar to the following will appear. Record the port number in the `https://localhost:{port}` URL. 
 
    ```bash
@@ -244,14 +244,14 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 1. Select the **Authorization** tab to configure Postman to obtain a token from the Microsoft Identity platform that will grant access to the web API. 
 1. Enter the following values in the **Authorization** tab:
 
-| Setting            | Value                                                                                                       |
-|--------------------|-------------------------------------------------------------------------------------------------------------|
-| Auth URL           | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize` <br/> Replace `{tenantId}` with the **Directory (tenant) ID** |                                                                                   
-| Access Token URL   | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` <br/> Replace `{tenantId}` with the **Directory (tenant) ID** |
-| Client ID          | The **Application (client) ID** value of your web app registration                                          |
-| Client Secret      | The client secret **Value** of your web app registration                                                    |
-| Scope              | `api://{application_client_id}/Forecast.Read` <br/> Navigate to your web app registration, under **Manage**, select **API permissions**, then select **Forecast.Read** <br/> Copy the value in the textbox, which contains the **Scope** value |
-
+    | Setting            | Value                                                                                                       |
+    |--------------------|-------------------------------------------------------------------------------------------------------------|
+    | Auth URL           | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize` <br/> Replace `{tenantId}` with the **Directory (tenant) ID** |                                                                                   
+    | Access Token URL   | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` <br/> Replace `{tenantId}` with the **Directory (tenant) ID** |
+    | Client ID          | The **Application (client) ID** value of your web app registration                                          |
+    | Client Secret      | The client secret **Value** of your web app registration                                                    |
+    | Scope              | `api://{application_client_id}/Forecast.Read` <br/> Navigate to your web app registration, under **Manage**, select **API permissions**, then select **Forecast.Read** <br/> Copy the value in the textbox, which contains the **Scope** value |
+    
 #### Get an access token and send a request to the web API 
 
 1. Once these values are entered select the **Get New Access Token** button. This launches a Postman browser window where you authenticate with your user credentials. Be sure to allow pop ups from the Postman application in the browser. 
