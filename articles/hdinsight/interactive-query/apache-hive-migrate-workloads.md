@@ -402,8 +402,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     set hive.auto.convert.join.noconditionaltask.size=<value>;
     set hive.mapjoin.smalltable.filesize = <value>;
     ```
-    Common join can convert to map join automatically, when `hive.auto.convert.join.noconditionaltask=true`, if estimated size of small table(s) is smaller than hive.`auto.convert.join.noconditionaltask.size` (default 10 5mins
-    MB).
+    Common join can convert to map join automatically, when `hive.auto.convert.join.noconditionaltask=true`, if estimated size of small table(s) is smaller than hive.`auto.convert.join.noconditionaltask.size` (default value is 10000000 MB).
     
 
      If you face any issue related to OOM by setting the property `hive.auto.convert.join` to true, then it's advisable to set it to false only for that particular query at the session level and not at the cluster level. This issue might occur if the stats are wrong and Hive decides to use map join based on the stats.
@@ -458,7 +457,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 You can run the following script after completing the migration.
 
 There's a chance of missing few columns in the backend DB, which causes the query failures. 
-If the schema upgrade wasn't happened properly, then there's chance that we may hit the above issue. The below script fetches the column name and datatype from customer backend DB and provides the output if there's any missing column or incorrect datatype.
+If the schema upgrade wasn't happened properly, then there's chance that we may hit the invalid column name issue. The below script fetches the column name and datatype from customer backend DB and provides the output if there's any missing column or incorrect datatype.
 
 The following path contains the schemacompare_final.py and test.csv file. The script is present in "schemacompare_final.py" file and the file "test.csv" contains all the column name and the datatype for all the tables, which should be present in the hive backend DB.
 
@@ -506,7 +505,7 @@ The above script automatically connects to your backend DB and fetches the detai
     ```
     SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';
     ```
-    If the column is missing, and you run an insert overwrite command stat are calculated automatically by default. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the following properties, which can't update the stats in the backend DB.
+    Incase any of the columns is missed in the table,  for example, if we run the queries like insert or insert overwrite then the stats will be calculated automatically and it tries to update the stats table like `PART_COL_STATS` and `TAB_COL_STATS`. And if the column like "BIT_VECTOR" is missing in the tables then it will fail with "Invalid column name" error. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the following properties, which can't update the stats in the backend Database.
 
     ```
     hive.stats.autogather=false;
