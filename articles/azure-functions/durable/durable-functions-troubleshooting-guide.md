@@ -74,7 +74,7 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 
 ## Sample Queries
 
-This section shows how to troubleshoot issues by writing custom [KQL queries](https://learn.microsoft.com/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Azure Functions app.
+This section shows how to troubleshoot issues by writing custom [KQL queries](/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Azure Functions app.
 
 ### Azure Storage Messaging
 When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
