@@ -22,7 +22,7 @@ The following are the most common reasons that devices disconnect from IoT Hub:
 
 ## Why you need a reconnect strategy
 
-It's important to have a strategy to reconnect devices as described in the following sections.  Without a reconnection strategy, you could see a negative affect on your solution's performance, availability, and cost. 
+It's important to have a strategy to reconnect devices as described in the following sections.  Without a reconnection strategy, you could see a negative effect on your solution's performance, availability, and cost. 
 
 ### Mass reconnection attempts could cause a DDoS
 
@@ -57,6 +57,8 @@ To reconnect devices, it's helpful to understand several background concepts.
   
 - Fall back to DPS after 10 retry attempts (for IoT Hub with DPS only). With DPS, we recommend that you use a `MAX_HUB_RETRY` (with the default set to 10) to handle cases where Microsoft Edge, Azure Stack, or IoT Hub changed the endpoint information.
 
+For more information on connection and retry patterns, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](how-to-use-reliability-features-in-sdks.md).
+
 ## Hub reconnection flow
 
 If you use IoT Hub only without DPS, use the following reconnection strategy.  
@@ -79,7 +81,7 @@ When a device fails to connect to DPS:
 1. Use an exponential back-off with jitter delay function. 
 1. Reprovision the device to DPS. 
 
-When a device fails to connect, you can reconnect based on the following cases:
+When a device fails to connect to IoT Hub, or is disconnected from IoT Hub, reconnect based on the following cases:
 
 |Failed connection scenario | Reconnection strategy |
 |---------|---------|
