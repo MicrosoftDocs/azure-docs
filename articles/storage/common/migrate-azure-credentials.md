@@ -86,9 +86,17 @@ Once your application is configured to use passwordless connections and runs loc
 
 [!INCLUDE [create-managed-identity-portal](../../../includes/passwordless/migration-guide/create-managed-identity-portal.md)]
 
-Alternatively, you can also enable managed identity on an Azure hosting environment using the Azure CLI.
+#### Associate the managed identity with your web app
 
-### [Service Connector](#tab/service-connector-identity)
+You need to configure your web app to use the managed identity you created. You can assign the identity to your app using either the Azure portal or the Azure CLI.
+
+To use the Azure portal to associate an identity with your app, follow these steps:
+
+[!INCLUDE [assign-managed-identity-portal](../../../includes/passwordless/migration-guide/assign-managed-identity-portal.md)]
+
+To use the Azure CLI to associate an identity with your app, use the following commands:
+
+# [Service Connector](#tab/service-connector-identity)
 
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service using the Azure CLI. The CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [portal instructions](#create-the-managed-identity-using-the-azure-portal).
 
@@ -127,17 +135,30 @@ az containerapp connection create storage-blob \
     --system-identity
 ```
 
-### [Azure App Service](#tab/app-service-identity)
+# [Azure App Service](#tab/app-service-identity)
+
+Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
+
+```azurecli
+az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
+```
 
 You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command.
 
-```azurecli
+```
 az webapp identity assign \
     --resource-group <resource-group-name> \
     --name <webapp-name>
+    --identities <managed-identity-id>
 ```
 
-### [Azure Spring Apps](#tab/spring-apps-identity)
+# [Azure Spring Apps](#tab/spring-apps-identity)
+
+Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
+
+```azurecli
+az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
+```
 
 You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
 
@@ -146,19 +167,32 @@ az spring app identity assign \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-name>
+    --user-assigned <managed-identity-id>
 ```
 
-### [Azure Container Apps](#tab/container-apps-identity)
+# [Azure Container Apps](#tab/container-apps-identity)
 
+Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
+
+```azurecli
+az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
+```
 You can assign a managed identity to an Azure Container Apps instance with the [az container app identity assign](/cli/azure/containerapp/identity) command.
 
 ```azurecli
 az containerapp identity assign \
     --resource-group <resource-group-name> \
     --name <app-name>
+    --user-assigned <managed-identity-id>
 ```
 
-### [Azure virtual machines](#tab/virtual-machines-identity)
+# [Azure virtual machines](#tab/virtual-machines-identity)
+
+Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
+
+```azurecli
+az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
+```
 
 You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command.
 
@@ -166,16 +200,26 @@ You can assign a managed identity to a virtual machine with the [az vm identity 
 az vm identity assign \
     --resource-group <resource-group-name> \
     --name <virtual-machine-name>
+    --identities <managed-identity-id>
 ```
 
-### [Azure Kubernetes Service](#tab/aks-identity)
+# [Azure Kubernetes Service](#tab/aks-identity)
+
+Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
+
+```azurecli
+az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
+```
 
 You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command.
 
 ```azurecli
-az vm identity assign \
+az aks update \
     --resource-group <resource-group-name> \
-    --name <virtual-machine-name>
+    --name <cluster-name> \
+    --enable-managed-identity \
+    --assign-identity <managed-identity-id> \
+    --assign-kubelet-identity <managed-identity-id>
 ```
 
 ---
@@ -204,7 +248,7 @@ If you connected your services using the Service Connector you do not need to co
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
-1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
+1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
    :::image type="content" source="media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="media/migration-select-identity.png":::
 
