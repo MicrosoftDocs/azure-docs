@@ -61,7 +61,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     | rootca/db/index | The certificate database for the root CA. The `touch` command creates a file without any content, for later use. The certificate database is a plain text file managed by OpenSSL that contains information about issued certificates. For more information about the certificate database, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/). |
     | rootca/db/serial | A file used to store the serial number of the next certificate to be created for the root CA. The `openssl` command creates a 16-byte random number in hexadecimal format, then stores it in this file to initialize the file for creating the root CA certificate. |
     | rootca/db/crlnumber | A file used to store serial numbers for revoked certificates issued by the root CA. The `echo` command pipes a sample serial number, 1001, into the file. |
-    | rootca/private | The directory in which private files for the root CA, including the private key, are stored.<br/><br/>The files in this directory must be secured and protected. |
+    | rootca/private | The directory in which private files for the root CA, including the private key, are stored.<br/>The files in this directory must be secured and protected. |
 
     ```bash
       mkdir rootca
@@ -160,7 +160,8 @@ You must first create an internal root certificate authority (CA) and a self-sig
     > Even though this root CA is for testing purposes and won't be exposed as part of a public key infrastructure (PKI), we recommend that you do not copy or share the private key.
 
     ```bash
-      openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
+      openssl req -new -config rootca.conf -out rootca.csr \
+        -keyout private/rootca.key
     ```
     
     You're prompted to provide a PEM pass phrase, as shown below, for the private key file. Provide and confirm a pass phrase to generate your private key and CSR.
@@ -176,7 +177,8 @@ You must first create an internal root certificate authority (CA) and a self-sig
 1. In the Bash window, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). For more information about the OpenSSL `ca` command, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
     ```bash
-      openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
+      openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt \
+        -extensions ca_ext
     ```
 
     You're prompted to provide the PEM pass phrase, as shown below, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
@@ -314,7 +316,8 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 1. In the Bash window, run the following commands to generate a private key and a certificate signing request (CSR) in the subordinate CA directory.
 
     ```bash
-      openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
+      openssl req -new -config subca.conf -out subca.csr \
+        -keyout private/subca.key
     ```
 
     You're prompted to enter a PEM pass phrase, as shown below, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
@@ -330,7 +333,8 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 1. In the Bash window, run the following command to create a subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
 
     ```bash
-      openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt -extensions sub_ca_ext
+      openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt \
+        -extensions sub_ca_ext
     ```
 
     You're prompted to enter the pass phrase, as shown below, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
@@ -342,7 +346,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     Signature ok
     Certificate Details:
         {Details omitted from output for clarity}
-    Certificate is to be certified until Mar 24 18:51:41 2033 GMT (3650 days)
+    Certificate is to be certified until Mar 24 18:55:00 2024 GMT (365 days)
     Sign the certificate? [y/n]:
 
 
@@ -401,7 +405,8 @@ Perform the following steps to:
 
     ```bash
       cd {subca_dir}
-      openssl genpkey -out private/{device_name}.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+      openssl genpkey -out private/{device_name}.key -algorithm RSA \
+        -pkeyopt rsa_keygen_bits:2048
       openssl req -new -key private/{device_name}.key -out {device_name}.csr
     ```
 
@@ -435,7 +440,8 @@ Perform the following steps to:
 1. In the Bash window, run the following command, replacing the following placeholders with their corresponding values. This step creates a client certificate in the subordinate CA directory. The command applies the `client_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a client certificate, which can't be used as a CA certificate. The client certificate is signed with the subordinate CA certificate.
 
     ```bash
-      openssl ca -config subca.conf -in {device_name}.csr -out {device_name}.crt -extensions client_ext
+      openssl ca -config subca.conf -in {device_name}.csr -out {device_name}.crt \
+        -extensions client_ext
     ```
     
     You're prompted to enter the pass phrase, as shown below, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
