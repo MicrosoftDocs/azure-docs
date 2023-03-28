@@ -20,7 +20,7 @@ content meets their needs. H1 format is # What is <product/service>?
 
 Learn how to configure a branch office location for Global Secure Access.
 
-Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [](). To learn more about Microsoft Entra Internet Access, see []().
+Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
 
 | Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
 |----------|-----------|------------|
@@ -30,7 +30,7 @@ Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra
 | Feature D | X |   |
 
 ## Create a branch location to connect to NaaS VPN service
-Global Secure Access provides branch connectivity so you can connect a branch office to the Microsoft network. Once a branch is connected to the Microsoft network you can set up network security policies. These policies are applied on all outbound traffic. Alternatively, you can set up clients on individual devices to connect to the Microsoft network regardless of the device location and Internet connection. To learn more about the client for Global Secure Access, see []().
+Global Secure Access provides branch connectivity so you can connect a branch office to the Microsoft network. Once a branch is connected to the Microsoft network you can set up network security policies. These policies are applied on all outbound traffic. Alternatively, you can set up clients on individual devices to connect to the Microsoft network regardless of the device location and Internet connection. To learn more about the client for Global Secure Access, see [How to configure devices for Global Secure Access](how-to-configure-devices.md).
 
 There are multiple ways to connect a branch location to the Microsoft network. In a nutshell, you are creating an IPSec tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed by the core router at the branch location and thus a client is not required to be installed on individual devices.
 
