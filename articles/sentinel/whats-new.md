@@ -19,12 +19,12 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## March 2023
 
-- [Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces)
+- [Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces-preview)
 - [Microsoft Defender Threat Intelligence data connector (Preview)](#microsoft-defender-threat-intelligence-data-connector-preview)
 - [Microsoft Defender Threat Intelligence solution (Preview)](#microsoft-defender-threat-intelligence-solution-preview)
 - [Automatically update the SAP data connector agent (Preview)](#automatically-update-the-sap-data-connector-agent-preview)
 
-### Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces
+### Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)
 
 You can now [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](sap/cross-workspace.md) in different scenarios. This feature allows improved flexibility for managed security service providers (MSSPs) or a global or federated SOC, data residency requirements, organizational hierarchy/IT design, and insufficient role-based access control (RBAC) in a single workspace. One common use case is the need for collaboration between the security operations center (SOC) and SAP teams in your organization. Read about [the scenarios that address this use case](sap/cross-workspace.md).
 
@@ -42,7 +42,7 @@ Enabling this solution helps your security team achieve the following goals:
 - respond more effectively to threats
 - maximize impact of existing security incident response
 
-### Automatically update the SAP data connector agent (Preview)
+### Automatically update the SAP data connector agent
 
 You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
 
