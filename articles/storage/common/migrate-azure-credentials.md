@@ -80,7 +80,7 @@ After making these code changes, run your application locally. The new configura
 
 ### Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Storage.
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance can use an assigned managed identity can connect to Azure Storage.
 
 #### Create the managed identity using the Azure portal
 
