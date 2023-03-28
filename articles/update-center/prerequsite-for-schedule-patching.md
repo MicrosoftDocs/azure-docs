@@ -8,19 +8,23 @@ author: snehasudhirG
 ms.author: sudhirsneha
 ---
 
-# Change in requirements for Scheduled patching
+# Change in requirements for Schedule patching
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs.
 
-This article provides an overview of a new prerequisite for scheduled patching in update management center (preview). 
+This article provides an overview of a new prerequisite for schedule patching in update management center (preview). 
 
-Currently, for all Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you are configuring from Azure portal and **AutomaticByPlatform** if you are using the REST API. In Portal and API, you should have a schedule associated with the VM for schedule patching to run. If the schedule is not associated, then the machine may get [auto-patched](../virtual-machines/automatic-vm-guest-patching.md).
+Currently, for Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you are configuring from Azure portal, and **AutomaticByPlatform** if you are using the REST API. In Portal and REST API, you should have a schedule associated with the VM for the schedule patching to run. If the schedule is not associated, then the machine may get auto-patched. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
 
-To avoid accidental or unintentional patching when a VM is detached from a schedule, a new property is introduced as a prerequisite to enable schedule patching on Azure VMs.
+To avoid accidental or unintentional patching when a VM is disassociated from a schedule, a new property is introduced as a prerequisite to enable schedule patching on Azure VMs.
 
 ## New prerequisite
 
-The new VM property introduced allows you to have complete control over your patching requirements. To enable schedule patching on your VM, you must do the following:
+The new VM property - *Bypassplatformsafetychecksonuserschedule* is introduced, allowing a complete control over your patching requirements. It implies that you can select the VMs that must be auto-patched and schedule-patched, removing the risk of accidental auto-patching.
+
+Here, when the patch orchestration is set to **Azure orchestrated using Automatic guest patching**, **Bypassplatformsafetychecksonuserschedule=True**, and no schedule is associated, the Auto-patching on the VMs is not done.
+
+Now, to enable schedule patching on your VMs, you must do the following:
   
 
 # [Azure portal](#tab/new-prereq-portal)
@@ -40,14 +44,14 @@ The new patch mode enables the following VM properties on your behalf after rece
 
 --- 
 
-The above settings will do the following when:
+The above settings will do the following:
 
-- **Patch Orchestration** is set to **Azure orchestrated using Automatic guest patching** - It enables Auto patching on the VM.
-- **Set the Bypass platform safety checks on user schedule = True** ensures that even if the schedule is accidentally removed from the VM, the VM will not be auto-patched.
+- **Patch Orchestration** set to **Azure orchestrated using Automatic guest patching** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
+- Setting the **Bypass platform safety checks on user schedule = True** ensures that even if the schedule is accidentally removed from the VM, the VM will not be auto-patched.
 
 >[!NOTE]
-> - This prerequisite is applicable only for Azure machines. 
-> - For Azure Arc-enabled machines, there are no prerequisites to enable scheduled patching. 
+> - This prerequisite is applicable only for Azure VMs. 
+> - For Azure Arc-enabled VMs, there are no prerequisites to enable scheduled patching. The procedure to configure the schedules on Azure Arc-enabled servers continues to remain the same.
 > - For other programmatic methods such as REST API/PowerShell/CLI, we recommend that you enable both the properties using the REST API calls/REST commands/cmdlets.
 
 > [!IMPORTANT]
@@ -82,6 +86,9 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 }'
 ```
 ---
+
+> [!NOTE]
+> Currently, you can only enable the new prerequisite for schedule patching via Azure portal and REST API. It cannot be enabled via Azure CLI and PowerShell.
 
 ## User scenarios
 
