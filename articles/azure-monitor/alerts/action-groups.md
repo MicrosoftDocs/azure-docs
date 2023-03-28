@@ -1,10 +1,8 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
-ms.author: jagummersall
 ms.reviewer: jagummersall
 ms.custom: references_regions
 
