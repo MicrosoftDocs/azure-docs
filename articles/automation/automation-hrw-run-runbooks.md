@@ -49,13 +49,13 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 **PowerShell 7.2**
 
-To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
+To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
 After PowerShell 7.2 installation is complete, create an environment variable with Variable name as powershell_7_2_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully. 
 
 **PowerShell 7.1**
 
-To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
+To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 Ensure to add the *PowerShell* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **Python 3.10**
@@ -89,7 +89,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 **PowerShell 7.1**
 
-To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
+To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 Ensure to add the *PowerShell* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **Python 3.8**
@@ -123,7 +123,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 **PowerShell 7.2**
 
-To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. For more information, see [Installing PowerShell on Linux](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3).
+To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. For more information, see [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
 
 After PowerShell 7.2 installation is complete, create an environment variable with **Variable name** as *powershell_7_2_path* and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
