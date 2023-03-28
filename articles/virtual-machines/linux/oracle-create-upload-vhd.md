@@ -45,8 +45,8 @@ You must complete specific configuration steps in the operating system for the v
     sudo rpm -e --nodeps NetworkManager
     ```
 
-> [!NOTE]
-> If the package isn't already installed, this command fails with an error message. This messages is expected.
+   > [!NOTE]
+   > If the package isn't already installed, this command fails with an error message. This messages is expected.
 
 4. Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
@@ -210,7 +210,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
    
    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
-10. Once you'are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
+10. Once you're done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -318,8 +318,8 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     sudo export HISTSIZE=0
     ```
 
-> [!NOTE]
-> if you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
+   > [!NOTE]
+   > If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovision step.
 
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
