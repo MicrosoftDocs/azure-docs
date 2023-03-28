@@ -67,7 +67,7 @@ Register-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Mic
 ```
 
 > [!IMPORTANT]
-> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.  If multiple subsciptions must connect with the payment HSM, you must include **all** the subscriopts IDs.
+> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include the subscription IDs of **every** subscription you want to connect to the payment HSM.
 
 You can verify that your registrations are complete with the Azure PowerShell [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet:
 

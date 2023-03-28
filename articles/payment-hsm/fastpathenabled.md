@@ -15,21 +15,23 @@ ms.author: mbaldwin
 
 # Fastpathenabled
 
-Within the context of Azure Payment HSM, "Fastpathenabled" is used in two related but distinct ways:
+Azure Payment HSM uses the term "Fastpathenabled" in two related but distinct ways:
 
-- "FastPathEnabled" (capitalized) is a an Azure Feature Exposure Control (AFEC) flag. It must be applied to **every** subscription ID that wants to connect to a payment HSM.
-- "fastpathenabled" (lowercased) is a virtual network tag. It must be added to **every** virtual network and NAT gateway (when applicable) that interacts with a payment HSM.
+- "FastPathEnabled" (capitalized) is an Azure Feature Exposure Control (AFEC) flag. It must be applied to **every** subscription ID that wants to connect to a payment HSM.
+- "fastpathenabled" (lowercased) is a virtual network tag. It must be added to **every** virtual network (and NAT gateway, when applicable) that interacts with a payment HSM.
 
 ### Subscriptions
 
-The "FastPathEnabled" feature flag must be added/registered to all subscriptions IDs that connect to a payment HSM. If you have multiple subscriptions IDs that require access to a payment HSM, include them all when contacting [Mirosoft support](support-guide.md#microsoft-support) (after you [Register the resource providers and features](register-payment-hsm-resource-providers.md)).
+The "FastPathEnabled" feature flag must be added/registered to all subscriptions IDs that connect to a payment HSM.  Applying the "FastPathEnabled" feature flag to a subscription that already has resources has **no** effect on existing resources--existing resources must be subsequently registered. 
 
-> [!WARNING]
-Applying the "FastPathEnabled" feature flag to a subscription that already has resources has **no** effect on existing resources. You must register those resources by following the stpes in [Register the resource providers and features](register-payment-hsm-resource-providers.md).
+To apply the "FastPathEnabled" feature flag, see [Register the resource providers and features](register-payment-hsm-resource-providers.md).
+
+> [!IMPORTANT]
+> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include the subscription IDs of **every** subscription you want to connect to the payment HSM.
 
 ### Virtual networks
 
-The "fastpathenabled" tag must be enabled on every virtual networks that the payment HSM uses, peered or otherwise. For instance, to peer a virtual network of a payment HSM with a virtual network of a VM, you must first add the "fastpathenabled" tag to the latter.
+The "fastpathenabled" tag must be added to every virtual networks that the payment HSM uses, peered or otherwise. For instance, to peer a virtual network of a payment HSM with a virtual network of a VM, you must first add the "fastpathenabled" tag to the latter.
 
 Unfortunately, adding the "fastpathenabled" tag through the Azure portal is insufficient—it must be done from the commandline. To do so, follow the steps outlined in [How to peer Azure Payment HSM virtual networks](peer-vnets.md?tabs=azure-cli).
 
@@ -40,7 +42,8 @@ For an Virtual Network NAT scenario, you must add the "fastpathenabled" tag wi
 ## Next steps
 
 - Learn more about [Azure Payment HSM](overview.md)
-- See common [Deployment scenarios](deployment-scenarios.md)
-- Find out how to [get started with Azure Payment HSM](getting-started.md)
-- Learn how to [Create a payment HSM](create-payment-hsm.md)
+- [Register the resource providers and features](register-payment-hsm-resource-providers.md)
+- [How to peer Azure Payment HSM virtual networks](peer-vnets.md?tabs=azure-cli)
+- [Get started with Azure Payment HSM](getting-started.md)
+- [Create a payment HSM](create-payment-hsm.md)
 - Read the [frequently asked questions](faq.yml)
