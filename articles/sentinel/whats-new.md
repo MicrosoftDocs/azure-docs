@@ -26,7 +26,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces
 
-You can now [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](cross-workspcace.md) in different scenarios. This feature allows improved flexibility for managed security service providers (MSSPs) or a global or federated SOC, data residency requirements, organizational hierarchy/IT design, and insufficient role-based access control (RBAC) in a single workspace. One common use case is the need for collaboration between the security operations center (SOC) and SAP teams in your organization. Read about [the scenarios that address this use case](cross-workspcace.md).
+You can now [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](sap/cross-workspace.md) in different scenarios. This feature allows improved flexibility for managed security service providers (MSSPs) or a global or federated SOC, data residency requirements, organizational hierarchy/IT design, and insufficient role-based access control (RBAC) in a single workspace. One common use case is the need for collaboration between the security operations center (SOC) and SAP teams in your organization. Read about [the scenarios that address this use case](sap/cross-workspace.md).
 
 ### Microsoft Defender Threat Intelligence data connector (Preview)
 
@@ -41,8 +41,6 @@ Enabling this solution helps your security team achieve the following goals:
 - increase visibility 
 - respond more effectively to threats
 - maximize impact of existing security incident response
-
-Check out the [Tech Community blog](https://aka.ms/sentinel-playbooks) for more information about the three playbooks released at launch!
 
 ### Automatically update the SAP data connector agent (Preview)
 
