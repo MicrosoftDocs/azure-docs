@@ -47,7 +47,7 @@ Enabling this solution helps your security team achieve the following goals:
 - respond more effectively to threats
 - maximize impact of existing security incident response
 
-Check out the [Tech Community blog](https://aka.ms/sentinel-playbooks) for more information on the three playbooks available at launch.
+Check out the [Tech Community blog](https://techcommunity.microsoft.com/t5/microsoft-defender-threat/what-s-new-at-microsoft-secure/ba-p/3773576) for more information on announcements from Microsoft Secure.
 
 ### Automatically update the SAP data connector agent
 
