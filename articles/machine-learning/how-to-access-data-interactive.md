@@ -164,7 +164,7 @@ fs = AzureMachineLearningFileSystem(uri)
 
 # append csv files in folder to a list
 dflist = []
-for path in fs.ls('/<folder>/*.csv'):
+for path in fs.glob('/<folder>/*.csv'):
     with fs.open(path) as f:
         dflist.append(pd.read_csv(f))
 
