@@ -1,0 +1,8 @@
+- name: Azure Code Signing Documentation 
+  href: ./index.yml
+  expanded: true
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Code Signing?
+      href: overview.md

@@ -1,0 +1,27 @@
+### YamlMime:Landing
+
+title: Azure Code Signing # < 60 chars
+summary: Azure Code Signing is a Microsoft fully managed end-to-end code signign solution for 3rd party developers. The service is currently in a preview state. # < 160 chars
+
+metadata:
+  title: Azure Code Signing documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Code Signing is a Microsoft fully managed end-to-end code signign solution for 3rd party developers. The service is currently in a preview state. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: azure-code-signing #Required; use either service or product per approved list. 
+  ms.topic: landing-page # Required
+  author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
+  ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
+  ms.date: 03/28/2023 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Azure Code Signing
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Code Signing?
+            url: overview.md
+  
