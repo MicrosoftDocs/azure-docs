@@ -262,20 +262,17 @@ A virtual server is a BIG-IP data plane object, represented by a virtual IP addr
 1. For **Destination Address**, enter an IPv4 or IPv6 address BIG-IP uses to receive client traffic. Ensure a corresponding record in DNS that enables clients to resolve the external URL, of the BIG-IP published application, to this IP. You can use computer's localhost DNS for testing.
 2. For **Service Port**, enter **443**, and select **HTTPS**.
 3. Check the box for **Enable Redirect Port**.
-4. Enter a value for **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
+4. Enter a value for **Redirect Port**. This option redirects incoming HTTP client traffic to HTTPS.
+5. Select the **Client SSL Profile** you created, or leave the default for testing. The Client SSL Profile enables the virtual server for HTTPS, so client connections are encrypted over TLS. 
 
-4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
-
-   ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+   ![Screenshot of Destination Address, Service Port, and a selected profile on Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
-The **Application Pool tab** details the services behind a BIG-IP that are represented as a pool, containing one or more application servers.
+The **Application Pool** tab has services behind a BIG-IP, represented as a pool, with one or more application servers.
 
-1. Choose from **Select a Pool**. Create a new pool or select an existing one
-
-2. Choose the **Load Balancing Method** as *Round Robin*
-
+1. For **Select a Pool**, select **Create New**, or select another.
+2. Choose the **Load Balancing Method** as *Round Robin*.
 3. For **Pool Servers** select an existing node or specify an IP and port for the server hosting the header-based application
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
