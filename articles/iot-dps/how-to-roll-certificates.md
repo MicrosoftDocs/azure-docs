@@ -98,13 +98,13 @@ If you are rolling certificates to handle certificate expirations, you should us
 
    :::image type="content" source="./media/how-to-roll-certificates/manage-certificates.png" alt-text="Screenshot that shows the certificates page.":::
 
-1. Select the compromised or expired certificate from the list, and then select **Delete**. Confirm the delete by entering the certificate name and click **OK**.
+1. Select the compromised or expired certificate from the list, and then select **Delete**. Confirm the delete by entering the certificate name and select **OK**.
 
 1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
 1. Select **Manage enrollments** from the **Settings** section of the navigation menu for your Device Provisioning Service instance, and select the **Enrollment groups** tab.
 
-1. Click your enrollment group name from the list.
+1. Select your enrollment group name from the list.
 
 1. In the **X.509 certificate settings** section, and select your new root CA certificate to either replace the compromised or expired certificate, or to add as a secondary certificate.
 
@@ -122,7 +122,7 @@ If you are rolling certificates to handle certificate expirations, you should us
 
 1. Select **Manage enrollments** from the **Settings** section of the navigation menu for your Device Provisioning Service instance, and select the **Enrollment groups** tab.
 
-1. Select the group name grom the list.
+1. Select the group name from the list.
 
 1. Check the **Remove or replace primary/secondary certificate** checkboxes if you want to delete an existing certificate. Select the file folder icon to browse for and upload the new certificates.
 
@@ -146,9 +146,9 @@ Once the certificate is rolled on both the device and the Device Provisioning Se
 
 One easy way of programming devices to reprovision is to program the device to contact the provisioning service to go through the provisioning flow if the device receives an “unauthorized” error from attempting to connect to the IoT hub.
 
-Another way is for both the old and the new certificates to be valid for a short overlap, and use the IoT hub to send a command to devices to have them re-register via the provisioning service to update their IoT Hub connection information. Because each device can process commands differently, you will have to program your device to know what to do when the command is invoked. There are several ways you can command your device via IoT Hub, and we recommend using [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) or [jobs](../iot-hub/iot-hub-devguide-jobs.md) to initiate the process.
+Another way is for both the old and the new certificates to be valid for a short overlap, and use the IoT hub to send a command to devices to have them re-register via the provisioning service to update their IoT Hub connection information. Because each device can process commands differently, you have to program your device to know what to do when the command is invoked. There are several ways you can command your device via IoT Hub, and we recommend using [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) or [jobs](../iot-hub/iot-hub-devguide-jobs.md) to initiate the process.
 
-Once reprovisioning is complete, devices will be able to connect to IoT Hub using their new certificates.
+Once reprovisioning is complete, devices are able to connect to IoT Hub using their new certificates.
 
 ## Disallow certificates
 

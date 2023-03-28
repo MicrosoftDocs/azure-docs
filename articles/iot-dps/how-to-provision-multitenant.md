@@ -105,15 +105,15 @@ For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetri
 
 1. On the **Review + create** tab, verify all of your values then select **Create**.
 
-1. Once your enrollment group is creted, select its name *contoso-us-devices* from the enrollment groups list.
+1. Once your enrollment group is created, select its name *contoso-us-devices* from the enrollment groups list.
 
 1. Copy the *Primary key*. This key will be used later to generate unique device keys for both simulated devices.
 
 ## Create regional Linux VMs
 
-In this section, you'll create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for devices from both regions.
+In this section, you create two regional Linux virtual machines (VMs), one in **West US 2** and one in **East US 2**. These VMs run a device simulation sample from each region to demonstrate device provisioning for devices from both regions.
 
-To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US 2** and **East US**).
+To make clean-up easier, add these VMs to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*.
 
 1. In the Azure Cloud Shell, run the following command to create an **East US** region VM after making the following parameter changes in the command:
 
@@ -135,7 +135,7 @@ To make clean-up easier, these VMs will be added to the same resource group that
     --public-ip-sku Standard
     ```
 
-    This command will take a few minutes to complete. 
+    This command will take a few minutes to complete.
 
 2. Once the command has completed, copy the **publicIpAddress** value for your East US region VM.
 

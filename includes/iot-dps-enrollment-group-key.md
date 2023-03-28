@@ -2,7 +2,7 @@
 author: kgremban
 ms.service: iot-dps
 ms.topic: include
-ms.date: 03/09/2023
+ms.date: 03/28/2023
 ms.author: kgremban
 ---
 
@@ -20,9 +20,9 @@ ms.author: kgremban
    | **Symmetric key settings** |Check the **Generate symmetric keys automatically** box if you want to use randomly generated keys. Uncheck this box if you want to provide your own keys. |
    | **Group name** | Provide a name for the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
    | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment group to be available to provision devices. Uncheck this box if you want the group to be disabled. You can change this setting later. |
-   | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](../articles/iot-dps/concepts-device-reprovision.md#reprovision-policies)] |
+   | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](../articles/iot-dps/concepts-device-reprovision.md#reprovision-policies) |
 
-   :::image type="content" source="../articles/iot-dps/media/how-to-manage-enrollments/add-enrollment-group-symm-key.png" alt-text="Screenshot that shows adding an enrollment group for symmetric key attestation.":::
+   :::image type="content" source="../articles/iot-dps/media/how-to-manage-enrollments/add-enrollment-group-symmetric-key.png" alt-text="Screenshot that shows adding an enrollment group for symmetric key attestation.":::
 
 1. Select **Next: IoT hubs**.
 
