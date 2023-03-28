@@ -266,7 +266,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
 
 ### Use the EncryptFormatAll parameter with Logical Volume Manager (LVM)
 
-We recommend an LVM-on-crypt setup. For details instructions about the LVM on crypt configuration, see [Configure LVM and RAID on ADE encrypted devices](/azure/virtual-machines/linux/how-to-configure-lvm-raid-on-crypt).
+We recommend an LVM-on-crypt setup. For detailed instructions about the LVM on crypt configuration, see [Configure LVM and RAID on ADE encrypted devices](/azure/virtual-machines/linux/how-to-configure-lvm-raid-on-crypt).
 
 ## New VMs created from customer-encrypted VHD and encryption keys
 
