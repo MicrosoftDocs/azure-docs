@@ -1468,7 +1468,7 @@ A truth table for this ABAC sample condition follows:
 
 > [!NOTE]
 > The last two expressions in the above condition allow users to read blobs from the public internet that have `sensitivity` set to some value other than *high*, or where the index tag is not applied to the blob.
-> The `Exists` operator is not supported in the visual ABAC condition builder. To add the `Exists` operator related statements, switch to the **Code** view in the ABAC condition builder.
+> The `Exists` operator is not supported in the visual ABAC condition builder for the tags attribute. To add the last expression, switch to the **Code** condition editor in the ABAC condition builder.
 
 #### Azure portal
 

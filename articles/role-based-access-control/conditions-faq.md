@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/24/2022
+ms.date: 03/28/2023
 ms.author: rolyon
 
 #Customer intent: 
@@ -18,9 +18,13 @@ ms.author: rolyon
 
 ## Frequently asked questions
 
-**Can you pick the storage container names or blob path in the condition builder in the Azure portal?**
+**Can you pick the storage container names or blob path in the visual ABAC condition builder in the Azure portal?**
 
 You must write the storage container name, blob path, tag name, or values in the condition. There is no picking experience for the attribute values.
+
+**Can you pick the `Exists` operator in the visual ABAC condition builder in the Azure portal?**
+
+The `Exists` operator is not supported in the visual ABAC condition builder for all attributes. For a list of attributes for which it is supported, see [the *Exists* function operator](../../role-based-access-control/conditions-format.md#exists). To use the `Exists` operator with other attributes, you will need to add it to an expression using the **Code** editor.
 
 **Can you group expressions?**
 
