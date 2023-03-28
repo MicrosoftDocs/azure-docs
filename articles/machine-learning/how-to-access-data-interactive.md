@@ -258,7 +258,7 @@ fs = AzureMachineLearningFileSystem(uri)
 
 with fs.open('/<folder>/<image.jpeg>') as f:
     img = Image.open(f)
-    img.show(
+    img.show(）
 ```
 
 #### PyTorch custom dataset example
