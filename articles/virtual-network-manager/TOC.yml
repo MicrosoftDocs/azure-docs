@@ -49,6 +49,10 @@
     href: concept-deployments.md
   - name: Remove or update components
     href: concept-remove-components-checklist.md
+- name: Samples
+  items:
+    - name: Resource Manager Templates
+      href: resource-manager-template-samples.md
 - name: How-to guides
   items:
   - name: Secure network traffic
