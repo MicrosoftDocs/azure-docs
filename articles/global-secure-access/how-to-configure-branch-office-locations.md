@@ -20,7 +20,7 @@ content meets their needs. H1 format is # What is <product/service>?
 
 Learn how to configure a branch office location for Global Secure Access.
 
-Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article.
+Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [](). To learn more about Microsoft Entra Internet Access, see []().
 
 | Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
 |----------|-----------|------------|
