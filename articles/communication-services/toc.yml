@@ -125,7 +125,9 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
-          href: quickstarts/chat/meeting-interop.md   
+          href: quickstarts/chat/meeting-interop.md
+        - name: Enable Teams interoperability features
+          href: quickstarts/chat/meeting-interop-features.md  
     - name: Use UI components for chat
       href: quickstarts/ui-library/get-started-chat-ui-library.md
   - name: Phone calling
