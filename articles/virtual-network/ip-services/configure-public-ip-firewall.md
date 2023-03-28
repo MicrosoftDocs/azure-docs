@@ -39,7 +39,7 @@ In this section, you create an Azure firewall. Use the first IP address you crea
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Create a new resource group named myResourceGroupFW. |
+    | Resource group | Create a new resource group named **myResourceGroupFW**. |
     | **Instance details** |   |
     | Name | Enter **myFirewall**. |
     | Region | Select **West US 2**. |
@@ -61,7 +61,7 @@ In this section, you create an Azure firewall. Use the first IP address you crea
 
 The following image shows the **Create firewall** page with the example information.
 
-:::image type="content" source="./media/create-public-ip-firewall/create-an-azure-firewall.png" alt-text="Screenshot that shows the Create firewall page with the example information." lightbox="./media/create-public-ip-firewall/create-an-azure-firewall.png":::
+:::image type="content" source="./media/create-public-ip-firewall/create-an-azure-firewall.png" alt-text="Screenshot that shows the Create firewall page with the example information." lightbox="./media/create-public-ip-firewall/create-an-azure-firewall-lightbox.png":::
 
 
 ## Change the public IP address for a firewall
