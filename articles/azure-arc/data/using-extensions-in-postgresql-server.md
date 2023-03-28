@@ -88,9 +88,9 @@ You can create an Arc-enabled PostgreSQL server with any of the supported extens
 ```azurecli
 az postgres server-arc create -n <name> --k8s-namespace <namespace> --extensions "pgaudit,pg_partman" --use-k8s
 ```
-*NOTE:* After extensions are enabled thus added to shared_preload_libraries, these must be installed in your database before you can use them. To install a particular extension, you should run the [`CREATE EXTENSION`](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+*NOTE*: Enabled extensions are added to the configuration ``shared_preload_libraries``. Extensions must be installed in your database before you can use it. To install a particular extension, you should run the [`CREATE EXTENSION`](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
-You can connect to your database and issue the following PostgreSQL command to install extension, for example to install pgaudit:
+For example, connect to your database and issue the following PostgreSQL command to install pgaudit extension:
 
 ```SQL
 CREATE EXTENSION pgaudit;
