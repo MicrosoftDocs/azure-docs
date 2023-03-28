@@ -59,13 +59,3 @@ For more information, see:
 
 - [View your device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-
-> [!div class="step-by-step"]
-> [« Configure active monitoring for OT networks](configure-active-monitoring.md)
-
-
-> [!div class="step-by-step"]
-> [Configure Windows Endpoint monitoring »](configure-windows-endpoint-monitoring.md)
-
-> [!div class="step-by-step"]
-> [Import device information to a sensor »](how-to-import-device-information.md)

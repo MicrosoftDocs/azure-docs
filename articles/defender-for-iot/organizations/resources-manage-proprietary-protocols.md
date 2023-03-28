@@ -92,8 +92,4 @@ For more information, see [Create custom alert rules on an OT sensor](how-to-acc
 
 ## Next steps
 
-> [!div class="step-by-step"]
-> [« Enhance device data on an OT sensor](how-to-import-device-information.md)
-
-> [!div class="step-by-step"]
-> [Turn off learning mode on your OT network sensor »](ot-deploy/create-learned-baseline.md)
+For more information, see [Protocols supported by Defender for IoT](concept-supported-protocols.md)
