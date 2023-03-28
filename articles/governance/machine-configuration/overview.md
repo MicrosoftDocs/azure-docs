@@ -414,6 +414,24 @@ Windows: `c:\programdata\guestconfig\configuration`
 
 Linux: `/var/lib/GuestConfig/Configuration`
 
+
+### Opensource nxtools module functionality
+
+A new opensource [nxtools module](https://github.com/azure/nxtools#getting-started) has been released with the purpose of making managing Linux systems easier for PowerShell users.
+
+The module will help in managing common tasks such as:
+
+-	User and group management
+-	File system operations (changing mode, owner, listing, set/replace content)
+-	Service management (start, stop, restart, remove, add)
+- Archive operations (compress, extract)
+-	Package Management (list, search, install, uninstall packages)
+
+The module includes class-based DSC resources for Linux, as well as built-in Machine Configuration packages.
+
+To provide feedback on the above listed functionality, please open an issue on the documentation. We are currently NOT accepting PRs for this project, and support is best effort.
+
+
 ## Machine configuration samples
 
 Machine configuration built-in policy samples are available in the following
