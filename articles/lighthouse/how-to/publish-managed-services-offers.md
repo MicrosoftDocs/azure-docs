@@ -13,7 +13,7 @@ In this article, you'll learn how to publish a public or private Managed Service
 
 You must have a valid [account in Partner Center](/partner-center/marketplace/create-account) to create and publish offers. If you don't have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the commercial marketplace program.
 
-Per the [Managed Service offer certification requirements](/legal/marketplace/certification-policies#700-managed-services), you must have a [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer. You must also [enter a lead destination that will create a record in your CRM system](/partner-center/marketplace/plan-managed-service-offer#customer-leads) each time a customer deploys your offer.
+Per the [Managed Service offer certification requirements](/legal/marketplace/certification-policies#700-managed-services), you must have a [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer.
 
 If you don't want to publish an offer to Azure Marketplace, or if you don't meet all the requirements, you can [onboard customers manually by using Azure Resource Manager templates](onboard-customer.md).
 
@@ -25,6 +25,7 @@ The following table can help determine whether to onboard customers by publishin
 |Requires [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
 |Available to new customers through Azure Marketplace     |Yes     |No       |
 |Can limit offer to specific customers     |Yes (only with private plans, which can't be used with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program)         |Yes         |
+|Can [automatically connect customers to your CRM system](/partner-center/marketplace/plan-managed-service-offer#customer-leads) |Yes  |No   |
 |Requires customer acceptance in Azure portal     |Yes     |No   |
 |Can use automation to onboard multiple subscriptions, resource groups, or customers |No     |Yes    |
 |Immediate access to new built-in roles and Azure Lighthouse features     |Not always (generally available after some delay)         |Yes         |
@@ -42,7 +43,7 @@ To learn about the general publishing process, review the [commercial marketplac
 Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded to Azure Lighthouse](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
-> Each plan in a Managed Service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you can publish a separate [private plan](/partner-center/marketplace/private-offers) that is exclusive to each customer. These private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
+> Each plan in a Managed Service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you can publish a separate [private plan](/partner-center/marketplace/private-plans) that is exclusive to each customer. These private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 ## Publish your offer
 
