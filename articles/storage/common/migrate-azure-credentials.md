@@ -90,9 +90,17 @@ Once your application is configured to use passwordless connections and runs loc
 
 You need to configure your web app to use the managed identity you created. You can assign the identity to your app using either the Azure portal or the Azure CLI.
 
-To use the Azure portal to associate an identity with your app, follow these steps:
+To use the Azure portal to associate an identity with your app, follow the steps below. These steps apply to any app hosted in Azure App Service, Azure Spring Apps, Azure Container Apps, Azure virtual Machines, or Azure Kubernetes Service.
 
-[!INCLUDE [assign-managed-identity-portal](../../../includes/passwordless/migration-guide/assign-managed-identity-portal.md)]
+1. Navigate to the overview page of your web app.
+1. Select **Identity** from the left navigation.
+1. On the Identity Page, switch to the **User assigned** tab.
+1. Select **+ Add** to open the **Add user assigned managed identity** flyout.
+1. Select the subscription you used previously to create the **MigrateIdentity**.
+1. Search for the **MigrateIdentity** by name and select it from the search results.
+1. Select **Add** to associate the identity with your app.
+
+   :::image type="content" source="media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="media/create-user-assigned-identity.png":::
 
 To use the Azure CLI to associate an identity with your app, use the following commands:
 
