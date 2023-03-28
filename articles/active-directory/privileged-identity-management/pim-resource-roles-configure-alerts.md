@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/29/2022
+ms.date: 3/23/2023
 ms.author: amsliu
-ms.reviewer: shaunliu
+ms.reviewer: tamimsangrar
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -36,10 +36,7 @@ Alert | Severity | Trigger | Recommendation
 **Too many owners assigned to a resource** | Medium | Too many users have the owner role. | Review the users in the list and reassign some to less privileged roles.
 **Too many permanent owners assigned to a resource** | Medium | Too many users are permanently assigned to a role. | Review the users in the list and reassign some to require activation for role use.
 **Duplicate role created** | Medium | Multiple roles have the same criteria. | Use only one of these roles.
-**Roles are being assigned outside of Privileged Identity Management (Preview)** | High | A role is managed directly through the Azure IAM resource, or the Azure Resource Manager API. | Review the users in the list and remove them from privileged roles assigned outside of Privilege Identity Management. 
-
-> [!NOTE]
-> During the public preview of the **Roles are being assigned outside of Privileged Identity Management (Preview)** alert, Microsoft supports only permissions that are assigned at the subscription level. 
+**Roles are being assigned outside of Privileged Identity Management** | High | A role is managed directly through the Azure IAM resource, or the Azure Resource Manager API. | Review the users in the list and remove them from privileged roles assigned outside of Privilege Identity Management. 
 
 ### Severity
 

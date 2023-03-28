@@ -289,7 +289,7 @@ Similarly, you can change, add, and remove other style modifiers.
 - To learn more about Azure Maps Data service, see the [service documentation].
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Postman]: https://www.postman.com/
 [Data service]: /rest/api/maps/data
 [static image service]: /rest/api/maps/render/getmapimage

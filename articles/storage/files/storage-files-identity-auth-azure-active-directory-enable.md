@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 03/22/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -152,7 +152,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
-6. Select **Grant admin consent for "DirectoryName"**.
+6. Select **Grant admin consent**.
 7. Select **Yes** to confirm.
 
 ## Disable multi-factor authentication on the storage account
@@ -199,6 +199,22 @@ Use one of the following three methods:
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
 - Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
 - Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
+
+Changes are not instant, and require a policy refresh or a reboot to take effect.
+
+> [!IMPORTANT]
+> Once this change is applied, the client(s) won't be able to connect to storage accounts that are configured for on-premises AD DS integration without configuring Kerberos realm mappings. If you want the client(s) to be able to connect to storage accounts configured for AD DS as well as storage accounts configured for Azure AD Kerberos, follow the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds).
+
+### Configure coexistence with storage accounts using on-premises AD DS
+
+If you want to enable client machines to connect to storage accounts that are configured for AD DS as well as storage accounts configured for Azure AD Kerberos, follow these steps. If you're only using Azure AD Kerberos, skip this section.
+
+Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings:
+
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+- Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
+- Configure the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v <DomainName> /d <StorageAccountEndPoint>`
+  - For example, `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v contoso.local /d <your-storage-account-name>.file.core.windows.net`
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 

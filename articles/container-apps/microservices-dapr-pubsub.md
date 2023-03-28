@@ -1,5 +1,5 @@
 ---
-title: "Microservices communication using Dapr Pub/sub messaging"
+title: "Microservices communication using Dapr Publish and Subscribe"
 description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
@@ -10,7 +10,7 @@ zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Microservices communication using Dapr Pub/sub messaging 
+# Microservices communication using Dapr Publish and Subscribe 
 
 In this tutorial, you'll:
 > [!div class="checklist"]
