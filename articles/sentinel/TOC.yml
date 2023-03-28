@@ -745,6 +745,8 @@
         href: connect-custom-logs.md
       - name: DNS via AMA
         href: connect-dns-ama.md
+      - name: GCP audit logs
+        href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
