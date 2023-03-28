@@ -32,7 +32,7 @@ A high number of connection attempts per second can cause a condition similar to
 
 After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices might be disconnected. For proper failover, disconnected devices require reprovisioning.  To learn more about failover options, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
 
-### Forced device reprovisioning could increase costs
+### Reprovisioning many devices could increase costs
 
 After devices disconnect from IoT Hub, the optimal solution is to reconnect the device rather than reprovision it. If you use IoT Hub with DPS, DPS has a per provisioning cost. If you reprovision many devices on DPS, it increases the cost of your IoT solution. To learn more about DPS provisioning costs, see [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
@@ -77,13 +77,9 @@ The following diagram summarizes the reconnection flow:
 
 If you use IoT Hub with DPS, use the following reconnection strategy.  
 
-When a device fails to connect to DPS: 
-1. Use an exponential back-off with jitter delay function. 
-1. Reprovision the device to DPS. 
-
 When a device fails to connect to IoT Hub, or is disconnected from IoT Hub, reconnect based on the following cases:
 
-|Failed connection scenario | Reconnection strategy |
+|Reconnection scenario | Reconnection strategy |
 |---------|---------|
 |For errors that allow connection retries (HTTP response code 500) | Use an exponential back-off with jitter delay function. <br>  Reconnect to IoT Hub. |
 |For errors that indicate a retry is possible, but reconnection has failed 10 consecutive times | Reprovision the device to DPS. |
