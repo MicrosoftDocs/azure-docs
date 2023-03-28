@@ -30,62 +30,51 @@ Use the following guidance to remove unmanaged Azure AD accounts from your Azure
 * Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests)
 * Use PowerShell cmdlets in [AzureAD/MSIdentityTools](https://github.com/AzureAD/MSIdentityTools/wiki/)  
 
-After you run a tool, users with unmanaged Azure AD accounts access the tenant, and re-redeem their invitations. However, Azure AD prevents users from redeeming with an unmanaged Azure AD account. They’ll redeem with another account type. Google Federation and SAML/WS-Fed are not enabled by default. Therefore, users redeem with a Microsoft account (MSA) or email one-time password (OTP). MSA is recommended. 
+After you run a tool, users with unmanaged Azure AD accounts access the tenant, and re-redeem their invitations. However, Azure AD prevents users from redeeming with an unmanaged Azure AD account. They can redeem with another account type. Google Federation and SAML/WS-Fed are not enabled by default. Therefore, users redeem with a Microsoft account (MSA) or email one-time password (OTP). MSA is recommended. 
 
-Learn more: [Invitation redemption flow](../external-identities/redemption-experience.md#invitation-redemption-flow).
+Learn more: [Invitation redemption flow](../external-identities/redemption-experience.md#invitation-redemption-flow)
 
 ## Overtaken tenants and domains
 
-Some tenants created as unmanaged tenants can be taken over and
-converted to a managed tenant. See, [take over an unmanaged directory as
-administrator in Azure AD](./domains-admin-takeover.md).
+It's possible to convert some unmanaged tenants to managed tenants. 
 
-In some cases, overtaken domains might not be updated, for example, missing a DNS TXT record and therefore become flagged as unmanaged. Implications are:
+Learn more: [Take over an unmanaged directory as administrator in Azure AD](./domains-admin-takeover.md).
 
-- For guest users who belong to formerly unmanaged tenants, redemption status is reset and one consent prompt appears. Redemption occurs with same account as before.
+Some overtaken domains might not be updated. For example, a missing DNS TXT record indicates an unmanaged state. Implications are:
 
-- After unmanaged user redemption status is reset, the tool might identify unmanaged users that are false positives.
+* For guest users from unmanaged tenants, redemption status is reset. A consent prompt appears. 
+  * Redemption occurs with same account
+* After resetting unmanaged user redemption status, the tool might identify unmanaged users as false positives
 
-## Reset redemption using a sample application
+## Reset redemption with a sample application
 
-Use the sample application on
-    [Azure-Samples/Remove-Unmanaged-Guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests).
+Use the sample application on [Azure-Samples/Remove-Unmanaged-Guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests).
 
 ## Reset redemption using MSIdentityTools PowerShell Module
 
-MSIdentityTools PowerShell Module is a collection of cmdlets and
-scripts. They are for use in the Microsoft identity platform and Azure
-AD; they augment capabilities in the PowerShell SDK. See, [Microsoft
-Graph PowerShell
-SDK](https://github.com/microsoftgraph/msgraph-sdk-powershell).
+MSIdentityTools PowerShell Module is a collection of cmdlets and scripts, which you use in the Microsoft identity platform and Azure AD. Use the cmdlets and scripts to augment PowerShell SDK capabilities. See, [microsoftgraph/msgraph-sdk-powershell](https://github.com/microsoftgraph/msgraph-sdk-powershell).
 
 Run the following cmdlets:
 
-- `Install-Module Microsoft.Graph -Scope CurrentUser`
-
-- `Install-Module MSIdentityTools`
-
-- `Import-Module msidentitytools,microsoft.graph`
+* `Install-Module Microsoft.Graph -Scope CurrentUser`
+* `Install-Module MSIdentityTools`
+* `Import-Module msidentitytools,microsoft.graph`
 
 To identify unmanaged Azure AD accounts, run:
 
-- `Connect-MgGraph -Scope User.ReadAll`
-
-- `Get-MsIdUnmanagedExternalUser`
+* `Connect-MgGraph -Scope User.ReadAll`
+* `Get-MsIdUnmanagedExternalUser`
 
 To reset unmanaged Azure AD account redemption status, run:
 
-- `Connect-MgGraph -Scopes User.ReadWriteAll`
-
-- `Get-MsIdUnmanagedExternalUser | Reset-MsIdExternalUser`
+* `Connect-MgGraph -Scopes User.ReadWriteAll`
+* `Get-MsIdUnmanagedExternalUser | Reset-MsIdExternalUser`
 
 To delete unmanaged Azure AD accounts, run:
 
-- `Connect-MgGraph -Scopes User.ReadWriteAll`
+* `Connect-MgGraph -Scopes User.ReadWriteAll`
+* `Get-MsIdUnmanagedExternalUser | Remove-MgUser`
 
-- `Get-MsIdUnmanagedExternalUser | Remove-MgUser`
+## Resources
 
-## Next steps
-
-Examples of using
-[Get-MSIdUnmanagedExternalUser](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MsIdUnmanagedExternalUser)
+See, [Get-MSIdUnmanagedExternalUser](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MsIdUnmanagedExternalUser). The tool returns a list of external unmanaged users, or viral users, in the tenant.
