@@ -91,7 +91,7 @@ You won't incur any management charges or instance fee when using operational ba
 
 ### Vaulted backup (preview)
 
-You won't incur backup storage charges or instance fees during the preview. However, you'll incur the source side cost, [associated with Object replication](/storage/blobs/object-replication-overview#billing), on the backed-up source account.
+You won't incur backup storage charges or instance fees during the preview. However, you'll incur the source side cost, [associated with Object replication](../storage/blobs/object-replication-overview.md#billing), on the backed-up source account.
 
 ## Next steps
 
