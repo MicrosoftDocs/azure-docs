@@ -9,7 +9,7 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 06/24/2022
 ms.author: barclayn
-ms.custom: ep-miar, ignite-2022
+ms.custom: ep-miar, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Azure Cosmos DB from a virtual machine using a managed identity

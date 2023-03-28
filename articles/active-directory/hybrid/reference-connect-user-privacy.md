@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect and user privacy | Microsoft Docs'
+title: 'Azure AD Connect and user privacy'
 description: This document describes how to obtain GDPR compliancy with Azure AD Connect.
 services: active-directory
 documentationcenter: ''

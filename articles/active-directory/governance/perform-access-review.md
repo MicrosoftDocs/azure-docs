@@ -119,7 +119,7 @@ If you're the second-stage or third-stage reviewer, you'll also see the decision
 Approve or deny access as outlined in [Review access for one or more users](#review-access-for-one-or-more-users).
 
 > [!NOTE]
-> The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Azure AD portal. This action will close the active stage and start the next stage.
+> The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Azure portal. This action will close the active stage and start the next stage.
 
 ### Review access for B2B direct connect users in Teams shared channels and Microsoft 365 groups (preview)
 

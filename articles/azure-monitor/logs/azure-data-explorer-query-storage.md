@@ -4,7 +4,6 @@ description: Use Azure Data Explorer to query data that was exported from your L
 ms.topic: conceptual
 ms.reviewer: osalzberg
 ms.date: 03/22/2022
-ms.custom: devx-track-azurepowershell
 ---
 
 # Query exported data from Azure Monitor by using Azure Data Explorer

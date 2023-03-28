@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Amazon Business | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Amazon Business'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Business.
 services: active-directory
 author: jeevansd

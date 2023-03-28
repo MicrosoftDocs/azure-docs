@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Expensify | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Expensify'
 description: Learn how to configure single sign-on between Azure Active Directory and Expensify.
 services: active-directory
 author: jeevansd

@@ -11,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Entitlement service
 
-Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Microsoft Energy Data Service instance, what they can do with it, and what services they have access to.
+Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Azure Data Manager for Energy Preview instance, what they can do with it, and what services they have access to.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

@@ -4,6 +4,7 @@ description: Learn how to use CLI to manage SQL server databases in Azure VMs in
 ms.topic: how-to
 ms.date: 08/11/2022
 ms.service: backup
+ms.custom: devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
 ---

@@ -54,11 +54,6 @@ For each property that you want to encrypt, the encryption policy defines:
 - An encryption type. It can be either randomized or deterministic.
 - The encryption algorithm to use when encrypting the property. The specified algorithm can override the algorithm defined when creating the key if they are compatible.
 
-> [!NOTE]
-> The following properties can't be encrypted:
-> - ID
-> - The container's partition key
-
 #### Randomized vs. deterministic encryption
 
 The Azure Cosmos DB service never sees the plain text of properties encrypted with Always Encrypted. However, it still supports some querying capabilities over the encrypted data, depending on the encryption type used for a property. Always Encrypted supports the following two types of encryptions:

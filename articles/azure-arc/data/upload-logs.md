@@ -4,6 +4,7 @@ description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

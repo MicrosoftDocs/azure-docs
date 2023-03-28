@@ -57,6 +57,8 @@
       href: synchronization.md
     - name: How password hash synchronization works
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Custom attributes
+      href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
     - name: Classic deployment migration benefits

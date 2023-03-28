@@ -434,8 +434,7 @@ az ml data create --name <name_of_asset> --version 1 --path <folder_with_MLTable
 
 > [!NOTE]
 > The path points to the **folder** that contains the `MLTable` file. The path can be local or remote (a cloud storage URI). If the path is a local folder, then the folder will automatically be uploaded to the default Azure Machine Learning datastore in the cloud.
-
-Only the data in the *same* folder as the `MLTable` file will upload when you create data assets from a local folder. That upload will go to the default Azure Machine Learning datastore located in the cloud. Then, the asset is created. If any relative path in the `MLTable` `path` section exists, and the data *isn't* in the same folder, the data won't upload, and the relative path won't work.
+That upload will go to the default Azure Machine Learning datastore located in the cloud. Then, the asset is created. If any relative path in the `MLTable` `path` section exists, but the data *isn't* in that folder, the data won't get uploaded.
 
 # [Python](#tab/Python-SDK)
 

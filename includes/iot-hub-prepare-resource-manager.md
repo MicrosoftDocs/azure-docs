@@ -2,6 +2,7 @@
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 10/26/2018
 ---

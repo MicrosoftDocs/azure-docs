@@ -2,6 +2,7 @@
 title: Provision Azure NetApp Files volumes on Azure Kubernetes Service
 description: Learn how to provision Azure NetApp Files volumes on an Azure Kubernetes Service cluster.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 02/08/2023
 ---
 

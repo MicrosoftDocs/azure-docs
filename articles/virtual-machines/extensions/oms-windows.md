@@ -8,8 +8,6 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
 ms.date: 11/02/2021 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Log Analytics virtual machine extension for Windows
 

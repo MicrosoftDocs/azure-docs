@@ -313,7 +313,7 @@ API Management is a trusted Microsoft service to the following resources. This a
 |Azure Key Vault | [Trusted-access-to-azure-key-vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)|
 |Azure Storage | [Trusted-access-to-azure-storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
 |Azure Service Bus | [Trusted-access-to-azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
-|Azure Event Hubs | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+|Azure Event Hubs | [Trusted-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
 
 ## Create a user-assigned managed identity
 

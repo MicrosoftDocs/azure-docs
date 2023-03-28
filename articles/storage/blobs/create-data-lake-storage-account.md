@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.topic: how-to
 ms.author: jammart
-ms.date: 10/14/2021
+ms.date: 03/09/2023
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---

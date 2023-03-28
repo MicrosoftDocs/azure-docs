@@ -1,12 +1,12 @@
 ---
-title: Use Azure AD Multi-Factor Authentication with NPS - Azure Active Directory
+title: Use Azure AD Multi-Factor Authentication with NPS
 description: Learn how to use Azure AD Multi-Factor Authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 03/16/2023
 
 ms.author: justinha
 author: justinha
@@ -106,21 +106,17 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over TCP port 443:
 
-* *https:\//strongauthenticationservice.auth.microsoft.com* (for Azure Public cloud customers).
-* *https:\//strongauthenticationservice.auth.microsoft.us* (for Azure Government customers).
-* *https:\//strongauthenticationservice.auth.microsoft.cn* (for Azure China 21Vianet customers). 
-* *https:\//adnotifications.windowsazure.com*
-* *https:\//login.microsoftonline.com*
-* *https:\//credentials.azure.com*
+* `https:\//login.microsoftonline.com`
+* `https:\//credentials.azure.com`
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script):
 
-* *https:\//login.microsoftonline.com*
-* *https:\//provisioningapi.microsoftonline.com*
-* *https:\//aadcdn.msauth.net*
-* *https:\//www.powershellgallery.com*
-* *https:\//go.microsoft.com*
-* *https:\//aadcdn.msftauthimages.net*
+* `https:\//login.microsoftonline.com`
+* `https:\//provisioningapi.microsoftonline.com`
+* `https:\//aadcdn.msauth.net`
+* `https:\//www.powershellgallery.com`
+* `https:\//go.microsoft.com`
+* `https:\//aadcdn.msftauthimages.net`
 
 ## Prepare your environment
 
@@ -343,7 +339,7 @@ import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done , go to https://aad.portal.azure.com > "Enterprise Applications" > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+Once done , go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
 
 Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
 

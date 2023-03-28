@@ -110,4 +110,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-Learn more about how to generate the best completion in our [How-to guide on completions](../how-to/completions.md).
+* Learn more about how to generate the best completion in our [How-to guide on completions](../how-to/completions.md).
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
