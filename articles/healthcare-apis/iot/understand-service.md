@@ -30,7 +30,7 @@ The MedTech service device message data processing follows these stages and in t
 ## Ingest
 Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. 
 
-The event hub uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the event hub.
+The MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) are used for secure access to the event hub.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device message data.
