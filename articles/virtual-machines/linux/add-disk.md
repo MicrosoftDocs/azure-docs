@@ -163,7 +163,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 # [Ubuntu](#tab/ubuntu)
 
 ```bash
-sudo apt-get install util-linux
+sudo apt install util-linux
 sudo fstrim /datadrive
 ```
 
@@ -177,6 +177,7 @@ sudo fstrim /datadrive
 # [SUSE](#tab/suse)
 
 ```bash
+sudo zypper in util-linux
 sudo fstrim /datadrive
 ```
 ---
