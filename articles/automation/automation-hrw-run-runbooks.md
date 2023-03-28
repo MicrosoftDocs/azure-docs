@@ -33,11 +33,19 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 
->[!NOTE]
+> [!NOTE]
 >- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, and Python 3.8(preview) runbooks are supported on both extension-based and agent-based Windows Hybrid Runbook Workers. For agent based workers, ensure the Windows Hybrid worker version is 7.3.12960 or above.
 >- PowerShell 7.2 (preview) and Python 3.10 (preview) runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.1.11 or above.
 
 #### [Extension-based Hybrid Workers](#tab/win-extn-hrw)
+
+> [!NOTE]
+> To create environment variable in Windows systems, follow these steps:
+> 1. Go to **Control Panel** > **System** > **Advanced System Settings**. 
+> 1. In **System Properties** select **Environment variables**. 
+> 1. In **System variables**, select **New**.
+> 1. Provide **Variable name** and **Variable value**, and then select **OK**. 
+> 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
 
 **PowerShell 7.2**
 
@@ -71,6 +79,14 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 #### [Agent-based Hybrid Workers](#tab/win-agt-hrw)
 
+> [!NOTE]
+> To create environment variable in Windows systems, follow these steps:
+> 1. Go to **Control Panel** > **System** > **Advanced System Settings**. 
+> 1. In **System Properties** select **Environment variables**. 
+> 1. In **System variables**, select **New**.
+> 1. Provide **Variable name** and **Variable value**, and then select **OK**. 
+> 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
+
 **PowerShell 7.1**
 
 To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3).
@@ -90,23 +106,20 @@ To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hyb
 If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
 
 ---
-> [!NOTE]
-> To create environment variable in Windows systems, follow these steps:
-> 1. Go to **Control Panel** > **System** > **Advanced System Settings**. 
-> 1. In **System Properties** select **Environment variables**. 
-> 1. In **System variables**, select **New**.
-> 1. Provide **Variable name** and **Variable value**, and then select **OK**. 
-> 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
+
 ### Linux Hybrid Worker
 
->[!NOTE]
+> [!NOTE]
 >- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, Python 3.8 (preview) runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 (preview) and Python 3.10 (preview) runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
 #### [Extension-based Hybrid Workers](#tab/Lin-extn-hrw)
 
->[!NOTE]
-> Create environment variable in Linux systems: </br> 1. Open /etc/environment. </br> 2. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it is to be assigned). </br> 3. Either restart the VM or logout from current user and login again after saving the changes to /etc/environment to ensure environment variable changes take place.
+> [!NOTE]
+> To create environment variable in Linux systems, follow these steps: 
+> 1. Open /etc/environment. 
+> 1. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it is to be assigned).
+> 1. Restart the VM or logout from current user and login after saving the changes to /etc/environment to implement environment variable changes.
 
 **PowerShell 7.2**
 
