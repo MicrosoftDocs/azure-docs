@@ -22,7 +22,7 @@ conversations, maintain an archive for compliance reasons and/or integrate with 
 
 - An Azure account with an active subscription. Create an account for free.
 - An active Communication Services resource and connection string. Create a Communication Services resource.
-- A storage account, for example, [Azure Blob Storage](../azure/storage/blobs/storage-blobs-overview). You can use the portal to set uo 
+- A storage account, for example, [Azure Blob Storage](../azure/storage/blobs/storage-blobs-overview). You can use the portal to set up an (account)[https://learn.microsoft.com/en-us/azure/event-grid/blob-event-quickstart-portal].
 - Enable Azure Event Grid (only if you want to archive messages in real-time).
 
 You have a couple of options in going about archiving chat threads.
