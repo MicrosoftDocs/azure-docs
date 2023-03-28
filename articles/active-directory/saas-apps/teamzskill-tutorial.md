@@ -145,11 +145,11 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 1. Click on user Profile icon, then select **Company settings**.
 
-   ![Company settings in RevSpace](./media/teamzskill-tutorial/settings.png)
+   ![Screenshot of company settings in RevSpace.](./media/teamzskill-tutorial/settings.png)
 
 1. Perform the following steps in **Settings** page.
 
-   ![Settings in RevSpace](./media/teamzskill-tutorial/metadata.png)
+   ![Screenshot of settings in RevSpace.](./media/teamzskill-tutorial/metadata.png)
 
    a. Navigate to **Company > Single Sign-On**, then select the **Metadata Upload** tab.
 
