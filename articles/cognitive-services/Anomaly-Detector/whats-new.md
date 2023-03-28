@@ -3,7 +3,7 @@ title: What's New - Anomaly Detector
 description: This article is regularly updated with news about the Azure Cognitive Services Anomaly Detector.
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: overview
+ms.topic: whats-new
 ms.date: 12/15/2022
 ---
 
