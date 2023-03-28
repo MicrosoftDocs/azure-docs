@@ -128,7 +128,7 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 
 ## Other configurations
 
-These settings can be used to modify other Operating System settings.
+These settings can be used to modify other operating system settings.
 
 ### Message of the Day
 
