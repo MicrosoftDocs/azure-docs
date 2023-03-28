@@ -18,7 +18,6 @@ The following figure shows the Azure Virtual Network peering details of a spoke 
 
 :::image type="content" source="./media/backend-interoperability/SpokeVNet_peering.png" alt-text="Screenshot of spoke virtual network's peering.":::
 
-
 The following figure shows the virtual network peering details of the hub virtual network. If you want the hub virtual network to permit the spoke virtual network to use the hub's gateways, select **Allow gateway transit**.
 
 :::image type="content" source="./media/backend-interoperability/HubVNet-peering.png" alt-text="Screenshot of Hub virtual network's peering.":::
@@ -192,8 +191,8 @@ Learn about [data plane analysis](./connectivty-interoperability-data-plane.md) 
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 
--   Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+- Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
 
--   Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+- Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
 
--   Learn about other scale limits of ExpressRoute.
+- Learn about other scale limits of ExpressRoute.
