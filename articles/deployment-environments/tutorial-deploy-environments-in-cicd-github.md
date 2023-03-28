@@ -1,8 +1,6 @@
 ---
-title: |
-    Tutorial: Deploy environments in CI/CD with GitHub
-description: |
-    In this tutorial, you'll learn to integrate Azure Deployment Environments into your CI/CD pipeline using GitHub Actions.
+title: 'Tutorial: Deploy environments in CI/CD with GitHub'
+description: Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions.
 author: colbylwilliams
 ms.author: colbyw
 ms.service: deployment-environments
