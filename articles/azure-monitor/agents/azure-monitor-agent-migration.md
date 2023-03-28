@@ -12,15 +12,14 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Migrate to Azure Monitor Agent from Log Analytics agent
 
-[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for Windows and Linux machines, in Azure and non-Azure (on-premises and third-party clouds) environments. It introduces a simplified, flexible method of configuring data collection using [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). This article outlines the benefits of migrating to Azure Monitor Agent and provides guidance on how to implement a successful migration.
+[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The agent introduces a simplified, flexible method of configuring data collection using [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). This article provides guidance on how to implement a successful migration from the Log Analytics agent to Azure Monitor Agent.
 
 > [!IMPORTANT]
-> The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you're currently using the Log Analytics agent with Azure Monitor or other supported features and services, we recommend you start planning your migration to Azure Monitor Agent by using the information in this article.
+> The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you're currently using the Log Analytics agent with Azure Monitor or other supported features and services, we recommend you start planning your migration to Azure Monitor Agent as explained in this article. Start testing your scenarios during the preview phase. This will save time, avoid surprises later, and ensure you're ready to deploy to production as soon as the service becomes generally available. You also benefit from added security and reduced costs immediately.  
 
 ## Benefits
 
-In addition to consolidating and improving upon legacy Log Analytics agents, Azure Monitor Agent provides [a variety of immediate benefits](./azure-monitor-agent-overview.md#benefits), including **cost savings, a simplified management experience, and enhanced security and performance.**
-
+In addition to consolidating and improving on the legacy Log Analytics agents, Azure Monitor Agent provides [a variety of immediate benefits](./azure-monitor-agent-overview.md#benefits), including **cost savings, a simplified management experience, and enhanced security and performance.**
 
 ## Migration guidance
 
@@ -32,7 +31,7 @@ In addition to consolidating and improving upon legacy Log Analytics agents, Azu
 
 1. Understand your current needs.
 
-    Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations<sup>1</sup>. 
+    Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
 
 1. Ensure that Azure Monitor Agent can address all of your needs.
 
@@ -46,15 +45,13 @@ In addition to consolidating and improving upon legacy Log Analytics agents, Azu
 
     If you're setting up a new environment with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
     
-    **Limitations:**
+    **Avoid collecting duplicate data:**
 
-    - Be careful when you collect duplicate data from the same machine, as this could skew query results, affect downstream features like alerts, dashboards, and workbooks, and generate more charges for data ingestion and retention. To avoid data duplication, ensure the agents are *collecting data from different machines* or *sending the data to different destinations*.
+    - Collecting duplicate data from the same machine can skew query results, affect downstream features like alerts, dashboards, and workbooks, and generate extra charges for data ingestion and retention. To avoid data duplication, ensure that the agents collect data from different machines or send the data to different destinations.
     
-        - For Defender for Cloud, [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you rung both agents side by side. 
+        - For Defender for Cloud, [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you run both agents side by side. 
         - For Sentinel, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
     - Running two agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
-
-<sup>1</sup> Start testing your scenarios during the preview phase. This will save time, avoid surprises later, and ensure you're ready to deploy to production as soon as the service becomes generally available. You also benefit from added security and reduced costs immediately.  
 
 ### Migration steps
 ![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
