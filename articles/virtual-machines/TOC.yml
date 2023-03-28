@@ -500,6 +500,9 @@
       - name: Windows 11 images
         displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: Generalizing a VM
+      displayName: generalize sysprep deprovision 
+      href: generalize.md
     - name: Linux custom images
       items:
       - name: Overview
@@ -575,9 +578,6 @@
       - name: Prepare a VHD to Upload
         displayName: Windows custom images, images, windows, upload, prepare, VHD
         href: ./windows/prepare-for-upload-vhd-image.md
-      - name: Generalizing a VM
-        displayName: generalize sysprep deprovision
-        href: generalize.md
       - name: Visual Studio
         href: /visualstudio/install/using-visual-studio-vm
     - name: VM Image Builder

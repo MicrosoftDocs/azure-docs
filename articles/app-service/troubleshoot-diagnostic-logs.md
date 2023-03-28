@@ -26,6 +26,8 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 | Failed request tracing | Windows | App Service file system | Detailed tracing information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error. One folder is generated for each failed request, which contains the XML log file, and the XSL stylesheet to view the log file with. |
 | Deployment logging | Windows, Linux | App Service file system | Logs for when you publish content to an app. Deployment logging happens automatically and there are no configurable settings for deployment logging. It helps you determine why a deployment failed. For example, if you use a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), you might use deployment logging to determine why the script is failing. |
 
+When stored in the App Service file system, logs are subject to the available storage for your pricing tier (see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)).
+
 > [!NOTE]
 > App Service provides a dedicated, interactive diagnostics tool to help you troubleshoot your application. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 >
