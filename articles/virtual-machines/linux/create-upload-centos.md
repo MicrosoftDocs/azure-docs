@@ -55,14 +55,14 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 4. Create or edit the file `/etc/sysconfig/network` and add the following text:
 
-    ```output
+    ```config
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 5. Create or edit the file `/etc/sysconfig/network-scripts/ifcfg-eth0` and add the following text:
 
-    ```output
+    ```config
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -87,7 +87,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 8. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes extra packages such as the Azure Linux agent:
 
-   ```output
+   ```config
    [openlogic]
    name=CentOS-$releasever - openlogic packages for $basearch
    baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
@@ -141,7 +141,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 9. Add the following line to /etc/yum.conf:
 
-	```output
+	```config
 	http_caching=packages
 	```
 
@@ -184,7 +184,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 13. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
-	```output
+	```config
 	console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 	```
 
@@ -192,7 +192,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
     In addition to the above, it's recommended to *remove* the following parameters:
 
-	```output
+	```config
 	rhgb quiet crashkernel=auto
 	```
 
@@ -207,7 +207,7 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
-	```output
+	```config
 	ResourceDisk.Format=y
 	ResourceDisk.Filesystem=ext4
 	ResourceDisk.MountPoint=/mnt/resource
@@ -252,14 +252,14 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
 3. Create or edit the file `/etc/sysconfig/network` and add the following text:
 
-	```output
+	```config
 	NETWORKING=yes
 	HOSTNAME=localhost.localdomain
 	```
 
 4. Create or edit the file `/etc/sysconfig/network-scripts/ifcfg-eth0` and add the following text:
 
-	```output
+	```config
 	DEVICE=eth0
 	ONBOOT=yes
 	BOOTPROTO=dhcp
@@ -278,7 +278,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
 6. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes packages for the Azure Linux agent:
 
-   ```output
+   ```confg
    [openlogic]
    name=CentOS-$releasever - openlogic packages for $basearch
    baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
@@ -337,13 +337,13 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
 8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
 
-	```output
+	```config
 	GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 	```
 
    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it's recommended to *remove* the following parameters:
 
-	```output
+	```config
 	rhgb quiet crashkernel=auto
 	```
 
@@ -365,7 +365,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
     Edit `/etc/dracut.conf`, add content:
 
-	```output
+	```config
 	add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 	```
 
