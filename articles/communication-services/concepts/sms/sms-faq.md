@@ -92,8 +92,8 @@ This verification is **required** for best SMS delivery experience.
 #### SMS to US phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to the following: 
 
-1. **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
-2. **SMS volume thresholds**:
+- **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
+- **SMS volume thresholds**:
 Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for restricted and pending toll-free numbers. Messaging that exceeds a limit returns Error Code 795/ 4795: tfn-not-verified.
 
 New limits are as follows:
