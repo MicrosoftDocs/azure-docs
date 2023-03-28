@@ -156,6 +156,12 @@ Site Recovery replication for SQL Server is covered under the Software Assurance
 
 Site Recovery is application agnostic. Site Recovery can help protect any version of SQL Server that is deployed on a supported operating system. For more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
 
+### Does ASR Work with SQL Transasctional Replication?
+
+Due to ASR using file-level copy, SQL cannot guarantee the servers in an associated SQL Replication topology are in sync at the time of ASR failover. This may cause the logreader and/or distribution agents to fail due to LSN mismatch which causes replication to break. Should you failover the publisher, distributor, or subscriber in a replication topology, you will need to rebuild replication.
+
+
+
 ## Next steps
 
 * Learn more about [Site Recovery architecture](./azure-to-azure-architecture.md).

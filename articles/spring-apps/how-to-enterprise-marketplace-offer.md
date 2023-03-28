@@ -139,7 +139,7 @@ The following table lists each supported geographic location and its [ISO 3166 
 | Switzerland          | CH  |
 | Taiwan               | TW  |
 | Thailand             | TH  |
-| Turkey               | TR  |
+| Türkiye              | TR  |
 | United Arab Emirates | AE  |
 | United Kingdom       | GB  |
 | United States        | US  |
