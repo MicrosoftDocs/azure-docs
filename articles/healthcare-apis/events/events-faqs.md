@@ -1,6 +1,6 @@
 ---
-title: FAQs about Events in Azure Health Data Services
-description: This document provides answers to the frequently asked questions about Events.
+title: Frequently asked questions about Events - Azure Health Data Services
+description: This article provides answers to the frequently asked questions about Events.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 03/28/2022
 ms.author: jasteppe
 ---
 
-# Frequently asked questions (FAQs) about Events
+# Frequently asked questions about Events
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
