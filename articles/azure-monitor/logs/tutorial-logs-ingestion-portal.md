@@ -97,6 +97,8 @@ Before you can send data to the workspace, you need to create the custom table w
 ## Parse and filter sample data
 Instead of directly configuring the schema of the table, you can upload a file with a sample JSON array of data through the portal, and Azure Monitor will set the schema automatically. The sample JSON file must contain one or more log records structured as an array, in the same way they data is sent in the body of an HTTP request of the logs ingestion API call.
 
+1. Follow the instructions in [generate sample data](#generate-sample-data) to create the *data_sample.json* file.
+
 1. Select **Browse for files** and locate the *data_sample.json* file that you previously created.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-browse-files.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-browse-files.png" alt-text="Screenshot that shows custom log browse for files.":::
