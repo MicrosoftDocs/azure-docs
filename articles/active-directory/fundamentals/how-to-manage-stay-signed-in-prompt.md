@@ -58,7 +58,7 @@ If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in
 
 ![Sample 'Stay signed in?' prompt](media/how-to-manage-stay-signed-in-prompt/kmsi-stay-signed-in-prompt.png)
 
-Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the details below in the **Basic info** section.
+Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the following details in the **Basic info** section.
 
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
