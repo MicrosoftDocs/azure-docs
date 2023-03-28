@@ -81,7 +81,7 @@ Win2012Datacenter       x64             WindowsServer                 MicrosoftW
 
 ## List images
 
-You can use PowerShell to narrow down a list of images. Replace the values of the variables to meet your needs.
+You can use PowerShell to narrow down a list of images if you want to use a specific image that is not provided above. Replace the values of the variables to meet your needs.
 
 1. List the image publishers using [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher).
     
