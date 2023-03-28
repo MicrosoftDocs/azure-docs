@@ -19,7 +19,7 @@ PostgreSQL is at its best when you use it with extensions.
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Supported extensions
-For this preview, the following extensions are already deployed in the containers of your Azure Arc-enabled PostgreSQL server, some of them are standard [`contrib`](https://www.postgresql.org/docs/14/contrib.html) extensions:
+The following extensions are deployed by default in the containers of your Azure Arc-enabled PostgreSQL server, some of them are standard [`contrib`](https://www.postgresql.org/docs/14/contrib.html) extensions:
 - `address_standardizer_data_us` 3.3.1
 - `adminpack` 2.1
 - `amcheck` 1.3
@@ -99,7 +99,7 @@ CREATE EXTENSION pgaudit;
 ## Update extensions
 You can add or remove extensions from an existing Arc-enabled PostgreSQL server.
 
-First describe the server to get the current list of enabled extensions:
+You can run the kubectl describe command to get the current list of enabled extensions:
 ```console
 kubectl describe postgresqls <server-name> -n <namespace>
 ```
