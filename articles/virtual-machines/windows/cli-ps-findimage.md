@@ -50,92 +50,20 @@ New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -Credentia
 
 The Linux image alias names and their details are:
 ```output
-"CentOS":
-{
- "publisher":  "OpenLogic",
- "offer":  "CentOS",
- "sku":  "7.5",
- "version":  "latest"
-},
-
-"CentOS85Gen2":  
-{
- "publisher":  "OpenLogic",
- "offer":  "CentOS",
- "sku":  "8_5-gen2",
- "version":  "latest"
-},
-
-"Debian":  
-{
- "publisher":  "credativ",
- "offer":  "Debian",
- "sku":  "8",
- "version":  "latest"
-},
-
-"Debian11":  {
- "publisher":  "Debian",
- "offer":  "debian-11",
- "sku":  "11-backports-gen2",
- "version":  "latest"
-},
-
-"OpenSuseLeap154Gen2":  
-{
- "publisher":  "SUSE",
- "offer":  "openSUSE-leap-15-4",
- "sku":  "gen2",
- "version":  "latest"
-},
-
-"RHEL":  
-{
- "publisher":  "RedHat",
- "offer":  "RHEL",
- "sku":  "7-RAW",
- "version":  "latest"
-},
-
-"RHELRaw8LVMGen2":  
-{
- "publisher":  "RedHat",
- "offer":  "RHEL",
- "sku":  "8-lvm-gen2",
- "version":  "latest"
-},
-
-"SuseSles15SP3":  
-{
- "publisher":  "SUSE",
- "offer":  "sles-15-sp3",
- "sku":  "gen2",
- "version":  "latest"
-},
-
-"UbuntuLTS":  
-{
- "publisher":  "Canonical",
- "offer":  "UbuntuServer",
- "sku":  "16.04-LTS",
- "version":  "latest"
-},
-
-"Ubuntu2204":  
-{
- "publisher":  "Canonical",
- "offer":  "0001-com-ubuntu-server-jammy",
- "sku":  "22_04-lts-gen2",
- "version":  "latest"
-},
-
-"FlatcarLinuxFreeGen2":  
-{
- "publisher":  "kinvolk",
- "offer":  "flatcar-container-linux-free",
- "sku":  "stable-gen2",
- "version":  "latest"
-}
+Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
+--------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
+x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                     CentOS                   latest
+x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                               CentOS                     latest
+x64             Debian-11                   Debian                    11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                     Debian11                   latest
+x64             Debian-10                   Debian                    10                                  Debian:debian-10:10:latest                                                      Debian10                  latest
+x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
+x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
+x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                             openSUSE-Leap            latest
+x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
+x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                  RHEL                     latest
+x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
+x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
+x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:UbuntuServer:22_04-lts-gen2:latest                                     UbuntuLTS                latest
 ```
 
 The Windows image alias names and their details are:
