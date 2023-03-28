@@ -390,13 +390,13 @@ We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssE
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
 
 ```bash
-ls -l /var/lib/waagent/custom-script/download/0/
+sudo ls -l /var/lib/waagent/custom-script/download/0/
 ```
 
 To troubleshoot, first check the Linux Agent Log and ensure that the extension ran:
 
 ```bash
-cat /var/log/waagent.log 
+sudo cat /var/log/waagent.log 
 ```
 
 Look for the extension execution. It will look something like:
@@ -420,7 +420,7 @@ In the preceding output:
 The Azure Script Extension produces a log, which you can find here:
 
 ```bash
-cat /var/log/azure/custom-script/handler.log
+sudo cat /var/log/azure/custom-script/handler.log
 ```
 
 Look for the individual execution. It will look something like:
