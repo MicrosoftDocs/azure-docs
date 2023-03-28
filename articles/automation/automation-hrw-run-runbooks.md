@@ -69,7 +69,6 @@ To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hyb
 
 If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
 
-
 #### [Agent-based Hybrid Workers](#tab/win-agt-hrw)
 
 **PowerShell 7.1**
@@ -91,7 +90,13 @@ To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hyb
 If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
 
 ---
-
+> [!NOTE]
+> To create environment variable in Windows systems, follow these steps:
+> 1. Go to **Control Panel** > **System** > **Advanced System Settings**. 
+> 1. In **System Properties** select **Environment variables**. 
+> 1. In **System variables**, select **New**.
+> 1. Provide **Variable name** and **Variable value**, and then select **OK**. 
+> 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
 ### Linux Hybrid Worker
 
 >[!NOTE]
