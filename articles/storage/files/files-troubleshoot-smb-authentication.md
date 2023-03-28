@@ -4,7 +4,7 @@ description: Troubleshoot problems using identity-based authentication to connec
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 03/28/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -183,7 +183,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 ## Potential errors when enabling Azure AD Kerberos authentication for hybrid users
 
-You might encounter the following errors when trying to enable Azure AD Kerberos authentication for hybrid user accounts.
+You might encounter the following errors when enabling Azure AD Kerberos authentication for hybrid user accounts.
 
 ### Error - Grant admin consent disabled
 
@@ -319,6 +319,27 @@ If you don't want to rotate the service principal password every six months, you
 1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts)
 
 Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
+
+### Error 1326 - The username or password is incorrect when using private link
+
+If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, when attempting to mount a file share via `net use` or other method, the client is prompted for credentials. The user will likely type their credentials in, but the credentials are rejected.
+
+#### Cause 
+
+This is because the SMB client has tried to use Kerberos but failed, so it falls back to using NTLM authentication, which Azure Files doesn't support. The client can't get a Kerberos ticket to the storage account because the private link FQDN isn't registered to any existing Azure AD application.
+
+#### Solution
+
+The solution is to add the privateLink FQDN to the storage account's Azure AD application before you mount the file share. You can add the required identifierUris to the application object using the [Azure portal](https://portal.azure.com) by following these steps.
+
+1. Open **Azure Active Directory**.
+1. Select **App registrations** in the left pane.
+1. Select **All Applications**.
+1. Select the application with the name matching **[Storage Account] $storageAccountName.file.core.windows.net**.
+1. Select **Manifest** in the left pane.
+1. Copy and paste the existing content so you have a duplicate copy. Replace all instances of `<storageaccount>.file.core.windows.net` with `<storageaccount>.privatelink.file.core.windows.net`.
+1. Review the content and select **Save** to update the application object with the new identifierUris.
+1. Retry mounting the share.
 
 ## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
