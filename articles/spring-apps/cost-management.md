@@ -29,16 +29,16 @@ The first 50 vCPU hours and 100-GB hours of memory are free each month. For more
 
 ## Start and stop instances
 
-If your Azure Spring Apps instances don't need to run continuously, you can save costs by reducing the number of running instances. For more information, see [Start or stop your Azure Spring Apps service instance](how-to-start-stop-service).
+If your Azure Spring Apps instances don't need to run continuously, you can save costs by reducing the number of running instances. For more information, see [Start or stop your Azure Spring Apps service instance](how-to-start-stop-service.md).
 
 ## Standard consumption plan
 
-Unlike other plans, the Standard Consumption plan offers a pure consumption-based pricing model. You can dynamically add and remove resources based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption plan](overview#standard-consumption-plan) section of [What is Azure Spring Apps?](overview)
+Unlike other plans, the Standard Consumption plan offers a pure consumption-based pricing model. You can dynamically add and remove resources based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption plan](overview#standard-consumption-plan.md) section of [What is Azure Spring Apps?](overview.md)
 
 ## Autoscale
 
-Autoscale refers to setting up rules to increase or decrease computing capacities according to the changing environment. Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale).
+Autoscale refers to setting up rules to increase or decrease computing capacities according to the changing environment. Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale.md).
 
 ## Next steps
 
-[Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-proivsion-standard-consumption-service-instance)
+[Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-proivsion-standard-consumption-service-instance.md)
