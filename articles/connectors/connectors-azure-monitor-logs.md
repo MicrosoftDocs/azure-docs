@@ -139,7 +139,7 @@ For technical information about this connector's operations, see the [connector'
 
    > [!NOTE]
    >
-   > When you create your own queries, make sure that correctly work in Log Analytics before you add them to your Azure Monitor Logs action.
+   > When you create your own queries, make sure they work correctly in Log Analytics before you add them to your Azure Monitor Logs action.
 
 1. For **Time Range**, select **Set in query**.
 
