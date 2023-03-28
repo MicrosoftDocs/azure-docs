@@ -29,7 +29,7 @@ When new users are created, only some details are added to their user profile. I
    
 1. There are two ways to edit user profile details. Either select **Edit properties** from the top of the page or select **Properties**.
 
-    ![Screenshot of the overview page for a selected user, with the edit options highlighted.](media/active-directory-users-profile-azure-portal/user-profile-overview.png)
+    ![Screenshot of the overview page for a selected user, with the edit options highlighted.](media/how-to-manage-user-profile-info/user-profile-overview.png)
 
 1. After making any changes, select the **Save** button. 
 
@@ -38,14 +38,14 @@ If you selected the **Edit properties option**:
    - To edit properties based on the category, select a category from the top of the page.
    - Select the **Save** button at the bottom of the page to save any changes.
     
-   ![Screenshot a selected user's details, with the detail categories and save button highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-tabbed-view.png)
+   ![Screenshot a selected user's details, with the detail categories and save button highlighted.](media/how-to-manage-user-profile-info/user-profile-properties-tabbed-view.png)
     
 If you selected the **Properties tab option**:
    - The full list of properties appears for you to review.
    - To edit a property, select the pencil icon next to the category heading.
    - Select the **Save** button at the bottom of the page to save any changes.
     
-   ![Screenshot the Properties tab, with the edit options highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-single-page-view.png)
+   ![Screenshot the Properties tab, with the edit options highlighted.](media/how-to-manage-user-profile-info/user-profile-properties-single-page-view.png)
 
 ### Profile categories
 There are six categories of profile details you may be able to edit. 
@@ -74,9 +74,26 @@ All your changes are saved for the user.
 > If you're having issues updating a user's profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign in.
 
 ## Manage settings for all users
-In the **User settings** area of Azure AD, you can adjust several settings that affect all users, such as restricting access to the Azure AD administration portal, how external collaboration is managed, and providing users the option to connect their LinkedIn account. Some settings are managed in a separate area of Azure AD and linked from this page.
+In the **User settings** area of Azure AD, you can adjust several settings that affect all users. Some settings are managed in a separate area of Azure AD and linked from this page. These settings require the Global Administrator role.
 
-Go to **Azure AD** > **User settings**.
+Go to **Azure AD** > **User settings**. 
+
+![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings-options.png)
+
+The following settings can be managed from Azure AD **User settings**.
+
+- Manage how end users launch and view their applications
+- Allow users to register their own applications
+- [Prevent non-admins from creating their own tenants](users-default-permissions.md#restrict-member-users-default-permissions)
+- Restrict access to the Azure AD administration portal
+- [Allow users to connect their work or school account with LinkedIn](../enterprise-users/linkedin-user-consent.md)
+- [Enable the "Stay signed in?" prompt](how-to-manage-stay-signed-in-prompt.md)
+- Manage external collaboration settings
+    - [Guest user access](../enterprise-users/users-restrict-guest-permissions.md)
+    - [Guest invite setting](../external-identities/external-collaboration-settings-configure.md)
+    - [External user leave settings](../external-identities/self-service-sign-up-user-flow.md#enable-self-service-sign-up-for-your-tenant)
+    - Collaboration restrictions
+- Manage user feature settings
 
 ## Next steps
 
