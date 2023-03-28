@@ -88,9 +88,22 @@ The service scans the repository to find new catalog items. After you sync the r
 
 ### Specify parameters for a catalog item
 
-Catalog items can use parameters to allow developers to customize their environments. Parameters  are specified in the manifest.yaml file. You can define a default value for a parameter that the developer creating the environment can overwrite. The following script shows two parameters; `location` and `name`. Location has a default value of `[resourceGroup().location]`, which sets the location of the environment to the location of the resource group.
+You can specify parameters for your catalog items to allow developers to customize their environments. 
 
-```yml
+Parameters are specified in the manifest.yaml file. You can use the following options for the parameters. 
+
+|Option  |Description  |
+|---------|---------|
+|id     |Enter an id for the parameter.|
+|name     |Enter a name for the parameter.|
+|description     |Enter a description for the parameter.|
+|default     |Optional. Enter a default value for the parameter. The default value can be overwritten at creation.|
+|type     |Enter the data type for the parameter.|
+|required|Enter `true` or `false` to specify whether the value is required or not.|
+
+The following script is an example of a *manifest.yaml* file that includes two parameters; `location` and `name`: 
+
+```YAML
 name: WebApp
 summary: Azure Web App Environment
 description: Deploys a web app in Azure without a datastore
@@ -102,13 +115,12 @@ parameters:
   description: "Location to deploy the environment resources"
   default: "[resourceGroup().location]"
   type: "string"
+  required: false
 - id: "name"
   name: "name"
   description: "Name of the Web App "
   default: ""
   type: "string"
-  required: false
-
   required: false
 ```
 
@@ -132,7 +144,7 @@ az devcenter dev environment create --catalog-item-name
                                     [--user]
                                     [--user-id]
 ```
-Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment?view=azure-cli-latest) for full details.
+Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment) for full details.
 ## Update a catalog item
 
 To modify the configuration of Azure resources in an existing catalog item, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific catalog item. The update also is applied when you redeploy an environment that's associated with that catalog item.
