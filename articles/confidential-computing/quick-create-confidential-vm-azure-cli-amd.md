@@ -84,31 +84,42 @@ Make a note of the `publicIpAddress` to use later.
 
 Create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The following example uses Azure Key Vault Premium. 
 
-1.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
+1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
+For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
+  ```azurecli
+  Connect-AzureAD -Tenant "your tenant ID"
+  New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+  ```
+2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
   az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
   ```
-2. Create a key in the key vault using [az keyvault key create](/cli/azure/keyvault). For the key type, use RSA-HSM.
+3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
+  ```azurecli
+  $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
+  az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
+  ```
+4. Create a key in the key vault using [az keyvault key create](/cli/azure/keyvault). For the key type, use RSA-HSM.
   ```azurecli-interactive
   az keyvault key create --name mykey --vault-name keyVaultName --default-cvm-policy --exportable --kty RSA-HSM
   ```
-3. Create the disk encryption set using [az disk-encryption-set create](/cli/azure/disk-encryption-set). Set the encryption type to `ConfidentialVmEncryptedWithCustomerKey`.
+5. Create the disk encryption set using [az disk-encryption-set create](/cli/azure/disk-encryption-set). Set the encryption type to `ConfidentialVmEncryptedWithCustomerKey`.
   ```azurecli-interactive
 $keyVaultKeyUrl=(az keyvault key show --vault-name keyVaultName --name mykey--query [key.kid] -o tsv)
 
 az disk-encryption-set create --resource-group myResourceGroup --name diskEncryptionSetName --key-url $keyVaultKeyUrl  --encryption-type ConfidentialVmEncryptedWithCustomerKey
   ```
-4. Grant the disk encryption set resource access to the key vault using [az key vault set-policy](/cli/azure/keyvault).
+6. Grant the disk encryption set resource access to the key vault using [az key vault set-policy](/cli/azure/keyvault).
   ```azurecli-interactive
 $desIdentity=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [identity.principalId] -o tsv)
 
 az keyvault set-policy -n keyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
   ```
-5. Use the disk encryption set ID to create the VM.
+7. Use the disk encryption set ID to create the VM.
   ```azurecli-interactive
 $diskEncryptionSetID=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
   ```
-6. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key. Enabling secure boot is optional, but recommended.  For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
+8. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key. Enabling secure boot is optional, but recommended.  For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
 
   ```azurecli-interactive
 az vm create \

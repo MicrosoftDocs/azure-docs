@@ -652,17 +652,17 @@ For information about pricing for supported countries/regions, see [Azure Monito
 
 Webhook action groups use the following rules:
 
-- A webhook call is attempted at most three times.
-- The first call waits 10 seconds for a response.
-- Between the first and second call, it waits 20 seconds for a response.
-- Between the second and third call, it waits 40 seconds for a response.
-- The call is retried if any of the following conditions are met:
+The retry logic below assumes that the failure is retriable. The status codes: 408, 429, 503, 504, or HttpRequestException, WebException, `TaskCancellationException` are considered “retriable”.
 
-  - A response isn't received within the timeout period.
-  - One of the following HTTP status codes is returned: 408, 429, 503, 504, or `TaskCancellationException`.
-  - If any one of the preceding errors is encountered, wait an additional 5 seconds for the response.
+When a webhook is invoked, if the first call fails, it will be retried at least 1 more time (retry), and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
 
-- If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
+- The delay between 1st and 2nd attempt is 5 seconds
+- The delay between 2nd and 3rd attempt is 20 seconds
+- The delay between 3rd and 4th attempt is 5 seconds
+- The delay between 4th and 5th attempt is 40 seconds
+- The delay between 5th and 6th attempt is 5 seconds
+
+- After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
 
 For source IP address ranges, see [Action group IP addresses](../app/ip-addresses.md).
 

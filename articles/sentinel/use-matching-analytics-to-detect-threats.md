@@ -4,13 +4,13 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to detect threats with Microsoft generated threat intelligence in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 9/26/2022
+ms.date: 03/27/2023
 ms.author: austinmc
 ---
 
 # Use matching analytics to detect threats
 
-Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Threat Intelligence Analytics** rule. Check the prerequisites to validate which logs this rule will match indicators with.
+Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. Check the prerequisites to validate which logs this rule will match indicators with.
 
 > [!IMPORTANT]
 > Matching analytics is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -26,11 +26,11 @@ One or more of the following data sources must be connected:
 - Office activity logs
 - Azure activity logs
 
-:::image type="content" source="media/use-matching-analytics-to-detect-threats/data-sources.png" alt-text="A screenshot showing the Microsoft Threat Intelligence Analytics rule data source connections."::: 
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/data-sources.png" alt-text="A screenshot showing the Microsoft Defender Threat Intelligence Analytics rule data source connections."::: 
 
 ## Configure the matching analytics rule
 
-Matching analytics is configured when you enable the **Microsoft Threat Intelligence Analytics** rule. 
+Matching analytics is configured when you enable the **Microsoft Defender Threat Intelligence Analytics** rule. 
 
 1. Click the **Analytics** menu from the **Configuration** section.
 
@@ -38,37 +38,37 @@ Matching analytics is configured when you enable the **Microsoft Threat Intellig
 
 1. In the search window type *threat intelligence*.
 
-1. Select the **Microsoft Threat Intelligence Analytics** rule template.
+1. Select the **Microsoft Defender Threat Intelligence Analytics** rule template.
 
 1. Click **Create rule**. The rule details are read only, and the default status of the rule is enabled.
 
 1. Click **Review** > **Create**.
 
-:::image type="content" source="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png" alt-text="A screenshot showing the Microsoft Threat Intelligence Analytics rule enabled in the Active rules tab.":::
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png" alt-text="A screenshot showing the Microsoft Defender Threat Intelligence Analytics rule enabled in the Active rules tab.":::
 
 
 ## Data sources and indicators
 
-Microsoft Threat Intelligence Analytics matches your logs with domain, IP and URL indicators in the following way:
+Microsoft Defender Threat Intelligence (MDTI) Analytics matches your logs with domain, IP and URL indicators in the following way:
 
-- **CEF** logs ingested into the Log Analytics **CommonSecurityLog** table will match URL and domain indicators if populated in the `RequestURL` field, and IPv4 indicators in the `DestinationIP` field.
+- **CEF** logs ingested into the Log Analytics **CommonSecurityLog** table match URL and domain indicators if populated in the `RequestURL` field, and IPv4 indicators in the `DestinationIP` field.
 
-- Windows **DNS** logs where event `SubType == "LookupQuery"` ingested into the **DnsEvents** table will match domain indicators populated in the `Name` field, and IPv4 indicators in the `IPAddresses` field.
+- Windows **DNS** logs where event `SubType == "LookupQuery"` ingested into the **DnsEvents** table match domain indicators populated in the `Name` field, and IPv4 indicators in the `IPAddresses` field.
 
-- **Syslog** events where `Facility == "cron"` ingested into the **Syslog** table will match domain and IPv4 indicators directly from the `SyslogMessage` field. 
+- **Syslog** events where `Facility == "cron"` ingested into the **Syslog** table match domain and IPv4 indicators directly from the `SyslogMessage` field. 
 
-- **Office activity logs** ingested into the **OfficeActivity** table will match IPv4 indicators directly from the `ClientIP` field.
+- **Office activity logs** ingested into the **OfficeActivity** table match IPv4 indicators directly from the `ClientIP` field.
 
-- **Azure activity logs** ingested into the **AzureActivity** table will match IPv4 indicators directly from the `CallerIpAddress` field.
+- **Azure activity logs** ingested into the **AzureActivity** table match IPv4 indicators directly from the `CallerIpAddress` field.
 
 
 ## Triage an incident generated by matching analytics
 
 If Microsoft's analytics finds a match, any alerts generated are grouped into incidents.
 
-Use the following steps to triage through the incidents generated by the **Microsoft Threat Intelligence Analytics** rule:
+Use the following steps to triage through the incidents generated by the **Microsoft Defender Threat Intelligence Analytics** rule:
 
-1. In the Microsoft Sentinel workspace where you've enabled the **Microsoft Threat Intelligence Analytics** rule, select **Incidents** and search for **Microsoft Threat Intelligence Analytics**.
+1. In the Microsoft Sentinel workspace where you've enabled the **Microsoft Defender Threat Intelligence Analytics** rule, select **Incidents** and search for **Microsoft Defender Threat Intelligence Analytics**.
 
     Any incidents found are shown in the grid.
 
@@ -76,25 +76,25 @@ Use the following steps to triage through the incidents generated by the **Micro
 
     For example:
 
-    :::image type="content" source="media/work-with-threat-indicators/matching-analytics.png" alt-text="Screenshot of incident generated by matching analytics with details pane.":::
+    :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics.png" alt-text="Screenshot of incident generated by matching analytics with details pane.":::
 
 1. Observe the severity assigned to the alerts and the incident. Depending on how the indicator is matched, an appropriate severity is assigned to an alert from `Informational` to `High`. For example, if the indicator is matched with firewall logs that have allowed the traffic, a high severity alert is generated. If the same indicator was matched with firewall logs that blocked the traffic, the alert generated would be low or medium.
 
     Alerts are then grouped on a per-observable basis of the indicator. For example, all alerts generated in a 24-hour time period that match the `contoso.com` domain are grouped into a single incident with a severity assigned based on the highest alert severity.
 
-1. Observe the indicator details. When a match is found, the indicator is published to the Log Analytics **ThreatIntelligenceIndicators** table, and displayed in the **Threat Intelligence** page. For any indicators published from this rule, the source is defined as **Microsoft Threat Intelligence Analytics**.
+1. Observe the indicator details. When a match is found, the indicator is published to the Log Analytics **ThreatIntelligenceIndicators** table, and displayed in the **Threat Intelligence** page. For any indicators published from this rule, the source is defined as **Microsoft Defender Threat Intelligence Analytics**.
 
 For example, in the **ThreatIntelligenceIndicators** log:
 
-:::image type="content" source="media/work-with-threat-indicators/matching-analytics-logs.png" alt-text="Screenshot of ThreatIntelligenceIndicator table in Log Analytics showing recent indicator with SourceSystem of Microsoft Threat Intelligence Analytics.":::
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-logs.png" alt-text="Screenshot of ThreatIntelligenceIndicator table in Log Analytics showing recent indicator with SourceSystem of Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-logs.png":::
 
 In the **Threat Intelligence** page:
 
-:::image type="content" source="media/work-with-threat-indicators/matching-analytics-threat-intelligence.png" alt-text="Screenshot of the Threat Intelligence overview with an indicator selecting showing the details pain and the source as Microsoft Threat Intelligence Analytics.":::
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png" alt-text="Screenshot of the Threat Intelligence overview with an indicator selecting showing the details pain and the source as Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png":::
 
 ## Get additional context from Microsoft Defender Threat Intelligence
 
-Part of the Microsoft Threat Intelligence available through matching analytics is sourced from Microsoft Defender Threat Intelligence (MDTI). Along with high fidelity alerts and incidents, MDTI indicators include the link to a reference article in their community portal.
+Along with high fidelity alerts and incidents, some MDTI indicators include a link to a reference article in the MDTI community portal.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot of an incident with a link to the reference MDTI article.":::
 

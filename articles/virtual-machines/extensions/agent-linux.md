@@ -68,14 +68,16 @@ The following systems have been tested and are known to work with the Azure Linu
 > [!NOTE]
 > This list might differ from the [Endorsed Linux distributions on Azure](../linux/endorsed-distros.md).
 
-- CoreOS
-- CentOS 6.3+
-- Red Hat Enterprise Linux 6.7+
-- Debian 7.0+
-- Ubuntu 12.04+
-- openSUSE 12.3+
-- SLES 11 SP3+
-- Oracle Linux 6.4+
+* CentOS 7.x and 8.x
+* Red Hat Enterprise Linux 6.7+, 7.x, and 8.x
+* Debian 10+
+* Ubuntu 18.04+
+* openSUSE 12.3+
+* SLES 12.x and 15.x
+* Oracle Linux 6.4+, 7.x and 8.x
+
+> [!IMPORTANT]
+> RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with ELS support available, [the extended maintenance ends on 06/30/2024](https://access.redhat.com/support/policy/updates/errata)
 
 Other Supported Systems:
 
@@ -111,7 +113,6 @@ For advanced installation options, such as installing from source or to custom l
 
 - `help`: Lists the supported commands and flags
 - `deprovision`: Attempt to clean the system and make it suitable for reprovisioning. The operation deletes:
-  
   - All SSH host keys, if `Provisioning.RegenerateSshHostKeyPair` is `y` in the configuration file
   - Nameserver configuration in `/etc/resolv.conf`
   - Root password from `/etc/shadow`, if `Provisioning.DeleteRootPassword` is `y` in the configuration file
@@ -275,7 +276,7 @@ Type: String
 Default: ext4
 ```
 
-This option specifies the file system type for the resource disk. Supported values vary by Linux distribution. If the string is `X`, then `mkfs.X` should be present on the Linux image. SLES 11 images typically use `ext3`. FreeBSD images should use `ufs2` here.
+This option specifies the file system type for the resource disk. Supported values vary by Linux distribution. If the string is `X`, then `mkfs.X` should be present on the Linux image.
 
 `ResourceDisk.MountPoint`
 
