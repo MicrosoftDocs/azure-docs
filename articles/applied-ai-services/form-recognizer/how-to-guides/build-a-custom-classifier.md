@@ -13,9 +13,14 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Build and train a custom classification model
+# Build and train a custom classification model (preview)
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+
+> [!IMPORTANT]
+>
+> Custom classification model is currently in public preview. Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
+>
 
 Custom classification models can classify each page in an input file to identify the document(s) within. Classifier models can also identify multiple documents or multiple instances of a single document in the input file. Form Recognizer custom models require as few as five training documents per document class to get started. To get started training a custom classification model, you need at least **five documents** for each class and **two classes** of documents.
 
@@ -60,7 +65,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
     :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot showing how to select the Form Recognizer resource.":::
 
-1. Training a custom classifier requires the output from the Layout model for each document in your dataset. Run layout on all documents as an optional step to speed up the model training process.
+1. **Training a custom classifier requires the output from the Layout model for each document in your dataset**. Run layout on all documents prior to the model training process.
 
 1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
@@ -107,6 +112,12 @@ Once the model training is complete, you can test your model by selecting the mo
 1. Validate your model by evaluating the results for each document identified.
 
 Congratulations you've trained a custom classification model in the Form Recognizer Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+
+## Troubleshoot
+
+The [classification model](../concept-custom-classifier.md) requires results from the [layout model](../concept-layout.md) for each training document. If you haven't provided the layout results, the Studio attempts to run the layout model for each document prior to training the classifier. This process is throttled and can result in a 429 response. 
+
+In the Studiio, prior to training with the classification model, run the [layout model](https://formrecognizer.appliedai.azure.com/studio/layout) on each document and upload it to the same location as the original document. Once the layout results are added, you can train the classifier model with your documents. 
 
 ## Next steps
 

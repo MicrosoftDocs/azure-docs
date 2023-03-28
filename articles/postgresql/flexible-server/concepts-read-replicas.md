@@ -56,6 +56,16 @@ You can have a primary server in any [Azure Database for PostgreSQL region](http
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. For creation of replicas in the same region snapshot approach is used, therefore the time of creation doesn't depend on the size of data. Geo-replicas are created using base backup of the primary instance, which is then transmitted over the network therefore time of creation might range from minutes to several hours depending on the primary size. 
 
+In Azure Database for PostgreSQL - Flexible Server, the create operation of replicas is considered successful only when the entire backup of the primary instance has been copied to the replica destination along with the transaction logs have been synchronized up to the threshold of maximum 1GB lag.
+
+To ensure the success of the create operation, it's recommended to avoid creating replicas during periods of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server, or during excessive bulk load operations. If you are currently in the process of performing a migration or bulk load operation, it's recommended that you wait until the operation has completed before proceeding with the creation of replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#list-of-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started. 
+
+> [!IMPORTANT]
+> Read Replicas are currently supported for the General Purpose and Memory Optimized server compute tiers, Burstable server compute tier is not supported.
+
+> [!IMPORTANT]
+> When performing replica creation, deletion, and promotion operations, the primary server will enter an updating state. During this time, server management operations such as modifying server parameters, changing high availability options, or adding or removing firewalls will be unavailable. It's important to note that the updating state only affects server management operations and does not impact [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. This means that your database server will remain fully functional and able to accept connections, as well as serve read and write traffic.
+
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
 If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption.md) for additional considerations.
@@ -107,9 +117,6 @@ You can stop the replication between a primary and a replica by promoting one or
 - The promoted replica server cannot be made into a replica again.
 - If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
-- During the create, delete and promote operations of replica, primary server will be in upgrading state.
-- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
-- If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
 
@@ -144,7 +151,11 @@ When there is a major disaster event such as availability zone-level or regional
 
 ## Considerations
 
-This section summarizes considerations about the read replica feature.
+This section summarizes considerations about the read replica feature. The following considerations do apply.
+
+- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
+- If server has read replicas then read replicas should be deleted first before deleting the primary server.
+- [In-place major version upgrade](concepts-major-version-upgrade.md) in Azure Database for PostgreSQL requires removing any read replicas that are currently enabled on the server. Once the replicas have been deleted, the primary server can be upgraded to the desired major version. After the upgrade is complete, you can recreate the replicas to resume the replication process.
 
 ### New replicas
 
@@ -160,10 +171,24 @@ You are free to change server parameters on your read replica server and set dif
 
 ### Scaling
 
-Scaling vCores or between General Purpose and Memory Optimized:
+You are free to scale up and down compute (vCores), changing the service tier from General Purpose to Memory Optimized (or vice versa) as well as scaling up the storage, but the following caveats do apply.
+
+For compute scaling: 
+
 * PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
-* **Scaling up**: First scale up a replica's compute, then scale up the primary. 
+
+* **Scaling up**: First scale up a replica's compute, then scale up the primary.
+
 * **Scaling down**: First scale down the primary's compute, then scale down the replica.
+
+* Compute on the primary must always be equal or smaller than the compute on the smallest replica.
+
+ 
+For storage scaling:
+
+* **Scaling up**: First scale up a replica's storage, then scale up the primary.
+
+* Storage size on the primary must be always equal or smaller than the storage size on the smallest replica.
 
 ## Next steps
 

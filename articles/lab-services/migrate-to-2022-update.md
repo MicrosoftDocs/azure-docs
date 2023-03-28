@@ -3,8 +3,8 @@ title: Moving from lab accounts to lab plans
 titleSuffix: Azure Lab Services
 description: 'Learn how to transition from Azure Lab Services to Azure Lab Services August 2022 Update.'
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+author: ntrogh
+ms.author: nicktrog
 ms.date: 11/30/2022
 ---
 

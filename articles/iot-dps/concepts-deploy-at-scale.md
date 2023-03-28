@@ -169,7 +169,7 @@ if (provisioningDetails != null)
 ## IoT Hub connectivity considerations
 
 - Any single IoT hub is limited to 1 million devices plus modules. If you plan to have more than a million devices, cap the number of devices to 1 million per hub and add hubs as needed when increasing the scale of your deployment. For more information, see [IoT Hub quotas](../iot-hub/iot-hub-devguide-quotas-throttling.md).
-- If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot-fundamentals/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
+- If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
 
 Recommended device logic when connecting to IoT Hub via DPS:
 

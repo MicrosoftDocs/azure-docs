@@ -168,6 +168,8 @@ items:
         href: quickstarts/telephony/port-phone-number.md
       - name: Apply for a short code
         href: quickstarts/sms/apply-for-short-code.md
+      - name: Apply for toll-free verification
+        href: quickstarts/sms/apply-for-toll-free-verification.md
     - name: Events
       items:
       - name: View SMS events
@@ -381,11 +383,15 @@ items:
     - name: Calling hero sample
       href: samples/calling-hero-sample.md
     - name: Xamarin calling sample
-      href: samples/ui-library-cross-platform.md
+      href: samples/ui-library-cross-platform.md?pivots=platform-xamarin
     - name: React Native calling sample
-      href: samples/ui-library-cross-platform.md
+      href: samples/ui-library-cross-platform.md?pivots=platform-react
+    - name: MAUI calling sample
+      href: samples/ui-library-cross-platform.md?pivots=platform-maui
     - name: Web calling sample
       href: samples/web-calling-sample.md
+    - name: Web calling - Push notifications sample
+      href: samples/web-calling-push-notifications-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
   - name: Chat
@@ -396,7 +402,7 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Phone calling
     items:
-    - name: Appointment remainder sample
+    - name: Appointment reminder sample
       href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
@@ -422,8 +428,6 @@ items:
     items:
     - name: Overview
       href: concepts/sms/concepts.md
-    - name: FAQ
-      href: concepts/sms/sms-faq.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
     - name: Messaging policy
@@ -434,6 +438,8 @@ items:
         href: concepts/numbers/number-types.md
       - name: Short code program brief filling guidelines
         href: concepts/sms/program-brief-guidelines.md
+      - name: Toll-free verification guidelines
+        href: concepts/sms/toll-free-verification-guidelines.md
     - name: Events
       items:
       - name: Overview
@@ -446,6 +452,8 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics overview
         href: concepts/metrics.md
+    - name: SMS FAQ
+      href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
     items:
     - name: Overview

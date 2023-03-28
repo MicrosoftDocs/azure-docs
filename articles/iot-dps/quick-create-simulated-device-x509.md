@@ -120,7 +120,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 6. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
 
-    When specifying the path used with `-Dhsm_custom_lib` in the command below, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown below assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
+    When specifying the path used with `-Dhsm_custom_lib` in the following command, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
@@ -377,7 +377,7 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
 
 7. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
 
-8. Copy the device certificate and unencrytped private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
+8. Copy the device certificate and unencrypted private key to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the SDK.
 
     ```bash
     cp device-cert.pem ./azure-iot-sdk-node/provisioning/device/samples
@@ -433,38 +433,16 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 This article demonstrates an individual enrollment for a single device to be provisioned with an IoT hub.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select your Device Provisioning Service.
-
-4. In the **Settings** menu, select **Manage enrollments**.
-
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** page, enter the following information.
-
-    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** and navigate to and select the certificate file, *device-cert.pem*, that you created in the previous section.
-    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *my-x509-device*. This common name will also be the name used for the registration ID for the individual enrollment entry.
-    * Optionally, you can provide the following information:
-        * Select an IoT hub linked with your provisioning service.
-        * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Screenshot that shows adding an individual enrollment with X.509 attestation to DPS in Azure portal.":::
-
-7. Select **Save**. You'll be returned to **Manage enrollments**.
-
-8. Select **Individual Enrollments**. Your X.509 enrollment entry, *my-x509-device*, should appear in the list.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-x509.md](../../includes/iot-dps-individual-enrollment-x509.md)]
 
 ## Prepare and run the device provisioning code
 
-In this section, you'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the DPS instance.
+In this section, you update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence causes the device to be recognized and assigned to an IoT hub linked to the DPS instance.
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll use your Git Bash prompt and the Visual Studio IDE.
+In this section, you use your Git Bash prompt and the Visual Studio IDE.
 
 ### Configure the provisioning device code
 
@@ -486,7 +464,7 @@ In this section, you update the sample code with your Device Provisioning Servic
     static const char* id_scope = "0ne00000A0A";
     ```
 
-1. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_X509` as shown below.
+1. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_X509`.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -515,7 +493,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 1. Update the string value of the `CERTIFICATE` constant string using the device certificate, *device-cert.pem*, that you generated previously.
 
-    The syntax of certificate text in the sample must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+    The syntax of certificate text in the sample must follow the following pattern with no extra spaces or parsing done by Visual Studio.
 
     ```c
     static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
@@ -535,7 +513,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 1. Update the string value of the `PRIVATE_KEY` constant with the unencrypted private key for your device certificate, *unencrypted-device-key.pem*.
 
-    The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
+    The syntax of the private key text must follow the following pattern with no extra spaces or parsing done by Visual Studio.
 
     ```c
     static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
@@ -602,13 +580,12 @@ In this section, you'll use your Windows command prompt.
     
    >[!NOTE]
    >Additional parameters can be passed along while running the application to change the TransportType (-t) and the GlobalDeviceEndpoint (-g).
-    
 
     ```cmd
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
-5. The device will connect to DPS and be assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
+5. The device connects to DPS and is assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
 
     ```output
     Loading the certificate...
@@ -682,7 +659,7 @@ In this section, you'll use your Windows command prompt.
     node register_x509.js
     ```
 
-    You should see output similar to the following:
+    You should see output similar to the following example:
 
     ```output
     registration succeeded
@@ -744,7 +721,7 @@ In this section, you'll use your Windows command prompt.
 
 1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())` and save your changes.
 
-1. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+1. Run the sample. The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
     ```cmd
     $ python azure-iot-sdk-python/samples/async-hub-scenarios/provision_x509.py
@@ -781,7 +758,7 @@ In this section, you'll use your Windows command prompt.
 
 ::: zone pivot="programming-language-java"
 
-In this section, you'll use both your Windows command prompt and your Git Bash prompt.
+In this section, you use both your Windows command prompt and your Git Bash prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -795,7 +772,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
     cd .\azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-X509-sample
     ```
 
-1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration.
+1. Enter the provisioning service and X.509 identity information in the sample code. This information is used during provisioning, for attestation of the simulated device, prior to device registration.
 
     1. Open the file `.\src\main\java\samples\com/microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
 
@@ -808,7 +785,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
     1. Update the value of the `leafPublicPem` constant string with the value of your certificate, *device-cert.pem*.
 
-        The syntax of certificate text must follow the pattern below with no extra spaces or characters.
+        The syntax of certificate text must follow the following pattern with no extra spaces or characters.
 
         ```java
         private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -828,7 +805,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
     1. Update the string value of the `leafPrivateKey` constant with the unencrypted private key for your device certificate, *unencrypted-device-key.pem*.
 
-        The syntax of the private key text must follow the pattern below with no extra spaces or characters.
+        The syntax of the private key text must follow the following pattern with no extra spaces or characters.
 
         ```java
         private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
@@ -855,13 +832,13 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
     cd target
     ```
 
-1. The build outputs .jar file in the `target` folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. Execute the .jar file. You may need to replace the version in the command below.
+1. The build outputs .jar file in the `target` folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. Execute the .jar file. You may need to replace the version in the following command.
 
     ```cmd
     java -jar ./provisioning-x509-sample-1.8.1-with-deps.jar
     ```
 
-    The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+    The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
 
     ```output
     Starting...
@@ -915,11 +892,9 @@ To see which IoT hub your device was provisioned to, examine the registration de
 
 1. Select **Individual Enrollments**. The X.509 enrollment entry that you created previously, *my-x509-device*, should appear in the list.
 
-1. Select the enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration Status**.
+1. Select the enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration status**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/individual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status tab for the device on Azure portal.":::
-
-To verify the device on your IoT hub:
+To verify the device in your IoT hub:
 
 1. In Azure portal, go to the IoT hub that your device was assigned to.
 
@@ -927,7 +902,7 @@ To verify the device on your IoT hub:
 
 1. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the I o T hub in Azure portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the IoT hub in Azure portal.":::
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
 
@@ -950,9 +925,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the **Individual Enrollments** tab.
+5. Select the **Individual enrollments** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
 7. At the top of the page, select  **Delete**.
 
@@ -964,7 +939,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device you registered in this quickstart.
+4. Select the check box next to the device ID of the device you registered in this quickstart.
 
 5. At the top of the page, select  **Delete**.
 

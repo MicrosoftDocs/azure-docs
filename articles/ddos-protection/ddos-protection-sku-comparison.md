@@ -60,5 +60,6 @@ The following table shows features and corresponding SKUs.
 
 ## Next steps
 
-* [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)
 * [Azure DDoS Protection features](ddos-protection-features.md)
+* [Reference architectures](ddos-protection-reference-architectures.md)
+
