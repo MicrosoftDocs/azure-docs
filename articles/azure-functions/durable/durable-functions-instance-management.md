@@ -600,7 +600,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     reason = "Found a bug"
-    return client.terminate(instance_id, reason)
+    return await client.terminate(instance_id, reason)
 ```
 
 # [Java](#tab/java)
@@ -736,7 +736,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     event_data = [1, 2 ,3]
-    return client.raise_event(instance_id, 'MyEvent', event_data)
+    return await client.raise_event(instance_id, 'MyEvent', event_data)
 ```
 
 # [Java](#tab/java)
@@ -820,7 +820,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     retry_interval_in_milliseconds = get_time_in_seconds(req, retry_interval)
     retry_interval_in_milliseconds = retry_interval_in_milliseconds if retry_interval_in_milliseconds != None else 1000
 
-    return client.wait_for_completion_or_create_check_status_response(
+    return await client.wait_for_completion_or_create_check_status_response(
         req,
         instance_id,
         timeout_in_milliseconds,
@@ -1147,7 +1147,7 @@ import azure.durable_functions as df
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
 
-    return client.purge_instance_history(instance_id)
+    return await client.purge_instance_history(instance_id)
 ```
 
 # [Java](#tab/java)
@@ -1252,7 +1252,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
-    return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
+    return await client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
 ```
 
 # [Java](#tab/java)
