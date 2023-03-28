@@ -13,7 +13,9 @@ ms.date: 03/28/2023
 ---
 # Understanding and using the Azure Linux Agent
 
-The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, and virtual machine interaction with the Azure Fabric controller. In addition to the Linux Agent providing provisioning functionality, Azure also provides the option of using `cloud-init` for some Linux operating systems. The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments:
+The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, and virtual machine interaction with the Azure Fabric controller. In addition to the Linux agent providing provisioning functionality, Azure also provides the option of using `cloud-init` for some Linux operating systems.
+
+The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments:
 
 > [!NOTE]
 > For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
@@ -27,7 +29,7 @@ The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning
   - Publishes the host name to the platform DNS
   - Reports SSH host key fingerprint to the platform
   - Manages resource disk
-  - Format and mount the resource disk
+  - Formats and mounts the resource disk
   - Configures swap space
 
 - Networking
@@ -45,13 +47,13 @@ The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning
   
   - Console redirection to the serial port
 
-- System Center Virtual Machine Manager Deployments
+- System Center Virtual Machine Manager deployments
   
   - Detects and bootstraps the Virtual Machine Manager agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
 
 - VM Extension
   
-  - Injects component authored by Microsoft and partners into Linux Virtual Machines to enable software and configuration automation
+  - Injects component authored by Microsoft and partners into Linux virtual machines to enable software and configuration automation
   - VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## Communication
@@ -68,16 +70,16 @@ The following systems have been tested and are known to work with the Azure Linu
 > [!NOTE]
 > This list might differ from the [Endorsed Linux distributions on Azure](../linux/endorsed-distros.md).
 
-* CentOS 7.x and 8.x
-* Red Hat Enterprise Linux 6.7+, 7.x, and 8.x
-* Debian 10+
-* Ubuntu 18.04+
-* openSUSE 12.3+
-* SLES 12.x and 15.x
-* Oracle Linux 6.4+, 7.x and 8.x
+- CentOS 7.x and 8.x
+- Red Hat Enterprise Linux 6.7+, 7.x, and 8.x
+- Debian 10+
+- Ubuntu 18.04+
+- openSUSE 12.3+
+- SLES 12.x and 15.x
+- Oracle Linux 6.4+, 7.x and 8.x
 
 > [!IMPORTANT]
-> RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with ELS support available, [the extended maintenance ends on 06/30/2024](https://access.redhat.com/support/policy/updates/errata)
+> RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with ELS support available. [The extended maintenance ends on June 30, 2024](https://access.redhat.com/support/policy/updates/errata).
 
 Other Supported Systems:
 
@@ -114,19 +116,19 @@ For advanced installation options, such as installing from source or to custom l
 - `help`: Lists the supported commands and flags
 - `deprovision`: Attempt to clean the system and make it suitable for reprovisioning. The operation deletes:
   - All SSH host keys, if `Provisioning.RegenerateSshHostKeyPair` is `y` in the configuration file
-  - Nameserver configuration in `/etc/resolv.conf`
-  - Root password from `/etc/shadow`, if `Provisioning.DeleteRootPassword` is `y` in the configuration file
+  - Nameserver configuration in */etc/resolv.conf*
+  - Root password from */etc/shadow*, if `Provisioning.DeleteRootPassword` is `y` in the configuration file
   - Cached DHCP client leases
   - Resets host name to `localhost.localdomain`
 
 > [!WARNING]
 > Deprovisioning doesn't guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
-- `deprovision+user`: Performs everything in `deprovision` (previous) and also deletes the last provisioned user account, obtained from `/var/lib/waagent`, and associated data. Use this parameter when you deprovision an image that was previously provision on Azure so that it might be captured and reused.
+- `deprovision+user`: Performs everything in `deprovision` (previous) and also deletes the last provisioned user account, obtained from */var/lib/waagent*, and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
 - `version`: Displays the version of waagent.
 - `serialconsole`: Configures GRUB to mark ttyS0, the first serial port, as the boot console. This option ensures that kernel boot logs are sent to the serial port and made available for debugging.
-- `daemon`: Run waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent `init` script.
-- `start`: Run waagent as a background process.Filesy
+- `daemon`: Run waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent *init* script.
+- `start`: Run waagent as a background process.
 
 ## Configuration
 
@@ -158,9 +160,9 @@ HttpProxy.Port=None
 AutoUpdate.Enabled=y
 ```
 
-The following various configuration options are described. Configuration options are of three types: `Boolean`, `String`, or `Integer`. The `Boolean` configuration options can be specified as `y` or `n`. The special keyword `None` might be used for some string type configuration entries.
+Configuration options are of three types: `Boolean`, `String`, or `Integer`. The `Boolean` configuration options can be specified as `y` or `n`. The special keyword `None` might be used for some string type configuration entries.
 
-`Provisioning.Enabled`
+### Provisioning.Enabled
 
 ```txt
 Type: Boolean  
@@ -172,7 +174,7 @@ This option allows the user to enable or disable the provisioning functionality 
 > [!NOTE]
 > The `Provisioning.Enabled` parameter defaults to `n` on Ubuntu Cloud Images that use cloud-init for provisioning.
 
-`Provisioning.DeleteRootPassword`
+### Provisioning.DeleteRootPassword
 
 ```txt
 Type: Boolean  
@@ -181,7 +183,7 @@ Default: n
 
 If set, the agent erases the root password in the */etc/shadow* file during the provisioning process.
 
-`Provisioning.RegenerateSshHostKeyPair`
+### Provisioning.RegenerateSshHostKeyPair
 
 ```txt
 Type: Boolean  
@@ -192,7 +194,7 @@ If set, the agent deletes all SSH host key pairs from */etc/ssh/* during the pro
 
 Configure the encryption type for the fresh key pair by using the `Provisioning.SshHostKeyPairType` entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted, for example, upon a reboot.
 
-`Provisioning.SshHostKeyPairType`
+### Provisioning.SshHostKeyPairType
 
 ```txt
 Type: String  
@@ -201,16 +203,16 @@ Default: rsa
 
 This option can be set to an encryption algorithm type that the SSH daemon supports on the virtual machine. The typically supported values are `rsa`, `dsa`, and `ecdsa`. *putty.exe* on Windows doesn't support `ecdsa`. If you intend to use *putty.exe* on Windows to connect to a Linux deployment, use `rsa` or `dsa`.
 
-`Provisioning.MonitorHostName`
+### Provisioning.MonitorHostName
 
 ```txt
 Type: Boolean  
 Default: y
 ```
 
-If set, waagent monitors the Linux virtual machine for a hostname change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking restart on the virtual machine. This restart results in brief loss of internet connectivity.
+If set, waagent monitors the Linux virtual machine for a host name change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking restarts on the virtual machine. This restart results in brief loss of internet connectivity.
 
-`Provisioning.DecodeCustomData`
+### Provisioning.DecodeCustomData
 
 ```txt
 Type: Boolean  
@@ -219,7 +221,7 @@ Default: n
 
 If set, waagent decodes `CustomData` from Base64.
 
-`Provisioning.ExecuteCustomData`
+### Provisioning.ExecuteCustomData
 
 ```txt
 Type: Boolean  
@@ -228,7 +230,7 @@ Default: n
 
 If set, waagent runs `CustomData` after provisioning.
 
-`Provisioning.AllowResetSysUser`
+### Provisioning.AllowResetSysUser
 
 ```txt
 Type: Boolean
@@ -237,7 +239,7 @@ Default: n
 
 This option allows the password for the system user to be reset. The default is disabled.
 
-`Provisioning.PasswordCryptId`
+### Provisioning.PasswordCryptId
 
 ```txt
 Type: String  
@@ -251,7 +253,7 @@ This option specifies the algorithm used by crypt when generating password hash.
 - 5 - SHA-256  
 - 6 - SHA-512  
 
-`Provisioning.PasswordCryptSaltLength`
+### Provisioning.PasswordCryptSaltLength
 
 ```txt
 Type: String  
@@ -260,7 +262,7 @@ Default: 10
 
 This option specifies the length of random salt used when generating password hash.
 
-`ResourceDisk.Format`  
+### ResourceDisk.Format
 
 ```txt
 Type: Boolean  
@@ -269,7 +271,7 @@ Default: y
 
 If set, waagent formats and mounts the resource disk provided by the platform, unless the file system type requested by the user in `ResourceDisk.Filesystem` is `ntfs`. The agent makes a single Linux partition (ID 83) available on the disk. This partition isn't formatted if it can be successfully mounted.
 
-`ResourceDisk.Filesystem`
+### ResourceDisk.Filesystem
 
 ```txt
 Type: String  
@@ -278,7 +280,7 @@ Default: ext4
 
 This option specifies the file system type for the resource disk. Supported values vary by Linux distribution. If the string is `X`, then `mkfs.X` should be present on the Linux image.
 
-`ResourceDisk.MountPoint`
+### ResourceDisk.MountPoint
 
 ```txt
 Type: String  
@@ -287,7 +289,7 @@ Default: /mnt/resource
 
 This option specifies the path at which the resource disk is mounted. The resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned.
 
-`ResourceDisk.MountOptions`
+### ResourceDisk.MountOptions
 
 ```txt
 Type: String  
@@ -296,7 +298,7 @@ Default: None
 
 Specifies disk mount options to be passed to the `mount -o` command. This value is a comma-separated list of values, for example, `nodev,nosuid`. For more information, see the mount(8) manual page.
 
-`ResourceDisk.EnableSwap`
+### ResourceDisk.EnableSwap
 
 ```txt
 Type: Boolean  
@@ -305,7 +307,7 @@ Default: n
 
 If set, the agent creates a swap file, */swapfile*, on the resource disk and adds it to the system swap space.
 
-`ResourceDisk.SwapSizeMB`
+### ResourceDisk.SwapSizeMB
 
 ```txt
 Type: Integer  
@@ -314,16 +316,16 @@ Default: 0
 
 Specifies the size of the swap file in megabytes.
 
-`Logs.Verbose`
+### Logs.Verbose
 
 ```txt
 Type: Boolean  
 Default: n
 ```
 
-If set, log verbosity is boosted. Waagent logs to `/var/log/waagent.log` and uses the system `logrotate` functionality to rotate logs.
+If set, log verbosity is boosted. Waagent logs to */var/log/waagent.log* and uses the system `logrotate` functionality to rotate logs.
 
-`OS.EnableRDMA`
+### OS.EnableRDMA
 
 ```txt
 Type: Boolean  
@@ -332,7 +334,7 @@ Default: n
 
 If set, the agent attempts to install and then load an RDMA kernel driver that matches the version of the firmware on the underlying hardware.
 
-`OS.RootDeviceScsiTimeout`
+### OS.RootDeviceScsiTimeout
 
 ```txt
 Type: Integer  
@@ -341,7 +343,7 @@ Default: 300
 
 This setting configures the SCSI timeout in seconds on the OS disk and data drives. If not set, the system defaults are used.
 
-`OS.OpensslPath`
+### OS.OpensslPath
 
 ```txt
 Type: String  
@@ -350,7 +352,7 @@ Default: None
 
 This setting can be used to specify an alternate path for the *openssl* binary to use for cryptographic operations.
 
-`HttpProxy.Host`, `HttpProxy.Port`
+### HttpProxy.Host, HttpProxy.Port
 
 ```txt
 Type: String  
@@ -359,7 +361,7 @@ Default: None
 
 If set, the agent uses this proxy server to access the internet.
 
-`AutoUpdate.Enabled`
+### AutoUpdate.Enabled
 
 ```txt
 Type: Boolean
