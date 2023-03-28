@@ -15,7 +15,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
+As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
 Two logical components of an IoT Edge device need to be updated if you want to move to a newer version. 
 
@@ -25,7 +25,7 @@ Two logical components of an IoT Edge device need to be updated if you want to m
 
 ## How to update
 
-Here's a overview of the updating process.
+Here's an overview of the updating process.
 
 Use these sections of this article to update both the runtime and application layers on a device:
 
@@ -47,7 +47,7 @@ Perform all steps on your device, except the module deployment in Azure IoT Hub.
 
 1. Install `aziot-edge`.
    
-   If you're importing an old configuration, using `iotedge config import`, then modify the the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.4 image for edgeAgent.
+   If you're importing an old configuration, using `iotedge config import`, then modify the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.4 image for edgeAgent.
 
    For more information, see [Configure the IoT Edge agent](how-to-configure-proxy-support.md#configure-the-iot-edge-agent).
 
@@ -70,7 +70,7 @@ Check the version of the security subsystem running on your device by using the 
 # [Ubuntu / Debian](#tab/linux)
 
 >[!IMPORTANT]
->If you are updating a device from version 1.0 or 1.1 to the latest release, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to latest release](#special-case-update-from-10-or-11-to-latest-release).
+>If you are updating a device from version 1.0 or 1.1 to the latest release, there are differences in the installation and configuration processes that require extra steps. For more information, see the steps later in this article: [Special case: Update from 1.0 or 1.1 to latest release](#special-case-update-from-10-or-11-to-latest-release).
 
 On Linux x64 devices, use `apt-get` or your appropriate package manager to update the runtime module to the latest version.
 
@@ -162,7 +162,7 @@ docker rmi mcr.microsoft.com/azureiotedge-agent:1.1
 
 You may need to use the force `-f` flag to remove the images.
 
-The IoT Edge service will pull the latest versions of the runtime images and automatically start them on your device again.
+The IoT Edge service pulls the latest versions of the runtime images and automatically start them on your device again.
 
 ### Update a specific tag image
 
@@ -206,12 +206,12 @@ Starting with version 1.2, the IoT Edge service uses a new package name and has 
 Some of the key differences between the latest release and version 1.1 and earlier include:
 
 * The package name changed from **iotedge** to **aziot-edge**.
-* The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of libiothsm-std, then any user-provided certificates like the device identity certificate, device CA, and trust bundle will need to be reconfigured.
+* The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of **libiothsm-std**, then any user-provided certificates like the device identity certificate, device CA, and trust bundle need to be reconfigured.
 * A new identity service, **[aziot-identity-service](https://azure.github.io/iot-identity-service/)** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md).
 * The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/config.toml` by default. The `iotedge config import` command can be used to help migrate configuration information from the old location and syntax to the new one.
   * The import command can't detect or modify access rules to a device's trusted platform module (TPM). If your device uses TPM attestation, you need to manually update the /etc/udev/rules.d/tpmaccess.rules file to give access to the aziottpm service. For more information, see [Give IoT Edge access to the TPM](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
-* The workload API in the latest version saves encrypted secrets in a new format. If you upgrade from an older version to latest version, the existing master encryption key is imported. The workload API can read secrets saved in the prior format using the imported encryption key. However, the workload API can't write encrypted secrets in the old format. Once a secret is re-encrypted by a module, it's saved in the new format. Secrets encrypted in the latest version are unreadable by the same module in version 1.1. If you persist encrypted data to a host-mounted folder or volume, always create a backup copy of the data *before* upgrading to retain the ability to downgrade if necessary.
-* For backward compatibility when connecting devices that don't support TLS 1.2, you can configure Edge Hub to still accept TLS 1.0 or 1.1 via the [SslProtocols environment variable](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md#edgehub).  Please note that support for [TLS 1.0 and 1.1 in IoT Hub is considered legacy](../iot-hub/iot-hub-tls-support.md) and may also be removed from Edge Hub in future releases.  To avoid future issues, use TLS 1.2 as the only TLS version when connecting to Edge Hub or IoT Hub.
+* The workload API in the latest version saves encrypted secrets in a new format. If you upgrade from an older version to the latest version, the existing *master* encryption key is imported. The workload API can read secrets saved in the prior format using the imported encryption key. However, the workload API can't write encrypted secrets in the old format. Once a module re-encrypts a secret, it's saved in the new format. Secrets encrypted in the latest version are unreadable by the same module in version 1.1. If you persist encrypted data to a host-mounted folder or volume, always create a backup copy of the data *before* upgrading to retain the ability to downgrade if necessary.
+* For backward compatibility when connecting devices that don't support TLS 1.2, you can configure Edge Hub to still accept TLS 1.0 or 1.1 via the [SslProtocols environment variable](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md#edgehub). Support for [TLS 1.0 and 1.1 in IoT Hub is considered legacy](../iot-hub/iot-hub-tls-support.md) and may also be removed from Edge Hub in future releases.  To avoid future issues, use TLS 1.2 as the only TLS version when connecting to Edge Hub or IoT Hub.
 * The preview for the experimental MQTT broker in Edge Hub 1.2 has ended and isn't included in Edge Hub 1.4. We're continuing to refine our plans for an MQTT broker based on feedback received. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like Mosquitto as an IoT Edge module. 
 * Starting with version 1.2, when a backing image is removed from a container, the container keeps running and it persists across restarts. In 1.1, when a backing image is removed, the container is immediately recreated and the backing image is updated.
 
