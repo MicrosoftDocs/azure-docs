@@ -52,7 +52,7 @@ Your notebook is now ready for you to run R commands.
 
 You can upload files to your workspace file storage and access them in R.  But for files stored in Azure [_data assets_ or data from _datastores_](concept-data.md), you first need to install a few packages.
 
-This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R from an interactive session. You'll read tabular data as Pandas DataFrames using the [`azureml-fsspec`](/python/api/azureml-fsspec/?view=azure-ml-py&preserve-view=true) Python package and the `reticulate` R package. 
+This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R from an interactive session. You'll read tabular data as Pandas DataFrames using the [`azureml-fsspec`](/python/api/azureml-fsspec/?view=azure-ml-py&preserve-view=true) Python package and the `reticulate` R package. There is also an example of reading this into a R `data.frame`.
 
 To install these packages:
 
@@ -72,7 +72,7 @@ The install script performs the following steps:
 
 ### Read tabular data from registered data assets or datastores
 
-When your data is stored in a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-file-asset), use these steps to read that tabular file into an R `data.frame`:
+When your data is stored in a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-file-asset), use these steps to read that tabular file into a Pandas DataFrame or R `data.frame`:
 > [!NOTE]
 > Reading a file with `reticulate` only works with tabular data.
 
@@ -80,7 +80,7 @@ When your data is stored in a data asset [created in Azure Machine Learning](how
 
     ```r
     packageVersion("reticulate")
-    ``` 
+    ```
 
 1. Load `reticulate` and set the conda environment where `azureml-fsspec` was installed
 
@@ -104,10 +104,20 @@ When your data is stored in a data asset [created in Azure Machine Learning](how
 
         [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=py_run_string)]
     
-1. Use Pandas read functions to read  the file(s) into the R environment
+1. Use Pandas read functions to read the file(s) into the R environment
 
     [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=read-uri)]
 
+    Alternatively, you can read into an R `Data.frame` using the file path from a registered Datastore: 
+
+    ```r
+    df <- with(fs$open("/path/data.csv", "r") %as% f, {
+        x <- as.character(f$read(), encoding = "utf-8")
+        read.csv(textConnection(x), header = TRUE, sep = ",", stringsAsFactors = FALSE)
+        })
+    print(df)
+    ```
+    
 ## Install R packages
 
 There are many R packages pre-installed on the compute instance.
