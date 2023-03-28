@@ -274,7 +274,7 @@ Microsoft Defender for Storage is now enabled on this storage account.
 
 > [!TIP]
 > To configure **On-upload malware scanning** settings, such as monthly cap, select **Settings** after Defender for Storage was enabled.
-> :::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/capping.png" alt-text="Screenshot showing where to configure a monthly cap for Malware Scanning.":::
+> :::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/malware-scan-capping.png" alt-text="Screenshot showing where to configure a monthly cap for Malware Scanning.":::
 
 If you want to disable Defender for Storage on the storage account or disable one of the features (On-upload malware scanning or Sensitive data threat detection), select **Settings**, edit the settings, and select **Save**.
 

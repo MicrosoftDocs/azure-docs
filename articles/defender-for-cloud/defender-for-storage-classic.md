@@ -56,7 +56,7 @@ Microsoft security researchers have analyzed the attack surface of storage servi
 
 The potential security risks are described in the [threat matrix for cloud-based storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/) and are based on the [MITRE ATT&CK® framework](https://attack.mitre.org/techniques/enterprise/), a knowledge base for the tactics and techniques employed in cyberattacks. 
 
-:::image type="content" source="media/defender-for-storage-introduction/storage-threat-matrix.png" alt-text="Microsoft's threat matrix for cloud storage security threats." lightbox="media/defender-for-storage-introduction/storage-threat-matrix.png":::
+:::image type="content" source="media/defender-for-storage-introduction/storage-threat-matrix.png" alt-text="Diagram that shows Microsoft's threat matrix for cloud storage security threats." lightbox="media/defender-for-storage-introduction/storage-threat-matrix.png":::
 
 ## What kind of alerts does Microsoft Defender for Storage (classic) provide?
 
