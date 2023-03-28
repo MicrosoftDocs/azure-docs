@@ -84,7 +84,7 @@ With Nebula you can:
 Nebula provides a fast, easy checkpoint experience, right in your existing training script.
 The steps to quick start Nebula include:
 - [Using ACPT environment](#using-acpt-environment)
-- [Initializing Nebula](#initializing-nebulaml)
+- [Initializing Nebula](#initializing-nebula)
 - [Calling APIs to save and load checkpoints](#calling-apis-to-save-and-load-checkpoints)
 
 ### Using ACPT environment
@@ -104,7 +104,8 @@ Nebula needs initialization to run in your training script. At the initializatio
 
 Nebula has been integrated into DeepSpeed and PyTorch Lightning. As a result, initialization becomes simple and easy. These [examples](#examples) show how to integrate Nebula into your training scripts.
 
-> [!IMPORTANT] Saving checkpoints with Nebula requires some memory to store checkpoints. Please make sure your memory is larger than at least three copies of the checkpoints.
+> [!IMPORTANT] 
+> Saving checkpoints with Nebula requires some memory to store checkpoints. Please make sure your memory is larger than at least three copies of the checkpoints.
 >
 > If the memory is not enough to hold checkpoints, you are suggested to set up an environment variable `NEBULA_MEMORY_BUFFER_SIZE` in the command to limit the use of the memory per each node when saving checkpoints. When setting this variable, Nebula will use this memory as buffer to save checkpoints. If the memory usage is not limited, Nebula will use the memory as much as possible to store the checkpoints.
 >
