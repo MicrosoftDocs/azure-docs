@@ -428,8 +428,6 @@ groups:
     title: ASP.NET Core
   - id: devlang-nodejs-msal
     title: Node.js - MSAL
-  - id: devlang-nodejs-passport
-    title: Node.js - Passport
   - id: devlang-java
     title: Java
   - id: devlang-python
