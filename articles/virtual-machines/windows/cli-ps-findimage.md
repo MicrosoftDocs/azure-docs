@@ -68,53 +68,14 @@ x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-
 
 The Windows image alias names and their details are:
 ```output
-"Win2022AzureEditionCore": 
-{
- "publisher": "MicrosoftWindowsServer",
- "offer": "WindowsServer",
- "sku": "2022-datacenter-azure-edition-core",
- "version": "latest"
-},
-                                          
-"Win2019Datacenter":  
-{
- "publisher":  "MicrosoftWindowsServer",
- "offer":  "WindowsServer",
- "sku":  "2019-Datacenter",
- "version":  "latest"
-},
-                                          
-"Win2016Datacenter":  
-{
- "publisher":  "MicrosoftWindowsServer",
- "offer":  "WindowsServer",
- "sku":  "2016-Datacenter",
- "version":  "latest"
-},
-                                          
-"Win2012R2Datacenter":  
- {
-  "publisher":  "MicrosoftWindowsServer",
-  "offer":  "WindowsServer",
-  "sku":  "2012-R2-Datacenter",
-  "version":  "latest"
-},
-                                            
-"Win2012Datacenter":  
-{
- "publisher":  "MicrosoftWindowsServer",
- "offer":  "WindowsServer",
- "sku":  "2012-Datacenter",
- "version":  "latest"
-},
-                                          
-"Win10":  
-{
- "publisher":  "MicrosoftVisualStudio",
- "offer":  "Windows",
- "sku":  "Windows-10-N-x64",
- "version":  "latest"
-}
+Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
+--------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
+x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                     Win2022Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest  Win2022AzureEditionCore  latest
+x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                     Win2019Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                     Win2016Datacenter        latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                  Win2012R2Datacenter      latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                     Win2012Datacenter        latest
 ```
 
 ## List images
