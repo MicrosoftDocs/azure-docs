@@ -18,9 +18,9 @@ Optimal scale-up and scale-out performance of HPC applications on Azure requires
 
 ## Application setup
 The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of:
-- - Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
+- Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
 - Configuration of [file systems, and clusters](https://github.com/Azure/azurehpc/tree/master/examples).
-- - [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
+- [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
 
 ## Optimally scaling MPI 
 
