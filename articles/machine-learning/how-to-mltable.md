@@ -129,8 +129,8 @@ With this data, you want to load into a Pandas data frame:
 
 Pandas code handles this. However, achieving *reproducibility* would become difficult because you must either:
 
-1. share code, which means that if the schema changes (for example, a column name change) then all users must update their code, or
-1. write an ETL pipeline, which has heavy overhead.
+- share code, which means that if the schema changes (for example, a column name change) then all users must update their code, or
+- write an ETL pipeline, which has heavy overhead.
 
 Azure Machine Learning Tables provide a light-weight mechanism to serialize (save) the data loading steps in an `MLTable` file, so that you and members of your team can *reproduce* the Pandas data frame. If the schema changes, you only update the `MLTable` file, instead of updates in many places that involve Python data loading code.
 
