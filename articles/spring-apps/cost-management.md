@@ -16,7 +16,7 @@ ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 
 **This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard  ✔️ Enterprise
 
-This article describes the cost-saving options and capabilities in Azure Spring Apps, including monthly free grants, starting and stopping Spring App instances, the Standard consumption plan, and setting up autoscaling rules.
+This article describes the cost-saving options and capabilities that Azure Spring Apps provides.
 
 ## Monthly free grants
 
