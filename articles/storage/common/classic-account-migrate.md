@@ -27,7 +27,7 @@ To list classic storage accounts in your subscription with the Azure portal:
 1. Navigate to the list of your storage accounts in the Azure portal.
 1. Select **Add filter**. In the **Filter** dialog, set the **Filter** field to **Type** and the **Operator** field to **Equals**. Then set the **Value** field to **microsoft.classicstorage/storageaccounts**.
 
-    :::image type="content" source="media/storage-account-migrate-classic/classic-accounts-list-portal.png" alt-text="Screenshot showing how to list classic storage accounts in Azure portal" lightbox="media/storage-account-migrate-classic/classic-accounts-list-portal.png":::
+    :::image type="content" source="media/classic-account-migrate/classic-accounts-list-portal.png" alt-text="Screenshot showing how to list classic storage accounts in Azure portal" lightbox="media/storage-account-migrate-classic/classic-accounts-list-portal.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -60,9 +60,13 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 1. In the **Settings** section, click **Migrate to ARM**.
 1. Click on **Validate** to determine migration feasibility.
 
-   :::image type="content" source="./media/storage-account-migrate-classic/validate-storage-account.png" alt-text="Screenshot showing how to migrate your classic storage account to Azure Resource Manager.":::
+   :::image type="content" source="./media/classic-account-migrate/validate-storage-account.png" alt-text="Screenshot showing how to migrate your classic storage account to Azure Resource Manager." lightbox="./media/classic-account-migrate/validate-storage-account.png":::
 
 1. After a successful validation, click on **Prepare** to begin the migration.
+
+  > [!IMPORTANT]
+  > There may be a delay of a few minutes after validation is complete before the Prepare button is enabled.
+
 1. Type **yes** to confirm, then select **Commit** to complete the migration.
 
 # [PowerShell](#tab/azure-powershell)
@@ -113,6 +117,19 @@ azure storage account commit-migration <storage-account>
 ```
 
 ---
+
+### Locate and delete disk artifacts in a classic account
+
+Classic storage accounts may contain classic (unmanaged) disks, virtual machine images, and operating system (OS) images. To migrate the account, you may need to delete these artifacts first.
+
+To delete disk artifacts from the Azure portal, follow these steps:
+
+1. Navigate to the Azure portal.
+1. In the **Search** bar at the top, search for **Disks (classic)**, **OS Images (classic)**, or **VM Images (classic)** to display classic disk artifacts.
+1. Locate the classic disk artifact to delete, and select it to view its properties.
+1. Select the **Delete** button to delete the disk artifact.
+
+    :::image type="content" source="media/classic-account-migrate/delete-disk-artifacts-portal.png" alt-text="Screenshot showing how to delete classic disk artifacts in Azure portal." lightbox="media/classic-account-migrate/delete-disk-artifacts-portal.png":::
 
 ## See also
 

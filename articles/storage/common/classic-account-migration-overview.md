@@ -1,7 +1,7 @@
 ---
 title: We're retiring classic storage accounts on August 31, 2024
 titleSuffix: Azure Storage
-description: Overview - migrate your classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
+description: Overview of migration of classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
 services: storage
 author: tamram
 
@@ -16,7 +16,7 @@ ms.subservice: common
 
 The [Azure Resource Manager](../../azure-resource-manager/management/overview.md) deployment model now offers extensive functionality for Azure Storage accounts. For this reason, we deprecated the management of classic storage accounts through Azure Service Manager (ASM) on August 31, 2021. Classic storage accounts will be fully retired on August 31, 2024. All data in classic storage accounts must be migrated to Azure Resource Manager storage accounts by that date.
 
-Today, about x??? percent of Azure storage accounts are using Azure Resource Manager. If you have classic storage accounts, start planning your migration now. Complete it by August 31, 2024, to take advantage of Azure Resource Manager. To learn more about the benefits of Azure Resource Manager, see [The benefits of using Resource Manager](../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
+If you have classic storage accounts, start planning your migration now. Complete it by August 31, 2024, to take advantage of Azure Resource Manager. To learn more about the benefits of Azure Resource Manager, see [The benefits of using Resource Manager](../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 Storage accounts created using the classic deployment model will follow the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy) for retirement.
 
@@ -59,7 +59,7 @@ For step-by-step instructions, see [Migrate a classic storage account to Azure R
 
 ## Unsupported features and known issues
 
-- [Customer-managed failover](https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496078/Storage-Account-Failover_Storage?anchor=unsupported-storage-accounts)
+- [Customer-managed failover](storage-disaster-recovery-guidance.md) is not supported for classic storage accounts.
 - Challenges locating classic OS disks or images - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496154/Locate-Classic-OS-Disks-VM-Images-in-Storage-Account_Storage
 - Classic artifacts blocking storage account deletion - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/496138/Delete-Classic-Storage-Account-Portal_Storage
 - Customers that only have internal billable Classic Storage and have no visibility into those resources and no ability to migrate those resources to ARM - https://supportability.visualstudio.com/AzureIaaSVM/_wiki/wikis/AzureIaaSVM/606146/Classic-Storage-Account-Retirement-Message_Storage 
