@@ -138,6 +138,57 @@ The Linux image alias names and their details are:
 }
 ```
 
+The Windows image alias names and their details are:
+```output
+"Win2022AzureEditionCore": 
+{
+ "publisher": "MicrosoftWindowsServer",
+ "offer": "WindowsServer",
+ "sku": "2022-datacenter-azure-edition-core",
+ "version": "latest"
+},
+                                          
+"Win2019Datacenter":  
+{
+ "publisher":  "MicrosoftWindowsServer",
+ "offer":  "WindowsServer",
+ "sku":  "2019-Datacenter",
+ "version":  "latest"
+},
+                                          
+"Win2016Datacenter":  
+{
+ "publisher":  "MicrosoftWindowsServer",
+ "offer":  "WindowsServer",
+ "sku":  "2016-Datacenter",
+ "version":  "latest"
+},
+                                          
+"Win2012R2Datacenter":  
+ {
+  "publisher":  "MicrosoftWindowsServer",
+  "offer":  "WindowsServer",
+  "sku":  "2012-R2-Datacenter",
+  "version":  "latest"
+},
+                                            
+"Win2012Datacenter":  
+{
+ "publisher":  "MicrosoftWindowsServer",
+ "offer":  "WindowsServer",
+ "sku":  "2012-Datacenter",
+ "version":  "latest"
+},
+                                          
+"Win10":  
+{
+ "publisher":  "MicrosoftVisualStudio",
+ "offer":  "Windows",
+ "sku":  "Windows-10-N-x64",
+ "version":  "latest"
+}
+```
+
 ## List images
 
 You can use PowerShell to narrow down a list of images. Replace the values of the variables to meet your needs.
