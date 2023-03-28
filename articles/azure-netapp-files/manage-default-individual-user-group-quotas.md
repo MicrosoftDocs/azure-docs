@@ -28,7 +28,7 @@ Quota rules only come into effect on the CRR/CZR destination volume after the re
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
 * Auxiliary groups only help in permission checks. You can't use auxiliary groups to restrict the quota (disk space) for a file.
 * In a CRR/CZR setting:
-    * You can’t create quota rules on the destination volume until you [delete the replication](cross-region-replication-delete.md).  
+    * You can't create, update, or delete quota rules on the destination volume until you [delete the replication](cross-region-replication-delete.md).  
     * If a quota rule is in the error state after you delete the replication relationship, you need to delete and re-create the quota rule on the destination volume. 
 * If you're using [large volumes](large-volumes-requirements-considerations.md) (volumes larger than 100 TiB):    
     * The space and file usage in a large volume might exceed as much as five percent more than the configured hard limit before the quota limit is enforced and rejects traffic.   
