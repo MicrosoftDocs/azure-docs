@@ -29,6 +29,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 In this release, we've made the following changes:
 
 - Redesigned the connection bar for session desktops.
+- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
 - Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
 - Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
@@ -47,7 +48,7 @@ In this release, we've made the following changes:
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
 - Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
-- Disabled Universal Plug-and-Play (UPnP) after reports of connectivity issues.
+- Disabled UPnP after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
