@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # Connect applications in Azure Container Apps
 
-Azure Container Apps exposes each container app through a domain name if [ingress](ingress-concept.md) is enabled. Ingress endpoints can be exposed either publicly to the world and to other container apps in the same environment, or ingress can be limited to only other container apps in the same [environment](environment.md).
+Azure Container Apps exposes each container app through a domain name if [ingress](ingress-overview.md) is enabled. Ingress endpoints can be exposed either publicly to the world and to other container apps in the same environment, or ingress can be limited to only other container apps in the same [environment](environment.md).
 
 You can call other container apps in the same environment from your application code using one of the following methods: 
 
