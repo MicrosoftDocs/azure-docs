@@ -90,7 +90,7 @@ You must grant the Translator resource access to your storage account before it 
     > [!IMPORTANT]
     > User assigned managed identity won't meet requirements for the batch transcription storage account scenario. Be sure to enable system assigned managed identity.
 
-1. Select **Save**
+1. Select **Save**.
 
 ## Grant storage account access for your Translator resource
 
