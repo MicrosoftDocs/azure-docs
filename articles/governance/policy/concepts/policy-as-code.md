@@ -202,9 +202,7 @@ workflows, and fail deployments that create non-compliant resources.
 
 This article covers the general workflow for Azure Policy as Code and also where policy evaluation
 should be part of other deployment workflows. This workflow can be used in any environment that
-supports scripted steps and automation based on triggers. For a tutorial on using this workflow on
-GitHub, see
-[Tutorial: Implement Azure Policy as Code with GitHub](../tutorials/policy-as-code-github.md).
+supports scripted steps and automation based on triggers.
 
 ## Next steps
 
