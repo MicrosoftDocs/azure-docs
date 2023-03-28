@@ -318,8 +318,8 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
     sudo export HISTSIZE=0
     ```
 
-   > [!NOTE]
-   > If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovision step.
+    > [!NOTE]
+    > If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovision step.
 
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
