@@ -35,14 +35,14 @@ Use the following steps to troubleshoot if you observe that one of your orchestr
 
 2. Check the Azure Storage control queues to see if the message is still in the queue. For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
 
-3. Change platform configuration version to “64-Bit” for function applications. 
+3. Change [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to “64-Bit” for function applications. 
    Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process can allow the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes. 
 
 ## Orchestration starts after a long delay
 
 Normally orchestrations start within a few seconds after they are scheduled. However, there are certain cases where orchestrations may take much longer to start. Use the following steps to troubleshoot when orchestrations take more than a few seconds to start executing.
 
-1. Refer to the [Azure Storage start delay documentation](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to learn whether the orchestration start delay might be caused by known limitations.
+1. Refer to the [documentation on delayed orchestration in Azure Storage](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to check whether the delay may be caused by known limitations.
 
 2. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in [Trace Errors/Warnings section](#trace-errorswarnings).
 
@@ -66,7 +66,7 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 
 1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
-2. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is enabled.  
+2. Check if [extendedSessionsEnabled](./durable-functions-azure-storage-provider.md#extended-sessions) is set.  
    Excessive history load can result in extremely slow orchestrator processing.
 
 3. Check for performance and scalability bottlenecks. 
@@ -74,26 +74,12 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 
 ## Sample Queries
 
-This section shows how you can troubleshoot issues by writing custom [KQL queries](https://learn.microsoft.com/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Function app.
+This section shows how to troubleshoot issues by writing custom [KQL queries](https://learn.microsoft.com/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Azure Functions app.
 
 ### Azure Storage Messaging
 When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in Table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
 
 Starting in v2.3.0 of the Durable Functions extension, you can have these Durable Task Framework logs published to your Application Insights instance by updating your logging configuration in the host.json file. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for more information.
-
-To see results for the Azure Storage sample queries below, please add the following configuration in your host.json file.  
-
-```json
-{ 
-   "version": "2.0", 
-   "logging": { 
-     "logLevel": { 
-       "DurableTask.AzureStorage": "Information", 
-       "DurableTask.Core": "Information" 
-     } 
-   } 
- } 
-```
 
 The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit `start` and `targetInstanceId` to filter by time range and instance ID.
 
@@ -119,26 +105,6 @@ traces
 | extend workerName = customDimensions["prop__WorkerName"] 
 | where instanceId == targetInstanceId
 | sort by timestamp asc 
-```
-
-### Trace Multiple Orchestrators
-
-The following query shows the orchestration instance status for multiple orchestrators run in a specified time range. Edit the `instanceId` list to query the multiple orchestration.
-
-```kusto
-let start = datetime(2017-09-30T04:30:00); 
- traces  
-| where timestamp > start and timestamp < start + 1h 
-| where customDimensions.Category == "Host.Triggers.DurableTask" 
-| extend functionName = customDimensions["prop__functionName"] 
-| extend instanceId = customDimensions["prop__instanceId"] 
-| extend state = customDimensions["prop__state"] 
-| extend isReplay = tobool(tolower(customDimensions["prop__isReplay"])) 
-| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
-| where isReplay != true 
-| where instanceId in ("XXX", "XXX", "XXX") //edit this
-| sort by timestamp asc 
-| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName 
 ```
 
 ### Trace Errors/Warnings
