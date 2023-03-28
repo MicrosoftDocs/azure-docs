@@ -46,7 +46,7 @@ To configure the integration of RevSpace into Azure AD, you need to add RevSpace
 1. In the **Add from the gallery** section, type **RevSpace** in the search box.
 1. Select **RevSpace** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for RevSpace
 
@@ -117,7 +117,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -129,7 +129,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to RevSpace.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to RevSpace.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **RevSpace**.
@@ -153,13 +153,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    a. Navigate to **Company > Single Sign-On**, then select the **Metadata Upload** tab.
 
-   b. Paste the **Federation Metadata XML** Value, which you have copied from the Azure portal into **XML Metadata** field.
+   b. Paste the **Federation Metadata XML** Value, which you've copied from the Azure portal into **XML Metadata** field.
 
    c. Then click **Save**.
 
 ### Create RevSpace test user
 
-In this section, a user called B.Simon is created in RevSpace. RevSpace supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in RevSpace, a new one is created when you attempt to access RevSpace.
+In this section, a user called B.Simon is created in RevSpace. RevSpace supports just-in-time provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in RevSpace, a new one is created when you attempt to access RevSpace.
 
 ## Test SSO
 
