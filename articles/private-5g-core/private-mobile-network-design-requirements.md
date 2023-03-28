@@ -2,11 +2,11 @@
 title: Private mobile network design requirements
 titleSuffix: Azure Private 5G Core
 description: Learn how to design a private mobile network for Azure Private 5G Core.
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
-ms.date: 10/25/2022
+ms.date: 03/30/2023
 ms.custom: template-concept 
 ---
 
@@ -78,8 +78,8 @@ There are multiple ways to set up your network for use with AP5GC packet core. T
   - You can also separate ASE traffic into VLANs, whether or not you choose to add L3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local L2 or L3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png" alt-text="Diagram of L3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
   
-
 ### Subnets and IP addresses
 
 You may have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:
