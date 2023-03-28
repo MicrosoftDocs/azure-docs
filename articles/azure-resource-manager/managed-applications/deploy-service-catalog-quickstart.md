@@ -4,7 +4,7 @@ description: Describes how to deploy a service catalog's managed application for
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
-ms.date: 03/16/2023
+ms.date: 03/21/2023
 ---
 
 # Quickstart: Deploy a service catalog managed application
@@ -121,13 +121,13 @@ You also need to create a name for the managed application resource group. The r
 Run the following commands to create the managed resource group's name.
 
 ```azurepowershell
-$mrgprefix = 'rg-sampleManagedApplication-'
+$mrgprefix = 'mrg-sampleManagedApplication-'
 $mrgtimestamp = Get-Date -UFormat "%Y%m%d%H%M%S"
 $mrgname = $mrgprefix + $mrgtimestamp
 $mrgname
 ```
 
-The `$mrgprefix` and `$mrgtimestamp` variables are concatenated to create a managed resource group name like _rg-sampleManagedApplication-20230310100148_ that's stored in the `$mrgname` variable. The name's format `rg-{definitionName}-{dateTime}` is the same format as the portal's default value. You use the `$mrgname` variable's value when you deploy the managed application.
+The `$mrgprefix` and `$mrgtimestamp` variables are concatenated to create a managed resource group name like _mrg-sampleManagedApplication-20230310100148_ that's stored in the `$mrgname` variable. The name's format `mrg-{definitionName}-{dateTime}` is the same format as the portal's default value. You use the `$mrgname` variable's value when you deploy the managed application.
 
 You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backtick (`` ` ``) character. The backtick is also used for line continuation so that commands can use multiple lines.
 
@@ -166,14 +166,14 @@ You also need to create a name and path for the managed application resource gro
 Run the following commands to create the managed resource group's path.
 
 ```azurecli
-mrgprefix='rg-sampleManagedApplication-'
+mrgprefix='mrg-sampleManagedApplication-'
 mrgtimestamp=$(date +%Y%m%d%H%M%S)
 mrgname="${mrgprefix}${mrgtimestamp}"
 subid=$(az account list --query [].id --output tsv)
 mrgpath="/subscriptions/$subid/resourceGroups/$mrgname"
 ```
 
-The `mrgprefix` and `mrgtimestamp` variables are concatenated to create a managed resource group name like _rg-sampleManagedApplication-20230310100148_ that's stored in the `mrgname` variable. The name's format:`rg-{definitionName}-{dateTime}` is the same format as the portal's default value. The `mrgname` and `subid` variable's are concatenated to create the `mrgpath` variable value that creates the managed resource group during the deployment.
+The `mrgprefix` and `mrgtimestamp` variables are concatenated to create a managed resource group name like _mrg-sampleManagedApplication-20230310100148_ that's stored in the `mrgname` variable. The name's format:`mrg-{definitionName}-{dateTime}` is the same format as the portal's default value. The `mrgname` and `subid` variable's are concatenated to create the `mrgpath` variable value that creates the managed resource group during the deployment.
 
 You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backslash (`\`) character. The backslash is also used for line continuation so that commands can use multiple lines.
 
@@ -209,7 +209,7 @@ The parameters to create the managed resources:
    - **Resource group**: Select the resource group. For this example, create a resource group named _applicationGroup_.
    - **Region**: Select the location where you want to deploy the resource.
    - **Application Name**: Enter a name for your managed application. For this example, use _demoManagedApplication_.
-   - **Application resources Resource group name**: The name of the managed resource group that contains the resources that are deployed for the managed application. The default name is in the format `rg-{definitionName}-{dateTime}` but you can change the name.
+   - **Managed Resource Group**: The name of the managed resource group that contains the resources that are deployed for the managed application. The default name is in the format `mrg-{definitionName}-{dateTime}` but you can change the name.
 
 1. Provide values for the **Web App settings** tab and select **Next: Storage settings**.
 
@@ -395,7 +395,7 @@ To review the managed resource group's deny assignments, use the Azure portal or
 
 # [Portal](#tab/azure-portal)
 
-Go to the managed resource group with the name prefix **rg-sampleManagedApplication** and select **Overview** to display the resources that were deployed. The resource group contains an App Service, App Service plan, and storage account.
+Go to the managed resource group with the name prefix **mrg-sampleManagedApplication** and select **Overview** to display the resources that were deployed. The resource group contains an App Service, App Service plan, and storage account.
 
 :::image type="content" source="./media/deploy-service-catalog-quickstart/view-managed-resource-group.png" alt-text="Screenshot that shows the managed resource group that contains the resources deployed by the managed application definition.":::
 
@@ -403,7 +403,7 @@ The managed resource group and each resource created by the managed application 
 
 To see the role assignment from the Azure portal:
 
-1. Go to your **rg-sampleManagedApplication** resource group.
+1. Go to your **mrg-sampleManagedApplication** resource group.
 1. Select **Access Control (IAM)** > **Role assignments**.
 
    You can also view the resource's **Deny assignments**.
@@ -414,7 +414,7 @@ The role assignment gives the application's publisher access to manage the stora
 
 ## Clean up resources
 
-When you're finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, in this quickstart you created the resource groups _applicationGroup_ and a managed resource group with the prefix _rg-sampleManagedApplication_.
+When you're finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, in this quickstart you created the resource groups _applicationGroup_ and a managed resource group with the prefix _mrg-sampleManagedApplication_.
 
 # [PowerShell](#tab/azure-powershell)
 

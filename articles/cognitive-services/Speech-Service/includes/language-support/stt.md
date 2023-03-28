@@ -138,7 +138,7 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Plain text |
 | `te-IN` | Telugu (India) | Plain text |
 | `th-TH` | Thai (Thailand) | Audio + human-labeled transcript<br/><br/>Plain text |
-| `tr-TR` | Turkish (Turkey) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
+| `tr-TR` | Turkish (Türkiye) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
 | `uk-UA` | Ukrainian (Ukraine) | Plain text |
 | `uz-UZ` | Uzbek (Latin, Uzbekistan) | Plain text |
 | `vi-VN` | Vietnamese (Vietnam) | Audio + human-labeled transcript<br/><br/>Plain text |

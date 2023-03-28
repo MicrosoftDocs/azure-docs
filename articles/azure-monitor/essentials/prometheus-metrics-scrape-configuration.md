@@ -28,14 +28,16 @@ The following table has a list of all the default targets that the Azure Monitor
 
 | Key | Type | Enabled | Description |
 |-----|------|----------|-------------|
-| kubelet | bool | `true` | Scrape kubelet in every node in the k8s cluster without any extra scrape config. |
-| cadvisor | bool | `true` | Scrape cAdvisor in every node in the k8s cluster without any extra scrape config.<br>Linux only. |
-| kubestate | bool | `true` | Scrape kube-state-metrics in the k8s cluster (installed as a part of the addon) without any extra scrape config. |
+| kubelet | bool | `true` | Scrape kubelet in every node in the K8s cluster without any extra scrape config. |
+| cadvisor | bool | `true` | Scrape cadvisor in every node in the K8s cluster without any extra scrape config.<br>Linux only. |
+| kubestate | bool | `true` | Scrape kube-state-metrics in the K8s cluster (installed as a part of the addon) without any extra scrape config. |
 | nodeexporter | bool | `true` | Scrape node metrics without any extra scrape config.<br>Linux only. |
-| coredns | bool | `false` | Scrape coredns service in the k8s cluster without any extra scrape config. |
-| kubeproxy | bool | `false` | Scrape kube-proxy in every linux node discovered in the k8s cluster without any extra scrape config.<br>Linux only. |
-| apiserver | bool | `false` | Scrape the kubernetes api server in the k8s cluster without any extra scrape config. |
-| prometheuscollectorhealth | bool | `false` | Scrape info about the prometheus-collector container such as the amount and size of timeseries scraped. |
+| coredns | bool | `false` | Scrape coredns service in the K8s cluster without any extra scrape config. |
+| kubeproxy | bool | `false` | Scrape kube-proxy in every linux node discovered in the K8s cluster without any extra scrape config.<br>Linux only. |
+| apiserver | bool | `false` | Scrape the kubernetes api server in the K8s cluster without any extra scrape config. |
+| windowsexporter | bool | `false` | Scrape the windows exporter in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
+| windowskubeproxy | bool | `false` | Scrape the windows kubeproxy in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
+| prometheuscollectorhealth | bool | `false` | Scrape info about the prometheus-collector container such as the amount and size of time series scraped. |
 
 If you want to turn on the scraping of the default targets that aren't enabled by default, edit the configmap `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) to update the targets listed under `default-scrape-settings-enabled` to `true`, and apply the configmap to your cluster.
 
@@ -80,7 +82,7 @@ Follow the instructions to [create, validate, and apply the configmap](prometheu
 
 ### Advanced Setup: Configure custom Prometheus scrape jobs for the daemonset
 
-The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` replicaset pod to the `ama-metrics` daemonset pod. The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheus-addon-ds-configmap), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery. Otherwise each node will try to scrape all targets and will make many calls to the Kubernetes API server. The `node-exporter` config below is one of the default targets for the daemonset pods. It uses the `$NODE_IP` environment variable, which is already set for every ama-metrics addon container to target a specific port on the node:
+The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` replicaset pod to the `ama-metrics` daemonset pod. The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheus-addon-ds-configmap), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery. Otherwise each node tries to scrape all targets and will make many calls to the Kubernetes API server. The `node-exporter` config below is one of the default targets for the daemonset pods. It uses the `$NODE_IP` environment variable, which is already set for every ama-metrics addon container to target a specific port on the node:
 
   ```yaml
   - job_name: node
@@ -98,7 +100,7 @@ The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrap
     - targets: ['$NODE_IP:9100']
   ```
 
-Custom scrape targets can follow the same format using `static_configs` with targets using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the daemonset will take the config, scrape the metrics, and send them for that node.
+Custom scrape targets can follow the same format using `static_configs` with targets using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the daemonset takes the config, scrapes the metrics, and sends them for that node.
 
 ## Prometheus configuration tips and examples
 
@@ -118,7 +120,7 @@ scrape_configs:
   - <job-y>
 ```
 
-Any other unsupported sections need to be removed from the config before applying as a configmap. Otherwise the custom configuration will fail validation and won't be applied.
+Any other unsupported sections need to be removed from the config before applying as a configmap. Otherwise the custom configuration fails validation and won't be applied.
 
 Refer to [Apply config file](prometheus-metrics-scrape-validate.md#apply-config-file) section to create a configmap from the prometheus config.
 
@@ -271,7 +273,7 @@ The scrape config below uses the `__meta_*` labels added from the `kubernetes_sd
 
 To scrape certain pods, specify the port, path, and scheme through annotations for the pod and the below job will scrape only the address specified by the annotation:
 - `prometheus.io/scrape`: Enable scraping for this pod
-- `prometheus.io/scheme`: If the metrics endpoint is secured, then you'll need to set scheme to `https` & most likely set the tls config.
+- `prometheus.io/scheme`: If the metrics endpoint is secured, then you'll need to set scheme to `https` & most likely set the TLS config.
 - `prometheus.io/path`: If the metrics path isn't /metrics, define it with this annotation.
 - `prometheus.io/port`: Specify a single, desired port to scrape
 

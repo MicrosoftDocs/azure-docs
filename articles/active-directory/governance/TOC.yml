@@ -234,6 +234,8 @@
           href: manage-workflow-tasks.md
         - name: Run a workflow on-demand
           href: on-demand-workflow.md
+        - name: Customize emails
+          href: customize-workflow-email.md
         - name: Check the status of a workflow
           href: check-status-workflow.md
         - name: Check execution user scope

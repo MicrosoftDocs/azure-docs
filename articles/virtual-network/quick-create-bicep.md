@@ -190,15 +190,13 @@ Get-AzResource -ResourceGroupName TestRG
 
 ## Connect to a VM
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**.
+1. In the portal, search for and select **Virtual machines**.
 
 1. On the **Virtual machines** page, select **BackendVM1**.
 
-1. At the top of the **BackendVM1** page, select **Connect**.
+1. At the top of the **BackendVM1** page, select the dropdown arrow next to **Connect**, and then select **Bastion**.
 
-1. On the **Connect** page, select **More ways to connect**, and then select **Go to Bastion**.
-
-   :::image type="content" source="./media/quick-create-bicep/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to BackendVM1 with Azure Bastion." border="true":::
+   :::image type="content" source="./media/quick-create-bicep/connect-to-virtual-machine.png" alt-text="Screenshot of connecting to VM1 with Azure Bastion." border="true":::
 
 1. On the **Bastion** page, enter the username and password you created for the VM, and then select **Connect**.
 

@@ -491,6 +491,8 @@ items:
       items:
       - name: Map control
         href: release-notes-map-control.md
+      - name: Indoor module
+        href: release-notes-indoor-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
@@ -500,7 +502,7 @@ items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
   - name: Azure IoT services
@@ -551,3 +553,5 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+  - name: Create elevation data & services
+    href: elevation-data-services.md

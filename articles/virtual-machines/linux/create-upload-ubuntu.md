@@ -31,10 +31,11 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Manual steps
+
 > [!NOTE]
 > Before attempting to create your own custom Ubuntu image for Azure, please consider using the pre-built and tested images from [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) instead.
-> 
-> 
+>
+
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -44,13 +45,13 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
     Before editing `/etc/apt/sources.list`, it's recommended to make a backup:
 
-    ```console
+    ```bash
      sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
     ```
 
 	Ubuntu 18.04 and Ubuntu 20.04:
 
-    ```console
+    ```bash
      sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
      sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
      sudo apt-get update
@@ -60,17 +61,19 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
     Ubuntu 18.04 and Ubuntu 20.04:
 
-    ```console
+    ```bash
      sudo apt update
      sudo apt install linux-azure linux-image-azure linux-headers-azure linux-tools-common linux-cloud-tools-common linux-tools-azure linux-cloud-tools-azure
-    (recommended) # sudo apt full-upgrade
-
-     sudo reboot
     ```
+Recommended:
+```bash
+    sudo apt full-upgrade
+    sudo reboot
+```
 
 5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-	```text
+	```output
 	GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
 	```
 
@@ -80,7 +83,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration (during provisioning and each subsequent boot) and `gdisk` to partition resource disks.
 
-    ```console
+    ```bash
      sudo apt update
      sudo apt install cloud-init gdisk netplan.io walinuxagent && systemctl stop walinuxagent
     ```
@@ -90,16 +93,16 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 8. Remove cloud-init default configs and leftover `netplan` artifacts that may conflict with cloud-init provisioning on Azure:
 
-    ```console
-     rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
-     rm -f /etc/cloud/ds-identify.cfg
-     rm -f /etc/netplan/*.yaml
+    ```bash
+     sudo rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
+     sudo rm -f /etc/cloud/ds-identify.cfg
+     sudo rm -f /etc/netplan/*.yaml
     ```
 
 9. Configure cloud-init to provision the system using the Azure datasource:
 
     ```bash
-	cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
+	sudo cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
 	datasource_list: [ Azure ]
     EOF
 
@@ -131,13 +134,15 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 10. Configure the Azure Linux agent to rely on cloud-init to perform provisioning. Have a look at the [WALinuxAgent project](https://github.com/Azure/WALinuxAgent) for more information on these options.
 
-    ```console
-    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
-    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```bash
+    sudo sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sudo sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```
 
-    cat >> /etc/waagent.conf << EOF
+    ```bash
+    sudo cat >> /etc/waagent.conf << EOF
     # For Azure Linux agent version >= 2.2.45, this is the option to configure,
     # enable, or disable the provisioning behavior of the Linux agent.
     # Accepted values are auto (default), waagent, cloud-init, or disabled.
@@ -149,7 +154,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 11. Clean cloud-init and Azure Linux agent runtime artifacts and logs:
 
-    ```console
+    ```bash
      sudo cloud-init clean --logs --seed
      sudo rm -rf /var/lib/cloud/
      sudo systemctl stop walinuxagent.service
@@ -165,11 +170,10 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 	> [!WARNING]
 	> Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.
 
-    ```console
+    ```bash
      sudo waagent -force -deprovision+user
-     rm -f ~/.bash_history
-     export HISTSIZE=0
-     logout
+     sudo rm -f ~/.bash_history
+     sudo export HISTSIZE=0
     ```
 
 13. Click **Action -> Shut Down** in Hyper-V Manager.
@@ -181,31 +185,31 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
     1. Change directory to the boot EFI directory:
     
-       ```console
-        cd /boot/efi/EFI
+       ```bash
+        sudo cd /boot/efi/EFI
        ```
 
     2. Copy the ubuntu directory to a new directory named boot:
 	
-       ```console
+       ```bash
         sudo cp -r ubuntu/ boot
        ```
 
     3. Change directory to the newly created boot directory:
 
-       ```console
-        cd boot
+       ```bash
+        sudo cd boot
        ```
 	
     4. Rename the shimx64.efi file:
 
-       ```console
+       ```bash
         sudo mv shimx64.efi bootx64.efi
        ```
 
     5. Rename the grub.cfg file to bootx64.cfg:
 
-       ```console
+       ```bash
         sudo mv grub.cfg bootx64.cfg 
        ```
 

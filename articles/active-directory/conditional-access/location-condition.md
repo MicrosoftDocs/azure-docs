@@ -33,9 +33,9 @@ The location found using the public IP address a client provides to Azure Active
 
 ## Named locations
 
-Locations exist in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries. 
+Locations exist in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
-![Named locations in the Azure portal](./media/location-condition/new-named-location.png)
+> [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
 ### IPv4 and IPv6 address ranges
 
@@ -52,7 +52,6 @@ Named locations defined by IPv4/IPv6 address ranges are subject to the following
 - Configure up to 195 named locations.
 - Configure up to 2000 IP ranges per named location.
 - Both IPv4 and IPv6 ranges are supported.
-- Private IP ranges can't be configured.
 - The number of IP addresses contained in a range is limited. Only CIDR masks greater than /8 are allowed when defining an IP range. 
 
 #### Trusted locations
@@ -69,16 +68,16 @@ Locations such as your organization's public network ranges can be marked as tru
 
 Organizations can determine country location by IP address or GPS coordinates. 
 
-To define a named location by country, you need to provide: 
+To define a named location by country/region, you need to provide: 
 
 - A **Name** for the location.
 - Choose to determine location by IP address or GPS coordinates.
-- Add one or more countries.
+- Add one or more countries/regions.
 - Optionally choose to **Include unknown countries/regions**.
 
 ![Country as a location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
-If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries to block traffic from countries where they don't do business. 
+If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries/regions to block traffic from countries/regions where they don't do business. 
 
 If you select **Determine location by GPS coordinates**, the user needs to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system contacts the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
