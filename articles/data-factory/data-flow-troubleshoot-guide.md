@@ -537,7 +537,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-MICROSOFT365-CONSENTPENDING
 -	**Message**: Admin Consent is pending.
 -	**Cause**: Admin Consent is missing.
--	**Recommendation**: Provide the consent and then rerun the pipeline. To provide consent, refer to this link [How can I approve PAM requests via the Microsoft 365 admin center](https://learn.microsoft.com/graph/data-connect-faq#how-can-i-approve-pam-requests-via-the-microsoft-365-admin-center).
+-	**Recommendation**: Provide the consent and then rerun the pipeline. To provide consent, refer to this link [How can I approve PAM requests via the Microsoft 365 admin center](../graph/data-connect-faq#how-can-i-approve-pam-requests-via-the-microsoft-365-admin-center).
 
 ### Error code: 127
 -	**Message**: The spark job of Dataflow completed, but the runtime state is either null or still InProgress..
