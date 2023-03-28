@@ -33,7 +33,7 @@ If your Azure Spring Apps instances don't need to run continuously, you can save
 
 ## Standard consumption plan
 
-Unlike other plans, the Standard Consumption plan offers a pure consumption-based pricing model. You can dynamically add and remove resources based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption plan](overview#standard-consumption-plan.md) section of [What is Azure Spring Apps?](overview.md)
+Unlike other plans, the Standard Consumption plan offers a pure consumption-based pricing model. You can dynamically add and remove resources based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption plan](overview.md#standard-consumption-plan) section of [What is Azure Spring Apps?](overview.md)
 
 ## Autoscale
 
@@ -41,4 +41,4 @@ Autoscale refers to setting up rules to increase or decrease computing capacitie
 
 ## Next steps
 
-[Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-proivsion-standard-consumption-service-instance.md)
+[Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md)
