@@ -45,33 +45,6 @@ The following ARM template example configures ingress to require a client certif
 }
 ```
 
-<!--
-
-Add this section when we have the CLI and portal support
-You can configure client certificate authorization for your container app in the Azure portal or by using the Azure CLI.  
-
-# [Azure portal](#tab/azure-portal)
-
-To configure client certificate authorization in the Azure portal, follow these steps:
-
-1. In the Azure portal, go to your container app resource page.
-1. Select **Ingress** from .
-1. Select the **Client certificate mode** drop-down list.
-    1. **Require**: Client certificate are required.
-    1. **Accept**: Client certificates are not required, but are accepted if provided.
-    1. **Ignore**: Client certificates are ignored.
-1. Select **Save**
-
-
-# [Azure CLI](#tab/azure-cli)
-  
->[!NOTE]
-> need to add the CLI commands here
-
----
-
--->
-
 ## Next Steps
 
 > [!div class="nextstepaction"]
