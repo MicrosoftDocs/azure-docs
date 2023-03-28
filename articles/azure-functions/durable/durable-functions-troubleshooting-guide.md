@@ -108,6 +108,7 @@ traces
 ```
 
 | Column | Description |
+|--------|-------------|
 |EventName|The name of the event.|
 |EventId|An auto-incrementing integer value that identifies an activity, timer, or sub-orchestration for a particular orchestration instance.|
 |Account|The storage account name under which function runs.|
@@ -132,11 +133,12 @@ The following query searches for errors and warnings for a given orchestration i
 
 ```kusto
 let targetInstanceId = "XXXXXX"; // edit this
-let start = datetime(2017-09-30T04:30:00); 
+let start = datetime(XXXX-XX-XXTXX:XX:XX); 
  traces  
 | where timestamp > start and timestamp < start + 1h
 | extend logLevel = customDimensions["LogLevel"] 
 | extend instanceId = customDimensions["prop__InstanceId"] 
+| extend details = customDimensions["prop__Details"] 
 | where logLevel in ("Error", "Warning") 
 | where instanceId == targetInstanceId
 | sort by timestamp asc 
