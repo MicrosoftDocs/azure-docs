@@ -190,6 +190,17 @@ sections:
         answer: |
           Confidential containers on Azure Container Instances do have an additional cost compared to standard SKU container groups. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
 
+  - name: Spot containers on Azure Container Instances (Preview)
+    questions:
+      - question: | 
+          Question goes here
+        answer: |
+          Answer goes here
+      - question: | 
+          Question goes here
+        answer: |
+          Answer goes here
+
 additionalContent: |
 
   ## Next steps
