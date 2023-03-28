@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 11/02/2022
+ms.date: 03/28/2023
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -330,7 +330,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
 - **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files aren't typically good choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
 
-### Error code: DF-Executor-ColumnUnavailable
+### Error code: DF-Executor-ColumnNotFound
 
 - **Message**: Column name used in expression is unavailable or invalid.
 - **Cause**: An invalid or unavailable column name is used in an expression.
@@ -440,7 +440,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The size of the data far exceeds the limit of the node memory.
 - **Recommendation**: Increase the core count and switch to the memory optimized compute type.
 
-### Error code: DF-Executor-ParseError
+### Error code: DF-Executor-ExpressionParseError
 
 - **Message**: Expression cannot be parsed.
 - **Cause**: An expression generated parsing errors because of incorrect formatting.
@@ -517,6 +517,33 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Privileged access approval is needed to copy data. It's a user configuration issue.
 - **Recommendation**: Ask the tenant admin to approve  your **Data Access Request** in Office365 in privileged access management (PAM) module.
 
+### Error code: DF-Executor-DSLParseError
+
+-	**Message**: Data flow script cannot be parsed.
+-	**Cause**: The data flow script has parsing errors.
+-	**Recommendation**: Check for errors (example: missing symbol(s), unwanted symbol(s)) near mentioned line number(s) in the data flow script.
+
+### Error code: DF-Executor-IncorrectQuery
+
+-	**Message**: Admin Consent is pending.
+-	**Cause**: The query submitted was syntactically incorrect.
+-	**Recommendation**: Check the syntactical correctness of the given query. Ensure to have a non-quoted query string when it is referenced as a pipeline parameter.
+
+### Error code: DF-Executor-ParameterParseError
+-	**Message**: Parameter stream has parsing errors. Not honoring the datatype of parameter(s) could be one of the causes.
+-	**Cause**: Parsing errors in given parameter(s).
+-	**Recommendation**: Check the parameter(s) having errors and ensure usage of appropriate function(s), if any, to honor the datatype(s) given.
+
+### Error code: DF-MICROSOFT365-CONSENTPENDING
+-	**Message**: Admin Consent is pending.
+-	**Cause**: Admin Consent is missing.
+-	**Recommendation**: Provide the consent and then rerun the pipeline. To provide consent, refer to this link [How can I approve PAM requests via the Microsoft 365 admin center](https://learn.microsoft.com/graph/data-connect-faq#how-can-i-approve-pam-requests-via-the-microsoft-365-admin-center).
+
+### Error code: 127
+-	**Message**: The spark job of Dataflow completed, but the runtime state is either null or still InProgress..
+-	**Cause**: Transient issue with microservices involved in the execution can cause the run to fail.
+-	**Recommendation**: Refer to this link [scenario 3 transient issues](#scenario-3-transient-issues).
+
 ### Error code: DF-File-InvalidSparkFolder
 
 - **Message**: Failed to read footer for file.
@@ -525,7 +552,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-GEN2-InvalidAccountConfiguration
 
-- **Message**: Either one of account key or tenant/spnId/spnCredential/spnCredentialType or miServiceUri/miServiceToken should be specified.
+- **Message**: Either one of account key or SAS token or tenant/spnId/spnCredential/spnCredentialType or userAuth or miServiceUri/miServiceToken should be specified.
 - **Cause**: An invalid credential is provided in the ADLS Gen2 linked service.
 - **Recommendation**: Update the ADLS Gen2 linked service to have the right credential configuration.
 
@@ -589,7 +616,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-JSON-WrongDocumentForm
 
-- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST.
+- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST. It could be because of a wrong selection in document form to parse json file(s). Please try a different 'Document form' (Single document/Document per line/Array of documents) on the json source.
 - **Cause**: Wrong document form is selected to parse JSON file(s).
 - **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
 
