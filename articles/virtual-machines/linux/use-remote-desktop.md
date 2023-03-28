@@ -19,14 +19,16 @@ When new to Linux, or for quick troubleshooting scenarios, the use of remote des
 
 The article was written and tested using an Ubuntu 18.04 VM.
 
+> [!NOTE]
+> Using Remote Desktop over the internet will introduce noticeable "lag" (input latency) when compared to local desktop use. This can be influenced by multiple factors including local internet speed and distance from the datacenter where the virtual machine is hosted. This lag does not usually reflect the performance of the VM itself.
+
 ## Prerequisites
 
 This article requires an existing Ubuntu 18.04 LTS or Ubuntu 20.04 LTS VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI](quick-create-cli.md)
-- - The [Azure portal](quick-create-portal.md)
-
-
+- - The [Azure CLI](quick-create-cli.md)
+- The [Azure portal](quick-create-portal.md)
+   
 ## Install a desktop environment on your Linux VM
 
 Most Linux VMs in Azure don't have a desktop environment installed by default. Linux VMs are commonly managed using SSH connections rather than a desktop environment, however there are several desktop environments that you can choose to install. Depending on your choice of desktop environment, it consumes up to 2 GB of disk space and take up to ten minutes to both install and configure all the required packages.
@@ -35,7 +37,6 @@ The following example installs the lightweight [xfce4](https://www.xfce.org/) de
 
 First, SSH to your VM. The following example connects to the VM named *myvm.westus.cloudapp.azure.com* with the username of *azureuser*. Use your own values:
 
-
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
@@ -43,7 +44,6 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 If you're using Windows and need more information on using SSH, see [How to use SSH keys with Windows](ssh-from-windows.md).
 
 Next, install xfce using `apt` :
-
 
 ```bash
 sudo apt-get update
@@ -86,6 +86,8 @@ sudo passwd azureuser
 
 > [!NOTE]
 > Specifying a password does not update your SSHD configuration to permit password logins if it currently does not. From a security perspective, you may wish to connect to your VM with an SSH tunnel using key-based authentication and then connect to xrdp. If so, skip the following step on creating a network security group rule to allow remote desktop traffic.
+
+
 
 
 
@@ -144,7 +146,10 @@ After authenticating, the xfce desktop environment will load and look similar to
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
 
+
 If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](https://www.freerdp.com).
+
+
 
 
 
@@ -177,6 +182,7 @@ tail -f /var/log/syslog
 Other Linux distributions such as Red Hat Enterprise Linux and SUSE may have different ways to restart services and alternate log file locations to review.
 
 If you don't receive any response in your remote desktop client and don't see any events in the system log, this behavior indicates that remote desktop traffic can't reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection).
+
 
 
 ## Next steps
