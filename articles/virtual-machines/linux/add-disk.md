@@ -73,7 +73,17 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Here, `sdc` is the disk that we want, because it's 50G. If you add multiple disks, and aren't sure which disk it's based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN.
+Here, `sdc` is the disk that we want, because it's 50G. If you add multiple disks, and aren't sure which disk it's based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN. Another option is to list the contents of the `/dev/disk/azure/scsi1` directory:
+
+```bash
+ls -l /dev/disk/azure/scsi1
+```
+
+The output should be similar to the following example:
+
+```output
+lrwxrwxrwx 1 root root 12 Mar 28 19:41 lun0 -> ../../../sdc
+```
 
 
 ### Format the disk
