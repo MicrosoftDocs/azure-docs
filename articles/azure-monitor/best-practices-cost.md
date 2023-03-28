@@ -97,6 +97,7 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
+| Change to Workspace-based Application Insights | Ensure that your Application Insights resources are Workspace-based so that they can leveage new cost saving tools such as Basic Logs, Commitment Tiers, Retention by data type and Data Archive. |
 | Use sampling to tune the amount of data collected. | [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics. |
 | Limit the number of Ajax calls. | [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. If you disable Ajax calls, you'll be disabling [JavaScript correlation](app/javascript.md#enable-distributed-tracing) too. |
 | Disable unneeded modules. | [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required. |
@@ -104,6 +105,11 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 | Limit the use of custom metrics. | The Application Insights option to [Enable alerting on custom metric dimensions](app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can increase costs. Using this option can result in the creation of more pre-aggregation metrics. |
 | Ensure use of updated SDKs. | Earlier versions of the ASP.NET Core SDK and Worker Service SDK [collect many counters by default](app/eventcounters.md#default-counters-collected), which were collected as custom metrics. Use later versions to specify [only required counters](app/eventcounters.md#customizing-counters-to-be-collected). |
 
+#### All log data collection
+
+| Recommendation | Description |
+|:---|:---|
+| Remove unnecssary data during data ingestion | After following all of the preveious recommendations, consider using Azure Monitor data collection transformations to reduce the size of your data during ingestion. |
 
 
 ## Monitor workspace and analyze usage

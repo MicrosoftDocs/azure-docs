@@ -15,7 +15,7 @@ ms.date: 10/20/2022
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL - Flexible Server](./index.yml).
+This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL - Flexible Server](../index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
