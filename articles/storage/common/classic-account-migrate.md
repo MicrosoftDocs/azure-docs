@@ -108,19 +108,19 @@ Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 To migrate a classic storage account to the Azure Resource Manager deployment model with the Azure CLI, first prepare the account for migration by running the following command. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
-azure storage account prepare-migration <storage-account>
+az storage account prepare-migration <storage-account>
 ```
 
 Check the configuration for the prepared storage account with either Azure CLI or the Azure portal. If you're not ready for migration, use the following command to revert your account to its previous state:
 
 ```azurecli
-azure storage account abort-migration <storage-account>
+az storage account abort-migration <storage-account>
 ```
 
 Finally, when you are satisfied with the prepared configuration, move forward with the migration and commit the resources with the following command:
 
 ```azurecli
-azure storage account commit-migration <storage-account>
+az storage account commit-migration <storage-account>
 ```
 
 ---
