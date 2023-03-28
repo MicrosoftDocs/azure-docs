@@ -23,7 +23,7 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the on premises management console as one of the [privileged users supplied during installation](install-software-on-premises-management-console.md#users)
 
-- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate.
+- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
@@ -36,7 +36,7 @@ For more information, see [Default privileged on-premises users](../roles-on-pre
 In a browser, go to the on-premises management console's IP address, and enter the username and password.
 
 > [!NOTE]
-> If you forgot your password, select **Password recovery** to reset the password.
+> If you forgot your password, select **Password recovery** to reset the password. For more information, see [Recover a privileged user password](../how-to-manage-the-on-premises-management-console.md#recover-a-privileged-user-password).
 >
 
 ## Activate the on-premises management console
@@ -74,12 +74,16 @@ If your sensors detect more devices than you have included in your plan, update 
 > [!NOTE]
 > You'll need to upload a new activation file in specific cases, such as if you modify the number of committed devices in your OT plan after having uploaded your initial activation file, or if you've [deleted your OT plan](../how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks) from the subscription that the previous activation file was associated with.
 >
+> For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 ## Deploy an SSL/TLS certificate
 
 The following procedures describe how to deploy an SSL/TLS certificate on your OT sensor. We recommend using CA-signed certificates in production environments.
 
-The requirements for SSL/TLS certificates are the same for OT sensors and on-premises management consoles.
+The requirements for SSL/TLS certificates are the same for OT sensors and on-premises management consoles. For more information, see:
+
+- [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md)
+- [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md)
 
 **To upload a CA-signed certificate**:
 
@@ -92,6 +96,8 @@ The requirements for SSL/TLS certificates are the same for OT sensors and on-pre
 1. (Optional) Clear the **Enable certificate validation** option to avoid validating the certificate against a CRL server.
 
 1. Select **SAVE** to save your certificate settings.
+
+For more information, see [Troubleshoot certificate upload errors](../how-to-manage-the-on-premises-management-console.md#troubleshoot-certificate-upload-errors).
 
 ## Next steps
 

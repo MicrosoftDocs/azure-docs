@@ -7,7 +7,13 @@ ms.topic: limits-and-quotas
 
 # OT monitoring with virtual appliances
 
-This article lists the specifications required if you want to install Microsoft Defender for IoT OT sensor and on-premises management console software on your own virtual appliances.
+This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and lists the specifications required if you want to install Microsoft Defender for IoT software on your own virtual appliances.
+
+:::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
+
+> [!NOTE]
+> This article also includes information relevant for on-premises management consoles. For more information, see the [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
+>
 
 ## About hypervisors
 
@@ -70,4 +76,5 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 ## Next steps
 
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+> [!div class="step-by-step"]
+> [« Prepare an OT site deployment](best-practices/plan-prepare-deploy.md)

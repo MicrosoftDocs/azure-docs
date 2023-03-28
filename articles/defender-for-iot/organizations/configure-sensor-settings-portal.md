@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Configure OT sensor settings from the Azure portal (Public preview)
 
-After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you may want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or connecting to an on-premises management console.
+After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you may want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or [connecting to an on-premises management console](ot-deploy/connect-sensors-to-management.md).
 
 Selected OT sensor settings, listed below, are also available directly from the Azure portal, and can be applied in bulk across multiple cloud-connected OT sensors at a time, or across all OT sensors in a specific site or zone. This article describes how to view and configure view OT network sensor settings from the Azure portal.
 

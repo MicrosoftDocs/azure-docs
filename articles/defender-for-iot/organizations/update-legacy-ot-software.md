@@ -8,10 +8,9 @@ ms.topic: upgrade-and-migration-article
 
 # Update legacy OT sensors
 
-<!--move this to a new article-->
 This section describes how to handle updates from legacy sensor versions, earlier than [version 22.x](release-notes.md#versions-221x).
 
-If you have earlier sensor versions installed on cloud-connected sensors, you may also have your  cloud connection configured using the legacy IoT Hub method. If so, migrate to a new [cloud-connection method](architecture-connections.md), either connecting directly or using a [proxy](connect-sensors.md).
+If you have earlier sensor versions installed on cloud-connected sensors, you may also have your  cloud connection configured using the legacy IoT Hub method. If so, migrate to a new [cloud-connection method](architecture-connections.md), either [connecting directly](ot-deploy/provision-cloud-management.md) or using a [proxy](connect-sensors.md).
 
 ## Update legacy OT sensor software
 
@@ -60,13 +59,13 @@ If you're an existing customer with a production deployment and sensors connecte
 
 1. **Review your existing production deployment** and how sensors are currently connected to Azure. Confirm that the sensors in production networks can reach the Azure data center resource ranges.
 
-1. **Determine which connection method is right** for each production site.
+1. **Determine which connection method is right** for each production site. For more information, see [Choose a sensor connection method](architecture-connections.md#choose-a-sensor-connection-method).
 
 1. **Configure any other resources required**, such as a proxy, VPN, or ExpressRoute. For more information, see [Configure proxy settings on an OT sensor](connect-sensors.md).
 
     For any connectivity resources outside of Defender for IoT, such as a VPN or proxy, consult with Microsoft solution architects to ensure correct configurations, security, and high availability.
 
-1. **If you have legacy sensor versions installed**, we recommend that you [update your sensors](#update-legacy-ot-sensors) at least to a version 22.1.x or higher. In this case, make sure that you've updated your firewall rules and activated your sensor with a new activation file.
+1. **If you have legacy sensor versions installed**, we recommend that you [update your sensors](#update-legacy-ot-sensors) at least to a version 22.1.x or higher. In this case, make sure that you've [updated your firewall rules](ot-deploy/provision-cloud-management.md) and activated your sensor with a new activation file.
 
     Sign in to each sensor after the update to verify that the activation file was applied successfully. Also check the Defender for IoT **Sites and sensors** page in the Azure portal to make sure that the updated sensors show as **Connected**.
 
@@ -82,7 +81,7 @@ If you're an existing customer with a production deployment and sensors connecte
 
     - If you're running a hybrid environment with multiple sensor versions, make sure any sensors with software version 22.1.x can connect to Azure.
 
-        Use firewall rules that allow outbound HTTPS traffic on port 443 to each of the required endpoints.
+        Use firewall rules that allow outbound HTTPS traffic on port 443 to each of the required endpoints. For more information, see [Provision OT sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
 While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-on-premises-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with updated connection methods.
 

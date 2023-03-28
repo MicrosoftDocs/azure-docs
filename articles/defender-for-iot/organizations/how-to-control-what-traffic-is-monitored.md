@@ -27,8 +27,6 @@ This step is performed by your deployment teams.
 
 ## Define OT and IoT subnets
 
-<!--yonina is updating this section separately-->
-
 Subnet configurations affect how devices are displayed in the sensor's [device maps](how-to-work-with-the-sensor-device-map.md). In the device maps, IT devices are automatically aggregated by subnet, where you can expand and collapse each subnet view to drill down as needed.
 
 While the OT network sensor automatically learns the subnets in your network, we recommend confirming the learned settings and updating them as needed to optimize your map views.

@@ -19,7 +19,7 @@ Deploying an on-premises management console is done by your deployment team. You
 
 |Step  |Description  |
 |---------|---------|
-|**[Prepare an on-premises management console appliance](prepare-management-appliance.md)**     |   Just as you'd prepared an on-premises appliance for your OT sensors, prepare an appliance for your on-premises management console. To deploy a CA-signed certificate for production environments, make sure to prepare your certificate as well. |
+|**[Prepare an on-premises management console appliance](prepare-management-appliance.md)**     |   Just as you'd [prepared an on-premises appliance](../best-practices/plan-prepare-deploy.md#prepare-on-premises-appliances) for your OT sensors, prepare an appliance for your on-premises management console. To deploy a CA-signed certificate for production environments, make sure to prepare your certificate as well. |
 |**[Install Microsoft Defender for IoT on-premises management console software](install-software-on-premises-management-console.md)**     |   Download installation software from the Azure portal and install it on your on-premises management console appliance.  |
 |**[Activate and set up an on-premises management console](activate-deploy-management.md)**     |    Use an activation file downloaded from the Azure portal to activate your on-premises management console.  |
 |**[Create OT sites and zones on an on-premises management console](sites-and-zones-on-premises.md)**     |  If you're working with a large, air-gapped deployment, we recommend creating sites and zones on your on-premises management console, which help you monitor for unauthorized traffic crossing network segments, and is part of deploying Defender for IoT with [Zero Trust](/security/zero-trust/zero-trust-overview) principles.   |
@@ -58,8 +58,8 @@ When using a high availability architecture:
 
 |Feature  |Description  |
 |---------|---------|
-|**Secure connections**     | An on-premises management console SSL/TLS certificate is applied to create a secure connection between the primary and secondary appliances. Use a CA-signed certificate or the self-signed certificate generated during installation. |
-|**Data backups**     |  The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes.       |
+|**Secure connections**     | An on-premises management console SSL/TLS certificate is applied to create a secure connection between the primary and secondary appliances. Use a CA-signed certificate or the self-signed certificate generated during installation. For more information, see: <br>- [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) <br>- [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md) <br>- [Manage SSL/TLS certificates](../how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates) |
+|**Data backups**     |  The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. <br><br>For more information, see [Backup and restore the on-premises management console](../back-up-restore-management.md).       |
 |**System settings**     |  The system settings defined on the primary on-premises management console are duplicated on the secondary. For example, if the system settings are updated on the primary, they're also updated on the secondary.       |
 
 For more information, see [About high availability](../how-to-set-up-high-availability.md).

@@ -32,7 +32,7 @@ Before you perform the procedures in this article, make sure that you have the f
     - Secret key
     - SNMP v2 community string
 
-- **An OT sensor** [installed](ot-deploy/install-software-ot-sensor.md) and activated, with access as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- **An OT sensor** [installed](ot-deploy/install-software-ot-sensor.md) and [activated](ot-deploy/activate-deploy-sensor.md), with access as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 To download a pre-defined SNMP MIB file from the Azure portal, you'll need access to the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 

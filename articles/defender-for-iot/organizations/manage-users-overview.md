@@ -39,7 +39,11 @@ Defender for IoT's integration with Active Directory supports LDAP v3 and the fo
 
 - **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
 
-For more information, see [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory).
+For more information, see:
+
+- [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
+- [Integrate on-premises management console users with Active Directory](manage-users-on-premises-management-console.md#integrate-users-with-active-directory)
+- [Other firewall rules for external services (optional)](networking-requirements.md#other-firewall-rules-for-external-services-optional).
 
 ### On-premises global access groups
 

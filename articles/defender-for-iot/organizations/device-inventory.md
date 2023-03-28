@@ -75,7 +75,7 @@ A *transient* device type indicates a device that was detected for only a short 
 *Unclassified* devices are devices that don't otherwise have an out-of-the-box category defined.
 
 > [!TIP]
-> Define sites and zones in Defender for IoT to harden overall network security, follow principles of [Zero Trust](/security/zero-trust/), and gain clarity in the data detected by your sensors.
+> Define [sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones) in Defender for IoT to harden overall network security, follow principles of [Zero Trust](/security/zero-trust/), and gain clarity in the data detected by your sensors.
 >
 
 ## Unauthorized devices

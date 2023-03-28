@@ -7,7 +7,6 @@ ms.date: 02/23/2023
 
 # Methods for connecting sensors to Azure
 
-<!--fix according to recipes doc-->
 This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
 Use the content below to learn about the architectures and methods supported for connecting Defender for IoT sensors to the Azure portal in the cloud.
@@ -18,7 +17,7 @@ Network sensors connect to Azure to provide data about detected devices, alerts,
 
 All connection methods provide:
 
-- **Improved security**, without additional security configurations. Connect to Azure using specific and secure endpoints, without the need for any wildcards.
+- **Improved security**, without additional security configurations. [Connect to Azure using specific and secure endpoints](networking-requirements.md#sensor-access-to-azure-portal), without the need for any wildcards.
 
 - **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
 

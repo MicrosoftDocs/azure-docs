@@ -255,7 +255,9 @@ When devices shown on the device map appear not connected to each other, somethi
 1. Validate that you're only seeing the broadcast traffic. To do this, in **Data Mining**, select **Create report**. In **Create new report**, specify the report fields. In **Choose Category**, choose **Select all**.
 1. Save the report, and review it to see if only broadcast and multicast traffic (and no unicast traffic) appears. If so, contact your networking team to fix the SPAN port configuration so that you can see the unicast traffic as well. Alternately, you can record a PCAP directly from the switch, or connect a laptop by using Wireshark. 
 
-For more information, see [Upload and play PCAP files](how-to-manage-individual-sensors.md#upload-and-play-pcap-files).
+For more information, see:
+- [Configure traffic mirroring](traffic-mirroring/traffic-mirroring-overview.md)
+- [Upload and play PCAP files](how-to-manage-individual-sensors.md#upload-and-play-pcap-files)
 
 ## Connect the sensor to NTP
 
@@ -274,7 +276,7 @@ To connect a sensor controlled by the management console to NTP:
 Sometimes ICS devices are configured with external IP addresses. These ICS devices aren't shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list.
+1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Define ICS or IoT and segregated subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 

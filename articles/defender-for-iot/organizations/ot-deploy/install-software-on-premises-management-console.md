@@ -62,7 +62,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. From the options displayed, select the management release you want to install based on the hardware profile you're using.  <!--need to validate this-->
+1. From the options displayed, select the management release you want to install based on the hardware profile you're using. 
 
 1. Define the following network properties as prompted:
 
@@ -78,7 +78,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
 
-    If you choose not to install the secondary NIC now, you can do so at a later time.
+    If you choose not to install the secondary NIC now, you can [do so at a later time](../how-to-manage-the-on-premises-management-console.md#add-a-secondary-nic-after-installation).
 
 1. Accept the settings and continue by entering `Y`.
 
@@ -111,6 +111,7 @@ For more information, see:
 - Your virtual machine software documentation
 - [On-premises management console (VMware ESXi)](../appliance-catalog/virtual-management-vmware.md)
 - [On-premises management console (Microsoft Hyper-V hypervisor)](../appliance-catalog/virtual-management-hyper-v.md)
+- [Networking requirements](../networking-requirements.md)
 
 ## Find a port on your appliance
 
@@ -123,6 +124,8 @@ sudo ethtool -p <port value> <time-in-seconds>
 This command causes the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
 ## Next steps
+
+For more information, see [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
 
 > [!div class="step-by-step"]
 > [« Prepare an on-premises management console appliance](prepare-management-appliance.md)

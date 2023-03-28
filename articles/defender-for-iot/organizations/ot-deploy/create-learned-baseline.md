@@ -29,7 +29,7 @@ For more information, see [Microsoft Defender for IoT alerts](../alerts.md).
 
 Creating your baseline of OT alerts can take anywhere from a few days to several weeks, depending on your network size and complexity. Learning mode automatically turns off when the sensor detects a decrease in newly detected traffic, which is typically between 2-6 weeks after deployment.
 
-Turn off learning mode manually before then if you feel that the current alerts accurately reflect your network activity.
+[Turn off learning mode manually before then](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts accurately reflect your network activity.
 
 ## Prerequisites
 
@@ -52,6 +52,9 @@ Triage alerts towards the end of your deployment to create an initial baseline f
 For more information, see [View and manage alerts on your OT sensor](../how-to-view-alerts.md).
 
 ## Next steps
+
+> [!div class="step-by-step"]
+> [« Verify and update your detected device inventory](update-device-inventory.md)
 
 After learning mode is turned off, you've moved from *learning* mode to *operation* mode. Continue with any of the following:
 

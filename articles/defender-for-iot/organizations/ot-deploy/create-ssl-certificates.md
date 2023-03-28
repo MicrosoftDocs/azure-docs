@@ -7,7 +7,7 @@ ms.topic: install-set-up-deploy
 
 # Create SSL/TLS certificates for OT appliances
 
-This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to create CA-signed certificates to use with Defender for IoT on-premises appliances, including both OT sensors and on-premises management consoles.
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to create CA-signed certificates to use with Defender for IoT on-premises appliances, including both OT sensors and [on-premises management consoles](air-gapped-deploy.md).
 
 :::image type="content" source="../media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="../media/deployment-paths/progress-plan-and-prepare.png":::
 
@@ -160,7 +160,10 @@ If these tests fail, review [certificate file requirements](../best-practices/ce
 
 ### Self-signed certificates
 
-Self-signed certificates are available for use in testing environments after installing Defender for IoT OT monitoring software. 
+Self-signed certificates are available for use in testing environments after installing Defender for IoT OT monitoring software. For more information, see:
+
+- [Create and deploy self-signed certificates on OT sensors](../how-to-manage-individual-sensors.md#manage-ssltls-certificates)
+- [Create and deploy self-signed certificates on on-premises management consoles](../how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
 
 ## Next steps
 

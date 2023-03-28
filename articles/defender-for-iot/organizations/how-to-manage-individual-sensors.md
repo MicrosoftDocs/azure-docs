@@ -1,11 +1,11 @@
 ---
 title: Maintain Defender for IoT OT network sensors from the GUI - Microsoft Defender for IoT
-description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor GUI.
+description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor console.
 ms.date: 03/09/2023
 ms.topic: how-to
 ---
 
-# Maintain OT network sensors from the GUI
+# Maintain OT network sensors from the sensor console
 
 This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
 
@@ -17,13 +17,13 @@ OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), th
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), activated, and [onboarded](onboard-sensors.md) to Defender for IoT in the Azure portal.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [onboarded](onboard-sensors.md) to Defender for IoT in the Azure portal.
 
 - Access to the OT sensor as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 - To download software for OT sensors, you'll need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
 
-- An SSL/TLS certificate prepared if you need to update your sensor's certificate.
+- An [SSL/TLS certificate prepared](ot-deploy/create-ssl-certificates.md) if you need to update your sensor's certificate.
 
 ## View overall OT sensor status
 
@@ -105,13 +105,13 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 - **The sensor can't connect to the internet:** Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that the required endpoints are allowed in the firewall and/or proxy.
 
-    For OT sensors version 22.x, download the list of required endpoints from the  **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**.
+    For OT sensors version 22.x, download the list of required endpoints from the  **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**. For sensors with earlier versions, see [Sensor access to Azure portal](networking-requirements.md#sensor-access-to-azure-portal).
 
 - **The activation file is valid but Defender for IoT rejected it:** If you can't resolve this problem, you can download another activation from the **Sites and sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
 ## Manage SSL/TLS certificates
 
-If you're working with a production environment, you'd deployed a CA-signed SSL/TLS certificate as part of your OT sensor deployment. We recommend using self-signed certificates only for testing purposes.
+If you're working with a production environment, you'd [deployed a CA-signed SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate) as part of your OT sensor deployment. We recommend using self-signed certificates only for testing purposes.
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
@@ -139,13 +139,13 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
     | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
     | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
 
-    Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a CRL server. The certificate is checked once during the import process.
+    Select **Use CRL (Certificate Revocation List) to check certificate status** to validate the certificate against a [CRL server](ot-deploy/create-ssl-certificates.md#verify-crl-server-access). The certificate is checked once during the import process.
 
-    If an upload fails, contact your security or IT administrator.
+    If an upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
 1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
-    If you've selected **Required** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. 
+    If you've selected **Required** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your certificate settings.
 
@@ -163,6 +163,12 @@ To create a self-signed certificate, download the certificate file from your OT 
 
 [!INCLUDE [self-signed-certificate](includes/self-signed-certificate.md)]
 
+When you're done, use the following procedures to validate your certificate files:
+
+- [Verify CRL server access](ot-deploy/create-ssl-certificates.md#verify-crl-server-access)
+- [Import the SSL/TLS certificate to a trusted store](ot-deploy/create-ssl-certificates.md#import-the-ssltls-certificate-to-a-trusted-store)
+- [Test your SSL/TLS certificates](ot-deploy/create-ssl-certificates.md#test-your-ssltls-certificates)
+
 **To deploy a self-signed certificate**:
 
 1. Sign into your OT sensor and select **System Settings** > **Basic** > **SSL/TLS Certificate**.
@@ -173,7 +179,7 @@ To create a self-signed certificate, download the certificate file from your OT 
 
 1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
-    If this option is toggled on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor.
+    If this option is toggled on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your certificate settings.
 
@@ -210,9 +216,9 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 ### Turn off learning mode manually
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically after your first sign-in. Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically after your [first sign-in](ot-deploy/activate-deploy-sensor.md#sign-in-to-your-ot-sensor). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's baseline traffic.
+Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 
 This procedure describes how to turn off learning mode manually if you feel that the current alerts accurately reflect your network activity.
 
