@@ -355,25 +355,42 @@ In BIG-IP, you can disable the Guided Configuration strict management mode. Then
    ![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
    > [!NOTE] 
-   > If you ree-enable strict mode and deploy a configuration, the action overwrites settings not in the Guided Configuration. We recommend the advanced configuration for production services.
+   > If you re-enable strict mode and deploy a configuration, the action overwrites settings not in the Guided Configuration. We recommend the advanced configuration for production services.
 
 ## Troubleshooting
 
-Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
+Use the following guidance when troubleshooting. 
 
-1. Navigate to **Access Policy > Overview > Event Logs > Settings**
+### Log verbosity
 
-2. Select the row for your published application then **Edit > Access System Logs**
+BIG-IP logs help isolate issues with connectivity, SSO, policy, or misconfigured variable mappings. To troubleshoot, increase the log verbosity.
 
-3. Select **Debug** from the SSO list then **OK**
+1. Navigate to **Access Policy > Overview.
+2. Select **Event Logs**.
+3. Select **Settings**.
+4. Select the row of your published application
+5. Select **Edit**.
+6. Select **Access System Logs**.
+7. From the SSO list, select **Debug**.
+8. Select **OK**.
+9. Reproduce the issue.
+10. Inspect the logs. 
 
-Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+   > [!NOTE]
+   > Revert this feature when finished. Verbose mode generates excessive data. 
 
-If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+### BIG-IP error message
 
-1. Navigate to **Access > Overview > Access reports**
+If a BIG-IP error message appears after Azure AD preauthentication, the issue might relate to Azure AD-to-BIG-IP SSO.
 
-2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+1. Navigate to **Access > Overview.
+2. Select **Access reports**.
+3. Run the report for the last hour.
+4. Review the logs for clues. 
+
+Use the **View session** variables lin, for the session, to help understand if the APM receives expected Azure AD claims.
+
+### No BIG-IP error message
 
 If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
 
