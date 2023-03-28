@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create and upload certificates for testing | Microsoft Docs
-description: Tutorial - Create a root certificate authority and use it to make and sign subordinate CA and client certificates that you can use for testing purposes with Azure IoT Hub
+description: Tutorial - Create a root certificate authority and use it to create subordinate CA and client certificates that you can use for testing purposes with Azure IoT Hub
 author: kgremban
 
 ms.service: iot-hub
@@ -14,45 +14,54 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # Tutorial: Create and upload certificates for testing
 
-For production environments, we recommend that you purchase an X.509 CA certificate from a commercial certificate authority (CA) and issue certificates within your organization from internal, self-managed subordinate CAs that are chained to the external root CA as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a commercial CA, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
+For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor and issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the external root CA as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
 
-However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. Using a self-managed private CA with at least one subordinate CA chained to your internal root CA, and client certificates for your devices issued by your subordinate CA certificates, allows you to more closely simulate a recommended production environment.
+However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. Using a self-managed private CA with at least one subordinate CA chained to your internal root CA, and client certificates for your devices signed by your subordinate CAs, allows you to more closely simulate a recommended production environment.
 
 >[!NOTE]
->We do not recommend the use of a self-managed PKI or self-signed certificates for production environments.
+>We do not recommend the use of self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
 
-The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a self-signed internal root certificate authority (CA) and a subordinate CA, then shows how to upload your internal subordinate CA certificate to your IoT hub for testing purposes. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This example is presented for demonstration purposes only.
+The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to describe how to accomplish the following tasks:
+
+- Create an internal root certificate authority (CA) and root CA certificate
+- Create an internal subordinate CA and subordinate CA certificate, signed by your internal root CA certificate
+- Upload your subordinate CA certificate to your IoT hub for testing purposes
+- Use the subordinate CA to create client certificates for the IoT devices you want to test with your IoT hub
 
 >[!NOTE]
 >Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT hub. The scripts are included with the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The scripts are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. You must use your own best practices for certificate creation and lifetime management in a production environment. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Prerequisites
 
-* A local instance of Azure CLI. This article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
 
 ## Create a root CA
 
-Intro
+You must first create an internal root certificate authority (CA) and a self-signed root CA certificate, to serve as a trust anchor from which you can create other certificates for testing. The files used to create and maintain your internal root CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
 
-Proc
+- Create and initialize the folders and files used by your root CA
+- Create a configuration file used by OpenSSL to configure your root CA, as well as certificates created with your root CA
+- Request and create a self-signed CA certificate that serves as your root CA certificate
 
-1. Start an Azure CLI session and run the following command, replacing *{basedir}* with the desired folder in which to create the root CA.
+1. Start a Bash window and run the following command, replacing *{base_dir}* with the desired directory in which to create the root CA.
 
     ```bash
-    cd {basedir}
+    cd {base_dir}
     ```
 
-1. In the CLI session, run the following commands, one at a time. This step creates the following folder structure and support files for the root CA.
+1. In the Bash window, run the following commands, one at a time. This step creates the following directory structure and support files for the root CA.
 
-    | Folder or file | Description |
+    | Directory or file | Description |
     | --- | --- |
-    | rootca | The root folder of the root CA. |
-    | rootca/certs | The folder in which CA certificates for the root CA are created and stored. |
-    | rootca/db | The folder in which the certificate database and support files for the root CA are stored. |
+    | rootca | The root directory of the root CA. |
+    | rootca/certs | The directory in which CA certificates for the root CA are created and stored. |
+    | rootca/db | The directory in which the certificate database and support files for the root CA are stored. |
     | rootca/db/index | The certificate database for the root CA. The `touch` command creates a file without any content, for later use. The certificate database is a plain text file managed by OpenSSL that contains certificate information. For more information about the certificate database, see .|
     | rootca/db/serial | A file used to store the serial number of the next certificate to be created for the root CA. The `openssl` command creates a 16-byte random number in hexadecimal format, then stores it in this file to initialize the file for creating the root CA certificate. |
     | rootca/db/crlnumber | A file used to store serial numbers for revoked certificates issued by the root CA. The `echo` command pipes a sample serial number, 1001, into the file. |
-    | rootca/private | The folder in which private files for the root CA, including the private key, are stored.<br/><br/>The files in this folder must be secured and protected. |
+    | rootca/private | The directory in which private files for the root CA, including the private key, are stored.<br/><br/>The files in this directory must be secured and protected. |
 
     ```bash
       mkdir rootca
@@ -63,15 +72,15 @@ Proc
       echo 1001 > db/crlnumber
     ```
 
-1. Create a text file named *rootca.conf* in the *rootca* folder created in the previous step. Open that file in a text editor, and then copy and save the following OpenSSL configuration settings into that file, replacing the following placeholders with corresponding values. 
+1. Create a text file named *rootca.conf* in the *rootca* directory created in the previous step. Open that file in a text editor, and then copy and save the following OpenSSL configuration settings into that file, replacing the following placeholders with their corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
-    | {CA_Name} | The name of the root CA. For example, `rootca`.|
-    | {Domain_Suffix} | The suffix of the domain name for the root CA. For example, `example.com`. |
-    | {Common_Name} | The common name of the root CA. For example, `Test Root CA`. |
+    | {rootca_name} | The name of the root CA. For example, `rootca`. |
+    | {domain_suffix} | The suffix of the domain name for the root CA. For example, `example.com`. |
+    | {rootca_common_name} | The common name of the root CA. For example, `Test Root CA`. |
 
-    The file provides OpenSSL with the values needed to configure your test root CA. For this example, the file configures a root CA using the folders and files created in previous steps. The file also provides configuration settings for:
+    The file provides OpenSSL with the values needed to configure your test root CA. For this example, the file configures a root CA using the directories and files created in previous steps. The file also provides configuration settings for:
     - The CA policy used by the root CA for certificate Distinguished Name (DN) fields
     - Certificate requests created by the root CA
     - X.509 extensions applied to root CA certificates, subordinate CA certificates, and client certificates issued by the root CA
@@ -79,17 +88,17 @@ Proc
 
     For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) master manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
-    ```xml
+    ```bash
     [default]
-    name                     = {CA_Name}
-    domain_suffix            = {Domain_Suffix}
+    name                     = {rootca_name}
+    domain_suffix            = {domain_suffix}
     aia_url                  = http://$name.$domain_suffix/$name.crt
     crl_url                  = http://$name.$domain_suffix/$name.crl
     default_ca               = ca_default
     name_opt                 = utf8,esc_ctrl,multiline,lname,align
     
     [ca_dn]
-    commonName               = "{Common_Name}"
+    commonName               = "{rootca_common_name}"
     
     [ca_default]
     home                     = ../rootca
@@ -145,76 +154,111 @@ Proc
     subjectKeyIdentifier     = hash    
     ```
 
-1. In the CLI session, run the following command to generate a certificate signing request (CSR) in the *rootca* directory and a private key in the *rootca/private* directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
+1. In the Bash window, run the following command to generate a certificate signing request (CSR) in the *rootca* directory and a private key in the *rootca/private* directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
     > [!NOTE]
-    > Even though this root CA is for testing purposes and won't be exposed as part of a public key infrastructure (PKI), we recommend that you do not share the private key.
+    > Even though this root CA is for testing purposes and won't be exposed as part of a public key infrastructure (PKI), we recommend that you do not copy or share the private key.
 
     ```bash
       openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
     ```
+    
+    You are prompted to provide a PEM pass phrase, as shown below, for the private key file. Provide and confirm a pass phrase to generate your private key and CSR.
 
-1. In the CLI session, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs).
+    ```bash
+    Enter PEM pass phrase:
+    Verifying - Enter PEM pass phrase:
+    -----
+    ```
+    
+    Confirm that the CSR file, *rootca.csr*, is present in the in the *rootca* directory and the private key file, *rootca.key*, is present in the *rootca/private* directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+
+1. In the Bash window, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). For more information about the OpenSSL `ca` command, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
     ```bash
       openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
     ```
 
-## Create a subordinate CA
-
-Intro
-
-Proc
-
-1. Start an Azure CLI session and run the following command, replacing *{basedir}* with the folder that contains your previously-created root CA.
+    You are prompted to provide the PEM pass phrase, as shown below, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
 
     ```bash
-    cd {basedir}
+    Using configuration from rootca.conf
+    Enter pass phrase for ../rootca/private/rootca.key:
+    Check that the request matches the signature
+    Signature ok
+    Certificate Details:
+        {Details omitted from output for clarity}
+    Certificate is to be certified until Mar 24 18:51:41 2033 GMT (3650 days)
+    Sign the certificate? [y/n]:
+
+
+    1 out of 1 certificate requests certified, commit? [y/n]
+    Write out database with 1 new entries
+    Data Base Updated
+    ```
+    
+    After the certificate database is updated, confirm that both the certificate file, *rootca.crt*, is present in the in the *rootca* directory and the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the root CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+
+## Create a subordinate CA
+
+After you've created your internal root CA, you should create a subordinate CA with which to sign client certificates for your devices. In theory, you don't need to create a subordinate CA; you can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA to sign client certificates more closely simulates a recommended production environment, in which your root CA is kept offline and a certificate chain of trust is established into which you can sign your devices. For more information about sighing devices into a certificate chain of trust, see [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
+
+Similar to your root CA, the files used to create and maintain your subordinate CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
+
+- Create and initialize the folders and files used by your subordinate CA
+- Create a configuration file used by OpenSSL to configure your subordinate CA, as well as certificates created with your subordinate CA
+- Request and create a CA certificate signed by your root CA that serves as your subordinate CA certificate
+
+1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously-created root CA.
+
+    ```bash
+    cd {base_dir}
     ```
 
-1. In the CLI session, run the following commands, one at a time, replacing the following placeholders with corresponding values. 
+1. In the Bash window, run the following commands, one at a time, replacing the following placeholders with their corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
-    | {CA_Directory} | The name of the directory for the subordinate CA. For example, `subca`.|
+    | {subca_dir} | The name of the directory for the subordinate CA. For example, `subca`. |
     
-    This step creates a folder structure and support files for the subordinate CA similar to that created for the root CA in [Create a root CA](#create-a-root-ca).
+    This step creates a directory structure and support files for the subordinate CA similar to that created for the root CA in [Create a root CA](#create-a-root-ca).
 
     ```bash
-      mkdir {CA_Directory}
-      cd {CA_Directory}
+      mkdir {subca_dir}
+      cd {subca_dir}
       mkdir certs db private
       touch db/index
       openssl rand -hex 16 > db/serial
       echo 1001 > db/crlnumber
     ```
 
-1. Create a text file named *subca.conf* in the *subca* folder created in the previous step. Open that file in a text editor, and then copy and save the following OpenSSL configuration settings into that file, replacing the following placeholders with corresponding values. 
+1. Create a text file named *subca.conf* in the directory for the subordinate CA created in the previous step. Open that file in a text editor, and then copy and save the following OpenSSL configuration settings into that file, replacing the following placeholders with their corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
-    | {CA_Name} | The name of the subordinate CA. For example, `subca`.|
-    | {Domain_Suffix} | The suffix of the domain name for the subordinate CA. For example, `example.com`. |
-    | {Common_Name} | The common name of the subordinate CA. For example, `Test Subordinate CA`. |
+    | {subca_name} | The name of the subordinate CA. For example, `subca`. |
+    | {domain_suffix} | The suffix of the domain name for the subordinate CA. For example, `example.com`. |
+    | {subca_common_name} | The common name of the subordinate CA. For example, `Test Subordinate CA`. |
+    | {subca_dir} | The name of the directory for the subordinate CA, as specified in the previous step. |
 
-    As with the configuration file for your test root CA, the file provides OpenSSL with the values needed to configure your test subordinate CA.
+    As with the configuration file for your test root CA, this file provides OpenSSL with the values needed to configure your test subordinate CA. You can create multiple subordinate CAs, for managing testing scenarios or environments.
 
     For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) master manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
-    ```xml
+    ```bash
     [default]
-    name                     = {CA_Name}
-    domain_suffix            = {Domain_Suffix}
+    name                     = {subca_name}
+    domain_suffix            = {domain_suffix}
     aia_url                  = http://$name.$domain_suffix/$name.crt
     crl_url                  = http://$name.$domain_suffix/$name.crl
     default_ca               = ca_default
     name_opt                 = utf8,esc_ctrl,multiline,lname,align
     
     [ca_dn]
-    commonName               = "{Common_Name}"
+    commonName               = "{subca_common_name}"
     
     [ca_default]
-    home                     = ../rootca
+    home                     = ../{subca_dir}
     database                 = $home/db/index
     serial                   = $home/db/serial
     crlnumber                = $home/db/crlnumber
@@ -223,9 +267,9 @@ Proc
     RANDFILE                 = $home/private/random
     new_certs_dir            = $home/certs
     unique_subject           = no
-    copy_extensions          = none
-    default_days             = 3650
-    default_crl_days         = 365
+    copy_extensions          = copy
+    default_days             = 365
+    default_crl_days         = 90
     default_md               = sha256
     policy                   = policy_c_o_match
     
@@ -267,36 +311,149 @@ Proc
     subjectKeyIdentifier     = hash    
     ```
     
-1. In the CLI session, run the following commands to generate a private key and a certificate signing request (CSR) in the *subca* directory.
+1. In the Bash window, run the following commands to generate a private key and a certificate signing request (CSR) in the subordinate CA directory.
 
     ```bash
       openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
     ```
 
-1. In the CLI session, run the following command to create an subordinate CA certificate in the *subca* directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate hierarchy similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
+    You are prompted to enter a PEM pass phrase, as shown below, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
+    
+    ```bash
+    Enter PEM pass phrase:
+    Verifying - Enter PEM pass phrase:
+    -----
+    ```
+    
+    Confirm that the CSR file, *subca.csr*, is present in the subordinate CA directory and the private key file, *subca.key*, is present in the *private* subdirectory of the subordinate CA directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+
+1. In the Bash window, run the following command to create an subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
 
     ```bash
       openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt -extensions sub_ca_ext
     ```
 
-## Upload and verify your subordinate CA certificate
+    You are prompted to enter the pass phrase, as shown below, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
 
-After you've created your subordinate CA certificate, you must then upload the certificate to the IoT hub with which you test devices that use client certificates signed by that subordinate CA certificate. When you upload your subordinate CA certificate to your IoT hub, you can set it to verified automatically. The following procedure describes how to upload and automatically verify your subordinate CA certificate to your IoT hub.
+    ```bash
+    Using configuration from rootca.conf
+    Enter pass phrase for ../rootca/private/rootca.key:
+    Check that the request matches the signature
+    Signature ok
+    Certificate Details:
+        {Details omitted from output for clarity}
+    Certificate is to be certified until Mar 24 18:51:41 2033 GMT (3650 days)
+    Sign the certificate? [y/n]:
+
+
+    1 out of 1 certificate requests certified, commit? [y/n]
+    Write out database with 1 new entries
+    Data Base Updated
+    ```
+    
+    After the certificate database is updated, confirm that the certificate file, *subca.crt*, is present in the in the subordinate CA directory and that the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the subordinate CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+
+## Register your subordinate CA certificate to your IoT hub
+
+After you've created your subordinate CA certificate, you must then register the subordinate CA certificate to your IoT hub, which uses it to authenticate your devices during registration and connection.  Registering the certificate is a two-step process that includes uploading the certificate file and then establishing proof of possession. When you upload your subordinate CA certificate to your IoT hub, you can set it to be verified automatically so that you don't need to manually establish proof of possession. The following steps describe how to upload and automatically verify your subordinate CA certificate to your IoT hub.
 
 1. In the Azure portal, navigate to your IoT hub and select **Certificates** from the resource menu, under **Security settings**.
 
 1. Select **Add** from the command bar to add a new CA certificate.
 
-1. Enter a display name in the **Certificate name** field.
+1. Enter a display name for your subordinate CA certificate in the **Certificate name** field.
 
-1. Select the certificate file of your subordinate CA certificate to add in the **Certificate .pem or .cer file** field.
+1. Select the PEM certificate (.pem) file of your subordinate CA certificate from the *rootca/certs* directory to add in the **Certificate .pem or .cer file** field.
 
-1. To automatically verify the certificate, check the box next to **Set certificate status to verified on upload**.
+1. Check the box next to **Set certificate status to verified on upload**.
 
-   :::image type="content" source="media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Screenshot showing how to automatically verify the certificate status on upload.":::
+   :::image type="content" source="media/tutorial-x509-test-ca-certs/skip-pop.png" alt-text="Screenshot showing how to automatically verify the certificate status on upload.":::
 
 1. Select **Save**.  
 
-If you chose to automatically verify your certificate during upload, your certificate is shown with its status set to **Verified** on the **Certificates** tab of the working pane.
+Your uploaded subordinate CA certificate is shown with its status set to **Verified** on the **Certificates** tab of the working pane.
 
-You now have a 
+## Create a client certificate for a device
+
+After you've created your subordinate CA, you can create client certificates for your devices. The files and folders created for your subordinate CA are used to store the CSR, private key, and certificate files for your client certificates. 
+
+The client certificate must have the value of its Subject Common Name (CN) field set to the value of the device ID that was used when registering the corresponding device in Azure IoT Hub. For more information about certificate fields, see the [Certificate fields](reference-x509-certificates.md#certificate-fields) section of [X.509 certificates](reference-x509-certificates.md).
+
+Perform the following steps to:
+
+- Create a private key and certificate signing request (CSR) for a client certificate
+- Create a client certificate signed by your subordinate CA certificate
+
+1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously-created root CA and subordinate CA.
+
+    ```bash
+    cd {base_dir}
+    ```
+
+1. In the Bash window, run the following commands, one at a time, replacing the following placeholders with their corresponding values. This step creates the private key and CSR for your client certificate.
+
+    | Placeholder | Description |
+    | --- | --- |
+    | {subca_dir} | The name of the directory for the subordinate CA. For example, `subca`. |
+    | {device_name} | The name of the IoT device. For example, `testdevice`. |
+    
+    This step creates a 2048-bit RSA private key for your client certificate, and then generates a certificate signing request (CSR) using that private key.
+
+    ```bash
+      cd {subca_dir}
+      openssl genpkey -out private/{device_name}.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+      openssl req -new -key private/{device_name}.key -out {device_name}.csr
+    ```
+
+    You are prompted to provide certificate details, as shown below. Replace the following placeholders with the corresponding values. 
+
+    | Placeholder | Description |
+    | --- | --- |
+    | {device_id} | The identifier of the IoT device. For example, `testdevice`. <br/><br/>This value must match the device ID specified for the corresponding device identity in your IoT hub for your device. |
+
+    You can optionally enter your own values for the other fields, such as **Country Name**, **Organization Name**, and so on. You don't need to enter a challenge password or an optional company name. After providing the certificate details, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
+
+    ```bash
+    -----
+    Country Name (2 letter code) [XX]:.
+    State or Province Name (full name) []:.
+    Locality Name (eg, city) [Default City]:.
+    Organization Name (eg, company) [Default Company Ltd]:.
+    Organizational Unit Name (eg, section) []:
+    Common Name (eg, your name or your server hostname) []:'{device_id}'
+    Email Address []:
+    
+    Please enter the following 'extra' attributes
+    to be sent with your certificate request
+    A challenge password []:
+    An optional company name []:
+    
+    ```
+
+    Confirm that the CSR file is present in the subordinate CA directory and the private key file is present in the *private* subdirectory of the subordinate CA directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+
+1. In the Bash window, run the following command, replacing the following placeholders with their corresponding values. This step creates a client certificate in the subordinate CA directory. The command applies the `client_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a client certificate, which can't be used as a CA certificate. The client certificate is signed with the subordinate CA certificate.
+
+    ```bash
+      openssl ca -config subca.conf -in {device_name}.csr -out {device_name}.crt -extensions client_ext
+    ```
+    
+    You are prompted to enter the pass phrase, as shown below, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
+
+    ```bash
+    Using configuration from subca.conf
+    Enter pass phrase for ../subca/private/subca.key:
+    Check that the request matches the signature
+    Signature ok
+    Certificate Details:
+        {Details omitted from output for clarity}
+    Certificate is to be certified until Mar 24 18:51:41 2024 GMT (365 days)
+    Sign the certificate? [y/n]:
+
+
+    1 out of 1 certificate requests certified, commit? [y/n]
+    Write out database with 1 new entries
+    Data Base Updated
+    ```
+
+    After the certificate database is updated, confirm that the certificate file for the client certificate is present in the in the subordinate CA directory and that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
