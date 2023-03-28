@@ -36,11 +36,11 @@ After an IoT hub experiences a failure, or after you reconfigure service setting
 
 After devices disconnect from one IoT hub and reconnect to another, they must be reprovisioned. If you use IoT Hub with DPS, DPS has a per provisioning cost. If you reprovision many devices on DPS, it increases the cost of your IoT solution. To learn more about DPS provisioning costs, see [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
-## Reconnection concepts for DPS
+## Reconnection concepts
 
-To reconnect devices when you use DPS, it's helpful to understand several background concepts. 
+To reconnect devices, it's helpful to understand several background concepts. 
 
-- Backoff with jitter (for IoT Hub with DPS).  For connectivity issues at all layers (TCP, TLS, MQTT), and cases where there's no `retry-after` response sent by the service, you can use an exponential back-off with random jitter function. The `az_iot_retry_calc_delay` function is available in the [azure-iot-common package](https://www.npmjs.com/package/azure-iot-common).
+- Backoff with jitter.  For connectivity issues at all layers (TCP, TLS, MQTT), and cases where there's no `retry-after` response sent by the service, you can use an exponential back-off with random jitter function. The `az_iot_retry_calc_delay` function is available in the [azure-iot-common package](https://www.npmjs.com/package/azure-iot-common).
 
     ```javascript
     // The previous operation took operation_msec.
@@ -49,13 +49,13 @@ To reconnect devices when you use DPS, it's helpful to understand several backgr
     int32_t delay_msec = az_iot_calculate_retry_delay(operation_msec, attempt, min_retry_delay_msec, max_retry_delay_msec, random_jitter_msec);
     ```
     
-- Connections you can retry versus connections you can't (for DPS only). With DPS, some disconnected devices can't reconnect.  Devices that can't reconnect receive the following HTTP responses from the service:
+- Connections you can retry versus connections you can't (for IoT Hub with DPS only). With DPS, some disconnected devices can't reconnect.  Devices that can't reconnect receive the following HTTP responses from the service:
     - 401
     - Unauthorized or 403
     - Forbidden or 404
     - Not Found
   
-- Fall back to DPS after 10 retry attempts (for DPS only). With DPS, we recommend that you use a `MAX_HUB_RETRY` (with the default set to 10) to handle cases where Microsoft Edge, Azure Stack, or IoT Hub changed the endpoint information.
+- Fall back to DPS after 10 retry attempts (for IoT Hub with DPS only). With DPS, we recommend that you use a `MAX_HUB_RETRY` (with the default set to 10) to handle cases where Microsoft Edge, Azure Stack, or IoT Hub changed the endpoint information.
 
 ## Hub reconnection flow
 
