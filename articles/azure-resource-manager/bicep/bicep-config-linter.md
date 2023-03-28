@@ -104,6 +104,9 @@ The following example shows the rules that are available for configuration.
         "use-resource-id-functions": {
           "level": "warning"
         },
+        "use-resource-symbol-reference": {
+          "level": "warning"
+        },
         "use-stable-resource-identifiers": {
           "level": "warning"
         },
