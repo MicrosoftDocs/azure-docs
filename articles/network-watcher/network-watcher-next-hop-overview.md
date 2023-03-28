@@ -35,4 +35,4 @@ To learn more about each next hop type, see [Virtual network traffic routing](..
 
 ## Next steps
 
-To learn how to use next hop to diagnose virtual network routing problems, see Diagnose VM network routing problems using the [Azure portal](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), or the [Azure CLI](diagnose-vm-network-routing-problem-cli.md).
+To learn how to use next hop to diagnose virtual machine routing problems, see Diagnose VM network routing problems using the [Azure portal](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), or the [Azure CLI](diagnose-vm-network-routing-problem-cli.md).
