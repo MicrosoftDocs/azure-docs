@@ -24,6 +24,16 @@ This article list some examples of role assignment conditions for controlling ac
 
 For information about the prerequisites to add or edit role assignment conditions, see [Conditions prerequisites](../../role-based-access-control/conditions-prerequisites.md).
 
+## Example summary
+
+Use the following table to quickly locate an example that fits your ABAC scenario:
+
+| Example | Action      | Environment | Principal | Request | Resource |
+|---------|-------------|-------------|-----------|---------|----------|
+| [1](#example-read-blobs-with-a-blob-index-tag) | Read blobs</br> with index tags | | | | tags |
+| [2](#example-new-blobs-must-include-a-blob-index-tag) | Write/add blob</br> with index tags | | | tags | |
+| [3](#example-existing-blobs-must-have-blob-index-tag-keys) | Write blobs</br> with index tags  | | | tags | |
+
 ## Blob index tags
 
 This section includes examples involving blob index tags.
