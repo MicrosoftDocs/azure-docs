@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 02/28/2023
+ms.date: 03/28/2023
 ms.reviewer: ju-shim
 ms.custom: 
 
@@ -115,6 +115,9 @@ When using an ARM template, add the upgradePolicy to the properties section:
 ## Changing the Upgrade Policy
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
+
+> [!NOTE]
+> When setting Upgrade Policy to `Rolling` the scale set must have either a health probe or the Application Health Extension installed. 
 
 ### CLI
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and set the Upgrade Policy from `Manual` to `Rolling` with `MaxSurge` enabled. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
