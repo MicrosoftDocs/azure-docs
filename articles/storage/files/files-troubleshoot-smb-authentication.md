@@ -320,7 +320,7 @@ If you don't want to rotate the service principal password every six months, you
 
 Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
 
-### Error 1326 - The username or password is incorrect
+### Error 1326 - The username or password is incorrect when using private link
 
 If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, when attempting to mount a file share via `net use` or other method, the client is prompted for credentials. The user will likely type their credentials in, but the credentials are rejected.
 
