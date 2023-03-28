@@ -90,16 +90,16 @@ The service scans the repository to find new catalog items. After you sync the r
 
 You can specify parameters for your catalog items to allow developers to customize their environments. 
 
-Parameters are specified in the manifest.yaml file. You can use the following options for the parameters. 
+Parameters are defined in the manifest.yaml file. You can use the following options for parameters: 
 
 |Option  |Description  |
 |---------|---------|
-|id     |Enter an id for the parameter.|
+|ID     |Enter an ID for the parameter.|
 |name     |Enter a name for the parameter.|
 |description     |Enter a description for the parameter.|
 |default     |Optional. Enter a default value for the parameter. The default value can be overwritten at creation.|
 |type     |Enter the data type for the parameter.|
-|required|Enter `true` or `false` to specify whether the value is required or not.|
+|required|Enter `true` for a value that's required, and  `false` for a value that's not required.|
 
 The following script is an example of a *manifest.yaml* file that includes two parameters; `location` and `name`: 
 
@@ -144,7 +144,7 @@ az devcenter dev environment create --catalog-item-name
                                     [--user]
                                     [--user-id]
 ```
-Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment) for full details.
+Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment) for full details of the `az devcenter dev environment create` command.
 ## Update a catalog item
 
 To modify the configuration of Azure resources in an existing catalog item, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific catalog item. The update also is applied when you redeploy an environment that's associated with that catalog item.
