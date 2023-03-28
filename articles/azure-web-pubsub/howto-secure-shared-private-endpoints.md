@@ -5,7 +5,7 @@ description: How to secure Azure Web PubSub outbound traffic through shared priv
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 03/27/2023
 ms.author: dayshen
 ---
 
@@ -28,7 +28,7 @@ Private endpoints of secured resources created through Azure Web PubSub Service 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Web PubSub Service instance. See [Create an Azure Web PubSub Service instance](quickstart-create-instance.md).
+- An Azure Web PubSub Service instance. 
 - An Azure Functions resource.
 
 > [!NOTE]
