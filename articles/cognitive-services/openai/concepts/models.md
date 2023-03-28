@@ -183,11 +183,11 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-babbage-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
 | curie | N/A | South Central US<sup>2</sup> | 2,049 | Oct 2019 |
 | text-curie-001  | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| davinci<sup>1</sup> | N/A | Currently unavailable to new customers> | 2,049 | Oct 2019|
+| davinci<sup>1</sup> | N/A | Currently unavailable | 2,049 | Oct 2019|
 | text-davinci-001 | South Central US, West Europe | N/A |  |  |
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
-| text-davinci-fine-tune-002<sup>1</sup>  | N/A | Currently unavailable to new customers |  |  |
+| text-davinci-fine-tune-002<sup>1</sup>  | N/A | Currently unavailable |  |  |
 | gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US | N/A | 4,096 | Sep 2021
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
@@ -200,8 +200,8 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID                |   Base model Regions       | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  ----------------------- |  ------------------------- | ------------------- | -------------------- | ---------------------- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |                  | East US, South Central US |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |                  | East US, South Central US |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, South Central US |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, South Central US |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is in preview and only available by request.<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
@@ -210,8 +210,8 @@ These models can only be used with the Chat Completion API.
 
 These models can only be used with Completions API requests.
 
-|  Model ID  | Supports Completions | Supports Embeddings |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- | --- | --- |
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
 | code-cushman-001<sup>1</sup> | South Central US, West Europe | East US<sup>2</sup> , South Central US, West Europe<sup>2</sup> | 2,048 | |
 | code-davinci-002 | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
 | code-davinci-fine-tune-002<sup>1</sup> | Yes | No | N/A | East US<sup>2</sup> , West Europe<sup>2</sup> | | |
@@ -224,7 +224,7 @@ These models can only be used with Completions API requests.
 These models can only be used with Embedding API requests.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- | --- | --- |
+|  --- | --- | --- | --- | --- |
 | text-embedding-ada-002 | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 | text-similarity-ada-001| East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
