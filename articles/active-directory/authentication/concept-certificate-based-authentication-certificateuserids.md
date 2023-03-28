@@ -130,32 +130,32 @@ AlternativeSecurityId isn't part of the default attributes. An administrator nee
 
 1. Create an inbound synchronization rule to transform from altSecurityIdentities to alternateSecurityId attribute.
 
-In the inbound rule, use the following options.
-
-|Option | Value |
-|-------|-------|
-|Name | Descriptive name of the rule, such as: In from AD - altSecurityIdentities |
-|Connected System | Your on-premises AD domain |
-|Connected System Object Type | user |
-|Metaverse Object Type | person |
-|Precedence | Choose a random high number not currently used |
-
-Then proceed to the Transformations tab and do a direct mapping of the target attribute of **alternativeSecurityId** to **altSecurityIdentities** as shown below.
+   In the inbound rule, use the following options.
+  
+   |Option | Value |
+   |-------|-------|
+   |Name | Descriptive name of the rule, such as: In from AD - altSecurityIdentities |
+   |Connected System | Your on-premises AD domain |
+   |Connected System Object Type | user |
+   |Metaverse Object Type | person |
+   |Precedence | Choose a random high number not currently used |
+  
+   Then proceed to the Transformations tab and do a direct mapping of the target attribute of **alternativeSecurityId** to **altSecurityIdentities** as shown below.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-inbound.png" alt-text="Screenshot of how to transform from altSecurityIdentities to alternateSecurityId attribute":::
 
 1. Create an outbound synchronization rule to transform from alternateSecurityId attribute to certificateUserIds
 alt-security-identity-add.
 
-|Option | Value |
-|-------|-------|
-|Name | Descriptive name of the rule, such as: Out to AAD - certificateUserIds |
-|Connected System | Your Azure AD doamin |
-|Connected System Object Type | user |
-|Metaverse Object Type | person |
-|Precedence | Choose a random high number not currently used |
-
-Then proceed to the Transformations tab and change your FlowType option to *Expression*, the target attribute to **certificateUserIds** and then input the below expression in to the Source field.
+   |Option | Value |
+   |-------|-------|
+   |Name | Descriptive name of the rule, such as: Out to AAD - certificateUserIds |
+   |Connected System | Your Azure AD doamin |
+   |Connected System Object Type | user |
+   |Metaverse Object Type | person |
+   |Precedence | Choose a random high number not currently used |
+    
+   Then proceed to the Transformations tab and change your FlowType option to *Expression*, the target attribute to **certificateUserIds** and then input the below expression in to the Source field.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-outbound.png" alt-text="Screenshot of outbound synchronization rule to transform from alternateSecurityId attribute to certificateUserIds":::
 
