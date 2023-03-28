@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 03/28/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to optimize the DNS resolver configuration in my network.
 ---
