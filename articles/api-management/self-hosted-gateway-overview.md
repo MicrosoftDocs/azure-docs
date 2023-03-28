@@ -59,7 +59,7 @@ We provide a variety of container images for self-hosted gateways to meet your n
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
 
-<sup>1</sup>Preview versions are not officially supported and for experimental purposes only.<br/> 
+<sup>1</sup>Preview versions are not officially supported and are for experimental purposes only.<br/> 
 
 ### Use of tags in our official deployment options
 
