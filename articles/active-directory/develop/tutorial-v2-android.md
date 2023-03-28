@@ -50,7 +50,7 @@ More specifically:
 - The access token will be included in the HTTP request to the web API.
 - Process the Microsoft Graph response.
 
-This sample uses the Microsoft Authentication Library for Android (MSAL) to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
+This sample uses the Microsoft Authentication Library (MSAL) for Android to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
 
 MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
 
@@ -62,7 +62,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
-3. Enter a Name for the application, such as _MSAL Android app_
+3. Enter a Name for the application, such as _MSALAndroidapp_.
 4. Save the package name. You'll enter it later into the Azure portal.
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and click **Finish**.
@@ -123,7 +123,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 
    This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md)
 
-1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Microsoft to call back to your application after it completes the authentication:
+1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Azure AD to call back to your application after it completes the authentication:
 
    ```xml
    <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -170,9 +170,11 @@ Follow these steps to set up a new project if you don't already have an Android 
     }
    ```
 
+1. Select **Sync Now** in the notification bar.
+
 ### Required Imports
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. After the package name, add the following imports:
+In **app** > **src** > **main**> **java** > **com.example(your app name)** > **MainActivity.java**. After the last import line, add the following imports:
 
 ```java
 import android.util.Log;
