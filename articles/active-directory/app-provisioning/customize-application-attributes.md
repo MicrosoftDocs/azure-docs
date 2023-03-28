@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2023
+ms.date: 03/28/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -118,7 +118,7 @@ Applications and systems that support customization of the attribute list includ
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
 
 > [!NOTE]
 > When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
@@ -138,7 +138,7 @@ When you're editing the list of supported attributes, the following properties a
 - **Multi-value?** - Whether the attribute supports multiple values.
 - **Exact case?** - Whether the attributes values are evaluated in a case-sensitive way.
 - **API Expression** - Don't use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
-- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and currently can't be edited using the Azure portal, but can be edited using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and can't be edited using the Azure portal. However, you can edit them using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
@@ -152,7 +152,7 @@ For SCIM applications, the attribute name must follow the pattern shown in the e
 
 These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce aren't integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 
-Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example because it isn't sent in requests from the Azure AD SCIM client. This issue will be fixed in the future and the header will be sent in the request.  
+Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example because it isn't sent in requests from the Azure AD SCIM client. 
  
 **Example representation of a user with an extension attribute:**
 
@@ -196,17 +196,17 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 
 
 ## Provisioning a role to a SCIM app
-Use the steps in the example to provision roles for a user to your application. Note that the description is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets describe how to transform the AppRoleAssignments attribute to the format your application expects.
+Use the steps in the example to provision roles for a user to your application. The description is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
 - Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
-  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
+  - **How to configure:** Use the steps described to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
 
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
-    - Ensure that multiple roles aren't assigned to a user. We can't guarantee which role will be provisioned.
+    - Ensure that multiple roles aren't assigned to a user. There is no guarantee which role is provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
@@ -249,7 +249,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
 
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
-  - **How to configure:** Edit the list of supported attributes as described above to include a new attribute for roles: 
+  - **How to configure:** Edit the list of supported attributes as described to include a new attribute for roles: 
   
     ![Add roles](./media/customize-application-attributes/add-roles.png)<br>
 
@@ -257,7 +257,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
-    - All roles will be provisioned as primary = false.
+    - All roles are provisioned as primary = false.
     - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups." 
     
