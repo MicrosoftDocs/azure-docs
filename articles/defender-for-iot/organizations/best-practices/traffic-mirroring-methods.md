@@ -1,5 +1,5 @@
 ---
-title: Choose a traffic mirroring method - Microsoft Defender for IoT
+title: Choose a traffic mirroring methods - Microsoft Defender for IoT
 description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
 ms.topic: install-set-up-deploy
