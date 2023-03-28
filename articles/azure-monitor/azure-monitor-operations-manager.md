@@ -16,6 +16,13 @@ This article provides guidance for customers who currently use [System Center Op
 > There is a cost to implementing several Azure Monitor features described here, so you should evaluate their value before deploying across your entire environment. See [Cost optimization and Azure Monitor](best-practices-cost.md) for strategies for reducing your cost for Azure Monitor.
 
 
+
+## Migrate to SCOM Managed instance
+[Azure Monitor SCOM Managed Instance (preview)](vm/scom-managed-instance-overview.md) allows you to move your existing SCOM environment into the cloud without any changes to your management packs or agents. This allows you to consolidate your monitoring environment in Azure so that you can 
+
+
+
+
 ## General strategy
 Your migration will typically include a [standard Azure Monitor implementation](best-practices.md) while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
 
@@ -25,26 +32,25 @@ Your migration will typically include a [standard Azure Monitor implementation](
 The general strategy recommended in this article is the same as in the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/), which recommends a [Hybrid cloud monitoring](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) strategy that allows you to make a gradual transition to the cloud. Even though some features may overlap, this strategy will allow you to maintain your existing business processes as you become more familiar with the new platform. Only move away from Operations Manager functionality as you can replace it with Azure Monitor. Using multiple monitoring tools does add complexity, but it allows you to take advantage of Azure Monitor's ability to monitor next generation cloud workloads while retaining Operations Manager's ability to monitor server software and infrastructure components that may be on-premises or in other clouds. 
 
 
-| Step | Infrastructure | Platform | Application | Workloads |
-| On-premises | SCOM | SCOM | SCOM | SCOM |
+
+## Azure Monitor for cloud components
+When you first start your migration into the cloud, use Azure Monitor to monitor your cloud components. This includes creating diagnostic settings to collect resource logs from your Azure components and enabling features such as Container insights for your Kubernetes clusters and XXX.
+
+Use Azure Arc for hybrid resources either on-premises or in other clouds.
+
+During this phase, continue to use your existing SCOM environment to monitor the workloads running on your virtual machines. Even as you migrate your machines into Azure, the MMA running on them can connect to your existing SCOM environment and continue running the same management packs.
 
 
+## Azure Monitor for virtual machine host
 
-| Phase | Description |
-| On-premises | All monitoring is performed by Operations Manager with on-premises installation. |
-| Infrastructure monitoring | Use Azure Monitor to monitor services that you're using in Azure. Enable VM insights for monitoring virtual machines, Container insights for monitoring Kubernetes clusters, Azure Arc for 
- |
-| SCOM to cloud | 
+Continue using your on-premises SCOM environment to monitor the workloads on your virtual machines, but enable Azure Monitor to monitor your virtual machine hosts. Platform metrics and activity log will start collecting as soon as the virtual machines are collected.
+
+Enable VM insights to install the 
 
 
-infra
-	- Arc, VM, K8s, etc
-platform
-	-	 no native way to collect. have to do custom. use APIs for each to push/pull
-application
-	
-workload
-	- we don't provide it, but SCOM does
+## Managed SCOM
+Managed SCOM allows you to move your existing SCOM environment into the cloud. Configure your existing SCOM agents to connect to managed SCOM instead of your existing management servers, and continue to use the same management packs for monitoring your VM workloads.
+
 
 
 
@@ -95,12 +101,6 @@ Azure services actually require Azure Monitor to collect telemetry, and it's ena
 
 Insights are based on [workbooks](visualize/workbooks-overview.md) in Azure Monitor, which combine metrics and log queries into rich interactive reports. Create your own workbooks to combine data from multiple services similar to how you might create custom views and reports in the Operations console.
 
-### Azure management pack
-The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health based on a particular set of monitoring scenarios. This management pack does require you to perform additional configuration for each resource in Azure, but it may be helpful to provide some visibility of your Azure resources in the Operations Console until you evolve your business processes to focus on Azure Monitor.
-
-[![Azure management pack](media/azure-monitor-operations-manager/operations-console.png)](media/azure-monitor-operations-manager/operations-console.png#lightbox)
-
- You may choose to use the Azure Management pack if you want visibility for certain Azure resources in the Operations console and to integrate some basic alerting with your existing processes. It actually uses data collected by Azure Monitor. You should look to Azure Monitor though for long-term complete monitoring of your Azure resources. 
 
 
 ## Monitor server software and local infrastructure
