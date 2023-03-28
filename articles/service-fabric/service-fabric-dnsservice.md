@@ -16,7 +16,7 @@ Many services, especially containerized services, are addressable through a pre-
 
 DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how DNS service works for stateless services. For brevity, the diagrams only show one endpoint for the services, although each service can have multiple endpoints. 
 
-![Diagram showing how DNS names are mapped to service names by DNS service for stateless services, PNG.](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagram showing how DNS names are mapped to service names by DNS service for stateless services.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
@@ -26,7 +26,7 @@ Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has b
 
 The following diagram shows how DNS service works for partitioned stateful services.
 
-![Diagram showing how DNS names are mapped to service names by DNS service for partitioned stateful services, PNG.](./media/service-fabric-dnsservice/stateful-dns.png) 
+![Diagram showing how DNS names are mapped to service names by DNS service for partitioned stateful services.](./media/service-fabric-dnsservice/stateful-dns.png) 
 
 For more information on partitioned queries, refer to the [section below](#making-dns-queries-on-a-stateful-service-partition).
 
@@ -44,11 +44,11 @@ To deploy a new cluster with ARM templates, you can either use the [sample templ
 #### Clusters using Azure portal
 If you are creating a standard cluster in the portal, DNS service is enabled by default in the **Include DNS service** option under the **Add on features** section.
 
-![Screenshot of enabling DNS service for a standard cluster through the portal, PNG.](./media/service-fabric-dnsservice/enable-dns-service-sfrp.png)
+![Screenshot of enabling DNS service for a standard cluster through the portal.](./media/service-fabric-dnsservice/enable-dns-service-sfrp.png)
 
 If you are creating a managed cluster in the portal, DNS service is enabled by default in the **DNS service** option under the **Add on features** section.
 
-![Screenshot of enabling DNS service for a managed cluster through the portal, PNG.](./media/service-fabric-dnsservice/enable-dns-service-sfmc.png)
+![Screenshot of enabling DNS service for a managed cluster through the portal.](./media/service-fabric-dnsservice/enable-dns-service-sfmc.png)
 
 ### Existing clusters
 If you are updating an existing managed cluster to enable DNS service, you can do so from the portal by visiting the **Add-on services** page from the cluster resource page. Otherwise, you can enable DNS service using alternative methods that are referenced below:
@@ -239,7 +239,7 @@ Update-ServiceFabricService `
 ### Verify that a DNS name is set in Service Fabric Explorer
 Once the service is deployed with the DNS name, Service Fabric Explorer will show the DNS name for the service, as shown in the following figure:
 
-![Screenshot of the DNS name in Service Fabric Explorer, PNG.](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![Screenshot of the DNS name in Service Fabric Explorer.](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
 > [!NOTE]
 > This view may be different depending on the version of Service Fabric Explorer used, however, the DNS name field should be visible in some form on the service page. 
@@ -337,7 +337,7 @@ public class ValuesController : Controller
 ## Recursive queries
 For DNS names that DNS service can't resolve on its own (for example, a public DNS name), it will forward the query to pre-existing recursive DNS servers on the nodes. 
 
-![Diagram showing how DNS queries for public names are resolved, PNG.](./media/service-fabric-dnsservice/recursive-dns.png) 
+![Diagram showing how DNS queries for public names are resolved.](./media/service-fabric-dnsservice/recursive-dns.png) 
 
 Prior to Service Fabric 9.0, these servers were queried serially until a response was received, with a fixed timeout period of 5 seconds in between. If a server didn't respond within the timeout period, the next server (if available) would be queried. In the case that these DNS servers were encountering any issues, completion of DNS queries would take longer than 5 seconds, which is not ideal. 
 
