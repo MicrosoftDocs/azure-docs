@@ -11,7 +11,7 @@ ms.author: dayshen
 
 # Configure a custom domain for Azure Web PubSub Service
 
-In addition to the default domain provided by the Azure Web PubSub Service, you can also add a custom domains.  A custom domain is a domain name that you own and manage. You can use a custom domain to access your Azure Web PubSub Service resource. For example, you can use `contoso.example.com` instead of `contoso.webpubsub.azure.com` to access your Azure Web PubSub Service resource.
+In addition to the default domain provided by the Azure Web PubSub Service, you can also add a custom domain.  A custom domain is a domain name that you own and manage. You can use a custom domain to access your Azure Web PubSub Service resource. For example, you can use `contoso.example.com` instead of `contoso.webpubsub.azure.com` to access your Azure Web PubSub Service resource.
 
 ## Prerequisites
 
@@ -35,15 +35,14 @@ Azure Web PubSub Service uses Managed Identity to access your Key Vault. In orde
         1. Select **On**.
         1. Select **Yes** to confirm.
         1. Select **Save**.
+   :::image type="content" alt-text="Screenshot of enabling system assigned managed identity." source="media\howto-custom-domain\portal-identity.png" :::
+
     1. To add a User assigned identity;
-        1. Click **Add user assigned managed identity**. 
+        1. Select **Add user assigned managed identity**. 
         1. Select an existing identity.
         1. Select **Add**.
 
-   :::image type="content" alt-text="Screenshot of enabling managed identity." source="media\howto-custom-domain\portal-identity.png" :::
-1. Turn on either **System assigned** or **User assigned** identity. Click **Save**.
-
-   :::image type="content" alt-text="Screenshot of enabling managed identity." source="media\howto-custom-domain\portal-identity.png" :::
+1. Select **Save**.
 
 Depending on how you configure your Key Vault permission model, you may need to grant permissions at different places.
 
@@ -58,7 +57,7 @@ If you're using Key Vault built-in access policy as Key Vault permission model:
 1. Select **Vault access policy**.
 1. Select **Go to access policies**.
 1. Select **Create**.
-1. Select **Secret Get** permission .
+1. Select **Secret Get** permission.
 1. Select **Certificate Get** permission. 
 1. Select **Next**.
 
@@ -79,21 +78,22 @@ If you're using Azure role-based access control as Key Vault permission model:
    :::image type="content" alt-text="Screenshot of Azure RBAC selected as Key Vault permission model." source="media\howto-custom-domain\portal-key-vault-perm-model-rbac.png" :::
 
 1. Go to your Key Vault resource.
-1. Select **Access configuration** from the menu.
-1. Select **go to access control (IAM)**.
-1. Click **Add**. Select **Add role assignment**.
+1. Select **Go to access control (IAM)** from the menu.
+1. Select **Add**, then select **Add role assignment** fro the drop-down.
 
    :::image type="content" alt-text="Screenshot of Key Vault IAM." source="media\howto-custom-domain\portal-key-vault-iam.png" :::
 
-1. Under the **Role** tab, select **Key Vault Secrets User**. Click **Next**.
+1. Under the **Role** tab, select **Key Vault Secrets User**. Select **Next**.
 
    :::image type="content" alt-text="Screenshot of role tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-role.png" :::
 
-1. Under the **Members** tab, select **Managed identity**. 1. Search for the Azure Web PubSub Service resource name or the user assigned identity name. Click **Next**.
+1. Under the **Members** tab, select **Managed identity**. 
+1. Search for and **Select** the Azure Web PubSub Service resource name or the user assigned identity name.
 
    :::image type="content" alt-text="Screenshot of members tab when adding role assignment to Key Vault." source="media\howto-custom-domain\portal-key-vault-members.png" :::
 
-1. Click **Review + assign**.
+1. Select **Next**.
+1. Select **Review + assign**.
 
 -----
 
@@ -101,18 +101,18 @@ If you're using Azure role-based access control as Key Vault permission model:
 
 1. In the Azure portal, go to your Azure Web PubSub Service resource.
 1. In the menu pane, select **Custom domain**.
-1. Under **Custom certificate**, click **Add**.
+1. In the **Custom certificate** section, select **Add**.
 
    :::image type="content" alt-text="Screenshot of custom certificate management." source="media\howto-custom-domain\portal-custom-certificate-management.png" :::
 
 1. Fill in a name for the custom certificate.
-1. Click **Select from your Key Vault** to choose a Key Vault certificate. After selection the following **Key Vault Base URI**, **Key Vault Secret Name** should be automatically filled. Alternatively you can also fill in these fields manually.
+1. Select **Select from your Key Vault** to choose a Key Vault certificate. After selection the following **Key Vault Base URI**, the **Key Vault Secret Name** will be automatically filled in. Alternatively you can also fill in these fields manually.
 1. Optionally, you can specify a **Key Vault Secret Version** if you want to pin the certificate to a specific version.
-1. Click **Add**.
+1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a custom certificate." source="media\howto-custom-domain\portal-custom-certificate-add.png" :::
 
-Azure Web PubSub Service will then fetch the certificate and validate its content. If everything is good, the **Provisioning State** will be **Succeeded**.
+Azure Web PubSub Service fetches the certificate and validates its contents. the validation succeeds, the **Provisioning State** is **Succeeded**.
 
    :::image type="content" alt-text="Screenshot of an added custom certificate." source="media\howto-custom-domain\portal-custom-certificate-added.png" :::
 
@@ -122,11 +122,11 @@ To validate the ownership of your custom domain, you need to create a CNAME reco
 
 For example, if your default domain is `contoso.webpubsub.azure.com`, and your custom domain is `contoso.example.com`, you need to create a CNAME record on `example.com` like:
 
-```
+```plaintext
 contoso.example.com. 0 IN CNAME contoso.webpubsub.azure.com.
 ```
 
-If you're using Azure DNS Zone, see [manage DNS records](../dns/dns-operations-recordsets-portal.md) for how to add a CNAME record.
+If you're using Azure DNS Zone, see [manage DNS records](../dns/dns-operations-recordsets-portal.md) to learn how to add a CNAME record.
 
    :::image type="content" alt-text="Screenshot of adding a CNAME record in Azure DNS Zone." source="media\howto-custom-domain\portal-dns-cname.png" :::
 
@@ -138,14 +138,14 @@ A custom domain is another sub resource of your Azure Web PubSub Service. It con
 
 1. In the Azure portal, go to your Azure Web PubSub Service resource.
 1. In the menu pane, select **Custom domain**.
-1. Under **Custom domain**, click **Add**.
+1. Under **Custom domain**, select **Add**.
 
    :::image type="content" alt-text="Screenshot of custom domain management." source="media\howto-custom-domain\portal-custom-domain-management.png" :::
 
-1. Fill in a name for the custom domain. It's the sub resource name.
-1. Fill in the domain name. It's the full domain name of your custom domain, for example, `contoso.com`.
+1. Enter a name for the custom domain. It's the sub resource name.
+1. Enter the domain name. It's the full domain name of your custom domain, for example, `contoso.com`.
 1. Select a custom certificate that applies to this custom domain.
-1. Click **Add**.
+1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a custom domain." source="media\howto-custom-domain\portal-custom-domain-add.png" :::
 
@@ -184,11 +184,11 @@ $ curl -vvv https://contoso.example.com/api/health
 
 -----
 
-It should return `200` status code without any certificate error.
+The health API should return `200` status code without any certificate error.
 
 ## Key Vault in private network
 
-If you have configured [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure Web PubSub Service cannot access the Key Vault via public network. You need to set up a shared private endpoint](./howto-secure-shared-private-endpoints-key-vault.md) to let Azure Web PubSub Service access your Key Vault via private network.
+If you've configured a [Private Endpoint](../private-link/private-endpoint-overview.md) to your Key Vault, Azure Web PubSub Service can't access the Key Vault via public network. You need to set up a [shared private endpoint](./howto-secure-shared-private-endpoints-key-vault.md) to let Azure Web PubSub Service access your Key Vault via private network.
 
 After you create a shared private endpoint, you can create a custom certificate as usual. **You don't have to change the domain in Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you still use this URI to configure custom certificate.
 
@@ -196,6 +196,6 @@ You don't have to explicitly allow Azure Web PubSub Service IPs in Key Vault fir
 
 ## Next steps
 
-+ [How to enable managed identity for Azure Web PubSub Service](howto-use-managed-identity.md)
-+ [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
-+ [What is Azure DNS](../dns/dns-overview.md)
+* [How to enable managed identity for Azure Web PubSub Service](howto-use-managed-identity.md)
+* [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
+* [What is Azure DNS](../dns/dns-overview.md)
