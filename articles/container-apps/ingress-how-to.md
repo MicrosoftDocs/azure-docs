@@ -5,9 +5,10 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 02/12/2023
+ms.date: 03/28/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
+zone_pivot_groups: arm-azure-cli-portal
 ---
 
 #  Configure Ingress for your app in Azure Container Apps
@@ -16,126 +17,27 @@ This article shows you how to enable [ingress](ingress-overview.md) features for
 
 ## Ingress settings
 
-You can set the following ingress properties:
+You can set the following ingress template properties:
 
 | Property | Description | Values | Required |
 |---|---|---|---|
-| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections.| No |
+| `allowInsecure` | Allows insecure traffic to your container app. When set to `true` HTTP requests to port 80 aren't automatically redirected to port 443 using HTTPS, allowing insecure connections.| `false` (default), `true` enables insecure connections| No |
 | `clientCertificateMode` | Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but doesn't require a client certificate. Require indicates server requires a client certificate. | `Required`, `Accept`, `Ignore` (default) | No |
-| `customDomains` | Custom domain bindings for Container Apps' hostnames. See [Custom domains and certificates](custom-domains-certificates.md) | Array of bindings | No |
-| `exposedPort` | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
+| `customDomains` | Custom domain bindings for Container Apps' hostnames. See [Custom domains and certificates](custom-domains-certificates.md) | An array of bindings | No |
+| `exposedPort` | (TCP ingress only) The port TCP listens on. If `external` is `true`, the value must be unique in the Container Apps environment. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 | `external` | Allow ingress to your app from outside its Container Apps environment. |`true` or `false`(default) | Yes |
-| `ipSecurityRestrictions` | IP ingress restrictions. See [Set up IP ingress restrictions](ip-restrictions.md) | array of rules | No |
+| `ipSecurityRestrictions` | IP ingress restrictions. See [Set up IP ingress restrictions](ip-restrictions.md) | An array of rules | No |
 | `stickySessions.affinity` | Enables [session affinity](sticky-sessions.md). | `none` (default), `sticky` | No |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. For HTTP ingress, your application ingress endpoint is always exposed on port `443`. | Yes |
-| `traffic` | Traffic weights based on revision name or labels. See [Traffic splitting](traffic-splitting.md) | array of rules | No |
-| `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
+| `traffic` | [Traffic splitting](traffic-splitting.md) weights split between revisions. | An array of rules | No |
+| `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
 
-<!--
-
-This is supposed to be the schema for ingress.  We haven't changed to this yet, but it's what we're planning on.
-
-https://github.com/Azure/azure-rest-api-specs/blob/4fcd6d4eb9153ff8dbbb2940d62c3789ca15e8ce/specification/app/resource-manager/Microsoft.App/stable/2022-10-01/ContainerApps.json#L703
-
-"Ingress": {
-      "description": "Container App Ingress configuration.",
-      "type": "object",
-      "properties": {
-        "fqdn": {
-          "description": "Hostname.",
-          "type": "string",
-          "readOnly": true
-        },
-        "external": {
-          "description": "Bool indicating if app exposes an external http endpoint",
-          "default": false,
-          "type": "boolean"
-        },
-        "targetPort": {
-          "format": "int32",
-          "description": "Target Port in containers for traffic from ingress",
-          "type": "integer"
-        },
-        "exposedPort": {
-          "format": "int32",
-          "description": "Exposed Port in containers for TCP traffic from ingress",
-          "type": "integer"
-        },
-        "transport": {
-          "description": "Ingress transport protocol",
-          "enum": [
-            "auto",
-            "http",
-            "http2",
-            "tcp"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "IngressTransportMethod",
-            "modelAsString": true
-          },
-          "default": "auto"
-        },
-        "traffic": {
-          "description": "Traffic weights for app's revisions",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TrafficWeight"
-          },
-          "x-ms-identifiers": [
-            "revisionName"
-          ]
-        },
-        "customDomains": {
-          "description": "custom domain bindings for Container Apps' hostnames.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomDomain"
-          },
-          "x-ms-identifiers": [
-            "name"
-          ]
-        },
-        "allowInsecure": {
-          "description": "Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections",
-          "type": "boolean",
-          "default": false
-        },
-        "ipSecurityRestrictions": {
-          "description": "Rules to restrict incoming IP address.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IpSecurityRestrictionRule"
-          },
-          "x-ms-identifiers": [
-            "name"
-          ]
-        },
-        "clientCertificateMode": {
-          "description": "Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.",
-          "enum": [
-            "ignore",
-            "accept",
-            "require"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "IngressClientCertificateMode",
-            "modelAsString": true
-          }
-        },
-     }
-    },
--->
 
 ## Enable ingress
 
-<!-- >[!NOTE]
-> Need to think about how to present the different options for enabling ingress.  Do we break the setting down to separate sections? 
-[Anthony] I think the descriptions in the above table should suffice for now.
--->
-
 You can configure ingress for your container app using the Azure CLI, an ARM template, or the Azure portal.
+
+::: zone pivot="azure-cli"
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -146,7 +48,7 @@ az containerapp ingress enable \
     --name <app-name> \
     --resource-group <resource-group> \
     --target-port <target-port> \
-    --exposed-port tcp-exposed-port> \
+    --exposed-port <tcp-exposed-port> \
     --transport <transport> \
     --type <external>
     --allow-insecure
@@ -156,11 +58,16 @@ az containerapp ingress enable \
 
 | Option | Property | Description | Values | Required |
 | --- | --- | --- | --- | --- |
-| `--type` | external | Allow ingress to your app from outside its Container Apps environment. | `external` or `internal`  | Yes |
+| `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal 
+ Container Apps environment. | `external` or `internal`  | Yes |
 |`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. |  | No |
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 |`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
+
+::: zone-end
+
+::: zone pivot="azure-portal"
 
 # [Portal](#tab/portal)
 
@@ -186,6 +93,9 @@ You can configure ingress when you create your container app by using the Azure 
 
 The **Ingress** settings page for your container app also allows you to configure **IP Restrictions**.  For information to configure IP restriction, see [IP Restrictions](ip-restrictions.md).
 
+::: zone-end
+
+::: zone pivot="azure-resource-manager"
 
 # [ARM template](#tab/arm-template)
 
@@ -211,6 +121,10 @@ Enable ingress for your container app by using the `ingress` configuration prope
 
 ---
 
+::: zone-end
+
+::: zone pivot="azure-cli"
+
 ## Disable ingress
 
 # [Azure CLI](#tab/azure-cli)
@@ -223,16 +137,29 @@ az containerapp ingress disable \
     --resource-group <resource-group> \
 ```
 
+::: zone-end
+
+::: zone pivot="azure-portal"
+
 # [Portal](#tab/portal)
 
-Disable ingress for your container app by using the portal.
+You can disable ingress for your container app  using the portal.
+
+1. Select **Ingress** from the **Settings** menu of the container app page.
+1. Deselect the **Ingress** **Enabled** setting.
+1. Select **Save**.
+
+:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Sceenshot of  disabling container app ingress.":::
+
+::: zone-end
+
+::: zone pivot="azure-resource-manager"
 
 # [ARM template](#tab/arm-template)
 
-Disable ingress for your container app by omitting the `ingress` configuration property entirely.
+Disable ingress for your container app by omitting the `ingress` configuration property from `properties.configuration` entirely.
 
 ---
-
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 03/29/2023
 ms.author: cshoe
 ---
 
@@ -23,9 +23,10 @@ Ingress supports:
 - [Traffic splitting between revisions](#traffic-splitting)
 - [Session affinity](#session-affinity)
 
+<!--
 > [!NOTE]
 > Add diagram here,  Talked with Anthony about this.  He thought that we should consult Ahmed.  I think that we should have a diagram that shows the ingress options and how they work together.
-
+-->
 For configuration details, see [Configure ingress](ingress-how-to.md).
 
 ## External and internal ingress
@@ -80,15 +81,13 @@ With TCP ingress enabled, your container app:
 
 You can access your app in the following ways:
 
-- The default fully qualified domain name (FQDN).  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+- The default fully qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 - A custom domain name:  You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 - The app name: You can use the app name for communication between apps in the same environment.
 
 ## IP restrictions
 
-Container Apps supports IP restrictions for ingress. You can create rules to either configure IP addresses that are allowed or denied access to your container app.
-
-For more information, see [Configure IP restrictions](ip-restrictions.md).
+Container Apps supports IP restrictions for ingress. You can create rules to either configure IP addresses that are allowed or denied access to your container app. For more information, see [Configure IP restrictions](ip-restrictions.md).
 
 ## Authentication
 
@@ -103,7 +102,7 @@ Containers Apps allows you to split incoming traffic between active revisions.  
 
 ## Session affinity
 
-Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](sticky-sessions.md).
+Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same container app replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](sticky-sessions.md).
 
 ## Next steps
 

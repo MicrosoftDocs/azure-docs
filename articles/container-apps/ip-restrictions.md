@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 03/28/2023
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -14,7 +14,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 Azure Container Apps allows you to limit inbound traffic to your container app by configuring IP ingress restrictions via ingress configuration.
 
-There are two types restrictions:
+There are two types of restrictions:
 
 * *Allow*: Allow inbound traffic only from address ranges you specify in allow rules.
 * *Deny*: Deny all inbound traffic only from address ranges you specify in deny rules.
@@ -46,9 +46,11 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
 1. Go to your container app in the Azure portal.
 1. Select **Ingress** from the left side menu.
 1. Select the **IP Security Restrictions Mode** toggle to enable IP restrictions.  You can choose to allow or deny traffic from the specified IP address ranges.
-1. Select **Add* to create the rule.
+1. Select **Add** to create the rule.
+
     :::image type="content" source="media/ingress/screenshot-ingress-page-ip-restrictions.png" alt-text="Screenshot of IP restriction settings on container app Ingress page.":::
-1. Enter information in the following fields:
+
+1. Enter values in the following fields:
 
     | Field | Description |
     |-------|-------------|
@@ -58,7 +60,7 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
   
 1. Select **Add**.
 1. Repeat steps 4-6 to add more rules.
-1. When you have finished adding rules, select **Save** to save the rules.
+1. When you have finished adding rules, select **Save**.
     :::image type="content" source="media/ingress/screenshot-save-ip-restriction.png" alt-text="Screenshot to save IP restrictions on container app Ingress page.":::
 
 ### Update a rule
@@ -185,4 +187,4 @@ az containerapp ingress access-restriction list
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage scaling](scale-app.md)
+> [Configure Ingress](ingress-how-to.md)

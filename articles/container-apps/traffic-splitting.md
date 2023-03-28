@@ -26,9 +26,9 @@ To run the following examples, you need a container app with multiple revisions.
 
 ::: zone pivot="azure-cli"
 
-Configure traffic splitting between revisions using the `[az containerapp ingress traffic set`](/cli/azure/containerapp/revision#az-containerapp-ingress-traffic-set) command.  You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
+Configure traffic splitting between revisions using the [`az containerapp ingress traffic set`](/cli/azure/containerapp/revision#az-containerapp-ingress-traffic-set) command.  You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
 
-The following command set the traffic weight for each revision to 50%:
+The following command sets the traffic weight for each revision to 50%:
 
 ```azurecli
 az containerapp ingress traffic set \
@@ -54,7 +54,7 @@ az containerapp ingress traffic set \
 ::: zone pivot="azure-portal"
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com). 
-1. Select **Revision management** from the left-hand menu.
+1. Select **Revision management** from the left side menu.
 1. If the revision mode is *Single*, set the mode to *multiple*.
     1. Select **Choose revision mode**.
     1. Select **Multiple: Several revisions active simultaneously**.
@@ -62,7 +62,7 @@ az containerapp ingress traffic set \
     1. Wait for the **Revision Mode** to update to **Multiple**.
     :::image type="content" source="media/ingress/screenshot-revision-management-mode.png" alt-text="Screenshot of the revision management revision mode setting.":::
 1. Select **Show inactive revisions**.
-1. If you don't have multiple revisions, your can create a new revision.
+1. If you don't have multiple revisions, you can create a new revision.
     1. Select **Create new revision**.
     1. You can use the default settings or customize the revision.
     1. Enter a **Name/Suffix** for the revision.
@@ -100,7 +100,7 @@ The following example sets 100% of traffic to the latest deployed revision:
   },
 ```
 
-The following example shows traffic splitting between two revisions:
+The following example shows traffic splitting between two revisions by name:
 
 ```json
 {
@@ -124,7 +124,7 @@ The following example shows traffic splitting between two revisions:
   },
 ```
 
-The following example shows traffic splitting between two revision labels:
+The following example shows traffic splitting between two revision by label:
 
 ```json
 {
