@@ -432,7 +432,7 @@ ml_client.jobs.create_or_update(job)
 
 ## Authoring MLTable Files
 
-To directly create the MLTable file, we recommend that you use the `mltable` Python SDK to author your MLTable files - as shown in the [Azure Machine Learning Tables Quickstart](./how-to-mltable.md#azure-ml-tables-quickstart) - instead of a text editor. In this section, we outline the capabilities in the `mltable` Python SDK.
+To directly create the MLTable file, we recommend that you use the `mltable` Python SDK to author your MLTable files - as shown in the [Azure Machine Learning Tables Quickstart](#azure-machine-learning-tables-quickstart) - instead of a text editor. In this section, we outline the capabilities in the `mltable` Python SDK.
 
 ### Supported file types
 
@@ -686,7 +686,7 @@ You can also easily access the data asset in a job.
 
 ### Parquet files
 
-The [Azure Machine Learning Tables Quickstart](#azure-ml-tables-quickstart) shows how to read parquet files.
+The [Azure Machine Learning Tables Quickstart](#azure-machine-learning-tables-quickstart) shows how to read parquet files.
 
 ### Paths: Create a table of image files
 You can create a table containing the paths on cloud storage. This example has several dog and cat images located in cloud storage, in the following folder structure:
