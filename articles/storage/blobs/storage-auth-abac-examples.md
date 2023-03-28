@@ -26,14 +26,34 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Example summary
 
-Use the following table to quickly locate an example that fits your ABAC scenario:
+Use the following table to quickly locate an example that fits your ABAC scenario. The table includes a brief description of the scenario, plus a list of attributes used by [source](../../role-based-access-control/conditions-format.md#attributes) (environment, principal, request and resource).
 
 | Example | Environment | Principal | Request | Resource |
 |---------|-------------|-----------|---------|----------|
 | [Read blobs with index tag](#example-read-blobs-with-a-blob-index-tag) | | | | tags |
-| [Require index tags for new blobs](#example-new-blobs-must-include-a-blob-index-tag) || | tags | |
-| [Require index tag keys for existing blobs](#example-existing-blobs-must-have-blob-index-tag-keys) || | tags | |
+| [Require index tags for new blobs](#example-new-blobs-must-include-a-blob-index-tag) | | | tags | |
+| [Require index tag keys for existing blobs](#example-existing-blobs-must-have-blob-index-tag-keys) | | | tags | |
 | [Require index tag keys and values for existing blobs](#example-existing-blobs-must-have-a-blob-index-tag-key-and-values) | | | tags | |
+| [Read, write, or delete blobs in named containers](#example-read-write-or-delete-blobs-in-named-containers) | | | | container name |
+| [Read blobs in named containers with a path](#example-read-blobs-in-named-containers-with-a-path) | | | | container name</br> blob path |
+| [Read or list blobs in named containers with a path](#example-read-or-list-blobs-in-named-containers-with-a-path) | | | blob prefix | container name</br> blob path |
+| [Write blobs in named containers with a path](#example-write-blobs-in-named-containers-with-a-path) | | | | container name</br> blob path |
+| [Read blobs with a blob index tag and a path](#example-read-blobs-with-a-blob-index-tag-and-a-path) | | | | tags</br> blob path |
+| [Read only current blob versions](#example-read-only-current-blob-versions) | | | | isCurrentVersion |
+| [Read current blob versions and a specific blob version](#example-read-current-blob-versions-and-a-specific-blob-version) | | | versionId | isCurrentVersion |
+| [Delete old blob versions](#example-delete-old-blob-versions) | | | versionId | |
+| [Read current blob versions and any blob snapshots](#example-read-current-blob-versions-and-any-blob-snapshots) | | | snapshot | isCurrentVersion |
+| [Read only storage accounts with hierarchical namespace enabled](#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) | | | | isHnsEnabled |
+| [Read blobs with specific encryption scopes](#example-read-blobs-with-specific-encryption-scopes) | | | | Encryption scope name |
+| [Read or write blobs in named storage account with specific encryption scope](#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) | | | | Storage account name</br> Encryption scope name |
+| [Read or write blobs based on blob index tags and custom security attributes](#example-read-or-write-blobs-based-on-blob-index-tags-and-custom-security-attributes) | | ID | tags | tags |
+| [Read blobs based on blob index tags and multi-value custom security attributes](#example-read-blobs-based-on-blob-index-tags-and-multi-value-custom-security-attributes) | | ID | | tags |
+| [Allow access to a container only from a specific private endpoint](#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
+| [Allow read access to blobs based on private link and tags](#example-allow-read-access-to-blobs-based-on-private-link-and-tags) | isPrivateLink | | | tags |
+| [Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access](#example-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-for-users-tagged-for-access) | Private endpoint | ID | | tags |
+| [Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint](#example-require-that-write-operations-to-blobs-use-specific-blob-index-tag-keys-and-values-and-from-a-specific-endpoint) | Private endpoint | | tags | |
+| [Allow access to blobs in specific containers from a specific subnet](#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) | Subnet | | | container name |
+| [Allow read access to blobs after a specific date and time](#example-allow-read-access-to-blobs-after-a-specific-date-and-time) | UtcNow | | | container name |
 
 ## Blob index tags
 
@@ -395,7 +415,6 @@ Storage Blob Data Contributor
  )
 )
 ```
-
 
 #### Azure portal
 
@@ -1215,7 +1234,7 @@ This section includes examples showing how to restrict access to objects based o
 ### Example: Read or write blobs based on blob index tags and custom security attributes
 
 This condition allows read or write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the [blob index tag](storage-blob-index-how-to.md).
- 
+
 For example, if Brenda has the attribute `Project=Baker`, she can only read or write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read or write blobs with `Project=Cascade`.
 
 You must add this condition to any role assignments that include the following actions.
