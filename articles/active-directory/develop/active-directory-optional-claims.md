@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/28/2022
+ms.date: 03/28/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: ludwignick
@@ -136,7 +136,7 @@ You can configure optional claims for your application through the UI or applica
 1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. 
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
-1. Select the application you want to configure optional claims for in the list.
+1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
 
 **Configuring optional claims through the UI:**
 
