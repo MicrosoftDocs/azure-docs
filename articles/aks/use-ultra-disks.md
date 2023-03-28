@@ -73,7 +73,7 @@ A storage class is used to define how a unit of storage is dynamically created w
       diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
     ```
 
-2. Create the storage class using the [`kubectl apply`][kubectl-apply] command and specify your *azure-ultra-disk-sc.yaml* file.
+2. Create the storage class using the [`kubectl apply`][kubectl-apply] command and specify your `azure-ultra-disk-sc.yaml` file.
 
     ```console
     kubectl apply -f azure-ultra-disk-sc.yaml
@@ -107,7 +107,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
     The claim requests a disk named `ultra-disk` that is *1000 GB* in size with *ReadWriteOnce* access. The *ultra-disk-sc* storage class is specified as the storage class.
 
-2. Create the persistent volume claim using the [`kubectl apply`][kubectl-apply] command and specify your *azure-ultra-disk-pvc.yaml* file.
+2. Create the persistent volume claim using the [`kubectl apply`][kubectl-apply] command and specify your `azure-ultra-disk-pvc.yaml` file.
 
     ```console
     kubectl apply -f azure-ultra-disk-pvc.yaml
