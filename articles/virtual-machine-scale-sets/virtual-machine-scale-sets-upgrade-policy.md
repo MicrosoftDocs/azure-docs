@@ -42,10 +42,10 @@ In this mode, you choose when to initiate an update to the scale set instances. 
 The Upgrade Policy can be set during scale set creation. Include the Upgrade Policy flag and set it to either Automatic, Rolling or Manual. If using Rolling, include the MaxSurge flag and set it to either true or false. 
 
 ### CLI
-Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create). 
+Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. Because Rolling Upgrades require a health probe or the Application Health Extension, we first need to create the Load Balancer and configure it before creating the Scale Set. 
 
 ```azurecli-interactive
-# Create a resource group
+# Create a Resource Group
 az group create --name myResourceGroup --location eastus
 
 #Create a load balancer
@@ -75,17 +75,23 @@ az vmss create \
 
 
 ### PowerShell
-Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.compute/new-azvmss).
+Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.compute/new-azvmss) and set the Upgrade Policy to `Automatic`.
 
 ```azurepowershell-interactive
+
+#Create a Resource Group
+New-AzResourceGroup -Name myResourceGroup -Location Eastus
+
+#Create a new Scale Set
 New-AzVmss `
-    -ResourceGroup "myResourceGroup" `
-    -Name "myScaleSet" ` 
-    -UpgradePolicyMode "Rolling" `
-    -MaxSurge "True" `
-    -Location "East US" `
-    -InstanceCount "2" `
-    -ImageName "Win2019Datacenter"
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"
 
 ```
 
@@ -111,9 +117,17 @@ When using an ARM template, add the upgradePolicy to the properties section:
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
 ### CLI
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and set the Upgrade Policy from `Manual` to `Rolling` with `MaxSurge` enabled. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurecli-interactive
+
+# Create a health probe
+az network lb probe create --resource-group MyResourceGroup --lb-name MyLoadBalancer --name MyProbe --protocol tcp --port 80
+
+# Update the load balancing rule with the health probe
+az network lb rule update --resource-group MyResourceGroup --lb-name myLoadBalancer --name MyLbRule --protocol Tcp --frontend-ip-name LoadBalancerFrontEnd --frontend-port 80 --backend-pool-name MyLoadBalancerbepool --backend-port 80 --probe myProbe
+
+#Create the Scale Set
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
@@ -128,15 +142,18 @@ az vmss update \
 Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
+
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
 Set-AzVmssRollingUpgradePolicy `
     -VirtualMachineScaleSet $vmss `
     -MaxBatchInstancePercent 40 `
     -MaxUnhealthyInstancePercent 35 `
     -MaxUnhealthyUpgradedInstancePercent 30 `
     -PauseTimeBetweenBatches "PT30S" `
-    -MaxSurge "True"
+    -MaxSurge $true
 
-Update-AzVMSS -VMScaleSetName $vmss
+Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
 ### Template
