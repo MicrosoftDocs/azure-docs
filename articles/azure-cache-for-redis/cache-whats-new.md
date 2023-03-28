@@ -12,6 +12,38 @@ ms.date: 02/06/2023
 
 # What's New in Azure Cache for Redis
 
+## March 2023
+
+### In-place scale up and scale out for the Enterprise tiers (preview)
+
+The Enterprise and Enterprise Flash tiers now support the ability to scale cache instances up and out without requiring downtime or data loss. Scale up and scale out actions can both occur in the same operation. 
+
+For more information, see [Scale an Azure Cache for Redis instance](cache-how-to-scale.md)
+
+### Support for RedisJSON in active geo-replicated caches (preview)
+
+Cache instances using active geo-replication now support the RedisJSON module. 
+
+For more information, see [Configure active geo-replication](cache-how-to-active-geo-replication.md). 
+
+### Flush operation for active geo-replicated caches (preview)
+
+Caches using active geo-replication now feature a built-in Flush operation that can be initiated at the control plane level. This is helpful because the `FLUSH ALL` and `FLUSH DB` operations in Redis server are blocked by design for active geo-replicated caches. 
+
+For more information see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation)
+
+### Customer managed key (CMK) disk encryption (preview)
+
+Redis data that is saved on disk can now be encrypted using customer managed keys (CMK) in the Enterprise and Enterprise Flash tiers. This adds an additional layer of control to the default disk encryption.
+
+For more information, see [Enable disk encryption](cache-how-to-encryption.md)
+
+### Connection event audit logs (preview)
+
+Enterprise and Enterprise Flash tier caches can now log all connection, disconnection, and authentication events through diagnostic settings. This is helpful for security audits and for monitoring who has access to your cache resource.
+
+For more information, see [Enabling connection audit logs](cache-monitor-diagnostic-settings.md)
+
 ## November 2022
 
 ### Support for RedisJSON
