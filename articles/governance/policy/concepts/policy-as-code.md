@@ -148,9 +148,8 @@ specifically for validating policies.
 
 After the assignment is deployed, use the Azure Policy SDK, the
 [Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](../samples/resource-graph-samples.md)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
-used to test the policies and assignments should have both compliant and non-compliant resources.
-Like a good unit test for code, you want to test that resources are as expected and that you also
-have no false-positives or false-negatives. If you test and validate only for what you expect, there
+used to test the policies and assignments should have resources with varying compliance states.
+Like a good unit test for code, you want to test that resources are evaluated as expected with no false-positives or false-negatives. If you test and validate only for what you expect, there
 may be unexpected and unidentified impact from the policy. For more information, see
 [Evaluate the impact of a new Azure Policy definition](./evaluate-impact.md).
 
@@ -158,8 +157,7 @@ may be unexpected and unidentified impact from the policy. For more information,
 
 If validation of the assignment meets expectations, the next step is to validate remediation.
 Policies that use either [deployIfNotExists](./effects.md#deployifnotexists) or
-[modify](./effects.md#modify) may be turned into a remediation task and correct resources from a
-non-compliant state.
+[modify](./effects.md#modify) can gave an associated remediation task triggered to correct resources from a non-compliant state and bring them into compliance.
 
 The first step to remediating resources is to grant the policy assignment the role assignment
 defined in the policy definition. This role assignment gives the policy assignment managed identity
