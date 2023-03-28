@@ -595,8 +595,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-        - name: Deployment Center Launcher
-          href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure automated deployments (preview)
