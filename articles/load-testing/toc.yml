@@ -26,7 +26,7 @@ items:
       href: concept-azure-load-testing-vnet-injection.md
     - name: Scenarios
       items:
-        - name: Load test web apps on Azure App Service
+        - name: Load test Azure App Service apps
           href: concept-load-test-app-service.md
 
 - name: How-to guides

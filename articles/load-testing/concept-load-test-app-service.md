@@ -1,7 +1,7 @@
 ---
-title: Load test apps on Azure App Service
+title: Load test Azure App Service apps
 titleSuffix: Azure Load Testing
-description: 'Learn how to use Azure Load Testing on Azure App Service apps. Run load tests, use environment variables, and gain insights with server metrics and diagnostics.'
+description: 'Learn how to use Azure Load Testing with Azure App Service apps. Run load tests, use environment variables, and gain insights with server metrics and diagnostics.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ---
 
-# Load test web apps on Azure App Service with Azure Load Testing
+# Load test Azure App Service apps with Azure Load Testing
 
 This article shows how to use Azure Load Testing with applications hosted on Azure App Service. You learn how to run a load test to validate your application's performance. Use environment variables to make your load test more configurable. This feature allows you to reuse your load test across different deployment slots. During and after the test, you can get detailed insights by using server-side metrics and App Service diagnostics, which helps you to identify and troubleshoot any potential issues.
 

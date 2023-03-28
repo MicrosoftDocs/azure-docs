@@ -46,7 +46,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Load test web apps on Azure App Service
+          - text: Load test Azure App Service apps
             url: concept-load-test-app-service.md
   
   # Card
