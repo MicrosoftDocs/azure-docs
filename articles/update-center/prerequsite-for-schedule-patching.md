@@ -20,9 +20,9 @@ To avoid accidental or unintentional patching when a VM is disassociated from a 
 
 ## New prerequisite
 
-The new VM property - *Bypassplatformsafetychecksonuserschedule* is introduced, allowing a complete control over your patching requirements. It implies that you can select the VMs that must be auto-patched and schedule-patched, removing the risk of accidental auto-patching.
+The new VM property - *BypassPlatformSafetyChecksOnUserSchedule* is introduced, allowing a complete control over your patching requirements. It implies that you can select the VMs that must be auto-patched and schedule-patched, removing the risk of accidental auto-patching.
 
-Here, when the patch orchestration is set to **Azure orchestrated using Automatic guest patching**, **Bypassplatformsafetychecksonuserschedule=True**, and no schedule is associated, the Auto-patching on the VMs is not done.
+Here, when the patch orchestration is set to **Azure orchestrated using Automatic guest patching**, **BypassPlatformSafetyChecksOnUserSchedule = True**, and no schedule is associated, the Auto-patching on the VMs is not done.
 
 Now, to enable schedule patching on your VMs, you must do the following:
   
@@ -34,20 +34,20 @@ Now, to enable schedule patching on your VMs, you must do the following:
 The new patch mode enables the following VM properties on your behalf after receiving your consent:
 
 - Azure-orchestrated using Automatic guest patching
-- Bypassplatformsafetychecksonuserschedule = TRUE
+- BypassPlatformSafetyChecksOnUserSchedule = TRUE
 
 
 # [REST API](#tab/new-prereq-rest-api)
 
 - AutomaticByPlatform (API) 
-- Bypassplatformsafetychecksonuserschedule = TRUE 
+- BypassPlatformSafetyChecksOnUserSchedule = TRUE 
 
 --- 
 
 The above settings will do the following:
 
 - **Patch Orchestration** set to **Azure orchestrated using Automatic guest patching** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
-- Setting the **Bypassplatformsafetychecksonuserschedule = True** ensures that even if the schedule is accidentally removed from the VM, the VM will not be auto-patched.
+- Setting the **BypassPlatformSafetyChecksOnUserSchedule = True** ensures that even if the schedule is accidentally removed from the VM, the VM will not be auto-patched.
 
 >[!NOTE]
 > - This prerequisite is applicable only for Azure VMs. 
