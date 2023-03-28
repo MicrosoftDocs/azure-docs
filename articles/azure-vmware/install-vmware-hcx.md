@@ -153,6 +153,8 @@ Continue to the next tutorial to configure the VMware HCX Connector.  After you'
 
 >[Configure VMware HCX in Azure VMware Solution](configure-vmware-hcx.md) 
 
+>[Understanding HCX Network Underlay Requirements](https://communities.vmware.com/t5/HCX-Documents/HCX-Network-Underlay-Characterization-and-Performance-Outcomes-1/ta-p/2873360)
+
 >[VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) 
 
 >[Uninstall VMware HCX in Azure VMware Solution](uninstall-vmware-hcx.md)

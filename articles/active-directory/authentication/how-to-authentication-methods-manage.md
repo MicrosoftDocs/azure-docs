@@ -1,12 +1,12 @@
 ---
-title: How to migrate to the Authentication methods policy (preview)
+title: How to migrate to the Authentication methods policy 
 description: Learn about how to centrally manage multifactor authentication (MFA) and self-service password reset (SSPR) settings in the Authentication methods policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/07/2023
+ms.date: 03/22/2023
 
 ms.author: justinha
 author: justinha
@@ -18,7 +18,7 @@ ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how I can manage them.
 ---
-# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD (preview)
+# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD 
 
 You can migrate Azure Active Directory (Azure AD) [legacy policy settings](concept-authentication-methods-manage.md#legacy-mfa-and-sspr-policies) that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the [Authentication methods policy](./concept-authentication-methods-manage.md). 
 

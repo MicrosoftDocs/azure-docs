@@ -123,8 +123,9 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
      `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor`
 
     > [!NOTE]
-    > * **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.AzureFrontDoor-Cdn**.
+    > * `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
     > * You need to have the **Global Administrator** role to run this command.
+    > * The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
 
     ```bash
     New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor

@@ -33,7 +33,7 @@ Data flows distribute the data processing over different nodes in a Spark cluste
 
 The default cluster size is four driver nodes and four worker nodes (small).  As you process more data, larger clusters are recommended. Below are the possible sizing options:
 
-| Worker cores | Driver cores | Total cores | Notes |
+| Worker Nodes | Driver Nodes | Total Nodes | Notes |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Small |
 | 8 | 8 | 16 | Medium |

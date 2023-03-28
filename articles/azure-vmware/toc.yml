@@ -6,6 +6,8 @@
     href: introduction.md
   - name: What's new
     href: azure-vmware-solution-platform-updates.md
+  - name: Known Issues
+    href: azure-vmware-solution-known-issues.md
 - name: Get started
   items:
   - name: 1 - Plan the deployment
