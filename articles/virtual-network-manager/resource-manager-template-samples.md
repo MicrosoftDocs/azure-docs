@@ -3,11 +3,11 @@ title: Azure Resource Manager templates
 titleSuffix: Azure Virtual Network Manager
 description: This article has links to Azure Resource Manager template examples so you can quickly deploy Azure Virtual Network Manager in various scenarios.
 services: virtual-network-manager
-author: mbender
+author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: sample
 ms.date: 03/28/2023
-ms.author: mbender-ms
+ms.author: mbender
 ---
 
 # Azure Resource Manager templates for Azure Virtual Network Manager
