@@ -314,7 +314,7 @@ If you can't change the app, enable the BIG-IP to listen for the application sig
 
 Learn more: 
 
-* [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
+* [PeopleSoft Single Logout](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
 * Go to support.f5.com for:
   * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
   * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
@@ -383,19 +383,24 @@ BIG-IP logs help isolate issues with connectivity, SSO, policy, or misconfigured
 
 If a BIG-IP error message appears after Azure AD preauthentication, the issue might relate to Azure AD-to-BIG-IP SSO.
 
-1. Navigate to **Access > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Access reports**.
 3. Run the report for the last hour.
 4. Review the logs for clues. 
 
-Use the **View session** variables lin, for the session, to help understand if the APM receives expected Azure AD claims.
+Use the **View session** variables link, for the session, to help understand if the APM receives expected Azure AD claims.
 
 ### No BIG-IP error message
 
-If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+If no BIG-IP error message appears, the issue might be related to the back-end request, or BIG-IP-to-application SSO.
 
-1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+1. Navigate to **Access Policy > Overview**.
+2. Select **Active Sessions**.
+3. Select the active session link.
 
-2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source
+Use the **View Variables** link to help determine SSO issues, particularly if the BIG-IP APM doesn't obtain correct attributes.
 
-For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
+Learn more:
+
+* [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072)
+* Go to techdocs.f5.com for [Manual Chapter: LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html)
