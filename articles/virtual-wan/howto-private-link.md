@@ -7,7 +7,7 @@ author: erjosito
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/28/2023
 ms.author: jomore
 ms.custom: fasttrack-new
 
@@ -42,7 +42,7 @@ Clicking on the private endpoint we have created, you should see its private IP 
 
 ## <a name="connectivity"></a>Verify connectivity from the same VNet
 
-In this example, we will verify connectivity to the Azure SQL Database from an Ubuntu virtual machine with MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
+In this example, we will verify connectivity to the Azure SQL Database from a Linux virtual machine with MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
 
 ```bash
 nslookup wantest.database.windows.net
