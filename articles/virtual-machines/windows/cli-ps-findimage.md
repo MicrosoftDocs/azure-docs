@@ -32,6 +32,80 @@ These values can be passed individually or as an image *URN*, combining the valu
 
 If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Accept purchase plan terms](#accept-purchase-plan-terms).
 
+## Default Images
+
+Powershell offers several pre-defined image aliases to make the resource creation process easier. There are different images for resources with either a Windows or Linux operating system.  
+
+The Linux image aliases are:
+```output
+"CentOS":  {
+            "publisher":  "OpenLogic",
+            "offer":  "CentOS",
+            "sku":  "7.5",
+            "version":  "latest"
+           },
+"CentOS85Gen2":  {
+                  "publisher":  "OpenLogic",
+                  "offer":  "CentOS",
+                  "sku":  "8_5-gen2",
+                  "version":  "latest"
+                 },
+"Debian":  {
+            "publisher":  "credativ",
+            "offer":  "Debian",
+            "sku":  "8",
+            "version":  "latest"
+           },
+"Debian11":  {
+              "publisher":  "Debian",
+              "offer":  "debian-11",
+              "sku":  "11-backports-gen2",
+              "version":  "latest"
+             },
+"OpenSuseLeap154Gen2":  {
+                         "publisher":  "SUSE",
+                         "offer":  "openSUSE-leap-15-4",
+                         "sku":  "gen2",
+                         "version":  "latest"
+                        },
+"RHEL":  {
+          "publisher":  "RedHat",
+          "offer":  "RHEL",
+          "sku":  "7-RAW",
+          "version":  "latest"
+         },
+"RHELRaw8LVMGen2":  {
+                     "publisher":  "RedHat",
+                     "offer":  "RHEL",
+                     "sku":  "8-lvm-gen2",
+                     "version":  "latest"
+                    },
+"SuseSles15SP3":  {
+                   "publisher":  "SUSE",
+                   "offer":  "sles-15-sp3",
+                   "sku":  "gen2",
+                   "version":  "latest"
+                  },
+"UbuntuLTS":  {
+               "publisher":  "Canonical",
+               "offer":  "UbuntuServer",
+               "sku":  "16.04-LTS",
+               "version":  "latest"
+              },
+"Ubuntu2204":  {
+                "publisher":  "Canonical",
+                "offer":  "0001-com-ubuntu-server-jammy",
+                "sku":  "22_04-lts-gen2",
+                "version":  "latest"
+               },
+"FlatcarLinuxFreeGen2":  {
+                          "publisher":  "kinvolk",
+                          "offer":  "flatcar-container-linux-free",
+                          "sku":  "stable-gen2",
+                          "version":  "latest"
+                         }
+```
+
 ## List images
 
 You can use PowerShell to narrow down a list of images. Replace the values of the variables to meet your needs.
