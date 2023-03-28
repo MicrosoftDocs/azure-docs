@@ -16,7 +16,7 @@ ms.reviewer: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
-In this article, you'll learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.X and 7.X The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images, see [Azure Image Builder](../image-builder-overview.md).
+In this article, you'll learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.X, 7.X and 8.X. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images, see [Azure Image Builder](../image-builder-overview.md).
 > [!NOTE]
 > Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded image that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
 
@@ -38,7 +38,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 * **Kernel support for mounting Universal Disk Format (UDF) file systems is required**. At first boot on Azure, the UDF-formatted media that is attached to the guest passes the provisioning configuration to the Linux virtual machine. The Azure Linux Agent must be able to mount the UDF file system to read its configuration and provision the virtual machine, without this, provisioning will fail!
 * Don't configure a swap partition on the operating system disk. More information about this can be found in the following steps.
 
-* All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. . More details can be found in the steps below. See also [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
+* All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. More details can be found in the steps below. See also [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 
 > [!NOTE]
@@ -159,10 +159,10 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
   > [!NOTE] 
   > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
 
-    ```bash
+```bash
     sudo waagent -force -deprovision
-    export HISTSIZE=0
-    ```
+    sudo export HISTSIZE=0
+```
 
 16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
@@ -312,7 +312,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 
     Previously, the Azure Linux Agent was used automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
 
-    ```bash
+    ```config
     ResourceDisk.Format=n
     ResourceDisk.EnableSwap=n
     ```
@@ -736,7 +736,6 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
     MB=$((1024*1024))
     size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
     rounded_size=$((($size/$MB + 1)*$MB))
     sudo qemu-img resize rhel-6.9.raw $rounded_size
     ```
@@ -804,14 +803,14 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
 
 6. Ensure that the network service will start at boot time by running the following command:
 
-    ```console
+    ```bash
     sudo systemctl enable network
     ```
 
 7. Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-    ```console
-    # subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this configuration, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
@@ -1466,3 +1465,4 @@ For more details, see the information about [rebuilding initramfs](https://acces
 * You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
 * For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).
 * To learn more about using production-ready RHEL BYOS images, go to the documentation page for [BYOS](../workloads/redhat/byos.md).
+
