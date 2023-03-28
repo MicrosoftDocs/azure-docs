@@ -19,7 +19,7 @@ Application requests to Azure Storage must be authenticated using either account
 
 ## Security risks associated with Shared Key authorization
 
-The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account. Many developers gravitate towards this solution because it feels familiar to options they have worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
+The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
 
 ```csharp
 var blobServiceClient = new BlobServiceClient(
@@ -27,7 +27,7 @@ var blobServiceClient = new BlobServiceClient(
     new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
 ```
 
-Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
+Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
 ## Migrate to passwordless connections
 
@@ -35,7 +35,7 @@ Storage account keys should be used with caution. Developers must be diligent to
 
 ## Steps to migrate an app to use passwordless authentication
 
-The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you are using access keys directly, or through connection strings.
+The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
 ### Configure roles and users for local development authentication
 
@@ -47,7 +47,7 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next you will need to update your code to use passwordless connections.
+Next you need to update your code to use passwordless connections.
 
 1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
 
@@ -76,138 +76,52 @@ Next you will need to update your code to use passwordless connections.
 
 #### Run the app locally
 
-After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
+After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allows your app to connect to the Azure service locally.
 
 ### Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it is deployed to Azure. For example, an application deployed to an Azure App Service instance can use an assigned managed identity can connect to Azure Storage.
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Blob Storage using a managed identity.
 
-#### Create the managed identity using the Azure portal
+#### Create a managed identity
 
-[!INCLUDE [create-managed-identity-portal](../../../includes/passwordless/migration-guide/create-managed-identity-portal.md)]
+[!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-managed-identity-portal.md)]
 
 #### Associate the managed identity with your web app
 
-You need to configure your web app to use the managed identity you created. You can assign the identity to your app using either the Azure portal or the Azure CLI.
+You need to configure your web app to use the managed identity you created. Assign the identity to your app using either the Azure portal or the Azure CLI.
 
-To use the Azure portal to associate an identity with your app, follow the steps below. These steps apply to any app hosted in Azure App Service, Azure Spring Apps, Azure Container Apps, Azure virtual Machines, or Azure Kubernetes Service.
+# [Azure Portal](#tab/azure-portal-associate)
+
+Complete the following steps to use the Azure portal to associate an identity with your app. These steps apply to the following Azure services:
+
+* Azure Spring Apps
+* Azure Container Apps
+* Azure virtual Machines
+* Azure Kubernetes Service.
 
 1. Navigate to the overview page of your web app.
 1. Select **Identity** from the left navigation.
-1. On the Identity Page, switch to the **User assigned** tab.
+1. On the Identity page, switch to the **User assigned** tab.
 1. Select **+ Add** to open the **Add user assigned managed identity** flyout.
-1. Select the subscription you used previously to create the **MigrateIdentity**.
-1. Search for the **MigrateIdentity** by name and select it from the search results.
+1. Select the subscription you used previously to create the **MigrationIdentity**.
+1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
    :::image type="content" source="../../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../../articles/storage/common/media/create-user-assigned-identity.png":::
 
-To use the Azure CLI to associate an identity with your app, use the following commands:
+# [Azure CLI](#tab/azure-cli-associate)
 
-# [Service Connector](#tab/service-connector-identity)
+[!INCLUDE [associate-managed-identity-cli](../../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
+
+# [Service Connector](#tab/service-connector-associate)
 
 [!INCLUDE [service-connector-commands](../../../includes/passwordless/migration-guide/service-connector-commands.md)]
-
-# [Azure App Service](#tab/app-service-identity)
-
-Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
-
-```azurecli
-az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
-```
-
-You can assign a managed identity to an Azure App Service instance with the [az webapp identity assign](/cli/azure/webapp/identity) command.
-
-```azurecli
-az webapp identity assign \
-    --resource-group <resource-group-name> \
-    --name <webapp-name>
-    --identities <managed-identity-id>
-```
-
-# [Azure Spring Apps](#tab/spring-apps-identity)
-
-Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
-
-```azurecli
-az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
-```
-
-You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command.
-
-```azurecli
-az spring app identity assign \
-    --resource-group <resource-group-name> \
-    --name <app-name> \
-    --service <service-name>
-    --user-assigned <managed-identity-id>
-```
-
-# [Azure Container Apps](#tab/container-apps-identity)
-
-Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
-
-```azurecli
-az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
-```
-You can assign a managed identity to an Azure Container Apps instance with the [az container app identity assign](/cli/azure/containerapp/identity) command.
-
-```azurecli
-az containerapp identity assign \
-    --resource-group <resource-group-name> \
-    --name <app-name>
-    --user-assigned <managed-identity-id>
-```
-
-# [Azure virtual machines](#tab/virtual-machines-identity)
-
-Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
-
-```azurecli
-az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
-```
-
-You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command.
-
-```azurecli
-az vm identity assign \
-    --resource-group <resource-group-name> \
-    --name <virtual-machine-name>
-    --identities <managed-identity-id>
-```
-
-# [Azure Kubernetes Service](#tab/aks-identity)
-
-Retrieve the ID of the managed identity you created using the [az identity show](/cli/azure/identity) command. Copy the output value to use in the next step.
-
-```azurecli
-az identity show --name MigrationIdentity -g <your-identity-resource-group-name> --query id
-```
-
-You can assign a managed identity to an Azure Kubernetes Service (AKS) instance with the [az aks update](/cli/azure/aks) command.
-
-```azurecli
-az aks update \
-    --resource-group <resource-group-name> \
-    --name <cluster-name> \
-    --enable-managed-identity \
-    --assign-identity <managed-identity-id> \
-    --assign-kubelet-identity <managed-identity-id>
-```
 
 ---
 
 #### Assign roles to the managed identity
 
-Next, you need to grant permissions to the managed identity you created to access your storage account. You can do this by assigning a role to the managed identity, just like you did with your local development user.
-
-### [Service Connector](#tab/assign-role-service-connector)
-
-If you connected your services using the Service Connector you do not need to complete this step. The necessary configurations were handled for you:
-
-* If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Storage Blob Data Contributor** role on the storage account.
-
-* If you selected connection string, the connection string was added as an app environment variable.
+Next, you need to grant permissions to the managed identity you created to access your storage account. Grant permissions by assigning a role to the managed identity, just like you did with your local development user.
 
 ### [Azure portal](#tab/assign-role-azure-portal)
 
@@ -229,7 +143,7 @@ If you connected your services using the Service Connector you do not need to co
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the az storage account show command. You can filter the output properties using the --query parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the az storage account show command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az storage account show \
@@ -246,6 +160,14 @@ az role assignment create \
     --role "Storage Blob Data Contributor" \
     --scope "<your-resource-id>"
 ```
+
+### [Service Connector](#tab/assign-role-service-connector)
+
+If you connected your services using the Service Connector you don't need to complete this step. The necessary configurations were handled for you:
+
+* If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Storage Blob Data Contributor** role on the storage account.
+
+* If you selected connection string, the connection string was added as an app environment variable.
 
 ---
 
