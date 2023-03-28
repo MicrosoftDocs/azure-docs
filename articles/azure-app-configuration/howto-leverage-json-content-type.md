@@ -74,7 +74,7 @@ JSON key-values can be created using Azure portal, Azure CLI, or by importing fr
 
 ### Create JSON key-values using Azure portal
 
-Add the following key-values to the App Configuration store. Leave **Label** with its default value. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key-values to the App Configuration store. Leave **Label** with its default value. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key                          | Value                                                   | Content Type       |
 | ---------------------------- | ------------------------------------------------------- | ------------------ |

@@ -26,7 +26,7 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Add key-values
 
-Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Add key-values](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key                                | Value                               |
 |------------------------------------|-------------------------------------|
