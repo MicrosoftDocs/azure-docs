@@ -23,7 +23,7 @@ Defender for Storage includes:
 - Sensitive data threat detection (preview feature, new plan only)
 - Malware Scanning (preview feature, new plan only)
 
-:::image type="content" source="media/defender-for-storage-introduction/DF-Storage-Overview.gif" alt-text="Animated diagram showing how Defender for Storage protects against common threats to data.":::
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-overview.gif" alt-text="Animated diagram showing how Defender for Storage protects against common threats to data.":::
 
 ## Getting started
 
@@ -47,7 +47,7 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](..
 
 ## What are the benefits of Microsoft Defender for Storage?
 
-:::image type="content" source="media/defender-for-storage-introduction/DF-Storage Benefits.png" alt-text="Diagram showing the benefits of using Defender for Storage to protect your data.":::
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-benefits.png" alt-text="Diagram showing the benefits of using Defender for Storage to protect your data.":::
 
 Defender for Storage provides the following:
 
@@ -69,7 +69,7 @@ Defender for Storage provides the following:
 
 Defender for Storage continuously analyzes data and control plane logs from protected storage accounts when enabled. There's no need to turn on resource logs for security benefits. Using Microsoft Threat Intelligence, it identifies suspicious signatures such as malicious IP addresses, Tor exit nodes, and potentially dangerous apps. It also builds data models and uses statistical and machine-learning methods to spot baseline activity anomalies, which may indicate malicious behavior. You'll receive security alerts for suspicious activities, but Defender for Storage ensures you won't get too many similar alerts. Activity monitoring won't affect performance, ingestion capacity, or access to your data.
 
-:::image type="content" source="media/defender-for-storage-introduction/Activity-monitoring.png" alt-text="Diagram showing how activity monitoring identifies threats to your data.":::
+:::image type="content" source="media/defender-for-storage-introduction/activity-monitoring.png" alt-text="Diagram showing how activity monitoring identifies threats to your data.":::
 
 ### Malware Scanning (powered by Microsoft Defender Antivirus)
 
