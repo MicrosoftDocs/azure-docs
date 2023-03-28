@@ -25,12 +25,12 @@ The [`az aks get-credentials`][az-aks-get-credentials] command lets you get the 
 
 There are two Azure roles you can apply to an Azure Active Directory (Azure AD) user or group:
 
-1. **Azure Kubernetes Service Cluster Admin Role**
+- **Azure Kubernetes Service Cluster Admin Role**
 
      * Allows access to `Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action` API call. This API call [lists the cluster admin credentials][api-cluster-admin].
      * Downloads *kubeconfig* for the *clusterAdmin* role.
 
-2. **Azure Kubernetes Service Cluster User Role**
+- **Azure Kubernetes Service Cluster User Role**
 
      * Allows access to `Microsoft.ContainerService/managedClusters/listClusterUserCredential/action` API call. This API call [lists the cluster user credentials][api-cluster-user].
      * Downloads *kubeconfig* for *clusterUser* role.
