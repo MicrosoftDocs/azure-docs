@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 03/13/2023
+ms.date: 03/28/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
@@ -243,66 +243,6 @@ az extension add --name k8s-configuration
 
 ## GitOps management
 
-### Flux v1 - General
-
-> [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so begin using [Flux v2](./tutorial-use-gitops-flux2.md) as soon as possible.
-
-To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
-
-```azurecli
-az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8s-configuration create <parameters> --debug
-```
-
-### Flux v1 - Create configurations
-
-Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
-
-### `sourceControlConfigurations` remains `Pending` (Flux v1)
-
-```console
-kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
-$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
-apiVersion: v1
-items:
-- apiVersion: clusterconfig.azure.com/v1beta1
-  kind: GitConfig
-  metadata:
-    creationTimestamp: "2020-04-13T20:37:25Z"
-    generation: 1
-    name: pending
-    namespace: pending
-    resourceVersion: "10088301"
-    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
-    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
-  spec:
-    correlationId: ""
-    deleteOperator: false
-    enableHelmOperator: false
-    giturl: git@github.com:slack/cluster-config.git
-    helmOperatorProperties: null
-    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
-    operatorInstanceName: pending
-    operatorParams: '"--disable-registry-scanning"'
-    operatorScope: cluster
-    operatorType: flux
-  status:
-    configAppliedTime: "2020-04-13T20:38:43.081Z"
-    isSyncedWithAzure: true
-    lastPolledStatusTime: ""
-    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
-      the operator} on the config'
-    operatorPropertiesHashed: ""
-    publicKey: ""
-    retryCountPublicKey: 0
-    status: Installing the operator
-kind: List
-metadata:
-  resourceVersion: ""
-  selfLink: ""
-```
-
 ### Flux v2 - General
 
 To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these Azure CLI commands with the `--debug` parameter specified:
@@ -450,6 +390,66 @@ The controllers installed in your Kubernetes cluster with the Microsoft Flux ext
 | image-reflector-controller | 1000m | 1Gi |
 
 If you have enabled a custom or built-in Azure Gatekeeper Policy, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, that limits the resources for containers on Kubernetes clusters, you will need to either ensure that the resource limits on the policy are greater than the limits shown above or the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
+
+### Flux v1
+
+> [!NOTE]
+> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
+
+```azurecli
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration create <parameters> --debug
+```
+
+#### Flux v1 - Create configurations
+
+Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
+
+#### `sourceControlConfigurations` remains `Pending` (Flux v1)
+
+```console
+kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
+$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
+apiVersion: v1
+items:
+- apiVersion: clusterconfig.azure.com/v1beta1
+  kind: GitConfig
+  metadata:
+    creationTimestamp: "2020-04-13T20:37:25Z"
+    generation: 1
+    name: pending
+    namespace: pending
+    resourceVersion: "10088301"
+    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
+    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
+  spec:
+    correlationId: ""
+    deleteOperator: false
+    enableHelmOperator: false
+    giturl: git@github.com:slack/cluster-config.git
+    helmOperatorProperties: null
+    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
+    operatorInstanceName: pending
+    operatorParams: '"--disable-registry-scanning"'
+    operatorScope: cluster
+    operatorType: flux
+  status:
+    configAppliedTime: "2020-04-13T20:38:43.081Z"
+    isSyncedWithAzure: true
+    lastPolledStatusTime: ""
+    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
+      the operator} on the config'
+    operatorPropertiesHashed: ""
+    publicKey: ""
+    retryCountPublicKey: 0
+    status: Installing the operator
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+```
 
 ## Monitoring
 
