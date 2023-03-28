@@ -12,11 +12,11 @@ ms.date: 07/14/2022
 # DNS service in Azure Service Fabric
 DNS service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
 
-Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portability of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather rewriting code to use the Naming Service.
+Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portability of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than rewriting code to use the Naming Service.
 
 DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how DNS service works for stateless services. For brevity, the diagrams only show one endpoint for the services, although each service can have multiple endpoints. 
 
-![Diagram showing how DNS names are mapped to service names by DNS service for stateless services.](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagram showing how DNS names are mapped to service names by DNS service for stateless services, PNG.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
@@ -26,7 +26,7 @@ Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has b
 
 The following diagram shows how DNS service works for partitioned stateful services.
 
-![Diagram showing how DNS names are mapped to service names by DNS service for partitioned stateful services.](./media/service-fabric-dnsservice/stateful-dns.png) 
+![Diagram showing how DNS names are mapped to service names by DNS service for partitioned stateful services, PNG.](./media/service-fabric-dnsservice/stateful-dns.png) 
 
 For more information on partitioned queries, refer to the [section below](#making-dns-queries-on-a-stateful-service-partition).
 
@@ -44,11 +44,11 @@ To deploy a new cluster with ARM templates, you can either use the [sample templ
 #### Clusters using Azure portal
 If you are creating a standard cluster in the portal, DNS service is enabled by default in the **Include DNS service** option under the **Add on features** section.
 
-![Enabling DNS service through the portal (standard)](./media/service-fabric-dnsservice/enable-dns-service-sfrp.png)
+![Screenshot of enabling DNS service for a standard cluster through the portal, PNG.](./media/service-fabric-dnsservice/enable-dns-service-sfrp.png)
 
 If you are creating a managed cluster in the portal, DNS service is enabled by default in the **DNS service** option under the **Add on features** section.
 
-![Enabling DNS service through the portal (managed)](./media/service-fabric-dnsservice/enable-dns-service-sfmc.png)
+![Screenshot of enabling DNS service for a managed cluster through the portal, PNG.](./media/service-fabric-dnsservice/enable-dns-service-sfmc.png)
 
 ### Existing clusters
 If you are updating an existing managed cluster to enable DNS service, you can do so from the portal by visiting the **Add-on services** page from the cluster resource page. Otherwise, you can enable DNS service using alternative methods that are referenced below:
@@ -239,7 +239,7 @@ Update-ServiceFabricService `
 ### Verify that a DNS name is set in Service Fabric Explorer
 Once the service is deployed with the DNS name, Service Fabric Explorer will show the DNS name for the service, as shown in the following figure:
 
-![Service Fabric Explorer DNS name](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![Screenshot of the DNS name in Service Fabric Explorer, PNG.](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
 > [!NOTE]
 > This view may be different depending on the version of Service Fabric Explorer used, however, the DNS name field should be visible in some form on the service page. 
@@ -337,11 +337,11 @@ public class ValuesController : Controller
 ## Recursive queries
 For DNS names that DNS service can't resolve on its own (for example, a public DNS name), it will forward the query to pre-existing recursive DNS servers on the nodes. 
 
-![Diagram showing how DNS queries for public names are resolved](./media/service-fabric-dnsservice/recursive-dns.png) 
+![Diagram showing how DNS queries for public names are resolved, PNG.](./media/service-fabric-dnsservice/recursive-dns.png) 
 
 Prior to Service Fabric 9.0, these servers were queried serially until a response was received, with a fixed timeout period of 5 seconds in between. If a server didn't respond within the timeout period, the next server (if available) would be queried. In the case that these DNS servers were encountering any issues, completion of DNS queries would take longer than 5 seconds, which is not ideal. 
 
-Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This results in quicker responses in the scenario previously mentioned. This option is not enabled by default, although this may change in a future update.
+Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This results in quicker responses in the scenario previously mentioned. This option is not enabled by default.
 
 Fine-grained options are also introduced in Service Fabric 9.0 to control the behavior of the recursive queries, including the timeout periods and query attempts. These options can be set in the [DNS service settings](./service-fabric-cluster-fabric-settings.md#dnsservice):
 
