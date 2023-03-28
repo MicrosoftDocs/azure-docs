@@ -16,21 +16,21 @@ ms.collection: M365-identity-device-management
 
 # Clean up unmanaged Azure Active Directory accounts
 
-Prior to August 2022, Azure Acticve Directory B2B (Azure AD B2B) supported self-service sign-up for email-verified users. With this feature, users create Azure AD accounts, when they verify email ownership. These accounts were created in unmanaged (or viral) tenants: users created accounts with an organization domain, not under IT team management. Access persists after users leave the organization. 
+Prior to August 2022, Azure Active Directory B2B (Azure AD B2B) supported self-service sign-up for email-verified users. With this feature, users create Azure AD accounts, when they verify email ownership. These accounts were created in unmanaged (or viral) tenants: users created accounts with an organization domain, not under IT team management. Access persists after users leave the organization. 
 
 To learn more, see, [What is self-service sign-up for Azure AD?](./directory-self-service-signup.md)
 
    > [!NOTE]
-   > Unmanaged Azure AD accounts via Azure AD B2B are deprecated. As of August 2022, new B2B invitations can't be redeemed. However, invitations prior to August 2022 were redeemable with unmanaged Azure AD accounts. 
+   > Unmanaged Azure AD accounts via Azure AD B2B were deprecated. As of August 2022, new B2B invitations can't be redeemed. However, invitations prior to August 2022 were redeemable with unmanaged Azure AD accounts. 
 
 ## Remove unmanaged Azure AD accounts
 
-Use the following guidance to remove unmanaged Azure AD accounts from your Azure AD tenants. Tool features help identify viral users in your Azure AD tenant. You can reset the user redemption status.
+Use the following guidance to remove unmanaged Azure AD accounts from Azure AD tenants. Tool features help identify viral users in the Azure AD tenant. You can reset the user redemption status.
 
 * Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests)
 * Use PowerShell cmdlets in [AzureAD/MSIdentityTools](https://github.com/AzureAD/MSIdentityTools/wiki/)  
 
-After you run a tool, users with unmanaged Azure AD accounts access the tenant, and re-redeem their invitations. However, Azure AD prevents users from redeeming with an unmanaged Azure AD account. They can redeem with another account type. Google Federation and SAML/WS-Fed are not enabled by default. Therefore, users redeem with a Microsoft account (MSA) or email one-time password (OTP). MSA is recommended. 
+After you run a tool, users with unmanaged Azure AD accounts access the tenant, and re-redeem their invitations. However, Azure AD prevents users from redeeming with an unmanaged Azure AD account. They can redeem with another account type. Google Federation and SAML/WS-Federation aren't enabled by default. Therefore, users redeem with a Microsoft account (MSA) or email one-time password (OTP). MSA is recommended. 
 
 Learn more: [Invitation redemption flow](../external-identities/redemption-experience.md#invitation-redemption-flow)
 
@@ -44,7 +44,7 @@ Some overtaken domains might not be updated. For example, a missing DNS TXT reco
 
 * For guest users from unmanaged tenants, redemption status is reset. A consent prompt appears. 
   * Redemption occurs with same account
-* After resetting unmanaged user redemption status, the tool might identify unmanaged users as false positives
+* The tool might identify unmanaged users as false positives after you reset unmanaged user redemption status
 
 ## Reset redemption with a sample application
 
