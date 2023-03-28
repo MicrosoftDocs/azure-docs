@@ -197,4 +197,4 @@ Azure AD supports right-to-left functionality for languages such as Arabic and H
 
 - [View the CSS template reference guide](reference-company-branding-css-template.md).
 - [Learn more about default user permissions in Azure AD](../fundamentals/users-default-permissions.md)
-- [Manage the 'stay signed in' prompt](how-to-manage-user-profile-info.md#learn-about-the-stay-signed-in-prompt)
+- [Manage the 'stay signed in' prompt](how-to-manage-stay-signed-in-prompt.md)
