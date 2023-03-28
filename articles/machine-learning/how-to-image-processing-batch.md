@@ -1,5 +1,5 @@
 ---
-title: "Image processing with batch deployments"
+title: "Image processing with batch model deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a model in batch endpoints that process images
 services: machine-learning
@@ -13,11 +13,11 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2, devx-track-azurecli
 ---
 
-# Image processing with batch deployments
+# Image processing with batch model deployments
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
+Batch model deployments can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial, we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
 ## About this sample
 
@@ -97,7 +97,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint)
 
 ### Registering the model
 
-Batch Endpoint can only deploy registered models so we need to register it. You can skip this step if the model you are trying to deploy is already registered.
+Model deployments can only deploy registered models so we need to register it. You can skip this step if the model you are trying to deploy is already registered.
 
 1. Downloading a copy of the model:
 

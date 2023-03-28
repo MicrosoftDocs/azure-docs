@@ -14,13 +14,13 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use batch endpoints for batch scoring
+# Use batch model deployments for batch scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch endpoints provide a convenient way to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](./concept-endpoints.md).
+Batch endpoints provide a convenient way to deploy models to run inference over large volumes of data. They simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. We call this type of deployments *model deployments*.
 
-Use batch endpoints when:
+Use batch endpoints to deploy models when:
 
 > [!div class="checklist"]
 > * You have expensive models that requires a longer time to run inference.
@@ -28,10 +28,7 @@ Use batch endpoints when:
 > * You don't have low latency requirements.
 > * You can take advantage of parallelization.
 
-In this article, you'll learn how to use batch endpoints to do batch scoring.
-
-> [!TIP]
-> We suggest you to read the Scenarios sections (see the navigation bar at the left) to find more about how to use Batch Endpoints in specific scenarios including NLP, computer vision, or how to integrate them with other Azure services.
+In this article, you'll learn how to use batch endpoints to deploy a machine learning model to perform inference.
 
 ## About this example
 
@@ -351,22 +348,27 @@ A deployment is a set of resources required for hosting the model that does the 
     # [Python](#tab/python)
     
     ```python
-    deployment = BatchDeployment(
+    deployment = ModelBatchDeployment(
         name="mnist-torch-dpl",
         description="A deployment using Torch to solve the MNIST classification dataset.",
         endpoint_name=batch_endpoint_name,
         model=model,
-        code_path="deployment-torch/code",
-        scoring_script="batch_driver.py",
         environment=env,
+        code_configuration=CodeConfiguration(
+            code="./mnist/code/",
+            scoring_script="batch_driver.py",
+        )
         compute=compute_name,
-        instance_count=2,
-        max_concurrency_per_instance=2,
-        mini_batch_size=10,
-        output_action=BatchDeploymentOutputAction.APPEND_ROW,
-        output_file_name="predictions.csv",
-        retry_settings=BatchRetrySettings(max_retries=3, timeout=30),
-        logging_level="info",
+        settings=ModelBatchDeploymentSettings(
+            mini_batch_size=5,
+            instance_count=2,
+            max_concurrency_per_instance=1,
+            output_action=BatchDeploymentOutputAction.APPEND_ROW,
+            output_file_name="predictions.csv",
+            retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
+            error_threshold=-1,
+            logging_level="info",
+        )
     )
     ```
     

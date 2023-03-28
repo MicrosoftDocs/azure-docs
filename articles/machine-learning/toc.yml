@@ -895,7 +895,7 @@
               href: how-to-access-data-batch-endpoints-jobs.md
             - name: Deploy models
               items:
-                - name: Batch scoring with batch endpoints
+                - name: Batch model scoring with batch endpoints
                   href: how-to-use-batch-model-deployments.md
                 - name: Author scoring scripts
                   href: how-to-batch-scoring-script.md
@@ -903,9 +903,9 @@
                   href: how-to-deploy-model-custom-output.md
                 - name: Use MLflow models in batch deployments
                   href: how-to-mlflow-batch.md
-                - name: Image processing with batch deployments
+                - name: Image processing with batch model deployments
                   href: how-to-image-processing-batch.md
-                - name: Text processing with batch deployments
+                - name: Text processing with batch model deployments
                   href: how-to-nlp-processing-batch.md
             - name: Deploy pipeline components (Preview)
               items:
@@ -933,8 +933,6 @@
                   href: how-to-use-batch-azure-data-factory.md
                 - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
-                - name: Use REST with batch endpoints
-                  href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
         # v1

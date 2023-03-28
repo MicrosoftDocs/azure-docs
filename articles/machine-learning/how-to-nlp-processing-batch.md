@@ -1,5 +1,5 @@
 ---
-title: "Text processing with batch deployments"
+title: "Text processing with batch model deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Text processing with batch deployments
+# Text processing with batch model deployments
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
