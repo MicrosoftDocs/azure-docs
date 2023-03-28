@@ -219,7 +219,7 @@ The manual process steps are:
 1. To begin the migration process for a user or selection of multiple users, press and hold the Ctrl key while selecting each of the user(s) you wish to migrate. 
 1. After you select the desired users, click **Migrate Users** > **Selected users** > **OK**.
 1. To migrate all users in the group, click **Migrate Users** > **All users in AAD group** > **OK**.
-1. You can migrate users even if they are unchanged. By default, the utility is set to **Only migrate users that have changed**. Click **Migrate all users** to re-migrate previously migrated users that are unchanged. This can be useful during testing if an administrator needs to reset a user’s Azure MFA settings and wants to re-migrate them.
+1. You can migrate users even if they are unchanged. By default, the utility is set to **Only migrate users that have changed**. Click **Migrate all users** to re-migrate previously migrated users that are unchanged. Migrating unchanged users can be useful during testing if an administrator needs to reset a user’s Azure MFA settings and wants to re-migrate them.
 
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/migrate-users.png" alt-text="Screenshot of Migrate users dialog.":::
 
