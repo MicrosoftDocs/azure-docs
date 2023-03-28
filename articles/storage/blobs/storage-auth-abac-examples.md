@@ -1437,6 +1437,7 @@ A truth table for this ABAC sample condition follows:
 
 > [!NOTE]
 > The last two expressions in the above condition allow users to read blobs from the public internet that have `sensitivity` set to some value other than *high*, or where the index tag is not applied to the blob.
+> The `Exists` operator is not supported in the visual ABAC condition builder. To add the `Exists` operator related statements, switch to the **Code** view in the ABAC condition builder.
 
 #### Azure portal
 
@@ -1473,7 +1474,7 @@ The image below shows how to add the condition for this example. Note that you m
 > [!IMPORTANT]
 > The expression in the red box needs to be added from the code section of the ABAC condition builder.
 
-### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and for users with the correct attribute
+### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
 
 The requirements of this condition are:
 
@@ -1504,8 +1505,6 @@ You must add this condition to any role assignments that include the following a
   ) 
   OR 
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
-  OR 
-  NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
  ) 
 ) 
 ```
@@ -1570,14 +1569,12 @@ You must add this condition to any role assignments that include the following a
   ) 
   OR 
   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} 
-  OR 
-  NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
  ) 
 )
 ```
 
 > [!NOTE]
-> The last two expressions allow blobs written without the sensitivity tag to come from the public internet or other private endpoints.
+> The last expression allows blobs written without the sensitivity tag to come from the public internet or other private endpoints.
 
 #### Azure portal
 
