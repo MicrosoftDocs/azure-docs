@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Part 3: Manual deployment and post-deployment of the MedTech service
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 When you're satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
 
@@ -35,7 +38,7 @@ Your screen should look something like this:
 There are two post-deployment steps you must perform or the MedTech service can't:
 
 1. Read device data from the device message event hub. 
-2. Read or write to the Fast Healthcare Interoperability Resources (FHIR&#174;) service. 
+2. Read or write to the FHIR service. 
 
 These steps are:
 

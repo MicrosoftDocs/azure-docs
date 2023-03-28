@@ -87,7 +87,8 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
-| Configure agent collection to remove unneeded data. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data you don't need. |
+| Configure agent collection to remove unneeded data. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data in ContainerLogs you don't need. |
+| Modify settings for collection of metric data |  You can reduce your costs by modifying the default collection settings Container insights uses for the collection of metric data. See [Enable cost optimization settings (preview)](containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected. |
 | Limit Prometheus metrics collected | If you configured Prometheus metric scraping, then follow the recommendations at [Controlling ingestion to reduce cost](containers/container-insights-cost.md#prometheus-metrics-scraping) to optimize your data collection for cost. |
 | Configure Basic Logs | [Convert your schema to ContainerLogV2](containers/container-insights-logging-v2.md) which is compatible with Basic logs and can provide significant cost savings as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#configure-basic-logs). |
 
@@ -96,6 +97,7 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
+| Change to Workspace-based Application Insights | Ensure that your Application Insights resources are Workspace-based so that they can leveage new cost saving tools such as Basic Logs, Commitment Tiers, Retention by data type and Data Archive. |
 | Use sampling to tune the amount of data collected. | [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics. |
 | Limit the number of Ajax calls. | [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. If you disable Ajax calls, you'll be disabling [JavaScript correlation](app/javascript.md#enable-distributed-tracing) too. |
 | Disable unneeded modules. | [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required. |
@@ -103,6 +105,11 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 | Limit the use of custom metrics. | The Application Insights option to [Enable alerting on custom metric dimensions](app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can increase costs. Using this option can result in the creation of more pre-aggregation metrics. |
 | Ensure use of updated SDKs. | Earlier versions of the ASP.NET Core SDK and Worker Service SDK [collect many counters by default](app/eventcounters.md#default-counters-collected), which were collected as custom metrics. Use later versions to specify [only required counters](app/eventcounters.md#customizing-counters-to-be-collected). |
 
+#### All log data collection
+
+| Recommendation | Description |
+|:---|:---|
+| Remove unnecssary data during data ingestion | After following all of the preveious recommendations, consider using Azure Monitor data collection transformations to reduce the size of your data during ingestion. |
 
 
 ## Monitor workspace and analyze usage

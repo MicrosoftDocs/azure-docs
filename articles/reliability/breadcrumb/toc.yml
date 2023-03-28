@@ -147,3 +147,6 @@ items:
     - name: Reliability
       tocHref: /azure/azure-government/
       topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/private-5g-core/
+      topicHref: /azure/reliability/index

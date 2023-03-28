@@ -1,9 +1,9 @@
 ---
-author: AlexandraKemperMS
-ms.author: alkemper
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 05/03/2021
+ms.date: 02/14/2023
 ---
 
 A [service connection](/azure/devops/pipelines/library/service-endpoints) gives you access to resources in your Azure subscription from your Azure DevOps project.
@@ -14,7 +14,7 @@ A [service connection](/azure/devops/pipelines/library/service-endpoints) gives 
 
     :::image type="content" source="./media/azure-app-configuration-service-connection/new-service-connection.png" alt-text="Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.":::
 1. In the **Authentication method** dialog, select **Service principal (automatic)** to create a new service principal or select **Service principal (manual)** to [use an existing service principal](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn&preserve-view=true).
-1. Enter your subscription and resource and a name for your service connection.
+1. Enter your subscription, resource group, and a name for your service connection.
 
 If you created a new service principal, find the name of the service principal assigned to the service connection. You'll add a new role assignment to this service principal in the next step.
 

@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 01/17/2023
+ms.date: 03/20/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -60,5 +60,6 @@ The following table shows features and corresponding SKUs.
 
 ## Next steps
 
-* [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)
 * [Azure DDoS Protection features](ddos-protection-features.md)
+* [Reference architectures](ddos-protection-reference-architectures.md)
+

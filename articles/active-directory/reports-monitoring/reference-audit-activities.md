@@ -1,6 +1,6 @@
 ---
 
-title: Azure Active Directory (Azure AD) audit activity reference | Microsoft Docs
+title: Azure Active Directory (Azure AD) audit activity reference
 description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
 services: active-directory
 author: shlipsey3

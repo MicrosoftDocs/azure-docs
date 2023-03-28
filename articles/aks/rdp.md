@@ -2,11 +2,9 @@
 title: RDP to AKS Windows Server nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create an RDP connection with Azure Kubernetes Service (AKS) cluster Windows Server nodes for troubleshooting and maintenance tasks.
-services: container-service
 ms.topic: article
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 07/06/2022
-
-
 #Customer intent: As a cluster operator, I want to learn how to use RDP to connect to nodes in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -398,7 +396,7 @@ When you're finished, exit the Bastion session and remove the Bastion resource.
 If you need more troubleshooting data, you can [view the Kubernetes primary node logs][view-primary-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [rdp-mac]: https://aka.ms/rdmac
 

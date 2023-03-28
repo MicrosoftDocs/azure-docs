@@ -2,7 +2,7 @@
 title: Monitor Azure Analysis Services server metrics | Microsoft Docs
 description: Learn how Analysis Services use Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend

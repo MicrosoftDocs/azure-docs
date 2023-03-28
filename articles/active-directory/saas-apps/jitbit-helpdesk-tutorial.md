@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Jitbit Helpdesk | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Jitbit Helpdesk'
 description: Learn how to configure single sign-on between Azure Active Directory and Jitbit Helpdesk.
 services: active-directory
 author: jeevansd

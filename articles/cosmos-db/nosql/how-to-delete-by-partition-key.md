@@ -22,7 +22,7 @@ This article explains how to use the Azure Cosmos DB SDKs to delete all items by
 
 ## Feature overview
  
-The delete by partition key feature is an asynchronous, background operation that allows you to delete all documents with the same logical partition key value, using the Comsos SDK.
+The delete by partition key feature is an asynchronous, background operation that allows you to delete all documents with the same logical partition key value, using the Cosmos SDK.
 
 Because the number of documents to be deleted may be large, the operation runs in the background. Though the physical deletion operation runs in the background, the effects will be available immediately, as the documents to be deleted won't appear in the results of queries or read operations. 
 

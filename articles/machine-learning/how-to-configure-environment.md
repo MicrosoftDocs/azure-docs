@@ -74,7 +74,7 @@ Create a workspace configuration file in one of the following methods:
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
 
-        #Enter details of your AzureML workspace
+        #Enter details of your Azure Machine Learning workspace
         subscription_id = '<SUBSCRIPTION_ID>'
         resource_group = '<RESOURCE_GROUP>'
         workspace = '<AZUREML_WORKSPACE_NAME>'
@@ -205,7 +205,7 @@ To use the Data Science VM as a development environment:
 
     ```bash
     conda activate py310
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ``` 
 
 1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.

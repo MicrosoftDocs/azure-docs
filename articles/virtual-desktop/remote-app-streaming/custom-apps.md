@@ -31,9 +31,9 @@ You can also offer Win32 applications to your users without repackaging them in 
 
 Follow the instructions at [Prepare and customize a master VHD image](../set-up-customize-master-image.md) to include an app as part of the Windows image you use for your virtual machines. More specifically, follow the directions in the [Other applications and registry configuration](../set-up-customize-master-image.md#other-applications-and-registry-configuration) section to install the application for all users.
 
-### Use Microsoft Endpoint Manager to deploy the application at scale
+### Use Microsoft Intune to deploy the application at scale
 
-If you use Microsoft Endpoint Manager to manage your session hosts, you can deploy applications by following the instructions in [Install apps on Windows 10 devices](/mem/intune/apps/apps-windows-10-app-deploy#install-apps-on-windows-10-devices). Make sure you deploy your app in "device context" mode to all session hosts to make sure all users in your deployment can access the application.
+If you use Microsoft Intune to manage your session hosts, you can deploy applications by following the instructions in [Install apps on Windows 10 devices](/mem/intune/apps/apps-windows-10-app-deploy#install-apps-on-windows-10-devices). Make sure you deploy your app in "device context" mode to all session hosts to make sure all users in your deployment can access the application.
 
 ### Manual installation
 

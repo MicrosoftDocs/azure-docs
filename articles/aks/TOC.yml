@@ -25,6 +25,9 @@
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-kubernetes-deploy-portal.md
+        - name: Use Bicep Kubernetes provider
+          displayName: Resource Manager,arm,template
+          href: learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md
         - name: Use Bicep
           displayName: Resource Manager,arm,template
           href: learn/quick-kubernetes-deploy-bicep.md
@@ -44,6 +47,8 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
+        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+          href: draft-devx-extension-aks.md
     - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
 - name: Tutorials
@@ -72,6 +77,8 @@
       href: concepts-clusters-workloads.md
     - name: Security
       items:
+        - name: Vulnerability management
+          href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Container Security
@@ -180,10 +187,14 @@
       items:
         - name: Maintaining and upgrading an AKS cluster
           href: upgrade.md
+        - name: Stop cluster upgrades on API breaking changes (preview)
+          href: stop-api-upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
           href: auto-upgrade-cluster.md
+        - name: Automatically upgrade AKS cluster node operating system images (preview)
+          href: auto-upgrade-node-image.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
         - name: Custom node configuration
@@ -192,15 +203,17 @@
           href: aks-diagnostics.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
-        - name: Use Vertical Pod Autoscaler (preview)
+        - name: Use Vertical Pod Autoscaler
           href: vertical-pod-autoscaler.md
+        - name: Configure Metrics Server VPA
+          href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Use planned maintenance (preview)
+        - name: Use planned maintenance to schedule and control upgrades (preview)
           href: planned-maintenance.md
         - name: Planned Maintenance for AKS weekly releases (preview)
           href: aks-planned-maintenance-weekly-releases.md
@@ -220,6 +233,14 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Configure an AKS cluster
+          href: cluster-configuration.md
+        - name: Custom node configuration
+          href: custom-node-configuration.md
+        - name: Integrate ACR with an AKS cluster
+          href: cluster-container-registry-integration.md
+        - name: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+          href: trusted-access-feature.md
         - name: Connect to cluster nodes
           href: node-access.md
         - name: Create virtual nodes
@@ -252,7 +273,7 @@
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
-        - name: Use the Mariner container host
+        - name: Use the Mariner container host (preview)
           href: use-mariner.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
@@ -332,7 +353,9 @@
               href: enable-fips-nodes.md
         - name: Application security
           items:
-            - name: Workload identity (preview)
+            - name: Create an OIDC Issuer for your cluster
+              href: use-oidc-issuer.md
+            - name: Workload identity
               items:
                 - name: Overview
                   href: workload-identity-overview.md
@@ -340,8 +363,10 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Modernize your app with workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity (preview)
+            - name: Use Azure AD pod identity
               href: use-azure-ad-pod-identity.md
+            - name: Use Pod Sandboxing
+              href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
             - name: Use pod security policies (preview)
@@ -422,7 +447,7 @@
             - name: Use a Standard Load Balancer
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
-              href: configure-kube-proxy.md   
+              href: configure-kube-proxy.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -438,7 +463,7 @@
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
         - name: Shared file storage
-          items: 
+          items:
             - name: On Azure Blob storage
               items:
                 - name: Azure Blob CSI driver
@@ -452,7 +477,7 @@
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
             - name: Provision Azure NetApp Files storage
-              href: azure-netapp-files.md 
+              href: azure-netapp-files.md
         - name: Block storage
           items:
             - name: Azure Disks CSI driver
@@ -487,7 +512,7 @@
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Upgrade from Windows Server 2019 to 2022
-          href: upgrade-windows-2019-2022.md          
+          href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
@@ -570,8 +595,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-        - name: Deployment Center Launcher
-          href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure automated deployments (preview)

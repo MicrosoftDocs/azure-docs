@@ -36,7 +36,7 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 | Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).
 | Required permissions: | **- Azure account:** with permissions to sign into Azure portal <br> **- Contributor:** on the Azure subscription where the connector will be created <br> **- Security Admin Role:** in Defender for Cloud <br> **- Organization Administrator:** in GitHub |
 | GitHub supported versions: | GitHub Free, Pro, Team, and GitHub Enterprise Cloud |
-| Regions: | Central US |
+| Regions: | Australia East, Central US, West Europe |
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial clouds <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Connect your GitHub account
