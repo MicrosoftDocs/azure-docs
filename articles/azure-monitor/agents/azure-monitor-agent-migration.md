@@ -25,21 +25,23 @@ In addition to consolidating and improving on the legacy Log Analytics agents, A
 
 ### Before you begin
 
-1. Make sure you meet the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent, including permissions, authentication, and networking requirements. 
+[!div class="checklist"]
+
+- Make sure you meet the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent. 
 
     To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). You won't incur an additional cost for installing the Azure Arc agent and you don't necessarily need to use Azure Arc to manage your non-Azure virtual machines. 
 
-1. Understand your current needs.
+- Understand your current needs.
 
     Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
 
-1. Ensure that Azure Monitor Agent can address all of your needs.
+- Ensure that Azure Monitor Agent can address all of your needs.
 
     Check the [Azure Monitor Agent supported services and features](../agents/agents-overview.md#supported-services-and-features).
 
     If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  
 
-1. Consider installing Azure Monitor Agent together with a legacy agent for a transition period.
+- Consider installing Azure Monitor Agent together with a legacy agent for a transition period.
 
     You can **run Azure Monitor Agent alongside the legacy Log Analytics agent on the same machine** to continue using existing functionality during evaluation or migration.
 
@@ -48,7 +50,6 @@ In addition to consolidating and improving on the legacy Log Analytics agents, A
     **Avoid collecting duplicate data:**
 
     - Collecting duplicate data from the same machine can skew query results, affect downstream features like alerts, dashboards, and workbooks, and generate extra charges for data ingestion and retention. To avoid data duplication, ensure that the agents collect data from different machines or send the data to different destinations.
-    
         - For Defender for Cloud, [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you run both agents side by side. 
         - For Sentinel, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
     - Running two agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
