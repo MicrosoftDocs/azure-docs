@@ -2,7 +2,7 @@
 title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 03/28/2023
 
 ---
 
@@ -30,21 +30,34 @@ This article helps you understand this new authentication feature, and reviews t
 
 - The `aks-preview` extension version 0.5.102 or later.
 
-- The following are the minimum versions of the [Azure Identity][azure-identity-libraries] client library supported:
+## Azure Identity SDK
 
-    * [.NET][dotnet-azure-identity-client-library] 1.5.0
-    * [Java][java-azure-identity-client-library] 1.4.0
-    * [JavaScript][javascript-azure-identity-client-library] 2.0.0
-    * [Python][python-azure-identity-client-library] 1.7.0
+The following client libraries are the **minimum** version required
+
+| Language                       | Library    | Minimum Version | Example |
+|-----------|-----------|----------|----------|
+| Go | [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [sdk/azidentity/v1.3.0-beta.1](https://github.com/Azure/azure-sdk-for-go/releases/tag/sdk/azidentity/v1.3.0-beta.1)| [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go) |
+| C# | [azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [Azure.Identity_1.5.0](https://github.com/Azure/azure-sdk-for-net/releases/tag/Azure.Identity_1.5.0)| [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
+| JavaScript/TypeScript | [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js) | [@azure/identity_2.0.0](https://github.com/Azure/azure-sdk-for-js/releases/tag/@azure/identity_2.0.0) | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node) |
+| Python | [azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [azure-identity_1.7.0](https://github.com/Azure/azure-sdk-for-python/releases/tag/azure-identity_1.7.0) | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+| Java | [azure-sdk-for-java]() | [azure-identity_1.4.0](https://github.com/Azure/azure-sdk-for-java/releases/tag/azure-identity_1.4.0) | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java) |
+
+## Microsoft Authentication Library (MSAL)
+
+The following client libraries are the **minimum** version required
+
+| Language | Library | Image | Example | Has Windows |
+|-----------|-----------|----------|----------|----------|
+| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
+| C# | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
+| JavaScript/TypeScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
+| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
+| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
 
 ## Limitations
 
 - You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
-
-## Language SDK examples
-  - [Azure Identity SDK](https://azure.github.io/azure-workload-identity/docs/topics/language-specific-examples/azure-identity-sdk.html)
-  - [MSAL](https://azure.github.io/azure-workload-identity/docs/topics/language-specific-examples/msal.html)
 
 ## How it works
 
