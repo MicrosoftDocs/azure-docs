@@ -34,9 +34,9 @@ The following tables list the values for a single workflow definition:
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
-| Trigger or action - Maximum name length | 80 characters ||
-| Trigger or action - Maximum input or output size | 104,857,600 bytes <br>(105 MB) | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Single trigger or action - Maximum name length | 80 characters ||
+| Single trigger or action - Maximum input or output size | 104,857,600 bytes <br>(105 MB) | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Single action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Expression character limit | 8,192 characters ||
 | `description` - Maximum length | 256 characters ||
 | `parameters` - Maximum number of items | 50 parameters ||
