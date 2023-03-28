@@ -53,7 +53,7 @@ Automated ML supports model training for computer vision tasks like image classi
        ```
        * Install the Azure Machine Learning Python SDK v2:
        ```python
-       pip install azure-ai-ml
+       pip install azure-ai-ml azure-identity
        ```
    
 ---
