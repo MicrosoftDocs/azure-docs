@@ -149,7 +149,7 @@ You can also find the client IP by clicking a row in the report, and then going 
 
 When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address isn't used because there's no validation that it comes from a trusted source, so would present a method for faking an IP address.
 
-When a cloud proxy is in place, a policy that requires a [hybrid Azure AD joined or complaint device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
+When a cloud proxy is in place, a policy that requires a [hybrid Azure AD joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
 
 ### When is a location evaluated?
 
