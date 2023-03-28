@@ -34,9 +34,21 @@ If the image publisher provides additional license and purchase terms, then you 
 
 ## Default Images
 
-Powershell offers several pre-defined image aliases to make the resource creation process easier. There are different images for resources with either a Windows or Linux operating system.  
+Powershell offers several pre-defined image aliases to make the resource creation process easier. There are different images for resources with either a Windows or Linux operating system. Several Powershell cmdlets, such as `New-AzVM` and `New-AzVmss`, allow you to input the alias name as a parameter. 
+For example:
 
-The Linux image aliases are:
+```powershell
+$rgname = <Resource Group Name>
+$location = <Azure Region>
+$vmName = "v" + $rgname
+$domainNameLabel = "d" + $rgname
+$securePassword = <Password> | ConvertTo-SecureString -AsPlainText -Force
+$username = <Username>
+$credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
+New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -Credential $credential -DomainNameLabel $domainNameLabel -Image CentOS
+```
+
+The Linux image alias names and their details are:
 ```output
 "CentOS":  {
             "publisher":  "OpenLogic",
