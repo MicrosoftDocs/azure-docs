@@ -100,8 +100,6 @@ To use the Azure portal to associate an identity with your app, follow the steps
 1. Search for the **MigrateIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
-   :::image type="content" source="media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="media/create-user-assigned-identity.png":::
-
 To use the Azure CLI to associate an identity with your app, use the following commands:
 
 # [Service Connector](#tab/service-connector-identity)

@@ -5,3 +5,5 @@
 1. Select the subscription you used previously to create the **MigrateIdentity**.
 1. Search for the **MigrateIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
+
+   :::image type="content" source="../../../articles/storage/common/media/create-user-assigned-identity-small.png" alt-text="Screenshot showing how to create a user assigned identity." lightbox="../../../articles/storage/common/media/create-user-assigned-identity.png":::
