@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/28/2023
 ms.author: danlep
 ---
 
@@ -33,8 +33,8 @@ This policy can be used when a human and/or browser-friendly URL should be trans
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|template|The actual web service URL with any query string parameters. When using expressions, the whole value must be an expression.|Yes|N/A|
-|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the rewrite template.|No|`true`|
+|template|The actual web service URL with any query string parameters. Policy expressions are allowed. When using expressions, the whole value must be an expression. |Yes|N/A|
+|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the rewrite template. Policy expressions are allowed.|No|`true`|
 
 ## Usage
 
