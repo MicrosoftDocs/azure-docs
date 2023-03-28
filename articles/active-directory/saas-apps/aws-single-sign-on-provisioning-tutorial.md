@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure AWS IAM Identity Center(successor to AWS single sign-On) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure AWS IAM Identity Center(successor to AWS single sign-On) for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to AWS IAM Identity Center.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

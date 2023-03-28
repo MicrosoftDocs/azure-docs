@@ -4,11 +4,12 @@ description: Learn how to secure access to Managed HSM using Azure RBAC and Mana
 services: key-vault
 author: mbaldwin
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
@@ -96,10 +97,10 @@ The subscription admin assigns the `Managed HSM Contributor`role to the security
 
 ```azurecli-interactive
 # This role assignment allows Contoso Security Team to create new Managed HSMs
-az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
+az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'id' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
 
 # This role assignment allows Contoso Security Team to become administrator of existing managed HSM
-az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
+az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'id' -o tsv) --scope / --role "Managed HSM Administrator"
 ```
 
 The security team sets up logging and assigns roles to auditors and the VM application.

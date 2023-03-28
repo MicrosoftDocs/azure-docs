@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 03/27/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,7 +31,7 @@ The following table describes the important terms used in the latest version of 
 | --- | --- | --- |
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
-| AdditionalInfo | All | Service-specific metadata. For example, an image type for a virtual machine. |
+| AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
 | BillingAccountName | All | Name of the billing account. |
 | BillingCurrency | All | Currency associated with the billing account. |
@@ -44,6 +44,7 @@ The following table describes the important terms used in the latest version of 
 | ConsumedService | All | Name of the service the charge is associated with. |
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
 | Cost | EA, pay-as-you-go | See CostInBillingCurrency. |
+| CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
 | CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
@@ -82,9 +83,10 @@ The following table describes the important terms used in the latest version of 
 | ReservationName | EA, MCA | Name of the purchased reservation instance. |
 | ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group will be shown as null or empty, **Others**, or **Not applicable**. |
 | ResourceId¹ | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
-| ResourceLocation | All | Datacenter location where the resource is running. See `Location`. |
+| ResourceLocation¹  | All | Datacenter location where the resource is running. See `Location`. |
 | ResourceName | EA, pay-as-you-go | Name of the resource. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null/empty, **Others** , or **Not applicable**. |
 | ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null/empty, **Others** , or **Not applicable**. |
+| RoundingAdjustment | EA, MCA | Rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice.   |
 | ServiceFamily | MCA | Service family that the service belongs to. |
 | ServiceInfo¹ | All | Service-specific metadata. |
 | ServiceInfo2 | All | Legacy field with optional service-specific metadata. |
@@ -96,26 +98,13 @@ The following table describes the important terms used in the latest version of 
 | Term | All | Displays the term for the validity of the offer. For example: In case of reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
 | UnitPrice | EA, pay-as-you-go | The price per unit for the charge. |
-| CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
 
-¹ Fields used to build a unique ID for a single cost record.
+
+¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
+
+The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself. 
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
-
-### List of terms from older APIs
-
-The following table maps terms used in older APIs to the new terms. Refer to the preceding table for descriptions.
-
-| Old term | New term |
-| --- | --- |
-| ConsumedQuantity | Quantity |
-| IncludedQuantity | N/A |
-| InstanceId | ResourceId |
-| Rate | EffectivePrice |
-| Unit | UnitOfMeasure |
-| UsageDate | Date |
-| UsageEnd | Date |
-| UsageStart | Date |
 
 ## Next steps
 

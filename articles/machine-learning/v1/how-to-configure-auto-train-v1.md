@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 01/24/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up AutoML training with Python
@@ -521,7 +521,7 @@ model = run.register_model(model_name = model_name,
 ```
 
 
-For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
+For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
 
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
@@ -540,7 +540,7 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md).
 

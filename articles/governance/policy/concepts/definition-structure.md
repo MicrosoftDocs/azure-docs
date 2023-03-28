@@ -136,7 +136,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure, and for Azure Policy components that target [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md) components such as pods, containers, and ingresses. Definitions
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
@@ -146,6 +146,7 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview.md) keys using Azure Policy.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.

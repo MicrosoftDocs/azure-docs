@@ -1,22 +1,18 @@
 ---
-title: Configure Azure Synapse Link for Azure SQL Database with network security (preview)
-description: Learn how to configure Azure Synapse Link for Azure SQL Database with network security (preview).
+title: Configure Azure Synapse Link for Azure SQL Database with network security
+description: Learn how to configure Azure Synapse Link for Azure SQL Database with network security.
 author: yexu
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 09/28/2022
+ms.date: 11/16/2022
 ms.author: yexu
 ms.reviewer: sngun, wiassaf
 ---
 
-# Configure Azure Synapse Link for Azure SQL Database with network security (preview)
+# Configure Azure Synapse Link for Azure SQL Database with network security
 
 This article is a guide for configuring Azure Synapse Link for Azure SQL Database with network security. Before you begin, you should know how to create and start Azure Synapse Link for Azure SQL Database from [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md). 
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create a managed workspace virtual network without data exfiltration
 
@@ -81,7 +77,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
    d. Go to the Azure portal for your SQL Server instance that hosts an Azure SQL database as a source store, and then approve the private endpoint connections.
    
      :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe3.png" alt-text="Screenshot of a new Azure SQL database linked service private endpoint 3.":::
-		 
+         
 1. Now you can create a link connection from the **Integrate** pane to replicate data from your Azure SQL database to an Azure Synapse SQL pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot that shows how to create a link.":::

@@ -4,21 +4,20 @@ description: Learn about what custom RBAC is and why it's important to implement
 services: active-directory
 author: davidmu1
 manager: CelesteDG
- 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 08/19/2022
+ms.date: 01/06/2023
 ms.custom: template-concept, ignite-2022
 ms.author: davidmu
-ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
+ms.reviewer: john.garland, maggie.marxen, ian.bennett
 #Customer intent: As a developer, I want to learn about custom RBAC and why I need to use it in my application.
 ---
 
 # Role-based access control for application developers
 
-Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Azure AD RBAC is used to manage Azure AD resources. This article explains application-specific RBAC.
+Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Azure AD RBAC is used to manage Azure AD resources. This article explains application-specific RBAC. For information about implementing application-specific RBAC, see [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md).
 
 ## Roles definitions
 
@@ -80,5 +79,4 @@ Although either app roles or groups can be used for authorization, key differenc
 
 ## Next steps
 
-- [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)

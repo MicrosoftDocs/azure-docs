@@ -8,6 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 08/26/2022
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
@@ -42,6 +43,9 @@ If you don't yet have a workspace, create one now:
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
 1. Select **Create** to create the workspace
 
+> [!NOTE]
+> This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
+
 ## Create compute instance
 
 You could install Azure Machine Learning on your own computer.  But in this quickstart, you'll create an online compute resource that has a development environment already installed and ready to go.  You'll use this online machine, a *compute instance*, for your development environment to write and run code in Python scripts and Jupyter notebooks.
@@ -50,6 +54,9 @@ Create a *compute instance* to use this development environment for the rest of 
 
 1. If you didn't just create a workspace in the previous section, sign in to [Azure Machine Learning studio](https://ml.azure.com) now, and select your workspace.
 1. On the left side, select **Compute**.
+
+    :::image type="content" source="media/quickstart-create-resources/compute-section.png" alt-text="Screenshot: shows Compute section on left hand side of screen." lightbox="media/quickstart-create-resources/compute-section.png":::
+
 1. Select **+New** to create a new compute instance.
 1. Supply a name, Keep all the defaults on the first page.
 1. Select **Create**.
@@ -58,7 +65,7 @@ In about two minutes, you'll see the **State** of the compute instance change fr
 
 ## Create compute clusters
 
-Next you'll create a compute cluster.  Clusters allow you to distribute a training or batch inference process across a cluster of CPU or GPU compute nodes in the cloud.
+Next you'll create a compute cluster.  You'll submit code to this cluster to distribute your training or batch inference processes across a cluster of CPU or GPU compute nodes in the cloud.  
 
 Create a compute cluster that will autoscale between zero and four nodes:
 
@@ -82,7 +89,7 @@ The studio is your web portal for Azure Machine Learning. This portal combines n
 
 Review the parts of the studio on the left-hand navigation bar:
 
-* The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
+* The **Authoring** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
 
     * **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts.
     * **Automated ML** steps you through creating a machine learning model without writing code.
@@ -123,5 +130,5 @@ You now have an Azure Machine Learning workspace that contains:
 Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
+> [Quickstart: Run Jupyter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
 >

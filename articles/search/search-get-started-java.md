@@ -8,7 +8,7 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/04/2021
+ms.date: 12/23/2022
 ms.custom: devx-track-java, mode-api
 ---
 
@@ -22,7 +22,7 @@ ms.custom: devx-track-java, mode-api
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
+Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure.Search.Documents client library in the Azure SDK for Java.](/java/api/overview/azure/search). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 We used the following software and services to build and test this quickstart:
 
-+ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
++ [Visual Studio Code](https://code.visualstudio.com/)
+
++ [Java extension for Visual Studio Code](https://code.visualstudio.com/docs/java/extensions)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
@@ -52,821 +54,588 @@ Every request sent to your service requires an API key. Having a valid key estab
 
 ## Set up your environment
 
-Begin by opening IntelliJ IDEA and setting up a new project.
+Begin by opening Visual Studio Code and setting up a new project.
 
 ### Create the project
 
-1. Open IntelliJ IDEA, and select **Create New Project**.
+1. Open Visual Studio Code.
+1. Install the [Extension Pack For Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Ctrl+Shift+P**. Search for **Create Java Project**.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-project.png" alt-text="Screenshot of a create a java project." border="true":::
+
 1. Select **Maven**.
-1. In the **Project SDK** list, select the Java 11 SDK.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Create a maven project" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven.png" alt-text="Screenshot of a create a maven project." border="true":::
 
-1. For **GroupId** and **ArtifactId**, enter `AzureSearchQuickstart`.
-1. Accept the remaining defaults to open the project.
+1. Select **maven-archetype-quickstart**.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven-project-type.png" alt-text="Screenshot of a create a maven quickstart project." border="true":::
+
+1. Select the latest version, currently **1.4**.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
+
+1. Enter **azure.search.sample** as the group ID.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
+
+1. Enter **azuresearchquickstart** as the artifact ID.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of an enter artifact id." border="true":::
+
+1. Select the folder to create the project in.
+
+1. Finish project creation in the [integrated terminal](https://code.visualstudio.com/docs/terminal/basics). Press enter to accept the default for "1.0-SNAPSHOT" and then type "y" to confirm the properties for your project.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-finish-setup-terminal.png" alt-text="Screenshot of a finish setup in terminal." border="true":::
+
+1. Open the folder you created the project in.
 
 ### Specify Maven dependencies
 
-1. Select **File** > **Settings**.
-1. In the **Settings** window, select **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
-1. Select the  **Import Maven projects automatically** check box, and click **OK** to close the window. Maven plugins and other dependencies will now be automatically synchronized when you update the pom.xml file in the next step.
-
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven importing options in IntelliJ settings" border="false":::
-
-1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Open the pom.xml file and add the following dependencies
 
     ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>AzureSearchQuickstart</groupId>
-        <artifactId>AzureSearchQuickstart</artifactId>
-        <packaging>jar</packaging>
-        <version>1.0-SNAPSHOT</version>
-        <properties>
-            <jackson.version>2.12.1</jackson.version>
-            <auto-value.version>1.6.2</auto-value.version>
-            <junit.version>5.4.2</junit.version>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        </properties>
-        <name>azuresearch-console</name>
-        <url>http://maven.apache.org</url>
-        <dependencies>
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-jdk8</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.auto.value</groupId>
-                <artifactId>auto-value-annotations</artifactId>
-                <version>${auto-value.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.auto.value</groupId>
-                <artifactId>auto-value</artifactId>
-                <version>${auto-value.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.azure</groupId>
-                <artifactId>azure-search-documents</artifactId>
-                <version>11.1.3</version>
-            </dependency>
-        </dependencies>
-    
-        <build>
-            <plugins>
-                <!--put generated source files to generated-sources-->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                    <configuration>
-                        <source>11</source>
-                        <target>11</target>
-                    </configuration>
-                </plugin>
-                <!-- For JUnit -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <!-- Add exec plugin to run demo program -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.6.0</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <mainClass>com.microsoft.azure.search.samples.demo.App</mainClass>
-                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </build>
-    </project>
+    <dependencies>
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-search-documents</artifactId>
+          <version>11.5.2</version>
+        </dependency>
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-core</artifactId>
+          <version>1.34.0</version>
+        </dependency>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.11</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
     ```
 
-<!-- STOPPED HERE -- SENT EMAIL TO TONG XU ASKING FOR INFO -->
-### Set up the project structure
+1. Change the compiler Java version to 11
 
-1. Select **File** > **Project Structure**.
-1. Select **Modules**, and expand the source tree to access the contents of the `src` >  `main` folder.
-1. In the `src` >  `main` > `java` folder, add  folders for `com`, `microsoft`, `azure`, `search`, `samples`, `demo`. To do this, select the `java` folder, press Alt + Insert, and then enter the folder name.
-1. In the `src` >  `main` >`resources` folder, add `app` and `service` folders.
-
-    When you're done, the project tree should look like the following picture.
-
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Project directory structure" border="false":::
-
-1. Click **OK** to close the window.
-
-### Add Azure Cognitive Search service information
-
-1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
-
-1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be `"mydemo"`.
-
-    ```java
-        SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
-        SearchServiceAdminKey=<YOUR-ADMIN-KEY>
-        SearchServiceQueryKey=<YOUR-QUERY-KEY>
-        IndexName=hotels-quickstart
-        ApiVersion=2020-06-30
+    ```xml
+    <maven.compiler.source>1.11</maven.compiler.source>
+    <maven.compiler.target>1.11</maven.compiler.target>
     ```
 
-### Add the main method
+### Create a search client
 
-1. In  the `src` >  `main` > `java` > `app` folder, add an `App` class. To do this, select the `app` folder, press Alt + Insert, select **Java Class**, and then enter the class name.
-1. Open the `App` class and replace the content with the following code. This code contains the `main` method. 
-
-    The uncommented code reads the search service parameters and uses them to create an instance of the search service client. The search service client code will be added in the next section.
-
-    The commented code in this class will be uncommented in a later section of this quickstart.
+1. Open the `App` class under **src**, **main**, **java**, **azure**, **search**, **sample**. Add the following import directives
 
     ```java
-    package main.java.app;
+    import java.util.Arrays;
+    import java.util.ArrayList;
+    import java.time.OffsetDateTime;
+    import java.time.ZoneOffset;
+    import java.time.LocalDateTime;
+    import java.time.LocalDate;
+    import java.time.LocalTime;
     
-    import main.java.service.SearchServiceClient;
-    import java.io.IOException;
-    import java.util.Properties;
+    import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.util.Context;
+    import com.azure.search.documents.SearchClient;
+    import com.azure.search.documents.SearchClientBuilder;
+    import com.azure.search.documents.models.SearchOptions;
+    import com.azure.search.documents.indexes.SearchIndexClient;
+    import com.azure.search.documents.indexes.SearchIndexClientBuilder;
+    import com.azure.search.documents.indexes.models.IndexDocumentsBatch;
+    import com.azure.search.documents.indexes.models.SearchIndex;
+    import com.azure.search.documents.indexes.models.SearchSuggester;
+    import com.azure.search.documents.util.AutocompletePagedIterable;
+    import com.azure.search.documents.util.SearchPagedIterable;
+    ```
+
+1. The following example includes placeholders for a search service name, admin API key that grants create and delete permissions, and index name. Substitute valid values for all three placeholders. Create two clients: [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/java/api/com.azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create and delete rights.
+
+
+    ```java
+    public static void main(String[] args) {
+        var searchServiceEndpoint = "https://<your-service>.search.windows.net";
+        var adminKey = new AzureKeyCredential("<your-admin-key>");
+        String indexName = "<index-name>";
+
+        SearchIndexClient searchIndexClient = new SearchIndexClientBuilder()
+            .endpoint(searchServiceEndpoint)
+            .credential(adminKey)
+            .buildClient();
+
+        SearchClient searchClient = new SearchClientBuilder()
+            .endpoint(searchServiceEndpoint)
+            .credential(adminKey)
+            .indexName(indexName)
+            .buildClient();
+    }
+    ```
+
+### 1 - Create an index
+
+This quickstart builds a Hotels index that you'll load with hotel data and execute queries against. In this step, define the fields in the index. Each field definition includes a name, data type, and attributes that determine how the field is used.
+
+In this example, synchronous methods of the azure-search-documents library are used for simplicity and readability. However, for production scenarios, you should use asynchronous methods to keep your app scalable and responsive. For example, you would use [SearchAsyncClient](/java/api/com.azure.search.documents.searchasyncclient) instead of SearchClient.
+
+1. Add an empty class definition to your project: **Hotel.java**
+
+1. Copy the following code into **Hotel.java** to define the structure of a hotel document. Attributes on the field determine how it's used in an application. For example, the IsFilterable annotation must be assigned to every field that supports a filter expression
+
+    ```java
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
     
-    public class App {
+    package azure.search.sample;
     
-        private static Properties loadPropertiesFromResource(String resourcePath) throws IOException {
-            var inputStream = App.class.getResourceAsStream(resourcePath);
-            var configProperties = new Properties();
-            configProperties.load(inputStream);
-            return configProperties;
-        }
+    import com.azure.search.documents.indexes.SearchableField;
+    import com.azure.search.documents.indexes.SimpleField;
+    import com.fasterxml.jackson.annotation.JsonInclude;
+    import com.fasterxml.jackson.annotation.JsonProperty;
+    import com.fasterxml.jackson.core.JsonProcessingException;
+    import com.fasterxml.jackson.databind.ObjectMapper;
+    import com.fasterxml.jackson.annotation.JsonInclude.Include;
     
-        public static void main(String[] args) {
-            try {
-                var config = loadPropertiesFromResource("/app/config.properties");
-                var client = new SearchServiceClient(
-                        config.getProperty("SearchServiceName"),
-                        config.getProperty("SearchServiceAdminKey"),
-                        config.getProperty("SearchServiceQueryKey"),
-                        config.getProperty("ApiVersion"),
-                        config.getProperty("IndexName")
-                );
+    import java.time.OffsetDateTime;
     
+    /**
+     * Model class representing a hotel.
+     */
+    @JsonInclude(Include.NON_NULL)
+    public class Hotel {
+        /**
+         * Hotel ID
+         */
+        @JsonProperty("HotelId")
+        @SimpleField(isKey = true)
+        public String hotelId;
     
-    //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
-    //            if(client.indexExists()){ client.deleteIndex();}
-    //            client.createIndex("/service/index.json");
-    //            Thread.sleep(1000L); // wait a second to create the index
+        /**
+         * Hotel name
+         */
+        @JsonProperty("HotelName")
+        @SearchableField(isSortable = true)
+        public String hotelName;
     
-    //Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
-    //            client.uploadDocuments("/service/hotels.json");
-    //            Thread.sleep(2000L); // wait 2 seconds for data to upload
+        /**
+         * Description
+         */
+        @JsonProperty("Description")
+        @SearchableField(analyzerName = "en.microsoft")
+        public String description;
     
-    //Uncomment the following 5 search queries in the 3 - Search an index section of the quickstart
-    //            // Query 1
-    //            client.logMessage("\n*QUERY 1****************************************************************");
-    //            client.logMessage("Search for: Atlanta'");
-    //            client.logMessage("Return: All fields'");
-    //            client.searchPlus("Atlanta");
-    //
-    //            // Query 2
-    //            client.logMessage("\n*QUERY 2****************************************************************");
-    //            client.logMessage("Search for: Atlanta");
-    //            client.logMessage("Return: HotelName, Tags, Address");
-    //            SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
-    //            options2.select = "HotelName,Tags,Address";
-    //            client.searchPlus("Atlanta", options2);
-    //
-    //            //Query 3
-    //            client.logMessage("\n*QUERY 3****************************************************************");
-    //            client.logMessage("Search for: wifi & restaurant");
-    //            client.logMessage("Return: HotelName, Description, Tags");
-    //            SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
-    //            options3.select = "HotelName,Description,Tags";
-    //            client.searchPlus("wifi,restaurant", options3);
-    //
-    //            // Query 4 -filtered query
-    //            client.logMessage("\n*QUERY 4****************************************************************");
-    //            client.logMessage("Search for: all");
-    //            client.logMessage("Filter: Ratings greater than 4");
-    //            client.logMessage("Return: HotelName, Rating");
-    //            SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
-    //            options4.filter="Rating%20gt%204";
-    //            options4.select = "HotelName,Rating";
-    //            client.searchPlus("*",options4);
-    //
-    //            // Query 5 - top 2 results, ordered by
-    //            client.logMessage("\n*QUERY 5****************************************************************");
-    //            client.logMessage("Search for: boutique");
-    //            client.logMessage("Get: Top 2 results");
-    //            client.logMessage("Order by: Rating in descending order");
-    //            client.logMessage("Return: HotelId, HotelName, Category, Rating");
-    //            SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
-    //            options5.top=2;
-    //            options5.orderby = "Rating%20desc";
-    //            options5.select = "HotelId,HotelName,Category,Rating";
-    //            client.searchPlus("boutique", options5);
+        /**
+         * French description
+         */
+        @JsonProperty("DescriptionFr")
+        @SearchableField(analyzerName = "fr.lucene")
+        public String descriptionFr;
     
-            } catch (Exception e) {
-                System.err.println("Exception:" + e.getMessage());
+        /**
+         * Category
+         */
+        @JsonProperty("Category")
+        @SearchableField(isFilterable = true, isSortable = true, isFacetable = true)
+        public String category;
+    
+        /**
+         * Tags
+         */
+        @JsonProperty("Tags")
+        @SearchableField(isFilterable = true, isFacetable = true)
+        public String[] tags;
+    
+        /**
+         * Whether parking is included
+         */
+        @JsonProperty("ParkingIncluded")
+        @SimpleField(isFilterable = true, isSortable = true, isFacetable = true)
+        public Boolean parkingIncluded;
+    
+        /**
+         * Last renovation time
+         */
+        @JsonProperty("LastRenovationDate")
+        @SimpleField(isFilterable = true, isSortable = true, isFacetable = true)
+        public OffsetDateTime lastRenovationDate;
+    
+        /**
+         * Rating
+         */
+        @JsonProperty("Rating")
+        @SimpleField(isFilterable = true, isSortable = true, isFacetable = true)
+        public Double rating;
+    
+        /**
+         * Address
+         */
+        @JsonProperty("Address")
+        public Address address;
+    
+        @Override
+        public String toString()
+        {
+            try
+            {
+                return new ObjectMapper().writeValueAsString(this);
+            }
+            catch (JsonProcessingException e)
+            {
                 e.printStackTrace();
+                return "";
             }
         }
     }
     ```
 
-### Add the HTTP operations
+In the Azure.Search.Documents client library, you can use [SearchableField](/java/api/com.azure.search.documents.indexes.searchablefield) and [SimpleField](/java/api/com.azure.search.documents.indexes.simplefield) to streamline field definitions.
 
-1. In  the `src` >  `main` > `java` > `service` folder, add an`SearchServiceClient` class. To do this, select the `service` folder, press Alt + Insert, select **Java Class**, and then enter the class name.
-1. Open the `SearchServiceClient` class, and replace the contents with the following code. This code provides the HTTP operations required to use the Azure Cognitive Search REST API. Additional methods for creating an index, uploading documents, and querying the index will be added in a later section.
+   * `SimpleField` can be any data type, is always non-searchable (it's ignored for full text search queries), and is retrievable (it's not hidden). Other attributes are off by default, but can be enabled. You might use a SimpleField for document IDs or fields used only in filters, facets, or scoring profiles. If so, be sure to apply any attributes that are necessary for the scenario, such as IsKey = true for a document ID.
+   * `SearchableField` must be a string, and is always searchable and retrievable. Other attributes are off by default, but can be enabled. Because this field type is searchable, it supports synonyms and the full complement of analyzer properties.
+
+Whether you use the basic `SearchField` API or either one of the helper models, you must explicitly enable filter, facet, and sort attributes. For example, `isFilterable`, `isSortable`, and `isFacetable` must be explicitly attributed, as shown in the sample above.
+
+1. Add a second empty class definition to your project: **Address.cs**. Copy the following code into the class.
 
     ```java
-    package main.java.service;
-
-    import javax.json.Json;
-    import javax.net.ssl.HttpsURLConnection;
-    import java.io.IOException;
-    import java.io.StringReader;
-    import java.net.HttpURLConnection;
-    import java.net.URI;
-    import java.net.http.HttpClient;
-    import java.net.http.HttpRequest;
-    import java.net.http.HttpResponse;
-    import java.nio.charset.StandardCharsets;
-    import java.util.Formatter;
-    import java.util.function.Consumer;
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
     
-        /* This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
-        public class SearchServiceClient {
-            private final String _adminKey;
-            private final String _queryKey;
-            private final String _apiVersion;
-            private final String _serviceName;
-            private final String _indexName;
-            private final static HttpClient client = HttpClient.newHttpClient();
+    package azure.search.sample;
     
-        public SearchServiceClient(String serviceName, String adminKey, String queryKey, String apiVersion, String indexName) {
-            this._serviceName = serviceName;
-            this._adminKey = adminKey;
-            this._queryKey = queryKey;
-            this._apiVersion = apiVersion;
-            this._indexName = indexName;
-        }
-
-        private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
-            logMessage(String.format("%s: %s", request.method(), request.uri()));
-            return client.send(request, HttpResponse.BodyHandlers.ofString());
-        }
-
-        private static URI buildURI(Consumer<Formatter> fmtFn)
-                {
-                    Formatter strFormatter = new Formatter();
-                    fmtFn.accept(strFormatter);
-                    String url = strFormatter.out().toString();
-                    strFormatter.close();
-                    return URI.create(url);
-        }
+    import com.azure.search.documents.indexes.SearchableField;
+    import com.fasterxml.jackson.annotation.JsonInclude;
+    import com.fasterxml.jackson.annotation.JsonProperty;
+    import com.fasterxml.jackson.annotation.JsonInclude.Include;
     
-        public static void logMessage(String message) {
-            System.out.println(message);
-        }
+    /**
+     * Model class representing an address.
+     */
+    @JsonInclude(Include.NON_NULL)
+    public class Address {
+        /**
+         * Street address
+         */
+        @JsonProperty("StreetAddress")
+        @SearchableField
+        public String streetAddress;
     
-        public static boolean isSuccessResponse(HttpResponse<String> response) {
-            try {
-                int responseCode = response.statusCode();
+        /**
+         * City
+         */
+        @JsonProperty("City")
+        @SearchableField(isFilterable = true, isSortable = true, isFacetable = true)
+        public String city;
     
-                logMessage("\n Response code = " + responseCode);
+        /**
+         * State or province
+         */
+        @JsonProperty("StateProvince")
+        @SearchableField(isFilterable = true, isSortable = true, isFacetable = true)
+        public String stateProvince;
     
-                if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_ACCEPTED
-                        || responseCode == HttpURLConnection.HTTP_NO_CONTENT || responseCode == HttpsURLConnection.HTTP_CREATED) {
-                    return true;
-                }
+        /**
+         * Postal code
+         */
+        @JsonProperty("PostalCode")
+        @SearchableField(isFilterable = true, isSortable = true, isFacetable = true)
+        public String postalCode;
     
-                // We got an error
-                var msg = response.body();
-                if (msg != null) {
-                    logMessage(String.format("\n MESSAGE: %s", msg));
-                }
-    
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-    
-            return false;
-        }
-    
-        public static HttpRequest httpRequest(URI uri, String key, String method, String contents) {
-            contents = contents == null ? "" : contents;
-            var builder = HttpRequest.newBuilder();
-            builder.uri(uri);
-            builder.setHeader("content-type", "application/json");
-            builder.setHeader("api-key", key);
-    
-            switch (method) {
-                case "GET":
-                    builder = builder.GET();
-                    break;
-                case "HEAD":
-                    builder = builder.GET();
-                    break;
-                case "DELETE":
-                    builder = builder.DELETE();
-                    break;
-                case "PUT":
-                    builder = builder.PUT(HttpRequest.BodyPublishers.ofString(contents));
-                    break;
-                case "POST":
-                    builder = builder.POST(HttpRequest.BodyPublishers.ofString(contents));
-                    break;
-                default:
-                    throw new IllegalArgumentException(String.format("Can't create request for method '%s'", method));
-            }
-            return builder.build();
-        }
+        /**
+         * Country
+         */
+        @JsonProperty("Country")
+        @SearchableField(isFilterable = true, isSortable = true, isFacetable = true)
+        public String country;
     }
-    
     ```
 
-### Build the project
+1. In **App.java**, create a `SearchIndex` object in the **main** method, and then call the `createOrUpdateIndex` method to create the index in your search service. The index also includes a `SearchSuggester` to enable autocomplete on the specified fields.
 
-1. Verify that your project has the following structure.
+    ```java
+    // Create Search Index for Hotel model
+    searchIndexClient.createOrUpdateIndex(
+        new SearchIndex(indexName, SearchIndexClient.buildSearchFields(Hotel.class, null))
+        .setSuggesters(new SearchSuggester("sg", Arrays.asList("HotelName"))));
+    ```
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Project directory structure plus classes" border="false":::
+### 2 - Load Documents
 
-1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
-:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute maven goal: verify exec:java" border="false":::
+Azure Cognitive Search searches over content stored in the service. In this step, you'll load JSON documents that conform to the hotel index you just created.
 
-When processing completes, look for a BUILD SUCCESS message followed by a zero (0) exit code.
+In Azure Cognitive Search, search documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself.
 
-## 1 - Create index
+When uploading documents, you must use an [IndexDocumentsBatch](/java/api/com.azure.search.documents.indexes.models.indexdocumentsbatch) object. An `IndexDocumentsBatch` object contains a collection of [IndexActions](/java/api/com.azure.search.documents.models.indexaction), each of which contains a document and a property telling Azure Cognitive Search what action to perform (upload, merge, delete, and mergeOrUpload).
 
-The hotels index definition contains simple fields and one complex field. Examples of a simple field are "HotelName" or "Description". The "Address" field is a complex field because it has subfields, such as "Street Address" and "City". In this quickstart, the index definition is specified using JSON.
+1. In **App.java**, create documents and index actions, and then pass them to `IndexDocumentsBatch`. The documents below conform to the hotels-quickstart index, as defined by the hotel class.
 
-1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `index.json` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
-
-1. Open the `index.json` file and insert the following index definition.
-
-    ```json
+    ```java
+    // Upload documents in a single Upload request.
+    private static void uploadDocuments(SearchClient searchClient)
     {
-      "name": "hotels-quickstart",
-      "fields": [
+        var hotelList = new ArrayList<Hotel>();
+
+        var hotel = new Hotel();
+        hotel.hotelId = "1";
+        hotel.hotelName = "Secret Point Motel";
+        hotel.description = "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.";
+        hotel.descriptionFr = "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.";
+        hotel.category = "Boutique";
+        hotel.tags = new String[] { "pool", "air conditioning", "concierge" };
+        hotel.parkingIncluded = false;
+        hotel.lastRenovationDate = OffsetDateTime.of(LocalDateTime.of(LocalDate.of(1970, 1, 18), LocalTime.of(0, 0)), ZoneOffset.UTC);
+        hotel.rating = 3.6;
+        hotel.address = new Address();
+        hotel.address.streetAddress = "677 5th Ave";
+        hotel.address.city = "New York";
+        hotel.address.stateProvince = "NY";
+        hotel.address.postalCode = "10022";
+        hotel.address.country = "USA";
+        hotelList.add(hotel);
+
+        hotel = new Hotel();
+        hotel.hotelId = "2";
+        hotel.hotelName = "Twin Dome Motel";
+        hotel.description = "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.";
+        hotel.descriptionFr = "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.";
+        hotel.category = "Boutique";
+        hotel.tags = new String[] { "pool", "free wifi", "concierge" };
+        hotel.parkingIncluded = false;
+        hotel.lastRenovationDate = OffsetDateTime.of(LocalDateTime.of(LocalDate.of(1979, 2, 18), LocalTime.of(0, 0)), ZoneOffset.UTC);
+        hotel.rating = 3.60;
+        hotel.address = new Address();
+        hotel.address.streetAddress = "140 University Town Center Dr";
+        hotel.address.city = "Sarasota";
+        hotel.address.stateProvince = "FL";
+        hotel.address.postalCode = "34243";
+        hotel.address.country = "USA";
+        hotelList.add(hotel);
+
+        hotel = new Hotel();
+        hotel.hotelId = "3";
+        hotel.hotelName = "Triple Landscape Hotel";
+        hotel.description = "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.";
+        hotel.descriptionFr = "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.";
+        hotel.category = "Resort and Spa";
+        hotel.tags = new String[] { "air conditioning", "bar", "continental breakfast" };
+        hotel.parkingIncluded = true;
+        hotel.lastRenovationDate = OffsetDateTime.of(LocalDateTime.of(LocalDate.of(2015, 9, 20), LocalTime.of(0, 0)), ZoneOffset.UTC);
+        hotel.rating = 4.80;
+        hotel.address = new Address();
+        hotel.address.streetAddress = "3393 Peachtree Rd";
+        hotel.address.city = "Atlanta";
+        hotel.address.stateProvince = "GA";
+        hotel.address.postalCode = "30326";
+        hotel.address.country = "USA";
+        hotelList.add(hotel);
+
+        hotel = new Hotel();
+        hotel.hotelId = "4";
+        hotel.hotelName = "Sublime Cliff Hotel";
+        hotel.description = "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.";
+        hotel.descriptionFr = "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.";
+        hotel.category = "Boutique";
+        hotel.tags = new String[] { "concierge", "view", "24-hour front desk service" };
+        hotel.parkingIncluded = true;
+        hotel.lastRenovationDate = OffsetDateTime.of(LocalDateTime.of(LocalDate.of(1960, 2, 06), LocalTime.of(0, 0)), ZoneOffset.UTC);
+        hotel.rating = 4.60;
+        hotel.address = new Address();
+        hotel.address.streetAddress = "7400 San Pedro Ave";
+        hotel.address.city = "San Antonio";
+        hotel.address.stateProvince = "TX";
+        hotel.address.postalCode = "78216";
+        hotel.address.country = "USA";
+        hotelList.add(hotel);
+
+        var batch = new IndexDocumentsBatch<Hotel>();
+        batch.addMergeOrUploadActions(hotelList);
+        try
         {
-          "name": "HotelId",
-          "type": "Edm.String",
-          "key": true,
-          "filterable": true
-        },
-        {
-          "name": "HotelName",
-          "type": "Edm.String",
-          "searchable": true,
-          "filterable": false,
-          "sortable": true,
-          "facetable": false
-        },
-        {
-          "name": "Description",
-          "type": "Edm.String",
-          "searchable": true,
-          "filterable": false,
-          "sortable": false,
-          "facetable": false,
-          "analyzer": "en.lucene"
-        },
-        {
-          "name": "Description_fr",
-          "type": "Edm.String",
-          "searchable": true,
-          "filterable": false,
-          "sortable": false,
-          "facetable": false,
-          "analyzer": "fr.lucene"
-        },
-        {
-          "name": "Category",
-          "type": "Edm.String",
-          "searchable": true,
-          "filterable": true,
-          "sortable": true,
-          "facetable": true
-        },
-        {
-          "name": "Tags",
-          "type": "Collection(Edm.String)",
-          "searchable": true,
-          "filterable": true,
-          "sortable": false,
-          "facetable": true
-        },
-        {
-          "name": "ParkingIncluded",
-          "type": "Edm.Boolean",
-          "filterable": true,
-          "sortable": true,
-          "facetable": true
-        },
-        {
-          "name": "LastRenovationDate",
-          "type": "Edm.DateTimeOffset",
-          "filterable": true,
-          "sortable": true,
-          "facetable": true
-        },
-        {
-          "name": "Rating",
-          "type": "Edm.Double",
-          "filterable": true,
-          "sortable": true,
-          "facetable": true
-        },
-        {
-          "name": "Address",
-          "type": "Edm.ComplexType",
-          "fields": [
-            {
-              "name": "StreetAddress",
-              "type": "Edm.String",
-              "filterable": false,
-              "sortable": false,
-              "facetable": false,
-              "searchable": true
-            },
-            {
-              "name": "City",
-              "type": "Edm.String",
-              "searchable": true,
-              "filterable": true,
-              "sortable": true,
-              "facetable": true
-            },
-            {
-              "name": "StateProvince",
-              "type": "Edm.String",
-              "searchable": true,
-              "filterable": true,
-              "sortable": true,
-              "facetable": true
-            },
-            {
-              "name": "PostalCode",
-              "type": "Edm.String",
-              "searchable": true,
-              "filterable": true,
-              "sortable": true,
-              "facetable": true
-            },
-            {
-              "name": "Country",
-              "type": "Edm.String",
-              "searchable": true,
-              "filterable": true,
-              "sortable": true,
-              "facetable": true
-            }
-          ]
+            searchClient.indexDocuments(batch);
         }
-      ]
-    }
-    ```
-
-    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Create Index (REST)](/rest/api/searchservice/create-index).
-    
-    The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md).
-
-1. Add the following code to the `SearchServiceClient` class. These methods build Azure Cognitive Search REST service URLs that create and delete an index, and that determine if an index exists. The methods also make the HTTP request.
-
-    ```java
-    public boolean indexExists() throws IOException, InterruptedException {
-        logMessage("\n Checking if index exists...");
-        var uri = buildURI(strFormatter -> strFormatter.format(
-                "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=*",
-                _serviceName,_indexName,_apiVersion));
-        var request = httpRequest(uri, _adminKey, "HEAD", "");
-        var response = sendRequest(request);
-        return isSuccessResponse(response);
-    }
-    
-    public boolean deleteIndex() throws IOException, InterruptedException {
-        logMessage("\n Deleting index...");
-        var uri = buildURI(strFormatter -> strFormatter.format(
-                "https://%s.search.windows.net/indexes/%s?api-version=%s",
-                _serviceName,_indexName,_apiVersion));
-        var request = httpRequest(uri, _adminKey, "DELETE", "*");
-        var response = sendRequest(request);
-        return isSuccessResponse(response);
-    }
-    
-    
-    public boolean createIndex(String indexDefinitionFile) throws IOException, InterruptedException {
-        logMessage("\n Creating index...");
-        //Build the search service URL
-        var uri = buildURI(strFormatter -> strFormatter.format(
-                "https://%s.search.windows.net/indexes/%s?api-version=%s",
-                _serviceName,_indexName,_apiVersion));
-        //Read in index definition file
-        var inputStream = SearchServiceClient.class.getResourceAsStream(indexDefinitionFile);
-        var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-        //Send HTTP PUT request to create the index in the search service
-        var request = httpRequest(uri, _adminKey, "PUT", indexDef);
-        var response = sendRequest(request);
-        return isSuccessResponse(response);
-    }
-    ```
-
-1. Uncomment the following code in the `App` class. This code deletes the "hotels-quickstart" index, if it exists, and creates a new index based on the index definition in the "index.json" file. 
-
-    A one-second pause is inserted after the index creation request. This pause ensures that the index is created before you upload documents.
-
-    ```java
-        if (client.indexExists()) { client.deleteIndex();}
-          client.createIndex("/service/index.json");
-          Thread.sleep(1000L); // wait a second to create the index
-    ```
-
-1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
-
-    As the code runs, look for a "Creating index" message followed by a 201 response code. This response code confirms that the index was created. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
-    
-## 2 - Load documents
-
-1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `service` folder, and add an `hotels.json` file. To do this, select the `app` folder, press Alt + Insert, select  **File**, and then enter the file name.
-1. Insert the following hotel documents into the file.
-
-    ```json
-    {
-      "value": [
+        catch (Exception e)
         {
-          "@search.action": "upload",
-          "HotelId": "1",
-          "HotelName": "Secret Point Motel",
-          "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
-          "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
-          "Category": "Boutique",
-          "Tags": [ "pool", "air conditioning", "concierge" ],
-          "ParkingIncluded": "false",
-          "LastRenovationDate": "1970-01-18T00:00:00Z",
-          "Rating": 3.60,
-          "Address": {
-            "StreetAddress": "677 5th Ave",
-            "City": "New York",
-            "StateProvince": "NY",
-            "PostalCode": "10022",
-            "Country": "USA"
-          }
-        },
-        {
-          "@search.action": "upload",
-          "HotelId": "2",
-          "HotelName": "Twin Dome Motel",
-          "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
-          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
-          "Category": "Boutique",
-          "Tags": [ "pool", "free wifi", "concierge" ],
-          "ParkingIncluded": "false",
-          "LastRenovationDate": "1979-02-18T00:00:00Z",
-          "Rating": 3.60,
-          "Address": {
-            "StreetAddress": "140 University Town Center Dr",
-            "City": "Sarasota",
-            "StateProvince": "FL",
-            "PostalCode": "34243",
-            "Country": "USA"
-          }
-        },
-        {
-          "@search.action": "upload",
-          "HotelId": "3",
-          "HotelName": "Triple Landscape Hotel",
-          "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
-          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
-          "Category": "Resort and Spa",
-          "Tags": [ "air conditioning", "bar", "continental breakfast" ],
-          "ParkingIncluded": "true",
-          "LastRenovationDate": "2015-09-20T00:00:00Z",
-          "Rating": 4.80,
-          "Address": {
-            "StreetAddress": "3393 Peachtree Rd",
-            "City": "Atlanta",
-            "StateProvince": "GA",
-            "PostalCode": "30326",
-            "Country": "USA"
-          }
-        },
-        {
-          "@search.action": "upload",
-          "HotelId": "4",
-          "HotelName": "Sublime Cliff Hotel",
-          "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
-          "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
-          "Category": "Boutique",
-          "Tags": [ "concierge", "view", "24-hour front desk service" ],
-          "ParkingIncluded": "true",
-          "LastRenovationDate": "1960-02-06T00:00:00Z",
-          "Rating": 4.60,
-          "Address": {
-            "StreetAddress": "7400 San Pedro Ave",
-            "City": "San Antonio",
-            "StateProvince": "TX",
-            "PostalCode": "78216",
-            "Country": "USA"
-          }
-        }
-      ]
-    }
-    ```
-
-1. Insert the following code into the `SearchServiceClient` class. This code builds the REST service URL to upload the hotel documents to the index, and then makes the HTTP POST request.
-
-    ```java
-    public boolean uploadDocuments(String documentsFile) throws IOException, InterruptedException {
-        logMessage("\n Uploading documents...");
-        //Build the search service URL
-        var endpoint = buildURI(strFormatter -> strFormatter.format(
-                "https://%s.search.windows.net/indexes/%s/docs/index?api-version=%s",
-                _serviceName,_indexName,_apiVersion));
-        //Read in the data to index
-        var inputStream = SearchServiceClient.class.getResourceAsStream(documentsFile);
-        var documents = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-        //Send HTTP POST request to upload and index the data
-        var request = httpRequest(endpoint, _adminKey, "POST", documents);
-        var response = sendRequest(request);
-        return isSuccessResponse(response);
-    }
-    ```
-
-1. Uncomment the following code in the `App` class. This code uploads the documents in "hotels.json" to the index.
-
-    ```java
-    client.uploadDocuments("/service/hotels.json");
-    Thread.sleep(2000L); // wait 2 seconds for data to upload
-    ```
-
-    A two-second pause is inserted after the upload request to ensure that the document loading process completes before you query the index.
-
-1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
-
-    Because you created a "hotels-quickstart" index in the previous step, the code will now delete it and recreate it again before loading the hotel documents.
-
-    As the code runs, look for an "Uploading documents" message followed by a 200 response code. This response code confirms that the documents were uploaded to the index. The run should end with a BUILD SUCCESS message and a zero (0) exit code.
-
-## 3 - Search an index
-
-Now that you've loaded the hotels documents, you can create search queries to access the hotels data.
-
-1. Add the following code to the `SearchServiceClient` class. This code builds Azure Cognitive Search REST service URLs to search the indexed data and prints the search results.
-
-    The `SearchOptions` class and `createSearchOptions` method let you specify a subset of the available Azure Cognitive Search REST API query options. For more information on the REST API query options, see [Search Documents (Azure Cognitive Search REST API)](/rest/api/searchservice/search-documents).
-
-    The `SearchPlus` method creates the search query URL, makes the search request, and then prints the results to the console. 
-
-    ```java
-    public SearchOptions createSearchOptions() { return new SearchOptions();}
-
-    //Defines available search parameters that can be set
-    public static class SearchOptions {
-
-        public String select = "";
-        public String filter = "";
-        public int top = 0;
-        public String orderby= "";
-    }
-
-    //Concatenates search parameters to append to the search request
-    private String createOptionsString(SearchOptions options)
-    {
-        String optionsString = "";
-        if (options != null) {
-            if (options.select != "")
-                optionsString = optionsString + "&$select=" + options.select;
-            if (options.filter != "")
-                optionsString = optionsString + "&$filter=" + options.filter;
-            if (options.top != 0)
-                optionsString = optionsString + "&$top=" + options.top;
-            if (options.orderby != "")
-                optionsString = optionsString + "&$orderby=" +options.orderby;
-        }
-        return optionsString;
-    }
-    
-    public void searchPlus(String queryString)
-    {
-        searchPlus( queryString, null);
-    }
-    
-    public void searchPlus(String queryString, SearchOptions options) {
-    
-        try {
-            String optionsString = createOptionsString(options);
-            var uri = buildURI(strFormatter -> strFormatter.format(
-                    "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=%s%s",
-                    _serviceName, _indexName, _apiVersion, queryString, optionsString));
-            var request = httpRequest(uri, _queryKey, "GET", null);
-            var response = sendRequest(request);
-            var jsonReader = Json.createReader(new StringReader(response.body()));
-            var jsonArray = jsonReader.readObject().getJsonArray("value");
-            var resultsCount = jsonArray.size();
-            logMessage("Results:\nCount: " + resultsCount);
-            for (int i = 0; i <= resultsCount - 1; i++) {
-                logMessage(jsonArray.get(i).toString());
-            }
-    
-            jsonReader.close();
-    
-        }
-        catch (Exception e) {
             e.printStackTrace();
+            // If for some reason any documents are dropped during indexing, you can compensate by delaying and
+            // retrying. This simple demo just logs failure and continues
+            System.err.println("Failed to index some of the documents");
         }
-    
     }
     ```
 
-1. In the `App` class, uncomment the following code. This code sets up five different queries, including the search text, query parameters, and data fields to return. 
+Once you initialize the `IndexDocumentsBatch` object, you can send it to the index by calling [indexDocuments](/java/api/com.azure.search.documents.searchclient#com-azure-search-documents-searchclient-indexdocuments(com-azure-search-documents-indexes-models-indexdocumentsbatch(-))) on your `SearchClient` object.
+
+1. Add the following lines to `Main()`. Loading documents is done using `SearchClient`.
 
     ```java
-    // Query 1
-    client.logMessage("\n*QUERY 1****************************************************************");
-    client.logMessage("Search for: Atlanta");
-    client.logMessage("Return: All fields'");
-    client.searchPlus("Atlanta");
-
-    // Query 2
-    client.logMessage("\n*QUERY 2****************************************************************");
-    client.logMessage("Search for: Atlanta");
-    client.logMessage("Return: HotelName, Tags, Address");
-    SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
-    options2.select = "HotelName,Tags,Address";
-    client.searchPlus("Atlanta", options2);
-
-    //Query 3
-    client.logMessage("\n*QUERY 3****************************************************************");
-    client.logMessage("Search for: wifi & restaurant");
-    client.logMessage("Return: HotelName, Description, Tags");
-    SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
-    options3.select = "HotelName,Description,Tags";
-    client.searchPlus("wifi,restaurant", options3);
-
-    // Query 4 -filtered query
-    client.logMessage("\n*QUERY 4****************************************************************");
-    client.logMessage("Search for: all");
-    client.logMessage("Filter: Ratings greater than 4");
-    client.logMessage("Return: HotelName, Rating");
-    SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
-    options4.filter="Rating%20gt%204";
-    options4.select = "HotelName,Rating";
-    client.searchPlus("*",options4);
-
-    // Query 5 - top 2 results, ordered by
-    client.logMessage("\n*QUERY 5****************************************************************");
-    client.logMessage("Search for: boutique");
-    client.logMessage("Get: Top 2 results");
-    client.logMessage("Order by: Rating in descending order");
-    client.logMessage("Return: HotelId, HotelName, Category, Rating");
-    SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
-    options5.top=2;
-    options5.orderby = "Rating%20desc";
-    options5.select = "HotelId,HotelName,Category,Rating";
-    client.searchPlus("boutique", options5);
+    // Upload sample hotel documents to the Search Index
+    uploadDocuments(searchClient);
     ```
 
+1. Because this is a console app that runs all commands sequentially, add a 2-second wait time between indexing and queries.
 
+    ```java
+    // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
+    System.out.println("Waiting for indexing...\n");
+    try
+    {
+        Thread.sleep(2000);
+    }
+    catch (InterruptedException e)
+    {
+    }
+    ```
 
-    There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
+The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
-1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
+### 3 - Search an index
 
-    Look for a summary of each query and its results. The run should complete with BUILD SUCCESS message and a zero (0) exit code.
+You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed.
+
+This section adds two pieces of functionality: query logic, and results. For queries, use the Search method. This method takes search text (the query string) and other options.
+
+1. In **App.java**, create a WriteDocuments method that prints search results to the console.
+
+    ```java
+    // Write search results to console
+    private static void WriteSearchResults(SearchPagedIterable searchResults)
+    {
+        searchResults.iterator().forEachRemaining(result ->
+        {
+            Hotel hotel = result.getDocument(Hotel.class);
+            System.out.println(hotel);
+        });
+
+        System.out.println();
+    }
+
+    // Write autocomplete results to console
+    private static void WriteAutocompleteResults(AutocompletePagedIterable autocompleteResults)
+    {
+        autocompleteResults.iterator().forEachRemaining(result ->
+        {
+            String text = result.getText();
+            System.out.println(text);
+        });
+
+        System.out.println();
+    }
+    ```
+
+1. Create a `RunQueries` method to execute queries and return results. Results are `Hotel` objects. This sample shows the method signature and the first query. This query demonstrates the `Select` parameter that lets you compose the result using selected fields from the document.
+
+    ```java
+    // Run queries, use WriteDocuments to print output
+    private static void RunQueries(SearchClient searchClient)
+    {
+        // Query 1
+        System.out.println("Query #1: Search on empty term '*' to return all documents, showing a subset of fields...\n");
+
+        SearchOptions options = new SearchOptions();
+        options.setIncludeTotalCount(true);
+        options.setFilter("");
+        options.setOrderBy("");
+        options.setSelect("HotelId", "HotelName", "Address/City");
+
+        WriteSearchResults(searchClient.search("*", options, Context.NONE));
+    }
+    ```
+
+1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over `isFilterable` fields in an index. Filter queries either include or exclude values. As such, there's no relevance score associated with a filter query.
+
+    ```java
+    // Query 2
+    System.out.println("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");
+
+    options = new SearchOptions();
+    options.setFilter("Rating gt 4");
+    options.setOrderBy("Rating desc");
+    options.setSelect("HotelId", "HotelName", "Rating");
+
+    WriteSearchResults(searchClient.search("hotels", options, Context.NONE));
+    ```
+
+1. The third query demonstrates `searchFields`, used to scope a full text search operation to specific fields.
+
+    ```java
+    // Query 3
+    System.out.println("Query #3: Limit search to specific fields (pool in Tags field)...\n");
+
+    options = new SearchOptions();
+    options.setSearchFields("Tags");
+
+    options.setSelect("HotelId", "HotelName", "Tags");
+
+    WriteSearchResults(searchClient.search("pool", options, Context.NONE));
+    ```
+
+1. The fourth query demonstrates facets, which can be used to structure a faceted navigation structure.
+
+    ```java
+    // Query 4
+    System.out.println("Query #4: Facet on 'Category'...\n");
+
+    options = new SearchOptions();
+    options.setFilter("");
+    options.setFacets("Category");
+    options.setSelect("HotelId", "HotelName", "Category");
+
+    WriteSearchResults(searchClient.search("*", options, Context.NONE));
+    ```
+
+1. In the fifth query, return a specific document.
+
+    ```java
+    // Query 5
+    System.out.println("Query #5: Look up a specific document...\n");
+
+    Hotel lookupResponse = searchClient.getDocument("3", Hotel.class);
+    System.out.println(lookupResponse.hotelId);
+    System.out.println();
+    ```
+
+1. The last query shows the syntax for autocomplete, simulating a partial user input of "s" that resolves to two possible matches in the `sourceFields` associated with the suggester you defined in the index.
+
+    ```java
+    // Query 6
+    System.out.println("Query #6: Call Autocomplete on HotelName that starts with 's'...\n");
+
+    WriteAutocompleteResults(searchClient.autocomplete("s", "sg"));
+    ```
+
+1. Add RunQueries to Main().
+
+    ```java
+    // Call the RunQueries method to invoke a series of queries
+    System.out.println("Starting queries...\n");
+    RunQueries(searchClient);
+
+    // End the program
+    System.out.println("Complete.\n");
+    ```
+
+The previous queries show multiple ways of matching terms in a query: full-text search, filters, and autocomplete.
+
+Full text search and filters are performed using the [SearchClient.search](/java/api/com.azure.search.documents.searchclient#com-azure-search-documents-searchclient-search(java-lang-string)) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the `filter` property of the [SearchOptions](/java/api/com.azure.search.documents.models.searchoptions) class. To filter without searching, just pass "*" for the `searchText` parameter of the `search` method. To search without filtering, leave the `filter` property unset, or don't pass in a `SearchOptions` instance at all.
+
+## Run the program
+
+Press F5 to rebuild the app and run the program in its entirety.
+
+Output includes messages from System.out.println, with the addition of query information and results.
 
 ## Clean up resources
 
-When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
-## Next steps
+## Next Steps
 
-In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following article that lists indexer operations in REST.
+In this Java quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try the next tutorial to call Cognitive Search APIs in the context of a web app.
 
 > [!div class="nextstepaction"]
-> [Indexer operations](/rest/api/searchservice/indexer-operations)
+> [Tutorial: Add search to web apps](tutorial-csharp-overview.md)

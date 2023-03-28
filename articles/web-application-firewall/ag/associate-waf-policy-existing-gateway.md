@@ -5,6 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
+ms.custom: devx-track-azurepowershell
 ms.date: 10/25/2019
 ms.author: victorh
 ---

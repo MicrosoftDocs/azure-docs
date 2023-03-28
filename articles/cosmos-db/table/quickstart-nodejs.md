@@ -418,7 +418,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run a Node.js app to add table data.  Now you can query your data using the API for Table.  
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the API for Table.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the API for Table](import.md)
+> [Query Azure Cosmos DB by using the API for Table](tutorial-query.md)

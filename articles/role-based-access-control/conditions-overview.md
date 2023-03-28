@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/24/2022
+ms.date: 01/19/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -107,7 +107,6 @@ Some features of conditions are still in preview. The following table lists the 
 | Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
 | Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
-| Use resource and request attributes in a condition | Preview | May 2021 |
 
 ## Conditions and Azure AD PIM
 

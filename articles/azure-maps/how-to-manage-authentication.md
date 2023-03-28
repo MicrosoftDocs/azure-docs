@@ -2,8 +2,8 @@
 title: Manage authentication in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/3/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -156,7 +156,7 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 6. Regenerate the secondary key in the same manner.
 
 > [!WARNING]
-> We recommend using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you won't be able to rotate your keys without some applications losing access.
+> We recommend using the same key in all your applications. If you use the primary key in some places and the secondary key in others, you won't be able to rotate your keys without some applications losing access.
 
 ## Next steps
 

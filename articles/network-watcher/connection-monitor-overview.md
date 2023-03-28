@@ -1,23 +1,20 @@
 ---
-title: Connection Monitor in Azure | Microsoft Docs
-description: Learn how to use Connection Monitor to monitor network communication in a distributed environment.
+title: Connection monitor
+titleSuffix: Azure Network Watcher
+description: Learn how to use Azure Network Watcher connection monitor to monitor network communication in a distributed environment.
 services: network-watcher
-documentationcenter: na
-author: vinynigam
-manager: agummadi
-editor: ''
+author: halkazwini
 tags: azure-resource-manager
-
 ms.service: network-watcher
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/04/2021
-ms.author: vinigam
-ms.custom: mvc
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 10/04/2022
+ms.author: halkazwini
+ms.custom: mvc, engagement-fy23
 #Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
-# Monitor network connectivity by using Connection Monitor
+
+# Azure Network Watcher connection monitor
 
 > [!IMPORTANT]
 > As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection Monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
@@ -38,7 +35,7 @@ Here are some use cases for Connection Monitor:
 - You want to check the connectivity between your on-premises setups and the Azure VMs/virtual machine scale sets that host your cloud application.
 - You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or Non-Azure multi-tier application. 
 
-Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor [Service Connectivity Monitor](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) feature.
+Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor [Service Connectivity Monitor](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
 
 Here are some benefits of Connection Monitor:
 

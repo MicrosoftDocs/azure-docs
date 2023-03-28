@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 03/30/2023
 ---
 
 # Index data from Azure Blob Storage
@@ -32,7 +32,7 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
   By default, both search and storage accept requests from public IP addresses. If network security isn't an immediate concern, you can index blob data using just the connection string and read permissions. When you're ready to add network protections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for guidance about data access.
 
-+ A REST client, such as [Postman](search-get-started-rest.md), to make the requests described in this article. 
++ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
 
 <a name="SupportedFormats"></a>
 
@@ -189,7 +189,7 @@ Once the index and data source have been created, you're ready to create the ind
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-      "name" : "my-blob-indexer,
+      "name" : "my-blob-indexer",
       "dataSourceName" : "my-blob-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
@@ -197,7 +197,7 @@ Once the index and data source have been created, you're ready to create the ind
           "maxFailedItems": null,
           "maxFailedItemsPerBatch": null,
           "base64EncodeKeys": null,
-          "configuration:" {
+          "configuration": {
               "indexedFileNameExtensions" : ".pdf,.docx",
               "excludedFileNameExtensions" : ".png,.jpeg",
               "dataToExtract": "contentAndMetadata",

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure getAbstract for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure getAbstract for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure Active Directory to getAbstract.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

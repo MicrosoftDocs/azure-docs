@@ -2,7 +2,7 @@
 title: Understand your OT network architecture - Microsoft Defender for IoT
 description: Describes the Purdue reference module in relation to Microsoft Defender for IoT to help you understand more about your own OT network architecture.
 ms.date: 06/02/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Understand your OT network architecture

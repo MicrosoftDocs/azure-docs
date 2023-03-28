@@ -1,7 +1,6 @@
 ---
 title: Azure Kubernetes Service support and help options 
 description: How to obtain help and support for questions or problems when you create solutions using Azure Kubernetes Service. 
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 10/18/2022
 ms.custom: support-help-page
@@ -36,7 +35,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Azure RBAC](../role-based-access-control/overview.md) | [azure-rbac](/answers/topics/azure-rbac.html)|
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | [azure-active-directory](/answers/topics/azure-active-directory.html)|
 | [Azure Policy](../governance/policy/overview.md) | [azure-policy](/answers/topics/azure-policy.html)|
-| [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [virtual-machine-scale-sets](/answers/topics/azure-virtual-machine-scale-sets.html)|
+| [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [virtual-machine-scale-sets](/answers/topics/123/azure-virtual-machines-scale-set.html)|
 | [Azure Virtual Network](../virtual-network/network-overview.md) | [azure-virtual-network](/answers/topics/azure-virtual-network.html)|
 | [Azure Application Gateway](../application-gateway/overview.md) | [azure-application-gateway](/answers/topics/azure-application-gateway.html)|
 | [Azure Virtual Machines](../virtual-machines/linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) |

@@ -1,20 +1,22 @@
 ---
-title: Delete and restore a blob with .NET - Azure Storage
+title: Delete and restore a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
 author: pauljewellmsft
+
 ms.author: pauljewell
-ms.date: 03/28/2022
+ms.date: 02/16/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Delete and restore a blob in your Azure Storage account using the .NET client library
+# Delete and restore a blob with .NET
 
-This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled blob soft delete, you can restore deleted blobs.
+This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
 ## Delete a blob
 
@@ -113,9 +115,88 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
 }
 ```
 
-## See also
+## Restore soft-deleted blobs and directories (hierarchical namespace)
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+> [!IMPORTANT]
+> This section applies only to accounts that have a hierarchical namespace.
+
+1. Open a command prompt and change directory (`cd`) into your project folder For example:
+
+   ```console
+   cd myProject
+   ```
+
+2. Install the `Azure.Storage.Files.DataLake -v 12.7.0` version or greater of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package by using the `dotnet add package` command.
+
+   ```console
+   dotnet add package Azure.Storage.Files.DataLake -v -v 12.7.0 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
+   ```
+
+3. Then, add these using statements to the top of your code file.
+
+    ```csharp
+    using Azure;
+    using Azure.Storage;
+    using Azure.Storage.Files.DataLake;
+    using Azure.Storage.Files.DataLake.Models;
+    using NUnit.Framework;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    ```
+
+4. The following code deletes a directory, and then restores a soft-deleted directory.
+
+   This method assumes that you've created a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance. To learn how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
+
+   ```csharp
+      public void RestoreDirectory(DataLakeServiceClient serviceClient)
+      {
+          DataLakeFileSystemClient fileSystemClient =
+             serviceClient.GetFileSystemClient("my-container");
+
+          DataLakeDirectoryClient directory =
+              fileSystem.GetDirectoryClient("my-directory");
+
+          // Delete the Directory
+          await directory.DeleteAsync();
+
+          // List Deleted Paths
+          List<PathHierarchyDeletedItem> deletedItems = new List<PathHierarchyDeletedItem>();
+          await foreach (PathHierarchyDeletedItem deletedItem in fileSystemClient.GetDeletedPathsAsync())
+          {
+            deletedItems.Add(deletedItem);
+          }
+
+          Assert.AreEqual(1, deletedItems.Count);
+          Assert.AreEqual("my-directory", deletedItems[0].Path.Name);
+          Assert.IsTrue(deletedItems[0].IsPath);
+
+          // Restore deleted directory.
+          Response<DataLakePathClient> restoreResponse = await fileSystemClient.RestorePathAsync(
+          deletedItems[0].Path.Name,
+          deletedItems[0].Path.DeletionId);
+
+      }
+
+   ```
+
+   If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you'll have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you'll receive an error when you attempt to restore those soft-deleted items.
+
+## Resources
+
+To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for deleting blobs and restoring deleted blobs use the following REST API operations:
+
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
-- [Soft delete for blobs](soft-delete-blob-overview.md)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
+- [Soft delete for blobs](soft-delete-blob-overview.md)
+- [Blob versioning](versioning-overview.md)

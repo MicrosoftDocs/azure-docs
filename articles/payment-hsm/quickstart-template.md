@@ -8,7 +8,7 @@ ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: payment-hsm
 tags: azure-resource-manager
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.custom: mvc, mode-other
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
 
@@ -43,7 +43,7 @@ This article describes how to create a payment HSM with the host and management 
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure OfficeSpace Software for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure OfficeSpace Software for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to OfficeSpace Software.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -20,7 +20,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Of
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -45,7 +44,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Set up OfficeSpace Software for provisioning
 
-1. Sign in to your [OfficeSpace Software Admin Console](https://support.officespacesoftware.com/hc). Navigate to **Settings > Connectors**.
+1. Sign in to your [OfficeSpace Software Admin Console](https://support.officespacesoftware.com/s/). Navigate to **Settings > Connectors**.
 
 	![OfficeSpace Software Admin Console](media/officespace-software-provisioning-tutorial/settings.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Synchronize with Azure Blob storage by using AzCopy v10 | Microsoft Docs
+title: Synchronize with Azure Blob storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you synchronize with Azure Blob storage. 
 author: normesta
 ms.service: storage

@@ -7,7 +7,6 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/19/2022
 ms.author: greglin
-ms.custom: devx-track-azurepowershell
 ---
 
 # HTTP response codes in Application Gateway
@@ -97,9 +96,9 @@ HTTP 502 errors can have several root causes, for example:
 
 For information about scenarios where 502 errors occur, and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
 
-#### 504 – Request timeout
+#### 504 – Gateway timeout
 
-HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response time exceeds the time-out value associated to the listener's rule. This value is defined in the HTTP setting.
+HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response time exceeds the time-out value configured in the Backend Setting.
 
 ## Next steps
 

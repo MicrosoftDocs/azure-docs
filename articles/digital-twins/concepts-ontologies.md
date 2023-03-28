@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: digital-twins
+ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -19,7 +20,7 @@ ms.service: digital-twins
 
 This article describes the concept of industry ontologies and how they can be used within the context of Azure Digital Twins.
 
-The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models for a given domain, like building structures, IoT systems, smart cities, energy grids, web content, and more.
+The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models for a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
 Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. This article explains more about using pre-existing industry ontologies for your Azure Digital Twins scenarios, including strategies for using the ontologies that are available today.
 
@@ -29,7 +30,7 @@ Ontologies provide a great starting point for digital twin solutions. They encom
 
 Also, using these ontologies in your solutions can set them up for more seamless integration between different partners and vendors, because ontologies can provide a common vocabulary across solutions.
 
-Because models in Azure Digital Twins are represented in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), ontologies for use with Azure Digital Twins are also written in DTDL. 
+Because models in Azure Digital Twins are represented in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md), ontologies for use with Azure Digital Twins are also written in DTDL. 
 
 Here are some other benefits to using industry-standard DTDL ontologies as schemas for your twin graphs:
 * Harmonization of software components, documentation, query libraries, and more

@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Table storage | Microsoft Docs
+title: Monitoring Azure Table storage
 description: Learn how to monitor the performance and availability of Azure Table storage. Monitor Azure Table storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
@@ -9,7 +9,7 @@ ms.date: 10/06/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: csharp
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Table storage

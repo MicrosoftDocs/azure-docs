@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure File Sync agent installation and server registration | Microsoft Docs
+title: Troubleshoot Azure File Sync agent installation and server registration
 description: Troubleshoot common issues with installing the Azure File Sync agent and registering Windows Server with the Storage Sync Service. 
 author: khdownie
 ms.service: storage
@@ -7,7 +7,6 @@ ms.topic: troubleshooting
 ms.date: 7/28/2022
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure File Sync agent installation and server registration
@@ -111,5 +110,4 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 - [Troubleshoot Azure File Sync sync errors](file-sync-troubleshoot-sync-errors.md)
 - [Troubleshoot Azure File Sync cloud tiering](file-sync-troubleshoot-cloud-tiering.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure Files problems in Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files problems in Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files problems](../files/files-troubleshoot.md)

@@ -9,7 +9,7 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 10/12/2022
+  ms.date: 02/08/2023
 title: Cognitive Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
@@ -19,7 +19,17 @@ sections:
       - question: |
           What is Azure Cognitive Search?
         answer: | 
-          Azure Cognitive Search is a service on Azure that provides a dedicated search engine and persistent storage of your searchable content for full text search scenarios. It includes integrated AI used during indexing to extract more text and structure from raw content. It provides APIs and tools for integration and all search-related operations, including rich support in Azure portal for configuring and using most search features.
+          Azure Cognitive Search is a service on Azure that provides a dedicated search engine and persistent storage of your searchable content for full text search scenarios. It also includes optional, integrated AI used during indexing to extract more text and structure from raw content.
+
+      - question: |
+          Does Cognitive Search support vector search?
+        answer: |
+          No. Currently, Cognitive Search runs on a version of Apache Lucene that doesn't support vector search.
+
+      - question: |
+          How do I work with Cognitive Search?
+        answer: | 
+          The primary workflow is create, load, and query an index. Although you can use the portal for most tasks, Cognitive Search is intended to be used programmatically, handling requests from client code. Programmatic support is provided through REST APIs and client libraries in .NET, Python, Java, and JavaScript SDKs for Azure.
 
       - question: |
           Are "Azure Search" and "Azure Cognitive Search" the same service?

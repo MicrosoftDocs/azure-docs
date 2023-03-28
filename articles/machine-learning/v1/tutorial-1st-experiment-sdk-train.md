@@ -10,7 +10,7 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/29/2022
-ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Train your first machine learning model (SDK v1, part 2 of 3)
@@ -164,7 +164,7 @@ First you'll create a file with the package dependencies.
         - defaults
         - pytorch
     dependencies:
-        - python=3.6.2
+        - python=3.7
         - pytorch
         - torchvision
     ```
@@ -357,7 +357,7 @@ channels:
     - defaults
     - pytorch
 dependencies:
-    - python=3.6.2
+    - python=3.7
     - pytorch
     - torchvision
     - pip
