@@ -42,11 +42,11 @@ Create an AKS cluster that can use ultra disks by enabling the `EnableUltraSSD` 
 
 You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks.
 
-Configure a new node pool to use ultra disks using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--enable-ultra-ssd` flag.
+- Configure a new node pool to use ultra disks using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--enable-ultra-ssd` flag.
 
-```azurecli
-az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
-```
+    ```azurecli
+    az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
+    ```
 
 ## Use ultra disks dynamically with a storage class
 
