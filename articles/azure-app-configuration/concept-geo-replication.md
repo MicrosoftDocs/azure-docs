@@ -1,5 +1,5 @@
 ---
-title: Geo-replication in Azure App Configuration (Preview)
+title: Geo-replication in Azure App Configuration
 description: Details of the geo-replication feature in Azure App Configuration. 
 author: maud-lv
 ms.author: malev
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/01/2022
 ---
 
-# Geo-replication overview (Preview)
+# Geo-replication overview
 
 For application developers and IT engineers, a common goal is to build and run resilient applications. Resiliency is defined as the ability of your application to react to failure and still remain functional. To achieve resilience in the face of regional failures in the cloud, the first step is to build in redundancy to avoid a single point of failure. This redundancy can be achieved with geo-replication.
 
