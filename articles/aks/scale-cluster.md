@@ -2,7 +2,7 @@
 title: Scale an Azure Kubernetes Service (AKS) cluster
 description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 06/29/2022
+ms.date: 03/27/2023
 ---
 
 # Scale the node count in an Azure Kubernetes Service (AKS) cluster
@@ -16,110 +16,110 @@ If the resource needs of your applications change, your cluster performance may 
 
 ### [Azure CLI](#tab/azure-cli)
 
-First, get the *name* of your node pool using the [az aks show][az-aks-show] command. The following example gets the node pool name for the cluster named *myAKSCluster* in the *myResourceGroup* resource group:
+1. Get the *name* of your node pool using the [`az aks show`][az-aks-show] command. The following example gets the node pool name for the cluster named *myAKSCluster* in the *myResourceGroup* resource group:
 
-```azurecli-interactive
-az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
-```
+    ```azurecli-interactive
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
+    ```
 
-The following example output shows that the *name* is *nodepool1*:
+    The following example output shows that the *name* is *nodepool1*:
 
-```output
-[
-  {
-    "count": 1,
-    "maxPods": 110,
-    "name": "nodepool1",
-    "osDiskSizeGb": 30,
-    "osType": "Linux",
-    "storageProfile": "ManagedDisks",
-    "vmSize": "Standard_DS2_v2"
-  }
-]
-```
+    ```output
+    [
+      {
+        "count": 1,
+        "maxPods": 110,
+        "name": "nodepool1",
+        "osDiskSizeGb": 30,
+        "osType": "Linux",
+        "storageProfile": "ManagedDisks",
+        "vmSize": "Standard_DS2_v2"
+      }
+    ]
+    ```
 
-Use the [az aks scale][az-aks-scale] command to scale the cluster nodes. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own `--nodepool-name` from the previous command, such as *nodepool1*:
+2. Scale the cluster nodes using the [`az aks scale`][az-aks-scale] command. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own `--nodepool-name` from the previous command, such as *nodepool1*:
 
-```azurecli-interactive
-az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
-```
+    ```azurecli-interactive
+    az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
+    ```
 
-The following example output shows the cluster has successfully scaled to one node, as shown in the *agentPoolProfiles* section:
+    The following example output shows the cluster has successfully scaled to one node, as shown in the *agentPoolProfiles* section:
 
-```json
-{
-  "aadProfile": null,
-  "addonProfiles": null,
-  "agentPoolProfiles": [
+    ```json
     {
-      "count": 1,
-      "maxPods": 110,
-      "name": "nodepool1",
-      "osDiskSizeGb": 30,
-      "osType": "Linux",
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS2_v2",
-      "vnetSubnetId": null
+      "aadProfile": null,
+      "addonProfiles": null,
+      "agentPoolProfiles": [
+        {
+          "count": 1,
+          "maxPods": 110,
+          "name": "nodepool1",
+          "osDiskSizeGb": 30,
+          "osType": "Linux",
+          "storageProfile": "ManagedDisks",
+          "vmSize": "Standard_DS2_v2",
+          "vnetSubnetId": null
+        }
+      ],
+      [...]
     }
-  ],
-  [...]
-}
-```
+    ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-First, get the *name* of your node pool using the [Get-AzAksCluster][get-azakscluster] command. The following example gets the node pool name for the cluster named *myAKSCluster* in the *myResourceGroup* resource group:
+1. Get the *name* of your node pool using the [`Get-AzAksCluster`][get-azakscluster] command. The following example gets the node pool name for the cluster named *myAKSCluster* in the *myResourceGroup* resource group:
 
-```azurepowershell-interactive
-Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster |
- Select-Object -ExpandProperty AgentPoolProfiles
-```
+    ```azurepowershell-interactive
+    Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster |
+     Select-Object -ExpandProperty AgentPoolProfiles
+    ```
 
-The following example output shows that the *name* is *nodepool1*:
+    The following example output shows that the *name* is *nodepool1*:
 
-```Output
-Name                   : nodepool1
-Count                  : 1
-VmSize                 : Standard_D2_v2
-OsDiskSizeGB           : 128
-VnetSubnetID           :
-MaxPods                : 30
-OsType                 : Linux
-MaxCount               :
-MinCount               :
-Mode                   : System
-EnableAutoScaling      :
-Type                   : VirtualMachineScaleSets
-OrchestratorVersion    : 1.23.3
-ProvisioningState      : Succeeded
-...
-```
+    ```output
+    Name                   : nodepool1
+    Count                  : 1
+    VmSize                 : Standard_D2_v2
+    OsDiskSizeGB           : 128
+    VnetSubnetID           :
+    MaxPods                : 30
+    OsType                 : Linux
+    MaxCount               :
+    MinCount               :
+    Mode                   : System
+    EnableAutoScaling      :
+    Type                   : VirtualMachineScaleSets
+    OrchestratorVersion    : 1.23.3
+    ProvisioningState      : Succeeded
+    ...
+    ```
 
-Use the [Set-AzAksCluster][set-azakscluster] command to scale the cluster nodes. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own `-NodeName` from the previous command, such as *nodepool1*:
+2. Scale the cluster nodes using the [Set-AzAksCluster][set-azakscluster] command. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own `-NodeName` from the previous command, such as *nodepool1*:
 
-```azurepowershell-interactive
-Set-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -NodeName <your node pool name>
-```
+    ```azurepowershell-interactive
+    Set-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -NodeName <your node pool name>
+    ```
 
-The following example output shows the cluster has successfully scaled to one node, as shown in the *AgentPoolProfiles* property:
+    The following example output shows the cluster has successfully scaled to one node, as shown in the *AgentPoolProfiles* property:
 
-```Output
-Name                   : nodepool1
-Count                  : 1
-VmSize                 : Standard_D2_v2
-OsDiskSizeGB           : 128
-VnetSubnetID           :
-MaxPods                : 30
-OsType                 : Linux
-MaxCount               :
-MinCount               :
-Mode                   : System
-EnableAutoScaling      :
-Type                   : VirtualMachineScaleSets
-OrchestratorVersion    : 1.23.3
-ProvisioningState      : Succeeded
-...
-```
+    ```output
+    Name                   : nodepool1
+    Count                  : 1
+    VmSize                 : Standard_D2_v2
+    OsDiskSizeGB           : 128
+    VnetSubnetID           :
+    MaxPods                : 30
+    OsType                 : Linux
+    MaxCount               :
+    MinCount               :
+    Mode                   : System
+    EnableAutoScaling      :
+    Type                   : VirtualMachineScaleSets
+    OrchestratorVersion    : 1.23.3
+    ProvisioningState      : Succeeded
+    ...
+    ```
 
 ---
 
@@ -129,23 +129,23 @@ Unlike `System` node pools that always require running nodes, `User` node pools 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepool-scale] in alternative to the above `az aks scale` command, and set 0 as your node count.
+* To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepool-scale] in alternative to the above `az aks scale` command, and set 0 as your node count.
 
-```azurecli-interactive
-az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
-```
+    ```azurecli-interactive
+    az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+    ```
 
-You can also autoscale `User` node pools to 0 nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
+* You can also autoscale `User` node pools to 0 nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To scale a user pool to 0, you can use the [Update-AzAksNodePool][update-azaksnodepool] in alternative to the above `Set-AzAksCluster` command, and set 0 as your node count.
+* To scale a user pool to 0, you can use the [Update-AzAksNodePool][update-azaksnodepool] in alternative to the above `Set-AzAksCluster` command, and set 0 as your node count.
 
-```azurepowershell-interactive
-Update-AzAksNodePool -Name <your node pool name> -ClusterName myAKSCluster -ResourceGroupName myResourceGroup -NodeCount 0
-```
+    ```azurepowershell-interactive
+    Update-AzAksNodePool -Name <your node pool name> -ClusterName myAKSCluster -ResourceGroupName myResourceGroup -NodeCount 0
+    ```
 
-You can also autoscale `User` node pools to 0 nodes, by setting the `-NodeMinCount` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
+* You can also autoscale `User` node pools to 0 nodes, by setting the `-NodeMinCount` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
 
 ---
 
@@ -157,7 +157,6 @@ In this article, you manually scaled an AKS cluster to increase or decrease the 
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 
 <!-- LINKS - internal -->
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [get-azakscluster]: /powershell/module/az.aks/get-azakscluster
 [az-aks-scale]: /cli/azure/aks#az_aks_scale

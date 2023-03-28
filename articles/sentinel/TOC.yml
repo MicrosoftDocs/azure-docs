@@ -531,8 +531,6 @@
         href: data-connectors/microsoft-defender-for-iot.md
       - name: Microsoft Defender for Office 365
         href: data-connectors/microsoft-defender-for-office-365.md
-      - name: Microsoft Defender Threat Intelligence (Preview)
-        href: data-connectors/microsoft-defender-threat-intelligence.md
       - name: Microsoft PowerBI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
@@ -747,6 +745,8 @@
         href: connect-custom-logs.md
       - name: DNS via AMA
         href: connect-dns-ama.md
+      - name: GCP audit logs
+        href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
