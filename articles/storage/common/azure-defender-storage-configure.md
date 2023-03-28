@@ -121,9 +121,6 @@ If you want to disable the plan, toggle the status button to **Off** for the Sto
 
 ### Enable and configure at scale with an Azure built-in policy 
 
-> [!NOTE] 
-> The built-in policies of the new plan will be available on April 1st. 
-
 To enable and configure Defender for Storage at scale with an Azure built-in policy to ensure that consistent security policies are applied across all existing and new storage accounts within the subscriptions, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to the Policy dashboard.
