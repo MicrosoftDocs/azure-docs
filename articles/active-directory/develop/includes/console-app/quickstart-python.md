@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/10/2022
+ms.date: 03/28/2023
 ms.author: owenrichards
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-started", "languages:Python", mode-other
@@ -74,7 +74,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-If you are a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+If you're a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 
 ##### Standard user
