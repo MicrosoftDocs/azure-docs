@@ -2,8 +2,6 @@
 title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
 ms.date: 1/9/2023
 ms.custom: references_region, devx-track-azurepowershell
 ms.reviewer: shseth

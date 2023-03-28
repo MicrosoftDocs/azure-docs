@@ -796,12 +796,6 @@
         items:
         - name: Configure Rolling deployment strategy
           href: ./linux/tutorial-devops-azure-pipelines-classic.md
-        - name: Configure Canary deployment strategy
-          href: ./linux/tutorial-azure-devops-canary-strategy.md
-        - name: Configure Blue-Green deployment strategy
-          href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-        - name: CI/CD with Azure Pipelines(YAML)
-          href: ./linux/tutorial-build-deploy-azure-pipelines.md
       - name: Secure web server with TLS\SSL
         href: ./linux/tutorial-secure-web-server.md
     - name: Windows
