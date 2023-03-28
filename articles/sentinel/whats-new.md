@@ -47,6 +47,8 @@ Enabling this solution helps your security team achieve the following goals:
 - respond more effectively to threats
 - maximize impact of existing security incident response
 
+Check out the [Tech Community blog](https://aka.ms/sentinel-playbooks) for more information on the three playbooks available at launch.
+
 ### Automatically update the SAP data connector agent
 
 You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.
