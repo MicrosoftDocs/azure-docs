@@ -14,9 +14,9 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # Tutorial: Create and upload certificates for testing
 
-For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor and issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the external root CA as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
+For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor. You can then issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the purchased CA certificate as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
 
-However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. Using a self-managed private CA with at least one subordinate CA chained to your internal root CA, and client certificates for your devices signed by your subordinate CAs, allows you to more closely simulate a recommended production environment.
+However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. A self-managed private CA with at least one subordinate CA chained to your internal root CA and client certificates for your devices signed by your subordinate CAs allows you to more closely simulate a recommended production environment.
 
 >[!NOTE]
 >We do not recommend the use of self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
@@ -58,7 +58,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     | rootca | The root directory of the root CA. |
     | rootca/certs | The directory in which CA certificates for the root CA are created and stored. |
     | rootca/db | The directory in which the certificate database and support files for the root CA are stored. |
-    | rootca/db/index | The certificate database for the root CA. The `touch` command creates a file without any content, for later use. The certificate database is a plain text file managed by OpenSSL that contains certificate information. For more information about the certificate database, see .|
+    | rootca/db/index | The certificate database for the root CA. The `touch` command creates a file without any content, for later use. The certificate database is a plain text file managed by OpenSSL that contains information about issued certificates. For more information about the certificate database, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/). |
     | rootca/db/serial | A file used to store the serial number of the next certificate to be created for the root CA. The `openssl` command creates a 16-byte random number in hexadecimal format, then stores it in this file to initialize the file for creating the root CA certificate. |
     | rootca/db/crlnumber | A file used to store serial numbers for revoked certificates issued by the root CA. The `echo` command pipes a sample serial number, 1001, into the file. |
     | rootca/private | The directory in which private files for the root CA, including the private key, are stored.<br/><br/>The files in this directory must be secured and protected. |
@@ -81,11 +81,11 @@ You must first create an internal root certificate authority (CA) and a self-sig
     | {rootca_common_name} | The common name of the root CA. For example, `Test Root CA`. |
 
     The file provides OpenSSL with the values needed to configure your test root CA. For this example, the file configures a root CA using the directories and files created in previous steps. The file also provides configuration settings for:
+
     - The CA policy used by the root CA for certificate Distinguished Name (DN) fields
     - Certificate requests created by the root CA
     - X.509 extensions applied to root CA certificates, subordinate CA certificates, and client certificates issued by the root CA
-    The root CA certificate generated from this configuration file is valid for 3650 days, 
-
+    
     For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) master manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
     ```bash
@@ -163,7 +163,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
       openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
     ```
     
-    You are prompted to provide a PEM pass phrase, as shown below, for the private key file. Provide and confirm a pass phrase to generate your private key and CSR.
+    You're prompted to provide a PEM pass phrase, as shown below, for the private key file. Provide and confirm a pass phrase to generate your private key and CSR.
 
     ```bash
     Enter PEM pass phrase:
@@ -171,7 +171,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     -----
     ```
     
-    Confirm that the CSR file, *rootca.csr*, is present in the in the *rootca* directory and the private key file, *rootca.key*, is present in the *rootca/private* directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    Confirm that the CSR file, *rootca.csr*, is present in the *rootca* directory and the private key file, *rootca.key*, is present in the *rootca/private* directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 1. In the Bash window, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). For more information about the OpenSSL `ca` command, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in [OpenSSL documentation](https://www.openssl.org/docs/).
 
@@ -179,7 +179,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
       openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
     ```
 
-    You are prompted to provide the PEM pass phrase, as shown below, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
+    You're prompted to provide the PEM pass phrase, as shown below, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
 
     ```bash
     Using configuration from rootca.conf
@@ -197,7 +197,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     Data Base Updated
     ```
     
-    After the certificate database is updated, confirm that both the certificate file, *rootca.crt*, is present in the in the *rootca* directory and the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the root CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    After the certificate database is updated, confirm that both the certificate file, *rootca.crt*, is present in the *rootca* directory and the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the root CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 ## Create a subordinate CA
 
@@ -209,7 +209,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 - Create a configuration file used by OpenSSL to configure your subordinate CA, as well as certificates created with your subordinate CA
 - Request and create a CA certificate signed by your root CA that serves as your subordinate CA certificate
 
-1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously-created root CA.
+1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA.
 
     ```bash
     cd {base_dir}
@@ -317,7 +317,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
       openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
     ```
 
-    You are prompted to enter a PEM pass phrase, as shown below, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
+    You're prompted to enter a PEM pass phrase, as shown below, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
     
     ```bash
     Enter PEM pass phrase:
@@ -327,13 +327,13 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     
     Confirm that the CSR file, *subca.csr*, is present in the subordinate CA directory and the private key file, *subca.key*, is present in the *private* subdirectory of the subordinate CA directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
-1. In the Bash window, run the following command to create an subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
+1. In the Bash window, run the following command to create a subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
 
     ```bash
       openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt -extensions sub_ca_ext
     ```
 
-    You are prompted to enter the pass phrase, as shown below, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
+    You're prompted to enter the pass phrase, as shown below, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
 
     ```bash
     Using configuration from rootca.conf
@@ -351,7 +351,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     Data Base Updated
     ```
     
-    After the certificate database is updated, confirm that the certificate file, *subca.crt*, is present in the in the subordinate CA directory and that the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the subordinate CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    After the certificate database is updated, confirm that the certificate file, *subca.crt*, is present in the subordinate CA directory and that the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the subordinate CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 ## Register your subordinate CA certificate to your IoT hub
 
@@ -384,7 +384,7 @@ Perform the following steps to:
 - Create a private key and certificate signing request (CSR) for a client certificate
 - Create a client certificate signed by your subordinate CA certificate
 
-1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously-created root CA and subordinate CA.
+1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA and subordinate CA.
 
     ```bash
     cd {base_dir}
@@ -405,7 +405,7 @@ Perform the following steps to:
       openssl req -new -key private/{device_name}.key -out {device_name}.csr
     ```
 
-    You are prompted to provide certificate details, as shown below. Replace the following placeholders with the corresponding values. 
+    You're prompted to provide certificate details, as shown below. Replace the following placeholders with the corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
@@ -438,7 +438,7 @@ Perform the following steps to:
       openssl ca -config subca.conf -in {device_name}.csr -out {device_name}.crt -extensions client_ext
     ```
     
-    You are prompted to enter the pass phrase, as shown below, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
+    You're prompted to enter the pass phrase, as shown below, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
 
     ```bash
     Using configuration from subca.conf
@@ -456,4 +456,4 @@ Perform the following steps to:
     Data Base Updated
     ```
 
-    After the certificate database is updated, confirm that the certificate file for the client certificate is present in the in the subordinate CA directory and that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    After the certificate database is updated, confirm that the certificate file for the client certificate is present in the subordinate CA directory and that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).

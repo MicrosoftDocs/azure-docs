@@ -55,7 +55,7 @@ The upload process entails uploading a file that contains your certificate.  Thi
 
 The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub has to verify that you really own the CA certificate.  You can choose to either automatically or manually verify ownership. For manual verification, Azure IoT Hub generates a random challenge that you sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as recommended, then only you possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, you complete this step and manually verify your certificate by uploading a file containing the results.
 
-Learn how to [register your CA certificate](tutorial-x509-test-ca-certs.md#upload-and-verify-your-subordinate-ca-certificate)
+Learn how to [register your CA certificate](tutorial-x509-test-ca-certs.md#register-your-subordinate-ca-certificate-to-your-iot-hub).
 
 ## Create a device on IoT Hub
 
