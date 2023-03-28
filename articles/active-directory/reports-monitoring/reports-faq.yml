@@ -29,7 +29,7 @@ sections:
       - question: |
           How soon should I see activities data after getting a premium license?
         answer: |
-          If you already have activities data as a free license, then you can see it immediately. If you don't have any data, then it will take up to three days for the data to show up in the reports.
+          If you already have activities data as a free license, then you can see it immediately. If you don't have any data, then it takes up to three days for the data to show up in the reports.
 
       - question: |
           Can I see last month's data after getting an Azure AD premium license?
@@ -97,29 +97,29 @@ sections:
       - question: |
           Why do my non-interactive sign-ins appear to have the same time stamp?
         answer: |
-          Non-interactive sign-ins can trigger a large volume of events every hour, so they are grouped together in the logs.
+          Non-interactive sign-ins can trigger a large volume of events every hour, so they're grouped together in the logs.
           
-          In many cases, non-interactive sign-ins have all the same characteristics, except for the date and time of the sign-in. If the time aggregate is set to 24 hours, the logs will appear to show the sign-ins at the same time. Each of these grouped rows can be expanded to view the exact time stamp.
+          In many cases, non-interactive sign-ins have all the same characteristics, except for the date and time of the sign-in. If the time aggregate is set to 24 hours, the logs appear to show the sign-ins at the same time. Each of these grouped rows can be expanded to view the exact time stamp.
 
       - question: |
-          I am seeing User IDs in the username field of my sign-ins log. Why is this happening?
+          I'm seeing User IDs in the username field of my sign-ins log. Why is this happening?
         answer: |
-          With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field will say *passwordless*.
+          With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field says *passwordless*.
 
       - question: |
           I see a 90025 error in the sign in logs. Does this mean my user failed to sign in? Has my tenant hit a throttling limit?
         answer: |
-          No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Azure AD subservice hits its retry allowance and does not indicate your tenant is being throttled. These errors are usually resolved by Azure AD internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
+          No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Azure AD subservice hits its retry allowance and doesn't indicate your tenant is being throttled. These errors are usually resolved by Azure AD internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
 
       - question: |
           In Service Principal sign-in logs, what does it mean if I see “00000000-0000-0000-0000-000000000000” or “” for Service Principal ID or Resource Service Principal ID in my sign-in logs?
         answer: |
-          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there is no Service Principal for the client application in that instance of authentication (Azure AD no longer issues access tokens without a client Service Principal except for a small number of Microsoft and 3rd party applications).
+          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the client application in that instance of authentication (Azure AD no longer issues access tokens without a client Service Principal except for a few Microsoft and third party applications).
 
-          If the Resource Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there is no Service Principal for the resource application in that instance of authentication.
+          If the Resource Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the resource application in that instance of authentication.
 
           > [!NOTE]
-          > Authentication without a client Service Principal is a deprecated behavior in Azure AD and is not commonly expected. This behavior is currently allowed only for a limited number of resource apps.
+          > Authentication without a client Service Principal is a deprecated behavior in Azure AD and isn't commonly expected. This behavior is currently allowed only for a limited number of resource apps.
  
       - question: |
           In Service Principal sign-in logs, how can I query for instances of authentication without a client or resource Service Principal in my tenant? (That is, Service Principal ID or Resource Service Principal ID is “00000000-0000-0000-0000-000000000000” or “”)
@@ -141,8 +141,6 @@ sections:
           - Make sure you select an appropriate time frame in the Date field (last 24 hours, 7 days etc.).
           -	Add a filter and select **Service Principal ID** and provide the value ‘00000000-0000-0000-0000-000000000000' to get instances of authentication with no client Service Principal.
             
-            :::image type="content" source="media/reports-faq/service-principal-sign-ins.png" alt-text="Screenshot of service principal sign-in.":::
-
       - question: |
           How can I restrict sign-in (authentication) for various apps that I see in the Service Principal sign-in logs?
         answer:
