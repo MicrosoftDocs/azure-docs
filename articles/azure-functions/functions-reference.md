@@ -166,7 +166,7 @@ Choose a tab below to learn about permissions for each component:
 # [Azure SignalR extension](#tab/signalr)
 You'll need to create a role assignment that provides access to Azure SignalR Service data plane REST APIs. We recommend you to use the built-in role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
 
-# [Durable Functions storage provider (preview)](#tab/durable)
+# [Durable Functions storage provider](#tab/durable)
 
 [!INCLUDE [functions-durable-permissions](../../includes/functions-durable-permissions.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Spintr SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Spintr SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Spintr SSO.
 services: active-directory
 author: jeevansd

@@ -29,7 +29,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="string">
     <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
-    <voice name="string">
+    <voice name="string" effect="string">
         <audio src="string"/></audio>
         <bookmark mark="string"/>
         <break strength="string" time="string" />
@@ -51,7 +51,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
 </speak>
 ```
 
-Some examples of contents that are allowed in each element are described in the following list:
+Some examples of contents that are allowed in each element are described in the following list: 
 - `audio`: The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `bookmark`: This element can't contain text or any other elements.
 - `break`: This element can't contain text or any other elements.
@@ -77,7 +77,7 @@ The Speech service automatically handles punctuation as appropriate, such as pau
 
 ## Special characters
 
-To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, `&lt;` use in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, use `&lt;` in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
 
 For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML will be parsed as expected:
 

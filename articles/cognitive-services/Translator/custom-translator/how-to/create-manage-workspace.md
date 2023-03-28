@@ -50,7 +50,7 @@ ms.topic: how-to
 
 Select a workspace and navigate to **Workspace settings**. You can manage the following workspace settings:
 
-* Change the resource key for global regions. If you're using a regional specific resource, you can't change your resource key.
+* Change the resource key if the region is **Global**. If you're using a region-specific resource such as **East US**, you can't change your resource key.
 
 * Change the workspace name.
 

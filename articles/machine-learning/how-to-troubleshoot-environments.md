@@ -1197,6 +1197,25 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 * [Enable Azure Container Registry (ACR)](https://aka.ms/azureml/environment/acr-private-endpoint)
 * [How To Use Environments](https://aka.ms/azureml/environment/how-to-use-environments)
 
+### Unexpected Dockerfile Format
+<!--issueDescription-->
+This issue can happen when your Dockerfile is formatted incorrectly.
+
+**Potential causes:**
+* Your Dockerfile contains invalid syntax
+* Your Dockerfile contains characters that aren't compatible with UTF-8
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure Dockerfile is formatted correctly and is encoded in UTF-8
+
+**Resources**
+* [Dockerfile format](https://docs.docker.com/engine/reference/builder/#format)
+
 ## *Docker pull issues*
 ### Failed to pull Docker image
 <!--issueDescription-->
@@ -1731,6 +1750,7 @@ This issue can happen when you haven't specified any targets and no makefile is 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
 * Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
 
 **Troubleshooting steps**
 * Ensure that you've spelled the makefile correctly
@@ -1742,7 +1762,30 @@ This issue can happen when you haven't specified any targets and no makefile is 
 
 **Resources**
 * [GNU Make](https://www.gnu.org/software/make/manual/make.html)
+
+## *Copy issues*
+### File not found 
+<!--issueDescription-->
+This issue can happen when Docker fails to find and copy a file.
+
+**Potential causes:**
+* Source file not found in Docker build context
+* Source file excluded by `.dockerignore`
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that the source file exists in the Docker build context
+* Ensure that the source and destination paths exist and are spelled correctly
+* Ensure that the source file isn't listed in the `.dockerignore` of the current and parent directories
+* Remove any trailing comments from the same line as the `COPY` command
+
+**Resources**
+* [Docker COPY](https://docs.docker.com/engine/reference/builder/#copy)
+* [Docker Build Context](https://docs.docker.com/engine/context/working-with-contexts/)
 
 ## *Docker push issues*
 ### Failed to store Docker image
@@ -1771,6 +1814,29 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 * Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
 * For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
 * See [Quickstart: Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)
+
+## *Unknown Docker command*
+### Unknown Docker instruction
+<!--issueDescription-->
+This issue can happen when Docker doesn't recognize an instruction in the Dockerfile.  
+
+**Potential causes:**
+* Unknown Docker instruction being used in Dockerfile
+* Your Dockerfile contains invalid syntax
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+* Ensure that the Docker command is valid and spelled correctly
+* Ensure there's a space between the Docker command and arguments
+* Ensure there's no unnecessary whitespace in the Dockerfile
+* Ensure Dockerfile is formatted correctly and is encoded in UTF-8
+
+**Resources**
+* [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 
 ## *Miscellaneous build issues*
 ### Build log unavailable

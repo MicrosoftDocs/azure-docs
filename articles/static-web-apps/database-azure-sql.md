@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 03/15/2023
 zone_pivot_groups: static-web-apps-api-protocols
 ---
 
@@ -106,15 +106,35 @@ The rest of this tutorial focuses on editing your static web app's source code t
 
 1. Switch to the `main` branch.
 
+    # [Bash](#tab/bash)
+
     ```bash
     git checkout main
     ```
 
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    git checkout main
+    ```
+
+    ---
+
 1. Synchronize your local version with what's on GitHub by using `git pull`.
+
+    # [Bash](#tab/bash)
 
     ```bash
     git pull origin main
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    git pull origin main
+    ```
+
+    ---
 
 ### Create the database configuration file
 

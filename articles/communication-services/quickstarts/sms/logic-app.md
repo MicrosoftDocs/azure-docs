@@ -29,7 +29,7 @@ Although this quickstart focuses on using the connector to respond to a trigger,
 
 - An active Azure Communication Services resource, or [create a Communication Services resource](../create-communication-resource.md).
 
-- An active Logic Apps resource (logic app), or [create a blank logic app but with the trigger that you want to use](../../../logic-apps/quickstart-create-first-logic-app-workflow.md). Currently, the Azure Communication Services SMS connector provides only actions, so your logic app requires a trigger, at minimum.
+- An active Azure Logic Apps resource (logic app), or [create a Consumption logic app workflow with the trigger that you want to use](../../../logic-apps/quickstart-create-example-consumption-workflow.md). Currently, the Azure Communication Services SMS connector provides only actions, so your logic app workflow requires a trigger, at minimum.
 
   This quickstart uses the **When a new email arrives** trigger, which is available with the [Office 365 Outlook connector](/connectors/office365/).
 
@@ -99,13 +99,13 @@ Next, run your logic app workflow for testing.
 
 ## Test your logic app
 
-To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
+To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-example-consumption-workflow.md#run-workflow).
 
 ## Clean up resources
 
 To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [how to clean up Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
-To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+To clean up your logic app workflow and related resources, review [how to clean up Azure Logic Apps resources](../../../logic-apps/quickstart-create-example-consumption-workflow.md#clean-up-resources).
 
 ## Next steps
 
