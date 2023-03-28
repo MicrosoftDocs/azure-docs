@@ -26,7 +26,8 @@ eligible for commitment tier discount.
     Availability zones aren't currently supported in all regions. New clusters you create in supported regions have availability zones enabled by default.
 
 ## Cluster pricing model
-Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters.
+Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
+
 ## Required permissions
 
 To perform cluster-related actions, you need these permissions:
@@ -465,7 +466,9 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 ## Update commitment tier in cluster
 
-When the data volume to your linked workspaces changes over time, you can update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. You don't have to provide the full REST request body, but you must include the sku.
+When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 500, 1000, 2000 or 5000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
+
+During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
 #### [CLI](#tab/cli)
 
@@ -542,10 +545,16 @@ Content-type: application/json
 
 ### Unlink a workspace from cluster
 
-You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. You can query data as usual and the service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.  
+You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. 
+
+> [!WARNING]
+> Unlinking a workspace does not move workspace data out of the cluster. Any data collected for workspace while linked to cluster, remains in cluster for the retention period defined in workspace, and accessible as long as cluster isn't deleted.
+
+Queries aren't affected when workspace is unlinked and service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data ingested to workspace while was linked, remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.
 
 > [!NOTE] 
-> There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach limit.
+> - There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach the limit.
+> - Unlinked workspaces are moved to Pay-As-You-Go pricing tier.
 
 Use the following commands to unlink a workspace from cluster:
 
@@ -577,14 +586,15 @@ N/A
 
 You need to have *write* permissions on the cluster resource. 
 
-When deleting a cluster, you're losing access to all data, which was ingested from workspaces that were linked to it. This operation isn't reversible.
-The cluster's billing stops when cluster is deleted, regardless of the 30-days commitment tier defined in cluster. 
+Cluster deletion operation should be done with caution, since operation is non-recoverable. All ingested data to cluster from linked workspaces, gets permanently deleted. 
 
-If you delete your cluster while workspaces are linked, workspaces get automatically unlinked from the cluster before the cluster delete, and new data to workspaces gets ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
+The cluster's billing stops when cluster is deleted, regardless of the 31-days commitment tier defined in cluster.
+
+If you delete a cluster that has linked workspaces, workspaces get automatically unlinked from the cluster, workspaces are moved to Pay-As-You-Go pricing tier, and new data to workspaces is ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
 > - There is a limit of seven clusters per subscription and region, five active, plus two that were deleted in past two weeks.
-> - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster.
+> - Cluster's name remain reserved two weeks after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
 
@@ -641,7 +651,9 @@ Authorization: Bearer <token>
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can't be changed after the cluster has been created.
 
-- Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) a workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
+- Deleting a workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, workspace returns to previous state and remains linked to cluster.
+
+- During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
 ## Troubleshooting
 

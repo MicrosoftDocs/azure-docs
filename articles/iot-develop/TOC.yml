@@ -21,12 +21,12 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
-      - name: STMicroelectronics U585I-IOT02A
-        href: quickstart-devkit-stm-b-u585i-iot-hub.md
-      - name: STMicroelectronics L4S5I-IOT01A
-        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
         href: quickstart-devkit-stm-b-l475e-iot-hub.md
+      - name: STMicroelectronics L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
+      - name: STMicroelectronics U585I-IOT02A
+        href: quickstart-devkit-stm-b-u585i-iot-hub.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
       - name: MXCHIP AZ3166

@@ -2,8 +2,8 @@
 title: Create Data Registry (preview)
 titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 2/14/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -29,7 +29,7 @@ The [data registry] service enables you to register data content in an Azure Sto
 
 ## Prepare to register data in Azure Maps
 
-Before you can register data in Azure Maps, you need to create an environment containing all of the required components. You need a storage account with one or more containers that hold the files you wish to register and managed identities for authentication. This section explains how to prepare your Azure environment to register data in Azure Maps.
+Before you can register data in Azure Maps, you need to create an environment containing all required components. You need a storage account with one or more containers that hold the files you wish to register and managed identities for authentication. This section explains how to prepare your Azure environment to register data in Azure Maps.
 
 ### Create managed identities
 
