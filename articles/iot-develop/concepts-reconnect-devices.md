@@ -17,12 +17,12 @@ The following are the most common reasons that devices disconnect from IoT Hub:
 
 - Expired SAS token or X.509 certificate. The device's SAS token or X.509 authentication certificate expired. 
 - Network interruption. The device's connection to the network is interrupted.
-- Service disruption. The Azure IoT Hub service experiences errors or is unavailable. 
-- Service reconfiguration. After you reconfigure IoT Hub service settings, it can force devices to disconnect. 
+- Service disruption. The Azure IoT Hub service experiences errors or is temporarily unavailable. 
+- Service reconfiguration. After you reconfigure IoT Hub service settings, it can causes devices require reprovisioning or reconnection. 
 
 ## Why you need a reconnect strategy
 
-It's important to have a strategy to reconnect devices because there are several scenarios where disconnected devices could negatively affect your solution. 
+It's important to have a strategy to reconnect devices as described in the following sections.  Without a reconnection strategy, you could see a negative impact on your solution's performance, availability, and cost. 
 
 ### Mass reconnection attempts could cause a DDoS
 
@@ -30,11 +30,11 @@ A high number of connection attempts per second can cause a condition similar to
 
 ### Hub failure or reconfiguration could disconnect many devices
 
-After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices will disconnect. For proper failover, devices must reconnect.  To learn more about failover options, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
+After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices might be disconnected. For proper failover, disconnected devices require reprovisioning.  To learn more about failover options, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
 
 ### Forced device reprovisioning could increase costs
 
-After devices disconnect from one IoT hub and reconnect to another, they must be reprovisioned. If you use IoT Hub with DPS, DPS has a per provisioning cost. If you reprovision many devices on DPS, it increases the cost of your IoT solution. To learn more about DPS provisioning costs, see [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
+After devices disconnect from IoT Hub, the optimal solution is to reconnect the device rather than reprovision it. If you use IoT Hub with DPS, DPS has a per provisioning cost. If you reprovision many devices on DPS, it increases the cost of your IoT solution. To learn more about DPS provisioning costs, see [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 ## Reconnection concepts
 
@@ -61,7 +61,7 @@ To reconnect devices, it's helpful to understand several background concepts.
 
 If you use IoT Hub only without DPS, use the following reconnection strategy.  
 
-When a device fails to connect to IoT Hub:
+When a device fails to connect to IoT Hub, or is disconnected from IoT Hub:
 
 1. Use an exponential back-off with jitter delay function. 
 1. Reconnect to IoT Hub. 
@@ -79,17 +79,13 @@ When a device fails to connect to DPS:
 1. Use an exponential back-off with jitter delay function. 
 1. Reprovision the device to DPS. 
 
-When a device fails to connect to IoT Hub, you can reconnect based on the following cases. 
+When a device fails to connect, you can reconnect based on the following cases:
 
-If it's an error that allows retried connections (HTTP response code 500):
-1. Use an exponential back-off with jitter delay function. 
-1. Reconnect to IoT Hub. 
-
-If it's an error that allows retried connections, but reconnection has failed 10 consecutive times: 
-- Reprovision the device to DPS. 
-
-If it's an error that doesn't allow retries (HTTP responses 401, Unauthorized or 403, Forbidden or 404, Not Found):
-- Reprovision the device to DPS. 
+|Failed connection scenario | Reconnection strategy |
+|---------|---------|
+|For errors that allow retried connections (HTTP response code 500) | Use an exponential back-off with jitter delay function. <br>  Reconnect to IoT Hub. |
+|For errors that indicate a retry is possible, but reconnection has failed 10 consecutive times | Reprovision the device to DPS. |
+|For errors that don't allow retries (HTTP responses 401, Unauthorized or 403, Forbidden or 404, Not Found) | Reprovision the device to DPS. |
 
 The following diagram summarizes the reconnection flow:
 
