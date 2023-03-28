@@ -105,7 +105,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### GroupIB Threat Intelligence and Attribution
 
-- To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/intelligence-attribution.html) to Microsoft Sentinel, GroupIB makes use of Azure Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) necessary to take full advantage of the complete offering.
+- To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/products/threat-intelligence/) to Microsoft Sentinel, GroupIB makes use of Azure Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) necessary to take full advantage of the complete offering.
 
 ### MISP Open Source Threat Intelligence Platform
 
