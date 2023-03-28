@@ -28,11 +28,11 @@ It's important to have a strategy to reconnect devices because there are several
 
 A high number of connection attempts per second can cause a condition similar to a distributed denial-of-service attack (DDoS). This scenario is relevant for large fleets of devices numbering in the millions. The issue can extend beyond the tenant that owns the fleet, and affect the entire scale-unit. A DDoS could drive a large cost increase for your Azure IoT Hub resources, due to a need to scale out.  A DDoS could also hurt your solution's performance due to resource starvation. In the worse case, a DDoS can cause service interruption. 
 
-### Hub failure or reconfiguration
+### Hub failure or reconfiguration could disconnect many devices
 
 After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices will disconnect. For proper failover, devices must reconnect.  To learn more about failover options, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
 
-### Limit reprovisioning to reduce costs
+### Forced device reprovisioning could increase costs
 
 After devices disconnect from one IoT hub and reconnect to another, they must be reprovisioned. If you use IoT Hub with DPS, DPS has a per provisioning cost. If you reprovision many devices on DPS, it increases the cost of your IoT solution. To learn more about DPS provisioning costs, see [IoT Hub DPS pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
