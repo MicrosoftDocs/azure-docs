@@ -31,7 +31,7 @@ You have a couple of options in going about archiving chat threads.
 
 [Architecture diagram here]
 
-To do this you need to use [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/overview). 
+To do this, you need to use [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/overview). 
 
 Follow these steps for archiving messages:
 
@@ -39,7 +39,7 @@ Follow these steps for archiving messages:
 - Validate the [events](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/view-events-request-bin#configure-your-azure-communication-services-resource-to-send-events-to-your-endpoint) by configuring your resource to recive these events
 - Test your Event Grid handler [locally](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/local-testing-event-grid)
 
-Please note: you would have to pay for [events](../azure.microsoft.com/pricing/details/event-grid/). 
+Note: you would have to pay for [events](../azure.microsoft.com/pricing/details/event-grid/). 
 
 ## Option 2 
 
