@@ -41,7 +41,7 @@ The steps you'll take are:
 
 1. Open or create a notebook in your workspace:
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
-    * Or, open **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]]
+    * Or, open **tutorials/get-started-notebooks/quickstart.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
