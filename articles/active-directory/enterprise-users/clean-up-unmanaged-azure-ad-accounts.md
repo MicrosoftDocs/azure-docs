@@ -1,11 +1,11 @@
 ---
-title: Clean up unmanaged Azure AD accounts
-description: Clean up unmanaged accounts using email OTP and PowerShell modules in Azure Active Directory
+title: Clean up unmanaged Azure Active Directory accounts
+description: Clean up unmanaged accounts using email one-time password and PowerShell modules in Azure AD
 services: active-directory 
 author: gargi-sinha
 ms.author: gasinh
 manager: martinco
-ms.date: 06/28/2022
+ms.date: 03/28/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
