@@ -58,7 +58,7 @@ Apache Tez replaces MapReduce as the default Hive execution engine. MapReduce is
 1. Hive compiles the query.
 1. Tez executes the query.
 1. YARN allocates resources for applications across the cluster and enables authorization for Hive jobs in YARN queues.
-1. Hive updates the data in ABSF or WSAB.
+1. Hive updates the data in ABFS or WASB.
 1. Hive returns query results over a JDBC connection.
 
 If a legacy script or application specifies MapReduce for execution, an exception occurs as follows
@@ -121,9 +121,9 @@ The following table compares Hive table types and ACID operations before an upgr
 |External	|No	|Native or non-native|	Hive or non-Hive	|External	|No|
 |Managed	|Yes	|ORC	|Hive or non-Hive|	Managed, updatable	|Yes|
 |Managed	|No	|ORC	|Hive|	Managed, updatable	|Yes|
-||||non-Hive	|External, with data delete |NO|
+|Managed|No|ORC|non-Hive	|External, with data delete |NO|
 |Managed	|No	|Native (but non-ORC)|	Hive	|Managed, insert only	|Yes|
-||||non-Hive	|External, with data delete	|No|
+|Managed|No|Native (but non-ORC)|non-Hive	|External, with data delete	|No|
 |Managed	|No	|Non-native|	Hive or non-Hive|	External, with data delete|	No|
 
 ## Hive Impersonation
@@ -320,8 +320,8 @@ Make sure to follow these steps after completing the migration.
 
 **Table Sanity**
 1. Recreate tables in Hive 3.1 using CTAS or IOW to change table type instead of changing table properties.
-1. Keep doAs as false for all the clusters.
-1. Ensure managed table/data ownership is with “hive” user. This step should take care of it. 
+1. Keep doAs as false.
+1. Ensure managed table/data ownership is with “hive” user.
 1. Use managed ACID tables if table format is ORC and managed non-ACID for non-ORC types. 
 1. Regenerate stats on recreated tables as migration would have caused incorrect stats.
 
@@ -456,20 +456,8 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 ## Hive Backend DB schema compare Script
 
 You can run the following script after completing the migration.
-There's a chance of missing few columns in the backend DB, which causes the query failures. And this issue occurs due to missing column BIT_VECTOR under Metastore tables PART_COL_STATS and TAB_COL_STATS. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the following properties, which can't update the stats in the backend DB.
 
-```
-hive.stats.autogather=false;
-hive.stats.column.autogather=false;
-```
-To Fix this issue run following two queries on backend SQL server (Hive metastore DB):
-
-```
-ALTER TABLE PART_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
-ALTER TABLE TAB_COL_STATS ADD BIT_VECTOR VARBINARY(MAX);
-```
-This step avoids the query failures, which fail with "Invalid column name" once after the migration.
-
+There's a chance of missing few columns in the backend DB, which causes the query failures. 
 If the schema upgrade wasn't happened properly, then there's chance that we may hit the above issue. The below script fetches the column name and datatype from customer backend DB and provides the output if there's any missing column or incorrect datatype.
 
 The following path contains the schemacompare_final.py and test.csv file. The script is present in "schemacompare_final.py" file and the file "test.csv" contains all the column name and the datatype for all the tables, which should be present in the hive backend DB.
