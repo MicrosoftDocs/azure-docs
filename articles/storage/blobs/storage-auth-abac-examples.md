@@ -28,11 +28,12 @@ For information about the prerequisites to add or edit role assignment condition
 
 Use the following table to quickly locate an example that fits your ABAC scenario:
 
-| Example | Action      | Environment | Principal | Request | Resource |
-|---------|-------------|-------------|-----------|---------|----------|
-| [1](#example-read-blobs-with-a-blob-index-tag) | Read blobs</br> with index tags | | | | tags |
-| [2](#example-new-blobs-must-include-a-blob-index-tag) | Write/add blob</br> with index tags | | | tags | |
-| [3](#example-existing-blobs-must-have-blob-index-tag-keys) | Write blobs</br> with index tags  | | | tags | |
+| Example | Environment | Principal | Request | Resource |
+|---------|-------------|-----------|---------|----------|
+| [Read blobs with index tag](#example-read-blobs-with-a-blob-index-tag) | | | | tags |
+| [Require index tags for new blobs](#example-new-blobs-must-include-a-blob-index-tag) || | tags | |
+| [Require index tag keys for existing blobs](#example-existing-blobs-must-have-blob-index-tag-keys) || | tags | |
+| [Require index tag keys and values for existing blobs](#example-existing-blobs-must-have-a-blob-index-tag-key-and-values) | | | tags | |
 
 ## Blob index tags
 
