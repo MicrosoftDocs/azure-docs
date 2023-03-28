@@ -163,7 +163,7 @@ The following headers are included with each Document Translation API request:
 
 This sample request body references a source container for all documents to be translated to a target language.
 
-See the request parameters [noted previously](#post-request-body) for more details.
+For more information, _see_ [request parameters](#post-request-body).
 
 ```json
 {
@@ -217,7 +217,7 @@ This sample request body references a single source document to be translated in
 
 This sample request body references a source container for all documents to be translated to a target language using a glossary.
 
-See the request parameters [noted previously](#post-request-body) for more details.
+For more information, _see_ [request parameters](#post-request-body).
 
 ```json
 {
