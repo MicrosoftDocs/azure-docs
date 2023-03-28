@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 01/23/2023
+ms.date: 03/27/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -531,16 +531,18 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), 
 > **LogicAppsManagement**, rather than specify inbound Logic Apps IP address prefixes for each region.
->
-> Some managed connectors make inbound webhook callbacks to the Azure Logic Apps service. For these managed connectors, you can optionally use the 
-> **AzureConnectors** service tag for these managed connectors, rather than specify inbound managed connector IP address prefixes for each region. 
-> These tags work across the regions where the Azure Logic Apps service is available.
->
+
+> [!Note]
+> Some managed connectors make inbound webhook callbacks to the Azure Logic Apps service. If you use access control on the logic 
+> app, you need to make sure the calls from these target systems (aka IPs) are allowed to access the logic app.
 > The following connectors make inbound webhook callbacks to the Azure Logic Apps service:
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Business Central, Calendly, 
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Event Grid, Microsoft Form, Business Central, Calendly, 
 > Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
-> Shifts for Microsoft Teams, Teamwork Projects, Typeform
+> Shifts for Microsoft Teams, Teamwork Projects, Typeform etc.
+>
+> \* **Office 365**: The return caller is actually the Office 365 connector. You can specify outbound managed connector IP address prefixes for each region or optionally use the 
+> **AzureConnectors** service tag for these managed connectors.
 >
 > \* **SAP**: The return caller depends on whether the deployment environment is either multi-tenant Azure or ISE. In the 
 > multi-tenant environment, the on-premises data gateway makes the call back to the Azure Logic Apps service. In an ISE, the SAP 
