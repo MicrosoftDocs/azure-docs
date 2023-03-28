@@ -12,11 +12,6 @@ ms.date: 06/22/2022
 # Functions in Azure Monitor log queries
 A function is a log query in Azure Monitor that can be used in other log queries as though it's a command. You can use functions to provide solutions to different customers and also reuse query logic in your own environment. This article describes how to use functions and how to create your own.
 
-> [!NOTE]
-> Functions are only available in Log Analytics workspaces. If you’re using an existing classic Application Insights resource, you must [migrate it to a workspace-based resource](../app/convert-classic-resource.md) to work with functions. 
->
-> Choosing to migrate gives you access to logs with the same general structure as classic resources, but the [table and column names are different](../app/convert-classic-resource.md#table-schemas). Migrating also allows you to send activity logs to a Log Analytics workspace in a table called AzureActivity. The AzureActivity table isn't available in classic resources.
-
 ## Types of functions
 There are two types of functions in Azure Monitor:
 
@@ -63,6 +58,9 @@ You can add parameters to a function so that you can provide values for certain 
 | Default value | Value to be used for the parameter if a value isn't provided. |
 
 Parameters are ordered as they're created. Parameters that have no default value are positioned in front of parameters that have a default value.
+
+> [!NOTE] 
+> Classic Application Insights resources don't support parameterized functions. If you have a [workspace-based Application Insights resource](../app/create-workspace-resource.md), you can create parameterized functions from your Log Analytics workspace. For information on migrating your Classic Application Insights resource to a workspace-based resource, see [Migrate to workspace-based Application Insights resources](../app/convert-classic-resource.md).
 
 ## Work with function code
 You can view the code of a function either to gain insight into how it works or to modify the code for a workspace function. Select **Load the function code** to add the function code to the current query in the editor.
