@@ -35,8 +35,8 @@ To do this, you need to use [Azure Event Grid](https://learn.microsoft.com/en-us
 
 Follow these steps for archiving messages:
 
-- Subscribe to Event Grid events, Chat supports the following [events](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Recieved [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../../communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../../communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
-- Validate the [events](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/view-events-request-bin#configure-your-azure-communication-services-resource-to-send-events-to-your-endpoint) by configuring your resource to recive these events
+- Subscribe to Event Grid events, Chat supports the following [events](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../../communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../../communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
+- Validate the [events](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/view-events-request-bin#configure-your-azure-communication-services-resource-to-send-events-to-your-endpoint) by configuring your resource to receive these events
 - Test your Event Grid handler [locally](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/event-grid/local-testing-event-grid)
 
 Note: you would have to pay for [events](../azure.microsoft.com/pricing/details/event-grid/). 
