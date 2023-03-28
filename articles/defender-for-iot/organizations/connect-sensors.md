@@ -13,11 +13,9 @@ This article is one in a series of articles describing the [deployment path](ot-
 
 You can skip this step in the following cases:
 
-- If you're working in air-gapped environment and locally-managed sensors
+- If you're working in air-gapped environment and locally managed sensors
 
 - If you're using a [direct connection](architecture-connections.md#direct-connections) between your OT sensor and Azure. In this case, you've already performed all required steps when you [provisioned your sensor for cloud management](ot-deploy/provision-cloud-management.md)
-
-<!--we need to redo this according to the recipes doc-->
 
 ## Prerequisites
 

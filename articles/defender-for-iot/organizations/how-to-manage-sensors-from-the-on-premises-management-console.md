@@ -48,7 +48,7 @@ The selected settings are applied across all connected OT sensors.
 
 ## Monitor disconnected OT sensors
 
-If you're working with locally-managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
+If you're working with locally managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
 
 ### View OT sensor connection statuses
 

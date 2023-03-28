@@ -8,7 +8,6 @@ ms.topic: upgrade-and-migration-article
 
 # Update legacy OT sensors
 
-<!--move this to a new article-->
 This section describes how to handle updates from legacy sensor versions, earlier than [version 22.x](release-notes.md#versions-221x).
 
 If you have earlier sensor versions installed on cloud-connected sensors, you may also have your  cloud connection configured using the legacy IoT Hub method. If so, migrate to a new [cloud-connection method](architecture-connections.md), either [connecting directly](ot-deploy/provision-cloud-management.md) or using a [proxy](connect-sensors.md).

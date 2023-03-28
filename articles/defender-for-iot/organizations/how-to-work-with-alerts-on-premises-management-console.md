@@ -15,7 +15,7 @@ This article describes how to view Defender for IoT alerts on an on-premises man
 
 Before performing the procedures in this article, make sure that you have:
 
-- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view alerts by location or zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on on the on-premises management console.
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view alerts by location or zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
 
 - One or more OT sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated, configured](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view alerts per zone, make sure that each sensor is assigned to a specific zone.
 
@@ -71,7 +71,7 @@ To view alerts from connected OT sensors across your entire global network, use 
 
 1. Select any site that's red or yellow, and then select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
 
-    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Select the Alerts button to view a list of a yellow OT sensor's alerts.":::
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
 
     The **Alerts** page opens, automatically filtered to the selected alerts.
 

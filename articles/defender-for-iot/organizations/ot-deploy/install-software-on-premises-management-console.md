@@ -62,7 +62,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. From the options displayed, select the management release you want to install based on the hardware profile you're using.  <!--need to validate this-->
+1. From the options displayed, select the management release you want to install based on the hardware profile you're using. 
 
 1. Define the following network properties as prompted:
 

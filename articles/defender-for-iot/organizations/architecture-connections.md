@@ -7,7 +7,6 @@ ms.date: 02/23/2023
 
 # Methods for connecting sensors to Azure
 
-<!--fix according to recipes doc-->
 This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
 Use the content below to learn about the architectures and methods supported for connecting Defender for IoT sensors to the Azure portal in the cloud.
