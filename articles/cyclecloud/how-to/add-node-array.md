@@ -2,8 +2,9 @@
 title: Add a Node Array
 description: How to add node arrays to a cluster
 author: dpwatrous
-ms.date: 08/01/2018
+ms.date: 03/27/2023
 ms.author: dawatrou
+ms.custom: compute-evergreen
 ---
 
 # Add a Node Array to a Cluster
