@@ -38,7 +38,7 @@ The following figure shows the Azure Region 1 ExpressRoute circuit configuration
 
 The following figure shows the connection configuration between the ExpressRoute 1 circuit and the hub virtual network:
 
-:::image type="content" source="./media/folder/image.png" alt-text="Screenshot of connection configuration of ExpressRoute 1 to a hub virtual network Express Route gateway.":::
+:::image type="content" source="./media/backend-interoperability/ExR1-Hub-Connection.png" alt-text="Screenshot of connection configuration of ExpressRoute 1 to a hub virtual network Express Route gateway.":::
 
 The following list shows the primary CE router configuration for ExpressRoute private peering connectivity. (Cisco ASR1000 routers are used as CE routers in the test setup.) When site-to-site VPN and ExpressRoute circuits are configured in parallel to connect an on-premises network to Azure, Azure prioritizes the ExpressRoute circuit by default. To avoid asymmetrical routing, the on-premises network also should prioritize ExpressRoute connectivity over site-to-site VPN connectivity. The following configuration establishes prioritization by using the BGP **local-preference** attribute:
 
