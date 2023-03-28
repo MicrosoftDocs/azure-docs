@@ -1,8 +1,6 @@
 ---
 title: Create and manage classic metric alerts using Azure Monitor
 description: Learn how to use Azure portal or PowerShell to create, view and manage classic metric alert rules.
-author: yanivlavi
-ms.author: yalavi
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ms.date: 2/23/2022
