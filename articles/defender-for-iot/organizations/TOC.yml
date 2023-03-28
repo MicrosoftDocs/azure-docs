@@ -350,72 +350,76 @@
         href: how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Sample connectivity models
-    href: best-practices/sample-connectivity-models.md
-  - name: Networking requirements
-    href: networking-requirements.md
-  - name: OT monitoring appliances
-    items:
-    - name: Overview
-      href: appliance-catalog/index.yml
-      displayName: appliance catalog
-    - name: Corporate environments
-      items:
-      - name: HPE ProLiant DL360
-        href: appliance-catalog/hpe-proliant-dl360.md
-    - name: Large enterprises
-      items:
-      - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
-        href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
-      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
-        href: appliance-catalog/dell-edge-5200.md
-      - name: Dell PowerEdge R350
-        href: appliance-catalog/dell-poweredge-r350-e1800.md
-    - name: Production line
-      items:
-      - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
-        href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
-      - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
-        href: appliance-catalog/ys-techsystems-ys-fit2.md
-    - name: Virtual appliances
-      items:
-      - name: OT sensor (VMware ESXi) 
-        href: appliance-catalog/virtual-sensor-vmware.md
-      - name: OT sensor (Hyper-V)
-        href: appliance-catalog/virtual-sensor-hyper-v.md
-      - name: On-premises management console (VMware ESXi)
-        href: appliance-catalog/virtual-management-vmware.md
-      - name: On-premises management console (Microsoft Hyper-V)
-        href: appliance-catalog/virtual-management-hyper-v.md
-    - name: Legacy appliances
-      items:
-      - name: HPE ProLiant DL20 Gen10 (E1800)
-        href: appliance-catalog/hpe-proliant-dl20-legacy.md
-      - name: Dell PowerEdge R340 XL (E1800)
-        href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
-      - name: HPE Edgeline EL300 (L500 Rugged)
-        href: appliance-catalog/hpe-edgeline-el300.md
-      - name: HPE ProLiant DL20 Gen10 (L500 Rugged)
-        href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
-      - name: Neousys Nuvo-500LP (L100 Rugged)
-        href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Supported protocols
     href: concept-supported-protocols.md
   - name: Alert reference
     href: alert-engine-messages.md
     displayName: alerts
-  - name: Sensor health message reference
-    href: sensor-health-messages.md
-  - name: CLI command reference
+  - name: Deployment references
     items:
-    - name: CLI users and access
-      href: references-work-with-defender-for-iot-cli-commands.md
-      displayName: shell, login, cli, command-line, commands, users, user
-    - name: OT sensor CLI reference
-      href: cli-ot-sensor.md
-      displayName: shell, login, cli, command-line, commands, users, user
-  - name: Data retention
-    href: references-data-retention.md
+    - name: Sample connectivity models
+      href: best-practices/sample-connectivity-models.md
+    - name: Networking requirements
+      href: networking-requirements.md
+    - name: OT monitoring appliances
+      items:
+      - name: Overview
+        href: appliance-catalog/index.yml
+        displayName: appliance catalog
+      - name: Corporate environments
+        items:
+        - name: HPE ProLiant DL360
+          href: appliance-catalog/hpe-proliant-dl360.md
+      - name: Large enterprises
+        items:
+        - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
+          href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        - name: Dell Edge 5200 (Rugged MIL-STD-810G)
+          href: appliance-catalog/dell-edge-5200.md
+        - name: Dell PowerEdge R350
+          href: appliance-catalog/dell-poweredge-r350-e1800.md
+      - name: Production line
+        items:
+        - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
+          href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
+        - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
+          href: appliance-catalog/ys-techsystems-ys-fit2.md
+      - name: Virtual appliances
+        items:
+        - name: OT sensor (VMware ESXi) 
+          href: appliance-catalog/virtual-sensor-vmware.md
+        - name: OT sensor (Hyper-V)
+          href: appliance-catalog/virtual-sensor-hyper-v.md
+        - name: On-premises management console (VMware ESXi)
+          href: appliance-catalog/virtual-management-vmware.md
+        - name: On-premises management console (Microsoft Hyper-V)
+          href: appliance-catalog/virtual-management-hyper-v.md
+      - name: Legacy appliances
+        items:
+        - name: HPE ProLiant DL20 Gen10 (E1800)
+          href: appliance-catalog/hpe-proliant-dl20-legacy.md
+        - name: Dell PowerEdge R340 XL (E1800)
+          href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
+        - name: HPE Edgeline EL300 (L500 Rugged)
+          href: appliance-catalog/hpe-edgeline-el300.md
+        - name: HPE ProLiant DL20 Gen10 (L500 Rugged)
+          href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
+        - name: Neousys Nuvo-500LP (L100 Rugged)
+          href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: System maintenance references
+    items:
+    - name: Sensor health message reference
+      href: sensor-health-messages.md
+    - name: Data retention
+      href: references-data-retention.md
+    - name: CLI command reference
+      items:
+      - name: CLI users and access
+        href: references-work-with-defender-for-iot-cli-commands.md
+        displayName: shell, login, cli, command-line, commands, users, user
+      - name: OT sensor CLI reference
+        href: cli-ot-sensor.md
+        displayName: shell, login, cli, command-line, commands, users, user
   - name: API reference
     items:
     - name: Working with Defender for IoT APIs
@@ -444,6 +448,8 @@
         href: api/management-inventory-apis.md
       - name: Partner integration
         href: api/management-integration-apis.md
+- name: Resources
+  items:
   - name: Frequently asked questions
     items:
     - name: General FAQ
@@ -452,8 +458,6 @@
       href: faqs-ot.md
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
-- name: Resources
-  items:
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
   - name: Regional availability
