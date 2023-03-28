@@ -16,15 +16,15 @@ ms.date: 03/17/2022
 **Applies to:** :heavy_check_mark: Linux VMs in Azure Kubernetes Service
 
 > [!NOTE]
-> Preview Terms - These VM sizes are subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> Preview Terms - These VM sizes are subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-This family of VMs is the nested confidential VMs. In these VM sizes, customers can allocate private regions of memory, by provisioning confidential nested VMs, giving them more granular protection against processes or administrators with higher privilege levels. This enables customers to protect the confidentiality and integrity of their code and data. Currently, this feature is enabled only through deployments in [Azure Kubernetes Service (AKS)](../../../articles/aks/index.yml). If you wish to enable it in regular VM deployments, head to [confidential VMs](../../../articles/confidential-computing/confidential-vm-overview.md) or contact [azconfidentialpm@microsoft.com](mailto:azconfidentialpm@microsoft.com).
+This family of VMs is the nested confidential VMs. In these VM sizes, customers can allocate private regions of memory, by provisioning confidential nested VMs, giving them more granular protection against processes or administrators with higher privilege levels. This enables customers to protect the confidentiality and integrity of their code and data. Currently, this feature is enabled only through deployments in [Azure Kubernetes Service (AKS)](../../articles/aks/index.yml). If you wish to enable it in regular VM deployments, head to [confidential VMs](../../articles/confidential-computing/confidential-vm-overview.md) or contact [azconfidentialpm@microsoft.com](mailto:azconfidentialpm@microsoft.com).
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 > [!NOTE]
-> There are some [pricing differences based on your encryption settings](../../../articles/confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for nested confidential VMs.
+> There are some [pricing differences based on your encryption settings](../../articles/confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for nested confidential VMs.
 
 
 ### ECas_cc_v5-series products
@@ -55,4 +55,4 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidential virtual machine options on AMD processors](../../../articles/confidential-computing/confidential-vm-overview.md)
+> [Confidential virtual machine options on AMD processors](../../articles/confidential-computing/confidential-vm-overview.md)
