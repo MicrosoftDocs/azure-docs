@@ -47,14 +47,16 @@ In this release, we've made the following changes:
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
 - Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
-- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
+- Disabled Universal Plug-and-Play (UPnP) after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
-- Disabled Universal Plug-and-Play after reports of connectivity issues.
+
+>[!NOTE]
+>This release was originally version 1.2.4065, but we made a hotfix after reports that UPnP was causing connectivity issues. version 1.2.4066 has replaced the previous version and has disabled UPnP.
 
 ## Updates for version 1.2.3918
 
