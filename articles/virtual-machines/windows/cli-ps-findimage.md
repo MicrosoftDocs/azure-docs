@@ -50,7 +50,7 @@ New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -Credentia
 
 The Linux image alias names and their details are:
 ```output
-UrnAlias                  Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Version
+Alias                     Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Version
 -----------------------   --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ ---------
 CentOS                    x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                    latest
 CentOS85Gen2              x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                               latest
