@@ -5,7 +5,7 @@ author: surajmb #Required
 ms.author: surmb #Required
 ms.service: azure  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/23/2023 #Required; mm/dd/yyyy format.
+ms.date: 03/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -32,7 +32,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 | resource-name | Name of the FabricResource | NF-Lab1 |True | String |
 | nf-sku  |Fabric SKU ID, based on the ordered SKU of the BoM. Contact AFO team for specific SKU value for the BoM | M8-A400-A100-C16-aa |True | String|
 | nfc-id |Network Fabric Controller ARM resource ID| |True | String |
-| rack-count |Total number of aggregation and compute racks | 9 |True | Integer |
+| rack-count |Total number of compute racks | 8 |True | Integer |
 | server-count-per-rack |Total number of worker nodes per rack| 16 |True | Integer |
 ||
 |**managed-network-config**| Details of management network ||True ||
@@ -86,8 +86,8 @@ az nf fabric create \
 --fabric-asn 65014 \
 --ipv4-prefix 10.x.0.0/19 \
 --ipv6-prefix fda0:d59c:da05::/59 \
---rack-count 5 \
---server-count-per-rack 8 \
+--rack-count 8 \
+--server-count-per-rack 16 \
 --ts-config '{"primaryIpv4Prefix":"20.x.0.5/30","secondaryIpv4Prefix": "20.x.1.6/30","username":"*****", "password": "************", "serialNumber":"************"}' \
 --managed-network-config '{"infrastructureVpnConfiguration":{"peeringOption":"OptionB","optionBProperties":{"importRouteTargets":["65014:10039"],"exportRouteTargets":["65014:10039"]}}, "workloadVpnConfiguration":{"peeringOption": "OptionB", "optionBProperties": {"importRouteTargets": ["65014:10050"], "exportRouteTargets": ["65014:10050"]}}}'     
 ```
@@ -139,11 +139,11 @@ Expected output:
   "networkFabricSku": "NFSKU",
   "operationalState": null,
   "provisioningState": "Accepted",
-  "rackCount": 5,
+  "rackCount": 8,
   "racks": null,
   "resourceGroup": "NFResourceGroup",
   "routerId": null,
-  "serverCountPerRack": 8,
+  "serverCountPerRack": 16,
   "systemData": {
     "createdAt": "2023-03-10T11:06:33.818069+00:00",
     "createdBy": "email@address.com",
@@ -220,11 +220,11 @@ Expected output:
   "networkFabricSku": "NFSKU",
   "operationalState": null,
   "provisioningState": "Succeeded",
-  "rackCount": 5,
+  "rackCount": 8,
   "racks": null,
   "resourceGroup": "NFResourceGroup",
   "routerId": null,
-  "serverCountPerRack": 8,
+  "serverCountPerRack": 16,
   "systemData": {
     "createdAt": "2023-03-10T11:06:33.818069+00:00",
     "createdBy": "email@address.com",
