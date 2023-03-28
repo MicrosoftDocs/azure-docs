@@ -219,7 +219,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 
 	```bash
 	sudo yum install WALinuxAgent
-    sudo systemctl enable waagent
+        sudo systemctl enable waagent
 	```
 
 13. Install cloud-init to handle the provisioning
@@ -285,7 +285,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
      * Pass this in as a cloud-init config every time you create a VM
      * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
-    ```console
+    ```bash
     echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
     cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
     #cloud-config
