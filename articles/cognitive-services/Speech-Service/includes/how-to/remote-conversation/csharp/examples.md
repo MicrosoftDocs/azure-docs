@@ -22,14 +22,18 @@ async Task CompleteContinuousRecognition(ConversationTranscriber recognizer, str
     {
         finishedTaskCompletionSource.TrySetResult(0);
     };
-    string canceled = string.Empty;
 
-    recognizer.Canceled += (s, e) => {
-        canceled = e.ErrorDetails;
+    recognizer.Canceled += (s, e) => 
+    {
+        Console.WriteLine($"CANCELED: Reason={e.Reason}");
         if (e.Reason == CancellationReason.Error)
         {
-            finishedTaskCompletionSource.TrySetResult(0);
+            Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+            Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+            throw new System.ApplicationException("${e.ErrorDetails}");
         }
+        finishedTaskCompletionSource.TrySetResult(0);
     };
 
     await recognizer.StartTranscribingAsync().ConfigureAwait(false);

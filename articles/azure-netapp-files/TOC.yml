@@ -359,8 +359,6 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
-    - name: Troubleshoot file locks
-      href: Troubleshoot-file-locks.md
 - name: Reference
   items:
   - name: REST

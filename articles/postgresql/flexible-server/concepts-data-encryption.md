@@ -162,6 +162,17 @@ Some of the reasons why server state can become *Inaccessible* are:
 - If you set up overly restrictive Azure KeyVault firewall rules that cause Azure Database for PostgreSQL- Flexible Server inability to communicate with Azure KeyVault to retrieve keys. If you enable [KeyVault firewall](../../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), make sure you check an option to *'Allow Trusted Microsoft Services to bypass this firewall.'*
 
 
+## Using Data Encryption with Customer Managed Key (CMK) and Geo-redundant Business Continuity features, such as Replicas and Geo-redundant backup
+
+Azure Database for PostgreSQL - Flexible Server supports advanced [Data Recovery (DR)](../flexible-server/concepts-business-continuity.md) features, such as [Replicas](../../postgresql/flexible-server/concepts-read-replicas.md) and [geo-redundant backup](../flexible-server/concepts-backup-restore.md).  Following are requirements for setting up data encryption with CMK and these features, additional to [basic requirements for data encryption with CMK](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server):
+
+* The Geo-redundant backup encryption key needs to be the created in an Azure Key Vault (AKV) in the region where the Geo-redundant backup is stored 
+* The [Azure Resource Manager (ARM) REST API](../../azure-resource-manager/management/overview.md) version for supporting Geo-redundant backup enabled CMK servers is '2022-11-01-preview'. Therefore, using [ARM templates](../../azure-resource-manager/templates/overview.md) for automation of creation of servers utilizing both encryption with CMK and geo-redundant backup features,  please use this ARM API version. 
+*  Same [user managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)can't be used to authenticate for primary database Azure Key Vault (AKV) and Azure Key Vault (AKV) holding encryption key for Geo-redundant backup. To make sure that we maintain regional resiliency we recommend creating user managed identity in the same region as the geo-backups. 
+* As support for Geo-redundant backup with data encryption using CMK is currently in preview, there is currently no Azure CLI support for server creation with both of these features enabled. 
+* If [Read replica database](../flexible-server/concepts-read-replicas.md) is setup to be encrypted with CMK during creation, its encryption key needs to be resident in an Azure Key Vault (AKV) in the region where Read replica database resides. [User assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to authenticate against this Azure Key Vault (AKV) needs to be created in the same region. 
+
+
 > [!NOTE]  
 > CLI examples below are based on 2.45.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries
 

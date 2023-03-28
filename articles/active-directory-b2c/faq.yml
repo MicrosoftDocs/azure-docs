@@ -4,12 +4,11 @@ metadata:
   description: Answers to frequently asked questions about Azure Active Directory B2C.
   services: active-directory-b2c
   author: garrodonnell
-  manager: CelesteDG
-  
+  manager: CelesteDG  
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 03/06/2023
+  ms.date: 03/15/2023
   ms.author: godonnell
   ms.subservice: B2C
   ms.custom: "b2c-support"
@@ -64,7 +63,12 @@ sections:
           * Microsoft account: openid email profile
           * Amazon: profile
           * LinkedIn: r_emailaddress, r_basicprofile
-          
+
+      - question: |
+          I'm using ADFS as an identity provider in Azure AD B2C. When I try to initiate a sign out request from Azure AD B2C, ADFS shows the error *MSIS7084: SAML logout request and logout response messages must be signed when using SAML HTTP Redirect or HTTP POST binding*. How do I resolve this issue?
+        answer: |
+          On the ADFS server, run: `Set-AdfsProperties -SignedSamlRequestsRequired $true`. This will force Azure AD B2C to sign all requests to ADFS.
+        
       - question: |
           Does my application have to be run on Azure for it work with Azure AD B2C?
         answer: |
@@ -269,6 +273,11 @@ sections:
           1. Wait for 10 minutes.
           
           1. Retrieve the `RefreshToken` again.
+          
+      - question: |
+         I use multiple tabs in a web browser to sign in to multiple applications that I registered in the same Azure AD B2C tenant. When I try to perform a single sign out, not all of the applications are signed out. Why does this happen? 
+        answer: |
+          Currently, Azure AD B2C doesn't support single sign out for this specific scenario. It's caused by cookie contention as all the applications operates on the same cookie simultaneously.
           
       - question: |
           How do I report issues with Azure AD B2C?

@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 03/17/2023
+ms.date: 03/20/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -163,11 +163,11 @@ To demonstrate the cost saving opportunity for this scenario, use the [pricing c
 
 When you migrate this App Service Environment using the migration feature, your new App Service Environment v3 has 1 I2v2 instance, which means you have four cores and 16-GB RAM. If you don't change anything, your monthly payment is the following.
 
-[1(I2v2) = $563.56](https://azure.com/e/0a042f33d87548bfb966bdff74e35715)
+[1(I2v2) = $563.56](https://azure.com/e/17946ea2c4db483d882526ba515a6771)
 
 Your monthly cost is reduced, but you don't need that much compute and capacity. You scale down your instance to I1v2 and your monthly cost is reduced even further.
 
-[1(I1v2) = $281.78](https://azure.com/e/c400e2c91ed44cadbf849923b902dded)
+[1(I1v2) = $281.78](https://azure.com/e/9d481c3af3cd407d975017c2b8158bbd)
 
 ### Break even point
 
@@ -179,7 +179,7 @@ To demonstrate this scenario, you have an App Service Environment v2 with a sing
 
 If you migrate this environment to App Service Environment v3, your monthly cost is:
 
-[1(I1v2) = **$281.78**](https://azure.com/e/c2cfb6f810374f31b563e2f8a2c877e7)
+[1(I1v2) = **$281.78**](https://azure.com/e/9d481c3af3cd407d975017c2b8158bbd)
 
 This change is a significant cost reduction, but you're over-provisioned since you have double the cores and RAM, which you may not need. This excess isn't an issue for this scenario since the new environment is cheaper. However, when you increase your I1 instances in a single App Service Environment, you see how migrating to App Service Environment v3 can increase your monthly cost.
 
@@ -189,7 +189,7 @@ For this scenario, your App Service Environment v2 has 14 I1 instances. Your mon
 
 When you migrate this environment to App Service Environment v3, your monthly cost is:
 
-[14(I1v2) = **$3,944.92**](https://azure.com/e/a7b6240644824273bebd358c5919ae4f)
+[14(I1v2) = **$3,944.92**](https://azure.com/e/e0f1ebacf937479ba073a9c32cb2452f)
 
 Your App Service Environment v3 is now more expensive than your App Service Environment v2. As you start add more I1 instances, and therefore need more I1v2 instances when you migrate, the difference in price becomes more significant. If this scenario is a requirement for your environment, you may need to plan for an increase in your monthly cost. The following graph visually depicts the point where App Service Environment v3 becomes more expensive than App Service Environment v2 for this specific scenario.
 
@@ -214,7 +214,7 @@ For more scenarios on cost changes and savings opportunities with App Service En
 - **What if my App Service Environment is zone pinned?**  
   Zone pinned App Service Environment is currently not a supported scenario for migration using the migration feature. App Service Environment v3 doesn't support zone pinning. To migrate to App Service Environment v3, see the [manual migration options](migration-alternatives.md).
 - **What properties of my App Service Environment will change?**  
-  You're on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address change. Note for ELB App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses).
+  You're on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address change. Note for ELB App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses). For a full comparison of the App Service Environment versions, see [App Service Environment version comparison](version-comparison.md).
 - **What happens if migration fails or there is an unexpected issue during the migration?**  
   If there's an unexpected issue, support teams are on hand. It's recommended to migrate dev environments before touching any production environments.
 - **What happens to my old App Service Environment?**  

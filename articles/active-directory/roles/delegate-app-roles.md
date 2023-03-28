@@ -43,7 +43,7 @@ By default in Azure AD, all users can register applications and manage all aspec
 
 ### Grant individual permissions to create and consent to applications when the default ability is disabled
 
-Assign the Application Developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No.
+Assign the [Application Developer role](../roles/permissions-reference.md#application-developer) to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No.
 
 ## Assign application owners
 

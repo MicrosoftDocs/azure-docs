@@ -158,6 +158,11 @@
         "source_path_from_root": "/articles/communication-services/quickstarts/identity/access-token-teams-external-users.md",
         "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/insights.md",
+        "redirect_url": "/azure/communication-services/concepts/analytics/log-analytics",
+        "redirect_document_id": false
       }
     ]
 }
