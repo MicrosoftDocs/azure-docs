@@ -12,6 +12,146 @@ author: palma21
 
 Customizing your node configuration allows you to configure or tune your operating system (OS) settings or the kubelet parameters to match the needs of the workloads. When you create an AKS cluster or add a node pool to your cluster, you can customize a subset of commonly used OS and kubelet settings. To configure settings beyond this subset, [use a daemon set to customize your needed configurations without losing AKS support for your nodes](support-policies.md#shared-responsibility).
 
+## Create an AKS cluster with a customized node configuration
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Prerequisites for Windows kubelet custom configuration (Preview)
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+First, install the aks-preview extension by running the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+Then register the `WindowsCustomKubeletConfigPreview` feature flag by using the [`az feature register`][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [`az feature show`][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [`az provider register`][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Create config files for kubelet configuration, OS configutation, or both
+
+Create a `linuxkubeletconfig.json` file with the following contents (for Linux node pools):
+
+```json
+{
+ "cpuManagerPolicy": "static",
+ "cpuCfsQuota": true,
+ "cpuCfsQuotaPeriod": "200ms",
+ "imageGcHighThreshold": 90,
+ "imageGcLowThreshold": 70,
+ "topologyManagerPolicy": "best-effort",
+ "allowedUnsafeSysctls": [
+  "kernel.msg*",
+  "net.*"
+],
+ "failSwapOn": false
+}
+```
+> [!NOTE]
+> Windows kubelet custom configuration only supports the parameters `imageGcHighThreshold`, `imageGcLowThreshold`, `containerLogMaxSizeMB`, and `containerLogMaxFiles`. The json file contents above should be modified to remove any unsupported parameters.
+
+Create a `windowskubeletconfig.json` file with the following contents (for Windows node pools):
+
+```json
+{
+ "imageGcHighThreshold": 90,
+ "imageGcLowThreshold": 70,
+ "containerLogMaxSizeMB": 20,
+ "containerLogMaxFiles": 6
+}
+```
+
+Create a `linuxosconfig.json` file with the following contents (for Linux node pools only):
+
+```json
+{
+ "transparentHugePageEnabled": "madvise",
+ "transparentHugePageDefrag": "defer+madvise",
+ "swapFileSizeMB": 1500,
+ "sysctls": {
+  "netCoreSomaxconn": 163849,
+  "netIpv4TcpTwReuse": true,
+  "netIpv4IpLocalPortRange": "32000 60000"
+ }
+}
+```
+
+### Create a new cluster using custom configuration files
+
+When creating a new cluster, you can use the customized configuration files created in the previous step to specify the kubelet configuration, OS configuration, or both. Since the first node pool created with az aks create is a linux node pool in all cases, you should use the `linuxkubeletconfig.json` and `linuxosconfig.json` files.
+
+> [!NOTE]
+> If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value. CustomLinuxOsConfig isn't supported for OS type: Windows.
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-config ./linuxkubeletconfig.json --linux-os-config ./linuxosconfig.json
+```
+### Add a node pool using custom configuration files
+
+When adding a node pool to a cluster, you can use the customized configuration file created in the previous step to specify the kubelet configuration. CustomKubeletConfig is supported for Linux and Windows node pools.
+
+> [!NOTE]
+> When you add a Linux node pool to an existing cluster, you can specify the kubelet configuration, OS configuration, or both. When you add a Windows node pool to an existing cluster, you can only specify the kubelet configuration. If you specify a configuration when adding a node pool, only the nodes in the new node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.
+
+For Linux node pools
+
+```azurecli
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./linuxkubeletconfig.json
+```
+For Windows node pools (Preview)
+
+```azurecli
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./windowskubeletconfig.json
+```
+
+## Other configurations
+
+These settings can be used to modify other Operating System settings.
+
+### Message of the Day
+
+Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster creation or node pool creation.
+
+#### Cluster creation
+
+```azurecli
+az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
+```
+
+#### Nodepool creation
+
+```azurecli
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
+```
+
+## Confirm settings have been applied
+
+After you have applied custom node configuration, you can confirm the settings have been applied to the nodes by [connecting to the host][node-access] and verifying `sysctl` or configuration changes have been made on the filesystem.
+
+# Custom node configuration supported parameters
+
 ## Kubelet custom configuration
 
 Kubelet custom configuration is supported for Linux and Windows node pools. Supported parameters differ and are documented below.
@@ -107,138 +247,6 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 
 > [!IMPORTANT]
 > For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
-
-## Create an AKS cluster with a customized node configuration
-
-### Prerequisites for Windows kubelet custom configuration
-
-* You need to use `aks-preview` and register the feature flag.
-
-  1. Install or update `aks-preview`.
-
-    ```azurecli
-    # Install aks-preview
-    az extension add --name aks-preview
-    # Update aks-preview
-    az extension update --name aks-preview
-    ```
-
-  2. Register the feature flag.
-
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name WindowsCustomKubeletConfigPreview
-    ``` 
-  3. Check the registration status.
-
-    ```azurecli
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Previewflag')].{Name:name,State:properties.state}"
-    ```
-
-  4. Refresh the registration of the `Microsoft.ContainerService` resource provider.
-
-    ```azurecli
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
-### Create config files for kubelet configuration, OS configutation, or both
-
-Create a `kubeletconfig.json` file with the following contents (for Linux node pools):
-
-```json
-{
- "cpuManagerPolicy": "static",
- "cpuCfsQuota": true,
- "cpuCfsQuotaPeriod": "200ms",
- "imageGcHighThreshold": 90,
- "imageGcLowThreshold": 70,
- "topologyManagerPolicy": "best-effort",
- "allowedUnsafeSysctls": [
-  "kernel.msg*",
-  "net.*"
-],
- "failSwapOn": false
-}
-```
-> [!NOTE]
-> Windows kubelet custom configuration only supports the parameters `imageGcHighThreshold`, `imageGcLowThreshold`, `containerLogMaxSizeMB`, and `containerLogMaxFiles`. The json file contents above should be modified to remove any unsupported parameters.
-
-Create a `kubeletconfig.json` file with the following contents (for Windows node pools):
-
-```json
-{
- "imageGcHighThreshold": 90,
- "imageGcLowThreshold": 70,
- "containerLogMaxSizeMB": 20,
- "containerLogMaxFiles": 6
-}
-```
-
-Create a `linuxosconfig.json` file with the following contents (for Linux node pools only):
-
-```json
-{
- "transparentHugePageEnabled": "madvise",
- "transparentHugePageDefrag": "defer+madvise",
- "swapFileSizeMB": 1500,
- "sysctls": {
-  "netCoreSomaxconn": 163849,
-  "netIpv4TcpTwReuse": true,
-  "netIpv4IpLocalPortRange": "32000 60000"
- }
-}
-```
-
-### Create a new cluster using custom configuration files
-
-When creating a new cluster, you can use the customized configuration files created in the previous step to specify the kubelet configuration, OS configuration, or both. Since the first node pool created with az aks create is a linux node pool in all cases, you should use the kubeletconfig.json and linuxosconfig.json files.
-
-> [!NOTE]
-> If you specify a configuration when creating a cluster, only the nodes in the initial node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value. CustomLinuxOsConfig isn't supported for OS type: Windows.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json --linux-os-config ./linuxosconfig.json
-```
-### Add a node pool using custom configuration files
-
-When adding a node pool to a cluster, you can use the customized configuration file created in the previous step to specify the kubelet configuration. CustomKubeletConfig is supported for Linux and Windows node pools.
-
-> [!NOTE]
-> When you add a Linux node pool to an existing cluster, you can specify the kubelet configuration, OS configuration, or both. When you add a Windows node pool to an existing cluster, you can only specify the kubelet configuration. If you specify a configuration when adding a node pool, only the nodes in the new node pool will have that configuration applied. Any settings not configured in the JSON file will retain the default value.
-
-For Linux node pools
-
-```azurecli
-az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
-```
-For Windows node pools (Preview)
-
-```azurecli
-az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./kubeletconfig.json
-```
-
-## Other configurations
-
-These settings can be used to modify other Operating System settings.
-
-### Message of the Day
-
-Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster creation or node pool creation.
-
-#### Cluster creation
-
-```azurecli
-az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
-```
-
-#### Nodepool creation
-
-```azurecli
-az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
-```
-
-## Confirm settings have been applied
-
-After you have applied custom node configuration, you can confirm the settings have been applied to the nodes by [connecting to the host][node-access] and verifying `sysctl` or configuration changes have been made on the filesystem.
 
 ## Next steps
 
