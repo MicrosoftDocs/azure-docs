@@ -30,10 +30,10 @@ To learn more about Zerto platform architecture, see the [Zerto Platform Archite
 You can use Zerto with Azure VMware Solution for the following three scenarios. 
 
 > [!NOTE]
-> For Azure NetApp Files (ANFs), [Azure VMware Solution](../azure/azure-vmware/introduction) supports Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance. To leverage ANF datastores, select them as a Recovery Datastore in the Zerto VPG wizard when creating or editing a VPG.
+> For Azure NetApp Files (ANFs), [Azure VMware Solution](/azure/azure-vmware/introduction) supports Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance. To leverage ANF datastores, select them as a Recovery Datastore in the Zerto VPG wizard when creating or editing a VPG.
 
 >[!TIP]
-> Explore more about ANF datastores and how to [Attach Azure NetApp datastores to Azure VMware Solution hosts](../azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal) and [Attach Azure NetApp Files to Azure VMware Solution VMs](../azure/azure-vmware/netapp-files-with-azure-vmware-solution).
+> Explore more about ANF datastores and how to [Attach Azure NetApp datastores to Azure VMware Solution hosts](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal) and [Attach Azure NetApp Files to Azure VMware Solution VMs](/azure/azure-vmware/netapp-files-with-azure-vmware-solution).
 
 ### Scenario 1: On-premises VMware vSphere to Azure VMware Solution disaster recovery
 
