@@ -116,7 +116,7 @@ In addition to keywords, other common opt-out mechanisms include providing custo
 
 ### How we handle opt-out requests for SMS
 
-If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/communication-services/concepts/sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
+If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number or short code, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you must ask the customer to respond with a START message to resubscribe or may continue to send messages from a different number for that campaign. For alphanumeric sender ID, you are required to provide alternative mechanisms like email/call support or opt-out link for the customer to opt out. Check out our FAQ section to learn more on [Opt-out handling](./sms-faq.md#opt-out-handling).
 
 ### How we handle opt-out requests for email
 
