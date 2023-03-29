@@ -15,27 +15,9 @@ ms.devlang: csharp
 
 # Migrate an application to use passwordless connections with Azure Storage
 
-Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
+Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use passwords or secret keys create additional security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
 
-## Security risks associated with Shared Key authorization
-
-The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
-
-```csharp
-var blobServiceClient = new BlobServiceClient(
-    new Uri("https://<storage-account-name>.blob.core.windows.net"),
-    new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
-```
-
-Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
-
-## Migrate to passwordless connections
-
-[!INCLUDE [migrate-to-passwordless-overview](../../../includes/passwordless/migration-guide/migrate-to-passwordless-overview.md)]
-
-## Steps to migrate an app to use passwordless authentication
-
-The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
+The following tutorial explains how to migrate an existing application to connect to Azure Storage to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
 ### Configure roles and users for local development authentication
 
