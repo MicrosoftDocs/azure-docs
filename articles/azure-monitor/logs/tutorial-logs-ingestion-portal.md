@@ -136,7 +136,7 @@ Instead of directly configuring the schema of the table, you can upload a file w
     '" '
     ResponseCode:int
     ' ' *
-```
+    ```
 
 1. Select **Run** to view the results. This action extracts the contents of `RawData` into the separate columns `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`.
 
