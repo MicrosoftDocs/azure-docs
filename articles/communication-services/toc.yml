@@ -125,7 +125,7 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
-          href: quickstarts/chat/meeting-interop.md   
+          href: quickstarts/chat/meeting-interop.md
     - name: Use UI components for chat
       href: quickstarts/ui-library/get-started-chat-ui-library.md
   - name: Phone calling
@@ -168,8 +168,6 @@ items:
         href: quickstarts/telephony/port-phone-number.md
       - name: Apply for a short code
         href: quickstarts/sms/apply-for-short-code.md
-      - name: Apply for toll-free verification
-        href: quickstarts/sms/apply-for-toll-free-verification.md
     - name: Events
       items:
       - name: View SMS events
@@ -432,6 +430,8 @@ items:
     items:
     - name: Overview
       href: concepts/sms/concepts.md
+    - name: FAQ
+      href: concepts/sms/sms-faq.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
     - name: Messaging policy
@@ -442,8 +442,6 @@ items:
         href: concepts/numbers/number-types.md
       - name: Short code program brief filling guidelines
         href: concepts/sms/program-brief-guidelines.md
-      - name: Toll-free verification guidelines
-        href: concepts/sms/toll-free-verification-guidelines.md
     - name: Events
       items:
       - name: Overview
@@ -456,8 +454,6 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics overview
         href: concepts/metrics.md
-    - name: SMS FAQ
-      href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
     items:
     - name: Overview
