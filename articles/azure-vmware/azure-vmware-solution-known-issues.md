@@ -16,9 +16,10 @@ Refer to the table below to find details about resolution dates or possible work
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
 | [VMSA-2021-002 ESXiArgs](https://www.vmware.com/security/advisories/VMSA-2021-0002.html) OpenSLP vulnerability publicized in February 2023  | 2021  | [Disable OpenSLP service](https://kb.vmware.com/s/article/76372)  | February 2021 - Resolved in [ESXi 7.0 U3c](concepts-private-clouds-clusters.md#vmware-software-versions) |
-| After my private cloud NSX-T Data Center upgrade to version [3.2.2](https://docs.vmware.com/en/VMware-NSX/3.2.2/rn/vmware-nsxt-data-center-322-release-notes/index.html), the NSX-T Manager **DNS Forwarder Upstream Server Timeout** alarm is raised | February 2023  | [Enable private cloud internet Access](concepts-design-public-internet-access.md), alarm is raised because NSX-T Manager cannot access the configured CloudFlare DNS server.  [Or change the default DNS zone to point to a valid and reachable DNS server.] (configure-dns-azure-vmware-solution.md) | February 2023 |
+| After my private cloud NSX-T Data Center upgrade to version [3.2.2](https://docs.vmware.com/en/VMware-NSX/3.2.2/rn/vmware-nsxt-data-center-322-release-notes/index.html), the NSX-T Manager **DNS Forwarder Upstream Server Timeout** alarm is raised | February 2023  | [Enable private cloud internet Access](concepts-design-public-internet-access.md), alarm is raised because NSX-T Manager cannot access the configured CloudFlare DNS server. Otherwise, [change the default DNS zone to point to a valid and reachable DNS server.](configure-dns-azure-vmware-solution.md) | February 2023 |
 
 In this article, you learned about the current known issues with the Azure VMware Solution.
 
 For more information, see [About Azure VMware Solution](introduction.md).
+
 
