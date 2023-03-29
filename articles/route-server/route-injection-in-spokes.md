@@ -44,7 +44,7 @@ Azure Route Server, however, will advertise a larger subnet than the VNet addres
 
 ## Connectivity to on-premises through virtual network gateways
 
-If a VPN or an ExpressRoute gateway exists in the same virtual network as the Route Server and NVA to provide connectivity to on-premises networks, routes learned by these gateways will be programmed as well in the spoke VNets. These routes overrides the default route (`0.0.0.0/0`) injected by the Route Server, since they would be more specific (longer network masks). The following diagram describes the previous design, where an ExpressRoute gateway has been added.
+If a VPN or an ExpressRoute gateway exists in the same virtual network as the Route Server and NVA to provide connectivity to on-premises networks, routes learned by these gateways will be programmed as well in the spoke VNets. These routes override the default route (`0.0.0.0/0`) injected by the Route Server, since they would be more specific (longer network masks). The following diagram describes the previous design, where an ExpressRoute gateway has been added.
 
 :::image type="content" source="./media/scenarios/route-injection-vpn-and-expressroute.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via an NVA and ExpressRoute.":::
 
