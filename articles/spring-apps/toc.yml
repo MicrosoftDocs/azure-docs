@@ -187,6 +187,8 @@ items:
       href: how-to-deploy-with-custom-container-image.md
     - name: Deploy web static files
       href: how-to-enterprise-deploy-static-file.md
+    - name: Deploy large CPU and memory applications for Enterprise tier
+      href: how-to-enterprise-large-cpu-memory-applications.md
   - name: Manage
     items:
     - name: Start or stop a service

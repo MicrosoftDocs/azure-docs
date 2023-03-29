@@ -5,13 +5,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 01/27/2023
+ms.date: 03/28/2023
 ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Configure peering between Azure Route Server and Network Virtual Appliance
 
-This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Quagga Network Virtual Appliance (NVA). You'll deploy a virtual network with four subnets. One subnet will be dedicated to the Route Server and another subnet dedicated to the Quagga NVA. The Quagga NVA will be configured to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged on the Route Server and Quagga NVA.
+This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Quagga network virtual appliance (NVA). You'll deploy a virtual network with four subnets. One subnet will be dedicated to the Route Server and another subnet dedicated to the Quagga NVA. The Quagga NVA will be configured to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged on the Route Server and Quagga NVA.
 
 In this tutorial, you learn how to:
 
@@ -251,5 +251,5 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 ## Next steps
 
-In this tutorial, you learned how to create and configure an Azure Route Server with a Network Virtual Appliance (NVA). To learn more about Route Servers, see [Azure Route Server frequently asked questions (FAQs)](route-server-faq.md).
+In this tutorial, you learned how to create and configure an Azure Route Server with a network virtual appliance (NVA). To learn more about Route Servers, see [Azure Route Server frequently asked questions (FAQs)](route-server-faq.md).
 
