@@ -26,6 +26,8 @@ items:
     - name: Reliability
       tocHref: /azure/storage/
     - name: Reliability
+      tocHref: /azure/storage/common/
+    - name: Reliability
       tocHref: /azure/virtual-network
     - name: Reliability
       tocHref: /azure/application-gateway/
