@@ -13,7 +13,7 @@ ms.author: arindamba
 
 # Troubleshoot Microsoft Purview SHIR self-hosted integration runtime
 
-APPLIES TO:  :::image type="icon" source="../media/applies-to/yes.png" border="false":::Microsoft Purview :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics
+APPLIES TO:  :::image type="icon" source="media/yes.png" border="false":::Microsoft Purview :::image type="icon" source="media/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/yes.png" border="false":::Azure Synapse Analytics
 
 This article explores common troubleshooting methods for self-hosted integration runtime (SHIR) in Microsoft Purview, Azure Data Factory and Synapse workspaces.
 
