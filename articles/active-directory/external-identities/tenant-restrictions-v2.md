@@ -137,7 +137,7 @@ For non-Windows platforms, you can break and inspect traffic to add the tenant r
 - [Conditional Access: Manage access for guest/external users](/microsoft-365/security/office-365-security/identity-access-policies-guest-access)
 - [B2B Collaboration: Restrict outbound rules by Cross-tenant access for the same tenants listed in the parameter "Restrict-Access-To-Tenants"](../external-identities/cross-tenant-access-settings-b2b-collaboration.md)
 - [B2B Collaboration: Restrict invitations to B2B users to the same domains listed in the "Restrict-Access-To-Tenants" parameter](../external-identities/allow-deny-list.md)
-- [Application management: Restrict how users consent to applications](configure-user-consent.md)
+- [Application management: Restrict how users consent to applications](../manage-apps/configure-user-consent.md)
 - [Intune: Apply App Policy through Intune to restrict usage of managed apps to only the UPN of the account that enrolled the device](/mem/intune/apps/app-configuration-policies-use-android) (under **Allow only configured organization accounts in apps**)
 
 Although these alternatives provide protection, certain scenarios can only be covered through tenant restrictions, such as the use of a browser to access Microsoft 365 services through the web instead of the dedicated app.
@@ -322,7 +322,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
    - **Azure AD Directory ID**: Enter the **Tenant ID** you recorded earlier. You can also find your tenant ID in the [Azure portal](https://portal.azure.com) by navigating to **Azure Active Directory** > **Properties** and copying the **Tenant ID**.
    - **Policy GUID**: The ID for your cross-tenant access policy. It's the **Policy ID** you recorded earlier. You can also find this ID by using the Graph Explorer command [https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/default](https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/default).
 
-   :::image type="content" source="dia/tenant-restrictions-v2/windows-cloud-policy-details.png" alt-text="Screenshot of Windows Cloud Policy Details.":::
+   :::image type="content" source="media/tenant-restrictions-v2/windows-cloud-policy-details.png" alt-text="Screenshot of Windows Cloud Policy Details.":::
 
 1. Select **OK**.
 
