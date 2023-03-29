@@ -52,7 +52,80 @@ To complete this project, you need the following items:
 
 ::: zone-end
 
-[!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
+## Setup
+
+To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az login
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+az login
+```
+
+---
+
+Ensure you're running the latest version of the CLI via the upgrade command.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az upgrade
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+az upgrade
+```
+
+---
+
+Next, install or update the Azure Container Apps extension for the CLI.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az extension add --name containerapp --upgrade
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+
+```azurepowershell
+az extension add --name containerapp --upgrade
+```
+
+---
+
+Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.App
+```
+
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+az provider register --namespace Microsoft.App
+```
+
+```azurepowershell
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+---
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
@@ -79,7 +152,7 @@ Next, define a container registry name unique to you.
 ACR_NAME="acaalbums"$GITHUB_USERNAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Define the following variables in your PowerShell console.
 
@@ -117,7 +190,7 @@ ENVIRONMENT="env-album-containerapps"
 API_NAME="album-api"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Define the following variables in your PowerShell console.
 
@@ -227,7 +300,7 @@ az containerapp up \
   --source code-to-cloud/src
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 az containerapp up `
@@ -270,7 +343,7 @@ az containerapp up \
   --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 az containerapp up `
@@ -311,7 +384,7 @@ If you're not going to continue on to the [Deploy a frontend](communicate-betwee
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
 az group delete --name $RESOURCE_GROUP
