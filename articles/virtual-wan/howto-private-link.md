@@ -14,11 +14,11 @@ ms.custom: fasttrack-new
 ---
 # Use Private Link in Virtual WAN
 
-[Azure Private Link](../private-link/private-link-overview.md) is a technology that allows you to connect Azure Platform-as-a-Service offerings using private IP address connectivity by exposing [Private Endpoints](../private-link/private-endpoint-overview.md). With Azure Virtual WAN, you can deploy a Private Endpoint in one of the virtual networks connected to any virtual hub. This provides connectivity to any other virtual network or branch connected to the same Virtual WAN.
+[Azure Private Link](../private-link/private-link-overview.md) is a technology that allows you to connect Azure Platform-as-a-Service offerings using private IP address connectivity by exposing [Private Endpoints](../private-link/private-endpoint-overview.md). With Azure Virtual WAN, you can deploy a Private Endpoint in one of the virtual networks connected to any virtual hub. This private link provides connectivity to any other virtual network or branch connected to the same Virtual WAN.
 
 ## Before you begin
 
-The steps in this article assume that you have already deployed a virtual WAN with one or more hubs, as well as at least two virtual networks connected to Virtual WAN.
+The steps in this article assume that you have already deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.
 
 To create a new virtual WAN and a new hub, use the steps in the following articles:
 
@@ -28,7 +28,7 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 
 ## <a name="endpoint"></a>Create a private link endpoint
 
-You can create a private link endpoint for many different services. In this example, we will use Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
+You can create a private link endpoint for many different services. In this example, we are using Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
 
 :::image type="content" source="./media/howto-private-link/create-private-link.png" alt-text="create private link" lightbox="./media/howto-private-link/create-private-link.png":::
 
@@ -36,13 +36,13 @@ After creating the Azure SQL Database, you can verify the private endpoint IP ad
 
 :::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="private endpoints" lightbox="./media/howto-private-link/endpoints.png":::
 
-Clicking on the private endpoint we have created, you should see its private IP address, as well as its Fully Qualified Domain Name (FQDN). Note that the private endpoint has an IP address in the range of the VNet where it has been deployed (10.1.3.0/24):
+Clicking on the private endpoint we have created, you should see its private IP address and its Fully Qualified Domain Name (FQDN). The private endpoint should have an IP address in the range of the VNet where it has been deployed (10.1.3.0/24):
 
 :::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL endpoint" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="connectivity"></a>Verify connectivity from the same VNet
 
-In this example, we will verify connectivity to the Azure SQL Database from a Linux virtual machine with MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
+In this example, we verify connectivity to the Azure SQL Database from a Linux virtual machine with the MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
 
 ```bash
 nslookup wantest.database.windows.net
@@ -75,7 +75,7 @@ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 
 As you can see, we are using a special SQL query that gives us the source IP address that the SQL server sees from the client. In this case the server sees the client with its private IP (`10.1.3.75`), which means that the traffic goes from the VNet straight into the private endpoint.
 
-Note that you need to set the variables `username` and `password` to match the credentials defined in the Azure SQL Database to make the examples in this guide work.
+Set the variables `username` and `password` to match the credentials defined in the Azure SQL Database to make the examples in this guide work.
 
 ## <a name="vnet"></a>Connect from a different VNet
 
@@ -86,7 +86,7 @@ Once you have connectivity between the VNet or the branch to the VNet where the 
 * If connecting to the private endpoint from a VNet, you can use the same private zone that was created with the Azure SQL Database.
 * If connecting to the private endpoint from a branch (Site-to-site VPN, Point-to-site VPN or ExpressRoute), you need to use on-premises DNS resolution.
 
-In this example we will connect from a different VNet, so first we will attach the private DNS zone to the new VNet so that its workloads can resolve the Azure SQL Database Fully Qualified Domain Name to the private IP address. This is done through linking the private DNS zone to the new VNet:
+In this example we are connecting from a different VNet. First attach the private DNS zone to the new VNet so that its workloads can resolve the Azure SQL Database Fully Qualified Domain Name to the private IP address. This is done through linking the private DNS zone to the new VNet:
 
 :::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="DNS link" lightbox="./media/howto-private-link/dns-link.png":::
 
