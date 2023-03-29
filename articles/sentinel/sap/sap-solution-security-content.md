@@ -35,7 +35,7 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ### Risky configuration of security parameters
 
-To ensure the security of the SAP system, SAP has identified security-relevant parameters that need to be monitored for changes. With the "Risky Configuration" rule, the Microsoft Sentinel solution for SAP® applications tracks over 52 security-related parameters in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
+To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the "Risky Configuration" rule, the Microsoft Sentinel solution for SAP® applications tracks over 52 security-related parameters in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
 
 To understand parameter changes in the system, the Microsoft Sentinel solution for SAP® applications uses the parameter history table, which records changes made to both static and dynamic parameters in the system every hour.  
 

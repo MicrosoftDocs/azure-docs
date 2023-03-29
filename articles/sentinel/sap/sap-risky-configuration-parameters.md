@@ -9,7 +9,7 @@ ms.date: 03/26/2023
 
 # Microsoft Sentinel solution for SAP® applications - monitored parameters to detect risky configuration manipulation
 
-This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the [risky configuration manipulation feature](sap-solution-security-content.md#risky-configuration-manipulation).
+This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the [risky configuration of security parameters feature](sap-solution-security-content.md#risky-configuration-manipulation).
 
 ## Monitored SAP security parameters
 
