@@ -780,4 +780,5 @@ When no longer needed, delete the app object that you created in the [Register y
 
 Learn more about building mobile apps that call protected web APIs in our multi-part scenario series.
 
-> [!div class="nextstepaction"] > [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
+> [!div class="nextstepaction"] 
+> [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
