@@ -13,14 +13,14 @@ ms.author: arindamba
 
 # Troubleshoot Microsoft Purview SHIR self-hosted integration runtime
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+APPLIES TO:  :::image type="icon" source="../media/applies-to/yes.png" border="false":::Microsoft Purview :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics
 
 This article explores common troubleshooting methods for self-hosted integration runtime (SHIR) in Microsoft Purview, Azure Data Factory and Synapse workspaces.
 
 ## Gather self-hosted IR logs
 
 For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](https://learn.microsoft.com/shows/inside/event-viewer).
-To get support for SHIR issues, you may need to generate an error report and send it across to Microsoft . To generate the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
+To get support and troubleshooting guidance for SHIR issues, you may need to generate an error report and send it across to Microsoft. To generate the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
 1. Before starting the scan: 
 - Clear the windows event viewer logs in the "Integration Runtime" section. Right-click on the logs and select clear logs option.
@@ -52,7 +52,9 @@ To get support for SHIR issues, you may need to generate an error report and sen
 
 There are lots of common errors, warnings, issues between Purview SHIR and Azure Data Factory or Azure Synapse SHIR.
 
-If your SHIR issues are not resolved, refer to the [Azure Data Factory ADF or Azure Synapse SHIR troubleshooting guide](../../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md)
+If your SHIR issues are not resolved, refer to the [Azure Data Factory ADF or Azure Synapse SHIR troubleshooting guide](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md)
+
+[!INCLUDE[SHIR](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md)]
 
 ## Next steps
 
