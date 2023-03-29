@@ -2431,7 +2431,7 @@
         href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
-      - name: TeamzSkill
+      - name: RevSpace
         href: teamzskill-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
@@ -2956,6 +2956,8 @@
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
         href: cofense-provision-tutorial.md
+      - name: Connecter
+        href: connecter-provisioning-tutorial.md
       - name: Contentful
         href: contentful-provisioning-tutorial.md
       - name: Comeet Recruiting Software

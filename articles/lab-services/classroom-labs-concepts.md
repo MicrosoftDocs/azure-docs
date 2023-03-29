@@ -96,6 +96,8 @@ Example scenarios for using quotas are:
 
 When a lab user starts their lab VM, quota hours for the lab start counting. If a lab creator manually starts the lab VM for a user, quota hours aren't used for that student.
 
+The quota applies to a lab for each lab user individually, for the entire duration of the lab.
+
 A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
 ## Next steps
