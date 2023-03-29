@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 -	An Azure Communication Services phone number. [Get a phone number](../../quickstarts/telephony/get-phone-number). You will need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification) so it can send messages with URLs. 
 -	Deployed [AzUrlShortener](https://github.com/microsoft/AzUrlShortener). Click [Deploy to Azure](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener) button for quick deploy.
     -  [*Optional*] Deploy the [Admin web app](https://github.com/microsoft/AzUrlShortener/blob/main/src/Cloud5mins.ShortenerTools.TinyBlazorAdmin/README.md) to manage and monitor links in UI.
--	For this tutorial, we will be leveraging an Azure Function serve as an endpoint we can call to request SMS to be sent with a shortened URL. You could always use an existing service, different framework like express or just run this as a Node.JS console app. To follow this instructions to set up an [Azure Function for TypeScript](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp).
+-	For this tutorial, we will be leveraging an Azure Function serve as an endpoint we can call to request SMS to be sent with a shortened URL. You could always use an existing service, different framework like express or just run this as a Node.JS console app. To follow this instructions to set up an [Azure Function for C#](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp).
 
 ## Architecture overview
 
