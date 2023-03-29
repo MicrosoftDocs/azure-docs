@@ -38,34 +38,36 @@
       href: quickstart-multi-container.md
     - name: App on Azure Arc (preview)
       href: quickstart-arc.md
-- name: Configuration by language stack
-  items:
-    - name: Configure common settings
-      href: configure-common.md
-    - name: Reference settings from App Configuration (preview)
-      href: app-service-configuration-references.md
-    - name: Configure ASP.NET
-      href: configure-language-dotnet-framework.md
-    - name: Configure ASP.NET Core
-      href: configure-language-dotnetcore.md
-    - name: Configure Node.js
-      href: configure-language-nodejs.md
-    - name: Configure PHP
-      href: configure-language-php.md
-    - name: Configure Python
-      href: configure-language-python.md
-    - name: Configure Java
-      href: configure-language-java.md
-    - name: Configure Ruby
-      href: configure-language-ruby.md
-    - name: Configure custom container
-      href: configure-custom-container.md
-    - name: Configure Azure Storage
-      href: configure-connect-to-azure-storage.md
 - name: Deployment
   items:
     - name: Deployment best practices
       href: deploy-best-practices.md
+    - name: Deploy a RESTful API
+      href: app-service-web-tutorial-rest-api.md
+    - name: Configuration by language stack
+      items:
+        - name: Configure common settings
+          href: configure-common.md
+        - name: Reference settings from App Configuration (preview)
+          href: app-service-configuration-references.md
+        - name: Configure ASP.NET
+          href: configure-language-dotnet-framework.md
+        - name: Configure ASP.NET Core
+          href: configure-language-dotnetcore.md
+        - name: Configure Node.js
+          href: configure-language-nodejs.md
+        - name: Configure PHP
+          href: configure-language-php.md
+        - name: Configure Python
+          href: configure-language-python.md
+        - name: Configure Java
+          href: configure-language-java.md
+        - name: Configure Ruby
+          href: configure-language-ruby.md
+        - name: Configure custom container
+          href: configure-custom-container.md
+        - name: Configure Azure Storage
+          href: configure-connect-to-azure-storage.md
     - name: Deployment options
       items:
         - name: Deploy ZIP or WAR
@@ -191,7 +193,9 @@
           - name: JavaScript
             href: tutorial-connect-msi-key-vault-javascript.md    
           - name: PHP
-            href: tutorial-connect-msi-key-vault-php.md              
+            href: tutorial-connect-msi-key-vault-php.md
+        - name: Connect to Logic Apps
+          href: tutorial-send-email.md
     - name: With an app identity
       items:
         - name: Use a managed identity
@@ -365,14 +369,6 @@
     href: overview-disaster-recovery.md
   - name: Restore from downed region
     href: manage-disaster-recovery.md
-- name: Tutorials
-  items:
-    - name: Host a RESTful API
-      href: app-service-web-tutorial-rest-api.md
-    - name: Add CDN
-      href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
-    - name: Send email/tweet
-      href: tutorial-send-email.md
 - name: App Service on Azure Arc
   items:
     - name: Azure Arc hosting (preview)
@@ -389,83 +385,6 @@
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
       href: webjobs-sdk-how-to.md
-- name: Samples
-  items:
-    - name: Azure CLI
-      items:
-        - name: Overview
-          items:
-            - name: Overview
-              href: samples-cli.md
-        - name: Create App
-          items:
-            - name: Deploy with FTP
-              href: ./scripts/cli-deploy-ftp.md
-            - name: Deploy from GitHub
-              href: ./scripts/cli-deploy-github.md
-            - name: Deploy continuously from GitHub
-              href: ./scripts/cli-continuous-deployment-github.md
-            - name: Deploy into local Git repo
-              href: ./scripts/cli-deploy-local-git.md
-            - name: Deploy to a staging environment
-              href: ./scripts/cli-deploy-staging-environment.md
-            - name: Deploy in a Docker container
-              href: ./scripts/cli-linux-docker-aspnetcore.md
-            - name: Deploy with a private endpoint
-              href: ./scripts/cli-deploy-privateendpoint.md
-        - name: Configure app
-          items:
-            - name: Map a custom domain to an app
-              href: ./scripts/cli-configure-custom-domain.md
-            - name: Bind a custom TLS/SSL certificate to an app
-              href: ./scripts/cli-configure-ssl-certificate.md
-        - name: Scale app
-          items:
-            - name: Scale an app manually
-              href: ./scripts/cli-scale-manual.md
-            - name: Scale an app with HA architecture
-              href: ./scripts/cli-scale-high-availability.md
-        - name: Integrate with Azure Application Gateway
-          href: ./scripts/cli-integrate-app-service-with-application-gateway.md
-        - name: Connect app to resources
-          items:
-            - name: Connect to SQL
-              href: ./scripts/cli-connect-to-sql.md
-            - name: Connect to storage account
-              href: ./scripts/cli-connect-to-storage.md
-            - name: Connect to Azure Cache for Redis
-              href: ./scripts/cli-connect-to-redis.md
-            - name: Connect to Azure Cosmos DB
-              href: ./scripts/cli-connect-to-documentdb.md
-        - name: Backup and restore an app
-          href: ./scripts/cli-backup-schedule-restore.md
-        - name: Monitor an app with web server logs
-          href: ./scripts/cli-monitor.md
-    - name: Azure PowerShell
-      href: samples-powershell.md
-    - name: Resource Manager templates
-      href: samples-resource-manager-templates.md
-    - name: Terraform
-      href: samples-terraform.md
-    - name: Bicep
-      href: samples-bicep.md
-- name: Reference
-  items:
-    - name: Monitoring data
-      href: monitor-app-service-reference.md
-    - name: Azure CLI
-      href: /cli/azure/appservice
-    - name: Azure PowerShell
-      href: /powershell/module/az.websites/#app_service
-    - name: REST API
-      href: /rest/api/appservice/
-    - name: Resource Manager template
-      href: /azure/templates/microsoft.web/allversions
-    - name: App settings reference
-      href: reference-app-settings.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
 - name: Resources
   items:
     - name: App Service Blog
@@ -480,6 +399,83 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
+    - name: Samples
+      items:
+        - name: Azure CLI
+          items:
+            - name: Overview
+              items:
+                - name: Overview
+                  href: samples-cli.md
+            - name: Create App
+              items:
+                - name: Deploy with FTP
+                  href: ./scripts/cli-deploy-ftp.md
+                - name: Deploy from GitHub
+                  href: ./scripts/cli-deploy-github.md
+                - name: Deploy continuously from GitHub
+                  href: ./scripts/cli-continuous-deployment-github.md
+                - name: Deploy into local Git repo
+                  href: ./scripts/cli-deploy-local-git.md
+                - name: Deploy to a staging environment
+                  href: ./scripts/cli-deploy-staging-environment.md
+                - name: Deploy in a Docker container
+                  href: ./scripts/cli-linux-docker-aspnetcore.md
+                - name: Deploy with a private endpoint
+                  href: ./scripts/cli-deploy-privateendpoint.md
+            - name: Configure app
+              items:
+                - name: Map a custom domain to an app
+                  href: ./scripts/cli-configure-custom-domain.md
+                - name: Bind a custom TLS/SSL certificate to an app
+                  href: ./scripts/cli-configure-ssl-certificate.md
+            - name: Scale app
+              items:
+                - name: Scale an app manually
+                  href: ./scripts/cli-scale-manual.md
+                - name: Scale an app with HA architecture
+                  href: ./scripts/cli-scale-high-availability.md
+            - name: Integrate with Azure Application Gateway
+              href: ./scripts/cli-integrate-app-service-with-application-gateway.md
+            - name: Connect app to resources
+              items:
+                - name: Connect to SQL
+                  href: ./scripts/cli-connect-to-sql.md
+                - name: Connect to storage account
+                  href: ./scripts/cli-connect-to-storage.md
+                - name: Connect to Azure Cache for Redis
+                  href: ./scripts/cli-connect-to-redis.md
+                - name: Connect to Azure Cosmos DB
+                  href: ./scripts/cli-connect-to-documentdb.md
+            - name: Backup and restore an app
+              href: ./scripts/cli-backup-schedule-restore.md
+            - name: Monitor an app with web server logs
+              href: ./scripts/cli-monitor.md
+        - name: Azure PowerShell
+          href: samples-powershell.md
+        - name: Resource Manager templates
+          href: samples-resource-manager-templates.md
+        - name: Terraform
+          href: samples-terraform.md
+        - name: Bicep
+          href: samples-bicep.md
+    - name: Reference
+      items:
+        - name: Monitoring data
+          href: monitor-app-service-reference.md
+        - name: Azure CLI
+          href: /cli/azure/appservice
+        - name: Azure PowerShell
+          href: /powershell/module/az.websites/#app_service
+        - name: REST API
+          href: /rest/api/appservice/
+        - name: Resource Manager template
+          href: /azure/templates/microsoft.web/allversions
+        - name: App settings reference
+          href: reference-app-settings.md
+        - name: Azure Policy built-ins
+          displayName: samples, policies, definitions
+          href: ./policy-reference.md
     - name: Routine maintenance
       href: routine-maintenance.md
     - name: Language support policy
