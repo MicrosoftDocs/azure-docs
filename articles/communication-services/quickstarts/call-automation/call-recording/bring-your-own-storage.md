@@ -25,7 +25,7 @@ This quickstart gets you started with BYOS (Bring your own storage) for Call Rec
 ![Diagram showing a communication service resource with managed identity disabled](../media/byos-managed-identity-1.png)
 
 1. Open your Azure Communication Services resource. Navigate to *Identity* on the left.
-2. System Assigned Managed Identity is disabled by default. Enable it and click of *Save*
+2. System Assigned Managed Identity is disabled by default. Enable it and click on *Save*
 3. Once completed, you're able to see the Object principal ID of the newly created identity.
 
 ![Diagram showing a communication service resource with managed identity enabled](../media/byos-managed-identity-2.png)

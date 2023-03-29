@@ -27,16 +27,6 @@ This article will be updated to reflect the features that are currently in previ
 
 The following features are available in preview.
 
-### Network rule name logging (preview)
-
-With this new feature, the event logs for network rules adds the following attributes:
-   - Policy name
-   - Rule collection group
-   - Rule collection
-   - Rule name 
-
-For more information, see [Azure Firewall network rule name logging (preview)](firewall-network-rule-logging.md).
-
 ### Structured Firewall Logs (preview)
 
 With Structured Firewall Logs, you'll be able to choose to use Resource Specific tables instead of an existing AzureDiagnostics table. Structured Firewall Logs is required for Policy Analytics. This new method helps you with better log querying and is recommended because:

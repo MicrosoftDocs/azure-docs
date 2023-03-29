@@ -93,7 +93,7 @@ The following table compares features available in the managed gateway versus th
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ❌ |
-| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 
 ### Policies
 
