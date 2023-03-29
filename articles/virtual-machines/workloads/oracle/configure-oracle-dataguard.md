@@ -174,16 +174,20 @@ https://portal.azure.com
 
 In the search textbox at the top of the window, search for OracleVM1 and click it from the list to launch.
 
-  <insert image>
+   ![Screenshot of the search window](./media/oracle-dataguard/search-oraclevm1.png)
 
 At the top of the screen, click Connect and select Bastion.
     
-  <insert image>
+   ![Screenshot of connect via Bastion](./media/oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
       
-  <insert image>    
+   ![Screenshot of connect via Bastion with credentials](./media/oracle-dataguard/connect-bastion-credentials.png)
 
+This will open a new tab with a secure connection to your virtual machine where the Oracle software is already installed from an Azure Marketplace image.
+
+   ![Screenshot of connect via Bastion on browser](./media/oracle-dataguard/connect-bastion-browser-tab.png)
+   
 ### Configure OracleVM1 (primary)
 ```bash
 sudo systemctl stop firewalld
@@ -398,15 +402,15 @@ $ lsnrctl start
 
 Return to the tab with the Azure portal.  Search for OracleVM2 and click it.
 
-  <insert image>
+   ![Screenshot of search for OracleVM2](./media/oracle-dataguard/search-oraclevm2.png)
 
 At the top of the screen, click Connect and select Bastion.
 
-  <insert image>
+   ![Screenshot of connecting to VM via Bastion](./media/oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
       
-  <insert image>
+   ![Screenshot of connecting via Bastion with credentials](./media/oracle-dataguard/connect-bastion-credentials.png)
       
 ### Disable the Firewall on OracleVM2 (standby)
 ```bash
