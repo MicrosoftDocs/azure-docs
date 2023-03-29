@@ -28,11 +28,21 @@ _Azure Data Lake Storage_ is a cloud-based, enterprise data lake solution. It's 
 
 ## Data Lake Storage Gen2
 
-_Azure Data Lake Storage Gen2_ refers to the current implementation of Azure's Data Lake Storage solution. The previous implementation, _Azure Data Lake Storage Gen1_, is scheduled to be retired on February 29, 2024. 
+_Azure Data Lake Storage Gen2_ refers to the current implementation of Azure's Data Lake Storage solution. The previous implementation, _Azure Data Lake Storage Gen1_ will be retired on February 29, 2024. 
 
-Unlike Data Lake Storage Gen1, Data Lake Storage Gen2 isn't a dedicated service or account type. Instead, it's implemented as a set of capabilities that you use with the Blob Storage service of your Azure Storage account. You can unlock these capabilities by enabling the hierarchical namespace setting. This setting is not enabled by default. You must enable it either as you create the account or after you create the account.
+Unlike Data Lake Storage Gen1, Data Lake Storage Gen2 isn't a dedicated service or account type. Instead, it's implemented as a set of capabilities that you use with the Blob Storage service of your Azure Storage account. You can unlock these capabilities by enabling the hierarchical namespace setting. 
 
-## Data Lake Storage Gen2 capabilities
+Data Lake Storage Gen2 includes the following capabilities.
+
+&#x2713;&nbsp;&nbsp; Hadoop-compatible access
+
+&#x2713;&nbsp;&nbsp; Hierarchical directory structure
+
+&#x2713;&nbsp;&nbsp; Optimized cost and performance
+
+&#x2713;&nbsp;&nbsp; Finer grain security model
+
+&#x2713;&nbsp;&nbsp; Massive scalability
 
 #### Hadoop-compatible access
 
@@ -56,7 +66,7 @@ Performance is optimized because you don't need to copy or transform data as a p
 
 #### Finer grain security model
 
-The Azure Data Lake Storage Gen2 access control model supports both Azure role-based access control (RBAC) and Portable Operating System Interface for UNIX (POSIX) access control lists (ACLs). There are also a few extra security settings that are specific to Azure Data Lake Storage Gen2. You can set permissions either at the directory level or at the file level. All stored data is encrypted at rest by using either Microsoft-managed or customer-managed encryption keys.
+The Azure Data Lake Storage Gen2 access control model supports both Azure role-based access control (Azure RBAC) and Portable Operating System Interface for UNIX (POSIX) access control lists (ACLs). There are also a few extra security settings that are specific to Azure Data Lake Storage Gen2. You can set permissions either at the directory level or at the file level. All stored data is encrypted at rest by using either Microsoft-managed or customer-managed encryption keys.
 
 #### Massive scalability
 
@@ -68,9 +78,9 @@ This design means that Azure Data Lake Storage Gen2 can easily and quickly scale
 
 ## Built on Azure Blob Storage
 
-The data that you ingest persist as blobs in the storage account. The service that manages those blobs is the Azure Blob Storage service. Data Lake Storage Gen2 describes the capabilities or "enhancements" to this service that cater to the demands of big data analytic workloads. 
+The data that you ingest persist as blobs in the storage account. The service that manages blobs is the Azure Blob Storage service. Data Lake Storage Gen2 describes the capabilities or "enhancements" to this service that caters to the demands of big data analytic workloads. 
 
-Because these capabilities are built on Blob Storage, features such as diagnostic logging, access tiers, and lifecycle management policies are available to your account. Most Blob Storage features are fully supported, but some features might be supported only at the preview level and there are a handful of them that are not yet supported. For a complete list of support statements, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md). The status of each listed feature will change over time as support continues to expand. 
+Because these capabilities are built on Blob Storage, features such as diagnostic logging, access tiers, and lifecycle management policies are available to your account. Most Blob Storage features are fully supported, but some features might be supported only at the preview level and there are a handful of them that aren't yet supported. For a complete list of support statements, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md). The status of each listed feature will change over time as support continues to expand. 
 
 ## Documentation and terminology
 
