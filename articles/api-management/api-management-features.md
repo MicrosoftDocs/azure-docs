@@ -48,4 +48,3 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier self-hosted gateways are limited to a single gateway node. <br/>
 <sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the dedicated, consumption, and self-hosted gateways. <br/>
-<sup>5</sup> GraphQL subscriptions aren't supported in the Consumption tier.
