@@ -132,7 +132,7 @@ function setImgHandler(element, imageAttachments) {
 }
 
 async function fetchPreviewImages(attachments) {
-  if (!imageAttachments.length > 0) {
+  if (!attachments.length > 0) {
     return;
   }
   // since each message could contain more than one inline image
