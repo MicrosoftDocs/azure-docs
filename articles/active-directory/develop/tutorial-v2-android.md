@@ -65,7 +65,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 3. Enter a name for the application, such as _MSALAndroidapp_.
 4.  Record the package name to be used in the Azure portal in later steps. 
 5. Change the language from **Kotlin** to **Java**.
-6. Set the **Minimum SDK API level** to **API 19** or higher, and click **Finish**.
+6. Set the **Minimum SDK API level** to **API 19** or higher, and select **Finish**.
 
 ## Integrate with the Microsoft Authentication Library
 
