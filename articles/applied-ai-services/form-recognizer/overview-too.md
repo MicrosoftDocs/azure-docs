@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/23/2023
+ms.date: 03/29/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -25,7 +24,16 @@ recommendations: false
 
 ::: moniker range="form-recog-3.0.0"
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents, Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract structured, semi-structured, and unstructured content from your documents.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents, Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract structured, semi-structured, and unstructured content from your documents.</br></br>
+
+  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
+
+## Form Recognizer model types
+
+* [**Document analysis models**](#document-analysis-models)
+* [**Prebuilt models**](#prebuilt-models)
+* [**Custom models**](#custom-model-overview)
+* [**Gated preview models**](#gated-preview-models)
 
 ### Document analysis models
 
@@ -106,7 +114,7 @@ Custom models are trained using your labeled datasets to extract distinct data f
 :::row:::
     :::column:::
         **Classification model**</br>
-         Custom classifiers analyze a input documents to identify the document type prior to invoking an extraction model.
+         Custom classifiers analyze an input document to identify the document type prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
@@ -117,7 +125,7 @@ Custom models are trained using your labeled datasets to extract distinct data f
    :::column-end:::
 :::row-end:::
 
-## Gated preview models
+### Gated preview models
 
 Form Recognizer Studio preview features are currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback. Complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
@@ -148,13 +156,7 @@ Form Recognizer Studio preview features are currently in gated preview. Features
    :::column-end:::
 :::row-end:::
 
-## Video: Form Recognizer models
-
-The following video introduces Form Recognizer models and their associated output to help you choose the best model to address your document scenario needs.</br></br>
-
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
-
-## Development options
+## Models and development options
 
 > [!NOTE]
 >The following document understanding models and development options are supported by the Form Recognizer service v3.0.
@@ -172,7 +174,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
 
-## Layout
+### Layout
 
 :::image type="content" source="media/overview/analyze-layout.png" alt-text="Screenshot of Layout model analysis using Form Recognizer Studio.":::
 
@@ -183,7 +185,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
 
-## General document
+### General document
 
 :::image type="content" source="media/overview/analyze-general-document.png" alt-text="Screenshot of General Document model analysis using Form Recognizer Studio.":::
 
@@ -194,7 +196,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
 
-## Invoice
+### Invoice
 
 :::image type="content" source="media/overview/analyze-invoice.png" alt-text="Screenshot of Invoice model analysis using Form Recognizer Studio.":::
 
@@ -205,7 +207,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-## Receipt
+### Receipt
 
 :::image type="content" source="media/overview/analyze-receipt.png" alt-text="Screenshot of Receipt model analysis using Form Recognizer Studio.":::
 
@@ -216,7 +218,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-## Identity (ID)
+### Identity (ID)
 
 :::image type="content" source="media/overview/analyze-id-document.png" alt-text="Screenshot of Identity (ID) Document model analysis using Form Recognizer Studio.":::
 
@@ -227,7 +229,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-## W-2
+### W-2
 
 :::image type="content" source="media/overview/analyze-w2.png" alt-text="Screenshot of W-2 model analysis using Form Recognizer Studio.":::
 
@@ -238,7 +240,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-## Business card
+### Business card
 
 :::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Form Recognizer Studio.":::
 
@@ -249,7 +251,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-## Custom model overview
+### Custom model overview
 
 :::image type="content" source="media/overview/custom-train.png" alt-text="Screenshot of Custom model training using Form Recognizer Studio.":::
 
@@ -260,7 +262,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-### Custom template
+#### Custom template
 
 :::image type="content" source="media/overview/analyze-custom-template.png" alt-text="Screenshot of Custom Template model analysis using Form Recognizer Studio.":::
 
@@ -275,7 +277,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#custom-models)
 
-## Custom neural
+#### Custom neural
 
 :::image type="content" source="media/overview/analyze-custom-neural.png" alt-text="Screenshot of Custom Neural model analysis using Form Recognizer Studio.":::
 
@@ -290,7 +292,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#custom-models)
 
-## Custom composed
+#### Custom composed
 
 :::image type="content" source="media/overview/composed-custom-models.png" alt-text="Screenshot of Composed Custom model list in Form Recognizer Studio.":::
 
@@ -301,7 +303,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#custom-models)
 
-## Custom classifier
+#### Custom classifier
 
 :::image type="content" source="media/overview/custom-classifier-labeling.png" alt-text="{alt-text}":::
 
@@ -312,7 +314,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#custom-models)
 
-## Contract model (preview)
+### Contract model (preview)
 
 :::image type="content" source="media/overview/analyze-contract.png" alt-text="Screenshot of Contract model extraction using Form Recognizer Studio.":::
 
@@ -323,7 +325,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-## Vaccination card model (preview)
+### Vaccination card model (preview)
 
 :::image type="content" source="media/overview/analyze-vaccination-card.png" alt-text="Screenshot of Vaccination card model analysis using Form Recognizer Studio.":::
 
@@ -334,7 +336,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-## US tax 1098 form (preview)
+### US tax 1098 form (preview)
 
 :::image type="content" source="media/overview/analyze-1098.png" alt-text="Screenshot of US 1098 tax form analyzed in the From Recognizer Studio.":::
 
@@ -345,7 +347,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-## US tax 1098-E form (preview)
+### US tax 1098-E form (preview)
 
 :::image type="content" source="media/overview/analyze-1098e.png" alt-text="Screenshot of US 1098-E tax form analyzed in the From Recognizer Studio.":::
 
@@ -356,7 +358,7 @@ You can Use Form Recognizer to automate your document processing in applications
 > [!div class="nextstepaction"]
 > [Return to model types](#gated-preview-models)
 
-## US tax 1098-T form (preview)
+### US tax 1098-T form (preview)
 
 :::image type="content" source="media/overview/analyze-1098t.png" alt-text="Screenshot of US 1098-T tax form analyzed in the From Recognizer Studio.":::
 
