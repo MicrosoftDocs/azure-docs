@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Pass-through Authentication - Upgrade auth agents | Microsoft Docs
+title: Azure AD Connect - Pass-through Authentication - Upgrade auth agents
 description: This article describes how to upgrade your Azure Active Directory (Azure AD) Pass-through Authentication configuration.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on

@@ -105,6 +105,8 @@
           href: concepts-maintenance.md
         - name: Burstable compute
           href: concepts-burstable-compute.md
+        - name: Start and stop cluster compute
+          href: concepts-compute-start-stop.md
         - name: Upgrade
           href: concepts-upgrade.md
     - name: Business continuity
@@ -145,6 +147,8 @@
           href: howto-create-users.md
         - name: Schedule maintenance
           href: howto-maintenance.md
+        - name: Start and stop cluster compute
+          href: how-to-start-stop-cluster.md
         - name: Restart cluster
           href: howto-restart.md
         - name: Upgrade cluster
@@ -213,6 +217,8 @@
       href: reference-versions.md
     - name: PostgreSQL extensions
       href: reference-extensions.md
+    - name: Limits and limitations
+      href: reference-limits.md
     - name: Distributed SQL API
       items:
         - name: Overview
@@ -223,8 +229,12 @@
           href: reference-parameters.md
         - name: System tables
           href: reference-metadata.md
-    - name: Limits and limitations
-      href: reference-limits.md
+    - name: REST APIs
+      href: /rest/api/postgresqlhsc/
+    - name: ARM templates
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
+    - name: Bicep
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
 - name: Resources
   items:
     - name: Pricing

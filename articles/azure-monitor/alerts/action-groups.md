@@ -1,10 +1,8 @@
 ---
 title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
-author: jacegummersall
 ms.topic: conceptual
 ms.date: 09/07/2022
-ms.author: jagummersall
 ms.reviewer: jagummersall
 ms.custom: references_regions
 
@@ -125,7 +123,7 @@ When you create or update an action group in the Azure portal, you can test the 
 
 1. On the page that lists the information you entered, select **Test action group**.
 
-   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot that shows the test action group start page with the Test option.":::
+   :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot that shows the test action group page with the Test option.":::
 
 1. Select a sample type and the notification and action types that you want to test. Then select **Test**.
 
@@ -161,7 +159,7 @@ The following table describes the role membership requirements that are needed f
 >
 > When you configure an action group in the portal, you can opt in or out of the common alert schema:
 >
-> - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
+> - To find common schema samples for all sample types, see [Alert payload samples](./alerts-payload-samples.md).
 > - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
 
 ## Create an action group with a Resource Manager template
@@ -479,7 +477,7 @@ If you use the webhook action, your target webhook endpoint must be able to proc
    1. Copy the `$myApp.ObjectId` value that's in the script.
    1. In the webhook action definition, in the **Object Id** box, enter the value that you copied.
 
-   :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot that shows the Secured Webhook dialog in the Azure portal with the Object Id box." border="true":::
+   :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot that shows the Secured Webhook dialog in the Azure portal with the Object ID box." border="true":::
 
 #### Secure webhook PowerShell script
 
@@ -652,17 +650,17 @@ For information about pricing for supported countries/regions, see [Azure Monito
 
 Webhook action groups use the following rules:
 
-- A webhook call is attempted at most three times.
-- The first call waits 10 seconds for a response.
-- Between the first and second call, it waits 20 seconds for a response.
-- Between the second and third call, it waits 40 seconds for a response.
-- The call is retried if any of the following conditions are met:
+The retry logic below assumes that the failure is retriable. The status codes: 408, 429, 503, 504, or HttpRequestException, WebException, `TaskCancellationException` are considered “retriable”.
 
-  - A response isn't received within the timeout period.
-  - One of the following HTTP status codes is returned: 408, 429, 503, 504, or `TaskCancellationException`.
-  - If any one of the preceding errors is encountered, wait an additional 5 seconds for the response.
+When a webhook is invoked, if the first call fails, it will be retried at least 1 more time (retry), and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
 
-- If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
+- The delay between 1st and 2nd attempt is 5 seconds
+- The delay between 2nd and 3rd attempt is 20 seconds
+- The delay between 3rd and 4th attempt is 5 seconds
+- The delay between 4th and 5th attempt is 40 seconds
+- The delay between 5th and 6th attempt is 5 seconds
+
+- After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
 
 For source IP address ranges, see [Action group IP addresses](../app/ip-addresses.md).
 

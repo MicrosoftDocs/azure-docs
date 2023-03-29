@@ -7,7 +7,7 @@ ms.service: resource-mover
 ms.topic: conceptual
 ms.date: 03/02/2023
 ms.author: aarthiv
-ms.custom: UpdateFrequency2
+ms.custom: UpdateFrequency.5
 
 ---
 

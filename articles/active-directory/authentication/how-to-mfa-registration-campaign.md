@@ -1,5 +1,5 @@
 ---
-title: Nudge users to set up Microsoft Authenticator - Azure Active Directory
+title: Nudge users to set up Microsoft Authenticator
 description: Learn how to move your organization away from less secure authentication methods to Microsoft Authenticator
 
 services: active-directory
