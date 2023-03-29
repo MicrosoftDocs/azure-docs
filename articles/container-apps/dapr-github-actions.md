@@ -14,7 +14,7 @@ ms.custom: template-tutorial
 
 [GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you'll see how revision-scope changes to a Container App using [Dapr](https://docs.dapr.io) can be deployed using a GitHub Actions workflow. 
 
-Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. Azure Container Apps integrates with a [managed version of Dapr](./dapr-overview.md).
+Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. Azure Container Apps provides a managed experience of the core Dapr APIs.
 
 In this tutorial, you'll:
 
@@ -62,7 +62,7 @@ Replace \<Placeholders\> with your values.
 ```powershell
 $ResourceGroup="my-containerapp-store"
 $Location="canadacentral"
-$GithubUsername="<GithubUsername>"
+$GitHubUsername="<GitHubUsername>"
 $SubscriptionId="<SubscriptionId>"
 ```
 
@@ -117,7 +117,7 @@ Now that you've validated your Azure CLI setup, bring the application code to yo
     # [PowerShell](#tab/powershell)
 
     ```git
-    git clone https://github.com/$GithubUsername/container-apps-store-api-microservice.git
+    git clone https://github.com/$GitHubUsername/container-apps-store-api-microservice.git
     ```
 
     ---

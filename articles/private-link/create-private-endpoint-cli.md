@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Create a private endpoint by using the Azure CLI'
-description: In this quickstart, you'll learn how to create a private endpoint by using the Azure CLI.
+title: 'Quickstart: Create a private endpoint - Azure CLI'
+description: In this quickstart, you'll learn how to create a private endpoint using the Azure CLI.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 05/24/2022
 ms.author: allensu
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using the Azure CLI.
 ---
+
 # Quickstart: Create a private endpoint by using the Azure CLI
 
 Get started with Azure Private Link by using a private endpoint to connect securely to an Azure web app.
@@ -48,16 +49,6 @@ az group create \
     --location eastus
 ```
 
-## Create a DDoS protection plan
-
-Create a DDoS Protection plan with [az network ddos-protection create](/cli/azure/network/ddos-protection#az-network-ddos-protection-create) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
-
-```azurecli-interactive
-az network ddos-protection create \
-    --resource-group CreatePrivateEndpointQS-rg  \
-    --name myDDoSPlan
-```
-
 ## Create a virtual network and bastion host
 
 A virtual network and subnet is required for to host the private IP address for the private endpoint. You'll create a bastion host to connect securely to the virtual machine to test the private endpoint. You'll create the virtual machine in a later section.
@@ -71,9 +62,7 @@ az network vnet create \
     --name myVNet \
     --address-prefixes 10.0.0.0/16 \
     --subnet-name myBackendSubnet \
-    --subnet-prefixes 10.0.0.0/24 \
-    --ddos-protection-plan myDDoSPlan \
-    --ddos-protection true
+    --subnet-prefixes 10.0.0.0/24
 ```
 
 Create a bastion subnet with **[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)**.

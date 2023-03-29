@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 03/22/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -17,7 +17,7 @@ When metric counts are presented in the portal, they're renormalized to take int
 
 * There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion sampling.
 * Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It's also used by [Azure Functions](../../azure-functions/functions-overview.md).
-* Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), and Python.
+* Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), JavaScript, and Python.
 * In Java, sampling overrides are available, and are useful when you need to apply different sampling rates to selected dependencies, requests, and health checks. Use [sampling overrides](./java-standalone-sampling-overrides.md) to tune out some noisy dependencies while, for example, all important errors are kept at 100%. This behavior is a form of fixed sampling that gives you a fine-grained level of control over your telemetry.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
@@ -32,6 +32,7 @@ The following table summarizes the sampling types available for each SDK and typ
 | ASP.NET Core | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
 | Azure Functions | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
 | Java | No | [Yes](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
+| JavaScript | No | [Yes](#configuring-fixed-rate-sampling-for-web-pages-with-javascript) | Only if no other sampling is in effect |
 | Node.JS | No | [Yes](./nodejs.md#sampling) | Only if no other sampling is in effect
 | Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
 | All others | No | No | [Yes](#ingestion-sampling) |
@@ -126,11 +127,11 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<ExcludedTypes>type;type</ExcludedTypes>`
   
-    A semi-colon delimited list of types that you don't want to be subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. All telemetry of the specified types is transmitted; the types that aren't specified will be sampled.
+    A semi-colon delimited list of types that you don't want to be subject to sampling. Recognized types are: [`Dependency`](data-model-complete.md#dependency), [`Event`](data-model-complete.md#event), [`Exception`](data-model-complete.md#exception), [`PageView`](data-model-complete.md#pageview), [`Request`](data-model-complete.md#request), [`Trace`](data-model-complete.md#trace). All telemetry of the specified types is transmitted; the types that aren't specified will be sampled.
 
 * `<IncludedTypes>type;type</IncludedTypes>`
   
-    A semi-colon delimited list of types that you do want to subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. The specified types will be sampled; all telemetry of the other types will always be transmitted.
+    A semi-colon delimited list of types that you do want to subject to sampling. Recognized types are: [`Dependency`](data-model-complete.md#dependency), [`Event`](data-model-complete.md#event), [`Exception`](data-model-complete.md#exception), [`PageView`](data-model-complete.md#pageview), [`Request`](data-model-complete.md#request), [`Trace`](data-model-complete.md#trace). The specified types will be sampled; all telemetry of the other types will always be transmitted.
 
 **To switch off** adaptive sampling, remove the `AdaptiveSamplingTelemetryProcessor` node(s) from `ApplicationInsights.config`.
 
@@ -514,7 +515,7 @@ Like other types of sampling, the algorithm retains related telemetry items. For
 
 Data points that are discarded by sampling aren't available in any Application Insights feature such as [Continuous Export](./export-telemetry.md).
 
-Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in operation. Adaptive sampling is enabled by default when the ASP.NET SDK or the ASP.NET Core SDK is being used, or when Application Insights is enabled in [Azure App Service ](azure-web-apps.md) or by using Status Monitor. When telemetry is received by the Application Insights service endpoint, it examines the telemetry and if the sampling rate is reported to be less than 100% (which indicates that telemetry is being sampled) then the ingestion sampling rate that you set is ignored.
+Ingestion sampling doesn't operate while adaptive or fixed-rate sampling is in operation. Adaptive sampling is enabled by default when the ASP.NET SDK or the ASP.NET Core SDK is being used, or when Application Insights is enabled in [Azure App Service ](azure-web-apps.md) or by using Application Insights Agent. When telemetry is received by the Application Insights service endpoint, it examines the telemetry and if the sampling rate is reported to be less than 100% (which indicates that telemetry is being sampled) then the ingestion sampling rate that you set is ignored.
 
 > [!WARNING]
 > The value shown on the portal tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if any sort of SDK sampling (adaptive or fixed-rate sampling) is in operation.

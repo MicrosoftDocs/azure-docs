@@ -5,27 +5,40 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 12/12/2022
-ms.custom: mvc
+ms.date: 02/16/2023
+ms.custom: mvc, engagement-fy23
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (March 2023)
+- Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
+
+## Update (February 2023)
+- Discovery and assessment of SQL Server Always On Failover Cluster Instances and Always On Availability Groups is now supported. [Learn more](how-to-discover-applications.md).
+- Public Preview: Modernize your ASP.NET web apps onto Azure Kubernetes Service (AKS) directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
+
+## Update (January 2023)
+- Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate business case and assessments. ASP as a savings option assumption/setting is now available for business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment. 
+- Support for export of business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
+- Azure Migrate is now supported in Sweden geography. [Learn more](migrate-support-matrix.md#public-cloud).
+
 ## Update (December 2022)
-- Public Preview: Build business case using Azure Migrate for servers and workloads running in your VMware environment. It helps you eliminate guess work in your cost planning process and adds data driven insights to understand how Azure can bring the most value to your business. 
-
-Key highlights:
-   - On-premises vs Azure total cost of ownership.
-   - Year on year cashflow analysis.
-   - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
-   - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
-   - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
-
 - General Availability: Perform software inventory and agentless dependency analysis at-scale for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
 Learn more on how to perform [software inventory](how-to-discover-applications.md) and [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md). 
 
+- Public Preview: Build business case using Azure Migrate for servers and workloads running in your VMware environment. It helps you eliminate guess work in your cost planning process and adds data driven insights to understand how Azure can bring the most value to your business. 
+
+   Key highlights:
+    - On-premises vs Azure total cost of ownership.
+    - Year on year cashflow analysis.
+    - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
+    - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
+    - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (November 2022)
 
@@ -45,14 +58,15 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 - Enhanced notifications for test migration and migration completion status. 
 - Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
 - Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 
 ## Update (June 2022)
 
-- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
+- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-modernize-asp-net-appservice-code.md)
 
 ## Update (May 2022)
 - Upgraded the Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM, and Azure SQL DB:
@@ -171,7 +185,7 @@ Azure Migrate supports deployments in Azure Government.
 
 A script-based installation is now available to set up the [Azure Migrate appliance](migrate-appliance.md):
 
-- The script-based installation is an alternative to the .OVA (VMware)/VHD (Hyper-V) installation of the appliance.
+- The script-based installation is an alternative to the *.OVA* (VMware)/VHD (Hyper-V) installation of the appliance.
 - It provides a PowerShell installer script that can be used to set up the appliance for VMware/Hyper-V on an existing machine running Windows Server 2016.
 
 ## Update (November 2019)

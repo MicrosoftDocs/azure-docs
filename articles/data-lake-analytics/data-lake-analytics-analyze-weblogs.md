@@ -1,26 +1,28 @@
 ---
 title: Analyze Website logs using Azure Data Lake Analytics
 description: Learn how to analyze website logs using Azure Data Lake Analytics to run U-SQL functions and queries.
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 12/05/2016
+ms.date: 01/20/2023
 ---
 # Analyze Website logs using Azure Data Lake Analytics
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Prerequisites
 * **Visual Studio 2015 or Visual Studio 2013**.
 * **[Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)**.
 
-    Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** item in the **Tools** menu in Visual Studio:
+    Once Data Lake Tools for Visual Studio is installed, you'll see a **Data Lake** item in the **Tools** menu in Visual Studio:
 
     ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 * **Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio**. To get started, see:
 
   * [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md).
-* **Install the sample data.** In the Azure Portal, open you Data Lake Analytics account and click **Sample Scripts** on the left menu, then click **Copy Sample Data**. 
+* **Install the sample data.** In the Azure portal, open your Data Lake Analytics account and select **Sample Scripts** on the left menu, then select **Copy Sample Data**. 
 
 ## Connect to Azure
 Before you can build and test any U-SQL scripts, you must first connect to Azure.
@@ -28,14 +30,14 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
 ### To connect to Data Lake Analytics
 
 1. Open Visual Studio.
-2. Click **Data Lake > Options and Settings**.
-3. Click **Sign In**, or **Change User** if someone has signed in, and follow the instructions.
-4. Click **OK** to close the Options and Settings dialog.
+2. Select **Data Lake > Options and Settings**.
+3. Select **Sign In**, or **Change User** if someone has signed in, and follow the instructions.
+4. Select **OK** to close the Options and Settings dialog.
 
 ### To browse your Data Lake Analytics accounts
 
 1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
-2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You can't create Data Lake Analytics accounts from the studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Develop U-SQL application
 A U-SQL application is mostly a U-SQL script. To learn more about U-SQL, see [Get started with U-SQL](data-lake-analytics-u-sql-get-started.md).
@@ -44,13 +46,13 @@ You can add addition user-defined operators to the application.  For more inform
 
 ### To create and submit a Data Lake Analytics job
 
-1. Click the **File > New > Project**.
+1. Select the **File > New > Project**.
 
 2. Select the U-SQL Project type.
 
    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-3. Click **OK**. Visual studio creates a solution with a Script.usql file.
+3. Select **OK**. Visual studio creates a solution with a Script.usql file.
 
 4. Enter the following script into the Script.usql file:
 
@@ -151,13 +153,13 @@ You can add addition user-defined operators to the application.  For more inform
 
 6. Switch back to the first U-SQL script and next to the **Submit** button, specify your Analytics account.
 
-7. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the results in the Output pane.
+7. From **Solution Explorer**, right select **Script.usql**, and then select **Build Script**. Verify the results in the Output pane.
 
-8. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
+8. From **Solution Explorer**, right select **Script.usql**, and then select **Submit Script**.
 
-9. Verify the **Analytics Account** is the one where you want to run the job, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
+9. Verify the **Analytics Account** is the one where you want to run the job, and then select **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 
-10. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+10. Wait until the job is completed successfully.  If the job failed, it's most likely missing the source file.  See the Prerequisite section of this tutorial. For more troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
     When the job is completed, you shall see the following screen:
 
@@ -167,7 +169,7 @@ You can add addition user-defined operators to the application.  For more inform
 
 ### To see the job output
 
-1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
+1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then select **Explorer**.
 2. Double-click **Samples** to open the folder, and then double-click **Outputs**.
 3. Double-click **UnsuccessfulResponses.log**.
 4. You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
@@ -175,6 +177,6 @@ You can add addition user-defined operators to the application.  For more inform
 ## Next steps
 To get started with Data Lake Analytics using different tools, see:
 
-* [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
+* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
 * [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using .NET SDK](./data-lake-analytics-get-started-cli.md)

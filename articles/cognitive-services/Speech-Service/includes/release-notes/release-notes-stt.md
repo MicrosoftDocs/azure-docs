@@ -2,9 +2,52 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/08/2022
+ms.date: 01/09/2023
 ms.author: eur
 ---
+
+### February 2023 release
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 5 additional languages generally available in English (United Kingdom), English (Australia), French (France), Spanish (Spain), and Chinese (Mandarin, Simplified), with other languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+  | Language | Locale (BCP-47) | 
+  |--|--|
+  |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
+  |Chinese (Mandarin, Simplified)|`zh-CN`|
+  |English (Australia)|`en-AU`|
+  |English (India)|`en-IN`<sup>1</sup> |
+  |English (United Kingdom)|`en-GB`|
+  |English (United States)|`en-US`|  
+  |French (Canada)|`fr-CA`<sup>1</sup> | 
+  |French (France)|`fr-FR`|  
+  |German (Germany)|`de-DE`<sup>1</sup>|
+  |Japanese (Japan)|`ja-JP`<sup>1</sup>|
+  |Norwegian (Bokmål, Norway)|`nb-NO`<sup>1</sup>|
+  |Spanish (Mexico)|`es-MX`<sup>1</sup> | 
+  |Spanish (Spain)|`es-ES` | 
+  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
+
+  <sup>1</sup> The language is in public preview for pronunciation assessment.
+
+- Added sample codes showing how to use Pronunciation Assessment in streaming mode in your own application.
+  - **C#**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#:~:text=PronunciationAssessmentWithStream).
+  - **C++**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#:~:text=PronunciationAssessmentWithStream).
+  - **java**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/android/sdkdemo/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdkdemo/MainActivity.java#L548).
+  - **javascript**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/node/pronunciationAssessment.js).
+
+#### Custom Speech
+
+Support for audio + human-labeled transcript is added for the `de-AT` locales.
+
+### January 2023 release
+
+#### Custom Speech
+
+Support for audio + human-labeled transcript is added for additional locales: `ar-BH`, `ar-DZ`, `ar-EG`, `ar-MA`, `ar-SA`, `ar-TN`, `ar-YE`, and `ja-JP`.
+
+Support for structured text adaptation is added for locale `de-AT`.
 
 ### December 2022 release
 
@@ -16,14 +59,14 @@ The speech-to-text REST API version 3.1 is generally available. Version 3.0 of t
 
 #### New speech-to-text locale
 
-Added support for Malayalam (India) with the `ml-IN` locale. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Added support for Malayalam (India) with the `ml-IN` locale. See the complete language list [here](../../language-support.md?tabs=stt).
 
 
 ### July 2022 release
 
 #### New Speech-to-text-locales:
 
-Added 7 new locales as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Added 7 new locales as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -40,7 +83,7 @@ Added 7 new locales as shown in the following table. See the complete language l
 
 #### New Speech-to-text-locales:
 
-Added 10 new locales as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Added 10 new locales as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -60,7 +103,7 @@ Added 10 new locales as shown in the following table. See the complete language 
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -71,7 +114,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -99,7 +142,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -127,7 +170,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 
 #### New Speech-to-text-locales:
 
-Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
@@ -152,7 +195,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 ### August 2020 Release
 
 #### New speech-to-text locales:
-Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|

@@ -236,9 +236,10 @@ The client interface for this app is a web page. The `index` function reads HTML
 1. Create the file *content/index.html*.
 1. Copy the following content to the *content/index.html* file and save it:
 
+
     ```html
     <html>
-    
+
     <body>
       <h1>Azure SignalR Serverless Sample</h1>
       <div id="messages"></div>
@@ -253,16 +254,25 @@ The client interface for this app is a web page. The `index` function reads HTML
           connection.on('newMessage', (message) => {
             document.getElementById("messages").innerHTML = message;
           });
-    
+
           connection.start()
             .catch(console.error);
       </script>
     </body>
-    
+
     </html>
     ```
 
+
 ### Add the SignalR Service connection string to the function app settings
+=======
+1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+    ```bash
+    func settings add AzureWebJobsStorage "<storage-connection-string>"
+    ```
+
+4. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
+
 
 The last step is to set the SignalR Service connection string in Azure Function app settings.
 
@@ -278,6 +288,7 @@ The last step is to set the SignalR Service connection string in Azure Function 
   ```
   
 ### Run the Azure Function app locally
+
 
 Start the Azurite storage emulator:
 

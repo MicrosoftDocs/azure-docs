@@ -1,7 +1,7 @@
 ---
 title: Develop with AutoML & Azure Databricks
 titleSuffix: Azure Machine Learning
-description: Learn to set up a development environment in Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with AutoML.
+description: Learn to set up a development environment in Azure Machine Learning and Azure Databricks. Use the Azure Machine Learning SDKs for Databricks and Databricks with AutoML.
 services: machine-learning
 author: manashgoswami 
 ms.author: magoswam
@@ -34,7 +34,7 @@ Azure Databricks integrates with Azure Machine Learning and its AutoML capabilit
 You can use Azure Databricks:
 
 + To train a model using Spark MLlib and deploy the model to ACI/AKS.
-+ With [automated machine learning](concept-automated-ml.md) capabilities using an Azure ML SDK.
++ With [automated machine learning](concept-automated-ml.md) capabilities using an Azure Machine Learning SDK.
 + As a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md).
 
 ## Set up a Databricks cluster
@@ -56,11 +56,11 @@ Use these settings:
 
 Wait until the cluster is running before proceeding further.
 
-## Add the Azure ML SDK to Databricks
+## Add the Azure Machine Learning SDK to Databricks
 
 Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. 
 
-To use automated ML, skip to [Add the Azure ML SDK with AutoML](#add-the-azure-ml-sdk-with-automl-to-databricks).
+To use automated ML, skip to [Add the Azure Machine Learning SDK with AutoML](#add-the-azure-machine-learning-sdk-with-automl-to-databricks).
 
 
 1. Right-click the current Workspace folder where you want to store the library. Select **Create** > **Library**.
@@ -91,8 +91,8 @@ To use automated ML, skip to [Add the Azure ML SDK with AutoML](#add-the-azure-m
 
   ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
-## Add the Azure ML SDK with AutoML to Databricks
-If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the following command in the first cell of your notebook to install the AzureML SDK.
+## Add the Azure Machine Learning SDK with AutoML to Databricks
+If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the following command in the first cell of your notebook to install the Azure Machine Learning SDK.
 
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt

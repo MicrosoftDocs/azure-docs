@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/20/2022
+ms.date: 12/28/2022
 ms.author: davidmu
-ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.reviewer: ludwignick
 ---
 
 # Microsoft identity platform access tokens
@@ -44,7 +44,7 @@ Web APIs have one of the following versions selected as a default during registr
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0.D3H6pMUtQnoJAGq6AHd
     ```
 
-- v2.0 for applications that support consumer accounts. The following example shows a v1.0 token (this token example won't validate because the keys have rotated prior to publication and personal information has been removed):  
+- v2.0 for applications that support consumer accounts. The following example shows a v2.0 token (this token example won't validate because the keys have rotated prior to publication and personal information has been removed):  
 
     ```
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiI2ZTc0MTcyYi1iZTU2LTQ4NDMtOWZmNC1lNjZhMzliYjEyZTMiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE1MzcyMzEwNDgsIm5iZiI6MTUzNzIzMTA0OCwiZXhwIjoxNTM3MjM0OTQ4LCJhaW8iOiJBWFFBaS84SUFBQUF0QWFaTG8zQ2hNaWY2S09udHRSQjdlQnE0L0RjY1F6amNKR3hQWXkvQzNqRGFOR3hYZDZ3TklJVkdSZ2hOUm53SjFsT2NBbk5aY2p2a295ckZ4Q3R0djMzMTQwUmlvT0ZKNGJDQ0dWdW9DYWcxdU9UVDIyMjIyZ0h3TFBZUS91Zjc5UVgrMEtJaWpkcm1wNjlSY3R6bVE9PSIsImF6cCI6IjZlNzQxNzJiLWJlNTYtNDg0My05ZmY0LWU2NmEzOWJiMTJlMyIsImF6cGFjciI6IjAiLCJuYW1lIjoiQWJlIExpbmNvbG4iLCJvaWQiOiI2OTAyMjJiZS1mZjFhLTRkNTYtYWJkMS03ZTRmN2QzOGU0NzQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhYmVsaUBtaWNyb3NvZnQuY29tIiwicmgiOiJJIiwic2NwIjoiYWNjZXNzX2FzX3VzZXIiLCJzdWIiOiJIS1pwZmFIeVdhZGVPb3VZbGl0anJJLUtmZlRtMjIyWDVyclYzeERxZktRIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiZnFpQnFYTFBqMGVRYTgyUy1JWUZBQSIsInZlciI6IjIuMCJ9.pj4N-w_3Us9DrBLfpCt
@@ -242,45 +242,34 @@ If the application has custom signing keys as a result of using the [claims-mapp
 
 ### Claims based authorization
 
-The business logic of the application dictates claims based authorization. Some common authorization methods are listed below.
+The business logic of an application determines how authorization should be handled. The general approach to authorization based on token claims, and which claims should be used, is described below.
 
-#### Validate the token
+After a token is validated with the correct `aud` claim, the token tenant, subject, actor must be authorized.
 
-Use the `aud` claim to ensure that the user intended to call the application. If the identifier of the resource isn't in the `aud` claim, reject it.
+#### Tenant
 
-#### Validate user permission
+First, always check that the `tid` in a token matches the tenant ID used to store data with the application. When information is stored for an application in the context of a tenant, it should only be accessed again later in the same tenant. Never allow data in one tenant to be accessed from another tenant.
 
-Use the `roles` and `wids` claims to validate that the user has authorization to call the API.  For example, an administrator may have permission to write to the API, but not a normal user. Check that the `tid` inside the token matches the tenant ID used to store the data in the API.
+#### Subject
 
-When a user stores data in the API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed from another tenant.
+Next, to determine if the token subject, such as the user (or app itself in the case of an app-only token), is authorized, either check for specific `sub` or `oid` claims, or check that the subject belongs to an appropriate role or group with the `roles`, `groups`, `wids` claims.
 
-Use the `amr` claim to verify the user has performed MFA. The enforcement of MFA is done using [Conditional Access](../conditional-access/overview.md). If `roles` or `groups` claims are requested in the access token, verify that the user is in the group allowed to do this action.
+For example, use the immutable claim values `tid` and `oid` as a combined key for application data and determining whether a user should be granted access.
 
-For tokens retrieved using the implicit flow, query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
+The `roles`, `groups` or `wids` claims can also be used to determine if the subject has authorization to perform an operation. For example, an administrator may have permission to write to an API, but not a normal user, or the user may be in a group allowed to do some action.
 
-Don't use `email` or `upn` claim values to determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
+> [!WARNING]
+> Never use `email` or `upn` claim values to store or determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
 
-Use immutable claim values `tid` and `sub` or `oid` as a combined key for uniquely identifying the API's data and determining whether a user should be granted access to that data.
+#### Actor
 
-- Good: `tid` + `sub`
-- Better: `tid` + `oid` - the `oid` is consistent across applications, so an ecosystem of applications can audit user access to data.
+Lastly, when an app is acting for a user, this client app (the actor), must also be authorized. Use the `scp` claim (scope) to validate that the app has permission to perform an operation.
 
-Don't use mutable, human-readable identifiers like `email` or `upn` for uniquely identifying data.
+Scopes are defined by the application, and the absence of `scp` claim means full actor permissions.	
 
-#### Validate application sign-in
+> [!NOTE]
+> An application may handle app-only tokens (requests from applications without users, such as daemon apps) and want to authorize a specific application across multiple tenants, rather than individual service principal IDs. In that case, check for an app-only token using the `idtyp` optional claim and use the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens) along with `tid` to determine authorization based on tenant and application ID.
 
-* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
-* Ensure the calling client is allowed to call your API using the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens).
-    * You only need to validate these claims (`appid`, `azp`) if you want to restrict your web API to be called only by pre-determined applications (e.g., line-of-business applications or web APIs called by well-known frontends). APIs intended to allow access from any calling application do not need to validate these claims.
-
-## User and application tokens
-
-An application may receive tokens for a user or directly from an application through the client credentials flow. These app-only tokens indicate that this call is coming from an application and doesn't have a user backing it. These tokens are handled largely the same:
-
-- Use `roles` to see permissions that have been granted to the subject of the token.
-- Use `oid` or `sub` to validate that the calling service principal is the expected one.
-
-If the application needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md). To detect app-only access tokens, add the `idtyp` claim to the `accessToken` field, and check for the value `app`. ID tokens and access tokens for users won't have the `idtyp` claim included.
 
 ## Token revocation
 
@@ -319,7 +308,7 @@ A *non-password-based* login is one where the user didn't type in a password to 
 - Voice
 - PIN
 
-Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.
+For more information, see [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md).
 
 ## Next steps
 

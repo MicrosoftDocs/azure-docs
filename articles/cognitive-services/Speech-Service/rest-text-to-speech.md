@@ -22,7 +22,7 @@ The Speech service allows you to [convert text into synthesized speech](#convert
 
 The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
 
-- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+- For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
 - For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
@@ -36,7 +36,7 @@ Before you use the text-to-speech REST API, understand that you need to complete
 You can use the `tts.speech.microsoft.com/cognitiveservices/voices/list` endpoint to get a full list of voices for a specific region or endpoint. Prefix the voices list endpoint with a region to get a list of voices for that region. For example, to get a list of voices for the `westus` region, use the `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` endpoint. For a list of all supported regions, see the [regions](regions.md) documentation.
 
 > [!NOTE]
-> [Voices and styles in preview](language-support.md?tabs=stt-tts) are only available in three service regions: East US, West Europe, and Southeast Asia.
+> [Voices and styles in preview](language-support.md?tabs=tts) are only available in three service regions: East US, West Europe, and Southeast Asia.
 
 ### Request headers
 
@@ -71,7 +71,7 @@ curl --location --request GET 'https://YOUR_RESOURCE_REGION.tts.speech.microsoft
 
 ### Sample response
 
-You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. This JSON example shows partial results to illustrate the structure of a response:
+You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. The `WordsPerMinute` property for each voice can be used to estimate the length of the output speech. This JSON example shows partial results to illustrate the structure of a response:
 
 ```json
 [  
@@ -224,7 +224,7 @@ This table lists required and optional headers for text-to-speech requests:
 
 ### Request body
 
-If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+If you're using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8). Otherwise, the body of each `POST` request is sent as [SSML](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech that the text-to-speech feature returns. For a complete list of supported voices, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 ### Sample request
 

@@ -3,17 +3,17 @@ title: Connect a classic Azure Video Indexer account to ARM
 description: This topic explains how to connect an existing classic paid Azure Video Indexer account to an ARM-based account
 ms.topic: how-to
 ms.author: itnorman
-ms.date: 05/04/2022
+ms.date: 03/20/2023
 ms.custom: ignite-fall-2021
 ---
 
 # Connect an existing classic paid Azure Video Indexer account to ARM-based account  
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 This article shows how to connect an existing classic paid Azure Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). To understand the Azure Video Indexer account types, review [account types](accounts-overview.md).
 
-In this article, we demonstrate options of connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account.
+In this article, we demonstrate options of connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account. You can also view the following video.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW10iby]
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Connecting a classic account to be ARM-based triggers a 30 days of a transition 
 
 The transition state moves all account management functionality to be managed by ARM and will be handled by [Azure RBAC][docs-rbac-overview]. 
 
-The [invite users](invite-users.md) feature in the [Azure Video Indexer website](https://www.videoindexer.ai/) gets disabled. The invited users on this account lose their access to the Azure Video Indexer account Media in the portal.  
+The [invite users](restricted-viewer-role.md#share-the-account) feature in the [Azure Video Indexer website](https://www.videoindexer.ai/) gets disabled. The invited users on this account lose their access to the Azure Video Indexer account Media in the portal.  
 However, this can be resolved by assigning the right role-assignment to these users through Azure RBAC, see [How to assign RBAC][docs-rbac-assignment]. 
 
 Only the account owner, who performed the connect action, is automatically assigned as the owner on the connected account. When [Azure policies][docs-governance-policy] are enforced, they override the settings on the account.
@@ -97,11 +97,11 @@ APIs to be changed:
  
 For a full description of [Azure Video Indexer REST API](/rest/api/videoindexer/preview/accounts) calls and documentation, follow the link.
 
-For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
+For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/Program.cs).
 
 ### Next steps
 
-Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
+Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/).
   
 <!-- links -->
 [docs-arm-overview]: ../azure-resource-manager/management/overview.md

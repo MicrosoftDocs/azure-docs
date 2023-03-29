@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 
@@ -26,9 +26,16 @@ This article assumes that you have already installed a SUSE or openSUSE Leap Lin
 
 * For more tips on preparing Linux images for Azure, see [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes)
 * The VHDX format isn't supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+* Azure supports Gen1 (BIOS boot) and Gen2 (UEFI boot) virtual machines.
+* The `vfat` kernel module must be enabled in the kernel
 * When installing the Linux operating system, use standard partitions rather than logical volume manager (LVM) managed partitions, which is often the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
 * Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about configuring swap space can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
+
+
+> [!NOTE]
+> **(_Cloud-init >= 21.2 removes the udf requirement._)** however without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied.  A workaround for this would be to apply custom data using user data however, unlike custom data user data is not encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
+
 
 ## Use SUSE Studio
 
@@ -43,14 +50,14 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 3. Register your SUSE Linux Enterprise system to allow it to download updates and install packages.
 4. Update the system with the latest patches:
 
-    ```console
+    ```bash
     sudo zypper update
     ```
     
 5. Install Azure Linux Agent and cloud-init
 
-    ```console
-    SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
+    ```bash
+    sudo SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     sudo zypper refresh
     sudo zypper install python-azure-agent
     sudo zypper install cloud-init
@@ -58,28 +65,24 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 6. Enable waagent & cloud-init to start on boot
 
-    ```console
+    ```bash
     sudo -i
-    chkconfig waagent on
-    systemctl enable cloud-init-local.service
-    systemctl enable cloud-init.service
-    systemctl enable cloud-config.service
-    systemctl enable cloud-final.service
-    systemctl daemon-reload
-    cloud-init clean
-    exit
+    sudo chkconfig waagent on
+    sudo systemctl enable cloud-init-local.service
+    sudo systemctl enable cloud-init.service
+    sudo systemctl enable cloud-config.service
+    sudo systemctl enable cloud-final.service
+    sudo systemctl daemon-reload
+    sudo cloud-init clean
     ```
 
 7. Update waagent and cloud-init configuration
 
-    ```console
-    sudo -i
-    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
-
-    sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
-    sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
-    exit
+    ```bash
+    sudo sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=auto/g' /etc/waagent.conf
+    sudo sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
 8. Edit the "/etc/default/grub" file to ensure console logs are sent to the serial port by adding the following line:
@@ -90,7 +93,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     Next, apply this change by running the following command:
 
-    ```console
+    ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
@@ -100,11 +103,10 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 10. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-    ```console
+    ```bash
     sudo -i
-    ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-    rm -f /etc/udev/rules.d/70-persistent-net.rules
-    exit
+    sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+    sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 
 11. It's recommended to edit the "/etc/sysconfig/network/dhcp" file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
@@ -115,7 +117,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 12. In the "/etc/sudoers" file, comment out or remove the following lines if they exist:
 
-    ```text
+    ```output
     Defaults targetpw   # ask for the password of the target user i.e. root
     ALL    ALL=(ALL) ALL   # WARNING! Only use this setting together with 'Defaults targetpw'!
     ```
@@ -128,22 +130,21 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
-    ```console
+    ```bash
     sudo -i    
-    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    exit
+    sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
-    For more information on the waagent.conf configuration options, see the [Linux agent configuration](/azure/virtual-machines/extensions/agent-linux#configuration) documentation.
+    For more information on the waagent.conf configuration options, see the [Linux agent configuration](../extensions/agent-linux.md#configuration) documentation.
 
     If you want to mount, format and create a swap partition you can either:
     * Pass this configuration in as a cloud-init config every time you create a VM.
     * Use a cloud-init directive baked into the image that configures swap space every time the VM is created:
 
-        ```console
+        ```bash
         sudo -i
-        echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
+        sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
         #cloud-config
         # Generated by Azure cloud image build
@@ -161,25 +162,24 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
           - ["ephemeral0.1", "/mnt"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
-        exit
         ```
+> [!NOTE]
+> Make sure the **'udf'** module is enabled. Blocklisting or removing it will cause a provisioning failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-    ```console
-    rm -f ~/.bash_history # Remove current user history    
+> [!NOTE] 
+> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
 
-    sudo -i
-    rm -rf /var/lib/waagent/
-    rm -f /var/log/waagent.log
-
-    waagent -force -deprovision+user
-    rm -f ~/.bash_history # Remove root user history
+```bash
+    sudo rm -f /var/log/waagent.log
+    sudo cloud-init clean
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history
+    sudo export HISTSIZE=0
+ ```
     
-    export HISTSIZE=0
-
-    logout
-    ```
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ---
@@ -198,7 +198,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     If the command returns "No repositories defined..." then use the following commands to add these repos:
 
-    ```console
+    ```bash
     sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
     sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
     sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
@@ -206,25 +206,25 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories isn't enabled, enable it with following command:
 
-    ```console
+    ```bash
     sudo zypper mr -e [NUMBER OF REPOSITORY]
     ```
 
 4. Update the kernel to the latest available version:
 
-    ```console
+    ```bash
     sudo zypper up kernel-default
     ```
 
     Or to update the operating system with all the latest patches:
 
-    ```console
+    ```bash
     sudo zypper update
     ```
 
 5. Install the Azure Linux Agent.
 
-    ```console
+    ```bash
     sudo zypper install WALinuxAgent
     ```
 
@@ -248,7 +248,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 8. **Important:** In the "/etc/sudoers" file, comment out or remove the following lines if they exist:
 
-    ```text
+    ```output
     Defaults targetpw   # ask for the password of the target user i.e. root
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
@@ -268,26 +268,24 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 11. Ensure the Azure Linux Agent runs at startup:
 
-    ```console
+    ```bash
     sudo systemctl enable waagent.service
     ```
 
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-    ```console
-    rm -f ~/.bash_history # Remove current user history
-    
+> [!NOTE] 
+> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
+
+```bash
+    sudo rm -f ~/.bash_history # Remove current user history
     sudo -i
-    rm -rf /var/lib/waagent/
-    rm -f /var/log/waagent.log
-    
-    waagent -force -deprovision+user
-    rm -f ~/.bash_history # Remove root user history
-    
-    export HISTSIZE=0
-    
-    logout
-    ```
+    sudo rm -rf /var/lib/waagent/
+    sudo rm -f /var/log/waagent.log
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history # Remove root user history
+    sudo export HISTSIZE=0
+```
 
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 

@@ -61,3 +61,4 @@ There are user identities that you create yourself and there are external identi
 * For an introduction to communication identities, see [Identity model](./identity-model.md).
 * To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).
 * To learn how to use Communication Services together with Microsoft Teams, see [Teams interoperability](./teams-interop.md).
+* To learn how to use a Raw ID, see [Use cases for string identifiers in Communication SDKs](./raw-id-use-cases.md).

@@ -2,11 +2,11 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 12/30/2022
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Soft delete for Azure Backup
 
@@ -33,6 +33,16 @@ It's important to remember that once soft delete is disabled, the feature is dis
 
 >[!Tip]
 >To receive alerts/notifications when a user in the organization disables soft-delete for a vault, use [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup). As the disable of soft-delete is a potential destructive operation, we recommend you to use alert system for this scenario to monitor all such operations and take actions on any unintended operations.
+
+>[!Note]
+>- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+>- MUA for soft delete is currently supported for Recovery Services vaults only.
+
+### Always-on soft delete with extended retention
+
+Soft delete is enabled on all newly created vaults by default. **Always-on soft delete** state is an opt-in feature. Once enabled, it can't be disabled (irreversible).
+
+Additionally, you can extend the retention duration for deleted backup data, ranging from 14 to 180 days. By default, the retention duration is set to 14 days (as per basic soft delete) for the vault, and you can extend it as required. The soft delete doesn't cost you for first 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](backup-azure-enhanced-soft-delete-about.md#pricing) about pricing.
 
 ### Disabling soft delete using Azure portal
 

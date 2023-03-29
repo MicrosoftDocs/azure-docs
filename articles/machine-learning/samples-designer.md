@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-
+ms.reviewer: lgayhardt
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2021

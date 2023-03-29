@@ -9,8 +9,7 @@ ms.date: 11/17/2022
 The following resources are also available:
 
 - [Java SDK reference documentation](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice)
-- [Service client samples](https://github.com/Azure/azure-iot-sdk-java/blob/main/service/iot-service-samples/pnp-service-sample)
-- [Digital Twins samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples/digitaltwin-service-samples)
+- [Digital Twins samples](https://github.com/MicrosoftDocs/samples/blob/live/Azure-Samples/digital-twins-samples/digital-twins-samples/index.yml)
 
 ## IoT Hub service client examples
 

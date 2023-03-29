@@ -1,5 +1,5 @@
 ---
-title: Create and manage a catalog of resources in entitlement management - Microsoft Entra
+title: Create and manage a catalog of resources in entitlement management
 description: Learn how to create a new container of resources and access packages in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 8/31/2021
+ms.date: 01/25/2023
 ms.author: owinfrey
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management

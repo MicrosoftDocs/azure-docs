@@ -1,7 +1,7 @@
 ---
 title: Feature support and retirement
 description: Defender for IoT will continue to support C, C#, and Edge until March 1, 2022. 
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 

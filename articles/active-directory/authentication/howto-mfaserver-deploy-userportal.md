@@ -1,12 +1,12 @@
 ---
-title: User portal for Azure MFA Server - Azure Active Directory
+title: User portal for Azure MFA Server
 description: Get started with Azure MFA and the user portal.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

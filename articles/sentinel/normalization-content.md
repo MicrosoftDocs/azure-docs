@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) security content  (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
 <a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
@@ -43,6 +41,11 @@ The following built-in authentication content is supported for ASIM normalizatio
 
 The following built-in DNS query content is supported for ASIM normalization.
 
+### Solutions
+
+- [Log4j Vulnerability Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-apachelog4jvulnerability?tab=Overview)
+- [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
+
 ### Analytics rules
 
  - [(Preview) TI map Domain entity to DNS Events (ASIM DNS Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_DomainEntity_DnsEvents.yaml)
@@ -71,7 +74,9 @@ The following built-in DNS query content is supported for ASIM normalization.
 
 The following built-in file activity content is supported for ASIM normalization.
 
-### Analytic Rules
+- [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
+
+### Analytics Rules
 
 - [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
 - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
@@ -85,6 +90,12 @@ The following built-in file activity content is supported for ASIM normalization
 ## Network session security content
 
 The following built-in network session related content is supported for ASIM normalization.
+
+### Solutions
+
+- [Network Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-networkthreatdetection?tab=Overview)
+- [Log4j Vulnerability Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-apachelog4jvulnerability?tab=Overview)
+- [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
 
 ### Analytics rules
 
@@ -100,19 +111,18 @@ The following built-in network session related content is supported for ASIM nor
 - [Known STRONTIUM group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
 
 
-
 ### Hunting queries
 
 - [Connection from external IP to OMI related Ports](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/NetworkConnectiontoOMIPorts.yaml)
 
-## Workbooks
-
-- Threat Intelligence Workbook
-
-
 ## Process activity security content
 
 The following built-in process activity content is supported for ASIM normalization.
+
+### Solutions
+
+- [Endpoint Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-endpointthreat?tab=Overview)
+- [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
 
 ### Analytics rules
 
@@ -146,7 +156,7 @@ The following built-in process activity content is supported for ASIM normalizat
 
 The following built-in registry activity content is supported for ASIM normalization.
 
-### Analytic rules
+### Analytics rules
 
 - [Potential Fodhelper UAC Bypass (ASIM Version)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PotentialFodhelperUACBypass(ASIMVersion).yaml)
 
@@ -157,6 +167,11 @@ The following built-in registry activity content is supported for ASIM normaliza
 ## Web session security content
 
 The following built-in web session related content is supported for ASIM normalization.
+
+### Solutions
+
+- [Log4j Vulnerability Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-apachelog4jvulnerability?tab=Overview)
+- [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview)
 
 ### Analytics rules
 

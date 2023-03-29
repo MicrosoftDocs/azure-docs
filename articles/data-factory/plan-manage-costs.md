@@ -112,6 +112,9 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 ### Monitor costs at pipeline level with Cost Analysis
 
+> [!NOTE]
+> Monitoring costs at pipeline level is a preview feature currently only available in Azure Data Factory, and not Synapse pipelines.
+
 In certain cases, you may want a granular breakdown of cost of operations within our factory, for instance, for charge back purposes. Integrating Azure Billing [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) platform, Data Factory can separate out billing charges for each pipeline. By **opting in** Azure Data Factory detailed billing reporting for a factory, you can better understand how much each pipeline is costing you, within the aforementioned factory.
 
 You need to opt in for _each_ factory that you want detailed billing for. To turn on per pipeline detailed billing feature,

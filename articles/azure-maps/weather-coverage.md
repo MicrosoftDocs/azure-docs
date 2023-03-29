@@ -1,8 +1,8 @@
 ---
 title:  Microsoft Azure Maps Weather services coverage
 description: Learn about Microsoft Azure Maps Weather services coverage
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/08/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -36,7 +36,7 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 
 ### Severe weather alerts
 
-Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
+[Severe weather alerts][severe-weather-alerts] service returns severe weather alerts from both official Government Meteorological Agencies and other leading severe weather alert providers. The service can return details such as alert type, category, level and detailed description. Severe weather includes conditions like hurricanes, tornados, tsunamis, severe thunderstorms, and fires.
 
 ### Other
 
@@ -46,9 +46,9 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 - **Daily indices**. The [Get Daily Indices](/rest/api/maps/weather/get-daily-indices) service returns index values that provide information that can help in planning activities. For example, a health mobile application can notify users that today is good weather for running or playing golf.
 - **Historical weather**. The Historical Weather service includes Daily Historical [Records][dh-records], [Actuals][dh-actuals] and [Normals][dh-normals] that return climatology data such as past daily record temperatures, precipitation and snowfall at a given coordinate location.
 - **Hourly forecast**. The [Get Hourly Forecast](/rest/api/maps/weather/get-hourly-forecast) service returns detailed weather forecast information by the hour for up to 10 days.
-- **Quarter-day forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) Service returns detailed weather forecast by quarter-day for up to 15 days.
-- **Tropical storms**. The Tropical Storm Service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
-- **Weather along route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) Service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
+- **Quarter-day forecast**. The [Get Quarter Day Forecast](/rest/api/maps/weather/get-quarter-day-forecast) service returns detailed weather forecast by quarter-day for up to 15 days.
+- **Tropical storms**. The Tropical Storm service provides information about [active storms][tropical-storm-active], tropical storm [forecasts][tropical-storm-forecasts] and [locations][tropical-storm-locations] and the ability to [search][tropical-storm-search] for tropical storms by year, basin ID, or government ID.
+- **Weather along route**. The [Get Weather Along Route](/rest/api/maps/weather/get-weather-along-route) service returns hyper local (1 kilometer or less), up-to-the-minute weather nowcasts, weather hazard assessments, and notifications along a route described as a sequence of waypoints.
 
 ## Azure Maps Weather coverage tables
 
@@ -242,7 +242,7 @@ Azure Maps [Severe weather alerts][severe-weather-alerts] service returns severe
 | Svalbard                |            ✓            |                          |                       |   ✓   |
 | Sweden                  |            ✓            |            ✓            |            ✓          |   ✓   |
 | Switzerland             |            ✓            |            ✓            |            ✓          |   ✓   |
-| Turkey                  |            ✓            |             ✓           |                       |   ✓   |
+| Türkiye                 |            ✓            |             ✓           |                       |   ✓   |
 | Ukraine                 |            ✓            |             ✓           |                       |   ✓   |
 | United Kingdom          |            ✓            |            ✓            |            ✓          |   ✓   |
 | Vatican City            |            ✓            |                         |            ✓          |   ✓   |

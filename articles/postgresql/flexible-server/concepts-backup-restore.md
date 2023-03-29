@@ -4,8 +4,8 @@ description: Learn about the concepts of backup and restore with Azure Database 
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 06/16/2021
 ---
 
@@ -27,7 +27,7 @@ These backup files can't be exported or used to create servers outside Azure Dat
 
 ## Backup frequency
 
-Backups on flexible servers are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. 
+Backups on flexible servers are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. **The first snapshot is a full backup and consecutive snapshots are differential backups.**
 
 Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 15 minutes.
 

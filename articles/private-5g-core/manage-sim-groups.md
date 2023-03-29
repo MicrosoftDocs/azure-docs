@@ -1,7 +1,7 @@
 ---
 title: Manage SIM groups - Azure portal
-titleSuffix: Azure Private 5G Core Preview
-description: With this how-to guide, learn how to manage SIM groups for Azure Private 5G Core Preview through the Azure portal.  
+titleSuffix: Azure Private 5G Core
+description: With this how-to guide, learn how to manage SIM groups for Azure Private 5G Core through the Azure portal.  
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -43,7 +43,7 @@ To create a new SIM group:
 1. Do the following on the **Basics** configuration tab.
 
    - Enter a name for the new SIM group into the **SIM group name** field.
-   - Set **Region** to **East US**.
+   - In the **Region** field, select the region in which you deployed the private mobile network.
    - Select your private mobile network from the **Mobile network** drop-down menu.
 
         :::image type="content" source="media/manage-sim-groups/create-sim-group-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::

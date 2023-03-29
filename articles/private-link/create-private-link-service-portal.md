@@ -1,16 +1,17 @@
 ---
-title: 'Quickstart - Create a Private Link service by using the Azure portal'
+title: 'Quickstart - Create a Private Link service - Azure portal'
 titleSuffix: Azure Private Link
-description: Learn how to create a Private Link service by using the Azure portal in this quickstart
+description: Learn how to create a Private Link service using the Azure portal in this quickstart.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/17/2022
 ms.author: allensu
-ms.custom: mode-ui
+ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 ---
+
 # Quickstart: Create a Private Link service by using the Azure portal
 
 Get started creating a Private Link service that refers to your service. Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer. Users of your service have private access from their virtual network.
@@ -19,24 +20,6 @@ Get started creating a Private Link service that refers to your service. Give Pr
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a DDoS protection plan
-
-1. Sign-in to the [Azure portal](https://portal.azure.com).
-
-2. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
-
-3. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
-
-    | Setting | Value |
-    |--|--|
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
-    | **Instance details** |   |
-    | Name | Enter **myDDoSPlan**. |
-    | Region | Select **East US 2**. |
-
-4. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
 ## Create an internal load balancer
 
 In this section, you'll create a virtual network and an internal Azure Load Balancer.
@@ -44,6 +27,8 @@ In this section, you'll create a virtual network and an internal Azure Load Bala
 ### Load balancer virtual network
 
 Create a virtual network and subnet to host the load balancer that accesses your Private Link service.
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -79,13 +64,9 @@ Create a virtual network and subnet to host the load balancer that accesses your
 
 9. Select **Save**.
 
-10. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page.
+10. Select the **Review + create** tab or select the **Review + create** button.
 
-11. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the last section.
-
-12. Select the **Review + create** tab or select the **Review + create** button.
-
-13. Select **Create**.
+11. Select **Create**.
 
 ### Create load balancer
 
@@ -255,17 +236,9 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 8. Select **Add**.
 
-9. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page.
+9. Select **Review + create**.
 
-10. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the previous section.
-
-11. Select the **Review + create** tab or select the **Review + create** button.
-
-13. Select **Create**.
-
-14. Select the **Review + create** tab or select **Review + create**.
-
-15. Select **Create**.
+10. Select **Create**.
 
 ### Create private endpoint
 

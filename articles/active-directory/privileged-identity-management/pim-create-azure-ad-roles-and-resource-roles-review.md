@@ -1,5 +1,5 @@
 ---
-title: Create an access review of Azure resource and Azure AD roles in PIM - Azure AD | Microsoft Docs
+title: Create an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to create an access review of Azure resource and Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/20/2022
+ms.date: 1/9/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
  To create access reviews for Azure resources, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role for the Azure resources. To create access reviews for Azure AD roles, you must be assigned to the [Global Administrator](../roles/permissions-reference.md#global-administrator) or the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
-Access Reviews for **Service Principals** requires an Entra Workload Identities Premium plan. 
+Access Reviews for **Service Principals** requires an Entra Workload Identities Premium plan in addition to Azure AD Premium P2 license. 
 
 - Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
 

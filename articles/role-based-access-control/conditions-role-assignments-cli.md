@@ -32,7 +32,7 @@ To add a role assignment condition, use [az role assignment create](/cli/azure/r
 The following example shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'.
 
 ```azurecli
-az role assignment create --role "Storage Blob Data Reader" --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --assignee "user1@contoso.com" --resource-group {resourceGroup} \
+az role assignment create --role "Storage Blob Data Reader" --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --assignee "user1@contoso.com" --resource-group {resourceGroup} \
 --description "Read access if container name equals blobs-example-container" \
 --condition "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))" \
 --condition-version "2.0"

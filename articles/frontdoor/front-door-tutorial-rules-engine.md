@@ -1,13 +1,11 @@
 ---
-title: 'Tutorial: Configure Rules Engine - Azure Front Door'
+title: 'Tutorial: Configure Rules Engine'
+titleSuffix: Azure Front Door
 description: This article provides a tutorial on how to configure Rules Engine in both the Azure portal and CLI.
 services: frontdoor
-documentationcenter: ''
 author: duongau
-editor: ''
 ms.service: frontdoor
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau 

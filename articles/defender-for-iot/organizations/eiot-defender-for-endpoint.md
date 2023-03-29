@@ -3,6 +3,7 @@ title: Enable Enterprise IoT security in Microsoft 365 with Defender for Endpoin
 description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint in Microsoft 365 Defender.
 ms.topic: quickstart
 ms.date: 10/19/2022
+ms.custom: enterprise-iot
 ---
 
 # Enable Enterprise IoT security with Defender for Endpoint
@@ -29,8 +30,8 @@ Make sure that you have:
 
     |Identity management  |Roles required  |
     |---------|---------|
-    |**In Azure Active Directory**     |   [Global administrator](/azure/active-directory/roles/permissions-reference#global-administrator) for your Microsoft 365 tenant      |
-    |**In Azure RBAC**     | [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) for the Azure subscription that you'll be using for the integration        |
+    |**In Azure Active Directory**     |   [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) for your Microsoft 365 tenant      |
+    |**In Azure RBAC**     | [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration        |
 
 ## Onboard a Defender for IoT plan
 
@@ -38,7 +39,7 @@ Make sure that you have:
 
 1. Select the following options for your plan:
 
-    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
     - **Price plan**: For the sake of this tutorial, select a **Trial** pricing plan. Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 

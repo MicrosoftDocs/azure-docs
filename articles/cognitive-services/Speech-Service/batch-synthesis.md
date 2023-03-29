@@ -26,7 +26,7 @@ This diagram provides a high-level overview of the workflow.
 ![Diagram of the Batch Synthesis API workflow.](media/long-audio-api/long-audio-api-workflow.png)
 
 > [!TIP]
-> You can also use the [Speech SDK](speech-sdk.md) to create synthesized audio longer than 10 minutes by iterating over the text and synthesizing it in chunks. 
+> You can also use the [Speech SDK](speech-sdk.md) to create synthesized audio longer than 10 minutes by iterating over the text and synthesizing it in chunks. For a C# example, see [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs).
 
 You can use the following REST API operations for batch synthesis:
 
@@ -361,8 +361,8 @@ Batch synthesis properties are described in the following table.
 |`synthesisConfig`|The configuration settings to use for batch synthesis of plain text.<br/><br/>This property is only applicable when `textType` is set to `"PlainText"`.|
 |`synthesisConfig.pitch`|The pitch of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
 |`synthesisConfig.rate`|The rate of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
-|`synthesisConfig.style`|For some voices, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant.<br/><br/>For information about the available styles per voice, see [voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
-|`synthesisConfig.voice`|The voice that speaks the audio output.<br/><br/>For information about the available prebuilt neural voices, see [language and voice support](language-support.md?tabs=stt-tts). To use a custom voice, you must specify a valid custom voice and deployment ID mapping in the `customVoices` property.<br/><br/>This property is required when `textType` is set to `"PlainText"`.|
+|`synthesisConfig.style`|For some voices, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant.<br/><br/>For information about the available styles per voice, see [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles).<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
+|`synthesisConfig.voice`|The voice that speaks the audio output.<br/><br/>For information about the available prebuilt neural voices, see [language and voice support](language-support.md?tabs=tts). To use a custom voice, you must specify a valid custom voice and deployment ID mapping in the `customVoices` property.<br/><br/>This property is required when `textType` is set to `"PlainText"`.|
 |`synthesisConfig.volume`|The volume of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
 |`textType`|Indicates whether the `inputs` text property should be plain text or SSML. The possible case-insensitive values are "PlainText" and "SSML". When the `textType` is set to `"PlainText"`, you must also set the `synthesisConfig` voice property.<br/><br/>This property is required.|
 
@@ -392,7 +392,7 @@ Here are examples that can result in the 400 error:
 - The `top` query parameter exceeded the limit of 100.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
 - You tried to delete a batch synthesis job that hasn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
-- You tried to use a `F0` Speech resource, but the region only supports the `S0` (standard) Speech resource pricing tier. 
+- You tried to use a *F0* Speech resource, but the region only supports the *Standard* Speech resource pricing tier. 
 - You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
 ### HTTP 404 error
