@@ -29,7 +29,7 @@ You have a couple of options for archiving chat threads.
 
 ## Option 1 Archive chat messages in real-time
 
-[Architecture diagram here]
+:::image type="content" source="../../media/BYOS_work_flow.svg" alt-text="Architecture diagram showing how you can use events in bring your own storage scenario":::
 
 To do this, you need to use [Azure Event Grid](../../../event-grid/overview). 
 
