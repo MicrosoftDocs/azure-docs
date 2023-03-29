@@ -36,6 +36,7 @@ This article shows you how to call a protected ASP.NET Core web API using [Postm
   - Application developer  
   - Cloud application administrator  
 - [Download and install Postman](https://www.postman.com/downloads/).  
+- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
 ::: zone-end
 
