@@ -275,7 +275,7 @@ Then you define these elements for the resulting alert actions by using:
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule exectues the log query.
+    1. In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
