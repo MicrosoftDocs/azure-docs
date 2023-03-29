@@ -18,7 +18,7 @@ The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-[!INCLUDE [Teams interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)]
+[!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)]
 
 ## Next steps
 
