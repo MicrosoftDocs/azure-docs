@@ -64,6 +64,6 @@ For more help with troubleshooting, try the following resources:
 *  [Create and Manage SHIR Self-hosted integration runtimes in Purview](manage-integration-runtimes.md)
 *  [Stack overflow forum for Microsoft Purview](https://stackoverflow.com/questions/tagged/azure-purview)
 *  [Twitter information about Microsoft Purview](https://twitter.com/hashtag/Purview)
-*  [Microsoft Purview Troubleshooting](frequently-asked-questions.md)
+*  [Microsoft Purview Troubleshooting](frequently-asked-questions.yml)
 
 
