@@ -26,7 +26,7 @@ The article was written and tested using an Ubuntu 18.04 VM.
 
 This article requires an existing Ubuntu 18.04 LTS or Ubuntu 20.04 LTS VM in Azure. If you need to create a VM, use one of the following methods:
 
-- - The [Azure CLI](quick-create-cli.md)
+- The [Azure CLI](quick-create-cli.md)
 - The [Azure portal](quick-create-portal.md)
    
 ## Install a desktop environment on your Linux VM
