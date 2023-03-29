@@ -7,7 +7,7 @@ ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual 
-ms.date: 03/17/2022
+ms.date: 03/29/2022
 
 ---
 
