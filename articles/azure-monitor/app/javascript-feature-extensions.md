@@ -15,11 +15,12 @@ App Insights JavaScript SDK feature extensions are extra features that can be ad
 
 In this article, we cover the Click Analytics plugin that automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Getting started
 
 Users can set up the Click Analytics Auto-collection plugin via npm.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### npm setup
 
@@ -41,7 +42,9 @@ const clickPluginConfig = {
 };
 // Application Insights Configuration
 const configObj = {
-  connectionString: "YOUR_CONNECTION_STRING", // Alternatively, you can pass in the instrumentation key, but support for instrumentation key ingestion will end on March 31, 2025.  
+  connectionString: "YOUR_CONNECTION_STRING", 
+  // Alternatively, you can pass in the instrumentation key,
+  // but support for instrumentation key ingestion will end on March 31, 2025.  
   // instrumentationKey: "YOUR INSTRUMENTATION KEY",
   extensions: [clickPluginInstance],
   extensionConfig: {
@@ -68,7 +71,9 @@ appInsights.loadAppInsights();
   }
   // Application Insights Configuration
   var configObj = {
-    connectionString: "YOUR_CONNECTION_STRING", // Alternatively, you can pass in the instrumentation key, but support for instrumentation key ingestion will end on March 31, 2025.
+    connectionString: "YOUR_CONNECTION_STRING",
+    // Alternatively, you can pass in the instrumentation key,
+    // but support for instrumentation key ingestion will end on March 31, 2025.
     // instrumentationKey: "YOUR INSTRUMENTATION KEY",
     extensions: [
       clickPluginInstance
@@ -88,9 +93,11 @@ appInsights.loadAppInsights();
 
 ## Set ConversionScope (HEART workbook)
 
-If you're using the HEART workbook with the Click Analytics plugin, keep the following guidance in mind.
+Within Application Insights, if you're using the HEART workbook with the Click Analytics plugin, keep the following guidance in mind.
 
 Unless you set the authenticated user context, you must select **Anonymous Users** from the **ConversionScope** dropdown in the HEART workbook to see telemetry data.
+
+:::image type="content" source="media/javascript-feature-extensions/HEART-workbook-Anonymous-Users-selected.png" alt-text="Screenshot that shows the HEART Analytics workbook in the Azure portal. The ConversionScope dropdown is highlighted with Anonymous Users selected." lightbox="media/javascript-feature-extensions/HEART-workbook-Anonymous-Users-selected.png":::
 
 If you want to set the authenticated user context:
 
@@ -99,9 +106,9 @@ If you want to set the authenticated user context:
 
 ## How to effectively use the plugin
 
-1. Telemetry data generated from the click events are stored as `customEvents` in the Application Insights section of the Azure portal.
-2. The `name` of the customEvent is populated based on the following rules:
-    1.  The `id` provided in the `data-*-id` is used as the customEvent name. For example, if the clicked HTML element has the attribute "data-sample-id"="button1", then "button1" is the customEvent name.
+1. Telemetry data generated from the click events are stored as `customEvents` in the Azure portal > Application Insights > Logs section.
+2. The `name` column of the customEvent is populated based on the following rules:
+    1.  The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the customEvent name. For example, if the clicked HTML element has the attribute "data-sample-id"="button1", then "button1" is the customEvent name.
     2. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, then the clicked element's HTML attribute `id` or content name of the element is used as the customEvent name. If both `id` and content name are present, precedence is given to `id`.
     3. If `useDefaultContentNameOrId` is false, then the customEvent name is "not_specified".
 
@@ -113,7 +120,13 @@ If you want to set the authenticated user context:
     
     > [!CAUTION]
     > Once `parentDataTag` is used, the SDK will begin looking for parent tags across your entire application and not just the HTML element where you used it.
-4. `customDataPrefix` provided by the user should always start with `data-`, for example `data-sample-`. In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers (Internet Explorer, Safari) drop attributes that it doesn't understand, unless they start with `data-`.
+4. `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
+
+   - `data-heart-` 
+   - `data-team-name-`
+   - `data-example-`
+  
+    In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers (Internet Explorer, Safari) drop attributes that it doesn't understand, unless they start with `data-`.
 
     The `*` in `data-*`  may be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
     - The name must not start with "xml", whatever case is used for these letters.
