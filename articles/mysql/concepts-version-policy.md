@@ -66,7 +66,7 @@ After the retirement date for each MySQL database version, if you continue runni
 - You won't be able to create new database servers for the retired version. However, you can perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for MySQL may only be available to supported database server versions.
 - Uptime S.L.A.s apply solely to Azure Database for MySQL service-related issues and not to any downtime caused by database engine-related bugs.
-- In the extreme event of a serious threat to the service caused by the MySQL database engine vulnerability identified in, the retired database version, Azure may choose to stop the compute node of your database server from securing the service first. You'll be asked to upgrade the server before bringing the server online. During the upgrade process, your data is always be protected using automatic backups performed on the service, which can be used to restore to the older version if desired.
+- In the extreme event of a serious threat to the service caused by the MySQL database engine vulnerability identified in, the retired database version, Azure may choose to stop the compute node of your database server from securing the service first. You are asked to upgrade the server before bringing the server online. During the upgrade process, your data is always protected using automatic backups performed on the service, which can be used to restore to the older version if desired.
 
 ## Next steps
 
