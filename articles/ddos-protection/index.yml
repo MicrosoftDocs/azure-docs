@@ -75,8 +75,8 @@ landingContent:
         links:
         - text: View Azure DDoS Protection alerts in Microsoft Defender for Cloud
           url: ddos-view-alerts-defender-for-cloud.md
-          - text: View Azure DDoS Protection logs in Log Analytics workspace
-            url: ddos-view-diagnostic-logs.md
+        - text: View Azure DDoS Protection logs in Log Analytics workspace
+          url: ddos-view-diagnostic-logs.md
   # Card
   - title: Responding to DDoS attacks
     linkLists:
