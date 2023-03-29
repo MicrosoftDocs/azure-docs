@@ -261,7 +261,7 @@ Visual Studio Code takes the information you provided, creates an IoT Edge solut
 
 After solution creation, these main files are in the solution:
 
-- A **.vscode** folder contains configuration file launch.json.
+- A **.vscode** folder contains configuration file *launch.json*.
 - A **modules** folder that has subfolders for each module. Within the subfolder for each module, the module.json file controls how modules are built and deployed.
 - An **.env** file lists your environment variables. The environment variable for the container registry is *localhost:5000* by default. 
 
@@ -308,7 +308,7 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 Check to see if your credentials exist. If not, add them now:
 
 1. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal.
-1. Open the *.env* file in your module solution.
+1. Open the **.env** file in your module solution.
 1. Add the **username** and **password** values that you copied from your Azure container registry.
    For example:
 
@@ -338,18 +338,18 @@ If you need to change the target architecture for your solution, use the followi
 
 ::: zone pivot="iotedge-dev-cli"
 
-1. Open or create *settings.json* in the *.vscode* directory of your solution.
+1. Open or create **settings.json** in the **.vscode** directory of your solution.
 
 1. Change the *platform* value to `amd64`, `arm32v7`, `arm64v8`, or `windows-amd64`. For example:
 
-   ```json
-   {
-      "azure-iot-edge.defaultPlatform": {
-         "platform": "amd64",
-         "alias": null
-      }
-   }
-   ```
+    ```json
+    {
+        "azure-iot-edge.defaultPlatform": {
+            "platform": "amd64",
+            "alias": null
+        }
+    }
+    ```
 
 ::: zone-end
 
@@ -918,17 +918,17 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 # [Python](#tab/python)
 
-In this section, add the code that expands the *PythonModule** to analyze the messages before sending them. You'll add code that filters messages where the reported machine temperature is within the acceptable limits.
+In this section, add the code that expands the *filtermodule* to analyze the messages before sending them. You'll add code that filters messages where the reported machine temperature is within the acceptable limits.
 
-1. In the Visual Studio Code explorer, open **modules** > **PythonModule** > **main.py**.
+1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **main.py**.
 
-2. At the top of the **main.py** file, import the **json** library:
+1. At the top of the **main.py** file, import the **json** library:
 
     ```python
     import json
     ```
 
-3. Add global definitions for **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** and **TWIN_CALLBACKS** variables. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
+1. Add global definitions for **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** and **TWIN_CALLBACKS** variables. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
 
     ```python
     # global counters
@@ -937,7 +937,7 @@ In this section, add the code that expands the *PythonModule** to analyze the me
     RECEIVED_MESSAGES = 0
     ```
 
-4. Replace the **create_client** function with the following code:
+1. Replace the **create_client** function with the following code:
 
     ```python
     def create_client():
@@ -986,29 +986,31 @@ In this section, add the code that expands the *PythonModule** to analyze the me
         return client
     ```
 
-7. Save the main.py file.
+1. Save the **main.py** file.
 
-8. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-9. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
+1. Add the **filtermodule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin:
 
    ```json
-       "PythonModule": {
+       "filtermodule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
    ```
 
+    TODO: update screenshot
+
    ![Add module twin to deployment template](./media/tutorial-python-module/module-twin.png)
 
-10. Save the deployment.template.json file.
+1. Save the **deployment.template.json** file.
 
 ---
 
 ## Build and push your solution
 
-You've reviewed the module code and the deployment template to understand some key deployment concepts. Now, you're ready to build the SampleModule container image and push it to your container registry. With the IoT tools extension for Visual Studio Code, this step also generates the deployment manifest based on the information in the template file and the module information from the solution files.
+You've updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build the your module container image and push it to your container registry.
 
 ### Sign in to Docker
 
@@ -1016,13 +1018,13 @@ Provide your container registry credentials to Docker so that it can push your c
 
 1. Open the Visual Studio Code integrated terminal by selecting **Terminal** > **New Terminal**.
 
-2. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
+1. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
 
-   ```cmd/sh
+   ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   You may receive a security warning recommending the use of `--password-stdin`. While that is a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+   You may receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
 3. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
 
@@ -1036,7 +1038,7 @@ Provide your container registry credentials to Docker so that it can push your c
 
 Visual Studio Code now has access to your container registry, so it's time to turn the solution code into a container image.
 
-In Visual Studio Code, open the *deployment.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
+In Visual Studio Code, open the **deployment.template.json** deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
 ::: zone pivot="iotedge-dev-cli"
 
@@ -1050,15 +1052,15 @@ If you're using an Azure Container Registry to store your module image, add your
    "runtime": {
       "type": "docker",
       "settings": {
-      "minDockerVersion": "v1.25",
-      "loggingOptions": "",
-      "registryCredentials": {
-         "myacr": {
-            "username": "myacr",
-            "password": "<your_acr_password>",
-            "address": "myacr.azurecr.io"
-         }
-      }
+        "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+        "registryCredentials": {
+            "myacr": {
+                "username": "myacr",
+                "password": "<your_acr_password>",
+                "address": "myacr.azurecr.io"
+            },
+            "createOptions": {}
+        }
       }
    },
 ...
