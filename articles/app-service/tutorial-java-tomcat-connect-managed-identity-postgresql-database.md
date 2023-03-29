@@ -74,7 +74,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --location $LOCATION \
        --admin-user $POSTGRESQL_ADMIN_USER \
        --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-       --public-network-access 0.0.0.0 \
+       --public-access 0.0.0.0 \
        --sku-name Standard_D2s_v3 
    ```
 
@@ -93,7 +93,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --location $LOCATION \
        --admin-user $POSTGRESQL_ADMIN_USER \
        --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-       --public-network-access 0.0.0.0 \
+       --public-access 0.0.0.0 \
        --sku-name B_Gen5_1 
    ```
 
@@ -185,7 +185,8 @@ az webapp connection create postgres-flexible \
     --target-resource-group $RESOURCE_GROUP \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
-    --system-identity
+    --system-identity \
+    --client-type java
 ```
 
 ### [Single Server](#tab/single)
@@ -199,11 +200,20 @@ az webapp connection create postgres \
     --target-resource-group $RESOURCE_GROUP \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
-    --system-identity
+    --system-identity \
+    --client-type java
 ```
 
 ---
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
+
+Next, update App Settings and add plugin in connection string
+
+```azurecli-interactive
+AZURE_POSTGRESQL_CONNECTIONSTRING=$(az webapp config appsettings list --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME | jq -c '.[] | select ( .name == "AZURE_POSTGRESQL_CONNECTIONSTRING" ) | .value' | sed 's/"//g')
+
+az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings 'CATALINA_OPTS=-DdbUrl="${AZURE_POSTGRESQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"'
+```
 
 ## View sample web app
 
