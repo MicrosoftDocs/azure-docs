@@ -14,8 +14,8 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Prerequisites 
 
-* You've gone through previous quickstart - [Join your chat app to a Teams meeting](../../quickstarts/chat/meeting-interop.md). 
-* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+* You've gone through previous quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
+* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
 * You've set up a Teams meeting using your business account and have the meeting URL ready
 * You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest, see [here](https://www.npmjs.com/package/@azure/communication-chat).
 
@@ -306,14 +306,10 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ## Run the code 
 Open your browser and navigate to http://localhost:8080/. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
-:::image type="content" source="../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message that reads Here are some ideas, let me know what you think! and two inline images of room interior mockups":::
+:::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message that reads Here are some ideas, let me know what you think! and two inline images of room interior mockups":::
 
 
 | Preview Image shown | Full Scale Image shown after clicking on preview image |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-|:::image type="content" source="../media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented"::: | :::image type="content" source="../media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented"::: |
+|:::image type="content" source="../../media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented"::: | :::image type="content" source="../../media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented"::: |
 
-
-
-> [!NOTE] 
-> Currently only sending, receiving, editing messages and sending typing notifications is supported for interoperability scenarios with Teams. Other features like read receipts and Communication Services users adding or removing other users from the Teams meeting are not supported.
