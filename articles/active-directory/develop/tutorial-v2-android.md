@@ -63,7 +63,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
 3. Enter a Name for the application, such as _MSALAndroidapp_.
-4. Save the package name. You'll enter it later into the Azure portal.
+4.  Record the package name to be used in the Azure portal in later steps. 
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and click **Finish**.
 
