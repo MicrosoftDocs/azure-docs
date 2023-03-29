@@ -205,6 +205,13 @@ To show full scale image in an overlay, we need to add a new component as well:
 with some CSS:
 
 ```css
+
+/* let's make chat popup scrollable */
+.chat-popup {
+   max-height: 650px;
+   overflow-y: scroll;
+}
+
 .overlay .content {
    position: fixed; 
    width: 100%;
@@ -213,6 +220,7 @@ with some CSS:
    overflow: hidden;
    z-index: 100;
    margin: auto;
+   background-color: gray;
 }
 
 .overlay img {
@@ -277,7 +285,7 @@ Now we've concluded all the changes we need to render inline images for messages
 
 The Chat SDK for JavaScript also provides an API to let you retrieve a list of messages in a chat thread. It's important to note that the ACS user would only be able to retrieve messages after they've been admitted to a call. They won't be able to access the chat thread after leaving the call. So the use case of this functionality is relatively limited.
 
-## Run the code
+## Demo
 
 Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
@@ -286,11 +294,16 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ```
 
 ## Run the code 
-Open your browser and navigate to http://localhost:8080/. You should see the following:
+Open your browser and navigate to http://localhost:8080/. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
-:::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message with inline images that reads - Clippy says hi from M365+":::
 
-Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting. For simplicity, the application will only show the last two messages in the chat.
+
+| Preview Image shown | Full Scale Image shown after clicking on preview image |
+| -------------------------------------------------------- | --------------------------------------------------------------- |
+|:::image type="content" source="../meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images that reads - Clippy says hi from M365+"::: | :::image type="content" source="../meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an incoming message with inline images that reads - Clippy says hi from M365+"::: |
+
+
 
 > [!NOTE] 
 > Currently only sending, receiving, editing messages and sending typing notifications is supported for interoperability scenarios with Teams. Other features like read receipts and Communication Services users adding or removing other users from the Teams meeting are not supported.
