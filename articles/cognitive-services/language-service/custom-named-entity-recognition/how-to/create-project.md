@@ -1,7 +1,7 @@
 ---
-title: Using Azure resources in custom NER
+title: Create custom NER projects and use Azure resources
 titleSuffix: Azure Cognitive Services
-description: Learn about the steps for using Azure resources with custom NER.
+description: Learn how to create and manage projects and Azure resources for custom NER.
 services: cognitive-services
 author: aahill
 manager: nitinme

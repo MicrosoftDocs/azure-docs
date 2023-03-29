@@ -18,6 +18,8 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 
 - [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - You will need Owner permission on the resource group for your Azure Stack Edge resource.
+    > [!NOTE]
+    > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
 
 ## Enter a minishell session
 
@@ -244,7 +246,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Set the following environment variables using the required values for your deployment:
 
-    ```azurecli-interactive
+    ```azurecli
     export SUBSCRIPTION_ID=<subscription ID>
     export RESOURCE_GROUP_NAME=<resource group name>
     export LOCATION=<deployment region, for example eastus>
@@ -255,13 +257,13 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Prepare your shell environment:
 
-    ```azurecli-interactive
+    ```azurecli
     az account set --subscription "$SUBSCRIPTION_ID"
     ```
 
 1. Create the Network Function Operator Kubernetes extension:
 
-    ```azurecli-interactive
+    ```azurecli
     cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
@@ -290,7 +292,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Create the Packet Core Monitor Kubernetes extension:
 
-    ```azurecli-interactive
+    ```azurecli
     az k8s-extension create \
     --name packet-core-monitor \
     --cluster-name "$RESOURCE_NAME" \
@@ -303,7 +305,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
 1. Create the custom location:
 
-    ```azurecli-interactive
+    ```azurecli
     az customlocation create \
     -n "$CUSTOM_LOCATION" \
     -g "$RESOURCE_GROUP_NAME" \

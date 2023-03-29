@@ -30,7 +30,7 @@ In the testing, the following criteria were used:
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
 ### Can I scale up/down my cluster?
-If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-event-hubs-dedicated-cluster) to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they're bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depends on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
+If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster) to scale out and scale in as needed. You can scale up to 10 CUs with self-serve scalable clusters. As self-serve scalable dedicated clusters are based out of new infrastructure, they're bound to be performant over dedicated clusters that don't support self-serve scaling. As the performance of dedicated clusters depends on various factors such as resource allocation, number of partitions, storage, and so on, we recommend you to determine the required number of CUs after testing with a real workload. 
 
 [Submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) in the following scenarios to scale out or scale in your dedicated cluster.
 
@@ -69,3 +69,8 @@ You can geo-pair a namespace under a dedicated-tier cluster with another namespa
 
 ### Can I migrate my standard or premium namespaces to a Dedicated-tier cluster?
 We don't currently support an automated migration process for migrating your event hubs data from a standard or premium namespace to a dedicated one.
+
+### Why does a zone redundant dedicated cluster have a minimum of 8 CU?
+In order to provide zone redundancy for the dedicated offering, all compute resources must have 3 replicas across 3 datacenters in the same region. This is the minimum requirement to support zone redundancy (so that the service can still function when 2 zones/datacenters are down) and results in a compute capacity equivalent to 8 CUs.
+
+So this is not a quota that we can change but rather a restriction of the current architecture with a dedicated tier.

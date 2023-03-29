@@ -52,7 +52,7 @@ Use the following steps to prepare your project.
 > [!NOTE]
 > Select only one way of the following step to create connection. If you already create tables with one of the connection, the tables can't be accessed/modified by other users. When you try the other way, application will throw error like "Permission denied". To fix this issue, please connect to a new database or delete/recreate existing one.
 
-### [Using a passwordless connection with a managed identity for flexible server](#tab/Passwordlessflex)
+### [Service Connector for flexible server](#tab/Passwordlessflex)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
@@ -74,7 +74,7 @@ Use the following steps to prepare your project.
        --system-identity
    ```
 
-### [Using a passwordless connection with a managed identity for single server](#tab/Passwordlesssingle)
+### [Service Connector for single server](#tab/Passwordlesssingle)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
@@ -96,9 +96,9 @@ Use the following steps to prepare your project.
        --system-identity
    ```
 
-### [Using admin credentials](#tab/Secrets)
+### [Service Connector with password](#tab/Secrets)
 
-Use the following steps to bind your app.
+Use the following steps to bind your app using a secret.
 
 1. Note the admin username and password of your Azure Database for PostgreSQL account.
 

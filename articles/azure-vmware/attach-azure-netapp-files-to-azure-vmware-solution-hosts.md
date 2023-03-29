@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/17/2023
+ms.date: 02/28/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -13,7 +13,7 @@ ms.custom: "references_regions, engagement-fy23"
 
 [Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
 
-By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
+By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware vSphere environments for the secondary site. 
 
 Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in the virtual network connected to it using an ExpressRoute. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, you need no other permissions configured via vSphere.
 
@@ -41,19 +41,37 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 >[!NOTE]
 >Azure NetApp Files datastores for Azure VMware Solution are generally available. To use it, you must register Azure NetApp Files datastores for Azure VMware Solution.
 
-## Supported regions
+## Supported regions 
 
-Azure VMware Solution currently supports the following regions:
+Azure NetApp Files datastores for Azure VMware Solution are currently supported in the following regions:
 
-**Asia**      : East Asia, Japan East, Japan West, Southeast Asia.
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central
+* Canada East
+* Central US
+* East Asia
+* East US
+* East US 2
+* France Central
+* Germany West Central
+* Japan East
+* Japan West
+* North Central US
+* North Europe
+* South Africa North
+* South Central US
+* Southeast Asia
+* Sweden Central
+* Switzerland North
+* Switzerland West
+* UK South
+* UK West
+* West Europe 
+* West US
+* West US 2
 
-**Australia** : Australia East, Australia Southeast.
-
-**Brazil**    : Brazil South.
-
-**Europe**    : France Central, Germany West Central, North Europe, Sweden Central, Sweden North, Switzerland West, UK South, UK West, West Europe
-
-**North America**   : Canada Central, Canada East, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2.
 
 ## Performance best practices
 
@@ -144,18 +162,22 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
     `az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
+---
+
 ## Service level change for Azure NetApp Files datastore
 
-Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md)
-This has no impact to the Datastore or private cloud as there is no downtime involved and the IP address/mount path remain unchanged. However, the volume Resource Id will be changed due to the capacity pool change. Therefore to avoid any metadata mismatch re-issue the datastore create command via Azure CLI as follows: `az vmware datastore netapp-volume create`.
+Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md).
+Changing the service level has no impact on the datastore or private cloud. There is no downtime and the volume's IP address/mount path remain unchanged. However, the volume's resource ID will change as a result of the capacity pool change. To correct any metadata mismatch, re-run the datastore creation in Azure CLI for the existing datastore with the new Resource ID for the Azure NetApp Files volume:
+```azurecli
+az vmware datastore netapp-volume create \
+    --name <name of existing datastore> \
+    --resource-group <resource group containing AVS private cloud> \
+    --cluster <cluster name in AVS private cloud> \
+    --private-cloud <name of AVS private cloud> \
+    --volume-id /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
+```
 >[!IMPORTANT]  
-> The input values for **cluster** name, datastore **name**, **private-cloud** (SDDC) name, and **resource-group** must be **exactly the same as the current one**, and the **volume-id** is the new Resource Id of the volume.
-
-   -**cluster**  
-   -**name**  
-   -**private-cloud**   
-   -**resource-group**   
-   -**volume-id**   
+> The parameters for datastore **name**, **resource-group**, **cluster**, and **private-cloud** (SDDC) must be **exactly the same as those on the existing datastore in the private cloud**. The **volume-id** is the updated Resource ID of the Azure NetApp Files volume after the service level change.
 
 ## Disconnect an Azure NetApp Files-based datastore from your private cloud
 

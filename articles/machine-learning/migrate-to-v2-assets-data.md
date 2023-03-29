@@ -15,8 +15,8 @@ ms.custom: migration
 
 # Upgrade data management to SDK v2
 
-In V1, an AzureML dataset can either be a `Filedataset` or a `Tabulardataset`.
-In V2, an AzureML data asset can be a `uri_folder`, `uri_file` or `mltable`.
+In V1, an Azure Machine Learning dataset can either be a `Filedataset` or a `Tabulardataset`.
+In V2, an Azure Machine Learning data asset can be a `uri_folder`, `uri_file` or `mltable`.
 You can conceptually map `Filedataset` to `uri_folder` and `uri_file`, `Tabulardataset` to `mltable`.
 
 * URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier that is a reference to a storage location on your local computer or in the cloud, that makes it easy to access data in your jobs.

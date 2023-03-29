@@ -1,13 +1,13 @@
 ---
 title: Product updates for Azure Cosmos DB for PostgreSQL
-description: New features and features in preview
+description: Release notes, new features and features in preview
 ms.author: jonels
 author: jonels-msft
 ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 03/23/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -22,6 +22,10 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
+### March 2023
+
+* General availability: Cluster compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
+	
 ### February 2023
 
 * General availability: 4 TiB, 8 TiB, and 16 TiB storage per node is now supported for [multi-node configurations](resources-compute.md#multi-node-cluster) in addition to previously supported 0.5 TiB, 1 TiB, and 2 TiB storage sizes.

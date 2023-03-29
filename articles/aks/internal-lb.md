@@ -4,10 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
 author: asudbring
 ms.author: allensu
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 03/04/2019
+ms.date: 02/22/2023
 
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
@@ -73,6 +72,8 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
 
+You can use the [`az network vnet subnet list`][az-network-vnet-subnet-list] Azure CLI command or the [`Get-AzVirtualNetworkSubnetConfig`][get-azvirtualnetworksubnetconfig] PowerShell cmdlet to get the subnets in your virtual network.
+
 For more information on subnets, see [Add a node pool with a unique subnet][unique-subnet].
 
 If you want to use a specific IP address with the load balancer, there are two ways:
@@ -127,13 +128,12 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 For more information on configuring your load balancer in a different subnet, see [Specify a different subnet][different-subnet]
 
-## Connect Azure Private Link service to internal load balancer (Preview)
+## Connect Azure Private Link service to internal load balancer
 
 ### Before you begin
 
 You must have the following resources:
 
-* Azure CLI version 2.0.59 or later.
 * Kubernetes version 1.22.x or later.
 * An existing resource group with a VNet and subnet. This resource group is where you'll [create the private endpoint](#create-a-private-endpoint-to-the-private-link-service). If you don't have these resources, see [Create a virtual network and subnet][aks-vnet-subnet].
 
@@ -230,9 +230,9 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 
 > [!NOTE]
 > 
-> You may need to give the *Network Contributor* role to the resource group in which your Azure virtual network resources are deployed. You can view the cluster identity with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
+> You may need to assign a minimum of *Microsoft.Network/virtualNetworks/subnets/read* and *Microsoft.Network/virtualNetworks/subnets/join/action* permission to AKS MSI on the Azure Virtual Network resources. You can view the cluster identity with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
 
-## Specify a different subnet
+### Specify a different subnet
 
 Add the *azure-load-balancer-internal-subnet* annotation to your service to specify a subnet for your load balancer. The subnet specified must be in the same virtual network as your AKS cluster. When deployed, the load balancer *EXTERNAL-IP* address is part of the specified subnet.
 
@@ -260,7 +260,7 @@ As with any Kubernetes resource, you can directly delete a service, such as `kub
 
 ## Next steps
 
-Learn more about Kubernetes services in the [Kubernetes services documentation][kubernetes-services].
+To learn more about Kubernetes services, see the [Kubernetes services documentation][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -280,3 +280,5 @@ Learn more about Kubernetes services in the [Kubernetes services documentation][
 [different-subnet]: #specify-a-different-subnet
 [aks-vnet-subnet]: configure-kubenet.md#create-a-virtual-network-and-subnet
 [unique-subnet]: use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet
+[az-network-vnet-subnet-list]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-list
+[get-azvirtualnetworksubnetconfig]: /powershell/module/az.network/get-azvirtualnetworksubnetconfig

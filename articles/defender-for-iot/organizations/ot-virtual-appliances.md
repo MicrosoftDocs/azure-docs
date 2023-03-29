@@ -2,7 +2,7 @@
 title: OT monitoring with virtual appliances - Microsoft Defender for IoT
 description: Learn about system requirements for virtual appliances used for the Microsoft Defender for IoT OT sensors and on-premises management console.
 ms.date: 05/03/2022
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ---
 
 # OT monitoring with virtual appliances

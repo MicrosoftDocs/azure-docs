@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 02/13/2023
+ms.date: 02/22/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -28,6 +28,8 @@ Here are the primary goals of cross-tenant synchronization:
 - Seamless collaboration for a multi-tenant organization
 - Automate lifecycle management of B2B collaboration users in a multi-tenant organization
 - Automatically remove B2B accounts when a user leaves the organization 
+
+> [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
 
 ## Why use cross-tenant synchronization?
 
@@ -52,7 +54,7 @@ With cross-tenant synchronization, you can do the following:
 
 ## Teams and Microsoft 365
 
-Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. The [userType](../external-identities/user-properties.md) property on the B2B user, whether guest or member, does change the end user experience. Over time, the member userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization. 
+Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. The [userType](../external-identities/user-properties.md) property on the B2B user, whether guest or member, does not change the end user experience. Over time, the member userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization. 
 
 ## Properties
 
@@ -123,7 +125,7 @@ For anyone that has used Azure AD to [provision identities into a SaaS applicati
 
 In the source tenant: Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-In the target tenant: Cross-tenant sync relies on the Azure AD External Identities billing model. To understand the external identities licensing model, see [MAU billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md)
+In the target tenant: Cross-tenant sync relies on the Azure AD External Identities billing model. To understand the external identities licensing model, see [MAU billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md). You will also need at least one Azure AD Premium P1 license in the target tenant to enable auto-redemption. 
 
 ## Frequently asked questions
 

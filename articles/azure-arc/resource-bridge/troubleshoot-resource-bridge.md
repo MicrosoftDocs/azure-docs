@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 01/26/2023
+ms.date: 03/15/2023
 ms.topic: conceptual
 ---
 
@@ -75,6 +75,16 @@ To resolve this problem, delete the resource bridge, register the providers, the
 
 > [!NOTE]
 > Partner products (such as Arc-enabled VMware vSphere) may have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
+
+### Expired credentials in the appliance VM
+
+Arc resource bridge consists of an appliance VM that is deployed to the on-premise infrastructure. The appliance VM maintains a connection to the control center of the fabric using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the control center. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+
+To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
+
+### Back-off pulling image error
+
+When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM is unable to reach the URL specified in the error. To resolve this issue, make sure the appliance VM [meets all requirements](system-requirements.md#appliance-vm-requirements), including internet access, and is able to reach the [required allowlist URLs](network-requirements.md).
 
 ## Networking issues
 
