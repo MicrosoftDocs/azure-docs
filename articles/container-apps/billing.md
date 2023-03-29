@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 03/28/2022
 ms.author: cshoe
 ---
 

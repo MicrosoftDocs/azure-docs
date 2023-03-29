@@ -5,59 +5,32 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 03/27/2023
+ms.date: 03/28/2023
 ms.author: cshoe
 ---
 
-# Create a Consumption with Dedicated workload profiles environment (preview)
+# Manage workload profiles in a Consumption with Dedicated workload profiles environment (preview)
 
-## Prerequisites
+## Supported regions
 
-- Resource group
-- Select from a supported location during preview
-  - North Central US
-  - North Europe
-  - West Europe
-  - East US
+The following regions support workload profiles during preview:
 
-## List available workload profiles
+- North Central US
+- North Europe
+- West Europe
+- East US
 
-Use this command to list the supported workload profiles for your region.
-
-```azurecli
-az containerapp env workload-profile list-supported \
-  --location <LOCATION> 
-  -o table
-```
-
-The response will resemble a table similar to the below example:
-
-```output
-Location     Name
------------  -----------
-northeurope  D4
-northeurope  D8
-northeurope  D16
-northeurope  E4
-northeurope  E8
-northeurope  E16
-northeurope  F4
-northeurope  F8
-northeurope  F16
-northeurope  Consumption
-```
-
-Select a workload profile and us the *Name* when you run `az containerapp create` for the `--workload-profile-type` option.
-
-## Create a new environment with a workload profile
+## Create an environment with a workload profile
 
 At a high level, you execute the following steps to create a container app that uses a specific workload profile.
 
 - Select a workload profile
-- Create or provide a VNet 
+- Create or provide a VNet
 - Create a subnet with a `Microsoft.App/environments` delegation
 - Create a new environment
 - Create a container app associated with the workload profile in the environment
+
+Use the following commands to create an environment with a workload profile.
 
 1. Create a VNet
 
@@ -83,15 +56,15 @@ At a high level, you execute the following steps to create a container app that 
 
       Copy the ID value and paste into the next command.
 
-      As mentioned above, you can specify as small as a `/27` CIDR (32 IPs-8 reserved) for the subnet. Some things to consider if you are going to specify a `/27` CIDR: 
+     You can specify as small as a `/27` CIDR (32 IPs-8 reserved) for the subnet. Some things to consider if you're going to specify a `/27` CIDR:
 
-      - 11 IP addresses are reserved for ACA infrastructure requirements. Hence, a `/27` CIDR will have a maximum of 21 IP addresses available.
+      - There are 11 IP addresses reserved for Container Apps infrastructure. Therefore, a `/27` CIDR has a maximum of 21 IP available addresses.
 
       - IP addresses are allocated differently between Consumption and Dedicated profiles:
 
         | Consumption | Consumption + Dedicated |
         |---|---|  
-        | Every replica requires 1 IP. Users cannot have apps with more than 21 replicas across all apps. Note that zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires 1 IP.  You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
+        | Every replica requires one IP. Users can't have apps with more than 21 replicas across all apps. Zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires a single IP.  You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
 
 1. Create *Consumption + Dedicated* environment with workload profile support
 
@@ -131,20 +104,41 @@ At a high level, you execute the following steps to create a container app that 
         --workload-profile-name "<WORKLOAD_PROFILE_NAME>"
       ```
 
-    This uses creates the new application in the environment using a specific workload profile.
+    This command creates the new application in the environment using a specific workload profile.
 
-## Show a workload profile
+## Add profiles
 
-Display details about a workload profile.
+Add a new workload profile to an existing environment.
 
 ```azurecli
-az containerapp env workload-profile show \
+az containerapp env workload-profile set \
   --resource-group <RESOURCE_GROUP> \
   --name <ENVIRONMENT_NAME> \
-  --workload-profile-name <WORKLOAD_PROFILE_NAME> 
+  --workload-profile-type <WORKLOAD_PROFILE_TYPE> \
+  --workload-profile-name <WORKLOAD_PROFILE_NAME> \
+  --min-nodes <MIN_NODES> \
+  --max-nodes <MAX_NODES>
 ```
 
-## Delete a workload profile from an environment
+The value you select for the `<WORKLOAD_PROFILE_NAME>` placeholder is the workload profile "friendly name".
+
+Using friendly names allow you to add multiple profiles of the same type to an environment. The friendly name is what you use as you deploy and maintain a container app in a workload profile.
+
+## Edit profiles
+
+You can modify the minimum and maximum number of nodes used by a workload profile via the `set` command.
+
+```azurecli
+az containerapp env workload-profile set \
+  --resource-group <RESOURCE_GROUP> \
+  --name <ENV_NAME> \
+  --workload-profile-type <WORKLOAD_PROFILE_TYPE> \
+  --workload-profile-name <WORKLOAD_PROFILE_NAME> \
+  --min-nodes <MIN_NODES> \
+  --max-nodes <MAX_NODES>
+```
+
+## Delete a profile
 
 ```azurecli
 az containerapp env workload-profile delete \
@@ -156,15 +150,48 @@ az containerapp env workload-profile delete \
 > [!NOTE]
 > The *Consumption* workload profile can’t be deleted.
 
-## List profiles
+## Inspect profiles
 
 The following commands allow you to list available profiles in your region and ones used in a specific environment.
 
-### List profiles used by an environment
+### List available workload profiles
+
+Use the `list-supported` command to list the supported workload profiles for your region.
+
+The following Azure CLI command displays the results in a table  
 
 ```azurecli
 az containerapp env workload-profile list-supported \
-  --location "<LOCATION>"
+  --location <LOCATION>  \
+  --query "[].{Name: name, Cores: properties.cores, MemoryGiB: properties.memoryGiB, Category: properties.category}" \
+  -o table
+```
+
+The response resembles a table similar to the below example:
+
+```output
+Name         Cores    MemoryGiB    Category
+-----------  -------  -----------  ---------------
+D4           4        16           GeneralPurpose
+D8           8        32           GeneralPurpose
+D16          16       64           GeneralPurpose
+E4           4        32           MemoryOptimized
+E8           8        64           MemoryOptimized
+E16          16       128          MemoryOptimized
+Consumption  4        8            Consumption
+```
+
+Select a workload profile and use the *Name* field when you run `az containerapp create` for the `--workload-profile-type` option.
+
+### Show a workload profile
+
+Display details about a workload profile.
+
+```azurecli
+az containerapp env workload-profile show \
+  --resource-group <RESOURCE_GROUP> \
+  --name <ENVIRONMENT_NAME> \
+  --workload-profile-name <WORKLOAD_PROFILE_NAME> 
 ```
 
 ## Next section
