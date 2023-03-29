@@ -1,7 +1,7 @@
 ---
-title: Bypass setup screen of the UI Library
+title: Skip setup screen of the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to bypass the setup screen
+description: Use Azure Communication Services UI Library for Mobile native to skip the setup screen
 author: mbellah
 ms.author: mbellah
 ms.service: azure-communication-services
@@ -10,10 +10,10 @@ ms.date: 03/21/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 
-#Customer intent: As a developer, I want to bypass setup screen of the library in my application
+#Customer intent: As a developer, I want to skip setup screen of the library in my application
 ---
 
-# Bypass Setup Screen
+# Skip Setup Screen
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
