@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 01/23/2023
+ms.date: 03/27/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -526,32 +526,31 @@ Before you set up your firewall with IP addresses, review these considerations:
 
 ### Inbound IP addresses
 
-For Azure Logic Apps to receive incoming communication through your firewall, you have to allow traffic through the inbound IP addresses described in this section for your logic app's Azure region. If you're using Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
-               
-> [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), 
-> **LogicAppsManagement**, rather than specify inbound Logic Apps IP address prefixes for each region.
+For Azure Logic Apps to receive incoming communication through your firewall, you have to allow traffic through the inbound IP addresses described in this section for your logic app's Azure region. To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, rather than specify the Azure Logic Apps inbound IP address prefixes for each region. If you're using Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
+
+> [!NOTE]
+> 
+> Some managed connectors make inbound webhook callbacks to Azure Logic Apps. If you use access control on the logic app resource, 
+> you must make sure that the calls from these target systems (IP addresses) have permissions to access your logic app. The following 
+> connectors make inbound webhook callbacks to Azure Logic Apps:
 >
-> Some managed connectors make inbound webhook callbacks to the Azure Logic Apps service. For these managed connectors, you can optionally use the 
-> **AzureConnectors** service tag for these managed connectors, rather than specify inbound managed connector IP address prefixes for each region. 
-> These tags work across the regions where the Azure Logic Apps service is available.
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Event Grid, 
+> Microsoft Form, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, 
+> LiveChat, Office 365* Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform, and so on:
 >
-> The following connectors make inbound webhook callbacks to the Azure Logic Apps service:
+> - **Office 365**: The return caller is actually the Office 365 connector. You can specify the managed connector outbound 
+> IP address prefixes for each region, or optionally, you can use the **AzureConnectors** service tag for these managed connectors.
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Business Central, Calendly, 
-> Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
-> Shifts for Microsoft Teams, Teamwork Projects, Typeform
->
-> \* **SAP**: The return caller depends on whether the deployment environment is either multi-tenant Azure or ISE. In the 
-> multi-tenant environment, the on-premises data gateway makes the call back to the Azure Logic Apps service. In an ISE, the SAP 
-> connector makes the call back to the Azure Logic Apps service.
+> - **SAP**: The return caller depends on whether the deployment environment is either multi-tenant Azure or ISE. 
+> In the multi-tenant environment, the on-premises data gateway makes the call back to the Azure Logic Apps service. 
+> In an ISE, the SAP connector makes the call back to Azure Logic Apps.
 
 <a name="multi-tenant-inbound"></a>
 
 #### Multi-tenant - Inbound IP addresses
 
-| Region | IP |
-|--------|----|
+| Region | Azure Logic Apps IP |
+|--------|---------------------|
 | Australia East | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161, 20.53.94.103, 20.53.107.215 |
 | Australia Southeast | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28, 52.255.42.110, 20.70.114.64 |
 | Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198, 20.201.66.147, 20.201.25.72 |
@@ -591,20 +590,18 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 | West India | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | West US | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212, 104.40.34.112, 52.160.68.27, 13.88.168.158, 104.42.40.164, 13.87.207.79, 13.87.204.210, 168.62.9.100 |
 | West US 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68, 20.99.190.19, 20.72.244.108 |
-| West US 3| 20.150.172.240, 20.150.172.242, 20.150.172.243, 20.150.172.241, 20.106.116.172, 20.106.116.225 |
-|||
+| West US 3 | 20.150.172.240, 20.150.172.242, 20.150.172.243, 20.150.172.241, 20.106.116.172, 20.106.116.225 |
 
 <a name="azure-government-inbound"></a>
 
 #### Azure Government - Inbound IP addresses
 
-| Azure Government region | IP |
-|-------------------------|----|
+| Azure Government region | Azure Logic Apps IP |
+|-------------------------|---------------------|
 | US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82 |
 | US Gov Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145 |
 | US Gov Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36 |
 | US DoD Central | 52.182.49.204, 52.182.52.106 |
-|||
 
 <a name="outbound"></a>
 
@@ -612,16 +609,18 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 
 For Azure Logic Apps to send outgoing communication through your firewall, you have to allow traffic in your logic app's Azure region for *all the outbound IP addresses* described in this section. If you're using Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound).
 
-Also, if your workflow also uses any [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses any [custom connectors](/connectors/custom-connectors/), your firewall has to allow traffic in your logic app's Azure region for [*all the managed connector outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If your workflow uses custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps). For more information about setting up communication settings on the gateway, review these topics:
+> [!TIP]
+> 
+> To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), 
+> **LogicApps**, rather than specify the Azure Logic Apps outbound IP address prefixes for each region. Optionally, you can also use the 
+> **AzureConnectors** service tag for managed connectors that make outbound calls to their respective services, such as Azure Storage or 
+> Azure Event Hubs, rather than specify the outbound managed connector IP address prefixes for each region. These tags work across the 
+> regions where Azure Logic Apps is available.
+
+If your workflow also uses any [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses any [custom connectors](/connectors/custom-connectors/), your firewall has to allow traffic in your logic app's Azure region for [*all the managed connector outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If your workflow uses custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps). For more information about setting up communication settings on the gateway, review these topics:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
-
-> [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), 
-> **LogicApps**, rather than specify outbound Logic Apps IP address prefixes for each region. Optionally, you can also use the **AzureConnectors** 
-> service tag for managed connectors that make outbound calls to their respective services, such as Azure Storage or Azure Event Hubs, rather than 
-> specify outbound managed connector IP address prefixes for each region. These tags work across the regions where the Azure Logic Apps service is available.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -629,8 +628,8 @@ Also, if your workflow also uses any [managed connectors](../connectors/managed.
 
 This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's Azure region to communicate through your firewall. Also, if your workflow uses any managed connectors or custom connectors, your firewall has to allow traffic in your logic app's Azure region for [*all the managed connectors' outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If you have custom connectors that access on-premises resources through the on-premises data gateway resource in Azure, set up your *gateway installation* to allow access for the corresponding managed connector outbound IP addresses. 
 
-| Region | Logic Apps IP |
-|--------|---------------|
+| Region | Azure Logic Apps IP |
+|--------|---------------------|
 | Australia East | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139, 20.53.93.188, 20.53.72.170, 20.53.107.208, 20.53.106.182 |
 | Australia Southeast | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.255.36.185, 52.158.133.57, 20.70.114.125, 20.70.114.10 |
 | Brazil South | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131, 20.201.66.44, 20.201.64.135, 20.201.24.212, 191.237.207.21 |
@@ -671,22 +670,19 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 | West US | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32, 13.86.223.0, 13.86.223.1, 13.86.223.2, 13.86.223.3, 13.86.223.4, 13.86.223.5, 104.40.34.169, 104.40.32.148, 52.160.70.221, 52.160.70.105, 13.91.81.221, 13.64.231.196, 13.87.204.182, 40.78.65.193, 13.87.207.39, 104.42.44.28, 40.83.134.97, 40.78.65.112, 168.62.9.74, 168.62.28.191 |
 | West US 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219, 20.99.189.158, 20.99.189.70, 20.72.244.58, 20.72.243.225 |
 | West US 3 | 20.150.181.32, 20.150.181.33, 20.150.181.34, 20.150.181.35, 20.150.181.36, 20.150.181.37, 20.150.181.38, 20.150.173.192, 20.106.85.228, 20.150.159.163, 20.106.116.207, 20.106.116.186 |
-|||
 
 <a name="azure-government-outbound"></a>
 
 #### Azure Government - Outbound IP addresses
 
-| Region | Logic Apps IP |
-|--------|---------------|
+| Region | Azure Logic Apps IP |
+|--------|---------------------|
 | US DoD Central | 52.182.48.215, 52.182.92.143 |
 | US Gov Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190 |
 | US Gov Texas | 52.238.114.217, 52.238.115.245, 52.238.117.119 |
 | US Gov Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44 |
-|||
 
 ## Next steps
 
 * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
-
 * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
