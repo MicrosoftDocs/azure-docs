@@ -18,7 +18,7 @@ Data collected by Application Insights models this typical application execution
 
 ![Diagram that shows an Application Insights telemetry data model.](./media/data-model-complete/application-insights-data-model.png)
 
-The following types of telemetry are used to monitor the execution of your app. Three types are automatically collected by the Application Insights SDK from the web application framework:
+The following types of telemetry are used to monitor the execution of your app. The Application Insights SDK from the web application framework automatically collects these three types:
 
 * [Request](#request): Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives.
 
@@ -92,7 +92,7 @@ The response code is the result of a request execution. It's the HTTP status cod
 
 ### Success
 
-Success indicates whether a call was successful or unsuccessful. This field is required. When a request isn't set explicitly to `false`, it's considered to be successful. Set this value to `false` if the operation was interrupted by an exception or a returned error result code.
+Success indicates whether a call was successful or unsuccessful. This field is required. When a request isn't set explicitly to `false`, it's considered to be successful. If an exception or returned error result code interrupted the operation, set this value to `false`.
 
 For web applications, Application Insights defines a request as successful when the response code is less than `400` or equal to `401`. However, there are cases when this default mapping doesn't match the semantics of the application.
 
@@ -291,7 +291,7 @@ Modern browsers expose measurements for page load actions with the [Performance 
 * **Client <--> Web Server**: Client sends request payload, waits for the server to execute the request, and receives the first response packet.
 * **Client <--Web Server**: Client receives the rest of the response payload bytes from the web server.
 * **Client**: Client now has full response payload and has to render contents into the browser and load the DOM.
- 
+
 * `browserTimings/networkDuration` = #1 + #2
 * `browserTimings/sendDuration` = #3
 * `browserTimings/receiveDuration` = #4
@@ -329,7 +329,7 @@ Originally, this field was used to indicate the type of the device the user of t
 
 ### Operation ID
 
-This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](./correlation.md). The operation ID is created by either a request or a page view. All other telemetry sets this field to the value for the containing request or page view.
+This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](./correlation.md). Either a request or a page view creates the operation ID. All other telemetry sets this field to the value for the containing request or page view.
 
 **Maximum length:** 128
 
@@ -341,7 +341,7 @@ This field is the unique identifier of the telemetry item's immediate parent. Fo
 
 ### Operation name
 
-This field is the name (group) of the operation. The operation name is created by either a request or a page view. All other telemetry items set this field to the value for the containing request or page view. The operation name is used for finding all the telemetry items for a group of operations (for example, `GET Home/Index`). This context property is used to answer questions like What are the typical exceptions thrown on this page?
+This field is the name (group) of the operation. Either a request or a page view creates the operation name. All other telemetry items set this field to the value for the containing request or page view. The operation name is used for finding all the telemetry items for a group of operations (for example, `GET Home/Index`). This context property is used to answer questions like What are the typical exceptions thrown on this page?
 
 **Maximum length:** 1,024
 
@@ -384,7 +384,7 @@ User IDs can be cross-referenced with session IDs to provide unique telemetry di
 
 ### Account ID
 
-The account ID, in multi-tenant applications, is the tenant account ID or name that the user is acting with. It's used for more user segmentation when a user ID and an authenticated user ID aren't sufficient. Examples might be a subscription ID for the Azure portal or the blog name for a blogging platform.
+The account ID, in multitenant applications, is the tenant account ID or name that the user is acting with. It's used for more user segmentation when a user ID and an authenticated user ID aren't sufficient. Examples might be a subscription ID for the Azure portal or the blog name for a blogging platform.
 
 **Maximum length:** 1,024
 
