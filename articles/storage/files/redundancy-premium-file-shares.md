@@ -8,6 +8,7 @@ ms.topic: reference
 ms.date: 03/29/2023
 ms.author: kendownie
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Azure Files zone-redundant storage for premium file shares
