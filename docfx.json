@@ -1158,6 +1158,8 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
+        "articles/iot/**/*.md": "Azure IoT",
+        "articles/iot/**/*yml": "Azure IoT",
         "articles/jenkins/**/*.yml": "Jenkins",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",

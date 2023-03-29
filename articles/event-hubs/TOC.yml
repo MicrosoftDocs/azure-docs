@@ -65,8 +65,6 @@
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
   items:
-    - name: Visualize data anomalies on Event Hubs data streams
-      href: event-hubs-tutorial-visualize-anomalies.md
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Capture Event Hubs data in Parquet format

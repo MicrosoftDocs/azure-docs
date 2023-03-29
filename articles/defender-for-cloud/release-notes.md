@@ -22,7 +22,7 @@ Updates in March include:
 
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
-- [New experience for managing the Azure default security policy](#new-experience-for-managing-the-azure-default-security-policy)
+- [New experience for managing the Azure default security policy](#improved-experience-for-managing-the-default-azure-security-policies)
 - [Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-for-cspm-cloud-security-posture-management-is-now-generally-available-ga)
 - [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
 - [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
@@ -60,7 +60,7 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 
 [Learn more](concept-data-security-posture.md) about data-aware security posture.
 
-### New experience for managing the Azure default security policy
+### Improved experience for managing the default Azure security policies
 
 We introduce an improved Azure security policy management experience for built-in recommendations that simplifies the way Defender for Cloud customers fine tune their security requirements. The new experience includes the following new capabilities:
 
@@ -70,7 +70,7 @@ We introduce an improved Azure security policy management experience for built-i
 
 Learn how to  [manage security policies](tutorial-security-policy.md). 
 
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/improved-experience-for-managing-the-default-azure-security/ba-p/3776522).
 
 ### Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)
 
