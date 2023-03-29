@@ -355,7 +355,7 @@ If needed, you can [remove the user role and the optional CR installed on your A
 
 ## Verify that the PAHI table (history of system, database, and SAP parameters) is updated at regular intervals
 
-The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table at regular intervals, due to missing or faulty configuration (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to update the PAHI table an to monitor it frequently, so that the Microsoft Sentinel solution for SAP® applications can alert on suspicious actions that might happen at any time throughout the day. 
+The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table at regular intervals, due to missing or faulty configuration (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to update the PAHI table and to monitor it frequently, so that the Microsoft Sentinel solution for SAP® applications can alert on suspicious actions that might happen at any time throughout the day. 
 
 > [!NOTE]
 > For optimal results, in your machine's *systemconfig.ini* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. 
