@@ -209,7 +209,7 @@
             href: app-attach-file-share.md
           - name: Set up the MSIXMGR tool
             href: app-attach-msixmgr.md
-          - name: MSIXMGR Tool Parameters
+          - name: MSIXMGR Tool parameters
             href: msixmgr-tool-syntax-description.md 
             displayName: MSIXMGR Tool Parameters, Syntax
         - name: Use Microsoft Teams
