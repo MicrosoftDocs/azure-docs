@@ -17,47 +17,47 @@ The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning
 
 The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
-- Image provisioning
-  
-  - Creates a user account
-  - Configures SSH authentication types
-  - Deploys SSH public keys and key pairs
-  - Sets the host name
-  - Publishes the host name to the platform DNS
-  - Reports SSH host key fingerprint to the platform
-  - Manages resource disk
-  - Formats and mounts the resource disk
-  - Configures swap space
+### Image provisioning
 
-- Networking
-  
-  - Manages routes to improve compatibility with platform DHCP servers
-  - Ensures the stability of the network interface name
+- Creates a user account
+- Configures SSH authentication types
+- Deploys SSH public keys and key pairs
+- Sets the host name
+- Publishes the host name to the platform DNS
+- Reports SSH host key fingerprint to the platform
+- Manages resource disk
+- Formats and mounts the resource disk
+- Configures swap space
 
-- Kernel
-  
-  - Configures virtual NUMA (disable for kernel <`2.6.37`)
-  - Consumes Hyper-V entropy for */dev/random*
-  - Configures SCSI timeouts for the root device, which can be remote
+### Networking
 
-- Diagnostics
-  
-  - Console redirection to the serial port
+- Manages routes to improve compatibility with platform DHCP servers
+- Ensures the stability of the network interface name
 
-- System Center Virtual Machine Manager deployments
-  
-  - Detects and bootstraps the Virtual Machine Manager agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
+### Kernel
 
-- VM Extension
-  
-  - Injects component authored by Microsoft and partners into Linux virtual machines to enable software and configuration automation
-  - VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+- Configures virtual NUMA (disable for kernel <`2.6.37`)
+- Consumes Hyper-V entropy for */dev/random*
+- Configures SCSI timeouts for the root device, which can be remote
+
+### Diagnostics
+
+- Console redirection to the serial port
+
+### System Center Virtual Machine Manager deployments
+
+- Detects and bootstraps the Virtual Machine Manager agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
+
+### VM Extension
+
+- Injects component authored by Microsoft and partners into Linux VMs to enable software and configuration automation
+- VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## Communication
 
 The information flow from the platform to the agent occurs by using two channels:
 
-- A boot-time attached DVD for virtual machines deployments. This DVD includes an Open Virtualization Format (OVF)-compliant configuration file that includes all provisioning information other than the SSH key pairs.
+- A boot-time attached DVD for VM deployments. This DVD includes an Open Virtualization Format (OVF)-compliant configuration file that includes all provisioning information other than the SSH key pairs.
 - A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
 
 ## Requirements
@@ -93,7 +93,7 @@ The Linux agent depends on some system packages in order to function properly:
 - Network tools: ip-route
 - Kernel support for mounting UDF file systems.
 
-Ensure your virtual machine has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Installation
 
@@ -198,7 +198,7 @@ Type: String
 Default: rsa
 ```
 
-This option can be set to an encryption algorithm type that the SSH daemon supports on the virtual machine. The typically supported values are `rsa`, `dsa`, and `ecdsa`. *putty.exe* on Windows doesn't support `ecdsa`. If you intend to use *putty.exe* on Windows to connect to a Linux deployment, use `rsa` or `dsa`.
+This option can be set to an encryption algorithm type that the SSH daemon supports on the VM. The typically supported values are `rsa`, `dsa`, and `ecdsa`. *putty.exe* on Windows doesn't support `ecdsa`. If you intend to use *putty.exe* on Windows to connect to a Linux deployment, use `rsa` or `dsa`.
 
 ### Provisioning.MonitorHostName
 
@@ -207,7 +207,7 @@ Type: Boolean
 Default: y
 ```
 
-If `y`, waagent monitors the Linux virtual machine for a host name change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking restarts on the virtual machine. This restart results in brief loss of internet connectivity.
+If `y`, waagent monitors the Linux VM for a host name change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking restarts on the VM. This restart results in brief loss of internet connectivity.
 
 ### Provisioning.DecodeCustomData
 
@@ -371,7 +371,7 @@ Enable or disable autoupdate for goal state processing. The default value is `y`
 
 As of version 2.7+, The Azure Linux guest agent has a feature to automatically collect some logs and upload them. This feature currently requires `systemd`, and uses a new `systemd` slice called `azure-walinuxagent-logcollector.slice` to manage resources while it performs the collection.
 
-The purpose is to facilitate offline analysis. The agent produces a *.zip* file of some diagnostics logs before uploading them to the VM's host. Engineering teams and support professionals can retrieve the file to investigate issues for the virtual machine owner. More technical information on the files collected by the guest agent can be found in the *azurelinuxagent/common/logcollector_manifests.py* file in the [agent's GitHub repository](https://github.com/Azure/WALinuxAgent).
+The purpose is to facilitate offline analysis. The agent produces a *.zip* file of some diagnostics logs before uploading them to the VM's host. Engineering teams and support professionals can retrieve the file to investigate issues for the VM owner. More technical information on the files collected by the guest agent can be found in the *azurelinuxagent/common/logcollector_manifests.py* file in the [agent's GitHub repository](https://github.com/Azure/WALinuxAgent).
 
 This option can be disabled by editing */etc/waagent.conf*. Update `Logs.Collect` to `n`.
 
