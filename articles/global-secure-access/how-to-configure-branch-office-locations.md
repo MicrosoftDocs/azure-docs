@@ -41,23 +41,23 @@ There are multiple ways to connect a branch location to the Microsoft network. I
 1. Select **Add branch location**.
 1. Select **Add a link**.
 1. Enter the following details: 
-* Link name: `CPE Link 1` 
-* Device type: `Other`
-* IP address: `20.125.118.219` 
-* Link BGP address: `172.16.11.5` 
-* Link ASN: `65530`
+    * Link name: `CPE Link 1` 
+    * Device type: `Other`
+    * IP address: `20.125.118.219` 
+    * Link BGP address: `172.16.11.5` 
+    * Link ASN: `65530`
 1. Click **Next**. 
 1. Select **IKEv2** for protocol.
 1. Select **Default** for IPSec/IKI policy. 
-> [!NOTE]
-> For custom policies, use the values:
-> * IKE Phase 1 -> Encryption: `AES128`
-> * IKE Phase 1 -> IKEv2 integrity: `SHA256`
-> * IKE Phase 1 -> DH group: `DHGroup14`
-> * IKE Phase 2 -> IPSec encryption: `GCMAES128`
-> * IKE Phase 2 -> IPSec integrity: `GCMAES128`
-> * IKE Phase 2 -> PFS group: `PFS1`
-> * IKE Phase 2 -> SA lifetime (seconds): `2700`
+    > [!NOTE]
+    > For custom policies, use the values:
+    > * IKE Phase 1 -> Encryption: `AES128`
+    > * IKE Phase 1 -> IKEv2 integrity: `SHA256`
+    > * IKE Phase 1 -> DH group: `DHGroup14`
+    > * IKE Phase 2 -> IPSec encryption: `GCMAES128`
+    > * IKE Phase 2 -> IPSec integrity: `GCMAES128`
+    > * IKE Phase 2 -> PFS group: `PFS1`
+    > * IKE Phase 2 -> SA lifetime (seconds): `2700`
 1. Click **Next**. 
 1. Enter Pre-shared key (PSK): `key-value`
 1. Click **Save**.
