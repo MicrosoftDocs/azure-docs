@@ -31,6 +31,8 @@ az spring app identity assign \
 
 # [Azure Container Apps](#tab/container-apps-identity)
 
+You can assign a managed identity to a virtual machine with the [az containerapp identity assign](/cli/azure/containerapp/identity) command.
+
 ```azurecli
 az containerapp identity assign \
     --resource-group <resource-group-name> \
