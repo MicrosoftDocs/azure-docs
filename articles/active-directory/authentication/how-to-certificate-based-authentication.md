@@ -193,6 +193,9 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
 
 1. Click **Ok** to save any custom rule.
 
+>[!IMPORTANT]
+>PolicyOID should be in object identifier format as per https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.4. For ex: If the certificate policies says "All Issuance Policies" you should enter the OID as 2.5.29.32.0 in the add rules editor. Entering the string "All Issuance Policies" in rules editor is invalid and will not take effect.
+
 ## Step 4: Configure username binding policy
 
 The username binding policy helps validate the certificate of the user. By default, we map Principal Name in the certificate to UserPrincipalName in the user object to determine the user. An admin can override the default and create a custom mapping. 
