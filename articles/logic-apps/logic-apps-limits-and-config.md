@@ -530,13 +530,13 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 
 > [!NOTE]
 > 
-> Some managed connectors make inbound webhook callbacks to Azure Logic Apps. If you use access control, for example, IAM in a 
-> Consumption logic app, on the logic app resource, you must make sure that the calls from these target systems (IP addresses) 
-> have permissions to access your logic app. The following connectors make inbound webhook callbacks to Azure Logic Apps:
+> Some managed connectors make inbound webhook callbacks to Azure Logic Apps. If you use access control on the logic app resource, 
+> you must make sure that the calls from these target systems (IP addresses) have permissions to access your logic app. The following 
+> connectors make inbound webhook callbacks to Azure Logic Apps:
 >
 > Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Event Grid, 
 > Microsoft Form, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, 
-> LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform, and so on.
+> LiveChat, Office 365* Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform, and so on:
 >
 > - **Office 365**: The return caller is actually the Office 365 connector. You can specify the managed connector outbound 
 > IP address prefixes for each region, or optionally, you can use the **AzureConnectors** service tag for these managed connectors.
