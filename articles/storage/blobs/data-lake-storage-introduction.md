@@ -60,7 +60,7 @@ Operations such as renaming or deleting a directory, become single atomic metada
 
 #### Optimized cost and performance
 
-Azure Data Lake Storage Gen2 is priced at Azure Blob Storage levels. It builds on Azure Blob Storage capabilities such as automated lifecycle policy management and object level tiering to manage big data storage costs. A hierarchical namespace provides the scalability and cost-effectiveness of object storage. 
+Azure Data Lake Storage Gen2 is priced at Azure Blob Storage levels. It builds on Azure Blob Storage capabilities such as automated lifecycle policy management and object level tiering to manage big data storage costs.
 
 Performance is optimized because you don't need to copy or transform data as a prerequisite for analysis. The hierarchical namespace capability of Azure Data Lake Storage allows for efficient access and navigation. This architecture means that data processing requires fewer computational resources, reducing both the speed and cost of accessing data.
 
@@ -84,7 +84,7 @@ Because these capabilities are built on Blob Storage, features such as diagnosti
 
 The Azure Blob Storage table of contents features two sections of content. The **Data Lake Storage Gen2** section of content provides best practices and guidance for using Data Lake Storage Gen2 capabilities. The **Blob Storage** section of content provides guidance for account features not specific to Data Lake Storage Gen2. 
 
-As you move between content sets, you might notice some slight terminology differences. For example, content featured in the Blob Storage documentation, will use the term _blob_ instead of _file_. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, the term _blob_ can cause confusion if you're used to the term _file_. You'll also see the term _container_ used to refer to a _file system_. Consider these terms as synonymous. 
+As you move between sections, you might notice some slight terminology differences. For example, content featured in the Blob Storage documentation, will use the term _blob_ instead of _file_. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, the term _blob_ can cause confusion if you're used to the term _file_. You'll also see the term _container_ used to refer to a _file system_. Consider these terms as synonymous. 
 
 ## See also
 
