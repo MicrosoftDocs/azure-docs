@@ -6,7 +6,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 03/30/2023
 ms.custom: template-how-to 
 zone_pivot_groups: ase-pro-version
 ---
@@ -124,7 +124,8 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - User plane access interface
     - User plane data interface(s)
 
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). The following example is for a 5G multi-DN deployment.
+<<<<<<< HEAD
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
 3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
     1. Select **Add virtual network** and fill in the side panel:
@@ -145,7 +146,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
     1. Select **Add virtual network** and fill in the side panel:
           - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
           - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
-          - **VLAN**: 0
+          - **VLAN**: VLAN ID, or 0 if not using VLANs
           - **Subnet mask** and **Gateway** must match the external values for the port.
             - For example, *255.255.255.0* and *10.232.44.1*
             - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
