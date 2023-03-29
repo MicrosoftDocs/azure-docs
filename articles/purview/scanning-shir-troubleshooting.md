@@ -22,11 +22,11 @@ This article explores common troubleshooting methods for self-hosted integration
 For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](https://learn.microsoft.com/shows/inside/event-viewer).
 To get support and troubleshooting guidance for SHIR issues, you may need to generate an error report and send it across to Microsoft. To generate the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
-1. Before starting the scan: 
+1. Before starting the scan on the Purview portal: 
 - Clear the windows event viewer logs in the "Integration Runtime" section. Right-click on the logs and select clear logs option.
 - Then, start the scan on Purview portal.
-- Once the scan shows status "Failed" on Purview portal, navigate back to the SHIR VM or machine and refresh the event viewer in the "Integration Runtime" section.
-- The activity logs are displayed for the failed activity run.
+- Once the scan shows status "Failed" on Purview portal, navigate back to the SHIR VM, or machine and refresh the event viewer in the "Integration Runtime" section.
+- The activity logs are displayed for the failed scan run.
     
     :::image type="content" source="media/scanning-shir-troubleshooting/shir-event-viewer-logs-ir.png" alt-text="Screenshot of the logs for the failed scan SHIR activity."::: 
     
@@ -52,7 +52,7 @@ To get support and troubleshooting guidance for SHIR issues, you may need to gen
 
 There are lots of common errors, warnings, issues between Purview SHIR and Azure Data Factory or Azure Synapse SHIR.
 
-If your SHIR issues are not resolved, refer to the [Azure Data Factory ADF or Azure Synapse SHIR troubleshooting guide](../data-factory/troubleshoot-shir.md)
+If your SHIR issues aren't resolved, refer to the [Azure Data Factory ADF or Azure Synapse SHIR troubleshooting guide](../data-factory/troubleshoot-shir.md)
 
 [!INCLUDE[SHIR](../data-factory/troubleshoot-shir.md)]
 
