@@ -126,31 +126,31 @@ For Windows node pools (Preview)
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./windowskubeletconfig.json
 ```
 
-## Other configurations
+### Other configurations
 
 These settings can be used to modify other operating system settings.
 
-### Message of the Day
+#### Message of the Day
 
 Pass the ```--message-of-the-day``` flag with the location of the file to replace the Message of the Day on Linux nodes at cluster creation or node pool creation.
 
-#### Cluster creation
+##### Cluster creation
 
 ```azurecli
 az aks create --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
 ```
 
-#### Nodepool creation
+##### Nodepool creation
 
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --message-of-the-day ./newMOTD.txt
 ```
 
-## Confirm settings have been applied
+### Confirm settings have been applied
 
 After you have applied custom node configuration, you can confirm the settings have been applied to the nodes by [connecting to the host][node-access] and verifying `sysctl` or configuration changes have been made on the filesystem.
 
-# Custom node configuration supported parameters
+## Custom node configuration supported parameters
 
 ## Kubelet custom configuration
 
@@ -273,6 +273,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [upgrade-cluster]: upgrade-cluster.md
