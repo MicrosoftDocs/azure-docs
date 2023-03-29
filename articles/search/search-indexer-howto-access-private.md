@@ -82,7 +82,7 @@ You can create a shared private link for the following resources.
 
 ### Private endpoint verification
 
-1. Sign in to [Azure portal](https://azure.portal.com).
+1. Sign in to [Azure portal](https://portal.azure.com/).
 
 1. Type "private link" in the top search bar, and then select **Private Link** to open the Private Link Center.
 
