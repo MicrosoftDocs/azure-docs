@@ -120,7 +120,7 @@ Azure Maps also supports:
 
 Azure Maps also supports:
 
-* `typeahead` - specifies if the query is interpreted as a partial input and the search enters predictive mode (autosuggest/autocomplete).
+* `typeahead` - Specifies if the query is interpreted as a partial input and the search enters predictive mode (autosuggest/autocomplete).
 * `countrySet` – A comma-separated list of ISO2 countries codes in which to limit the search to.
 * `lat`/`lon`, `topLeft`/`btmRight`, `radius` – Specify user location and area to make the results more locally relevant.
 * `ofs` - Page through the results in combination with `maxResults` parameter.
@@ -177,7 +177,7 @@ The following table cross references the Bing Maps entity type values to the equ
 Several of the Azure Maps search API’s support predictive mode that can be used for autosuggest scenarios. The Azure Maps [fuzzy search] API is the most like the Bing Maps Autosuggest API. The following APIs also support predictive mode, add `&typeahead=true` to the query:
 
 * [Free-form address geocoding]: Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
-* [fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
+* [Fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 * [POI search]: Search for points of interests by name. For example, `"starbucks"`.
 * [POI category search]: Search for points of interests by category. For example, "restaurant".
 
@@ -447,7 +447,7 @@ In Azure Maps, lines and polygons can also be added to a static map image by spe
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps doesn't support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](./how-to-render-custom-data.md#upload-pins-and-path-data).
+When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps doesn't support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API. For more information, see [Upload pins and path data](./how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Path styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `optionName1Value1|optionName2Value2`. Note the option names and values aren't separated. The following style option names can be used to style paths in Azure Maps:
 
@@ -497,7 +497,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 
 Azure Maps provides an API for calculating an isochrone, a polygon covering an area that can be traveled to in any direction from an origin point within a specified amount of time or amount of fuel/charge. The Azure Maps route range API is comparable to the isochrone API in Bing Maps.
 
-* [Route] Range**: Calculate a polygon covering an area that can be traveled to in any direction from an origin point within a specified amount of time, distance, or amount of fuel/charge available.
+* [Route] Range: Calculate a polygon covering an area that can be traveled to in any direction from an origin point within a specified amount of time, distance, or amount of fuel/charge available.
 
 > [!NOTE]
 > Azure Maps requires the query origin to be a coordinate. Addresses will need to be geocoded first.</p>
@@ -526,16 +526,16 @@ The following table cross-references the Bing Maps API parameters with the compa
 
 Point of interest data can be searched in Bing Maps by using the following APIs:
 
-* **Local search:** Searches for points of interest that are nearby (radial search), by name, or by entity type (category). The Azure Maps [POI search] and [POI category search] APIs are most like this API.
+* **Local search**: Searches for points of interest that are nearby (radial search), by name, or by entity type (category). The Azure Maps [POI search] and [POI category search] APIs are most like this API.
 * **Location recognition**: Searches for points of interests that are within a certain distance of a location. The Azure Maps [nearby search] API is most like this API.
-* **Local insights:** Searches for points of interests that are within a specified maximum driving time or distance from a specific coordinate. This is achievable with Azure Maps by first calculating an isochrone and then passing it into the [Search within geometry] API.
+* **Local insights**: Searches for points of interests that are within a specified maximum driving time or distance from a specific coordinate. This is achievable with Azure Maps by first calculating an isochrone and then passing it into the [Search within geometry] API.
 
 Azure Maps provides several search APIs for points of interest:
 
 * [POI search]: Search for points of interests by name. For example, `"starbucks"`.
 * [POI category search]: Search for points of interests by category. For example, "restaurant".
 * [Search within geometry]: Searches for points of interests that are within a certain distance of a location.
-* [fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
+* [Fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 * [Search within geometry]: Search for points of interests that are within a specified geometry (polygon).
 * [Search along route]: Search for points of interests that are along a specified route path.
 * [Fuzzy batch search]: Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data is processed in parallel on the server and when completed the full result set can be downloaded.
@@ -619,8 +619,8 @@ Another option for geocoding a large number addresses with Azure Maps is to make
 * [Free-form address geocoding]: Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
 * [Structured address geocoding]: Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
 * [Batch address geocoding]: Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses are geocoded in parallel on the server and when completed the full result set can be downloaded. This service is recommended for geocoding large data sets.
-* [fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
-* [Fuzzy batch search]: Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data is processed in parallel on the server and when completed the full result set can be downloaded.
+* [Fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
+* **[Fuzzy batch search]**: Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data is processed in parallel on the server and when completed the full result set can be downloaded.
 
 ### Get administrative boundary data
 
@@ -635,7 +635,7 @@ To recap:
    * [Free-form address geocoding]
    * [Structured address geocoding]
    * [Batch address geocoding]
-   * [fuzzy search]
+   * [Fuzzy search]
    * [Fuzzy batch search]
 
 1. If the desired result(s) has a geometry ID(s), pass it into the [Search Polygon API].
@@ -717,8 +717,8 @@ Learn more about the Azure Maps REST services.
 [Cross street reverse geocoder]: /rest/api/maps/search/getsearchaddressreversecrossstreet
 [Batch address reverse geocoder]: /rest/api/maps/search/postsearchaddressreversebatchpreview
 
-[POI search]: /rest/api/maps/search/getsearchpoi
-[POI category search] /rest/api/maps/search/getsearchpoicategory
+[POI search]: /rest/api/maps/search/get-search-poi
+[POI category search]: /rest/api/maps/search/get-search-poi-category
 [Calculate route]: /rest/api/maps/route/getroutedirections
 [Batch route]: /rest/api/maps/route/postroutedirectionsbatchpreview
 
