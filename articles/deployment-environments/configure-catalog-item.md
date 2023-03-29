@@ -86,6 +86,65 @@ To add a catalog item:
 
 The service scans the repository to find new catalog items. After you sync the repository, new catalog items are available to all projects in the dev center.
 
+### Specify parameters for a catalog item
+
+You can specify parameters for your catalog items to allow developers to customize their environments. 
+
+Parameters are defined in the manifest.yaml file. You can use the following options for parameters: 
+
+|Option  |Description  |
+|---------|---------|
+|ID     |Enter an ID for the parameter.|
+|name     |Enter a name for the parameter.|
+|description     |Enter a description for the parameter.|
+|default     |Optional. Enter a default value for the parameter. The default value can be overwritten at creation.|
+|type     |Enter the data type for the parameter.|
+|required|Enter `true` for a value that's required, and  `false` for a value that's not required.|
+
+The following script is an example of a *manifest.yaml* file that includes two parameters; `location` and `name`: 
+
+```YAML
+name: WebApp
+summary: Azure Web App Environment
+description: Deploys a web app in Azure without a datastore
+runner: ARM
+templatePath: azuredeploy.json
+parameters:
+- id: "location"
+  name: "location"
+  description: "Location to deploy the environment resources"
+  default: "[resourceGroup().location]"
+  type: "string"
+  required: false
+- id: "name"
+  name: "name"
+  description: "Name of the Web App "
+  default: ""
+  type: "string"
+  required: false
+```
+
+Developers can supply values for specific parameters for their environments through the developer portal.
+
+:::image type="content" source="media/configure-catalog-item/parameters.png" alt-text="Screenshot showing the parameters pane.":::
+
+Developers can also supply values for specific parameters for their environments through the CLI.
+
+```azurecli
+az devcenter dev environment create --catalog-item-name
+                                    --catalog-name
+                                    --dev-center
+                                    --environment-name
+                                    --environment-type
+                                    --project
+                                    [--description]
+                                    [--no-wait]
+                                    [--parameters]
+                                    [--tags]
+                                    [--user]
+                                    [--user-id]
+```
+Refer to the [Azure CLI devcenter extension](/cli/azure/devcenter/dev/environment) for full details of the `az devcenter dev environment create` command.
 ## Update a catalog item
 
 To modify the configuration of Azure resources in an existing catalog item, update the associated ARM template JSON file in the repository. The change is immediately reflected when you create a new environment by using the specific catalog item. The update also is applied when you redeploy an environment that's associated with that catalog item.

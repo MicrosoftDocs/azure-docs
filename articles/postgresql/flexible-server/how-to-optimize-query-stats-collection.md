@@ -21,8 +21,6 @@ This article describes how to optimize query statistics collection on an Azure D
 
 If you have unique queries with long query text or you don't actively monitor **pg_stat_statements**, disable **pg_stat_statements** for best performance. To do so, change the setting to `pg_stat_statements.track = NONE`.
 
-Some customer workloads have seen up to a 50 percent performance improvement when **pg_stat_statements** is disabled. The tradeoff you make when you disable pg_stat_statements is the inability to troubleshoot performance issues.
-
 To set `pg_stat_statements.track = NONE`:
 
 - In the Azure portal, go to the [PostgreSQL resource management page and select the server parameters blade](concepts-server-parameters.md).
@@ -30,13 +28,9 @@ To set `pg_stat_statements.track = NONE`:
 
 ## Use the Query Store
 
-The [Query Store](concepts-query-store.md) feature in Azure Database for PostgreSQL provides a more effective method to track query statistics. We recommend this feature as an alternative to using *pg_stat_statements*.
+Using the [Query Store](concepts-query-store.md) feature in Azure Database for PostgreSQL - Flexible Server offers a different way to monitor query execution statistics. To prevent performance overhead, it is recommended to utilize only one mechanism, either the pg_stat_statements extension or the Query Store.
 
 ## Next steps
-
-Consider setting `pg_stat_statements.track = NONE` in the [Azure portal](concepts-server-parameters.md) or by using the [Azure CLI](connect-azure-cli.md).
-
-For more information, see:
 
 - [Query Store usage scenarios](concepts-query-store-scenarios.md) 
 - [Query Store best practices](concepts-query-store-best-practices.md) 
