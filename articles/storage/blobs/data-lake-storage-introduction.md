@@ -50,7 +50,7 @@ Azure Data Lake Storage Gen2 is primarily designed to work with Hadoop and all f
 
 Data analysis frameworks that use HDFS as their data access layer can directly access Azure Data Lake Storage Gen2 data through ABFS. The Apache Spark analytics engine and the Presto SQL query engine are examples of such frameworks. 
 
-For more information, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md) and [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+For more information about supported services and platforms, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md) and [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
 #### Hierarchical directory structure
 
@@ -70,8 +70,6 @@ The Azure Data Lake Storage Gen2 access control model supports both Azure role-b
 
 #### Massive scalability
 
-This amount of storage is available with throughput measured in gigabits per second (Gbps) at high levels of input/output operations per second (IOPS). Processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
-
 Azure Data Lake Storage Gen2 offers massive storage and accepts numerous data types for analytics. It doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in the data lake. Individual  files can have sizes that range from a few kilobytes (KBs) to a few petabytes (PBs). Processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 This design means that Azure Data Lake Storage Gen2 can easily and quickly scale up to meet the most demanding workloads. It can also just as easily scale back down when demand drops.
@@ -84,9 +82,9 @@ Because these capabilities are built on Blob Storage, features such as diagnosti
 
 ## Documentation and terminology
 
-The Data Lake Storage Gen2 documentation provides best practices and guidance for using Data Lake Storage Gen2 capabilities. The [Blob Storage documentation](storage-blobs-introduction.md) provides guidance for account features not specific to Data Lake Storage Gen2. 
+The Azure Blob Storage table of contents features two sections of content. The **Data Lake Storage Gen2** section of content provides best practices and guidance for using Data Lake Storage Gen2 capabilities. The **Blob Storage** section of content provides guidance for account features not specific to Data Lake Storage Gen2. 
 
-As you move between content sets, you notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term _blob_ instead of _file_. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, the term _blob_ can cause confusion if you're used to the term _file_. You'll also see the term _container_ used to refer to a _file system_. Consider these terms as synonymous. 
+As you move between content sets, you might notice some slight terminology differences. For example, content featured in the Blob Storage documentation, will use the term _blob_ instead of _file_. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, the term _blob_ can cause confusion if you're used to the term _file_. You'll also see the term _container_ used to refer to a _file system_. Consider these terms as synonymous. 
 
 ## See also
 
