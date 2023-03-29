@@ -19,7 +19,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric
 [!INCLUDE [Short Code](./includes/sms-shortcode-pricing.md)]
 ::: zone-end
 
-::: zone pivot="alphanumeric-senderID"
+::: zone pivot="alphanumeric-senderid"
 [!INCLUDE [Alphanumeric Sender ID](./includes/sms-alphanumeric-senderID-pricing.md)]
 ::: zone-end
 

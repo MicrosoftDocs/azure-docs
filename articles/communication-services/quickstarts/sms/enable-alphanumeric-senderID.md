@@ -29,7 +29,7 @@ To begin provisioning a short code, go to your Communication Services resource o
 ## Enable alphanumeric sender ID
 Navigate to the Alphanumeric Sender ID blade in the resource menu and click on "Enable Alphanumeric Sender ID" button to enable alphanumeric sender ID service. If the enable button is greyed out for your subscription and your [subscription address](../../concepts/numbers/sub-eligibility-number-capability.md) is supported for alphanumeric sender ID, [create a support ticket](https://aka.ms/ACS-Support).
 
-:::image type="content" source="./media/enable-alphanumeric-senderID/enable-alphanumeric-sender-id.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/enable-alphanumeric-senderID/enable-alphanumeric-sender-id.png"alt-text="Screenshot showing a Alphanumeric senderID blade.":::
 
 ## Next steps
 

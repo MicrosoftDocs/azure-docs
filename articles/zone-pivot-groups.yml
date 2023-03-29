@@ -1791,7 +1791,7 @@ groups:
     title: Toll-Free
   - id: shortcode
     title: Short Code
-  - id: alphanumeric-senderID
+  - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: timlt
 - id: iot-develop-nxp-toolset

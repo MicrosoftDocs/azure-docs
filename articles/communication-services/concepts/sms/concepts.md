@@ -13,11 +13,13 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ---
 
-# SMS features
+# SMS overview
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services enables you to send and receive SMS text messages using the Communication Services SMS SDKs. These SDKs can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Communication Services SMS allows you to reliably send messages while exposing deliverability and response metrics.
+
+## SMS features
 
 Key features of Azure Communication Services SMS SDKs include:
 
@@ -26,10 +28,10 @@ Key features of Azure Communication Services SMS SDKs include:
 - **Bulk Messaging** supported to enable sending messages to multiple recipients at a time.
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.
-- **Analytics** to track your SMS usage patterns.
+- **Analytics** to track your SMS usage patterns. See[SMS insights](../../concepts/analytics/insights/sms-insights.md) for details.
 - **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers and short codes. Opt-outs for US toll-free numbers are mandated and enforced by US carriers. See [opt-out handling FAQ](./sms-faq.md#opt-out-handling) for details.
 
-# Sender Types Supported
+## Sender Types Supported
 
 Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. Few of the factors to consider when choosing a number type include destination(s) of the message, throughput requirement of your messaging campaign, and the timeline when you want to start sending messages. Azure Communication Services enables you to send SMS using a variety of sender types - toll-free number (1-8XX), short codes (12345), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
 
