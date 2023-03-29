@@ -34,7 +34,7 @@ sections:
       - question: |
           How can I reduce the latency for my voice app?
         answer: |
-          We provide several tips for you to lower the latency and bring the best performance to your users. See [Lower speech synthesis latency using Speech SDK](how-to-lower-speech-synthesis-latency).
+          We provide several tips for you to lower the latency and bring the best performance to your users. See [Lower speech synthesis latency using Speech SDK](how-to-lower-speech-synthesis-latency.md).
       - question: |
           What output audio formats does TTS support?
         answer: |
