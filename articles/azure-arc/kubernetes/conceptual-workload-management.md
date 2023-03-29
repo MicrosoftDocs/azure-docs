@@ -38,7 +38,7 @@ Before we describe the scenario, let's clarify which personas are involved, what
 
 ### Platform team
 
-The platform team is responsible for managing the group of clusters that hosts applications produced by application teams.
+The platform team is responsible for managing the clusters that host applications produced by application teams.
 
 Key responsibilities of the platform team are:
 
@@ -137,5 +137,5 @@ Deployment Observability Hub is a central storage that is easy to query with com
 
 ## Next steps
 
-* Walk through a sample implementation to explore [workload management in a multi-cluster environment with GitOps](tutorial-workload-management.md).
+* Walk through a sample implementation to explore [workload management in a multi-cluster environment with GitOps](workload-management.md).
 * Explore a [multi-cluster workload management sample repository](https://github.com/microsoft/kalypso).

@@ -77,7 +77,7 @@ Created AKS clusters in kalypso-rg resource group:
 
 This deployment script created an infrastructure, shown in the following diagram:
 
-:::image type="content" source="media/tutorial-workload-management/infra-diagram.png" alt-text="Diagram showing the infrastructure of the sample.":::
+:::image type="content" source="media/workload-management/infra-diagram.png" alt-text="Diagram showing the infrastructure of the sample.":::
 
 There are a few Platform Team repositories:
 
@@ -269,13 +269,13 @@ The second policy states that all deployment targets from the `kaizen-app-team` 
 
 This push to the `dev` branch triggers the scheduling process and creates a PR to the `dev` branch in the `Platform GitOps` repository:
 
-:::image type="content" source="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment." lightbox="media/tutorial-workload-management/pr-to-dev-with-app-assignment.png":::
+:::image type="content" source="media/workload-management/pr-to-dev-with-app-assignment.png" alt-text="Screenshot showing a PR to dev environment with application assignment." lightbox="media/workload-management/pr-to-dev-with-app-assignment.png":::
 
 Besides `Promoted_Commit_id`, which is just tracking information for the promotion CD flow, the PR contains assignment manifests. The `functional-test` deployment target is assigned to the `drone` cluster type, and the `performance-test` deployment target is assigned to the `large` cluster type. Those manifests will land in `drone` and `large` folders that contain all assignments to these cluster types in the `Dev` environment.
  
 The `Dev` environment also includes `command-center` and `small` cluster types:
 
- :::image type="content" source="media/tutorial-workload-management/dev-cluster-types.png" alt-text="Screenshot showing cluster types in the Dev environment.":::
+ :::image type="content" source="media/workload-management/dev-cluster-types.png" alt-text="Screenshot showing cluster types in the Dev environment.":::
 
 However, only the `drone` and `large` cluster types were selected by the scheduling policies that you defined.
 
@@ -352,15 +352,15 @@ spec:
 
 Once you approve and merge the PR to the `Platform GitOps` repository, the `drone` and `large` AKS clusters that represent corresponding cluster types start fetching the assignment manifests. The `drone` cluster has [GitOps extension](conceptual-gitops-flux2.md) installed, pointing to the `Platform GitOps` repository. It reports its `compliance` status to Azure Resource Graph: 
 
-:::image type="content" source="media/tutorial-workload-management/drone-compliance-state.png" alt-text="Screenshot showing compliance state details for the drone cluster.":::
+:::image type="content" source="media/workload-management/drone-compliance-state.png" alt-text="Screenshot showing compliance state details for the drone cluster.":::
 
 The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository. This workflow waits until all clusters with the [GitOps extension](conceptual-gitops-flux2.md) installed that are looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial, the only such cluster is `drone`. 
 
-:::image type="content" source="media/tutorial-workload-management/checkpromote-to-dev.png" alt-text="Screenshot showing promotion to dev.":::
+:::image type="content" source="media/workload-management/checkpromote-to-dev.png" alt-text="Screenshot showing promotion to dev.":::
 
 Once the `checkpromote` is successful, it starts the `cd` workflow that promotes the change (application registration) to the `Stage` environment. For better visibility, it also updates the git commit status in the `control plane` repository:
 
-:::image type="content" source="media/tutorial-workload-management/dev-git-commit-status.png" alt-text="Screenshot showing git commit status deploying to dev.":::
+:::image type="content" source="media/workload-management/dev-git-commit-status.png" alt-text="Screenshot showing git commit status deploying to dev.":::
 
 > [!NOTE]
 > If the `drone` cluster fails to reconcile the assignment manifests for any reason, the promotion flow will fail. The commit status will be marked as failed, and the application registration will not be promoted to the `Stage` environment.
@@ -401,11 +401,11 @@ Pushing this policy to the `stage` branch triggers the scheduling process, which
 
 As in the case with the `Dev` environment, after reviewing and merging the PR to the `Platform GitOps` repository, the `checkpromote` workflow in the `control plane` repository waits until clusters with the [GitOps extension](conceptual-gitops-flux2.md) (`drone`) reconcile the assignment manifests.
 
- :::image type="content" source="media/tutorial-workload-management/check-promote-to-stage.png" alt-text="Screenshot showing promotion to stage.":::
+ :::image type="content" source="media/workload-management/check-promote-to-stage.png" alt-text="Screenshot showing promotion to stage.":::
 
 On successful execution, the commit status is updated.
 
-:::image type="content" source="media/tutorial-workload-management/stage-git-commit-status.png" alt-text="Screenshot showing successful commit status.":::
+:::image type="content" source="media/workload-management/stage-git-commit-status.png" alt-text="Screenshot showing successful commit status.":::
 
 ## 3 - Application Dev Team: Build and deploy application
 
@@ -413,7 +413,7 @@ The Application Team regularly submits pull requests to the `main` branch in the
  
  Go to the `Application Source` repository in GitHub. On the `Actions` tab, select `Run workflow`.
 
-:::image type="content" source="media/tutorial-workload-management/run-workflow-button.png" alt-text="Screenshot showing the Run workflow option.":::
+:::image type="content" source="media/workload-management/run-workflow-button.png" alt-text="Screenshot showing the Run workflow option.":::
 
 The workflow performs the following actions:
 
@@ -421,11 +421,11 @@ The workflow performs the following actions:
 - Generates manifests for the `functional-test` and `performance-test` deployment targets. It uses configuration values from the `dev-configs` branch. The generated manifests are added to a pull request and auto-merged in the `dev` branch.
 - Generates manifests for the `uat-test` deployment target. It uses configuration values from the `stage-configs` branch. 
 
-:::image type="content" source="media/tutorial-workload-management/cicd-workflow.png" alt-text="Screenshot showing the CI/CD workflow." lightbox="media/tutorial-workload-management/cicd-workflow.png":::
+:::image type="content" source="media/workload-management/cicd-workflow.png" alt-text="Screenshot showing the CI/CD workflow." lightbox="media/workload-management/cicd-workflow.png":::
 
 The generated manifests are added to a pull request to the `stage` branch waiting for approval:
 
-:::image type="content" source="media/tutorial-workload-management/app-pr-to-stage.png" alt-text="Screenshot showing a PR to stage.":::
+:::image type="content" source="media/workload-management/app-pr-to-stage.png" alt-text="Screenshot showing a PR to stage.":::
 
 To test the application manually on the `Dev` environment before approving the PR to the `Stage` environment, first verify how the `functional-test` application instance works on the `drone` cluster:
 
@@ -440,7 +440,7 @@ kubectl port-forward svc/hello-world-service -n dev-kaizen-app-team-hello-world-
 
 While this command is running, open `localhost:9090` in your browser. You'll see the following greeting page:
 
-:::image type="content" source="media/tutorial-workload-management/dev-greeting-page.png" alt-text="Screenshot showing the Dev greeting page.":::
+:::image type="content" source="media/workload-management/dev-greeting-page.png" alt-text="Screenshot showing the Dev greeting page.":::
 
 The next step is to check how the `performance-test` instance works on the `large` cluster:
 
@@ -474,7 +474,7 @@ kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-worl
 
 The application instance on the `large` cluster shows the following greeting page:
 
- :::image type="content" source="media/tutorial-workload-management/stage-greeting-page.png" alt-text="Screenshot showing the greeting page on stage.":::
+ :::image type="content" source="media/workload-management/stage-greeting-page.png" alt-text="Screenshot showing the greeting page on stage.":::
 
 ## 4 - Platform Team: Provide platform configurations
 
@@ -509,7 +509,7 @@ The scheduler scans all config maps in the environment and collects values for e
 
 In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` repository appears:
 
-:::image type="content" source="media/tutorial-workload-management/stage-db-url-update-pr.png" alt-text="Screenshot showing a PR to update the database URL on stage." lightbox="media/tutorial-workload-management/stage-db-url-update-pr.png":::
+:::image type="content" source="media/workload-management/stage-db-url-update-pr.png" alt-text="Screenshot showing a PR to update the database URL on stage." lightbox="media/workload-management/stage-db-url-update-pr.png":::
 
 Approve the PR and merge it.
 
@@ -528,7 +528,7 @@ kubectl port-forward svc/argocd-server 8080:80 -n argocd --context large
 
 Next, open `localhost:8080` in your browser and provide the username and password printed by the script. You'll see a web page similar to this one:
 
- :::image type="content" source="media/tutorial-workload-management/argocd-ui.png" alt-text="Screenshot showing the Argo CD user interface web page." lightbox="media/tutorial-workload-management/argocd-ui.png":::
+ :::image type="content" source="media/workload-management/argocd-ui.png" alt-text="Screenshot showing the Argo CD user interface web page." lightbox="media/workload-management/argocd-ui.png":::
 
 Select the `stage` tile to see more details on the reconciliation state from the `stage` branch to this cluster. You can select the `SYNC` buttons to force the reconciliation and speed up the process.
 
@@ -542,7 +542,7 @@ kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-worl
 
 You'll see the updated database url:
 
-:::image type="content" source="media/tutorial-workload-management/updated-db-url-page.png" alt-text="Screenshot showing a page with updated database url." lightbox="media/tutorial-workload-management/updated-db-url-page.png":::
+:::image type="content" source="media/workload-management/updated-db-url-page.png" alt-text="Screenshot showing a page with updated database url." lightbox="media/workload-management/updated-db-url-page.png":::
 
 ## 5 - Platform Team: Add cluster type to environment
 
@@ -576,7 +576,7 @@ git push
 
 In a few seconds, the scheduler submits a PR to the `Platform GitOps` repository. According to the `uat-test-policy` that you created, it assigns the `uat-test` deployment target to the new cluster type, as it's supposed to work on all available cluster types in the environment.
 
-:::image type="content" source="media/tutorial-workload-management/small-cluster-type-assignment.png" alt-text="Screenshot showing the assignment for the small cluster type." lightbox="media/tutorial-workload-management/small-cluster-type-assignment.png":::
+:::image type="content" source="media/workload-management/small-cluster-type-assignment.png" alt-text="Screenshot showing the assignment for the small cluster type." lightbox="media/workload-management/small-cluster-type-assignment.png":::
 
 ## Clean up resources
 When no longer needed, delete the resources that you created for this tutorial. To do so, run the following command:
