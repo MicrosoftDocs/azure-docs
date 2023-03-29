@@ -17,7 +17,7 @@ APPLIES TO:  :::image type="icon" source="media/yes.png" border="false":::Micros
 
 This article explores common troubleshooting methods for self-hosted integration runtime (SHIR) in Microsoft Purview, Azure Data Factory and Synapse workspaces.
 
-## Gather self-hosted IR logs
+## Gather Microsoft Purview specific SHIR self-hosted integration runtime logs
 
 For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](https://learn.microsoft.com/shows/inside/event-viewer).
 To get support and troubleshooting guidance for SHIR issues, you may need to generate an error report and send it across to Microsoft. To generate the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
