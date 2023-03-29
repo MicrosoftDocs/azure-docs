@@ -48,7 +48,7 @@ In this tutorial:
     dotnet run
     ```
 
-    #### [.NET 7.0](#tab/dotnet6)
+    #### [.NET 7.0](#tab/dotnet7)
 
     ```powershell
     dotnet run --launch-profile https
