@@ -204,12 +204,7 @@ The following limitations are in addition to those detailed in the Prometheus sp
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
-> [!NOTE]
-> Azure managed Prometheus is  **case insensitive**. If one time series differs from another only by the casing of a string - metric name, label name, label value etc, it is treated the same time series. This behavior differs from native open source Prometheus which is a case sensitive system. For example, the following two time series are threated as the same time series in Azure managed Prometheus:  
-> `diskSize(cluster=”eastus”, node=”node1”, filesystem=”usr_mnt”)`   
-> `diskSize(cluster=”eastus”, node=”node1”, filesystem=”usr_MNT”)`  
-> For more information on scraping and case sensitivity, see [Customize scraping of Prometheus metrics in Azure Monitor](./prometheus-metrics-scrape-configuration.md#case-sensitivity)
-
+[!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
 
 ## Next steps
 
