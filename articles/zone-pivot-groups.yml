@@ -383,6 +383,14 @@ groups:
     title: Maven command
   - id: create-option-vscode
     title: Visual Studio Code
+- id: functions-nodejs-model
+  title: Node.js Programming model
+  prompt: Choose a programming model
+  pivots:
+  - id: nodejs-model-v4
+    title: v4 (preview)
+  - id: nodejs-model-v3
+    title: v3
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -420,8 +428,6 @@ groups:
     title: ASP.NET Core
   - id: devlang-nodejs-msal
     title: Node.js - MSAL
-  - id: devlang-nodejs-passport
-    title: Node.js - Passport
   - id: devlang-java
     title: Java
   - id: devlang-python
@@ -1449,6 +1455,18 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-quickstart-new
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 - id: openai-chat
   title: API Options
   prompt: Chat API options
@@ -1579,7 +1597,7 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-# Owner: philmea
+# Owner: Brendanc
 - id: facility-ontology-schema
   title: Creator Facility Ontology
   prompt: Choose a Facility Ontology Version
@@ -1588,6 +1606,15 @@ groups:
     title: Facility Ontology 1.0
   - id: facility-ontology-v2
     title: Facility Ontology 2.0
+# Owner: Brendanc
+- id: drawing-package-version
+  title: Creator drawing package
+  prompt: Choose a drawing package Version
+  pivots:
+  - id: drawing-package-v1
+    title: drawing package 1.0
+  - id: drawing-package-v2
+    title: drawing package 2.0
 # Owner: veyalla
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
   title: Azure Monitor for IoT Edge FAQ

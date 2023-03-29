@@ -14,7 +14,7 @@ keywords: ChatGPT
 ## Working with the ChatGPT models (preview)
 
 > [!NOTE]
-> The Chat Completion API is the recommended method of interacting with the ChatGPT (gtp-45-turbo) models.
+> The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-45-turbo) models.
 
 The following code snippet shows the most basic way to use the ChatGPT models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
