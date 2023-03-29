@@ -24,6 +24,6 @@ tags: connectors
 
 For more information, see the following documentation:
 
-- Learn more about the [Azure Monitor Logs connector](/connectors/azuremonitorlogs/)
+- [Azure Monitor Logs connector](/connectors/azuremonitorlogs/)
 - Learn how to [Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps](connectors-azure-monitor-logs.md)
 - Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)- 
