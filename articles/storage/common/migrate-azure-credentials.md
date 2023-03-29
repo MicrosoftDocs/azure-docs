@@ -163,11 +163,7 @@ az role assignment create \
 
 ### [Service Connector](#tab/assign-role-service-connector)
 
-If you connected your services using the Service Connector you don't need to complete this step. The necessary configurations were handled for you:
-
-* If you selected a managed identity while creating the connection, a system-assigned managed identity was created for your app and assigned the **Storage Blob Data Contributor** role on the storage account.
-
-* If you selected connection string, the connection string was added as an app environment variable.
+If you connected your services using the Service Connector you don't need to complete this step. The necessary role configurations were handled for you when you ran the service connector CLI commands.
 
 ---
 
