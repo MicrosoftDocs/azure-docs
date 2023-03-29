@@ -38,12 +38,12 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 
 | Attribute | Description | Required | Default |
 |---|---|---|---|
-| provider-id | The authorization provider resource identifier. Policy expressions are allowed. | Yes | N/A  |
-| authorization-id | The authorization resource identifier. Policy expressions are allowed. | Yes | N/A  |
-| context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). Policy expressions are allowed.| Yes | N/A  |
-| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute.<br/><br/>Policy expressions are allowed. | No | `managed` |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID<br/><br/>Policy expressions are allowed. | No |  N/A |
-| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>Policy expressions are allowed. | No | `false` |
+| provider-id | The authorization provider resource identifier. | Yes | N/A  |
+| authorization-id | The authorization resource identifier. | Yes | N/A  |
+| context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes | N/A  |
+| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | `managed` |
+| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID | No |  N/A |
+| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | `false` |
 
 ### Authorization object
 
