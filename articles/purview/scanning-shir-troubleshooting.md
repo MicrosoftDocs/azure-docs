@@ -28,13 +28,13 @@ To get support and troubleshooting guidance for SHIR issues, you may need to gen
 - Once the scan shows status "Failed" on Purview portal, navigate back to the SHIR VM or machine and refresh the event viewer in the "Integration Runtime" section.
 - The activity logs are displayed for the failed activity run.
     
-    :::image type="content" source="..media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Screenshot of the activity logs for the failed activity."::: 
+    :::image type="content" source="media/scanning-shir-troubleshooting/shir-event-viewer-logs-ir.png" alt-text="Screenshot of the logs for the failed scan SHIR activity."::: 
     
 1. For further assistance from Microsoft, select **Send Logs**.
  
-   The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
+   The **Share the self-hosted integration runtime (SHIR) logs with Microsoft** window opens.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Screenshot of the &quot;Share the self-hosted integration runtime (IR) logs with Microsoft&quot; window.":::
+    :::image type="content" source="media/scanning-shir-troubleshooting/shir-send-logs-ir.png" alt-text="Screenshot of the send logs button on the self-hosted integration runtime (SHIR) to upload logs to Microsoft.":::
 
 1. Select which logs you want to send. 
     * For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
@@ -42,7 +42,7 @@ To get support and troubleshooting guidance for SHIR issues, you may need to gen
 
 1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the IR logs.":::
+    :::image type="content" source="media/scanning-shir-troubleshooting/shir-send-logs-complete.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the Purview SHIR logs.":::
 
 > [!NOTE]
 > Log viewing and uploading requests are executed on all online self-hosted IR instances. If any logs are missing, make sure that all the self-hosted IR instances are online. 
@@ -56,7 +56,7 @@ If your SHIR issues are not resolved, refer to the [Azure Data Factory ADF or Az
 
 [!INCLUDE[SHIR](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md)]
 
-## Next steps
+## Manage your Purview SHIR - next steps
 
 For more help with troubleshooting, try the following resources:
 
