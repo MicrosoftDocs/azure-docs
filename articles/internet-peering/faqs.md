@@ -29,6 +29,6 @@ Peering connections that were set up outside of the automated portal process and
 
 Our automated process allocates IP addresses and sends the information via email to the PNI requestor after the port is configured on our side. This may take up to a week after the request has been submitted as the port has been cabled before it can be configured.
 
-## What Microsoft routes will we receive over these interconnects?
+## What Microsoft routes will be advertised over Peering Service connections?
 
-Microsoft announces all of Microsoft's public service prefixes over these interconnects. This ensures not only communications, but other cloud services are accessible from the same interconnect.
+Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same connection.
