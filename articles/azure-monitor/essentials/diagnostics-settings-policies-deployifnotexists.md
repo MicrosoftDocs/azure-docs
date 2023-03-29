@@ -43,7 +43,6 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select **Review + create**, then select **Create** .
   :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
 
-The policy visible in the resources' diagnostic setting after approximately 30 minutes.
 
 ### [CLI](#tab/cli)
 To apply a policy using the CLI, use the following commands:
@@ -144,6 +143,8 @@ To apply a policy using the PowerShell, use the following commands:
     Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
     ```
 ---
+
+The policy is visible in the resources' diagnostic settings after approximately 30 minutes.
 
 ## Remediation tasks
 
