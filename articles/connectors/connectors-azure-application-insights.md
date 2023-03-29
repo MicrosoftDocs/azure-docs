@@ -22,7 +22,7 @@ tags: connectors
 > Authentication is integrated with Azure Active Directory. For the how-to guide to use the Azure Monitor Logs connector, see 
 > [Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps](connectors-azure-monitor-logs.md).
 
-## Next steps
+For more information, see the following documentation:
 
 - Learn more about the [Azure Monitor Logs connector](/connectors/azuremonitorlogs/)
 - Learn how to [Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps](connectors-azure-monitor-logs.md)
