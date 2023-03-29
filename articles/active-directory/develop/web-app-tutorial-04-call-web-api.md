@@ -80,4 +80,4 @@ In this tutorial:
 Learn how to use the Microsoft identity platform by trying out the following tutorial series on how to build a web API.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Register a web API with the Microsoft identity platform](web-app-tutorial-01-register-application.md)
+> [Tutorial: Register a web API with the Microsoft identity platform](web-api-tutorial-01-register-app.md)

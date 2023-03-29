@@ -181,4 +181,4 @@ All the required code snippets have been added, so the application can now be ca
 Learn how to use the Microsoft identity platform by trying out the following tutorial series on how to build a web API.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Register a web API with the Microsoft identity platform](single-page-app-tutorial-01-register-app.md)
+> [Tutorial: Register a web API with the Microsoft identity platform](web-api-tutorial-01-register-app.md)
