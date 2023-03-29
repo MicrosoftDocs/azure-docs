@@ -120,17 +120,9 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 ## Configure Key Vault access using a managed identity
 
-Refer to the following configurations that are needed for API Management to access secrets and certificates from Key Vault.s
+The following configurations are needed for API Management to access secrets and certificates from an Azure key vault.
 
-### Configure Key Vault access policy
-
-To configure an access policy using the portal:
-
-1. In the Azure portal, navigate to your key vault.
-1. Select **Settings > Access policies > + Add Access Policy**.
-1. Select **Secret permissions**, then select **Get** and **List**.
-1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
-1. Select **Add**.
+[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -321,7 +313,7 @@ API Management is a trusted Microsoft service to the following resources. This a
 |Azure Key Vault | [Trusted-access-to-azure-key-vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)|
 |Azure Storage | [Trusted-access-to-azure-storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
 |Azure Service Bus | [Trusted-access-to-azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
-|Azure Event Hubs | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+|Azure Event Hubs | [Trusted-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
 
 ## Create a user-assigned managed identity
 

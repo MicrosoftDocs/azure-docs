@@ -5,14 +5,14 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/29/2022
+ ms.date: 03/27/2023
  ms.author: rogarana
  ms.custom: include file
 ---
 
 ### General limitations
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 managed disks, premium SSD managed disks, and standard SSDs can enable shared disks. Shared disks can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed.
+Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 managed disks, premium SSD managed disks, and standard SSDs can enable shared disks. Shared disks can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed. A shared disk can't be expanded without either deallocating the VMs or detaching the disk.
 
 > [!IMPORTANT]
 > Host caching isn't supported for shared disks.
@@ -43,7 +43,7 @@ When sharing Premium SSD v2 disks, they have the following additional limitation
 - Can only be enabled on data disks, not OS disks.
 - Host caching isn't available for premium SSD disks with `maxShares>1`.
 - Disk bursting isn't available for premium SSD disks with `maxShares>1`.
-- When using Availability sets or virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain isn't enforced for the shared data disk.
+- When using Availability sets or Virtual Machine Scale Sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain isn't enforced for the shared data disk.
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Azure Site Recovery support isn't yet available.
@@ -55,7 +55,7 @@ When sharing Premium SSD v2 disks, they have the following additional limitation
 
 - Can only be enabled on data disks, not OS disks.
 - Host caching isn't available for standard SSDs with `maxShares>1`.
-- When using Availability sets and virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain isn't enforced for the shared data disk.
+- When using Availability sets and Virtual Machine Scale Sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain isn't enforced for the shared data disk.
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Azure Site Recovery support isn't yet available.

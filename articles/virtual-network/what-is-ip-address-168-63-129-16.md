@@ -1,21 +1,16 @@
 ---
-title: What is IP address 168.63.129.16? | Microsoft Docs
+title: What is IP address 168.63.129.16?
 description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: allensu
-
 ---
 
 # What is IP address 168.63.129.16?
@@ -44,6 +39,9 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule leverages the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired this traffic can be blocked by configuring the network security group however this will result in probes that fail.
 
 ## Troubleshoot connectivity
+> [!NOTE]
+> When running the tests below, the action need to be run as Administrator (Windows) and Root (Linux) to ensure accurate results.
+
 ### Windows OS
 You can test communication to 168.63.129.16 by using the following tests with PowerShell.
 

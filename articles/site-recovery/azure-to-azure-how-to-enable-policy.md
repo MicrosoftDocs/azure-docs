@@ -6,6 +6,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.topic: how-to
 ms.date: 07/25/2021
+ms.service: site-recovery
 ms.custom: template-how-to
 
 ---

@@ -2,12 +2,12 @@
 title: Manage app groups for Azure Virtual Desktop portal - Azure
 description: How to manage Azure Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 01/31/2022
 ms.author: helohr
 manager: femila
 ---
-# Tutorial: Manage app groups with the Azure portal
+# Manage app groups with the Azure portal
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).

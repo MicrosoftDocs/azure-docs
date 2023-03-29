@@ -2,7 +2,7 @@
 title: Microsoft identity platform authentication flows & app scenarios
 description: Learn about application scenarios for the Microsoft identity platform, including authenticating identities, acquiring tokens, and calling protected APIs.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.assetid:
@@ -11,7 +11,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/05/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
 #Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ---
@@ -134,7 +135,7 @@ Though we don't recommend that you use it, the [username/password flow](scenario
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
-In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing [dual token cache serialization](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
+In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing dual token cache serialization, you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
 
 For more information, see [Desktop app that calls web APIs](scenario-desktop-overview.md).
 

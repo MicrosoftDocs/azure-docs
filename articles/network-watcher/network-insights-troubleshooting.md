@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor Network Insights troubleshooting
 description: Troubleshooting steps for issues that may arise while using Network insights
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: network-watcher
 ms.custom: ignite-2022, engagement-fy23
-author: Sagav28
-ms.author: saggupta
+author: halkazwini
+ms.author: halkazwini
 ms.date: 09/29/2022
 ---
 

@@ -65,7 +65,7 @@ Here are a few reasons why you might want to use this approach:
 
 - You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images to use in your labs. Otherwise, if you use a [lab's template VM](how-to-use-shared-image-gallery.md) to export an image, the image is always specialized.
 - You can access resources that exist within your on-premises environment. For example, you might have large installation files in your on-premises environment that are too time consuming to copy to a lab's template VM.
-- You can upload images created by using other tools, such as [Microsoft Endpoint Configuration Manager](/mem/configmgr/core/understand/introduction), so that you don't have to manually set up an image by using a lab's template VM.
+- You can upload images created by using other tools, such as [Microsoft Configuration Manager](/mem/configmgr/core/understand/introduction), so that you don't have to manually set up an image by using a lab's template VM.
 
 Bringing a custom image from a VHD is the most advanced approach because you must ensure that the image is set up properly so that it works within Azure. As a result, IT departments are typically responsible for creating custom images from VHDs.
 

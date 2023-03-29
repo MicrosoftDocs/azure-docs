@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 12/08/2022
+ms.topic: article
+ms.date: 01/11/2023
 ms.author: danlep
 ---
 
@@ -86,6 +86,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 * This policy can be used only once per policy definition.
 * Except where noted, [policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
 * This policy is only applied when an API is accessed using a subscription key.
+* [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+
 
 ## Example
 

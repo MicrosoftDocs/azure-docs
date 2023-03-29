@@ -5,9 +5,9 @@ author: madsd
 
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
+ms.custom: devx-track-azurepowershell
 ms.date: 10/05/2022
 ms.author: madsd
-
 ---
 # Set up Azure App Service access restrictions
 
@@ -87,6 +87,9 @@ Follow the procedure as outlined in the preceding section, but with the followin
 * For step 4, in the **Type** drop-down list, select **IPv4** or **IPv6**. 
 
 Specify the **IP Address Block** in Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like *1.2.3.4/32*, where the first four octets represent your IP address and */32* is the mask. The IPv4 CIDR notation for all addresses is 0.0.0.0/0. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+
+> [!NOTE]
+> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multi-tenant service, you need to use **service endpoints** to restrict traffic to select subnets in your virtual network.
 
 #### Set a service endpoint-based rule
 

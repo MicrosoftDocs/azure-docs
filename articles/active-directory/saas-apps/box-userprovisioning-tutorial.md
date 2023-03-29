@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure single sign-on between Azure Active Directory and Box .
 services: active-directory
 author: jeevansd

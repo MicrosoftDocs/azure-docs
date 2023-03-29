@@ -1,5 +1,5 @@
 ---
-title: Grant B2B users access to your on-premises apps - Azure AD
+title: Grant B2B users access to your on-premises apps
 description: Shows how to give cloud B2B users access to on premises apps with Azure AD B2B collaboration.
 
 services: active-directory
@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 11/17/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 ms.collection: M365-identity-device-management

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -60,7 +60,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | tenant-id | Tenant ID or URL  of the Azure Active Directory service. | Yes | N/A |
-| header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | `Authorization`                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | token-value                     | Expression returning a string containing the token. You must not return `Bearer` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | failed-validation-httpcode      | HTTP status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
@@ -102,23 +102,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 ### Simple token validation
 
-```xml
-<validate-jwt header-name="Authorization" require-scheme="Bearer">
-    <issuer-signing-keys>
-        <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
-    </issuer-signing-keys>
-    <audiences>
-        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
-    </audiences>
-    <issuers>
-        <issuer>http://contoso.com/</issuer>
-    </issuers>
-</validate-jwt>
-```
-
-### Simple token validation
-
-The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the `Authorization` header using the `Bearer` scheme. In this example, the Azure AD tenant ID and client application ID are provided using named values.
+The following policy is the minimal form of the `validate-azure-ad-token` policy.  It expects the JWT to be provided in the default `Authorization` header using the `Bearer` scheme. In this example, the Azure AD tenant ID and client application ID are provided using named values.
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}">

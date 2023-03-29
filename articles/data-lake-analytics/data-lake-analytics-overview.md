@@ -10,8 +10,7 @@ ms.date: 10/17/2022
 
 Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it's running, making it cost-effective.
 
-   > [!NOTE]
-   > Azure Data Lake Analytics will be retired on 29 February 2024. Learn more [with this announcement](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/).
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Azure Data Lake analytics recent update information
 

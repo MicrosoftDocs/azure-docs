@@ -43,6 +43,8 @@ Python v2 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
 
+Note that the Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).
+
 Python v1 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
@@ -412,7 +414,7 @@ At this time, only specific triggers and bindings are supported by the Python v2
 | [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
 | [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
 | [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#blob-trigger) | x | x | x |
+| [Azure Blob Storage](functions-bindings-triggers-python.md#azure-blob-storage-trigger) | x | x | x |
 | [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
 
 For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
@@ -514,6 +516,28 @@ More logging methods are available that let you write to the console at differen
 | **`debug(_message_)`** | Writes a message with level DEBUG on the root logger.  |
 
 To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
+
+### Logging from created threads
+
+To see logs coming from your created threads, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in the function's signature. This argument contains an attribute `thread_local_storage` which stores a local `invocation_id`. This can be set to the function's current `invocation_id` to ensure the context is changed.
+
+```python
+import azure.functions as func
+import logging
+import threading
+
+
+def main(req, context):
+    logging.info('Python HTTP trigger function processed a request.')
+    t = threading.Thread(target=log_function, args=(context,))
+    t.start()
+
+
+def log_function(context):
+    context.thread_local_storage.invocation_id = context.invocation_id
+    logging.info('Logging from thread.')
+```
+
 
 ### Log custom telemetry
 
@@ -848,6 +872,7 @@ The [`Context`](/python/api/azure-functions/azure.functions.context) class has t
 | `function_directory` | The directory in which the function is running. |
 | `function_name` | The name of the function. |
 | `invocation_id` | The ID of the current function invocation. |
+| `thread_local_storage` | The thread local storage of the function. Contains a local `invocation_id` for [logging from created threads](#logging-from-created-threads). |
 | `trace_context` | The context for distributed tracing. For more information, see  [`Trace Context`](https://www.w3.org/TR/trace-context/). |
 | `retry_context` | The context for retries to the function. For more information, see [`retry-policies`](./functions-bindings-errors.md#retry-policies). |
 
@@ -950,7 +975,7 @@ Azure Functions supports the following Python versions:
 
 \* Official Python distributions
 
-To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created, and it can't be changed.
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created, and it can't be changed for apps running in a Consumption plan.
 
 The runtime uses the available Python version when you run it locally.
 
@@ -1265,7 +1290,7 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
 
 ### The Azure Functions Python library
 

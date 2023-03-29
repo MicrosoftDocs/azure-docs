@@ -5,9 +5,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: contperf-fy21q1
 ms.date: 1/6/2022
 ms.author: mbender
+ms.custom: template-how-to, contperf-fy21q1
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer

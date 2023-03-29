@@ -2,8 +2,22 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/03/2023
+ms.date: 03/08/2023
 ---
+
+## Latest client versions
+
+The following table lists the current version available for the public release:
+
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 10.2.3000.0      | [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709) |
+
+## Updates for version 10.2.3000
+
+*Date published: March 6, 2023*
+
+There are no changes to the client in this release.
 
 ## Updates for version 10.2.1810
 
