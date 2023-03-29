@@ -86,6 +86,8 @@ Once your application is configured to use passwordless connections and runs loc
 
 [!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
+After the resource is created, select **Go to resource** to view the details of the managed identity.
+
 #### Associate the managed identity with your web app
 
 You need to configure your web app to use the managed identity you created. Assign the identity to your app using either the Azure portal or the Azure CLI.
@@ -96,14 +98,14 @@ Complete the following steps to use the Azure portal to associate an identity wi
 
 * Azure Spring Apps
 * Azure Container Apps
-* Azure virtual Machines
+* Azure virtual machines
 * Azure Kubernetes Service.
 
 1. Navigate to the overview page of your web app.
 1. Select **Identity** from the left navigation.
 1. On the Identity page, switch to the **User assigned** tab.
 1. Select **+ Add** to open the **Add user assigned managed identity** flyout.
-1. Select the subscription you used previously to create the **MigrationIdentity**.
+1. Select the subscription you used previously to create the identity.
 1. Search for the **MigrationIdentity** by name and select it from the search results.
 1. Select **Add** to associate the identity with your app.
 
@@ -171,9 +173,29 @@ If you connected your services using the Service Connector you don't need to com
 
 ---
 
+#### Update the application code
+
+You need to configure your application code to look for the specific managed identity you created when it is deployed to Azure. Explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
+
+1. On the managed identity overview page, copy the client ID value to your clipboard.
+1. Update the `DefaultAzureCredential` object in the `Program.cs` file of your app to specify this managed identity client ID.
+
+```csharp
+// TODO: Update the <your-storage-account-name> and <your-managed-identity-client-id> placeholders
+var blobServiceClient = new BlobServiceClient(
+                    new Uri("https://<your-storage-account-name>.blob.core.windows.net"),
+                    new DefaultAzureCredential(
+                        new DefaultAzureCredentialOptions() 
+                        { 
+                            ManagedIdentityClientId = "<your-managed-identity-client-id>" 
+                        }));
+```
+
+You will need to redeploy your code to Azure after making this change in order for the configuration updates to be applied.
+
 #### Test the app
 
-After making these code changes, browse to your hosted application in the browser. Your app should be able to connect to the storage account successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the storage account successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 
