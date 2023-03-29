@@ -25,16 +25,16 @@ This interoperability with Microsoft Teams over VoIP makes it easy for developer
 1. Extend customer service workforce with knowledge workers: Businesses can extend their customer service operation with more capacity during peak influx of customer service calls.
 
 ## Scenario Showcase – Expert Consultation
-A customer service agent, who is using a Contact Center Agent experience, wants to now add a subject matter expert, who is knowledge worker (regular employee) at Contoso and uses Microsoft Teams, into a support call with a customer to provide some expert advice to a resolve a customer issue. 
+A customer service agent, who is using a Contact Center Agent experience, wants to now add a subject matter expert, who is knowledge worker (regular employee) at Contoso and uses Microsoft Teams, into a support call with a customer to provide some expert advice to resolve a customer issue. 
 
 The dataflow diagram depicts a canonical scenario where a Teams user is added to an ongoing ACS call for expert consultation.
 
-![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)
+[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png#lightbox)
 
 1. Customer is on an ongoing call with a Contact Center customer service agent. 
 1. the call, the customer service agent needs expert help from one of the domain experts part of an engineering team. The agent is able to identify a knowledge worker who is available on Teams (presence via Graph APIs) and tries to add them to the call. 
 1. Contoso Contact Center’s SBC is already configured with ACS Direct Routing where this add participant request is processed.
-1. Contoso Contact Center provider has implemented a web service, using ACS Call Automation, that receives the “add Participant” request.
+1. Contoso Contact Center provider has implemented a web service, using ACS Call Automation that receives the “add Participant” request.
 1. With Teams interop built into ACS Call Automation, ACS then uses the Teams user’s ObjectId to add them to the call. The Teams user receives the incoming call notification. They accept and join the call. 
 1. Once the Teams has provided their expertise, they leave the call. The customer service agent and customer continue wrap up their conversation.
 
@@ -57,7 +57,10 @@ The following list presents the set of features that are currently available in 
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |
 |                       | List all participants in a call                   | ✔️    | ✔️    |
-| Call Recording        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |
+| Call Recording*        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |
+
+> [!IMPORTANT]
+> Azure Communication Services call recording notifications in Teams clients are not supported. You must obtain consent from and notify the parties of recorded communications in a manner that complies with the laws applicable to each participant. i.e., using the Play API available in Call Automation.
 
 ## Supported clients
 | Clients          | Support     |

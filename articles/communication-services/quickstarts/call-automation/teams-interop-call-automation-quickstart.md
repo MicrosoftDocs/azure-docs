@@ -87,9 +87,11 @@ await answer.Value.CallConnection.AddParticipantAsync(
         SourceDisplayName = "Jack (Contoso Tech Support)"
     });
 ```
-![On the Microsoft Teams desktop client, Jack's call will be sent to the Microsoft Teams user through an incoming call toast notification, such as this sample screenshot below.](./media/incoming-call-toast-notification-teams-user.png)
+On the Microsoft Teams desktop client, Jack's call will be sent to the Microsoft Teams user through an incoming call toast notification.
+![Screenshot of Microsoft Teams desktop client, Jack's call is sent to the Microsoft Teams user through an incoming call toast notification.](./media/incoming-call-toast-notification-teams-user.png)
 
-![After the Microsoft Teams user accepts the call, this diagram shows the in-call experience for the Microsoft Teams user](./media/active-call-teams-user.png)
+After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user will have all the participants displayed on the Microsoft Teams roster.
+![Screenshot of Microsoft Teams user accepting the call and entering the in-call experience for the Microsoft Teams user](./media/active-call-teams-user.png)
 
 ## Step 4: Remove a Teams user from an existing ACS call controlled by Call Automation APIs
 ```csharp
