@@ -210,7 +210,7 @@ This command creates a connection between your web app and your PostgreSQL serve
 Next, update App Settings and add plugin in connection string
 
 ```azurecli-interactive
-AZURE_POSTGRESQL_CONNECTIONSTRING=$(az webapp config appsettings list --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME | jq -c '.[] | select ( .name == "AZURE_POSTGRESQL_CONNECTIONSTRING" ) | .value' | sed 's/"//g')
+AZURE_POSTGRESQL_CONNECTIONSTRING=$(az webapp config appsettings list --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME | jq -c -r '.[] | select ( .name == "AZURE_POSTGRESQL_CONNECTIONSTRING" ) | .value')
 
 az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings 'CATALINA_OPTS=-DdbUrl="${AZURE_POSTGRESQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"'
 ```
