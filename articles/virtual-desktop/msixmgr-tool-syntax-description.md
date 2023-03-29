@@ -3,8 +3,8 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title:       MSIXMGR tool parameters 
-description: this article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
+title:       MSIXMGR tool parameters (Azure Virtual Desktop)
+description: This article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
 author:      fiza-microsoft # GitHub alias
 ms.author:   fizaazmi # Microsoft alias
 #ms.prod:     windows #ms.prod
@@ -12,7 +12,7 @@ ms.topic:    concept-article
 ms.date:     03/21/2023
 ---
 
-# MSIXMGR Tool Parameters
+# MSIXMGR Tool parameters
 
 
 This article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we expand the syntax of all the parameters used by the MSIXMGR tool.  
@@ -123,7 +123,7 @@ This article contains an overview of the command-line syntax to help you underst
 |Display Help at the command prompt|`msixmgr.exe -?`|
 
 
-## Next Steps
+## Next steps
 Learn more about MSIX app attach at [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach)  
   
 To learn how to set up app attach, check out these articles:
