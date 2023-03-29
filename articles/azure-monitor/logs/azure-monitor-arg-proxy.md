@@ -18,7 +18,7 @@ You can run cross-resource queries by using client tools that support Kusto quer
 Enter the `arg` pattern, followed by the Azure Resource Graph table.
 
 ```kusto
-adx().Resources
+arg().Resources
 ```
 :::image type="content" source="media/azure-arg-monitor-proxy/azure-arg-monitor-query-example.png" alt-text="Screenshot that shows an example of a cross-service query.":::
 
