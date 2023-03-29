@@ -17,7 +17,7 @@ ms.author: kpunjabi
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create a new web service application using the [Call Automation SDK](../../../call-automation/Callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
-- [Apache Maven](https://maven.apache.org/download.cgi).
+
 
 ## Set up a websocket server
 Azure Communication Services requires your server application to set up a WebSocket server to stream audio in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. 
