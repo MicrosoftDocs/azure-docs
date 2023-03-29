@@ -42,7 +42,7 @@ Configure your firewall rules so that your sensor can access the cloud on port 4
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Configure traffic mirroring](../best-practices/traffic-mirroring-methods.md)
+> [« Configure traffic mirroring](../traffic-mirroring/traffic-mirroring-overview.md)
 
 > [!div class="step-by-step"]
 > [Install OT monitoring software on OT sensors »](install-software-ot-sensor.md)
