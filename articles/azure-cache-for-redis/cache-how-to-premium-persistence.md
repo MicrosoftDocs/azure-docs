@@ -195,7 +195,7 @@ The [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-cr
 az redisenterprise create --cluster-name "cache1" --resource-group "rg1" --location "East US" --sku "Enterprise_E10" --persistence rdb-enabled=true rdb-frequency="1h" 
 ```
 
-Existing caches can be updated using the [az redisenterprise update](/cli/azure/redisenterprise#az-redisenterprise-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
+Existing caches can be updated using the [az redisenterprise database update](/cli/azure/redisenterprise/database#az-redisenterprise-database-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
 
 ```azurecli
 az redisenterprise database update --cluster-name "cache1" --resource-group "rg1" --persistence rdb-enabled=true rdb-frequency="12h" 
