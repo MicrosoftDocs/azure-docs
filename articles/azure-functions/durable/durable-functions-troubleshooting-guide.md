@@ -113,7 +113,7 @@ traces
 |Column |Description |
 |-------|------------|
 |pid|Process ID of the function app. This is useful for understanding if a process was recycled while an orchestration was executing.|
-|eventType|The name of the event.|
+|eventType|The name of the event. The list is [here](https://github.com/Azure/durabletask/blob/d76cf22bef5a298ab8744997758f4c8921457924/src/DurableTask.Core/History/EventType.cs#L19.)|
 |eventId|An auto-incrementing integer value that identifies an activity, timer, or sub-orchestration for a particular orchestration instance.|
 |extendedSession|Boolean value indicating whether ExtendedSessions is enabled.|
 |Account|The storage account name under which function runs.|
@@ -127,7 +127,7 @@ traces
 |PartitionId|This is both a) the name of the partition and b) the name of the queue for all message-related trace events.|
 |logLevel|This indicates the message severity level. "Information" is for normal operations. "Warnings" or "Errors" means there is a problem.|
 |TotalEventCount|The total number of history events function is operating on.|
-|TaskHub|The name of your [task hub](./durable-functions-task-hubs.md)|
+|TaskHub|The name of your [task hub](./durable-functions-task-hubs.md).|
 
 
 ### Trace Errors/Warnings
