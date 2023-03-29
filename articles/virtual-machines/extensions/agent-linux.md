@@ -15,10 +15,7 @@ ms.date: 03/28/2023
 
 The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, and virtual machine interaction with the Azure Fabric controller. In addition to the Linux agent providing provisioning functionality, Azure also provides the option of using `cloud-init` for some Linux operating systems.
 
-The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments:
-
-> [!NOTE]
-> For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
+The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
 - Image provisioning
   
@@ -60,7 +57,7 @@ The Linux agent provides the following functionality for Linux and FreeBSD Azure
 
 The information flow from the platform to the agent occurs by using two channels:
 
-- A boot-time attached DVD for Virtual Machines deployments. This DVD includes an Open Virtualization Format (OVF)-compliant configuration file that includes all provisioning information other than the SSH key pairs.
+- A boot-time attached DVD for virtual machines deployments. This DVD includes an Open Virtualization Format (OVF)-compliant configuration file that includes all provisioning information other than the SSH key pairs.
 - A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
 
 ## Requirements
@@ -100,7 +97,7 @@ Ensure your virtual machine has access to IP address 168.63.129.16. For more inf
 
 ## Installation
 
-The preferred method of installing and upgrading the Azure Linux agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
+The preferred method of installing and upgrading the Azure Linux Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
 
 For advanced installation options, such as installing from source or to custom locations or prefixes, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
 
@@ -121,8 +118,8 @@ For advanced installation options, such as installing from source or to custom l
   - Cached DHCP client leases
   - Resets host name to `localhost.localdomain`
 
-> [!WARNING]
-> Deprovisioning doesn't guarantee that the image is cleared of all sensitive information and suitable for redistribution.
+  > [!WARNING]
+  > Deprovisioning doesn't guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
 - `deprovision+user`: Performs everything in `deprovision` (previous) and also deletes the last provisioned user account, obtained from */var/lib/waagent*, and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
 - `version`: Displays the version of waagent.
@@ -169,7 +166,7 @@ Type: Boolean
 Default: y
 ```
 
-This option allows the user to enable or disable the provisioning functionality in the agent. Valid values are `y` or `n`. If provisioning is disabled, SSH host and user keys in the image are preserved and configuration in the Azure provisioning API is ignored.
+This option allows the user to enable or disable the provisioning functionality in the agent. Valid values are `y` and `n`. If provisioning is disabled, SSH host and user keys in the image are preserved and configuration in the Azure provisioning API is ignored.
 
 > [!NOTE]
 > The `Provisioning.Enabled` parameter defaults to `n` on Ubuntu Cloud Images that use cloud-init for provisioning.
@@ -181,7 +178,7 @@ Type: Boolean
 Default: n
 ```
 
-If set, the agent erases the root password in the */etc/shadow* file during the provisioning process.
+If `y`, the agent erases the root password in the */etc/shadow* file during the provisioning process.
 
 ### Provisioning.RegenerateSshHostKeyPair
 
@@ -190,7 +187,7 @@ Type: Boolean
 Default: y
 ```
 
-If set, the agent deletes all SSH host key pairs from */etc/ssh/* during the provisioning process, including ECDSA, DSA, and RSA. The agent generates a single fresh key pair.
+If `y`, the agent deletes all SSH host key pairs from */etc/ssh/* during the provisioning process, including ECDSA, DSA, and RSA. The agent generates a single fresh key pair.
 
 Configure the encryption type for the fresh key pair by using the `Provisioning.SshHostKeyPairType` entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted, for example, upon a reboot.
 
@@ -210,7 +207,7 @@ Type: Boolean
 Default: y
 ```
 
-If set, waagent monitors the Linux virtual machine for a host name change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking restarts on the virtual machine. This restart results in brief loss of internet connectivity.
+If `y`, waagent monitors the Linux virtual machine for a host name change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking restarts on the virtual machine. This restart results in brief loss of internet connectivity.
 
 ### Provisioning.DecodeCustomData
 
@@ -219,7 +216,7 @@ Type: Boolean
 Default: n
 ```
 
-If set, waagent decodes `CustomData` from Base64.
+If `y`, waagent decodes `CustomData` from Base64.
 
 ### Provisioning.ExecuteCustomData
 
@@ -228,7 +225,7 @@ Type: Boolean
 Default: n
 ```
 
-If set, waagent runs `CustomData` after provisioning.
+If `y`, waagent runs `CustomData` after provisioning.
 
 ### Provisioning.AllowResetSysUser
 
@@ -248,10 +245,10 @@ Default: 6
 
 This option specifies the algorithm used by crypt when generating password hash. Valid values are:
 
-- 1 - MD5  
-- 2a - Blowfish  
-- 5 - SHA-256  
-- 6 - SHA-512  
+- 1: MD5  
+- 2a: - Blowfish  
+- 5: SHA-256  
+- 6: SHA-512  
 
 ### Provisioning.PasswordCryptSaltLength
 
@@ -269,7 +266,7 @@ Type: Boolean
 Default: y
 ```
 
-If set, waagent formats and mounts the resource disk provided by the platform, unless the file system type requested by the user in `ResourceDisk.Filesystem` is `ntfs`. The agent makes a single Linux partition (ID 83) available on the disk. This partition isn't formatted if it can be successfully mounted.
+If `y`, waagent formats and mounts the resource disk provided by the platform, unless the file system type requested by the user in `ResourceDisk.Filesystem` is `ntfs`. The agent makes a single Linux partition (ID 83) available on the disk. This partition isn't formatted if it can be successfully mounted.
 
 ### ResourceDisk.Filesystem
 
@@ -368,13 +365,13 @@ Type: Boolean
 Default: y
 ```
 
-Enable or disable autoupdate for goal state processing. The default value is enabled.
+Enable or disable autoupdate for goal state processing. The default value is `y`.
 
 ## Linux guest agent automatic logs collection
 
 As of version 2.7+, The Azure Linux guest agent has a feature to automatically collect some logs and upload them. This feature currently requires `systemd`, and uses a new `systemd` slice called `azure-walinuxagent-logcollector.slice` to manage resources while it performs the collection.
 
-The purpose is to facilitate offline analysis. It produces a *.zip* file of some diagnostics logs before uploading them to the VM's host. Engineering Teams and Support professionals can retrieve the file to investigate issues for the virtual machine owner. More technical information on the files collected by the guest agent can be found in the *azurelinuxagent/common/logcollector_manifests.py* file in the [agent's GitHub repository](https://github.com/Azure/WALinuxAgent).
+The purpose is to facilitate offline analysis. The agent produces a *.zip* file of some diagnostics logs before uploading them to the VM's host. Engineering teams and support professionals can retrieve the file to investigate issues for the virtual machine owner. More technical information on the files collected by the guest agent can be found in the *azurelinuxagent/common/logcollector_manifests.py* file in the [agent's GitHub repository](https://github.com/Azure/WALinuxAgent).
 
 This option can be disabled by editing */etc/waagent.conf*. Update `Logs.Collect` to `n`.
 
