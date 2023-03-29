@@ -668,7 +668,7 @@ Follow these steps to set up a new project if you don't already have an Android 
 
 ### Layout
 
-In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet:
+In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet to display buttons and text boxes:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
