@@ -60,16 +60,15 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dasv5|Standard_D8as_v5|8|32|
 |Dasv5|Standard_D16as_v5|16|64|
 |Dasv5|Standard_D32as_v5|32|128|
-|Eiv3*|Standard_E64i_v3|64|432|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
 |Eids4|Standard_E80ids_v4|80|504|
 |Eisv5|Standard_E104is_v5|104|672|
 |Eidsv5|Standard_E104ids_v5|104|672|
 |Fsv2|Standard_F72s_v2|72|144|
-|Mms|Standard_M128ms|128|3892|
+|Mms*|Standard_M128ms|128|3892|
 
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
+\*Standard_M128ms' does not support encryption at host
 
 ### General purpose
 
@@ -148,14 +147,12 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv5|Standard_E64s_v5|64|512|
 |Esv5|Standard_E96s_v5|96|672|
 |Edsv5|Standard_E96ds_v5|96|672|
-|Eiv3*|Standard_E64i_v3|64|432|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
 |Eids4|Standard_E80ids_v4|80|504|
 |Eisv5|Standard_E104is_v5|104|672|
 |Eidsv5|Standard_E104ids_v5|104|672|
 
-\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
 
 ### Compute optimized
 
@@ -167,11 +164,14 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Fsv2|Standard_F32s_v2|32|64|
 |Fsv2|Standard_F72s_v2|72|144|
 
+
 ### Memory and compute optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
-|Mms|Standard_M128ms|128|3892|
+|Mms*|Standard_M128ms|128|3892|
+
+\*Standard_M128ms' does not support encryption at host
 
 ### Storage optimized
 |Series|Size|vCPU|Memory: GiB|
@@ -190,6 +190,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |L32s_v3|Standard_L32s_v3|32|256|
 |L48s_v3|Standard_L48s_v3|48|384|
 |L64s_v3|Standard_L64s_v3|64|512|
+
 
 ### GPU workload
 |Series|Size|vCPU|Memory: GiB|
@@ -210,6 +211,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |-|-|-|-|
 |G*|Standard_G5|32|448|
 |G|Standard_GS5|32|448|
--->
+
 
 \*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
+-->
