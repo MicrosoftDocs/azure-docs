@@ -52,11 +52,11 @@ For more information about custom CA certificates and certificate authorities, s
 
 | Name                            | Description      | Required |  Default    |
 | ------------------------------- | -----------------| -------- | ----------- |
-| validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list. Policy expressions aren't supported.  | No  | `true`  |
-| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. Policy expressions aren't supported. | No | `true` |
-| validate-not-before | Boolean. Validates value against current time. Policy expressions aren't supported.| No | `true` |
-| validate-not-after  | Boolean. Validates value against current time. Policy expressions aren't supported.| No | `true`|
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. Policy expressions aren't supported. | No | `false` |
+| validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list. Policy expressions aren't allowed.  | No  | `true`  |
+| validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. Policy expressions aren't allowed. | No | `true` |
+| validate-not-before | Boolean. Validates value against current time. Policy expressions aren't allowed.| No | `true` |
+| validate-not-after  | Boolean. Validates value against current time. Policy expressions aren't allowed.| No | `true`|
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. Policy expressions aren't allowed. | No | `false` |
 
 ## Elements
 
