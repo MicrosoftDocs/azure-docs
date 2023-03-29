@@ -15,9 +15,14 @@ ms.custom:  [amqp, mqtt, devx-track-js]
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent gateways. In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub.
+This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent [gateways](iot-edge-as-gateway.md). In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub.
 
-There are three general steps to set up a successful transparent gateway connection. This article covers the third step:
+Here, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
+
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+
+There are three general steps to set up a successful transparent gateway connection. This article explains the third step.
 
 1. Configure the gateway device as a server so that downstream devices can connect to it securely. Set up the gateway to receive messages from downstream devices and route them to the proper destination. For those steps, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
 
@@ -25,40 +30,39 @@ There are three general steps to set up a successful transparent gateway connect
 
 1. **Connect the downstream device to the gateway device and start sending messages.**
 
-This article discusses basic concepts for downstream device connections and guides you in setting up your downstream devices by:
+This article explains downstream device connections, such as: 
 
-* Explaining transport layer security (TLS) and certificate fundamentals.
-* Explaining how TLS libraries work across different operating systems and how each operating system deals with certificates.
-* Walking through Azure IoT samples in several languages to help get you started.
+* Transport layer security (TLS) and certificate fundamentals.
+* How TLS libraries work across different operating systems and how each operating system deals with certificates.
 
-In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
-
->[!NOTE]
->A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+You then walk through Azure IoT samples in several languages to help get you started.
 
 ## Prerequisites
 
-* Have the root CA certificate file that was used to generate the device CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md) available on your downstream device. Your downstream device uses this certificate to validate the identity of the gateway device. If you used the demo certificates, the root CA certificate is called **azure-iot-test-only.root.ca.cert.pem**.
-* Have the modified connection string that points to the gateway device, as explained in [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+You need two things:
+
+* The root CA certificate file that was used to generate the device CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md) available on your downstream device. Your downstream device uses this certificate to validate the identity of the gateway device. If you used the demo certificates, the root CA certificate is called **azure-iot-test-only.root.ca.cert.pem**.
+
+* The modified connection string that points to the gateway device, as explained in [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## Prepare a downstream device
 
-A downstream device can be any application or platform that has an identity created with the Azure IoT Hub cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
+A downstream device can be any application or platform that has an identity created with the Azure IoT Hub cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device can also be an application running on the IoT Edge gateway device itself.
 
-This article provides the steps for connecting an IoT device as a downstream device. If you have an IoT Edge device as a downstream device, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
+This article provides the steps for connecting an *IoT* device as a downstream device. If you have an *IoT Edge* device as a downstream device, see [Connect Azure IoT Edge devices together to create a hierarchy (nested edge)](how-to-connect-downstream-iot-edge-device.md).
 
 >[!NOTE]
 >IoT devices registered with IoT Hub can use [module twins](../iot-hub/iot-hub-devguide-module-twins.md) to isolate different processes, hardware, or functions on a single device. IoT Edge gateways support downstream module connections using symmetric key authentication but not X.509 certificate authentication.
 
 To connect a downstream device to an IoT Edge gateway, you need two things:
 
-* A device or application that's configured with an IoT Hub device connection string appended with information to connect it to the gateway.
+* A device or application configured with an IoT Hub device connection string. This string should be appended with information on connecting to the gateway.
 
-    This step was completed in the previous article, [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md#retrieve-and-modify-connection-string).
+  To complete this step, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md#retrieve-and-modify-connection-string).
 
-* The device or application has to trust the gateway's **root CA certificate** to validate the transport layer security (TLS) connections to the gateway device.
+* The gateway's trusted **root CA certificate** for a device or application. This trust validates the transport layer security (TLS) connections to the gateway device.
 
-    This step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) by referencing the certificate within applications using the Azure IoT SDKs.
+  This step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store or (for certain languages) by referencing the certificate within applications using the Azure IoT SDKs.
 
 ## TLS and certificate fundamentals
 
