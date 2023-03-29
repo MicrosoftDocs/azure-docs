@@ -3,7 +3,7 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title:       MSIXMGR tool parameters
+title:       MSIXMGR tool parameters 
 description: this article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
 author:      fiza-microsoft # GitHub alias
 ms.author:   fizaazmi # Microsoft alias
@@ -15,7 +15,7 @@ ms.date:     03/21/2023
 # MSIXMGR Tool Parameters
 
 
-This article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
+This article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we expand the syntax of all the parameters used by the MSIXMGR tool.  
 
 ## Prerequisites:
 
@@ -97,7 +97,7 @@ This article contains an overview of the command-line syntax to help you underst
 | -------- | -------- | -------- |
 |-imagePath|Specifies path to image file to mount or unmount  |`msixmgr.exe -UnmountImage -imagePath C:\Users\User\abc\xyz.cim`|
 |-filetype  |Specifies type of file to mount or unmount. The following file types are currently supported: {VHD, VHDX, CIM}  |`msixmgr.exe -UnmountImage -imagePath C:\Users\User\abc\xyz.cim -filetype “cim”` ` `|
-|-volumeid|Specifies GUID (specified without curly braces) associated with image to unmount. This is an optional parameter only for CIM files|`msixmgr.exe -UnmountImage -volumeid 0ea000fe-0021-465a-887b-6dc94f15e86e -filetype “cim”`|
+|-volumeid|Specifies GUID (specified without curly braces) associated with image to unmount.   -volumeid is an optional parameter only for CIM files|`msixmgr.exe -UnmountImage -volumeid 0ea000fe-0021-465a-887b-6dc94f15e86e -filetype “cim”`|
 
  
 
@@ -105,7 +105,7 @@ This article contains an overview of the command-line syntax to help you underst
 
 |Description|Example|
 | -------- | -------- |
-|Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be 4 times the size of MSIX package|CIM example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.cim" -applyacls -create -vhdSize 200 -filetype "cim" -rootDirectory apps`   VHDX example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`  |
+|Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be four times the size of MSIX package|CIM example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.cim" -applyacls -create -vhdSize 200 -filetype "cim" -rootDirectory apps`   VHDX example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`  |
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
@@ -113,7 +113,7 @@ This article contains an overview of the command-line syntax to help you underst
 |-destination|Specifies directory to place the resulting package folder(s) in|`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx"`|
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls`|
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`|
-|-validateSignature|Validates a package's signature file before unpacking package. This will require that the package's certificate is installed on the machine.||
+|-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.||
 |Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
 
 **-?**
