@@ -99,14 +99,15 @@ traces
 | extend executionId = customDimensions["prop__ExecutionId"] 
 | extend age = customDimensions["prop__Age"] 
 | extend latencyMs = customDimensions["prop__LatencyMs"] 
-| extend dequeuecount = customDimensions["prop__DequeueCount"] 
+| extend dequeueCount = customDimensions["prop__DequeueCount"] 
 | extend partitionId = customDimensions["prop__PartitionId"] 
 | extend logLevel = customDimensions["LogLevel"] 
 | extend eventCount = customDimensions["prop__TotalEventCount"] 
 | extend taskHub = customDimensions["prop__TaskHub"] 
-| extend workerName = customDimensions["prop__WorkerName"] 
+| extend pid = customDimensions["ProcessId"] 
 | where instanceId == targetInstanceId
 | sort by timestamp asc
+| project timestamp, message, pid, severityLevel, messageId, executionId, partitionId, instanceId, eventType, eventId, age, extendedSession, logLevel, eventCount, dequeueCount, details, latencyMs, taskHub, account, sdkVersion, appName = cloud_RoleName
 ```
 
 |Column |Description |
