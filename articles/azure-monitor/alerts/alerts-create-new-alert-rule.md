@@ -279,9 +279,9 @@ Then you define these elements for the resulting alert actions by using:
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
-        - Use a managed identity if you want to be able to see or edit the permissions of the user associated with the alert rule.
+        - Use a managed identity if you want to be able to see or edit the permissions associated with the alert rule.
         - If you don't use a managed identity, the alert rule permissions are based on the permissions of the last user to edit the rule, at the time the rule was last edited.
-        - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for resources added to the scope of the rule.
+        - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for all the resources added to the scope of the rule.
 
         The identity associated with the rule must have these permissions: 
          - Read access for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have access to all of them.
