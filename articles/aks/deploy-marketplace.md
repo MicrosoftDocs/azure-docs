@@ -56,7 +56,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, on the left side under **Categories** select **Containers**.
 
-   :::image type="content" source="./media/deploy-marketplace/containers-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the filter for product type set to Azure containers." lightbox="./media/deploy-marketplace/containers.png":::
+   :::image type="content" source="./media/deploy-marketplace/containers-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the container category on the left side highlighted." lightbox="./media/deploy-marketplace/containers.png":::
 
    > [!IMPORTANT]
    > The **Containers** category includes both Kubernetes applications and standalone container images. This walkthrough is specific to Kubernetes applications. If you find that the steps to deploy an offer differ in some way, you're most likely trying to deploy a container image-based offer instead of a Kubernetes application-based offer.
