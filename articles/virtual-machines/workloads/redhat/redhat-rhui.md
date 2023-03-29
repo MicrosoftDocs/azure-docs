@@ -121,7 +121,7 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
 > This only applies for RHEL 8.x versions for which EUS is available. At the time of this writing, this includes RHEL 8.1-8.2. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 1. Disable non-EUS repos:
     ```bash
-    sudo --disablerepo='*' remove 'rhui-azure-rhel8'
+    sudo yum --disablerepo='*' remove 'rhui-azure-rhel8'
     ```
 
 1. Get the EUS repos config file:
@@ -142,7 +142,7 @@ Use the following instructions to lock a RHEL 8.x VM to a particular minor relea
     >[!NOTE]
     > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1.
     >[!NOTE]
-    > If there are permission issues to access the releasever, you can edit the file using your favorite editor like `nano`, `vi` or`vim` 'vi /etc/yum/vars/releaseve' and add the image version details and save it.  
+    > If there are permission issues to access the releasever, you can edit the file using your favorite editor and add the image version details and save it.  
 1. Update your RHEL VM
     ```bash
     sudo yum update
