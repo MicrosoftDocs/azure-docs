@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 03/29/2023
 ms.author: jeedes
 ---
 
@@ -372,7 +372,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 The objective of this section is to create a user called B.Simon in ServiceNow. ServiceNow supports automatic user provisioning, which is enabled by default.
 
 > [!NOTE]
-> If you need to create a user manually, contact the [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html).
+> If you need to create a user manually, contact the [ServiceNow Client support team](https://support.servicenow.com/now).
 
 ### Configure ServiceNow Express SSO
 
