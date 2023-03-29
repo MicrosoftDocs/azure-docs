@@ -91,7 +91,7 @@ The following example shows the rules that are available for configuration.
         },
         "simplify-json-null": {
           "level": "warning"
-        }
+        },
         "use-parent-property": {
           "level": "warning"
         },
