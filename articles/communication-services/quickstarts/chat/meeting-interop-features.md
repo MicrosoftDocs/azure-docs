@@ -21,7 +21,7 @@ Chat SDK provides a solution to receive inline images sent by users from Microso
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-
+[!INCLUDE [Teams interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)]
 
 ## Next steps
 
