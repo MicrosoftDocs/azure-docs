@@ -42,8 +42,16 @@ In this tutorial:
 ### [Visual Studio Code](#tab/visual-studio-code)
 1. Start the application by typing the following in the terminal:
 
+    #### [.NET 6.0](#tab/dotnet6)
+
     ```powershell
     dotnet run
+    ```
+
+    #### [.NET 7.0](#tab/dotnet6)
+
+    ```powershell
+    dotnet run --launch-profile https
     ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)

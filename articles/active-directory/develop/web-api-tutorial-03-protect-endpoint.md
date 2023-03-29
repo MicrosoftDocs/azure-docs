@@ -140,4 +140,4 @@ The web page `http://localhost:{host}` displays an output similar to the followi
 > 
 > [How-to: Call an API using Postman](howto-call-a-web-api-with-postman.md)
 >
-> [How-to: Call an API using Curl](howto-call-a-web-api-with-curl.md)
+> [How-to: Call an API using cURL](howto-call-a-web-api-with-curl.md)

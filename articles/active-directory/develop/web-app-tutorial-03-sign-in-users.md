@@ -31,14 +31,14 @@ Identity related **NuGet packages** must be installed in the project for authent
 
 ### [Visual Studio](#tab/visual-studio)
 
-1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
+1. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
 1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Select the **Project** checkbox, and then select **Install**.
 1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, select **Terminal** then **New Terminal.**
-1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages:
+1. In the Visual Studio Code terminal, navigate to *NewWebAppLocal*. 
+1. Enter the following commands to install the relevant NuGet packages:
 
     ```powershell
     dotnet add package Microsoft.Identity.Web

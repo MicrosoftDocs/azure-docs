@@ -51,10 +51,10 @@ Use the following tabs to create an ASP.NET Core project within an IDE.
 1. Open a new terminal by selecting **Terminal > New Terminal**.
 1. To create an **ASP.NET Core Web App** template, run the following commands in the terminal to change into the directory and create the project:
 
-```powershell
-cd NewWebAppLocal
-dotnet new webapp
-```
+    ```powershell
+    cd NewWebAppLocal
+    dotnet new webapp
+    ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
@@ -119,7 +119,7 @@ To make the certificate available to the application, it must be uploaded into t
 
 The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. *appsettings.json* is a configuration file that is used to store application settings used during run-time. As the application will also call into a web API, it must also contain a reference to it.
 
-1. Open *appsettings.json* and replace the file contents with the following snippet: 
+1. In your IDE, open *appsettings.json* and replace the file contents with the following snippet: 
   
    :::code language="json" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/appsettings.json" :::
 
@@ -131,7 +131,7 @@ The values recorded earlier will be used in *appsettings.json* to configure the 
     * `DownstreamApi` - Is an identifier that defines an endpoint for accessing Microsoft Graph. The application URI is combined with the specified scope. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different.
 1. Save changes to the file.
 1. In the **Properties** folder, open the *launchSettings.json* file.
-1. Find and record the `https` value within *launchSettings.json*, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
+1. Find and record the `https` value `applicationURI` within *launchSettings.json*, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
 
 ## Define the platform and URLs
 
