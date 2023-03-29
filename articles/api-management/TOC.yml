@@ -452,6 +452,8 @@
               href: invoke-dapr-binding-policy.md
             - name: ip-filter
               href: ip-filter-policy.md
+            - name: jsonp
+              href: jsonp-policy.md
             - name: json-to-xml
               href: json-to-xml-policy.md
             - name: limit-concurrency
