@@ -40,7 +40,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Clone the sample application
 
-Now let's clone a API for Cassandra app from GitHub, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+Now let's clone an API for Cassandra app from GitHub, set the connection string, and run it. You see how easy it's to work with data programmatically. 
 
 1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
 
@@ -178,7 +178,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account with API for Cassandra, and run a Cassandra Python app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account with API for Cassandra, and run a Cassandra Python app that creates a Cassandra database and container. You can now import other data into your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](migrate-data.md)
