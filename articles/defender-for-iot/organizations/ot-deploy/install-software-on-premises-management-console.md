@@ -54,49 +54,46 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-1. Select your preferred language for the installation process.
-
+1. The initial console window lists installation languages. Select the language you want to use and press ENTER. For example:
+1. 
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
+1. The console lists a series of installation options. Select the option that best matches your requirements and then press ENTER. For example:
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-install-screen.png" alt-text="Screenshot of selecting your management release version.":::
 
-1. In the Installation Wizard, define the network properties:
+    The installation wizard starts running, loading components and installing components. This step takes several minutes to complete, and includes system reboots.
 
-   :::image type="content" source="../media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::
+    When complete, the following screen appears appears, prompting you to enter your management interface:
 
-   | Parameter | Configuration |
-   |--|--|
-   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  Or <br />**possible value** |
-   | **configure management network IP address** | Enter an IP address |
-   | **configure subnet mask** | Enter an IP address|
-   | **configure DNS** | Enter an IP address |
-   | **configure default gateway IP address** | Enter an IP address|
+   :::image type="content" source="../media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot of the management interface prompt.":::
 
-1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
+1. At each prompt, enter the following values and then press ENTER:
 
-   | Parameter | Configuration |
-   |--|--|
-   | **configure sensor monitoring interface** (Optional) | **eth1** or **possible value** |
-   | **configure an IP address for the sensor monitoring interface** | Enter an IP address |
-   | **configure a subnet mask for the sensor monitoring interface** | Enter an IP address |
+    |Prompt  |Value  |
+    |---------|---------|
+    |`configure management network interface`     |  Enter your management interface. For the following appliances, enter specific values:<br><br> - **Dell**: Enter `eth0, eth1`<br>    - **HP**: Enter `enu1, enu2` <br><br>    Other appliances may have different options.     |
+    |`configure management network IP address`     |    Enter the on-premises management console's IP address.     |
+    |`configure subnet mask`     | Enter the on-premises management console's subnet mask address.        |
+    |`configure DNS`     | Enter the on-premises management console's DNS address.        |
+    |`configure default gateway IP address`     |   Enter the IP address for the on-premises management console's default gateway.      |
 
-    For example:
-    
-    :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+1. (Optional) If you're installing a secondary Network Interface Card (NIC), enter the following details for the sensor's monitoring interface as prompted. For more information, see <!--xref to nic details-->.
+
+    | Prompt  |Value  |
+    |---------|---------|
+    |`configure sensor monitoring interface`     |  Enter `eth1` or another value as needed for your system.      |
+    |`configure an IP address for the sensor monitoring interface`     |    Enter the secondary NIC's IP address |
+    |`configure a subnet mask for the sensor monitoring interface`     | Enter the secondary NIC's subnet mask address.        |
+
 
     If you choose not to install the secondary NIC now, you can [do so at a later time](#add-a-secondary-nic-after-installation-optional).
 
-1. Accept the settings and continue by typing `Y`.
+1. When prompted, enter `Y` to accept the settings. The installation process runs for about 10 minutes.
 
-1. After about 10 minutes, the two sets of credentials appear. For example:
+1. When the installation process is complete, two sets of credentials appear for the default privileged users.
 
-   :::image type="content" source="../media/tutorial-install-components/credentials-screen.png" alt-text="Screenshot of the credentials that appear that must be copied as they won't be presented again.":::
-
-   Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
-
-    For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
+    Save the usernames and passwords carefully as you'll need them to access the on-premises management console for the first time. For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
 1. Select **Enter** to continue.
 
