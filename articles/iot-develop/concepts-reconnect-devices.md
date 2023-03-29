@@ -40,14 +40,7 @@ After devices disconnect from IoT Hub, the optimal solution is to reconnect the 
 
 To reconnect devices, it's helpful to understand several background concepts. 
 
-- Backoff with jitter.  For connectivity issues at all layers (TCP, TLS, MQTT), and cases where there's no `retry-after` response sent by the service, you can use an exponential back-off with random jitter function. The `az_iot_retry_calc_delay` function is available in the [azure-iot-common package](https://www.npmjs.com/package/azure-iot-common).
-
-    ```javascript
-    // The previous operation took operation_msec.
-    // The application calculates random_jitter_msec between 0 and max_random_jitter_msec.
-            
-    int32_t delay_msec = az_iot_calculate_retry_delay(operation_msec, attempt, min_retry_delay_msec, max_retry_delay_msec, random_jitter_msec);
-    ```
+- Backoff with jitter.  For connectivity issues at all layers (TCP, TLS, MQTT), and cases where there's no `retry-after` response sent by the service, you can use an exponential back-off with random jitter function. One way to do this is to implement the `ExponentialBackOffWithJitter` [class](/javascript/api/azure-iot-common/exponentialbackoffwithjitter), which is a member of the [azure-iot-common](/javascript/api/azure-iot-common/) package.
     
 - Connections you can retry versus connections you can't (for IoT Hub with DPS only). With DPS, some disconnected devices can't reconnect.  Devices that can't reconnect receive the following HTTP responses from the service:
     - 401
