@@ -41,7 +41,7 @@ Azure Monitor includes the following design considerations related to cost:
 > [!div class="checklist"]
 > - Use diagnostic settings and transformations to collect only critical resource log data from Azure resources.
 > - Configure VM agents to collect only critical events.
-> - Use transformations to filter resource logs.
+> - Use transformations to filter resource logs for [supported tables](logs/tables-feature-support.md).
 > - Ensure that VMs aren't sending data to multiple workspaces.
 
 **Monitor usage**
@@ -74,7 +74,7 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
-| Collect only critical resource log data from Azure resources. | When you create [diagnostic settings](essentials/diagnostic-settings.md) to send [resource logs](essentials/resource-logs.md) for your Azure resources to a Log Analytics database, only specify those categories that you require. Since diagnostic settings don't allow granular filtering of resource logs, use a [workspace transformation](essentials/data-collection-transformations.md?#workspace-transformation-dcr) to further filter unneeded data. See [Diagnostic settings in Azure Monitor](essentials/diagnostic-settings.md#controlling-costs) for details on how to configure diagnostic settings and using transformations to filter their data. |
+| Collect only critical resource log data from Azure resources. | When you create [diagnostic settings](essentials/diagnostic-settings.md) to send [resource logs](essentials/resource-logs.md) for your Azure resources to a Log Analytics database, only specify those categories that you require. Since diagnostic settings don't allow granular filtering of resource logs, you can use a [workspace transformation](essentials/data-collection-transformations.md?#workspace-transformation-dcr) to further filter unneeded data for those resources that use a [supported table](logs/tables-feature-support.md). See [Diagnostic settings in Azure Monitor](essentials/diagnostic-settings.md#controlling-costs) for details on how to configure diagnostic settings and using transformations to filter their data. |
 
 #### Virtual machines
 
