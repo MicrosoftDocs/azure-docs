@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to create a Linux virtual machine (VM), create a Key Vault for the storage of encryption keys, and encrypt the VM. This quickstart uses the Ubuntu 16.04 LTS marketplace image from Canonical and a VM Standard_D2S_V3 size. 
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to create a Linux virtual machine (VM), create a Key Vault for the storage of encryption keys, and encrypt the VM. This quickstart uses the Ubuntu 16.04 LTS marketplace image from Canonical and a VM Standard_D2S_V3 size. However, any [ADE supported Linux image version](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) could be used instead of an Ubuntu VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -52,7 +52,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 ## Encrypt the virtual machine
 
-Encrypt your VM with [Set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). 
+Encrypt your VM with [Set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension).
 
 Set-AzVmDiskEncryptionExtension requires some values from your Key Vault object. You can obtain these values by passing the unique name of your key vault to [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
 
@@ -64,7 +64,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName "MyVM
 
 After a few minutes the process will return the following:
 
-```
+```output
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK
@@ -78,7 +78,7 @@ Get-AzVmDiskEncryptionStatus -VMName MyVM -ResourceGroupName MyResourceGroup
 
 When encryption is enabled, you will see the following in the returned output:
 
-```
+```output
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : NotMounted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
