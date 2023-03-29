@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with RingCentral | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with RingCentral'
 description: Learn how to configure single sign-on between Azure Active Directory and RingCentral.
 services: active-directory
 author: jeevansd

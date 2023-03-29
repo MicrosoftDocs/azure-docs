@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Aventri | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Aventri'
 description: Learn how to configure single sign-on between Azure Active Directory and Aventri.
 services: active-directory
 author: jeevansd

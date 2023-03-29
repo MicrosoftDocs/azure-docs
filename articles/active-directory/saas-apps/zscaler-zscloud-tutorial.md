@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Zscaler ZSCloud | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Zscaler ZSCloud"
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler ZSCloud.
 services: active-directory
 author: jeevansd

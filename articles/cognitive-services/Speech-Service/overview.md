@@ -74,7 +74,7 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Intent recognition
 
-[Intent recognition](./intent-recognition.md): Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. 
+[Intent recognition](./intent-recognition.md): Use speech-to-text with conversational language understanding to derive user intents from transcribed speech and act on voice commands. 
 
 ## Delivery and presence
 

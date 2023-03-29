@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 12/15/22
+  ms.date: 03/28/2023
   ms.custom: engagement-fy23
 
 landingContent:
@@ -39,8 +39,8 @@ landingContent:
       links:
         - text: Connect a Microchip ATSAME54-XPro to IoT Hub
           url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
-        - text: Connect an STMicroelectronics U585I-IOT02A to IoT Hub
-          url: quickstart-devkit-stm-b-u585i-iot-hub.md
+        - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
+          url: quickstart-devkit-stm-b-l475e-iot-hub.md
         - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Hub
           url: quickstart-devkit-stm-b-l4s5i-iot-hub.md
         - text: Connect an NXP MIMXRT1060-EVK to IoT Hub

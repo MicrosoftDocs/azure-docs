@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: What is the ADConnectivityTool PowerShell Module | Microsoft Docs'
+title: 'Azure AD Connect: What is the ADConnectivityTool PowerShell Module'
 description: This document introduces the new ADConnectivity PowerShell module and how it can be used to help troubleshoot.
 services: active-directory
 author: billmath
