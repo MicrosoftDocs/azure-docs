@@ -18,10 +18,10 @@ This article provides an overview of the MedTech service device mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API.
 
-The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub endpoint to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls the mapping for [FHIR Observations](https://www.hl7.org/fhir/observation.html).
+The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The [FHIR destination mapping](link to our Azure doc for FHIR destination mapping here) is the second type and controls the mapping for [FHIR Observations](https://www.hl7.org/fhir/observation.html).
 
 > [!NOTE]
-> The device and FHIR destination mappings are reevaluated each time a message is processed. Any updates to either mapping will take effect immediately.
+> The device and FHIR destination mappings are re-evaluated each time a message is processed. Any updates to either mapping will take effect immediately.
 
 ## Device mapping basics
 
@@ -36,7 +36,7 @@ This diagram provides an illustration of what happens during the normalization p
 
 ## Device mapping validations
 
-The validation process validates the device mapping before allowing it to be saved for use. These elements are required in the device mapping templates.
+The normalization process validates the device mapping before allowing it to be saved for use. These elements are required in the device mapping templates.
 
 **Device mapping**
 
@@ -50,7 +50,7 @@ The validation process validates the device mapping before allowing it to be sav
 | Values[].ValueExpression | True     |
 
 > [!NOTE] 
-> `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. This is used when the telemetry being sent is an event.
+> `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
 >
 > For example, some scenarios may require creating a FHIR Observation in the FHIR service that does not contain a value.
 
@@ -60,11 +60,11 @@ CollectionContent is the root template type used by the MedTech service device m
 
 You can use these template types within CollectionContent depending on your use case:
 
-- [CalculatedContent](how-to-use-calculatedcontent-mappings.md) for device messages sent directly to your MedTech service event hub. CalculatedContent also supports the advanced features of [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md).
+- [CalculatedContent](how-to-use-calculatedcontent-mappings.md) for device messages sent directly to your MedTech service event hub. CalculatedContent supports [JSONPath](https://goessner.net/articles/JsonPath/), as well as the advanced features of [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md).
 
 and/or
 
-- [IotJsonPathContentTemplate](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContentTemplate currently only supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions). The MedTech service [custom functions](how-to-use-custom-functions.md) aren't supported using IotJsonPathContentTemplate. 
+- [IotJsonPathContent](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent currently only supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions). The MedTech service [custom functions](how-to-use-custom-functions.md) aren't supported using IotJsonPathContent. 
 
 :::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
 
@@ -83,7 +83,7 @@ In this example, we're using a device message that is capturing `heartRate` data
 }
 ```
 
-We're using this MedTech service device mapping for the normalization processing stage:
+We're using this device mapping for the normalization processing stage:
 
 ```json
 {
@@ -109,7 +109,7 @@ We're using this MedTech service device mapping for the normalization processing
 }
 ```
 
-With the resulting normalized message looking like this after the MedTech service normalization processing stage:
+The resulting normalized message looks like this after the normalization processing stage:
 
 ```json
 [
@@ -142,10 +142,10 @@ To learn how to use CalculatedContent mapping templates with the MedTech service
 > [!div class="nextstepaction"] 
 > [How to use CalculatedContent with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md).
 
-To learn how to use IotContentPathTemplates mapping templates with the MedTech service device mapping, see
+To learn how to use IotJsonPathContent mapping templates with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotContentPathTemplate with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md).
+> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md).
 
 To learn how to use custom functions with the MedTech service device mapping, see
 

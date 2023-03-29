@@ -53,7 +53,7 @@ items:
         href: overview-of-device-mapping.md
       - name: Use CalculatedContent
         href: how-to-use-calculatedcontent-mappings.md
-      - name: Use IotJsonPathContentTemplate
+      - name: Use IotJsonPathContent
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
       - name: Use custom functions
         href: how-to-use-custom-functions.md 
