@@ -52,6 +52,8 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 You must complete the following steps in order to successfully deploy a private mobile network, site and SIM. Each step must be fully complete before proceeding to the next.
 
+Several commands will require the ID of the Azure subscription in which the Azure resources are to be deployed. This appears as `<SUB_ID>` in the commands below. Obtain that value before you proceed.
+
 ### Create a Mobile Network resource
 
 Use `New-AzMobileNetwork` to create a new **Mobile Network** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
@@ -74,6 +76,7 @@ Use `New-AzMobileNetworkSite` to create a new **Site** resource. The example com
 | `<MOBILENETWORK>`   | Enter the name of the private mobile network you created.      |
 | `<SITE>`   | Enter the name for the site.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
 New-AzMobileNetworkSite -MobileNetworkName <MOBILENETWORK> -Name <SITE> -ResourceGroupName <RESOURCEGROUP> -Location eastus
@@ -82,7 +85,7 @@ New-AzMobileNetworkSite -MobileNetworkName <MOBILENETWORK> -Name <SITE> -Resourc
 Create a variable containing the **Site** resource's ID.
 
 ```powershell
-$siteResourceId = New-AzMobileNetworkSiteResourceIdObject -Id /subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/sites/<SITE>
+$siteResourceId = New-AzMobileNetworkSiteResourceIdObject -Id /subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/sites/<SITE>
 ```
 
 ### Create a Packet Core Control Plane resource
@@ -93,10 +96,11 @@ Use `New-AzMobileNetworkPacketCoreControlPlane` to create a new **Packet Core Co
 |-|-|
 | `<CONTROLPLANE>`   | Enter the name for the packet core control plane.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
-$aseId = "/subscriptions/9e276fe5-9273-4474-80c6-032321ab3795/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/<ASE>"
-$customLocationId = "/subscriptions/9e276fe5-9273-4474-80c6-032321ab3795/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOMLOCATION>"
+$aseId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/<ASE>"
+$customLocationId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOMLOCATION>"
 New-AzMobileNetworkPacketCoreControlPlane -Name <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -LocalDiagnosticAccessAuthenticationType Password -Location eastus -PlatformType AKS-HCI -Site $siteResourceId -Sku G0 -ControlPlaneAccessInterfaceIpv4Address 10.232.44.56 -ControlPlaneAccessInterfaceName N2 -AzureStackEdgeDeviceId $aseId -CustomLocationId $customLocationId
 ```
 
@@ -123,6 +127,7 @@ Use `New-AzMobileNetworkDataNetwork` to create a new **Data Network** resource. 
 | `<MOBILENETWORK>`   | Enter the name of the private mobile network.      |
 | `<DATANETWORK>`   | Enter the name for the data network.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
 New-AzMobileNetworkDataNetwork -MobileNetworkName <MOBILENETWORK> -Name
@@ -132,7 +137,7 @@ New-AzMobileNetworkDataNetwork -MobileNetworkName <MOBILENETWORK> -Name
 Create a variable for the **Data Network** resource's configuration.
 
 ```powershell
-$dataNetworkConfiguration =  New-AzMobileNetworkDataNetworkConfigurationObject -AllowedService $ServiceResourceId -DataNetworkId "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/dataNetworks/<DATANETWORK>" -SessionAmbrDownlink "1 Gbps" -SessionAmbrUplink "500 Mbps" -FiveQi 9 -AllocationAndRetentionPriorityLevel 9 -DefaultSessionType 'IPv4' -MaximumNumberOfBufferedPacket 200 -PreemptionCapability 'NotPreempt' -PreemptionVulnerability 'Preemptable'
+$dataNetworkConfiguration =  New-AzMobileNetworkDataNetworkConfigurationObject -AllowedService $ServiceResourceId -DataNetworkId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/dataNetworks/<DATANETWORK>" -SessionAmbrDownlink "1 Gbps" -SessionAmbrUplink "500 Mbps" -FiveQi 9 -AllocationAndRetentionPriorityLevel 9 -DefaultSessionType 'IPv4' -MaximumNumberOfBufferedPacket 200 -PreemptionCapability 'NotPreempt' -PreemptionVulnerability 'Preemptable'
 ```
 
 ### Create a SIM Group
@@ -143,9 +148,10 @@ Use `New-AzMobileNetworkSimGroup` to create a new **SIM Group**. The example com
 |-|-|
 | `<SIMGROUP>`   | Enter the name for the sim group.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
-New-AzMobileNetworkSimGroup -Name <SIMGROUP> -ResourceGroupName <RESOURCEGROUP> -Location eastus -MobileNetworkId "/subscriptions/2e6a1160-c68f-4298-b9fe-c510912f8b3a/resourceGroups/rf4-https-dev-msi/providers/Microsoft.MobileNetwork/mobileNetworks/MOBILENETWORK8"
+New-AzMobileNetworkSimGroup -Name <SIMGROUP> -ResourceGroupName <RESOURCEGROUP> -Location eastus -MobileNetworkId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/MOBILENETWORK8"
 ```
 
 Confirm that you want to perform the action by typing <kbd>Y</kbd>.
@@ -159,6 +165,7 @@ Use `New-AzMobileNetworkSlice` to create a new **Slice**. The example command us
 | `<MOBILENETWORK>`   | Enter the name for the private mobile network.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 | `<SLICE>`   | Enter the name of the slice. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
 New-AzMobileNetworkSlice -MobileNetworkName <MOBILENETWORK> -ResourceGroupName <RESOURCEGROUP> -SliceName <SLICE> -Location eastus -SnssaiSst 1
@@ -167,7 +174,7 @@ New-AzMobileNetworkSlice -MobileNetworkName <MOBILENETWORK> -ResourceGroupName <
 Create a variable for the **Slice** resource's configuration.
 
 ```powershell
-$sliceConfiguration = New-AzMobileNetworkSliceConfigurationObject -DataNetworkConfiguration $dataNetworkConfiguration -DefaultDataNetworkId "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/dataNetworks/<DATANETWORK>" -SliceId "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/slices/<SLICE>"
+$sliceConfiguration = New-AzMobileNetworkSliceConfigurationObject -DataNetworkConfiguration $dataNetworkConfiguration -DefaultDataNetworkId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/dataNetworks/<DATANETWORK>" -SliceId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/slices/<SLICE>"
 ```
 
 ### Create a Service
@@ -179,6 +186,7 @@ Use `New-AzMobileNetworkService` to create a new **Service**. The example comman
 | `<MOBILENETWORK>`   | Enter the name for the private mobile network.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
 | `<SERVICE>`   | Enter the name of the service. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
 $dataFlowTemplates = New-AzMobileNetworkServiceDataFlowTemplateObject -Direction Bidirectional -Protocol ip -RemoteIPList any -TemplateName any
@@ -191,7 +199,7 @@ New-AzMobileNetworkService -MobileNetworkName <MOBILENETWORK> -Name <SERVICE> -R
 Create a variable for the **Service** resource's ID.
 
 ```powershell
-$serviceResourceId = New-AzMobileNetworkServiceResourceIdObject -Id "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/services/<SERVICE>"
+$serviceResourceId = New-AzMobileNetworkServiceResourceIdObject -Id "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/services/<SERVICE>"
 ```
 
 ### Create a SIM Policy
@@ -206,9 +214,10 @@ Use `New-AzMobileNetworkSimPolicy` to create a new **SIM Policy**. The example c
 | `<DATANETWORK>`   | Enter the name for the data network.      |
 | `<SLICE>`   | Enter the name of the slice. |
 | `<SIMPOLICY>` | Enter the name for the SIM policy. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
-New-AzMobileNetworkSimPolicy -MobileNetworkName <MOBILENETWORK> -Name <SIMPOLICY> -ResourceGroupName <RESOURCEGROUP> -DefaultSlouseId "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/slices/<SLICE>" -Location eastus -SliceConfiguration $sliceConfiguration -UeAmbrDownlink "2 Gbps" -UeAmbrUplink "2 Gbps"
+New-AzMobileNetworkSimPolicy -MobileNetworkName <MOBILENETWORK> -Name <SIMPOLICY> -ResourceGroupName <RESOURCEGROUP> -DefaultSliceId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/slices/<SLICE>" -Location eastus -SliceConfiguration $sliceConfiguration -UeAmbrDownlink "2 Gbps" -UeAmbrUplink "2 Gbps"
 ```
 
 ### Create a SIM
@@ -225,11 +234,12 @@ Use `New-AzMobileNetworkSim` to create a new **SIM**. The example command uses t
 | `<DATANETWORK>`   | Enter the name for the data network.      |
 | `<SLICE>`   | Enter the name of the slice. |
 | `<SIMPOLICY>` | Enter the name of the SIM policy. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
 $staticIp = New-AzMobileNetworkSimStaticIPPropertiesObject -StaticIPIpv4Address 10.0.0.20
 
-New-AzMobileNetworkSim -GroupName <SIMGROUP> -Name <SIM> -ResourceGroupName <RESOURCEGROUP>  -InternationalMobileSubscriberIdentity 000000000000001 -AuthenticationKey 00112233445566778899AABBCCDDEEFF -DeviceType Mobile -IntegratedCircuitCardIdentifier 8900000000000000001 -OperatorKeyCode 00000000000000000000000000000001 -SimPolicyId "/subscriptions/2c5961fe-118a-40e2-856b-382f8e0c71d0/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/simPolicies/<SIMPOLICY>" -StaticIPConfiguration $staticIp
+New-AzMobileNetworkSim -GroupName <SIMGROUP> -Name <SIM> -ResourceGroupName <RESOURCEGROUP>  -InternationalMobileSubscriberIdentity 000000000000001 -AuthenticationKey 00112233445566778899AABBCCDDEEFF -DeviceType Mobile -IntegratedCircuitCardIdentifier 8900000000000000001 -OperatorKeyCode 00000000000000000000000000000001 -SimPolicyId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/simPolicies/<SIMPOLICY>" -StaticIPConfiguration $staticIp
 ```
 
 ### Attach the Data Network
