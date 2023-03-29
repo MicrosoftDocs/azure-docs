@@ -131,7 +131,7 @@ If you're already familiar with developing C# functions, consider reviewing one 
 ::: zone pivot="programming-language-java"  
 If you're already familiar with developing Java functions, consider reviewing the [language reference](./functions-reference-java.md) article. 
 ::: zone-end
-::: zone pivot="programming-language-javascript,rogramming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 If you're already familiar with developing Node.js functions, consider reviewing the [language reference](./functions-reference-node.md) article. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
