@@ -22,7 +22,7 @@ This article describes limitations in the Azure Database for MySQL - Flexible Se
 > * If you are looking for min/max values for server parameters like `max_connections` and `innodb_buffer_pool_size`, this information has moved to the server parameters concepts [server parameters](./concepts-server-parameters.md) article.
 > * lower_case_table_names value can only be set to 1 in Azure Database for MySQL - Flexible Server
 
-Azure Database for MySQL supports tuning the values of server parameters. Some parameters' min and max value (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) are determined by the compute tier and before you compute the size of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits.
+Azure Database for MySQL supports tuning the values of server parameters. Some parameters' min and max values (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) are determined by the compute tier and before you compute the size of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits.
 
 ## Storage engines
 
@@ -91,7 +91,7 @@ The following are unsupported:
 
 Not all features available in Azure Database for MySQL - Single Server are available in Flexible Server.
 
-For the complete list of feature comparisons between a single server and a flexible server, refer [choosing the right MySQL Server option in Azure documentation](../select-right-deployment-type.md#compare-the-mysql-deployment-options-in-azure).
+For the complete list of feature comparisons between a single server and a flexible server, refer to [choosing the right MySQL Server option in Azure documentation](../select-right-deployment-type.md#compare-the-mysql-deployment-options-in-azure).
 
 ## Next steps
 
