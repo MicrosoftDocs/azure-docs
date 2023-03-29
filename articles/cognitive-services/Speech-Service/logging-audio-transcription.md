@@ -163,12 +163,12 @@ To check whether logging is enabled, get the value of the `SpeechServiceConnecti
 string isAudioLoggingEnabled = speechTranslationConfig.GetProperty(PropertyId.SpeechServiceConnection_EnableAudioLogging);
 ```  
 
-Use the speech translation configuration with each [TranslationRecognizer](/dotnet/api/microsoft.cognitiveservices.speech.translationrecognizer) when you want logging. 
+Use the speech translation configuration with each [TranslationRecognizer](/dotnet/api/microsoft.cognitiveservices.speech.translation.translationrecognizer) when you want logging. 
 
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-To enable audio and transcription logging with the Speech SDK, you execute the method `EnableAudioLogging` of the [SpeechTranslationConfig](/cpp/cognitive-services/speech/speechtranslationconfig) class. 
+To enable audio and transcription logging with the Speech SDK, you execute the method `EnableAudioLogging` of the [SpeechTranslationConfig](/cpp/cognitive-services/speech/translation-speechtranslationconfig) class. 
 
 ```cpp
 speechTranslationConfig->EnableAudioLogging();
@@ -180,12 +180,12 @@ To check whether logging is enabled, get the value of the `SpeechServiceConnecti
 string isAudioLoggingEnabled = speechTranslationConfig->GetProperty(PropertyId::SpeechServiceConnection_EnableAudioLogging);
 ```
 
-Use the speech translation configuration with each [TranslationRecognizer](/cpp/cognitive-services/speech/translationrecognizer) when you want logging. 
+Use the speech translation configuration with each [TranslationRecognizer](/cpp/cognitive-services/speech/translation-translationrecognizer) when you want logging. 
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-To enable audio and transcription logging with the Speech SDK, you execute the method `enableAudioLogging()` of the [SpeechTranslationConfig](/java/api/com.microsoft.cognitiveservices.speech.speechtranslationconfig) class. 
+To enable audio and transcription logging with the Speech SDK, you execute the method `enableAudioLogging()` of the [SpeechTranslationConfig](/java/api/com.microsoft.cognitiveservices.speech.translation.speechtranslationconfig) class. 
 
 ```java
 speechTranslationConfig.enableAudioLogging();
@@ -197,7 +197,7 @@ To check whether logging is enabled, get the value of the `SpeechServiceConnecti
 String isAudioLoggingEnabled = speechTranslationConfig.getProperty(PropertyId.SpeechServiceConnection_EnableAudioLogging);
 ```
 
-Use the speech translation configuration with each [TranslationRecognizer](/java/api/com.microsoft.cognitiveservices.speech.translationrecognizer) when you want logging. 
+Use the speech translation configuration with each [TranslationRecognizer](/java/api/com.microsoft.cognitiveservices.speech.translation.translationrecognizer) when you want logging. 
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
@@ -222,7 +222,7 @@ Use the speech translation configuration with each [TranslationRecognizer](/java
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-To enable audio and transcription logging with the Speech SDK, you execute the method `enable_audio_logging` of the [SpeechTranslationConfig](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechtranslationconfig) class. 
+To enable audio and transcription logging with the Speech SDK, you execute the method `enable_audio_logging` of the [SpeechTranslationConfig](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig) class. 
 
 ```python
 speech_translation_config.enable_audio_logging()
@@ -236,7 +236,7 @@ import azure.cognitiveservices.speech as speechsdk
 is_audio_logging_enabled = speech_translation_config.get_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_EnableAudioLogging)
 ```
 
-Use the speech translation configuration with each [TranslationRecognizer](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translationrecognizer) when you want logging. 
+Use the speech translation configuration with each [TranslationRecognizer](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.translationrecognizer) when you want logging. 
 
 ::: zone-end
 ::: zone pivot="programming-language-objectivec"
@@ -275,9 +275,8 @@ When logging is enabled (turned on) for a custom model endpoint, then you don't 
 > For custom model endpoints, the logging setting of your deployed endpoint is prioritized over your application-level setting. If logging is enabled for the custom model endpoint, the application-level setting (whether it's set to true or false) is ignored. If logging isn't enabled for the custom model endpoint, the application-level setting determines whether logging is active.
 
 You can enable audio and transcription logging for a custom model endpoint:
-- When you create the endpoint using the Speech Studio, REST API, or Speech CLI. For details about how to enable logging for a Custom Speech endpoint, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md&pivots=speech-studio#add-a-deployment-endpoint).
-- When you update the endpoint ([Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update)) using the [Speech-to-text REST API](rest-speech-to-text.md). 
-
+- When you create the endpoint using the Speech Studio, REST API, or Speech CLI. For details about how to enable logging for a Custom Speech endpoint, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md#add-a-deployment-endpoint).
+- When you update the endpoint ([Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update)) using the [Speech-to-text REST API](rest-speech-to-text.md). For an example of how to update the logging setting for an endpoint, see [Turn off logging for a custom model endpoint](#turn-off-logging-for-a-custom-model-endpoint). Instead of setting the `contentLoggingEnabled` property to `true`, set it to `false` to disable logging for the endpoint.
 
 ## Turn off logging for a custom model endpoint
 
@@ -333,7 +332,7 @@ The response body should reflect the new setting. Note that the name of the logg
 
 ## Get audio and transcription logs 
 
-You can access audio and transcription logs using [Speech-to-text REST API](rest-speech-to-text.md). For [custom model](how-to-custom-speech-deploy-model.md) endpoints, you can also use [Speech Studio](https://speech.microsoft.com/). See details in the following sections.
+You can access audio and transcription logs using [Speech-to-text REST API](#get-audio-and-transcription-logs-with-speech-to-text-rest-api). For [custom model](how-to-custom-speech-deploy-model.md) endpoints, you can also use [Speech Studio](#get-audio-and-transcription-logs-with-speech-studio). See details in the following sections.
 
 > [!NOTE]
 > Logging data is kept for 30 days. After this period the logs are automatically deleted. However you can [delete](#delete-audio-and-transcription-logs) specific logs or a range of available logs at any time.
@@ -353,15 +352,17 @@ With this approach you can download all available log sets at once. There is no 
 
 ### Get audio and transcription logs with Speech-to-text REST API
 
-This method is applicable for base and [custom model](how-to-custom-speech-deploy-model.md) endpoints.
+You can download all or a subset of available log sets.
 
-To list and download audio and transcription logs, you need to use [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) (for based model endpoint) or [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) (for custom model endpoints) request of the [Speech-to-text REST API](rest-speech-to-text.md).
-
-This method allows you to download all available or selected log sets.
+This method is applicable for base and [custom model](how-to-custom-speech-deploy-model.md) endpoints. To list and download audio and transcription logs:
+- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored when using the default base model of a given language.
+- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored for a given endpoint.
 
 ### Get log IDs with Speech-to-text REST API
 
-To get Log IDs of the available logs, use [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) (for base model endpoint) or [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) (for custom model endpoints) request of the [Speech-to-text REST API](rest-speech-to-text.md).
+To get IDs of the available logs:
+- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored when using the default base model of a given language.
+- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored for a given endpoint.
 
 Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs). For simplicity, only one log set is shown:
 
