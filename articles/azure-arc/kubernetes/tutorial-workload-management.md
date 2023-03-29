@@ -1,20 +1,18 @@
 ---
-title: 'Tutorial: Workload management in a multi-cluster environment with GitOps'
-description: This tutorial walks through typical use-cases that Platform and Application teams face on a daily basis working with Kubernetes workloads in a multi-cluster environment.
+title: 'Workload management in a multi-cluster environment with GitOps'
+description: Explore typical use-cases that Platform and Application teams face on a daily basis working with Kubernetes workloads in a multi-cluster environment.
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
 ms.author: iefedore
-ms.service: azure-arc
-ms.topic: tutorial
-ms.date: 02/23/2023
-ms.custom: template-tutorial, devx-track-azurecli
+ms.topic: how-to
+ms.date: 03/29/2023
 ---
 
 # Tutorial: Workload management in a multi-cluster environment with GitOps
 
-Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across a fleet of Kubernetes clusters at scale. This fleet may include Azure Kubernetes Service (AKS) clusters as well as clusters running on other public cloud providers or in on-premises data centers that are connected to Azure through the Azure Arc. Refer to the [conceptual article](conceptual-workload-management.md), explaining the business process, challenges and solution architecture.
+Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across multiple Kubernetes clusters at scale. This environment may include Azure Kubernetes Service (AKS) clusters, clusters running on other public cloud providers, or clusters in on-premises data centers that are connected to Azure through the Azure Arc. Refer to the [conceptual article](conceptual-workload-management.md) exploring the business process, challenges and solution architecture.
 
-This tutorial walks you through typical scenarios of the workload deployment and configuration in a multi-cluster Kubernetes environment. First, you deploy a sample infrastructure with a few GitHub repositories and AKS clusters. Next, you work through a set of use cases where you act as different personas working in the same environment: the Platform Team and the Application Team. 
+This article walks you through an example scenario of the workload deployment and configuration in a multi-cluster Kubernetes environment. First, you deploy a sample infrastructure with a few GitHub repositories and AKS clusters. Next, you work through a set of use cases where you act as different personas working in the same environment: the Platform Team and the Application Team.
 
 In this tutorial, you learn how to:
 
@@ -84,7 +82,7 @@ This deployment script created an infrastructure, shown in the following diagram
 There are a few Platform Team repositories:
 
 - [Control Plane](https://github.com/microsoft/kalypso-control-plane): Contains a platform model defined with high level abstractions such as environments, cluster types, applications and services, mapping rules and configurations, and promotion workflows.
-- [Platform GitOps](https://github.com/microsoft/kalypso-gitops): Contains final manifests that represent the topology of the fleet, such as which cluster types are available in each environment, what workloads are scheduled on them, and what platform configuration values are set.
+- [Platform GitOps](https://github.com/microsoft/kalypso-gitops): Contains final manifests that represent the topology of the multi-cluster environment, such as which cluster types are available in each environment, what workloads are scheduled on them, and what platform configuration values are set.
 - [Services Source](https://github.com/microsoft/kalypso-svc-src): Contains high-level manifest templates of sample dial-tone platform services.
 - [Services GitOps](https://github.com/microsoft/kalypso-svc-gitops): Contains final manifests of sample dial-tone platform services to be deployed across the clusters.
 
@@ -101,7 +99,7 @@ The script created the following Azure Kubernetes Service (AKS) clusters:
 
 ### Explore Control Plane
 
-The `control plane` repository contains three branches: `main`, `dev` and `stage`. The `dev` and `stage` branches contain configurations that are specific for `Dev` and `Stage` environments. On the other hand, the `main` branch doesn't represent any specific environment. The content of the `main` branch is common and used by all environments in the fleet. Any change to the `main` branch is a subject to be promoted across environments. For example, a new application or a new template can be promoted to the `Stage` environment only after successful testing on the `Dev` environment.
+The `control plane` repository contains three branches: `main`, `dev` and `stage`. The `dev` and `stage` branches contain configurations that are specific for `Dev` and `Stage` environments. On the other hand, the `main` branch doesn't represent any specific environment. The content of the `main` branch is common and used by all environments. Any change to the `main` branch is a subject to be promoted across environments. For example, a new application or a new template can be promoted to the `Stage` environment only after successful testing on the `Dev` environment.
 
 The `main` branch:
 
@@ -127,8 +125,8 @@ The `dev` and `stage` branches:
 
 ## 2 - Platform Team: Onboard a new application
 
-The Application Team runs their software development lifecycle. They build their application and promote it across environments. They're not aware of what cluster types are available in the fleet and where their application will be deployed. But they do know that they want to deploy their application in `Dev` environment for functional and performance testing and in `Stage` environment for UAT testing. 
- 
+The Application Team runs their software development lifecycle. They build their application and promote it across environments. They're not aware of what cluster types are available and where their application will be deployed. But they do know that they want to deploy their application in `Dev` environment for functional and performance testing and in `Stage` environment for UAT testing.
+
 The Application Team describes this intention in the [workload](https://github.com/microsoft/kalypso-app-src/blob/main/workload/workload.yaml) file in the [Application Source](https://github.com/microsoft/kalypso-app-src) repository:
 
 ```yaml
@@ -208,7 +206,7 @@ git push
 > [!NOTE]
 > For simplicity, this tutorial pushes changes directly to `main`. In practice, you'd create a pull request to submit the changes.  
 
-With that in place, the application is onboarded in the control plane. But the control plane still doesn't know how to map the application deployment targets to the cluster types in the fleet.
+With that in place, the application is onboarded in the control plane. But the control plane still doesn't know how to map the application deployment targets to all of the cluster types.
 
 ### Define application scheduling policy on Dev
 
@@ -480,7 +478,7 @@ The application instance on the `large` cluster shows the following greeting pag
 
 ## 4 - Platform Team: Provide platform configurations
 
-Applications in the fleet grab the data from the very same database in both `Dev` and `Stage` environments. Let's change it and configure `west-us` clusters to provide a different database url for the applications working in the `Stage` environment:
+Applications in the clusters grab the data from the very same database in both `Dev` and `Stage` environments. Let's change it and configure `west-us` clusters to provide a different database url for the applications working in the `Stage` environment:
 
 ```bash
 # Switch to stage branch (representing Stage environemnt) in the control-plane folder

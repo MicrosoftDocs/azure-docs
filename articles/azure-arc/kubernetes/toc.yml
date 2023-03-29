@@ -20,9 +20,6 @@
   - name: Implement CI/CD with GitOps
     displayName: flux
     href: tutorial-gitops-flux2-ci-cd.md
-  - name: Manage multi-cluster workloads with GitOps  
-    displayName: flux
-    href: tutorial-workload-management.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -102,6 +99,8 @@
     href: kubernetes-resource-view.md
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration, policy
+  - name: Manage multi-cluster workloads with GitOps  
+    href: tutorial-workload-management.md
     href: use-azure-policy-flux-2.md
   - name: Manage identity and access
     items:
