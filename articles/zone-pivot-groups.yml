@@ -1098,6 +1098,42 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-azcli-js-csharp-java-python-swift-android-power-platform
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-power-platform
+    title: Power Platform
+- id: acs-azcli-js-csharp-java-python-power-platform
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-power-platform
+    title: Power Platform
 - id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
