@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure SQL in Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 08/05/2022
+ms.date: 03/15/2023
 ms.custom: engagement-fy23
 ---
 
