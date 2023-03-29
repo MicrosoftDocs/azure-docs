@@ -7,17 +7,17 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
+In this quickstart, you will learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
 
 ## Sample Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
 ## Prerequisites 
 
-* You have gone through previous quickstart - [Join your chat app to a Teams meeting](../meeting-interop.md). 
-* You are able to obtain an Azure Communication Resource connection string
-* You have set up a Teams meeting using your business account and have the meeting URL ready
-* You are using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest.
+* You've gone through previous quickstart - [Join your chat app to a Teams meeting](../meeting-interop.md). 
+* You're able to obtain an Azure Communication Resource connection string
+* You've set up a Teams meeting using your business account and have the meeting URL ready
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest.
 
 ## Goal
 1. Be able to render preview images in message thread
@@ -26,7 +26,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Handle inline images for new messages
 
 
-In the [last quickstart](../meeting-interop.md), we have created an event handler for `chatMessageReceived` event, which would be trigger when we recieve a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon recieving the `chatMessageReceived` event from the `chatClient` like this:
+In the [last quickstart](../meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
 
 ```js
 chatClient.on("chatMessageReceived", (e) => {
@@ -50,7 +50,7 @@ async function renderReceivedMessage(message) {
    messagesContainer.innerHTML = messages;
 }
 ```
-From incoming event of type `ChatMessageReceivedEvent`, there is a property named `attachments` which contains information about inline image which is all we need to render inline images on our UI:
+From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it is all we need to render inline images in our UI:
 
 ```js
 export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
@@ -86,7 +86,7 @@ export interface ChatAttachment {
 }
 ```
 
-Now let's go back to the previous code to add some additional logic like below: 
+Now let's go back to the previous code to add some extra logic like the following: 
 
 ```js
 chatClient.on("chatMessageReceived", (e) => {
@@ -162,14 +162,14 @@ async function fetchPreviewImages(attachments) {
   });
 }
 ```
-Noticing in this example, we have created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview images directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a onclick event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
+Noticing in this example, we've created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview image directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a `onclick` event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
 
-Now we have concluded all the changes we need to render inline images for messages coming from real time notifications.
+Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
 
 
 ## Handle inline images for past messages
 
-The Chat SDK for JavaScript also provides an API to let you retrieve a list of messages in a chat thread. It's important to note that the ACS user would only be able to retrieve messages after they have been admitted to a call. They won't be able to access the chat thread after leaving the call. So the use case of this functionality is relatively limited.
+The Chat SDK for JavaScript also provides an API to let you retrieve a list of messages in a chat thread. It's important to note that the ACS user would only be able to retrieve messages after they've been admitted to a call. They won't be able to access the chat thread after leaving the call. So the use case of this functionality is relatively limited.
 
 ## Run the code
 
