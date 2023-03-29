@@ -62,7 +62,6 @@ Bursting: Supported<br>
 - RHEL 7.9 or later
 - Oracle Linux with UEK4 or later
 - Debian 9 with the backports kernel, Debian 10 or later
-- CoreOS with a 4.14 kernel or later
 
 ## Size table definitions
 
