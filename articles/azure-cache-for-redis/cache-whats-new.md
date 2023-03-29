@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 03/28/2023
 
 ---
 
@@ -28,19 +28,19 @@ For more information, see [Configure active geo-replication](cache-how-to-active
 
 ### Flush operation for active geo-replicated caches (preview)
 
-Caches using active geo-replication now include a built-in Flush operation that can be initiated at the control plane level. Use the Flush operation with your cache instead of `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches. 
+Caches using active geo-replication now include a built-in _flush_ operation that can be initiated at the control plane level. Use the _flush_ operation with your cache instead of the `FLUSH ALL` and `FLUSH DB` operations, which are blocked by design for active geo-replicated caches. 
 
-For more information see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation)
+For more information, see [Flush operation](cache-how-to-active-geo-replication.md#flush-operation)
 
 ### Customer managed key (CMK) disk encryption (preview)
 
-Redis data that is saved on disk can now be encrypted using customer managed keys (CMK) in the Enterprise and Enterprise Flash tiers. This adds an additional layer of control to the default disk encryption.
+Redis data that is saved on disk can now be encrypted using customer managed keys (CMK) in the Enterprise and Enterprise Flash tiers. Using CMK adds another layer of control to the default disk encryption.
 
 For more information, see [Enable disk encryption](cache-how-to-encryption.md)
 
 ### Connection event audit logs (preview)
 
-Enterprise and Enterprise Flash tier caches can now log all connection, disconnection, and authentication events through diagnostic settings. This is helpful for security audits and for monitoring who has access to your cache resource.
+Enterprise and Enterprise Flash tier caches can now log all connection, disconnection, and authentication events through diagnostic settings. Logging this information helps in security audits. You can also monitor who has access to your cache resource.
 
 For more information, see [Enabling connection audit logs](cache-monitor-diagnostic-settings.md)
 
@@ -118,7 +118,7 @@ Beginning January 20, 2023, all versions of Azure Cache for Redis REST API, Powe
 >
 > The default Redis version that is used when creating a cache instance can vary because it is  based on the latest stable version offered in Azure Cache for Redis.
 
-If you need a specific version of Redis for your application, we recommend using latest artifact versions as shown in the table below. Then, choose the Redis version explicitly when you create the cache.
+If you need a specific version of Redis for your application, we recommend using latest artifact versions as shown in the table. Then, choose the Redis version explicitly when you create the cache.
 
 | Artifact | Version that  supports specifying Redis version  |
 |---------|---------|
@@ -156,7 +156,7 @@ The default version of Redis that is used when creating a cache can change over 
 
 As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by DigiCert Global G2 CA Root. The current Baltimore CyberTrust Root expires in May 2025, requiring this change.
 
-We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as _certificate pinning_.
+We expect that most Azure Cache for Redis customers aren't affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as _certificate pinning_.
 
 For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
