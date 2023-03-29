@@ -42,6 +42,7 @@ ms.custom: Include file
 | Maximum number of authorizations per authorization provider| 10,000 |
 | Maximum number of access policies per authorization | 100 |
 | Maximum number of authorization requests per minute per authorization | 250 |
+| Maximum number of [workspaces](../articles/api-management/workspaces-overview.md) per service instance<sup>10</sup> | 100 |
 
 <sup>1</sup> Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>2</sup> Per unit cache size depends on the pricing tier. To see the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>

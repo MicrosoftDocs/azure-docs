@@ -312,29 +312,35 @@ In this section, you create an Azure function that implements your custom alloca
 
 In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
-1. Still on the [Azure portal](https://portal.azure.com), open your provisioning service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-2. Select **Manage enrollments** on the left pane, and then select the **Add enrollment group** button at the top of the page.
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
 
-3. On **Add Enrollment Group**, enter the following information, and select the **Save** button.
+1. Select **Add enrollment group**.
 
-    **Group name**: Enter **contoso-custom-allocated-devices**.
+1. On the **Registration + provisioning** tab of the **Add enrollment group** page, provide the following information to configure the enrollment group details:
 
-    **Attestation Type**: Select **Symmetric Key**.
+   | Field | Description |
+   | :--- | :--- |
+   | **Attestation** |Select **Symmetric key** as the **Attestation mechanism**.|
+   | **Symmetric key settings** |Check the **Generate symmetric keys automatically** box. |
+   | **Group name** | Enter *contoso-custom-allocated-devices* as the group name.|
+   | **Provisioning status** | Check the **Enable this enrollment** box. |
 
-    **Auto Generate Keys**: This checkbox should already be checked.
+1. Select **Next: IoT hubs**.
 
-    **Select how you want to assign devices to hubs**: Select **Custom (Use Azure Function)**.
+1. On the **IoT hubs** tab of the **Add enrollment group** page, provide the following information to determine which IoT hubs the enrollment group can provision devices to:
 
-    **Subscription**: Select the subscription where you created your Azure Function.
+   | Field | Description |
+   | :---- | :---------- |
+   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub.|
+   | **Allocation policy** | Select **Custom (use Azure Function)**. Select **Select Azure function**, then follow the prompts to select the function that you created for this tutorial. |
 
-    **Function App**: Select your function app by name. **contoso-function-app-1098** was used in this example.
+1. Select **Review + create**.
 
-    **Function**: Select the **HttpTrigger1** function.
+1. On the **Review + create** tab, verify all of your values then select **Create**.
 
-    ![Add custom allocation enrollment group for symmetric key attestation](./media/tutorial-custom-allocation-policies/create-custom-allocation-enrollment.png)
-
-4. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
+After saving the enrollment, reopen it and make a note of the **Primary key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
 
 ## Derive unique device keys
 
