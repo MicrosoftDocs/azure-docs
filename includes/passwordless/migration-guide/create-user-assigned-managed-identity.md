@@ -18,7 +18,7 @@ After the resource is created, select **Go to resource** to view the details of 
     
 # [Azure CLI](#tab/azure-cli-create)
 
-Use the `az identity create` command to create a user-assigned managed identity:
+Use the [az identity create](/cli/azure/identity) command to create a user-assigned managed identity:
 
 ```azurecli
 az identity create --name MigrationIdentity --resource-group <your-resource-group>

@@ -10,7 +10,7 @@ You can use Service Connector to create a connection between an Azure compute ho
 
     # [Azure App Service](#tab/app-service-connector)
     
-    If you're using an Azure App Service, use the `az webapp connection` command:
+    If you're using an Azure App Service, use the [az webapp connection](/cli/azure/webapp/connection/create) command:
     
     ```azurecli
     az webapp connection create storage-blob \
@@ -23,7 +23,7 @@ You can use Service Connector to create a connection between an Azure compute ho
     
     # [Azure Spring](#tab/spring-connector)
     
-    If you're using Azure Spring Apps, use `the az spring-cloud connection` command:
+    If you're using Azure Spring Apps, use the [az spring-cloud connection](/cli/azure/spring-cloud/connection/create) command:
     
     ```azurecli
     az spring-cloud connection create storage-blob \
@@ -38,7 +38,7 @@ You can use Service Connector to create a connection between an Azure compute ho
     
     # [Azure Container Apps](#tab/container-apps-connector)
     
-    If you're using Azure Container Apps, use the `az containerapp connection` command:
+    If you're using Azure Container Apps, use the [az containerapp connection](/cli/azure/containerapp/connection) command:
     
     ```azurecli
     az containerapp connection create storage-blob \
