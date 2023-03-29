@@ -125,17 +125,15 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with *
-    '":"'
+    | parse RawData with 
     ClientIP:string
-    ' - -' * '"'
-    RequestType:string
-    ' '
-    Resource:string
     ' ' *
-    '" '
-    ResponseCode:int
     ' ' *
+    ' [' * '] "' RequestType:string
+    " " Resource:string
+    " " *
+    '" ' ResponseCode:int
+    " " *
     ```
 
 1. Select **Run** to view the results. This action extracts the contents of `RawData` into the separate columns `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`.
@@ -147,18 +145,16 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with *
-    '":"'
+    | parse RawData with 
     ClientIP:string
-    ' - -' * '"'
-    RequestType:string
-    ' '
-    Resource:string
     ' ' *
-    '" '
-    ResponseCode:int
     ' ' *
-    | project-away RawData, Time
+    ' [' * '] "' RequestType:string
+    " " Resource:string
+    " " *
+    '" ' ResponseCode:int
+    " " *
+    | project-away Time, RawData
     | where ResponseCode != 200
     ```
 
@@ -262,7 +258,7 @@ The following PowerShell script generates sample data to configure the custom ta
             $payload += $log_entry
         }
         # Write resulting payload to file
-        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json) -Force
+        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json -AsArray) -Force
 
     } else {
         ############
