@@ -111,7 +111,7 @@ In this article, you learn how to:
 
     ```azurepowershell
     Get-AzCognitiveServicesAccount -ResourceGroupName $resource_group_name `
-                                   -Name $api_management_service_name
+                                   -Name $azurerm_cognitive_account_name
     ```
 
 ---
