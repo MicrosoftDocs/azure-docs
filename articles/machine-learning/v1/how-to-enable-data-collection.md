@@ -12,7 +12,7 @@ ms.date: 08/16/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
 ---
-# Collect data from models in production (preview)
+# Collect data from models in production
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -27,6 +27,10 @@ Once collection is enabled, the data you collect helps you:
 * Make better decisions about when to retrain or optimize your model.
 
 * Retrain your model with the collected data.
+
+## Limitations
+
+* The model data collection feature can only work with Ubuntu 18.04 image.
 
 >[!NOTE]
 > The data collection feature is currently in preview, any preview features are not recommended for production workloads.
