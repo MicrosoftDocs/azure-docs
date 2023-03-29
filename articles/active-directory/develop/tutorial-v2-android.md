@@ -58,7 +58,7 @@ This tutorial demonstrates examples of working with MSAL for Android. For simpli
 
 ## Create a project
 
-Follow these steps to set up a new project if you don't already have an Android application.
+Follow these steps to create a new project if you don't already have an Android application.
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
