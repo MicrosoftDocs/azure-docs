@@ -78,7 +78,7 @@ To accurately present the infrastructure that matters most to your organization,
 
 1. Once your Defender EASM database has been created, click on the database name to open the details page. Select **Permissions** from the Overview section of the left-hand navigation menu.
    To successfully export Defender EASM data to Data Explorer, users must create two new permissions for the EASM API: **user** and **ingestor**.
-   ![Screenshot of Data Explorer permissions.](media/data-connections/data-connector-6a.png)
+   ![Screenshot of Data Explorer permissions.](media/data-connections/data-connector-6b.png)
 
 1. First, select **+ Add** and create a user.  Search for “**EASM API**”, select the value then click **Select**. 
 1. Select **+ Add** to create an ingestor.  Follow the same steps outlined above to add the **"EASM API"** as an ingestor. 
@@ -120,6 +120,7 @@ To edit or delete a data connection:
    •	**Edit**: this option allows users to change the configuration for the data connection.<br>
    •	**Delete**: this option deletes the data connection. 
    
+
 
 
 
