@@ -262,7 +262,7 @@
     - name: Migration guides by service
       items:
         - name: VM (classic)
-          href: /azure/virtual-machines/classic-vm-deprecation
+          href: /azure/virtual-machines/classic-vm-deprecation?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Azure Batch Cloud Service Pools  
           href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Cloud Services (classic)
@@ -270,9 +270,9 @@
         - name: App Service Environment v1/v2
           href: /azure/app-service/environment/migrate?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: API Management
-          href: /azure/api-management/compute-infrastructure#how-do-i-migrate-to-the-stv2-platform?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/api-management/compute-infrastructure?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-migrate-to-the-stv2-platform
         - name: Azure Redis Cache  
-          href: /azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services--classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
         - name: Classic Resource Providers
           href: /azure/azure-resource-manager/management/deployment-models?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Integration Services Environment 
@@ -282,7 +282,7 @@
         - name: Virtual WAN  
           href: /azure/virtual-wan/virtual-wan-faq#update-router?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Storage  
-          href: /azure/storage/common/storage-account-migrate-classic?tabs=azure-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/storage/common/storage-account-migrate-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-portal
         - name: Classic Virtual Network  
           href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Application Gateway  
