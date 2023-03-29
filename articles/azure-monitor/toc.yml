@@ -543,12 +543,12 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
-    - name: Integrate with Logic Apps
+    - name: Integrate with Azure Logic Apps
       items:
         - name: Azure Monitor Logs connector
-          href: logs/logicapp-flow-connector.md
+          href: ../connectors/connectors-azure-monitor-logs.md
         - name: Application Insights connector
-          href: app/automate-with-logic-apps.md
+          href: ../connectors/connectors-azure-application-insights.md
     - name: Data export
       items:
           - name: Workspace data export

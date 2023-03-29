@@ -3,7 +3,8 @@ title: Log Analytics workspace data export in Azure Monitor
 description: Log Analytics workspace data export in Azure Monitor lets you continuously export data per selected tables in your workspace. You can export to an Azure Storage account or Azure Event Hubs as it's collected. 
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.revoewer: yossiy
+author: yossi-y
+ms.author: yossiy
 ms.date: 02/09/2022
 
 ---
@@ -86,8 +87,8 @@ The [number of supported event hubs in Basic and Standard namespace tiers is 10]
 ## Query exported data
 
 Exporting data from workspaces to Storage Accounts help satisfy various scenarios mentioned in [overview](#overview), and can be consumed by tools that can read blobs from Storage Accounts. The following methods let you query data using Log Analytics query language, which is the same for Azure Data Explorer.
-1. Use Azure Data Explorer to [query data in Azure Data Lake](/azure/data-explorer/data-lake-query-data.md).
-2. Use Azure Data Explorer to [ingest data from a Storage Account](/azure/data-explorer/ingest-from-container.md).
+1. Use Azure Data Explorer to [query data in Azure Data Lake](/azure/data-explorer/data-lake-query-data).
+2. Use Azure Data Explorer to [ingest data from a Storage Account](/azure/data-explorer/ingest-from-container).
 3. Use Log Analytics workspace to query [ingested data using Logs Ingestion API ](./logs-ingestion-api-overview.md). Ingested data is to a custom log table and not to the original table.
    
 
