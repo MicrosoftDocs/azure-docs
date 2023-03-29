@@ -15,7 +15,7 @@ IoT Plug and Play supports **Get digital twin** and **Update digital twin** oper
 
 ## Update a digital twin
 
-An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
 
 The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
@@ -150,7 +150,7 @@ The following JSON Patch sample shows how to add, replace, or remove a property 
 
 **Name**
 
-The name of a component or property must be valid DTDL V2 name.
+The name of a component or property must be valid DTDL name.
 
 Allowed characters are a-z, A-Z, 0-9 (not as the first character), and underscore (not as the first or last character).
 
@@ -158,17 +158,17 @@ A name can be 1-64 characters long.
 
 **Property value**
 
-The value must be a valid [DTDL V2 Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#property).
+The value must be a valid [DTDL Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#property).
 
-All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL V2 Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#schema).
+All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#schema).
 
 Properties don't support array or any complex schema with an array.
 
 A maximum depth of a five levels is supported for a complex object.
 
-All field names within complex object should be valid DTDL V2 names.
+All field names within complex object should be valid DTDL names.
 
-All map keys should be valid DTDL V2 names.
+All map keys should be valid DTDL names.
 
 ## Troubleshoot update digital twin API errors
 
