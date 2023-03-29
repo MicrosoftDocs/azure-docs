@@ -38,9 +38,4 @@ The alerts include general information about the public IP address that’s unde
 
 ## Next steps
 
-In this How-To, you learned how to view alerts in Microsoft Defender for Cloud.
-
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
-
-> [!div class="nextstepaction"]
-> [Engage with Azure DDoS Rapid Response](ddos-rapid-response.md)
+* [Engage with Azure DDoS Rapid Response](ddos-rapid-response.md)
