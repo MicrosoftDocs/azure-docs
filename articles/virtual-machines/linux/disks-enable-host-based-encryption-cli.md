@@ -45,9 +45,7 @@ az feature show --namespace Microsoft.Compute --name EncryptionAtHost
 ### Create resources
 
 > [!NOTE]
-> If you're using platform-managed keys, this section is optional. You can skip to the [Example scripts](#example-scripts) section.
->
-> The [Create resources](#create-resources) section only applies to customer-managed keys.
+> This section only applies to configurations with customer-managed keys. If you're using platform-managed keys, you can skip to the [Example scripts](#example-scripts) section.
 
 Once the feature is enabled, you need to set up a DiskEncryptionSet and either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md).
 

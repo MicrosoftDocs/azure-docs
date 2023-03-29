@@ -46,9 +46,7 @@ You must enable the feature for your subscription before you use the EncryptionA
 ### Create an Azure Key Vault and DiskEncryptionSet
 
 > [!NOTE]
-> If you're using platform-managed keys, this section is optional. You can skip to the [Example scripts](#example-scripts) section.
-> 
-> The [Create an Azure Key Vault and DiskEncryptionSet](#create-an-azure-key-vault-and-diskencryptionset) section only applies to customer-managed keys.
+> This section only applies to configurations with customer-managed keys. If you're using platform-managed keys, you can skip to the [Example scripts](#example-scripts) section.
 
 Once the feature is enabled, you need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
 
