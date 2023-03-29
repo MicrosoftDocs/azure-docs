@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/18/2021
+ms.date: 03/29/2023
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
 ms.custom: "devx-track-csharp, aaddev"
