@@ -46,12 +46,12 @@ callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 
 ### Default Camera and Microphone Configuration Options
 
-By default, setup screen gives the user an option to configure the camera and microphone settings before joining a call. When you try to skip the setup screen to join a call, user doesn't have that option unless they join the call already. We're providing more options to set default behavior of the camera and microphone so that developers get more control over default state of camera and microphone. You can pass a boolean value with `startWithCameraOn` and `startWithMicrophoneOn` to turn camera and microphone ON or OFF. These attributes empower developers to have control over camera and microphone controls prior to join a call. Default camera and microphone state control functionality isn't affected if user grants the permission for each of them respectively.
+By default, setup screen gives the user an option to configure the camera and microphone settings before joining a call. When you try to skip the setup screen to join a call, user doesn't have that option unless they join the call already. We're providing more options to set default behavior of the camera and microphone so that developers get more control over default state of camera and microphone. You can pass a boolean value with `cameraOn` and `microphoneOn` to turn camera and microphone ON or OFF. These attributes empower developers to have control over camera and microphone controls prior to join a call. Default camera and microphone state control functionality isn't affected if user grants the permission for each of them respectively.
 
-By default, both `startWithCameraOn` and `startWithMicrophoneOn` are set to false. You can use this functionality even with UI Libraries default call join experience. In that case, setup screen camera and microphone are turned ON or OFF according to the configuration that you set.
+By default, both `cameraOn` and `microphoneOn` are set to false. You can use this functionality even with UI Libraries default call join experience. In that case, setup screen camera and microphone are turned ON or OFF according to the configuration that you set.
 
 To use camera and microphone default state feature, pass the boolean value with
-`startWithCameraOn` and `startWithMicrophoneOn` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
+`cameraOn` and `microphoneOn` to `CallCompositeLocalOptions` and inject it to `callComposite.launch`.
 
 ### [Kotlin](#tab/kotlin)
 
@@ -59,8 +59,8 @@ To use camera and microphone default state feature, pass the boolean value with
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions
 
 val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
-    .setStartWithMicrophoneOn(true)
-    .setStartWithCameraOn(true)
+    .setMicrophoneOn(true)
+    .setCameraOn(true)
 
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
@@ -71,8 +71,8 @@ callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 import com.azure.android.communication.ui.calling.models.CallCompositeLocalOptions;
 
 final CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
-    .setStartWithMicrophoneOn(true)
-    .setStartWithCameraOn(true);
+    .setMicrophoneOn(true)
+    .setCameraOn(true);
 
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 ```
