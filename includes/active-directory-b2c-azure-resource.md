@@ -8,4 +8,4 @@ ms.author: kengaderdus
 ---
 
 > [!NOTE]
-> In an Azure AD B2C tenant, you can't provision other Azure resources such as Subscriptions virtual machines, Azure web apps, or Azure functions. You must create these resources in your Azure AD tenant.
+> In an Azure AD B2C tenant, you can't provision other Azure resources such as subscriptions, virtual machines, Azure web apps, or Azure functions. You must create these resources in your Azure AD tenant.
