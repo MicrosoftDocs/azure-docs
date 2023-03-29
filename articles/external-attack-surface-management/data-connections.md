@@ -60,7 +60,7 @@ To successfully create a data connection, users must first ensure that they have
    ![Screenshot of Log Analytics Access control.](media/data-connections/data-connector-2.png)
 
 1. On this page, select **+Add** to create a new role assignment. 
-1. 1. From the **Role** tab, select **Contributor**. Click **Next**. 
+1. From the **Role** tab, select **Contributor**. Click **Next**. 
 1. Open the **Members** tab. Click **+ Select members** to open a configuration pane. Search for **“EASM API”** and click on the value in the members list. Once done, click **Select**, then **Review + assign.** 
 1. Once the role assignment has been created, select **Agents** from the **Settings** section of the left-hand navigation menu.
    ![Screenshot of Log Analytics agents.](media/data-connections/data-connector-3.png)
