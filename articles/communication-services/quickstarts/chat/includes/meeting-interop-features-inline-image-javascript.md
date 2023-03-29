@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Enable Inline Image Support
-author: jpeng-ms
-ms.author: jpeng-ms
+author: jopeng
+ms.author: jopeng
 ms.date: 03/27/2023
 ms.topic: include
 ms.service: azure-communication-services
@@ -14,324 +14,162 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ## Prerequisites 
 
-* A [Teams deployment](/deployoffice/teams-install). 
-* A working [chat app](../get-started.md). 
+* You have gone through previous quickstart - [Join your chat app to a Teams meeting](../meeting-interop.md). 
+* You are able to obtain an Azure Communication Resource connection string
+* You have set up a Teams meeting using your business account and have the meeting URL ready
+* You are using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest.
 
-## Joining the meeting chat 
+## Goal
+1. Be able to render preview images in message thread
+2. Be able to render full scale image upon click on preview images
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting will add them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user will not have access to chat messages that were sent before they joined the meeting and they will not be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
+## Handle inline images for new messages
 
-## Create a new Node.js application
 
-Open your terminal or command window, create a new directory for your app, and navigate to it.
+In the [last quickstart](../meeting-interop.md), we have created an event handler for `chatMessageReceived` event, which would be trigger when we recieve a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon recieving the `chatMessageReceived` event from the `chatClient` like this:
 
-```console
-mkdir chat-interop-quickstart && cd chat-interop-quickstart
+```js
+chatClient.on("chatMessageReceived", (e) => {
+   console.log("Notification chatMessageReceived!");
+
+   // check whether the notification is intended for the current thread
+   if (threadIdInput.value != e.threadId) {
+      return;
+   }
+
+   if (e.sender.communicationUserId != userId) {
+      renderReceivedMessage(e.message);
+   }
+   else {
+      renderSentMessage(e.message);
+   }
+});
+   
+async function renderReceivedMessage(message) {
+   messages += '<div class="container lighter">' + message + '</div>';
+   messagesContainer.innerHTML = messages;
+}
 ```
+From incoming event of type `ChatMessageReceivedEvent`, there is a property named `attachments` which contains information about inline image which is all we need to render inline images on our UI:
 
-Run `npm init -y` to create a **package.json** file with default settings.
+```js
+export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
+  /**
+   * Content of the message.
+   */
+  message: string;
 
-```console
-npm init -y
-```
+  /**
+   * Metadata of the message.
+   */
+  metadata: Record<string, string>;
 
-## Install the chat packages
-
-Use the `npm install` command to install the necessary Communication Services SDKs for JavaScript.
-
-```console
-npm install @azure/communication-common --save
-
-npm install @azure/communication-identity --save
-
-npm install @azure/communication-signaling --save
-
-npm install @azure/communication-chat --save
-
-npm install @azure/communication-calling --save
-```
-
-The `--save` option lists the library as a dependency in your **package.json** file.
-
-## Set up the app framework
-
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
-
-```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
-```
-
-Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place join a meeting and start chatting.
-
-## Add the Teams UI controls
-
-Replace the code in index.html with the following snippet.
-The text boxes at the top of the page will be used to enter the Teams meeting context and meeting thread ID. The 'Join Teams Meeting' button will be used to join the specified meeting.
-A chat pop-up will appear at the bottom of the page. It can be used to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the Communication Services user is a member.
-
-```html
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>Communication Client - Calling and Chat Sample</title>
-      <style>
-         body {box-sizing: border-box;}
-         /* The popup chat - hidden by default */
-         .chat-popup {
-         display: none;
-         position: fixed;
-         bottom: 0;
-         left: 15px;
-         border: 3px solid #f1f1f1;
-         z-index: 9;
-         }
-         .message-box {
-         display: none;
-         position: fixed;
-         bottom: 0;
-         left: 15px;
-         border: 3px solid #FFFACD;
-         z-index: 9;
-         }
-         .form-container {
-         max-width: 300px;
-         padding: 10px;
-         background-color: white;
-         }
-         .form-container textarea {
-         width: 90%;
-         padding: 15px;
-         margin: 5px 0 22px 0;
-         border: none;
-         background: #e1e1e1;
-         resize: none;
-         min-height: 50px;
-         }
-         .form-container .btn {
-         background-color: #4CAF40;
-         color: white;
-         padding: 14px 18px;
-         margin-bottom:10px;
-         opacity: 0.6;
-         border: none;
-         cursor: pointer;
-         width: 100%;
-         }
-         .container {
-         border: 1px solid #dedede;
-         background-color: #F1F1F1;
-         border-radius: 3px;
-         padding: 8px;
-         margin: 8px 0;
-         }
-         .darker {
-         border-color: #ccc;
-         background-color: #ffdab9;
-         margin-left: 25px;
-         margin-right: 3px;
-         }
-         .lighter {
-         margin-right: 20px;
-         margin-left: 3px;
-         }
-         .container::after {
-         content: "";
-         clear: both;
-         display: table;
-         }
-      </style>
-   </head>
-   <body>
-      <h4>Azure Communication Services</h4>
-      <h1>Calling and Chat Quickstart</h1>
-          <input id="teams-link-input" type="text" placeholder="Teams meeting link"
-        style="margin-bottom:1em; width: 300px;" />
-          <input id="thread-id-input" type="text" placeholder="Chat thread id"
-        style="margin-bottom:1em; width: 300px;" />
-        <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
-      <div>
-        <button id="join-meeting-button" type="button">
-            Join Teams Meeting
-        </button>
-        <button id="hang-up-button" type="button" disabled="true">
-            Hang Up
-        </button>
-      </div>
-      <div class="chat-popup" id="chat-box">
-         <div id="messages-container"></div>
-         <form class="form-container">
-            <textarea placeholder="Type message.." name="msg" id="message-box" required></textarea>
-            <button type="button" class="btn" id="send-message">Send</button>
-         </form>
-      </div>
-      <script src="./bundle.js"></script>
-   </body>
-</html>
-```
-
-## Enable the Teams UI controls
-
-Replace the content of the client.js file with the following snippet.
-
-Within the snippet, replace 
-- `SECRET_CONNECTION_STRING` with your Communication Service's connection string 
-- `ENDPOINT_URL` with your Communication Service's endpoint url
-
-```javascript
-import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationTokenCredential } from "@azure/communication-common";
-import { CommunicationIdentityClient } from "@azure/communication-identity";
-import { ChatClient } from "@azure/communication-chat";
-
-let call;
-let callAgent;
-let chatClient;
-let chatThreadClient;
-
-const meetingLinkInput = document.getElementById('teams-link-input');
-const threadIdInput = document.getElementById('thread-id-input');
-const callButton = document.getElementById("join-meeting-button");
-const hangUpButton = document.getElementById("hang-up-button");
-const callStateElement = document.getElementById('call-state');
-
-const messagesContainer = document.getElementById("messages-container");
-const chatBox = document.getElementById("chat-box");
-const sendMessageButton = document.getElementById("send-message");
-const messagebox = document.getElementById("message-box");
-
-var userId = '';
-var lastMessage = '';
-var previousMessage = '';
-
-async function init() {
-  const connectionString = "<SECRET_CONNECTION_STRING>";
-  const endpointUrl = "<ENDPOINT_URL>";
-
-  const identityClient = new CommunicationIdentityClient(connectionString);
-
-  let identityResponse = await identityClient.createUser();
-  userId = identityResponse.communicationUserId;
-  console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
-
-  let tokenResponse = await identityClient.getToken(identityResponse, [
-    "voip",
-    "chat",
-  ]);
-
-  const { token, expiresOn } = tokenResponse;
-  console.log(`\nIssued an access token that expires at: ${expiresOn}`);
-  console.log(token);
-
-  const callClient = new CallClient();
-  const tokenCredential = new AzureCommunicationTokenCredential(token);
-  callAgent = await callClient.createCallAgent(tokenCredential);
-  callButton.disabled = false;
-
-  chatClient = new ChatClient(
-    endpointUrl,
-    new AzureCommunicationTokenCredential(token)
-  );
-
-  console.log('Azure Communication Chat client created!');
+  /**
+   * Chat message attachment.
+   */
+  attachments?: ChatAttachment[];
 }
 
-init();
+export interface ChatAttachment {
+  /** Id of the attachment */
+  id: string;
+  /** The type of attachment. */
+  attachmentType: "teamsInlineImage"
+  /** The type of content of the attachment, if available */
+  contentType?: string;
+  /** The name of the attachment content. */
+  name?: string;
+  /** The URL where the attachment can be downloaded */
+  url: string;
+  /** The URL where the preview of attachment can be downloaded */
+  previewUrl?: string;
+}
+```
 
-callButton.addEventListener("click", async () => {
-  // join with meeting link
-  call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+Now let's go back to the previous code to add some additional logic like below: 
 
-  call.on('stateChanged', () => {
-      callStateElement.innerText = call.state;
-  })
-  // toggle button and chat box states
-  chatBox.style.display = "block";
-  hangUpButton.disabled = false;
-  callButton.disabled = true;
-
-  messagesContainer.innerHTML = "";
-
-  console.log(call);
-
-  // open notifications channel
-  await chatClient.startRealtimeNotifications();
-
-  // subscribe to new message notifications
-  chatClient.on("chatMessageReceived", (e) => {
-    console.log("Notification chatMessageReceived!");
-
-      // check whether the notification is intended for the current thread
-    if (threadIdInput.value != e.threadId) {
-      return;
-    }
-
-    if (e.sender.communicationUserId != userId) {
-       renderReceivedMessage(e.message);
-    }
-    else {
-       renderSentMessage(e.message);
-    }
-  });
-
-  chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
+```js
+chatClient.on("chatMessageReceived", (e) => {
+  console.log("Notification chatMessageReceived!");
+  if (e.sender.communicationUserId != userId) {
+    renderReceivedMessage(e);
+  } else {
+    renderSentMessage(e);
+  }
 });
 
-async function renderReceivedMessage(message) {
-  previousMessage = lastMessage;
-  lastMessage = '<div class="container lighter">' + message + '</div>';
-  messagesContainer.innerHTML = previousMessage + lastMessage;
+async function renderReceivedMessage(e) {
+  const messageContent = e.message;
+
+  const card = document.createElement('div');
+  card.innerHTML = messageContent;
+  
+  messagesContainer.appendChild(card);
+  
+  // filter out inline images from attchments
+  const imageAttachments = e.attachments.filter((e) =>
+    e.attachmentType.toLowerCase() === 'teamsinlineimage');
+  
+  // fetch and render preview images
+  fetchPreviewImages(imageAttachments);
+  
+  // set up onclick event handler to fetch full scale image
+  setImgHandler(card, imageAttachments);
 }
 
-async function renderSentMessage(message) {
-  previousMessage = lastMessage;
-  lastMessage = '<div class="container darker">' + message + '</div>';
-  messagesContainer.innerHTML = previousMessage + lastMessage;
+function setImgHandler(element, imageAttachments) {
+  // do nothing if there's no image attachments
+  if (!imageAttachments.length > 0) {
+    return;
+  }
+  const imgs = element.getElementsByTagName('img');
+  for (const img of imgs) {
+    img.addEventListener('click', (e) => {
+      // fetch full scale image upon click
+      fetchFullScaleImage(e, imageAttachments);
+    });
+  }
 }
 
-hangUpButton.addEventListener("click", async () => 
-  {
-    // end the current call
-    await call.hangUp();
-
-    // toggle button states
-    hangUpButton.disabled = true;
-    callButton.disabled = false;
-    callStateElement.innerText = '-';
-
-    // toggle chat states
-    chatBox.style.display = "none";
-    messages = "";
+async function fetchPreviewImages(attachments) {
+  if (!imageAttachments.length > 0) {
+    return;
+  }
+  // since each message could contain more than one inline image
+  // we need to fetch them individually 
+  const result = await Promise.all(
+      attachments.map(async (attachment) => {
+        // fetch preview image from its 'previewURL'
+        const response = await fetch(attachment.previewUrl, {
+          method: 'GET',
+          headers: {
+            // the token here should the same one from chat initialization
+            'Authorization': 'Bearer ' + tokenString,
+          },
+        });
+        // the response would be in image blob we can render it directly
+        return {
+          id: attachment.id,
+          content: await response.blob(),
+        };
+      }),
+  );
+  result.forEach((imageResult) => {
+    const urlCreator = window.URL || window.webkitURL;
+    const url = urlCreator.createObjectURL(imageResult.content);
+    // look up the image ID and replace its 'src' with object URL
+    document.getElementById(imageResult.id).src = url;
   });
-
-sendMessageButton.addEventListener("click", async () =>
-  {
-    let message = messagebox.value;
-
-    let sendMessageRequest = { content: message };
-    let sendMessageOptions = { senderDisplayName : 'Jack' };
-    let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-    let messageId = sendChatMessageResult.id;
-
-    messagebox.value = '';
-    console.log(`Message sent!, message id:${messageId}`);
-  });
+}
 ```
+Noticing in this example, we have created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview images directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a onclick event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
 
-Display names of the chat thread participants are not set by the Teams client. The names will be returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object. On receiving a notification about a roster change, you can use this code to retrieve the name of the user that was added or removed:
+Now we have concluded all the changes we need to render inline images for messages coming from real time notifications.
 
-```
-var displayName = call.remoteParticipants.find(p => p.identifier.communicationUserId == '<REMOTE_USER_ID>').displayName;
-```
 
-## Get a Teams meeting chat thread for a Communication Services user
+## Handle inline images for past messages
 
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
-
-With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response will have a `chatInfo` object that contains the `threadID`. 
-
-You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
-A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadId` will be where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
-
+The Chat SDK for JavaScript also provides an API to let you retrieve a list of messages in a chat thread. It's important to note that the ACS user would only be able to retrieve messages after they have been admitted to a call. They won't be able to access the chat thread after leaving the call. So the use case of this functionality is relatively limited.
 
 ## Run the code
 
