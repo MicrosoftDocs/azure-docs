@@ -143,7 +143,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the az storage account show command. You can filter the output properties using the `--query` parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [az storage account](/cli/azure/storage/account) show command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az storage account show \
@@ -152,7 +152,7 @@ az storage account show \
     --query id
 ```
 
-Copy the output ID from the preceding command. You can then assign roles using the az role command of the Azure CLI.
+Copy the output ID from the preceding command. You can then assign roles using the [az role assignment](/cli/azure/role/assignment) command of the Azure CLI.
 
 ```azurecli
 az role assignment create \
